@@ -27,7 +27,7 @@ description: 특정 테이블의 Auto_increment 속성의 Key값 재정렬하기
 
 위의 사진을 보면 문제가 확연히 보인다. 바로 게시물 번호가 순서대로 업데이트가 안되고 그대로를 유지해서 연속적인 순서 보장이 안 된다는 것이다. 참고로 여기서 쓴 게시물 번호는 아래 사진에서 처럼 Long gno에서 따온 것이다. GeneratedValue 어노테이션으로 Auto_increment를 구현하고 테스트 데이터를 넣어서 그 데이터로 위의 사진과 같이 리스트를 만든 것이다.
 
-![](/images/SpringBoot/post08/2021-03-05-20-00-54.png)
+![](/images/SpringBoot/post08/2021-03-06-09-14-56.png)
 
 <br>
 
@@ -75,7 +75,7 @@ update "테이블명" set "테이블명"."컬럼명"=@cnt:=@cnt+1;
 
 <br>
 
-nativeQuery=true를 사용하면 sql 원시 코드를 사용할 수 있다. 그리고 reorderKeyId() 메소드를 보면 중간에 역슬레시 두개가 보인다. 이는 @Query가 ':'를 제대로 인식하지 못하기 때문에 앞에 역슬레시 2번을 해주는 건데 안 해주면 에러가 발생한다. 
+nativeQuery=true를 사용하면 sql 원시 코드를 사용할 수 있다. 그리고 reorderKeyId() 메소드를 보면 중간에 역슬레시 두개가 보인다. 이는 @Query가 ':'를 제대로 인식하지 못하기 때문에 앞에 역슬레시 2번을 해주는 건데 안 해주면 에러가 발생한다.
 
 <br>
 
