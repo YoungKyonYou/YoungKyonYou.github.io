@@ -7,29 +7,6 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>MyWay</title>
-				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;uses-unchecked-or-unsafe-operations-에러-해결&quot;&gt;&lt;center&gt;'uses unchecked or unsafe operations 에러 해결&lt;/center&gt;&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Springboot에서 @Query를 사용하던 중 발생했던 에러이다.&lt;/p&gt;
-
-&lt;p&gt;보통 map, list, collection, class 등 캐스팅시에 명시적인 정의가 안되어 있을 경우 나타난다는데 어떤 타입이 올지 불명확한 상태에서의 캐스팅을 강제하는 것 역시 위 경고가 나타난다.&lt;/p&gt;
-
-&lt;p&gt;여기서 해결책은 검증되지 않은 연산자 관련 경고를 무시해주는 아래 어노테이션을 사용하면 된다는 것이다&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;@SuppressWarnings(“unchecked”)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;이 어노테이션을 경고가 나는 클래스 위나 메서드 위에 써주면 더 이상 이 에러가 나타나지 않는다.&lt;/p&gt;
-</description>
-				<pubDate>Sat, 06 Mar 2021 09:03:22 +0900</pubDate>
-				<link>/2021/03/06/2021-03-05-springboot-error-post01.html</link>
-				<guid isPermaLink="true">/2021/03/06/2021-03-05-springboot-error-post01.html</guid>
-			</item>
-		
-			<item>
 				<title>Springboot JPA에서 Auto-increment 재정렬-01</title>
 				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -148,6 +125,129 @@
 				<pubDate>Fri, 05 Mar 2021 19:00:00 +0900</pubDate>
 				<link>/springboot/2021/03/05/springboot-post08.html</link>
 				<guid isPermaLink="true">/springboot/2021/03/05/springboot-post08.html</guid>
+			</item>
+		
+			<item>
+				<title>Springboot JPA에서 Auto-increment 재정렬-01</title>
+				<description>&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;auto_increment-재정렬&quot;&gt;&lt;center&gt;AUTO_INCREMENT 재정렬&lt;/center&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;코드로 배우는 스프링 부트 웹프로젝트 책에서 나오는 guestbook 실습을 하던 중에 궁금증이 생겼다. Part 2의 게시판을 만들고 있는데 local8080/guest/list로 접속했을 때의 모습을 일단 보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/SpringBoot/post08/2021-03-05-19-58-07.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이렇게 보면 아무 문제가 없어 보일 수 있다. 하지만 여기서의 문제는 저 많은 게시물 중 중간에 하나를 지웠을 때 어떻게 변하는 지 보자. 여기서는 예로 게시물 &lt;strong&gt;298번&lt;/strong&gt;을 지워보겠다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/SpringBoot/post08/2021-03-05-19-59-37.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;위의 사진을 보면 문제가 확연히 보인다. 바로 게시물 번호가 순서대로 업데이트가 안되고 그대로를 유지해서 연속적인 순서 보장이 안 된다는 것이다. 참고로 여기서 쓴 게시물 번호는 아래 사진에서 처럼 Long gno에서 따온 것이다. GeneratedValue 어노테이션으로 Auto_increment를 구현하고 테스트 데이터를 넣어서 그 데이터로 위의 사진과 같이 리스트를 만든 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/SpringBoot/post08/2021-03-05-20-00-54.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;gusetbook table&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/SpringBoot/post08/2021-03-05-20-02-48.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;mysql workbench를 확인하니 여기서도 우리가 삭제했던 gno=298를 제외하고 그대로 있는 것을 볼 수 있다. 일단 문제 해결의 순서는 이 워크벤치에서 저 auto-increment를 재정렬하는 방법을 찾으면 그것을 springboot의 @Query로 해결할 수 있다는 것이다.&lt;/p&gt;
+
+&lt;p&gt;그리고 구글링과 stackoverflow를 뒤진 결과 해결 방법은 아래와 같다.&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cnt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;update&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;&quot;테이블명&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;&quot;테이블명&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;&quot;컬럼명&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cnt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cnt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이것을 입력해주고 execute query를 해주면 auto_increment가 재정렬 되는 것을 볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/SpringBoot/post08/2021-03-05-20-08-12.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;자 이제 프로젝트에 적용해보자. @Query를 쓰기 위해 repository 클래스에서 해당 코드를 입력한다&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;repository class&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;    &lt;span class=&quot;nd&quot;&gt;@Modifying&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Transactional&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Query&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;set @cnt=0&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nativeQuery&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialCnt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+
+    &lt;span class=&quot;nd&quot;&gt;@Modifying&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Transactional&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Query&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;update guestbook set guestbook.gno=@cnt\\:=@cnt+1&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nativeQuery&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;reorderKeyId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/SpringBoot/post08/2021-03-05-20-10-35.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;nativeQuery=true를 사용하면 sql 원시 코드를 사용할 수 있다. 그리고 reorderKeyId() 메소드를 보면 중간에 역슬레시 두개가 보인다. 이는 @Query가 ‘:’를 제대로 인식하지 못하기 때문에 앞에 역슬레시 2번을 해주는 건데 안 해주면 에러가 발생한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.QueryException: Space is not allowed after parameter prefix ‘:’&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그리고 해당 게시물을 삭제할 때 실행되는 service 클래스의 remove 메소드로 가보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/SpringBoot/post08/2021-03-05-20-13-09.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;위 사진의 코드는 controller에서 서비스 주입을 받은 서비스 객체가 remove 메서드를 호출하면 해당 게시물이 db에서 삭제된다. 이때 삭제 처리 후 우리가 위해서 적었던 메서드 2개를 같이 호출 해 주면 auto_increment가 재정렬되어 실제 앱을 키고 특정 게시물을 삭제하면 재정렬이 되서 화면에 출력될 것이다.&lt;/p&gt;
+
+&lt;p&gt;자 그럼 확인해 보자.&lt;/p&gt;
+
+&lt;p&gt;아래 사진은 초기 화면이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/SpringBoot/post08/2021-03-05-20-15-42.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이제 298번 게시물을 다시 삭제해 본다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/SpringBoot/post08/2021-03-05-20-16-12.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;보시다시피 제대로 재정렬이되서 보여지는 것을 볼 수 있다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;다음 게시물에서는 만약 auto_increment 속성을 가진 특정 테이블의 PK을 외부키로 쓰고 있는 다른 테이블의 FK까지 재정렬하는 방법을 살펴보자.&lt;/p&gt;
+</description>
+				<pubDate>Fri, 05 Mar 2021 19:00:00 +0900</pubDate>
+				<link>/springboot/2021/03/05/springboot-error01.html</link>
+				<guid isPermaLink="true">/springboot/2021/03/05/springboot-error01.html</guid>
 			</item>
 		
 			<item>
