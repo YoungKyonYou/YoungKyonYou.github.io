@@ -1,0 +1,40 @@
+I"[	<p><br /><br /></p>
+
+<h1 id="auto_increment-재정렬"><center>AUTO_INCREMENT 재정렬</center></h1>
+
+<p><br /></p>
+
+<p>코드로 배우는 스프링 부트 웹프로젝트 책에서 나오는 guestbook 실습을 하던 중에 궁금증이 생겼다. Part 2의 게시판을 만들고 있는데 local8080/guest/list로 접속했을 때의 모습을 일단 보자.</p>
+
+<p><img src="/images/SpringBoot/post08/2021-03-05-19-58-07.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>이렇게 보면 아무 문제가 없어 보일 수 있다. 하지만 여기서의 문제는 저 많은 게시물 중 중간에 하나를 지웠을 때 어떻게 변하는 지 보자. 여기서는 예로 게시물 <strong>298번</strong>을 지워보겠다.</p>
+
+<p><img src="/images/SpringBoot/post08/2021-03-05-19-59-37.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>위의 사진을 보면 문제가 확연히 보인다. 바로 게시물 번호가 순서대로 업데이트가 안되고 그대로를 유지해서 연속적인 순서 보장이 안 된다는 것이다. 참고로 여기서 쓴 게시물 번호는 아래 사진에서 처럼 Long gno에서 따온 것이다. GeneratedValue 어노테이션으로 Auto_increment를 구현하고 테스트 데이터를 넣어서 그 데이터로 위의 사진과 같이 리스트를 만든 것이다.</p>
+
+<p><img src="/images/SpringBoot/post08/2021-03-05-20-00-54.png" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>gusetbook table</strong></p>
+
+<p><img src="/images/SpringBoot/post08/2021-03-05-20-02-48.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>mysql workbench를 확인하니 여기서도 우리가 삭제했던 gno=298를 제외하고 그대로 있는 것을 볼 수 있다. 일단 문제 해결의 순서는 이 워크벤치에서 저 auto-increment를 재정렬하는 방법을 찾으면 그것을 springboot의 @Query로 해결할 수 있다는 것이다.</p>
+
+<p>그리고 구글링과 stackoverflow를 뒤진 결과 해결 방법은 아래와 같다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="k">set</span> <span class="o">@</span><span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+:ET

@@ -1,0 +1,39 @@
+I"2
+<p><br /><br /></p>
+
+<h1 id="방명록의-조회-수정-그리고-삭제-처리"><center>방명록의 조회, 수정 그리고 삭제 처리</center></h1>
+
+<p><br /></p>
+
+<p>방명록의 조회는 아직 GuestbookService 쪽에 기능이 구현이 되지 않은 상태이므로 서비스 계층부터 구현을 시작한다.</p>
+
+<p><strong>GuestbookService 인터페이스</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="o">(...)</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">GuestbookService</span> <span class="o">{</span>
+    <span class="nc">Long</span> <span class="nf">register</span><span class="o">(</span><span class="nc">GuestbookDTO</span> <span class="n">dto</span><span class="o">);</span>
+    <span class="nd">@Builder</span><span class="o">.</span><span class="na">Default</span>
+    <span class="nc">ModelMapper</span> <span class="n">modelMapper</span><span class="o">=</span> <span class="nc">ModelMapperUtil</span><span class="o">.</span><span class="na">getModelMapper</span><span class="o">();</span>
+    <span class="nc">PageResultDTO</span><span class="o">&lt;</span><span class="nc">GuestbookDTO</span><span class="o">,</span> <span class="nc">Guestbook</span><span class="o">&gt;</span> <span class="nf">getList</span><span class="o">(</span><span class="nc">PageRequestDTO</span> <span class="n">requestDTO</span><span class="o">);</span>
+    <span class="nc">GuestbookDTO</span> <span class="nf">read</span><span class="o">(</span><span class="nc">Long</span> <span class="n">gno</span><span class="o">);</span>
+    <span class="k">default</span> <span class="nc">Guestbook</span> <span class="nf">dtoToEntity</span><span class="o">(</span><span class="nc">GuestbookDTO</span> <span class="n">dto</span><span class="o">){</span>
+        <span class="nc">Guestbook</span> <span class="n">entity</span><span class="o">=</span><span class="n">modelMapper</span><span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">dto</span><span class="o">,</span><span class="nc">Guestbook</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+        <span class="k">return</span> <span class="n">entity</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="o">(...)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+:ET

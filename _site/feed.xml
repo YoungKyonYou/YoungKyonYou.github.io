@@ -24,9 +24,9 @@
 
 &lt;p&gt;이 어노테이션을 경고가 나는 클래스 위나 메서드 위에 써주면 더 이상 이 에러가 나타나지 않는다.&lt;/p&gt;
 </description>
-				<pubDate>Fri, 05 Mar 2021 20:49:52 +0900</pubDate>
-				<link>/2021/03/05/2021-03-05-springboot-error-post01.html</link>
-				<guid isPermaLink="true">/2021/03/05/2021-03-05-springboot-error-post01.html</guid>
+				<pubDate>Sat, 06 Mar 2021 09:03:22 +0900</pubDate>
+				<link>/2021/03/06/2021-03-05-springboot-error-post01.html</link>
+				<guid isPermaLink="true">/2021/03/06/2021-03-05-springboot-error-post01.html</guid>
 			</item>
 		
 			<item>
@@ -146,8 +146,8 @@
 &lt;p&gt;다음 게시물에서는 만약 auto_increment 속성을 가진 특정 테이블의 PK을 외부키로 쓰고 있는 다른 테이블의 FK까지 재정렬하는 방법을 살펴보자.&lt;/p&gt;
 </description>
 				<pubDate>Fri, 05 Mar 2021 19:00:00 +0900</pubDate>
-				<link>/springboot/2021/03/05/springboot-post8.html</link>
-				<guid isPermaLink="true">/springboot/2021/03/05/springboot-post8.html</guid>
+				<link>/springboot/2021/03/05/springboot-post08.html</link>
+				<guid isPermaLink="true">/springboot/2021/03/05/springboot-post08.html</guid>
 			</item>
 		
 			<item>
