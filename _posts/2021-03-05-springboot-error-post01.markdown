@@ -1,0 +1,24 @@
+---
+layout: post
+title: Springboot "uses unchecked or unsafe operations" 에러
+date: 2021-03-05 19:00:00 0000
+tags: [Intellij, SpringBoot, error]
+categories: [SpringBoot-Error]
+description: "uses unchecked or unsafe operations" 에러 해결
+---
+
+<br><br>
+
+# <center>'uses unchecked or unsafe operations 에러 해결</center>
+
+<br>
+
+Springboot에서 @Query를 사용하던 중 발생했던 에러이다.
+
+보통 map, list, collection, class 등 캐스팅시에 명시적인 정의가 안되어 있을 경우 나타난다는데 어떤 타입이 올지 불명확한 상태에서의 캐스팅을 강제하는 것 역시 위 경고가 나타난다.
+
+여기서 해결책은 검증되지 않은 연산자 관련 경고를 무시해주는 아래 어노테이션을 사용하면 된다는 것이다
+
+**@SuppressWarnings("unchecked")**
+
+이 어노테이션을 경고가 나는 클래스 위나 메서드 위에 써주면 더 이상 이 에러가 나타나지 않는다.
