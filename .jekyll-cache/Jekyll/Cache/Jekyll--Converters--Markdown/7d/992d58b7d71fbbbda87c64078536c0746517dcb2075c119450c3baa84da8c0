@@ -1,0 +1,349 @@
+I")O<p><br /><br /></p>
+
+<h1 id="websocket를-이용한-채팅-앱-만들기-01"><center>WebSocket를 이용한 채팅 앱 만들기-01</center></h1>
+
+<p><br /></p>
+
+<p>졸업 작품을 스프링부트를 이용해서 만들고 있는 도중에 실시간으로 데이터베이스로부터 업데이트된 정보를 받아서 차트에 띄워주는 기능을 구현하려고 여러 자료들을 찾아봤더니 나온 답이 websocket를 이용하는 것이였다. 물론 다른 방법도 있었지만 그나마 보편적으로 쓰이는 게 이 방법인 것 같아서 websocket를 사용하여 앱을 만드는 연습을 해보려고 한다.</p>
+
+<p><br /></p>
+
+<p><strong><em>“해당 앱은 ‘https://ratseno.tistory.com/71’의 블로그를 보면서 따라하며 공부하기 위한 것임을 알립니다. 해당 링크에 아래에 걸어 놓겠습니다.</em>“</strong></p>
+
+<p><strong><a href="https://ratseno.tistory.com/71">블로그 링크</a></strong></p>
+
+<p><br /></p>
+
+<p>사실 세 가지 방법 중에서 고민을 하고 있었다.</p>
+
+<ol>
+  <li>Firebase</li>
+  <li>Ajax</li>
+  <li>WebSocket</li>
+</ol>
+
+<p><br /></p>
+
+<p>아 그리고 절대 쓰고 싶지 않은 방법인 주기적인 새로고침… 이건 절대 하지 말아야 겠다고 생각을 했었다. 왜냐면 내 자존심이 허락을 안 해줄뿐만 부하도 크기 때문이다.</p>
+
+<p><br /></p>
+
+<p>시작하기에 앞서 인텔리제이 프로젝트를 생성해야 한다. 나는 학생 인증을 받아서 인텔리제이 Ultimate 버젼을 쓰고 있다.</p>
+
+<p><br /></p>
+
+<p>Group 이름은 com.techlead로 하고 Artifact는 websocketpractice로 한다. 영상에서는 Maven과 Jar를 썼지만 나는 Gradle를 War로 설정해서 진행한다. (사실 Maven으로 해도 무방하다)</p>
+
+<p><img src="/images/SpringBoot/websocket/2021-03-12-22-43-37.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>그리고 의존성 설정을 해준다.</p>
+
+<ul>
+  <li>WebSocket</li>
+  <li>Lombok</li>
+  <li>Spring Boot DevTools</li>
+</ul>
+
+<p><br /></p>
+
+<p>패키지와 자바 파일 구성은 아래 사진과 같다.</p>
+
+<p><img src="/images/SpringBoot/websocket/2021-03-10-22-02-59.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>프로젝트를 생성했으면 자바 코드부터 생성한다. 우리는 백엔드와 프론트엔드를 만들지만 백엔드부터 만들어보자, 백엔드를 만드는 것이 더 쉽기 때문이다. 아래 사진과 같이 패키지와 프로젝트를 만든다.</p>
+
+<p><img src="/images/SpringBoot/websocket/2021-03-12-22-45-31.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>config 패키지에 있는 자바 파일부터 코드를 생성해보자. WebSocketMessageBrokerConfigurer 인터페이스는 디폴트 메서드가 있기 때문에 <strong>registerStompEndpoints</strong>와 <strong>configureMessageBroker</strong>를 오버라이딩 해준다.</p>
+
+<p><strong>WebsocketConfiguration.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">com.techlead.websocketpractice.config</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Configuration</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.messaging.simp.config.MessageBrokerRegistry</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.socket.config.annotation.StompEndpointRegistry</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer</span><span class="o">;</span>
+
+
+<span class="nd">@Configuration</span>
+<span class="nd">@EnableWebSocketMessageBroker</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WebSocketConfig</span> <span class="kd">implements</span> <span class="nc">WebSocketMessageBrokerConfigurer</span> <span class="o">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">registerStompEndpoints</span><span class="o">(</span><span class="nc">StompEndpointRegistry</span> <span class="n">registry</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"end point 연결!!!***"</span><span class="o">);</span>
+        <span class="n">registry</span><span class="o">.</span><span class="na">addEndpoint</span><span class="o">(</span><span class="s">"/ws"</span><span class="o">).</span><span class="na">withSockJS</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">configureMessageBroker</span><span class="o">(</span><span class="nc">MessageBrokerRegistry</span> <span class="n">registry</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"confiureMessageBroker 연동!!**"</span><span class="o">);</span>
+        <span class="n">registry</span><span class="o">.</span><span class="na">setApplicationDestinationPrefixes</span><span class="o">(</span><span class="s">"/app"</span><span class="o">);</span>
+        <span class="n">registry</span><span class="o">.</span><span class="na">enableSimpleBroker</span><span class="o">(</span><span class="s">"/topic"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>@Configuration</strong> 어노테이션은 해당 클래스가 Bean의 설정을 할 것이라는 것을 나타내며 <strong>@EnableWebSocketMessageBroker</strong>는 WebSocket 서버를 활성화시킨다. <strong>WebSocketMessageBrokerConfigurer</strong> 인터페이스는 웹 소켓 연결을 구성하기 위한 메서드를 제공한다. 나중에 프론트엔드에서 sockJS 객체를 생성하기 위해서 엔드포인트를 설정해야 하는데 이 엔드포인트 설정을 <strong>registerStompEndpoints</strong> 메서드에서 설정한다. 즉 이 메서드에서는 클라이언트에서 websocket에 접속하는 endpoint를 등록한다. <strong>configureMessageBroker</strong> 메서드는 한 클라이언트에서 다른 클라이언트로 메시지를 라우팅 할 때 사용하는 브로커를 구성한다. 여기서 <strong>/app</strong>으로 시작되는 메시지만 메시지 핸들러로 라우팅한다고 정의한다. <strong>/topic</strong>으로 시작하는 주제를 가진 메시지를 핸들러로 라우팅하여 해당 주제에 가입한 모든 클라이언트에게 메시지를 방송한다.
+이 경로는 차후에 아래와 같이 쓰일 것이다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>    <span class="nx">stompClient</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="dl">'</span><span class="s1">/topic/public</span><span class="dl">'</span><span class="p">,</span> <span class="nx">onMessageReceived</span><span class="p">);</span>
+    <span class="nx">stompClient</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">"</span><span class="s2">/app/chat.addUser</span><span class="dl">"</span><span class="p">,</span>
+        <span class="p">{},</span>
+        <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="na">sender</span><span class="p">:</span> <span class="nx">username</span><span class="p">,</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JOIN</span><span class="dl">'</span><span class="p">})</span>
+    <span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br /></p>
+
+<p>이제 model 패키지의 파일들에 코드를 추가해보자. ChatMessage 클래스는 메시지 타입, 메시지 내용 그리고 송신자로 이루어져 있다. MessageType Enum클래스는 메시지 타입을 명시한다.</p>
+
+<p><strong>ChatMessage.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">com.techlead.websocketpractice.model</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">lombok.Data</span><span class="o">;</span>
+
+<span class="nd">@Data</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ChatMessage</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">MessageType</span> <span class="n">type</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">content</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">sender</span><span class="o">;</span>
+
+<span class="o">}</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br /></p>
+
+<p>@Data 어노테이션은 해당 필드들의 setter와 getter를 만들어주는 아주 편리한 롬복 어노테이션이니 알아두도록 하자.</p>
+
+<p><strong>MessageType Enum</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">com.techlead.websocketpractice.model</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">enum</span> <span class="nc">MessageType</span> <span class="o">{</span>
+    <span class="no">CHAT</span><span class="o">,</span>
+    <span class="no">JOIN</span><span class="o">,</span>
+    <span class="no">LEAVE</span>
+<span class="o">}</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p><br /></p>
+
+<p>메시지 타입은 말 그대로 채팅 할때, 새롭게 채팅 방에 들어올 때 그리고 마지막으로 채팅방을 떠날 때로 이루어져 있다.</p>
+
+<p>controller 패키지의 WebSocketEventListener 자바 클래스에 코드를 추가해보자.</p>
+
+<p><strong>WebSocketEventListener.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">com.techlead.websocketpractice.controller</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.techlead.websocketpractice.model.ChatMessage</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.techlead.websocketpractice.model.MessageType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.slf4j.Logger</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.slf4j.LoggerFactory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.context.event.EventListener</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.messaging.simp.SimpMessageSendingOperations</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.messaging.simp.stomp.StompHeaderAccessor</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Component</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.web.socket.messaging.SessionConnectedEvent</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.socket.messaging.SessionDisconnectEvent</span><span class="o">;</span>
+
+
+<span class="c1">//event listener를 이용해서 소켓 연결(socket connect) 그리고 소켓 연결 끊기(disconnect)</span>
+<span class="c1">//이벤트를 수신하여 사용자가 채팅방을 참여(JOIN)하거나 떠날때(LEAVE)의 이벤트를 logging 하거나 broadcast할 수 있다.</span>
+
+<span class="c1">//이 어노테이션은 자바 클래스를 스프링 빈이라고 표시하는 역할을 한다. 이 어노테이션을 사용함으로써</span>
+<span class="c1">//스프링의 component-scanning 기술이 이 클래스를 어플리케이션 컨텍스트에 빈으로 등록하게 된다.</span>
+<span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WebSocketEventListener</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">Logger</span> <span class="n">logger</span> <span class="o">=</span> <span class="nc">LoggerFactory</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="nc">WebSocketEventListener</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="nc">SimpMessageSendingOperations</span> <span class="n">messagingTemplate</span><span class="o">;</span>
+
+    <span class="c1">//Spring 4.2부터는 이벤트 리스너가 ApplicationListener 인터페이스를</span>
+    <span class="c1">// 구현하는 Bean 일 필요가 없어졌습니다.</span>
+    <span class="c1">// @EventListener 주석을 통해 관리되는 Bean의 모든 public 메소드에 등록 할 수 있습니다.</span>
+    <span class="c1">//해당 어노테이션은 Bean으로 등록된 Class의 메서드에서 사용할 수 있습니다.</span>
+    <span class="c1">//해당 어노테이션이 적용되어 있는 메서드의 인수로 현재 SessionConnectedEvent와 SessionDisconnectEvent가</span>
+    <span class="c1">//있습니다. 해당 클래스들의 상속관계를 거슬로 올라가다 보면 ApplicationEvent를 상속 받는것을 알 수 있습니다.</span>
+    <span class="c1">// //(Spring 4.2 부터는 ApplicationEvent를 상속받지 않는 POJO클래스로도 이벤트로 사용가능하다고 합니다.)</span>
+    <span class="nd">@EventListener</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">handleWebSocketConnectListener</span><span class="o">(</span><span class="nc">SessionConnectedEvent</span> <span class="n">event</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"connected listener"</span><span class="o">);</span>
+        <span class="c1">//이미 ChatController 의 addUser()메서드에서 사용자 참여 이벤트를  broadcast하였기 때문에</span>
+        <span class="c1">//첫번째 메서드인 handleWebSocketConnectListener()에서 사용하는 SessionConnected 이벤트 에서는</span>
+        <span class="c1">//별다른 동작 없이 logging 처리를 하겠습니다.</span>
+        <span class="n">logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"Received a new web socket connection"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+
+    <span class="nd">@EventListener</span>
+    <span class="c1">//두번째 메서드인 SessionDisconnect 이벤트에서는</span>
+    <span class="c1">// //웹 소켓 세션에서 사용자 이름을 추출하고 연결된 모든 클라이언트에게</span>
+    <span class="c1">// 사용자 퇴장 이벤트를 broadcast하는 코드를 작성했습니다.</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">handleWebSocketDisconnectListener</span><span class="o">(</span><span class="nc">SessionDisconnectEvent</span> <span class="n">event</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"disconnected listener"</span><span class="o">);</span>
+        <span class="nc">StompHeaderAccessor</span> <span class="n">headerAccessor</span> <span class="o">=</span> <span class="nc">StompHeaderAccessor</span><span class="o">.</span><span class="na">wrap</span><span class="o">(</span><span class="n">event</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+
+        <span class="nc">String</span> <span class="n">username</span> <span class="o">=</span> <span class="o">(</span><span class="nc">String</span><span class="o">)</span> <span class="n">headerAccessor</span><span class="o">.</span><span class="na">getSessionAttributes</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="s">"username"</span><span class="o">);</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">username</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"User Disconnected : "</span> <span class="o">+</span> <span class="n">username</span><span class="o">);</span>
+
+            <span class="nc">ChatMessage</span> <span class="n">chatMessage</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ChatMessage</span><span class="o">();</span>
+            <span class="n">chatMessage</span><span class="o">.</span><span class="na">setType</span><span class="o">(</span><span class="nc">MessageType</span><span class="o">.</span><span class="na">LEAVE</span><span class="o">);</span>
+            <span class="n">chatMessage</span><span class="o">.</span><span class="na">setSender</span><span class="o">(</span><span class="n">username</span><span class="o">);</span>
+
+            <span class="n">messagingTemplate</span><span class="o">.</span><span class="na">convertAndSend</span><span class="o">(</span><span class="s">"/topic/public"</span><span class="o">,</span> <span class="n">chatMessage</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br /></p>
+
+<p>스프링 4.2부터는 이벤트 리스너가 ApplicationListener 인터페이스를 구현하는 Bean일 필요가 없어졌다. <strong>@EventListener</strong> 주석을 통해서 관리되는 Bean의 모든 public 메소드에 등록 할 수 있다.</p>
+:ET
