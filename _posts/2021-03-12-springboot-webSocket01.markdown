@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Springboot WebSocket를 이용한 채팅 어플리케이션 만들기-02
-date: 2021-03-12 19:00:00 0000
+date: 2021-03-12 22:00:00 0000
 tags: [Intellij, SpringBoot, WebSocket, STOMP]
 categories: [SpringBoot]
 description: WebSocket과 STOMP.js를 이용해서 채팅 앱 만들기

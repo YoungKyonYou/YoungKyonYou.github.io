@@ -1091,7 +1091,7 @@
 &lt;p&gt;자 이렇게 간단한 채팅 프로그램을 만들어보았다.
 나는 이제 이것을 응용해서 어떻게 실시간으로 데이터베이스의 상태를 확인하고 데이터가 업데이트될 때마다 바로 그래프에 표시하는 것을 고민 해봐야 한다. 좀 더 공부가 필요할 것 같다. 만약 해결책을 찾게 되면 그것에 관해 게시물을 올려봐야겠다.&lt;/p&gt;
 </description>
-				<pubDate>Fri, 12 Mar 2021 19:00:00 +0900</pubDate>
+				<pubDate>Fri, 12 Mar 2021 22:00:00 +0900</pubDate>
 				<link>/springboot/2021/03/12/springboot-webSocket01.html</link>
 				<guid isPermaLink="true">/springboot/2021/03/12/springboot-webSocket01.html</guid>
 			</item>
