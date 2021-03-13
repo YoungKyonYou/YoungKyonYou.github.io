@@ -276,7 +276,7 @@ list.html에는 새롭게 하나의 \<form> 태그와 \<select> 태그 등이 �
 
 <br>
 
-![](../images/Learning_SpringBoot_with_Web_Project/Part4/Chapter7/2021-03-13-14-01-07.png)
+![](/images/Learning_SpringBoot_with_Web_Project/Part4/Chapter7/2021-03-13-14-01-07.png)
 
 <br>
 
