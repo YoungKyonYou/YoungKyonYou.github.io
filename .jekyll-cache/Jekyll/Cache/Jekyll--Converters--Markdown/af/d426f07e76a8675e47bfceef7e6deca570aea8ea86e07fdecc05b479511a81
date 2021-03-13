@@ -1,0 +1,229 @@
+I"'+<p><br /><br /></p>
+
+<h1 id="검색처리"><center>검색처리</center></h1>
+
+<p><br /></p>
+
+<p>이번 게시물에서는 화면에서 검색 처리 기능을 추가해 본다. 검색 처리는 크게 서버 사이드 처리와 화면 쪽의 처리로 나뉜다.</p>
+
+<p>서버 사이드 처리는 다음과 같다.</p>
+
+<ul>
+  <li>PageRequestDTO에 검색 타입(type)과 키워드(keyword)를 추가</li>
+  <li>이하 서비스 계층에서 Querydsl을 이용해서 검색 처리</li>
+</ul>
+
+<p><br /></p>
+
+<p>검색 항목은 크게 다음과 같이 정의한다.</p>
+
+<ul>
+  <li>‘제목(t), 내용(c), 작성자(w)’로 검색하는 경우</li>
+  <li>‘제목 혹은 내용(tc)’으로 검색하는 경우</li>
+  <li>‘제목 혹은 내용 혹은 작성자(tcw)’로 검색하는 경우</li>
+</ul>
+
+<p><br /></p>
+
+<p>가장 우선으로 PageRequestDTO을 검색 조건(type)과 검색 키워드(keyword)를 추가한다.</p>
+
+<p><strong>PageRequestDTO.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.zerock.guestbook.dto</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">lombok.AllArgsConstructor</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">lombok.Builder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">lombok.Data</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.data.domain.PageRequest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.data.domain.Pageable</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.data.domain.Sort</span><span class="o">;</span>
+
+<span class="nd">@Builder</span>
+<span class="nd">@AllArgsConstructor</span>
+<span class="nd">@Data</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PageRequestDTO</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">page</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">size</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">type</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">keyword</span><span class="o">;</span>
+
+
+    <span class="kd">public</span> <span class="nf">PageRequestDTO</span><span class="o">(){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">page</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">size</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">Pageable</span> <span class="nf">getPageable</span><span class="o">(</span><span class="nc">Sort</span> <span class="n">sort</span><span class="o">){</span>
+
+        <span class="k">return</span> <span class="nc">PageRequest</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">page</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="n">size</span><span class="o">,</span> <span class="n">sort</span><span class="o">);</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br /></p>
+
+<p>PageRequestDTO에서 변경된 것은 type과 keyword가 추가된 것뿐이다.</p>
+
+<p>동적으로 검색 조건이 처리되는 경우의 실제 코딩은 Querydsl을 통해서 BooleanBuilder를 작성하고 GuestbookRepository는 Querydsl로 작성된 BooleanBuilder를 findAll()처리하는 용도로 사용한다. BooleanBuilder 작성은 별도의 클래스 등을 작성해서 처리할 수 있지만 간단히 하려면 GuestbookServiceImpl 내에 메서드를 하나 작성해서 처리하면 된다.</p>
+
+<p><strong>GuestbookServiceImpl.java 일부</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+</pre></td><td class="rouge-code"><pre><span class="o">(...)</span>
+<span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">GuestbookDTO</span> <span class="nf">read</span><span class="o">(</span><span class="nc">Long</span> <span class="n">gno</span><span class="o">)</span> <span class="o">{</span>
+         <span class="o">(...)</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">remove</span><span class="o">(</span><span class="nc">Long</span> <span class="n">gno</span><span class="o">)</span> <span class="o">{</span>
+
+         <span class="o">(...)</span>
+
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">modify</span><span class="o">(</span><span class="nc">GuestbookDTO</span> <span class="n">dto</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">(...)</span>
+    <span class="o">}</span>
+
+
+    <span class="kd">private</span> <span class="nc">BooleanBuilder</span> <span class="nf">getSearch</span><span class="o">(</span><span class="nc">PageRequestDTO</span> <span class="n">requestDTO</span><span class="o">){</span>
+
+        <span class="nc">String</span> <span class="n">type</span> <span class="o">=</span> <span class="n">requestDTO</span><span class="o">.</span><span class="na">getType</span><span class="o">();</span>
+
+        <span class="nc">BooleanBuilder</span> <span class="n">booleanBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BooleanBuilder</span><span class="o">();</span>
+
+        <span class="nc">QGuestbook</span> <span class="n">qGuestbook</span> <span class="o">=</span> <span class="nc">QGuestbook</span><span class="o">.</span><span class="na">guestbook</span><span class="o">;</span>
+
+        <span class="nc">String</span> <span class="n">keyword</span> <span class="o">=</span> <span class="n">requestDTO</span><span class="o">.</span><span class="na">getKeyword</span><span class="o">();</span>
+
+        <span class="nc">BooleanExpression</span> <span class="n">expression</span> <span class="o">=</span> <span class="n">qGuestbook</span><span class="o">.</span><span class="na">gno</span><span class="o">.</span><span class="na">gt</span><span class="o">(</span><span class="mi">0L</span><span class="o">);</span> <span class="c1">// gno &gt; 0 조건만 생성</span>
+
+        <span class="n">booleanBuilder</span><span class="o">.</span><span class="na">and</span><span class="o">(</span><span class="n">expression</span><span class="o">);</span>
+
+        <span class="k">if</span><span class="o">(</span><span class="n">type</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">type</span><span class="o">.</span><span class="na">trim</span><span class="o">().</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span> <span class="c1">//검색 조건이 없는 경우</span>
+            <span class="k">return</span> <span class="n">booleanBuilder</span><span class="o">;</span>
+        <span class="o">}</span>
+
+
+        <span class="c1">//검색 조건을 작성하기</span>
+        <span class="nc">BooleanBuilder</span> <span class="n">conditionBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BooleanBuilder</span><span class="o">();</span>
+
+        <span class="k">if</span><span class="o">(</span><span class="n">type</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">"t"</span><span class="o">)){</span>
+            <span class="n">conditionBuilder</span><span class="o">.</span><span class="na">or</span><span class="o">(</span><span class="n">qGuestbook</span><span class="o">.</span><span class="na">title</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">keyword</span><span class="o">));</span>
+        <span class="o">}</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">type</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">"c"</span><span class="o">)){</span>
+            <span class="n">conditionBuilder</span><span class="o">.</span><span class="na">or</span><span class="o">(</span><span class="n">qGuestbook</span><span class="o">.</span><span class="na">content</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">keyword</span><span class="o">));</span>
+        <span class="o">}</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">type</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">"w"</span><span class="o">)){</span>
+            <span class="n">conditionBuilder</span><span class="o">.</span><span class="na">or</span><span class="o">(</span><span class="n">qGuestbook</span><span class="o">.</span><span class="na">writer</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">keyword</span><span class="o">));</span>
+        <span class="o">}</span>
+
+        <span class="c1">//모든 조건 통합</span>
+        <span class="n">booleanBuilder</span><span class="o">.</span><span class="na">and</span><span class="o">(</span><span class="n">conditionBuilder</span><span class="o">);</span>
+
+        <span class="k">return</span> <span class="n">booleanBuilder</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br /></p>
+
+<p>GuestbookServiceImpl에 작성한 getSearch()는 PageRequestDTO를 파라미터로 받아서 검색 조건(type)이 있는 경우에는 conditionBuilder 변수를 생성해서 각 검색 조건을 ‘or’로 연결해서 처리한다. 반면에 검색 조건이 없다면 ‘gno&gt;0’으로만 생성된다. GuestbookServiceImpl에서 목록을 조회할 때 사용</p>
+:ET

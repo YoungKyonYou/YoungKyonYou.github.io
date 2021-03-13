@@ -180,7 +180,7 @@ GuestbookController에서는 GET 방식으로 gno 값을 받아서 Model에 Gues
 
 <br>
 
-화면으로 사용하는 modify.html을 생성하고 read.html을 복사해서 그대로 추가한다. modify.html는 가장 먼저 화면의 <h1> 태그의 내용을 수정한다.
+화면으로 사용하는 modify.html을 생성하고 read.html을 복사해서 그대로 추가한다. modify.html는 가장 먼저 화면의 `<h1>` 태그의 내용을 수정한다.
 
 ![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-05-15-21-04.png)
 
@@ -255,13 +255,13 @@ GuestbookController에서는 GET 방식으로 gno 값을 받아서 Model에 Gues
 
 <br>
 
-modify.html은 수정/삭제 작업을 POST 방식으로 처리하므로 <form> 태그로 수정하는 내용을 감싸도록 처리한다.
+modify.html은 수정/삭제 작업을 POST 방식으로 처리하므로 `<form>` 태그로 수정하는 내용을 감싸도록 처리한다.
 
 위의 코드에서 날짜 부분은 화면에서 수정 자체도 불가능하고 JPA에서 자동으로 처리될 것이므로, nmae 속성 없이 작성되었다. 마지막으로 화면에 기능을 처리할 때 사용하는 버튼들을 추가했다.
 
 브라우저로 확인하면 '제목(title)'과 '내용(content)'은 수정이 가능하고 나머지 부분들은 readonly로 처리되게끔 이벤트를 처리해보자.
 
-modify.html에 있는 버튼은 'Modify(수정), Remove(삭제), List(목록)' 세 가지이다. 각 버튼을 클릭할 때 마다 다르게 이벤트를 처리해야 한다. '수정'과 '삭제' 작업은 <form> 태그의 action 속성을 조정해서 처리할 수 있다. 이에 대한 이벤트 처리는 조금 뒤쪽에서 처리한다.
+modify.html에 있는 버튼은 'Modify(수정), Remove(삭제), List(목록)' 세 가지이다. 각 버튼을 클릭할 때 마다 다르게 이벤트를 처리해야 한다. '수정'과 '삭제' 작업은 `<form>` 태그의 action 속성을 조정해서 처리할 수 있다. 이에 대한 이벤트 처리는 조금 뒤쪽에서 처리한다.
 
 <br>
 
@@ -353,17 +353,17 @@ GuestbookServiceImpl 클래스에서는 위의 remove()와 modify() 메서드를
 
 <br>
 
-삭제 작업은 GET 방식으로 수정 페이지에 드어가서 '삭제' 버튼을 클릭하는 방식으로 제작한다. modify.html에는 삭제 외에도 다른 버튼들도 있음으로 이들을 구분하기 위해서 클래스 속성을 아래와 같이 추가한다. 
+삭제 작업은 GET 방식으로 수정 페이지에 드어가서 '삭제' 버튼을 클릭하는 방식으로 제작한다. modify.html에는 삭제 외에도 다른 버튼들도 있음으로 이들을 구분하기 위해서 클래스 속성을 아래와 같이 추가한다.
 
 **modify.html 일부**
 
 ```html
 (...)
-        <button type="button" class="btn btn-primary ">Modify</button>
+<button type="button" class="btn btn-primary modifyBtn">Modify</button>
 
-        <button type="button" class="btn btn-info ">List</button>
+<button type="button" class="btn btn-info listBtn">List</button>
 
-        <button type="button" class="btn btn-danger removeBtn">Remove</button>
+<button type="button" class="btn btn-danger removeBtn">Remove</button>
 (...)
 ```
 
@@ -377,28 +377,27 @@ GuestbookServiceImpl 클래스에서는 위의 remove()와 modify() 메서드를
 (...)
 <button type="button" class="btn btn-danger removeBtn">Remove</button>
 
-        <script th:inline="javascript">
-            var actionForm=$("form");
+<script th:inline="javascript">
+  var actionForm = $("form");
 
-            $(".removeBtn").click(function(){
-                actionForm
-                .attr("action", "/guestbook/remove")
-                .attr("method","post");
+  $(".removeBtn").click(function () {
+    actionForm.attr("action", "/guestbook/remove").attr("method", "post");
 
-                actionForm.submit();
-            });
-        </script>
-        (...)
+    actionForm.submit();
+  });
+</script>
+(...)
 ```
 
 <br>
 
 > #### **line 5:** <form> 태그를 가져온다<br>
+>
 > #### **line 7~10:** removeBtn 클래스를 가져와서 그것을 클릭하면 <form> 태그가 등록되어 있는 removBtn 클래스에 action 속성과 method 속성을 추가한다.<br>
 
 <br>
 
-'Remove' 버튼을 클릭하면 <form> 태그의 action 속성과 method 속성을 조정한다. <form> 태그 내에는 <input> 태그로 name이 'gno'로 된 gno가 있기 때문에 컨트롤러에서는 remove 메소드 파라미터의 long gno랑 매핑이 된다. 여러 파라미터 중에서 gno를 추출해서 삭제 시에 이용하게 된다. 삭제 후에는 다시 목록 1페이지로 이동하게 된다. 
+'Remove' 버튼을 클릭하면 `<form>` 태그의 action 속성과 method 속성을 조정한다. `<form>` 태그 내에는 `<input>` 태그로 name이 'gno'로 된 gno가 있기 때문에 컨트롤러에서는 remove 메소드 파라미터의 long gno랑 매핑이 된다. 여러 파라미터 중에서 gno를 추출해서 삭제 시에 이용하게 된다. 삭제 후에는 다시 목록 1페이지로 이동하게 된다.
 
 <br>
 
@@ -409,27 +408,27 @@ GuestbookServiceImpl 클래스에서는 위의 remove()와 modify() 메서드를
 
 현재 modify.html에는 '/guestbook/read'로 이동할 때 페이지 번호(page)가 파라미터로 전달되고 있고, 수정 페이지로 이동할 경우에도 간티 전달된다.
 
-이를 이용해서 수정이 완료된 후에도 다시 동일한 정보를 유지할 수 있도록 page 값 역시 <form> 태그에 추가해서 전달한다. 이는 차후 GuestbookController에서 전달해준다.
+이를 이용해서 수정이 완료된 후에도 다시 동일한 정보를 유지할 수 있도록 page 값 역시 `<form>` 태그에 추가해서 전달한다. 이는 차후 GuestbookController에서 전달해준다.
 
 **modify.html 일부**
 
 ```html
 (...)
-        <h1 class="mt-4">GuestBook Modify Page</h1>
+<h1 class="mt-4">GuestBook Modify Page</h1>
 
-        <form action="/guestbook/modify" method="post">
-
-            <!--페이지 번호  -->
-            <input type="hidden" name="page" th:value="${requestDTO.page}">
-            (...)
+<form action="/guestbook/modify" method="post">
+  <!--페이지 번호  -->
+  <input type="hidden" name="page" th:value="${requestDTO.page}" />
+  (...)
+</form>
 ```
 
 <br>
 
-
 GuestbookController에서는 Guestbook 자체의 수정과 페이징 관련 데이터 처리를 같이 진행해야 한다.
 
 **GuestbookController.java**
+
 ```java
     @PostMapping("/modify")
     public String modify(GuestbookDTO dto,
@@ -462,21 +461,32 @@ GuestbookController에서는 세 개의 파라미터가 사용되는 것을 볼 
 **Modify.html**
 
 ```html
-(...)
- $(".modifyBtn").click(function() {
-
-                if(!confirm("수정하시겠습니까?")){
-                    return ;
-                }
-
-                actionForm
-                    .attr("action", "/guestbook/modify")
-                    .attr("method","post")
-                    .submit();
-});
-(...)
+(...) $(".modifyBtn").click(function() { if(!confirm("수정하시겠습니까?")){
+return ; } actionForm .attr("action", "/guestbook/modify")
+.attr("method","post") .submit(); }); (...)
 ```
 
 <br>
 
 브라우저에서는 사용자에게 글의 수정 여부를 확인하고 POST 방식으로 서버에 요청한다. 컨트롤러에서 처리 이후에는 조회 페이지로 다시 이동한다.
+
+<br>
+
+글의 수정과 삭제가 완료되었다면 마지막으로 다시 목록 페이지로 이동하는 버튼을 처리해야 한다. 현재 modify.html은 `<form>` 태그를 이용해서 모든 작업이 이루어지고 있고 여러 개의 `<input>` 을 이용해서 파라미터들을 전송한다. 목록 페이지로 이동하는 경우에는 page와 같은 파라미터 외에 다른 파라미터들은 별도로 필요하지 않다는 것이다. 따라서 목록으로 이동할 경우에는 page를 제외한 파라미터들은 지운 상태로 처리하는 것이 깔끔하다.
+
+**modify.html 일부**
+
+```html
+$(".btn-list").click(function(){ var pageInfo=$("input[name='page']");
+actionForm.empty(); actionForm.append(pageInfo); //guestbook/list url로
+pageInfo를 보낸다. actionForm .attr("action", "/guestbook/list")
+.attr("method","get"); console.log(actionForm.html()); actionForm.submit(); });
+```
+
+<br>
+
+이벤트 처리 시에는 우선 page와 관련된 부분만 따로 보관하고 empty()를 이용해서 `<form>` 최근의 모든 파라미터는 삭제한다. 빈 `<form>` 태그에 보관해둔 page 관련 정보를 추가하고 목록 페이지로 이동하도록 구현한다. 브라우저에서는 'List' 버튼을 클릭하는 경우 원래의 페이지로 다시 이동해야 한다.
+
+---
+
+다음 게시물에서는 검색에 대한 처리를 한다.

@@ -232,7 +232,7 @@ abstract public class BaseEntity {
 
 추가적으로 JPA를 이용하면서 AuditionEntityListener를 활성화시키기 위해서는 프로젝트에 @EnableJpaAuditing 설정을 추가 해야 한다.
 
-\*\*GuestbookApplication.java
+**GuestbookApplication.java**
 
 ```java
 package org.techlead.guestbook;

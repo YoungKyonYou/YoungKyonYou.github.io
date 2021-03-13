@@ -259,7 +259,7 @@ GuestbookServiceImpl 클래스는 JPA 처리를 위해서 GuestbookRepository를
 
 - 화면에서 필요한 목록 데이터에 대한 DTO 생성
 - DTO를 Pageable 타입으로 전환
-- Page<Entity>를 화면에서 사용하기 쉬운 DTO의 리스트 등으로 변환
+- Page\<Entity>를 화면에서 사용하기 쉬운 DTO의 리스트 등으로 변환
 - 화면에 필요한 페이지 번호 처리
 
 <br>
@@ -301,8 +301,6 @@ public class PageRequestDTO {
 
     private int page;
     private int size;
-    private String type;
-    private String keyword;
 
 
     public PageRequestDTO(){
@@ -325,9 +323,9 @@ PageRequestDTO는 화면에서 전달되는 page라는 파라미터와 size라�
 
 <br>
 
-JPA를 이용하는 Repository에서는 페이지 처리 결과를 Page<Entity> 타입으로 반환하게 된다. 따라서 서비스 계층에서 이를 처리하기 위해서도 별도의 클래스를 만들어서 처리해야 한다. 처리하는 클래스는 크게 다음과 같다
+JPA를 이용하는 Repository에서는 페이지 처리 결과를 Page\<Entity> 타입으로 반환하게 된다. 따라서 서비스 계층에서 이를 처리하기 위해서도 별도의 클래스를 만들어서 처리해야 한다. 처리하는 클래스는 크게 다음과 같다
 
-- Page<Entity>의 엔티티 객체들을 DTO 객체로 변환해서 자료구조로 담아 주어야 한다.
+- Page\<Entity>의 엔티티 객체들을 DTO 객체로 변환해서 자료구조로 담아 주어야 한다.
 - 화면 출력에 필요한 페이지 정보들을 구성해 주어야 한다.
 
 <br>
@@ -359,13 +357,13 @@ public class PageResultDTO<DTO, EN> {
 
 <br>
 
-PageResultDTO 클래스는 다양한 곳에서 사용할 수 있도록 제네릭 타입을 이용해서 DTO와 EN이라는 타입을 지정한다. 말 그대로 DTO와 Entity 타입을 의미한다. PageResultDTO는 Page<Entity> 타입을 이용해서 생성할 수 있도록 생성자로 작성한다. 이때 특별한 Function<EN,DTO>는 엔티티 객체들을 DTO로 변환해 주는 기능이다.
+PageResultDTO 클래스는 다양한 곳에서 사용할 수 있도록 제네릭 타입을 이용해서 DTO와 EN이라는 타입을 지정한다. 말 그대로 DTO와 Entity 타입을 의미한다. PageResultDTO는 Page\<Entity> 타입을 이용해서 생성할 수 있도록 생성자로 작성한다. 이때 특별한 Function\<EN,DTO>는 엔티티 객체들을 DTO로 변환해 주는 기능이다.
 
 ![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-15-57-25.png)
 
 <br>
 
-위와 같은 구조는 나중에 어떤 종류의 Page<E> 타입이 생성되더라도, PageResultDTO를 이용해서 처리할 수 있다는 장점이 있다.
+위와 같은 구조는 나중에 어떤 종류의 Page\<E> 타입이 생성되더라도, PageResultDTO를 이용해서 처리할 수 있다는 장점이 있다.
 
 서비스 계층에서는 PageReuqestDTO를 파라미터로, PageResultDTO를 리턴 타입으로 사용하는 getList()를 설계하고 엔티티 객체를 DTO 객체로 변환하는 entityToDto()를 정의한다.
 
@@ -443,14 +441,16 @@ public class GuestbookServiceImpl implements GuestbookService{
 <br>
 
 > #### **line 21:** requestDTO로부터 원하는 페이지 값을 가져온다.<br>
+>
 > #### **line 23:** repository에서 findAll() 메소드를 통해서 해당 페이지에 데이터베이스 값들을 result에 담는다.<br>
+>
 > #### **line 25:** 함수 인터페이스를 사용한다. <br>
 
 ## 함수 인터페이스
 
-Fucntion<T,R>는 T타입의 인자를 받고, R타입의 객체를 리턴한다. 즉 위에서는 Guestbook 타입의 인자를 받고 GuestbookDTO 타입의 객체를 리턴하는 것이다.
+Fucntion\<T,R>는 T타입의 인자를 받고, R타입의 객체를 리턴한다. 즉 위에서는 Guestbook 타입의 인자를 받고 GuestbookDTO 타입의 객체를 리턴하는 것이다.
 
-getList()에서 눈여겨 볼 부분은 entityToDTO()를 이용해서 java.util.Function을 생성하고 이를 PageResultDTO로 구성하는 부분이다. PageResultDTO에는 JPA의 처리 결과인 Page<Entity>와 Function을 전달해서 엔티티 객체들을 DTO의 리스트로 변환하고 화면에 페이지 처리와 필요한 값들을 생성한다.
+getList()에서 눈여겨 볼 부분은 entityToDTO()를 이용해서 java.util.Function을 생성하고 이를 PageResultDTO로 구성하는 부분이다. PageResultDTO에는 JPA의 처리 결과인 Page\<Entity>와 Function을 전달해서 엔티티 객체들을 DTO의 리스트로 변환하고 화면에 페이지 처리와 필요한 값들을 생성한다.
 
 이제 목록 처리 테스트를 통해 엔티티 객체들이 DTO 객체들로 변환되었는지를 살펴본다.
 
@@ -475,10 +475,9 @@ getList()에서 눈여겨 볼 부분은 entityToDTO()를 이용해서 java.util.
 
 ![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-04-13-18-31.png)
 
-
 <br>
 
-PageRequestDTO를 이용하기 때문에 생성할 때는 1페이지부터 처리할 수 있고 정렬은 상황에 맞게 Sort 객체를 생성해서 전달하는 형태로 사용한다. 테스트 코드의 결과를 보면 Page<Guestbook>이 List<GuestBookDTO>로 정상적으로 변환되어서 출력 결과에 GuestbookDTO 타입으로 출력되는 것을 볼 수 있다.
+PageRequestDTO를 이용하기 때문에 생성할 때는 1페이지부터 처리할 수 있고 정렬은 상황에 맞게 Sort 객체를 생성해서 전달하는 형태로 사용한다. 테스트 코드의 결과를 보면 Page\<Guestbook>이 List\<GuestBookDTO>로 정상적으로 변환되어서 출력 결과에 GuestbookDTO 타입으로 출력되는 것을 볼 수 있다.
 
 <br>
 
@@ -503,13 +502,13 @@ tempEnd=(int)(Math.ceil(페이지번호/10.0))*10;
 
 Math.ceil()은 소수점을 올림으로 처리하기 때문에 다음과 같은 상황이 가능하다.
 
-- 1 페이지의 경우: Math.ceil(0.1)*10=10
-- 10 페이지의 경우: Math.ceil(1)*10=10
-- 11 페이지의 경우: Math.ceil(1.1)*10=20
+- 1 페이지의 경우: Math.ceil(0.1)\*10=10
+- 10 페이지의 경우: Math.ceil(1)\*10=10
+- 11 페이지의 경우: Math.ceil(1.1)\*10=20
 
 <br>
 
-끝 번호(end)는 아직 개선의 여지가 있다.(때문에 변수명을 tempEnd로 설정한다) 만일 전체 데이터 수가 적다면 10페이지로 끝나면 안 되는 상황이 생길 수도 있기 때문이다. 그럼에도 끝 번호(end)를 먼저 계산하는 이유는 시작 번호(start)를 계산하기 수월하기 때문이다. 만일 화면에 10개씩 보여준다면 시작 번호(start)는 무조건 끝 번호(tempEnd)에서 9라는 값을 뺀 값이 된다. 
+끝 번호(end)는 아직 개선의 여지가 있다.(때문에 변수명을 tempEnd로 설정한다) 만일 전체 데이터 수가 적다면 10페이지로 끝나면 안 되는 상황이 생길 수도 있기 때문이다. 그럼에도 끝 번호(end)를 먼저 계산하는 이유는 시작 번호(start)를 계산하기 수월하기 때문이다. 만일 화면에 10개씩 보여준다면 시작 번호(start)는 무조건 끝 번호(tempEnd)에서 9라는 값을 뺀 값이 된다.
 
 ```
 start=tempEnd-9;
@@ -517,7 +516,7 @@ start=tempEnd-9;
 
 <br>
 
-끝 번호(end)는 실제 마지막 페이지와 다시 비교할 필요가 있다. 예를 들어 Page<Guestbook>의 마지막 페이지가 33이라면 위의 계산이라면 40이 되기 때문에 이를 반영해야 한다. 이를 위해서는 Page<Guestbook>의 getTotalPages()를 이용할 수 있다.
+끝 번호(end)는 실제 마지막 페이지와 다시 비교할 필요가 있다. 예를 들어 Page\<Guestbook>의 마지막 페이지가 33이라면 위의 계산이라면 40이 되기 때문에 이를 반영해야 한다. 이를 위해서는 Page\<Guestbook>의 getTotalPages()를 이용할 수 있다.
 
 ```
 totalPage=result.getTotalPages(); //result는 Page<Guestbook>
@@ -545,4 +544,3 @@ next = totalPage > end;
 ---
 
 다음 게시물에서 실질적인 코드를 작성해보도록 하자.
-

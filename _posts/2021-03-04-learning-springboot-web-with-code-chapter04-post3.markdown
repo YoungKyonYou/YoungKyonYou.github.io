@@ -312,7 +312,7 @@ Thymeleaf를 이용하는 경우에는 링크 처리가 좀 더 수월한 편이
 
 <br>
 
-옆에 <li class="~"> 가 th:each로 인해 생기는 것을 볼 수 있다. 해당 링크를 클릭하면 url의 page 파라미터에 값이 설정되서 해당 페이지로 이동되는 것이다.
+옆에 `<li class="~">` 가 th:each로 인해 생기는 것을 볼 수 있다. 해당 링크를 클릭하면 url의 page 파라미터에 값이 설정되서 해당 페이지로 이동되는 것이다.
 
 ![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-04-16-34-20.png)
 
