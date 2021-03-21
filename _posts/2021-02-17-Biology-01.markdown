@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 웅성선숙과 자성선숙 그리고 리처드 파인만 이야기
-date: 2021-02-17 011:30:00 0000
+date: 2021-02-17 11:30:00 0000
 tags:
   [Biology, Protandrous, Protogynous, Richard Feynman, Finding Nemo, Melanesian]
 categories: [Biology]
