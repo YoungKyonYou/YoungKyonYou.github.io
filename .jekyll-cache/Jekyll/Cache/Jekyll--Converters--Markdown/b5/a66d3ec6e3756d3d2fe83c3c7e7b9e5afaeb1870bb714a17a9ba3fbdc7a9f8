@@ -1,0 +1,290 @@
+I"�.<p><br /><br /></p>
+
+<h1 id="참조-관계-auto_increment-재정렬"><center>참조 관계 AUTO_INCREMENT 재정렬</center></h1>
+
+<p><br /></p>
+
+<p>저번 <strong>Springboot JPA에서 Auto-increment 재정렬-01</strong>에서는 단일 테이블에서 아이디 값으로 auto_increment 속성을 줬을 때 중간의 아이디를 삭제했을 때 재정렬하는 코드를 알아보았다.</p>
+
+<p>이번에는 참조관계에 있는 테이블에서 아이디에 auto_increment 속성을 줬을 때 재정렬하는 방법을 알아보겠다. 사실 코드로 따지면 단 한줄 밖에 추가되지 않는다. 현재 내가 졸업작품으로 만들고 있는 프로젝트에서 설계하고 있는 데이터베이스는 크게 아래와 같다.</p>
+
+<p><img src="/images/SpringBoot/post09/2021-03-21-10-16-17.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>MemberImage 엔티티에서 @ManyToOne를 선언해서 Member를 일대다(1:N)로 참조하고 있고 Status 엔티티에서도 @ManyToOne를 두번 선언해서 Member와 Facility를 일대다(1:N)로 참조하며 매핑 테이블 역할을 한다.</p>
+
+<p><br /></p>
+
+<p><strong>MemberImage.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.morgorithm.frames.entity</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">lombok.*</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.time.LocalDate</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.time.LocalDateTime</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="nd">@Builder</span>
+<span class="nd">@NoArgsConstructor</span>
+<span class="nd">@AllArgsConstructor</span>
+<span class="nd">@Getter</span>
+<span class="nd">@ToString</span><span class="o">(</span><span class="n">exclude</span><span class="o">=</span><span class="s">"member"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberImage</span> <span class="o">{</span>
+    <span class="nd">@Id</span>
+    <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="nc">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">Long</span> <span class="n">inum</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">uuid</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">imgName</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">path</span><span class="o">;</span>
+
+    <span class="nd">@ManyToOne</span><span class="o">(</span><span class="n">fetch</span><span class="o">=</span><span class="nc">FetchType</span><span class="o">.</span><span class="na">LAZY</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">Member</span> <span class="n">member</span><span class="o">;</span>
+<span class="o">}</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>Member.java</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.morgorithm.frames.entity</span><span class="o">;</span>
+
+
+<span class="kn">import</span> <span class="nn">lombok.*</span><span class="o">;</span>
+
+
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+
+
+<span class="nd">@Entity</span>
+<span class="nd">@Builder</span>
+<span class="nd">@AllArgsConstructor</span>
+<span class="nd">@NoArgsConstructor</span>
+<span class="nd">@Getter</span>
+<span class="nd">@ToString</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Member</span> <span class="o">{</span>
+    <span class="nd">@Id</span>
+    <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="nc">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">Long</span> <span class="n">mno</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">phone</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">changeName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="o">=</span><span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">changePhone</span><span class="o">(</span><span class="nc">String</span> <span class="n">phone</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">phone</span><span class="o">=</span><span class="n">phone</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br />
+<strong>Status.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.morgorithm.frames.entity</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.sun.istack.Nullable</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">lombok.*</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.time.LocalDateTime</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="nd">@Builder</span>
+<span class="nd">@AllArgsConstructor</span>
+<span class="nd">@NoArgsConstructor</span>
+<span class="nd">@Getter</span>
+<span class="nd">@ToString</span><span class="o">(</span><span class="n">exclude</span><span class="o">={</span><span class="s">"member"</span><span class="o">,</span><span class="s">"facility"</span><span class="o">})</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Status</span> <span class="kd">extends</span> <span class="nc">BaseEntity</span><span class="o">{</span>
+    <span class="nd">@Id</span>
+    <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="nc">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">Long</span> <span class="n">statusnum</span><span class="o">;</span>
+
+    <span class="nd">@ManyToOne</span><span class="o">(</span><span class="n">fetch</span><span class="o">=</span><span class="nc">FetchType</span><span class="o">.</span><span class="na">EAGER</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">Member</span> <span class="n">member</span><span class="o">;</span>
+
+    <span class="nd">@ManyToOne</span><span class="o">(</span><span class="n">fetch</span><span class="o">=</span><span class="nc">FetchType</span><span class="o">.</span><span class="na">EAGER</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">Facility</span> <span class="n">facility</span><span class="o">;</span>
+
+    <span class="nd">@Column</span><span class="o">(</span><span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">temperature</span><span class="o">;</span>
+
+
+    <span class="kd">private</span> <span class="nc">Boolean</span> <span class="n">state</span><span class="o">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">LocalDateTime</span> <span class="nf">getRegDate</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">getRegDate</span><span class="o">();</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>Facility.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.morgorithm.frames.entity</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">lombok.*</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+<span class="nd">@Entity</span>
+<span class="nd">@Builder</span>
+<span class="nd">@AllArgsConstructor</span>
+<span class="nd">@NoArgsConstructor</span>
+<span class="nd">@Getter</span>
+<span class="nd">@ToString</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Facility</span> <span class="o">{</span>
+    <span class="nd">@Id</span>
+    <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="nc">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">Long</span> <span class="n">bno</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">building</span><span class="o">;</span>
+<span class="o">}</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br /></p>
+
+<p>여기서 내가 만약 Status 테이블 중간에 있는 컬럼 하나를 삭제</p>
+:ET
