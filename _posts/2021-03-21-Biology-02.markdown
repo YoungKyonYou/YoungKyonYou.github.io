@@ -4,7 +4,7 @@ title: 헬몬트의 재밌는 실험
 date: 2021-03-21 10:10:00 0000
 tags: [Biology, Helmont's Experiment]
 categories: [Biology]
-description: 헨몬트가 생각한 만물의 근원
+description: 헬몬트가 생각한 만물의 근원
 ---
 
 # 만물의 근원은 물과 공기-얀 밥티스타 판 헬몬트 (Jan Baptist van Helmont)
