@@ -1,0 +1,67 @@
+I"�<p><br /><br /></p>
+
+<h1 id="coolsms-api-testing-하기"><center>Coolsms API Testing 하기</center></h1>
+
+<p><br /></p>
+
+<p>프로젝트를 하나 진행하다가 갑자기 좋은 아이디어가 떠올랐다. 프로젝트 내용을 자세하게 알려줄순 없지만 대략적으로 설명하면 어떠한 정보를 웹에서 사람들에게 핸드폰 메시지를 보내는 것이다.</p>
+
+<p><br /></p>
+
+<p>그래서 구글링을 해서 방법을 찾아보았다. 방법은 바로 Coolsms API를 사용하는 것이다.</p>
+
+<p><img src="/images/SpringBoot/post10/2021-04-03-19-16-47.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>일단 먼저 회원가입을 하면 기본적으로 주는 포인트가 얼마 있다. 문자 한통당 20원이며 긴 문자(LMS)는 좀 더 비싸다.</p>
+
+<p>자 이제 회원가입을 했다면 로그인을 하고 시크릿 키를 복사해 둔다.</p>
+
+<p>그리고 스프링부트 프로젝트를 하나 만들고 Test를 해본다.</p>
+
+<p>```java
+ @Test
+    public void testSend() {
+        String api_key = “NCSJBLIL70QSO6P9”;
+        //사이트에서 발급 받은 API KEY
+         String api_secret = “4BDRU03ULDUDLOY9BZ7AZIOLXAALBSUW”;
+        // 사이트에서 발급 받은 API SECRET KEY
+        Message coolsms = new Message(api_key, api_secret);</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre>    HashMap&lt;String, String&gt; params = new HashMap&lt;String, String&gt;();
+    params.put("to", "01036461294"); params.put("from", "01096588541");
+    //사전에 사이트에서 번호를 인증하고 등록하여야 함
+    params.put("type", "SMS");
+    params.put("text", "");
+    //메시지 내용
+    params.put("app_version", "test app 1.2");
+    try {
+        JSONObject obj = (JSONObject) coolsms.send(params);
+        System.out.println(obj.toString());
+        //전송 결과 출력
+    }catch (CoolsmsException e){
+        System.out.println(e.getMessage());
+        System.out.println(e.getCode());
+    }
+}
+```
+</pre></td></tr></tbody></table></code></pre></div></div>
+:ET
