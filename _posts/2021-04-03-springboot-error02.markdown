@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Springboot Mysql 연동시 9시간 차이 나는 에러
+title: SpringBoot에서 시간을 MySql에 Update할 때 9시간 차이 나는 에러
 date: 2021-04-03 17:00:00 0000
 tags: [Intellij, SpringBoot, Mysql]
 categories: [SpringBoot-Error]
