@@ -44,7 +44,7 @@ description: Birthday Present
 
 _그렇게 맛있게 먹은 뒤에 90도 인사 드리고 기숙사로 뛰어 들어왔다_
 
-![packed](..\images\DailyLife\EarlyPresent\pack.jpg)
+![packed](\images\DailyLife\EarlyPresent\pack.jpg)
 
 ## 포장지를 뜯는 순간 이 설렘은 다들 똑같지 않을 까 싶다
 
