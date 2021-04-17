@@ -25,7 +25,7 @@ parcel xxx.html
 
 를 치는 순간 에러가 발생했다.
 
-![](../images/React_Error/Error03/2021-02-21-10-44-19.png)'
+![](/images/React_Error/Error03/2021-02-21-10-44-19.png)'
 
 _**Cannot find module 'redux' from ~~**_
 
@@ -49,7 +49,7 @@ npm install redux --save
 
 터미널에 이것을 입력하니까 정상적으로 작동이 된다..
 
-![](../images/React_Error/Error03/2021-02-21-10-48-09.png)
+![](/images/React_Error/Error03/2021-02-21-10-48-09.png)
 
 ~~아니 근데 왜 책에 안 나와있냐구!!~~
 

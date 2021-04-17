@@ -13,7 +13,7 @@ description: Beethoven-Violin Sonata No. 2 in A major, Op. 12 No. 2
 
 <br>
 
-![](../images/Classic/Beethoven-01/2021-02-16-23-13-19.png){: width="400" height="500"}
+![](/images/Classic/Beethoven-01/2021-02-16-23-13-19.png){: width="400" height="500"}
 
 베토벤 바이올린 소나타를 많이 들어본 적이 없었다. :sweat_smile:
 
@@ -27,7 +27,7 @@ description: Beethoven-Violin Sonata No. 2 in A major, Op. 12 No. 2
 
 Hongxury 대표 승혜 누나의 프로필을 살펴보자.
 
-![](../images/Classic/Beethoven-01/hong.PNG){: width="300" height="350"}
+![](/images/Classic/Beethoven-01/hong.PNG){: width="300" height="350"}
 
 <br>
 
@@ -52,7 +52,7 @@ Hongxury 대표 승혜 누나의 프로필을 살펴보자.
 
 그리고 시작된 누님의 연주...
 
-![](../images/Classic/Beethoven-01/2021-02-16-23-21-55.png)
+![](/images/Classic/Beethoven-01/2021-02-16-23-21-55.png)
 
 **[youtube](https://www.youtube.com/watch?v=Wv9Ti50nnMI)**
 
@@ -73,7 +73,7 @@ _누나의 연주는 23분부터!_
 
 그래도 아직은 초기 작품이라 그런지 모차르트의 영향을 강하게 느낄 수 있고 베토벤의 특출한 성격이 나온 작품은 아니다.
 
-![](../images/Classic/Beethoven-01/2021-02-16-23-42-46.png)
+![](/images/Classic/Beethoven-01/2021-02-16-23-42-46.png)
 
 <br>
 
@@ -128,7 +128,7 @@ _"연주하는 내내 집중하면서 음악에 빠져드시는 누님의 모습
 
 ~~어쩐지 중간중간 준비 시간이 짧더라 ㅋㅋㅋ~~
 
-![](../images/Classic/Beethoven-01/2021-02-17-12-23-16.png)
+![](/images/Classic/Beethoven-01/2021-02-17-12-23-16.png)
 
 무언가 God **Clara Jumi Kang**의 면모를 보는 것 같기도 하고 ㅋㅋ
 내가 바이올린을 좋아해서 그런지 유투브로 대가들 연주하는 것을 보는 것도 좋지만

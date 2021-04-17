@@ -19,19 +19,19 @@ description: Coolsms API 사용하기
 
 그래서 구글링을 해서 방법을 찾아보았다. 방법은 바로 Coolsms API를 사용하는 것이다.
 
-![](../images/SpringBoot/post10/2021-04-03-19-16-47.png)
+![](/images/SpringBoot/post10/2021-04-03-19-16-47.png)
 
 <br>
 
 일단 먼저 회원가입을 하면 기본적으로 주는 포인트가 얼마 있다. 문자 한통당 20원이며 긴 문자(LMS)는 좀 더 비싸다.
 
-![](../images/SpringBoot/post10/2021-04-03-19-21-36.png)
+![](/images/SpringBoot/post10/2021-04-03-19-21-36.png)
 
 <br>
 
 로그인을 하고 나면 아마 송신 번호를 등록하는 등 몇가지 인증을 해야 됐던 걸로 기억한다. 그렇게 각종 절차를 마치고 왼쪽을 보면 개발/연동->API Key 관리 에 들어가면
 
-![](../images/SpringBoot/post10/2021-04-03-19-22-23.png)
+![](/images/SpringBoot/post10/2021-04-03-19-22-23.png)
 
 <br>
 

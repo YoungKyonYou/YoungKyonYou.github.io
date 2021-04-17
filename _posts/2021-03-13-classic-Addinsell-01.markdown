@@ -21,7 +21,7 @@ description: Richard Addinsell Warsaw Concerto
 
 라흐마니노프가 연상되는 선율에 오케스트라가 뒷받침되는 화려함은 영화 음악에 쓰여졌다는 사실을 못믿게 만든다. 작곡가는 바로
 
-![](../images/Classic/Addinsell-01/2021-03-13-10-11-30.png)
+![](/images/Classic/Addinsell-01/2021-03-13-10-11-30.png)
 
 <br>
 
@@ -33,7 +33,7 @@ description: Richard Addinsell Warsaw Concerto
 
 이 영화에 대한 정보가 네이버에서 잘 나오지 않는 것을 보니 한국에서는 개봉이 안 되었던 것 같다.
 
-![](../images/Classic/Addinsell-01/2021-03-13-10-16-10.png)
+![](/images/Classic/Addinsell-01/2021-03-13-10-16-10.png)
 
 <br>
 
@@ -47,7 +47,7 @@ description: Richard Addinsell Warsaw Concerto
 
 사실 에딘셀은 처음부터 작곡 공부를 한 사람은 아니였다. 처음에 옥스포드 대학에서 법률을 공부하다가 방향을 바꿔 런던 왕립음악원에서 음악 공부를 했다. 한 때 베를린과 빈에서도 음악 공부를 하였으나 미국으로 건너가 영화 음악 **'이상한 나라의 엘리스'** 를 작곡하기 시작하면서 유명해졌다.
 
-![](../images/Classic/Addinsell-01/2021-03-13-10-22-19.png)
+![](/images/Classic/Addinsell-01/2021-03-13-10-22-19.png)
 
 <br>
 

@@ -15,25 +15,25 @@ description: 특정 테이블의 Auto_increment 속성의 Key값 재정렬하기
 
 코드로 배우는 스프링 부트 웹프로젝트 책에서 나오는 guestbook 실습을 하던 중에 궁금증이 생겼다. Part 2의 게시판을 만들고 있는데 local8080/guest/list로 접속했을 때의 모습을 일단 보자.
 
-![](../images/SpringBoot/post08/2021-03-05-19-58-07.png)
+![](/images/SpringBoot/post08/2021-03-05-19-58-07.png)
 
 <br>
 
 이렇게 보면 아무 문제가 없어 보일 수 있다. 하지만 여기서의 문제는 저 많은 게시물 중 중간에 하나를 지웠을 때 어떻게 변하는 지 보자. 여기서는 예로 게시물 **298번**을 지워보겠다.
 
-![](../images/SpringBoot/post08/2021-03-05-19-59-37.png)
+![](/images/SpringBoot/post08/2021-03-05-19-59-37.png)
 
 <br>
 
 위의 사진을 보면 문제가 확연히 보인다. 바로 게시물 번호가 순서대로 업데이트가 안되고 그대로를 유지해서 연속적인 순서 보장이 안 된다는 것이다. 참고로 여기서 쓴 게시물 번호는 아래 사진에서 처럼 Long gno에서 따온 것이다. GeneratedValue 어노테이션으로 Auto_increment를 구현하고 테스트 데이터를 넣어서 그 데이터로 위의 사진과 같이 리스트를 만든 것이다.
 
-![](../images/SpringBoot/post08/2021-03-06-09-14-56.png)
+![](/images/SpringBoot/post08/2021-03-06-09-14-56.png)
 
 <br>
 
 **gusetbook table**
 
-![](../images/SpringBoot/post08/2021-03-05-20-02-48.png)
+![](/images/SpringBoot/post08/2021-03-05-20-02-48.png)
 
 <br>
 
@@ -50,7 +50,7 @@ update "테이블명" set "테이블명"."컬럼명"=@cnt:=@cnt+1;
 
 이것을 입력해주고 execute query를 해주면 auto_increment가 재정렬 되는 것을 볼 수 있다.
 
-![](../images/SpringBoot/post08/2021-03-05-20-08-12.png)
+![](/images/SpringBoot/post08/2021-03-05-20-08-12.png)
 
 <br>
 
@@ -71,7 +71,7 @@ update "테이블명" set "테이블명"."컬럼명"=@cnt:=@cnt+1;
     void reorderKeyId();
 ```
 
-![](../images/SpringBoot/post08/2021-03-05-20-10-35.png)
+![](/images/SpringBoot/post08/2021-03-05-20-10-35.png)
 
 <br>
 
@@ -85,7 +85,7 @@ nativeQuery=true를 사용하면 sql 원시 코드를 사용할 수 있다. 그�
 
 그리고 해당 게시물을 삭제할 때 실행되는 service 클래스의 remove 메소드로 가보자.
 
-![](../images/SpringBoot/post08/2021-03-05-20-13-09.png)
+![](/images/SpringBoot/post08/2021-03-05-20-13-09.png)
 
 <br>
 
@@ -95,13 +95,13 @@ nativeQuery=true를 사용하면 sql 원시 코드를 사용할 수 있다. 그�
 
 아래 사진은 초기 화면이다.
 
-![](../images/SpringBoot/post08/2021-03-05-20-15-42.png)
+![](/images/SpringBoot/post08/2021-03-05-20-15-42.png)
 
 <br>
 
 이제 298번 게시물을 다시 삭제해 본다.
 
-![](../images/SpringBoot/post08/2021-03-05-20-16-12.png)
+![](/images/SpringBoot/post08/2021-03-05-20-16-12.png)
 
 <br>
 

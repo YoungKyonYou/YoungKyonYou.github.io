@@ -15,7 +15,7 @@ description: WebSocket과 STOMP.js를 이용해서 채팅 앱 만들기
 
 이전 게시물에서 백엔드를 다뤘다면 이제 프론트엔드를 작성해보자. 파일 구성은 아래 사진과 같다.
 
-![](../images/SpringBoot/websocket/2021-03-12-23-34-25.png)
+![](/images/SpringBoot/websocket/2021-03-12-23-34-25.png)
 
 <br>
 
@@ -558,49 +558,49 @@ messageForm.addEventListener("submit", sendMessage, true);
 
 자 이제 앱을 실행해 보자. 아래 사진과 같이 Username를 입력하게 되면 채팅방에 참여하고 있는 모든 클라이언트들에게 방송된다.
 
-![](../images/SpringBoot/websocket/2021-03-12-23-52-31.png)
+![](/images/SpringBoot/websocket/2021-03-12-23-52-31.png)
 
 <br>
 
 username를 입력하고 채팅 시작하기를 누른다.
 
-![](../images/SpringBoot/websocket/2021-03-12-23-53-30.png)
+![](/images/SpringBoot/websocket/2021-03-12-23-53-30.png)
 
 <br>
 
 채팅방에 들어왔음을 볼 수 있다.
 
-![](../images/SpringBoot/websocket/2021-03-12-23-53-42.png)
+![](/images/SpringBoot/websocket/2021-03-12-23-53-42.png)
 
 <br>
 
 이제 새로운 탭을 키고 다시 접속해서 다른 username으로 접속해보자.
 
-![](../images/SpringBoot/websocket/2021-03-12-23-54-21.png)
+![](/images/SpringBoot/websocket/2021-03-12-23-54-21.png)
 
 <br>
 
 username이 Young인 클라이언트가 메시지를 보내는 화면이다.
 
-![](../images/SpringBoot/websocket/2021-03-12-23-55-42.png)
+![](/images/SpringBoot/websocket/2021-03-12-23-55-42.png)
 
 <br>
 
 username이 Sung인 클라이언트의 화면에 Young이 보낸 메시지가 보인다.
 
-![](../images/SpringBoot/websocket/2021-03-12-23-56-06.png)
+![](/images/SpringBoot/websocket/2021-03-12-23-56-06.png)
 
 <br>
 
 반대로 Sung에서 메시지를 보낸다.
 
-![](../images/SpringBoot/websocket/2021-03-12-23-56-31.png)
+![](/images/SpringBoot/websocket/2021-03-12-23-56-31.png)
 
 <br>
 
 다시 Young에서 확인해본다.
 
-![](../images/SpringBoot/websocket/2021-03-12-23-56-49.png)
+![](/images/SpringBoot/websocket/2021-03-12-23-56-49.png)
 
 <br>
 

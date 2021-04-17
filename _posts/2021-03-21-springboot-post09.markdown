@@ -17,7 +17,7 @@ description: 참조 관계에 있는 테이블의 Auto_increment 속성의 Key�
 
 이번에는 참조관계에 있는 테이블에서 아이디에 auto_increment 속성을 줬을 때 재정렬하는 방법을 알아보겠다. 사실 코드로 따지면 단 한줄 밖에 추가되지 않는다. 현재 내가 졸업작품으로 만들고 있는 프로젝트에서 설계하고 있는 데이터베이스는 크게 아래와 같다.
 
-![](../images/SpringBoot/post09/2021-03-21-10-16-17.png)
+![](/images/SpringBoot/post09/2021-03-21-10-16-17.png)
 
 <br>
 

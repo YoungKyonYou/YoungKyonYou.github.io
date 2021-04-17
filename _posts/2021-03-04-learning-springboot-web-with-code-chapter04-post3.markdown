@@ -120,7 +120,7 @@ public class PageResultDTO<DTO, EN> {
 
 결과는 아래와 같다. 처리된 결과를 보면 현재 페이지가 1인 경우 PREV는 false, NEXT는 true 등의 처리 결과를 확인할 수 있고, 마지막의 번호는 화면상에서 출력되어야 하는 페이지의 번호이다.
 
-![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-04-14-59-51.png)
+![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-04-14-59-51.png)
 
 <br>
 
@@ -165,7 +165,7 @@ GuestbookController에서 list()에는 파라미터로 PageRequestDTO를 이용�
 
 list()에는 Model을 이용해서 GuestbookServiceImpl에서 반환하는 PageResultDTO를 'result'라는 이름으로 전달한다. 실제 내용을 출력하는 list.html에서는 부트스트랩의 테이블 구조를 이용해서 출력한다.
 
-![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-04-15-12-20.png)
+![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-04-15-12-20.png)
 
 <br>
 
@@ -204,7 +204,7 @@ list()에는 Model을 이용해서 GuestbookServiceImpl에서 반환하는 PageR
 
 앱을 실행해서 해당 뷰를 확인해 본다.
 
-![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-04-15-26-34.png)
+![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-04-15-26-34.png)
 
 <br>
 
@@ -213,7 +213,7 @@ list()에는 Model을 이용해서 GuestbookServiceImpl에서 반환하는 PageR
 - /guestbook/list 혹은 /guestbook/list?page=1의 경우 아래와 같이 1페이지가 출력된다.
 - /guestbook/list?page=2와 같이 페이지 번호를 변경하면 해당 페이지가 나온다.
 
-![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-04-15-30-50.png)
+![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-04-15-30-50.png)
 
 <br>
 
@@ -259,13 +259,13 @@ list.html에는 아래와 같은 코드를 이용해서 화면에 페이지가 �
 
 페이지의 '이전(previous)'과 '다음(next)' 부분은 Thymeleaf의 if를 이용해서 처리하고, 페이지 중간에 현재 페이지 여부를 체크해서 'active'라는 이름의 클래스가 출력되도록 작성한다. 브라우저로 확인하면 아래와 같은 페이지 번호들이 출력되는 것을 확인할 수 있다.
 
-![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-04-16-09-19.png)
+![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-04-16-09-19.png)
 
 <br>
 
 아직 링크나 이벤트 처리가 없는 상태이므로 페이지 번호를 이동하기 위해서는 브라우저의 주소창에서 page 파라미터 값을 변경해야만 가능하다. 예를 들어 '/guestbook/list?page=13'과 같이 주소창을 수정하면 다음과 같이 페이지 처리가 되는 결과를 볼 수 있다.
 
-![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-04-16-10-38.png)
+![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-04-16-10-38.png)
 
 <br>
 
@@ -314,7 +314,7 @@ Thymeleaf를 이용하는 경우에는 링크 처리가 좀 더 수월한 편이
 
 옆에 `<li class="~">` 가 th:each로 인해 생기는 것을 볼 수 있다. 해당 링크를 클릭하면 url의 page 파라미터에 값이 설정되서 해당 페이지로 이동되는 것이다.
 
-![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-04-16-34-20.png)
+![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-04-16-34-20.png)
 
 <br>
 

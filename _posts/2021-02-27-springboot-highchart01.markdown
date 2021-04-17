@@ -21,7 +21,7 @@ Highchart가 뭔지 간략하게 살펴보자. 하이차트는 자바스크립�
 
 <br>
 
-![](../images/SpringBoot/highchart/2021-02-27-20-18-58.png)
+![](/images/SpringBoot/highchart/2021-02-27-20-18-58.png)
 
 <br>
 
@@ -33,9 +33,9 @@ Highchart가 뭔지 간략하게 살펴보자. 하이차트는 자바스크립�
 
 새로운 프로젝트를 만든다.
 
-![](../images/SpringBoot/highchart/2021-02-27-20-21-34.png)
+![](/images/SpringBoot/highchart/2021-02-27-20-21-34.png)
 
-![](../images/SpringBoot/highchart/2021-02-27-20-22-11.png)
+![](/images/SpringBoot/highchart/2021-02-27-20-22-11.png)
 
 <br>
 
@@ -58,23 +58,23 @@ Highchart가 뭔지 간략하게 살펴보자. 하이차트는 자바스크립�
 
 아래 그림과 같은 경로로 가다보면 time_series_covid19_confirmed_global.csv이라는 파일을 볼 수 있다. 그것을 클릭하면 사진에서 보는 것과 같이 모든 나라의 확진자 수를 날짜별로 보여주고 있다. 굳이 여기서 데이터를 가져오는 이유는 이 csv 파일은 매일매일 실시간으로 업데이트 되기 때문이다. 그럼으로 우리는 매일매일의 최신 데이터를 그대로 이 파일을 통해 가져오면 되는 것이다.
 
-![](../images/SpringBoot/highchart/2021-02-27-20-25-56.png)
+![](/images/SpringBoot/highchart/2021-02-27-20-25-56.png)
 
 <br>
 
 위 사진에서 오른쪽 중간에 Raw 라고 되어 있는 버튼을 눌러보자. 그러면 아래와 같은 데이터들이 나올 것이다. 이 페이지의 링크를 저장해 놓는다.
 
-![](../images/SpringBoot/highchart/2021-02-27-20-31-21.png)
+![](/images/SpringBoot/highchart/2021-02-27-20-31-21.png)
 
 이제 다시 프로젝트로 돌아가자. 아래 사진과 같이 패키지와 자바 클래스를 만든다. 그리고 gradle에 들어가서 csv 파싱을 위해 우리가 사용할 'Commons Csv' 라이브러리와 opencsv를 사용하기 위한 작업을 한다.
 
-![](../images/SpringBoot/highchart/2021-02-27-21-02-56.png)
+![](/images/SpringBoot/highchart/2021-02-27-21-02-56.png)
 
 <br>
 
 **build.gradle**
 
-![](../images/SpringBoot/highchart/2021-02-27-21-07-26.png)
+![](/images/SpringBoot/highchart/2021-02-27-21-07-26.png)
 
 ```java
   implementation group: 'com.opencsv', name: 'opencsv', version: '3.7'
@@ -85,7 +85,7 @@ Highchart가 뭔지 간략하게 살펴보자. 하이차트는 자바스크립�
 
 **바뀐 의존성을 적용하는 버튼**
 
-![](../images/SpringBoot/highchart/2021-02-27-20-38-07.png)
+![](/images/SpringBoot/highchart/2021-02-27-20-38-07.png)
 
 이제 다시 우리가 방금 생성했던 자바 클래스 중 CoronaVirusDataService.java에 들어가서 코드를 작성해 보자.
 
@@ -246,7 +246,7 @@ public class HomeController {
 
 다음은 html 파일을 생성할 차례다. 그 전에 아래 그림과 같이 디렉토리와 파일들을 생성한다.
 
-![](../images/SpringBoot/highchart/2021-02-27-22-33-59.png)
+![](/images/SpringBoot/highchart/2021-02-27-22-33-59.png)
 
 **index.css**
 
@@ -409,13 +409,13 @@ p {
 
 자 이제 모든 것이 완성 되었다. 앱을 실행시켜 보자. 아래 그림과 같이 선 그래프에 날짜별 일일 확진자수를 표시하는 것을 볼 수 있다.
 
-![](../images/SpringBoot/highchart/2021-02-27-22-36-57.png)
+![](/images/SpringBoot/highchart/2021-02-27-22-36-57.png)
 
 <br>
 
 우리가 한 것은 단순히 일일 확진자 밖에 없지만 여기에는 격리해제, 그리고 사망자 수도 포함시킬 수도 있다. 하지만 우리가 파싱한 csv 파일은 단순히 전체 확진자수만을 보여줌으로 다른 데이터를 얻을 수 없다. 하지만 아래 사진과 같이 사망자 수를 정리한 csv 파일, 격리해제된 csv 파일 등 많은 데이터를 볼 수 있다.
 
-![](../images/SpringBoot/highchart/2021-02-27-22-40-31.png)
+![](/images/SpringBoot/highchart/2021-02-27-22-40-31.png)
 
 <br>
 

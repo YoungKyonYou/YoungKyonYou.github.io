@@ -35,7 +35,7 @@ SELECT @@global.time_zone, @@session.time_zone;
 
 지금은 +09:00으로 양쪽다 되어 있지만 원래는 이게 설정전에는 **SYSTEM**으로 둘다 나온다.
 
-![](../images/SpringBoot_Error/post2/2021-04-03-17-08-14.png)
+![](/images/SpringBoot_Error/post2/2021-04-03-17-08-14.png)
 
 <br>
 
@@ -59,7 +59,7 @@ SELECT CURRENT_TIMESTAMP();
 
 위 코드를 치게 되면 아래 사진과 같이 나온다.
 
-![](../images/SpringBoot_Error/post2/2021-04-03-17-14-48.png)
+![](/images/SpringBoot_Error/post2/2021-04-03-17-14-48.png)
 
 <br>
 

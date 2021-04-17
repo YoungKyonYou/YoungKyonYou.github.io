@@ -16,7 +16,7 @@ description: 게시판 만들기
 
 데이터를 추가하는 작업을 PK 쪽에서부터 시작하는 것이 좋다. 프로젝트를 다음 그림과 같이 구성한다.
 
-![](../images/Learning_SpringBoot_with_Web_Project/Part3/Chapter5/2021-02-17-19-16-01.png)
+![](/images/Learning_SpringBoot_with_Web_Project/Part3/Chapter5/2021-02-17-19-16-01.png)
 
 <br>
 
@@ -150,13 +150,13 @@ insertReply()는 300개의 댓글을 1~100 사이의 번호로 추가한다. 데
 
 - 목록 화면: 게시글의 번호, 제목, 댓글 개수, 작성자의 이름/이메일
 
-![](../images/Learning_SpringBoot_with_Web_Project/Part3/Chapter5/2021-02-17-19-36-04.png)
+![](/images/Learning_SpringBoot_with_Web_Project/Part3/Chapter5/2021-02-17-19-36-04.png)
 
 <br>
 
 - 조회 화면: 게시글의 번호, 제목, 내용, 댓글 개수, 작성자 이름/이메일
 
-![](../images/Learning_SpringBoot_with_Web_Project/Part3/Chapter5/2021-02-17-19-36-55.png)
+![](/images/Learning_SpringBoot_with_Web_Project/Part3/Chapter5/2021-02-17-19-36-55.png)
 
 <br>
 
@@ -197,7 +197,7 @@ Reply와 Board 역시 @ManyToOne의 관계이므로 테스트를 하면 자동�
 
 위 코드를 실행하면 조인이 처리된 쿼리가 실행이 된다.
 
-![](../images/Learning_SpringBoot_with_Web_Project/Part3/Chapter5/2021-02-18-12-26-49.png)
+![](/images/Learning_SpringBoot_with_Web_Project/Part3/Chapter5/2021-02-18-12-26-49.png)
 
 <br>
 
@@ -208,7 +208,7 @@ Reply와 Board 역시 @ManyToOne의 관계이므로 테스트를 하면 자동�
 즉시 로딩이 불필요한 조인까지 처리한다면 그와 반대되는 개념이 'Lazy Loading'이다. 
 Board 클래스를 수정해보자.
 
-![](../images/Learning_SpringBoot_with_Web_Project/Part3/Chapter5/2021-02-18-12-30-23.png)
+![](/images/Learning_SpringBoot_with_Web_Project/Part3/Chapter5/2021-02-18-12-30-23.png)
 
 <br>
 
@@ -327,7 +327,7 @@ getBoardWithWriter()는 Board를 사용하고 있지만, Member를 같이 조회
 
 테스트 코드의 실행 결과를 보면 지연 로딩으로 처리되었으나 실행되는 쿼리를 보면 조인 처리가 되어 한 번에 board 테이블과 member 테이블을 이용하는 것을 확인할 수 있다.
 
-![](../images/Learning_SpringBoot_with_Web_Project/Part3/Chapter5/2021-02-18-12-54-46.png)
+![](/images/Learning_SpringBoot_with_Web_Project/Part3/Chapter5/2021-02-18-12-54-46.png)
 
 작동하는 원리를 보면 BoardRepository 인터페이스의 getBoardWithWriter 함수의 매개변수 bno가 위의 @Query부분의 마지막 b.bno=:bno에서 =:bno의 들어가게된다. 그러면 이 bno를 기준으로해서 Board b에 writer를 Left outer join하는 것이다.
 @Query부분을 보면 select b, w 이 부분은 board의 b 그리고 member의 w인데 각 엔티티의 where 조건에 해당하는 모든 필드들을 가져온다. 
@@ -369,7 +369,7 @@ Board와 Member 사이에는 내부적으로 참조를 통해서 연관관계가
 
 이 코드를 실행하면 다음과 같은 결과가 나온다.
 
-![](../images/Learning_SpringBoot_with_Web_Project/Part3/Chapter5/2021-02-18-13-32-38.png)
+![](/images/Learning_SpringBoot_with_Web_Project/Part3/Chapter5/2021-02-18-13-32-38.png)
 
 다시 목록 화면에서 필요한 데이터를 정리해 보자
 
@@ -439,9 +439,9 @@ BoardRepositoryTests에는 정상적으로 JPQL이 동작 가능한지 확인해
 ```
 1페이지의 데이터를 처리한다고 가정하고 페이지 번호는 0으로 지정하고, 10개를 조회한다. 위의 테스트 코드의 실행 결과로 발생하는 쿼리 결과는 아래와 같다.
 
-![](../images/Learning_SpringBoot_with_Web_Project/Part3/Chapter5/2021-02-18-13-52-41.png)
+![](/images/Learning_SpringBoot_with_Web_Project/Part3/Chapter5/2021-02-18-13-52-41.png)
 
-![](../images/Learning_SpringBoot_with_Web_Project/Part3/Chapter5/2021-02-18-13-52-56.png)
+![](/images/Learning_SpringBoot_with_Web_Project/Part3/Chapter5/2021-02-18-13-52-56.png)
 
 _혹여나 countQuery에 대해 궁금한 게 있다면 책의 80pg를 참고한다_
 

@@ -15,7 +15,7 @@ description: th:inline 속성
 
 먼저 프로젝트를 생성해 보자.
 
-![](../images/SpringBoot/Thymeleaf/2021-03-01-16-59-05.png)
+![](/images/SpringBoot/Thymeleaf/2021-03-01-16-59-05.png)
 
 <br>
 
@@ -28,13 +28,13 @@ description: th:inline 속성
 
 을 설정한다.
 
-![](../images/SpringBoot/Thymeleaf/2021-03-01-16-59-53.png)
+![](/images/SpringBoot/Thymeleaf/2021-03-01-16-59-53.png)
 
 <br>
 
 프로젝트가 완성되었으면 applicaton.properties를 열고 다음 내용을 추가해 준다.
 
-![](../images/SpringBoot/Thymeleaf/2021-03-01-17-01-49.png)
+![](/images/SpringBoot/Thymeleaf/2021-03-01-17-01-49.png)
 
 <br>
 
@@ -44,7 +44,7 @@ description: th:inline 속성
 
 exInline() 메소드는 내부적으로 RedirectAttributes를 이용하여 '/ex3'으로 result와 dto라는 이름의 데이터를 심어서 전달한다. result는 단순한 문자열이지만, dto는 SampleDTO의 객체이다.
 
-![](../images/SpringBoot/Thymeleaf/2021-03-01-17-07-29.png)
+![](/images/SpringBoot/Thymeleaf/2021-03-01-17-07-29.png)
 
 <br>
 
@@ -116,7 +116,7 @@ public class SampleController{
 
 실제 화면은 ex3.html로 확인할 수 있으므로 templates 폴더에 추가한다.
 
-![](../images/SpringBoot/Thymeleaf/2021-03-01-17-08-50.png)
+![](/images/SpringBoot/Thymeleaf/2021-03-01-17-08-50.png)
 
 <br>
 
@@ -151,7 +151,7 @@ _아래 사진과 같이 별도의 처리가 없음에도 불구하고 문자열
 
 만일 위의 코드를 javaScript 객체로 변환해서 사용하고자 한다면 간단히 JSON.parse('\"'+dto+'\'"); 와 같은 형태로 ""을 추가해서 사용할 수 있다.
 
-![](../images/SpringBoot/Thymeleaf/2021-03-01-17-13-52.png)
+![](/images/SpringBoot/Thymeleaf/2021-03-01-17-13-52.png)
 
 <br>
 

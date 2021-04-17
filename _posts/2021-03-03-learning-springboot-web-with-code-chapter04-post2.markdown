@@ -25,7 +25,7 @@ DTO는 엔티티 객체와 달리 각 계층끼리 주고받는 우편물이나 
 
 아래와 같이 패키지와 파일을 생성한다.
 
-![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-14-42-46.png)
+![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-14-42-46.png)
 
 <br>
 
@@ -103,7 +103,7 @@ GuesbookServiceImpl 클래스에는 스프링에서 빈으로 처리되록 @Serv
 
 ModelMapper 라이브러리를 사용하려면 일단 build.gradle에 코드를 추가해야 한다.
 
-![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-15-13-38.png)
+![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-15-13-38.png)
 
 <br>
 
@@ -182,7 +182,7 @@ public class GuestbookServiceImpl implements GuestbookService{
 
 이제 테스트 코드를 작성해 본다. test 폴더에 service 패키지를 추가하고 아래의 코드를 작성한다.
 
-![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-15-27-41.png)
+![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-15-27-41.png)
 
 <br>
 
@@ -217,7 +217,7 @@ public class GuestbookServiceTests {
 
 결과는 아래와 같다.
 
-![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-15-29-28.png)
+![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-15-29-28.png)
 
 <br>
 
@@ -266,7 +266,7 @@ GuestbookServiceImpl 클래스는 JPA 처리를 위해서 GuestbookRepository를
 
 일단 결과 화면의 구성을 보자.
 
-![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-15-37-39.png)
+![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-15-37-39.png)
 
 <br>
 
@@ -278,7 +278,7 @@ GuestbookServiceImpl 클래스는 JPA 처리를 위해서 GuestbookRepository를
 
 화면에서 전달되는 목록 관련된 데이터에 대한 DTO를 PageRequestDTO라는 이름으로 생성하고, 화면에서 필요한 결과는 PageResultDTO라는 이름의 클래스로 생성한다.
 
-![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-15-45-09.png)
+![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-15-45-09.png)
 
 <br>
 
@@ -359,7 +359,7 @@ public class PageResultDTO<DTO, EN> {
 
 PageResultDTO 클래스는 다양한 곳에서 사용할 수 있도록 제네릭 타입을 이용해서 DTO와 EN이라는 타입을 지정한다. 말 그대로 DTO와 Entity 타입을 의미한다. PageResultDTO는 Page\<Entity> 타입을 이용해서 생성할 수 있도록 생성자로 작성한다. 이때 특별한 Function\<EN,DTO>는 엔티티 객체들을 DTO로 변환해 주는 기능이다.
 
-![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-15-57-25.png)
+![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-15-57-25.png)
 
 <br>
 
@@ -473,7 +473,7 @@ getList()에서 눈여겨 볼 부분은 entityToDTO()를 이용해서 java.util.
 
 결과는 아래와 같다.
 
-![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-04-13-18-31.png)
+![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-04-13-18-31.png)
 
 <br>
 

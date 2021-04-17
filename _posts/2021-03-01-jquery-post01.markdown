@@ -77,7 +77,7 @@ dataType은 서버가 응답(response)할 때 보내주는 데이터의 타입�
 
 processData 관련하여, 일반적으로 서버에 전달되는 데이터는 query string 이라는 형태로 전달된다. (아래 빨간 부분)
 
-**ex)**(()) http://example.com/over/there?**title=Main_page&action=raw**
+**ex)** **http://example.com/over/there?title=Main_page&action=raw**
 
 data 파라미터로 전달된 데이터를 jQuery 내부적으로 query string 으로 만드는데, 파일 전송의 경우 이를 하지 않아야 하고 이를 설정하는 것이 processData: false 이다.
 
