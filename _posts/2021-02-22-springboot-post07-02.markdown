@@ -24,7 +24,7 @@ _이 프로젝트는 **Java Brains** 유투브 영상을 보며 공부한 것을
 자 이제 본격적으로 서비스를 만들어보자.
 아래 사진과 같이 services 패키지를 만들고 그 아래 CoronaVirusDataService 자바 클래스를 생성한다.
 
-![](/images/Program/post-7/2021-02-22-10-42-04.png)
+![](../images/Program/post-7/2021-02-22-10-42-04.png)
 
 <br>
 
@@ -86,7 +86,7 @@ public class CoronaVirusDataService {
 
 자 이제 어플리케이션을 실행해서 결과가 잘 나오는지 확인해본다.
 
-![](/images/Program/post-7/2021-02-22-15-42-26.png)
+![](../images/Program/post-7/2021-02-22-15-42-26.png)
 
 <br>
 
@@ -110,7 +110,7 @@ compile 'org.apache.commons:commons-csv:1.8'
 
 를 추가하고 sync를 한다. 이 라이브러리를 이용해서 System.out.println()으로 찍어냈던 httpResponse.body()를 다른 객체로 parse 해서 사용할 수 있다. 출력한 것에서 나라, 위도, 확진자 수 등을 뽑아낼 수 있다.
 
-![](/images/Program/post-7/2021-02-22-15-46-20.png)
+![](../images/Program/post-7/2021-02-22-15-46-20.png)
 
 <br>
 
@@ -120,13 +120,13 @@ compile 'org.apache.commons:commons-csv:1.8'
 
 user guide를 보다가 눈에 띄는 것이 있었다. 바로 **Header auto detection**이였다.
 
-![](/images/Program/post-7/2021-02-22-15-52-27.png)
+![](../images/Program/post-7/2021-02-22-15-52-27.png)
 
 <br>
 
 다시 Raw 데이터를 살펴보면 상단 왼쪽에 각 데이터의 컬럼이 표시되어 있는 것을 볼 수 있다.
 
-![](/images/Program/post-7/2021-02-22-15-53-53.png)
+![](../images/Program/post-7/2021-02-22-15-53-53.png)
 
 <br>
 
@@ -180,7 +180,7 @@ public class CoronaVirusDataService {
 
 - RFC4180은 document에서 표준 쉼표 분리 값 포맷이고 빈줄은 무시한다고 일컫어져 있다.
 
-![](/images/Program/post-7/2021-02-22-16-00-29.png)
+![](../images/Program/post-7/2021-02-22-16-00-29.png)
 
 <br>
 
@@ -230,7 +230,7 @@ public class CoronaVirusDataService {
 
 어플리케이션을 실행해서 제대로 출력이 되나 확인한다.
 
-![](/images/Program/post-7/2021-02-22-16-19-28.png)
+![](../images/Program/post-7/2021-02-22-16-19-28.png)
 
 <br>
 

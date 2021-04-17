@@ -180,7 +180,7 @@ Spring Data JPA의 경우 여러 처리를 위해 다음과 같은 방법을 제
 보시다시피 findById 부분인 2번을 읽어보면
 "주어진 아이디로 해당 엔티티를 식별할 수 있다"라고 되어 있다.
 
-![ref](/images/Learning_SpringBoot_with_Web_Project/Part4/Chapter7/ref.PNG)
+![ref](../images/Learning_SpringBoot_with_Web_Project/Part4/Chapter7/ref.PNG)
 <br><br>
 
 다시 본론으로 돌아와서 testGetMovieReview()를 테스트해 보면 문제가 발생한다. 이것은 Review 클래스의 Member에 대한 Fetch 방식이 LAZY이기 때문이다. 즉 한 번에 Review 객체와 Member 객체를 조회할 수 없기 때문에 발생한다.
@@ -245,7 +245,7 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
 
 MemberRepository는 JpaRepository의 기능만으로 삭제가 가능하므로 추가할 메서드는 없다. MemberRepositoryTests에는 ReviewRepository를 추가로 주입하고 테스트 코드를 작성한다.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part4/Chapter7/2021-02-10-20-13-59.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part4/Chapter7/2021-02-10-20-13-59.png)
 
 **ReviewRepositoryTests 클래스 일부**
 

@@ -149,7 +149,7 @@ GuestbookController에서는 GET 방식으로 gno 값을 받아서 Model에 Gues
 
 수정과 삭제의 모든 시작은 GET 방식으로 진입하는 '수정' 화면에서 작업을 선택해서 처리하게 된다.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-05-15-15-57.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-05-15-15-57.png)
 
 <br>
 
@@ -182,7 +182,7 @@ GuestbookController에서는 GET 방식으로 gno 값을 받아서 Model에 Gues
 
 화면으로 사용하는 modify.html을 생성하고 read.html을 복사해서 그대로 추가한다. modify.html는 가장 먼저 화면의 `<h1>` 태그의 내용을 수정한다.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-05-15-21-04.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-05-15-21-04.png)
 
 <br>
 

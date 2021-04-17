@@ -35,17 +35,17 @@ _해당 내용은 책 '코드로 배우는 스프링부트 웹 프로젝트'의 
 - 조회 화면(번호 3) - 목록 화면에서 특정한 글을 선택하면 자동으로 조회 화면으로 이동한다. 조회 화면에서는 수정/삭제가 가능한 화면(번호 4)으로 버튼을 클릭해서 이동할 수 있다.
 - 수정/삭제 화면(번호 4) - 수정 화면에서 삭제가 가능하고 삭제 후에는 목록 페이지로 이동한다. 글을 수정하는 경우에는 다시 조회 화면(번호 2)으로 이동해서 수정된 내용을 확인할 수 있다.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-02-17-06-40.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-02-17-06-40.png)
 
 <br>
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-02-17-16-17.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-02-17-16-17.png)
 
 <br>
 
 프로젝트의 기본 구조는 아래 사진과 같다.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-02-17-16-47.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-02-17-16-47.png)
 
 <br>
 
@@ -54,7 +54,7 @@ _해당 내용은 책 '코드로 배우는 스프링부트 웹 프로젝트'의 
 - GuestbookRepository는 Spring Data JPA를 이용해서 구성하고, GuestbookServiceImpl 클래스에 주입해서 사용한다.
 - 마지막 결과는 Thymeleaf를 이용해서 레이아웃 템플릿을 활용해서 처리한다.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-02-17-21-10.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-02-17-21-10.png)
 
 <br>
 
@@ -63,7 +63,7 @@ _해당 내용은 책 '코드로 배우는 스프링부트 웹 프로젝트'의 
 
 자 이제 프로젝트를 생성해 보자.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-02-17-23-19.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-02-17-23-19.png)
 
 <br>
 
@@ -77,13 +77,13 @@ _해당 내용은 책 '코드로 배우는 스프링부트 웹 프로젝트'의 
 
 를 체크한다.
 
-![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-02-17-23-58.png)
+![](..../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-02-17-23-58.png)
 
 <br>
 
 이제 데이터베이스 관련 드라이버 추가를 할 차례이다. 책에서는 MariaDB관련 JDBC 드라이버를 추가했지만 나는 MySql 관련 JDBC 드라이버를 추가한다. 그리고 Thymeleaf에서 사용하게 될 java8 날짜 관련 라이브러리도 추가한다.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-02-17-30-27.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-02-17-30-27.png)
 
 <br>
 
@@ -98,7 +98,7 @@ _해당 내용은 책 '코드로 배우는 스프링부트 웹 프로젝트'의 
 
 그리고 데이터베이스 관련 설정도 추가한다.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-02-17-30-49.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-02-17-30-49.png)
 
 <br>
 
@@ -122,11 +122,11 @@ spring.thymeleaf.cache=false
 
 컨트롤러/화면 관련 준비는 이전 장에서 작성해 둔 layout 폴더를 그대로 사용한다.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-02-17-32-56.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-02-17-32-56.png)
 
 <br>
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-02-17-33-03.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-02-17-33-03.png)
 
 <br>
 
@@ -161,7 +161,7 @@ public class GuestbookController {
 
 컨트롤러가 제대로 작동하는지 보기 위해 일단 list.html은 layout 폴더의 basic.html을 이용하는 구조로 작성하고 간단한 텍스트를 출력하는 내용으로 작성한다.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-02-17-38-23.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-02-17-38-23.png)
 
 <br>
 
@@ -184,7 +184,7 @@ public class GuestbookController {
 
 자 이제 앱을 실행해 보자. http://localhost:8080/guestbook/으로 접속하거나 http://localhost:8080/guestbook/list 로 접속해도 똑같은 뷰가 보인다. 이유는 앞에 Controller에서 @GetMapping 어노테이션 안에 "/" 이것과 "list" 두 개를 넣어줬기 때문이다.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-02-17-49-01.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-02-17-49-01.png)
 
 <br>
 
@@ -257,7 +257,7 @@ public class GuestbookApplication {
 
 이제 새로운 엔티티 클래스인 Guestbook를 추가한다. 그리고 코드를 추가하자.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-12-49-08.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-12-49-08.png)
 
 <br>
 
@@ -300,7 +300,7 @@ public class Guestbook extends BaseEntity{
 
 엔티티 클래스를 만들었으니 이제 새로운 패키지를 추가하고 GuestbookRepository 인터페이스를 작성한다.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-12-52-37.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-12-52-37.png)
 
 <br>
 
@@ -332,29 +332,29 @@ build.gradle 파일에 다음과 같은 내용을 처리한다
 <br>
 
 **build.gradle plugin 추가**
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-13-01-51.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-13-01-51.png)
 
 <br>
 
 **build.gradle dependencies 추가**
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-13-02-23.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-13-02-23.png)
 
 <br>
 
 **build.gralde task 생성**
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-13-03-28.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-13-03-28.png)
 
 <br>
 
 이렇게 추가가 다 끝나고 build.gradle 파일이 갱신되면 아래 사진과 같이 compileQuerydsl이라는 실행 가능한 task가 추가된 것을 확인할 수 있다.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-13-05-32.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-13-05-32.png)
 
 <br>
 
 이것을 실행하면 프로젝트 내 build 폴더 안에 다음과 같은 구조가 생성된다.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-13-06-26.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-13-06-26.png)
 
 <br>
 
@@ -399,7 +399,7 @@ public class GuestbookRepositoryTests {
 
 그리고 테스트를 실행하면 mysql에 데이터가 정상적으로 들어가는 것을 볼 수 있다.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-13-17-12.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-13-17-12.png)
 
 <br>
 
@@ -523,7 +523,7 @@ Querydsl의 사용법은 다음과 같다.
 
 테스트 코드를 실행한 후 결과는 아래 사진과 같다.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-13-58-12.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-13-58-12.png)
 
 <br>
 
@@ -566,7 +566,7 @@ Querydsl의 사용법은 다음과 같다.
 
 테스트 코드를 실행하면 결과는 아래 사진과 같다.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-14-21-56.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-03-14-21-56.png)
 
 <br>
 

@@ -21,14 +21,14 @@ description: yarn start 에러-Failed to compile
 
 _**문제는 yarn를 설치하고 yarn start를 하게 되면 바로 이러한 창이 뜬다는 것이다.**_<br>
 
-![](/images/React_Error/Error01/2021-02-17-14-14-52.png)
+![](../images/React_Error/Error01/2021-02-17-14-14-52.png)
 
 <br>
 
 아니 책에서 하라는데로 따라했는데 왜 안되지.. 하면서 머리를 싸매고 여러 번 읽었는데 잘못한 게 없다!!! 그래서 stackoverflow에서 서치를 좀 한 결과
 시작하기 전에 무엇인가를 추가해줘야 한다.
 
-![](/images/React_Error/Error01/2021-02-17-14-16-10.png)
+![](../images/React_Error/Error01/2021-02-17-14-16-10.png)
 
 <br>
 
@@ -37,7 +37,7 @@ _**문제는 yarn를 설치하고 yarn start를 하게 되면 바로 이러한 �
 프로젝트 경로에 들어가서 이 명령어를 쳐준다.
 그러면 무엇인가를 다운 받고 다시 yarn start를 해주면
 
-![](/images/React_Error/Error01/2021-02-17-14-17-29.png)
+![](../images/React_Error/Error01/2021-02-17-14-17-29.png)
 
 <br>
 

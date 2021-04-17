@@ -23,7 +23,7 @@ _이 프로젝트는 **Java Brains** 유투브 영상을 보며 공부한 것을
 
 이전 게시물에서 Commons-csv 라이브러리를 사용해서 헤더에 해당하는 값을 추출하는 것을 해봤다. 이번에는 그 값들을 저장할 수 있는 클래스를 만들고 리스트에 그 값들을 담아보겠다. 먼저 model 패키지와 그 안에 LocationStats.java 파일을 만든다.
 
-![](/images/Program/post-7/2021-02-22-16-44-56.png)
+![](../images/Program/post-7/2021-02-22-16-44-56.png)
 
 <br>
 
@@ -159,13 +159,13 @@ public class CoronaVirusDataService {
 
 어플리케이션을 실행시키면 아래 사진과 같이 결과가 잘 나오는 것을 볼 수 있다.
 
-![](/images/Program/post-7/2021-02-22-17-19-24.png)
+![](../images/Program/post-7/2021-02-22-17-19-24.png)
 
 <br>
 
 이제 할 것은 이 데이터를 ui 포맷으로 랜더링하는 것이다. url에 접근하여 이 stats를 랜더링하여 html 파일에서 사용하는 것이다. Controller를 만들어보자. 그전에 먼제 html 파일을 만들고 thymeleaf 공식 홈페이지에서 쓸만한 템플릿을 복사해서 붙여넣는다.
 
-![](/images/Program/post-7/2021-02-22-17-33-22.png)
+![](../images/Program/post-7/2021-02-22-17-33-22.png)
 
 <br>
 
@@ -173,7 +173,7 @@ public class CoronaVirusDataService {
 
 이 사이트에서 쓸만한 템플릿을 찾는다.
 
-![](/images/Program/post-7/2021-02-22-17-34-21.png)
+![](../images/Program/post-7/2021-02-22-17-34-21.png)
 
 <br>
 
@@ -207,7 +207,7 @@ public class CoronaVirusDataService {
 
 이제 controller를 구성한다. 패키지와 자바 파일을 생성한다.
 
-![](/images/Program/post-7/2021-02-22-17-36-14.png)
+![](../images/Program/post-7/2021-02-22-17-36-14.png)
 
 <br>
 
@@ -260,7 +260,7 @@ html를 다시 수정하자. Thymeleaf로 addAttribute 했던 값을 받아오�
 
 어플리케이션을 실행해서 제대로 작동하는지 확인해본다.
 
-![](/images/Program/post-7/2021-02-22-17-47-57.png)
+![](../images/Program/post-7/2021-02-22-17-47-57.png)
 
 <br>
 
@@ -314,9 +314,9 @@ iteration 카테고리 쪽을 살펴보니 쓸만한 코드가 보인다. 여기
 
 **[Thymeleaf Document](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#using-theach)**
 
-![](/images/Program/post-7/2021-02-22-17-57-25.png)
+![](../images/Program/post-7/2021-02-22-17-57-25.png)
 
-![](/images/Program/post-7/2021-02-22-17-58-17.png)
+![](../images/Program/post-7/2021-02-22-17-58-17.png)
 
 <br>
 
@@ -354,7 +354,7 @@ iteration 카테고리 쪽을 살펴보니 쓸만한 코드가 보인다. 여기
 
 이제 다시 어플리케이션을 시작해보자.
 
-![](/images/Program/post-7/2021-02-22-18-03-34.png)
+![](../images/Program/post-7/2021-02-22-18-03-34.png)
 
 <br>
 
@@ -364,7 +364,7 @@ iteration 카테고리 쪽을 살펴보니 쓸만한 코드가 보인다. 여기
 
 **[Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)**
 
-![](/images/Program/post-7/2021-02-22-18-05-56.png)
+![](../images/Program/post-7/2021-02-22-18-05-56.png)
 
 이제 복사한 css link를 home.html에 붙여넣기를 한다.
 
@@ -390,7 +390,7 @@ iteration 카테고리 쪽을 살펴보니 쓸만한 코드가 보인다. 여기
 
 부트스트랩에서 제공하는 Components 템플릿을 사용할 건데 해당 영상에서는 jumbotron를 사용하지만 부트스트랩에서 이제는 제공하지 않아서 다른 것을 사용했다. 그래서 Component 중 Alerts에 있는 것을 사용했다. 그리고 항목을 몇가지 더 추가했다. ${locationStat.diffFromPrevDay}는 전날과 비교해서 확진자 수가 얼마나 늘었는지 보여주는 항목이다. 그리고 ${totalReportedCases}는 국가별 전체 확진자 수를 나타내고 ${totalReportedCases}는 전세계적으로 전날과 비교해서 총 확진자 수를 나타내준다. 마지막으로 ui가 좀 더 정돈되게 나오게 하기 위해서 <div class="container">로 body 태그 내부를 감싸준다.
 
-![](/images/Program/post-7/2021-02-22-18-17-07.png)
+![](../images/Program/post-7/2021-02-22-18-17-07.png)
 
 이제 html를 다시 고쳐보자
 
@@ -546,7 +546,7 @@ public class HomeController {
 
 우리가 하고자 하는 것이 끝났다. 이제 어플리케이션을 실행해 보자
 
-![](/images/Program/post-7/2021-02-22-20-18-26.png)
+![](../images/Program/post-7/2021-02-22-20-18-26.png)
 
 <br>
 

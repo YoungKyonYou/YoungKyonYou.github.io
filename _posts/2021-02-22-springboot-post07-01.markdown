@@ -29,7 +29,7 @@ _이 프로젝트는 **Java Brains** 유투브 영상을 보며 공부한 것을
 
 해석하면 각 나라의 주, 나라, 전체 확진자, 전날과 비교라고 할 수 있겠다.
 
-![](/images/Program/post-7/2021-02-22-09-58-10.png)
+![](../images/Program/post-7/2021-02-22-09-58-10.png)
 
 <br>
 
@@ -48,13 +48,13 @@ _**개발로는 인텔리제이를 사용한다**_
 - 영상에서는 인텔리제이 Community 버젼으로 하지만 나는 대학생 인증을 받아서 무료로 Ultimate 버젼을 씀
 - 동영상에서는 Maven으로 작업을 하지만 나는 Gradle로 설정을 하고 Packaing은 War로 설정
 
-![](/images/Program/post-7/2021-02-22-10-08-06.png)
+![](../images/Program/post-7/2021-02-22-10-08-06.png)
 
 <br>
 
 dependencies 설정은 Spring Boot DevTools, Spring Web 그리고 Thymeleaf로 하고 생성한다.
 
-![](/images/Program/post-7/2021-02-22-10-13-09.png)
+![](../images/Program/post-7/2021-02-22-10-13-09.png)
 
 자 이제 프로젝트가 생성이 됐다. 이제 한 번 생각을 해보자. 우리는 데이터를 가지고 올 곳이 필요하다.
 
@@ -62,7 +62,7 @@ dependencies 설정은 Spring Boot DevTools, Spring Web 그리고 Thymeleaf로 �
 
 우리가 사용할 수 있는 사이트가 하나 있다.
 
-![](/images/Program/post-7/2021-02-22-10-19-17.png)
+![](../images/Program/post-7/2021-02-22-10-19-17.png)
 
 <br>
 
@@ -72,13 +72,13 @@ dependencies 설정은 Spring Boot DevTools, Spring Web 그리고 Thymeleaf로 �
 
 아래 사진과 같이 COVID-19/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv의 csv 파일을 보면 이렇게 국가별로 날짜 별 확진자 수를 잘 정리한 것을 볼 수 있다. 스크롤을 오른쪽으로 쭉 밀면 현재 이 포스트를 쓰는 21년 2월 22일의 확진자 수를 보여주고 있음을 알 수 있다.
 
-![](/images/Program/post-7/2021-02-22-10-22-01.png)
+![](../images/Program/post-7/2021-02-22-10-22-01.png)
 
 <br>
 
 이제 위 사진에서 오른쪽 중간 쯤에 있는 Raw 버튼을 눌러보자.
 
-![](/images/Program/post-7/2021-02-22-10-28-37.png)
+![](../images/Program/post-7/2021-02-22-10-28-37.png)
 
 <br>
 

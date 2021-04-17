@@ -24,7 +24,7 @@ Internet Explorer가 디폴트로 열리게 된다.
 그러므로 크롬으로 변경을 해줘야 하는데 은근히 쉽다.
 만든 프로젝트 파일로 들어가서 명령어 한줄만 입력해주면 **끝!!**
 
-![](/images/React_Setting/Setting01/2021-02-17-14-25-16.png)
+![](../images/React_Setting/Setting01/2021-02-17-14-25-16.png)
 
 > set BROWSER=chrome
 
@@ -32,7 +32,7 @@ Internet Explorer가 디폴트로 열리게 된다.
 
 그리고 나서 다시 yarn start를 해주면
 
-![](/images/React_Setting/Setting01/2021-02-17-14-26-03.png)
+![](../images/React_Setting/Setting01/2021-02-17-14-26-03.png)
 
 크롬으로 열리는 것을 볼 수 있다~!
 

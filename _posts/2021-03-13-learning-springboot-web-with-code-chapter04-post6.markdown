@@ -168,7 +168,7 @@ GuestbookServiceImpl에 작성한 getSearch()는 PageRequestDTO를 파라미터�
 
 위와 같이 서비스 영역에서 검색 조건을 처리할 수 있도록 구성했다면 테스트 코드로 결과를 확인한다.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part4/Chapter7/2021-03-13-13-34-27.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part4/Chapter7/2021-03-13-13-34-27.png)
 
 <br>
 
@@ -202,7 +202,7 @@ GuestbookServiceImpl에 작성한 getSearch()는 PageRequestDTO를 파라미터�
 
 위의 코드는 '제목(t)이나 내용(c)'에 '한글'이라는 키워드가 있는 글을 검색한다. 다시 부연 설명을 하자면 pageRequestDTO에서 size를 10으로 하는 page들로 구성하라는 의미와 'tc'는 제목과 내용을 의미한다. 거기서 keyword '한글'이라고 되어 있는 게시물을 찾는 것이다. 테스트 결과 내용과 제목이 '한글'로 되어 있는 게시물이 없기 때문에 아래와 같은 결과가 나온다.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part4/Chapter7/2021-03-13-13-44-33.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part4/Chapter7/2021-03-13-13-44-33.png)
 
 <br>
 
@@ -212,7 +212,7 @@ GuestbookServiceImpl에 작성한 getSearch()는 PageRequestDTO를 파라미터�
 
 일단 목록 화면을 처리하는 list.html에는 '검색 타입'과 '키워드'를 입력하고 '검색' 버튼을 추가해야 한다.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part4/Chapter7/2021-03-13-13-47-57.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part4/Chapter7/2021-03-13-13-47-57.png)
 
 <br>
 
@@ -276,7 +276,7 @@ list.html에는 새롭게 하나의 \<form> 태그와 \<select> 태그 등이 �
 
 <br>
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part4/Chapter7/2021-03-13-14-01-07.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part4/Chapter7/2021-03-13-14-01-07.png)
 
 <br>
 
@@ -315,11 +315,11 @@ list.html에는 새롭게 하나의 \<form> 태그와 \<select> 태그 등이 �
 
 'btn-search'를 클릭하면 새롭게 선택된 검색 타입과 키워드로 1페이지를 검색하고, 'btn-clear'를 클릭하면 모든 검색과 관련된 내용을 삭제하고 검색이 없는 목록 페이지를 호출한다. 예를 들어 '제목+내용'을 선택하고 키워드를 '123'으로 하면 다음과 같이 처리 된다.(아래 첫 번째 사진) 만일 화면에서 'Clear' 버튼을 클릭하면 모든 검색 조건과 페이지 번호는 초기화 된다. (아래 두 번째 사진)
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part4/Chapter7/2021-03-13-14-05-13.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part4/Chapter7/2021-03-13-14-05-13.png)
 
 <br>
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part4/Chapter7/2021-03-13-14-05-28.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part4/Chapter7/2021-03-13-14-05-28.png)
 
 <br>
 

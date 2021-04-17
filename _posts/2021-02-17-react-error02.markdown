@@ -28,7 +28,7 @@ $yarn start
 
 를 하는 순간 발생한 에러..
 
-![](/images/React_Error/Error02/2021-02-19-13-07-54.png)
+![](../images/React_Error/Error02/2021-02-19-13-07-54.png)
 
 <br>
 
@@ -53,7 +53,7 @@ $yarn add react-is
 
 > "styled-components는 react-is에 peerDependency가 있는데 그것을 제공하지 않아서 발생하는 문제입니다. 이것을 고치기 위해서는 react-is를 의존성으로 제공해야 합니다."
 
-![](/images/React_Error/Error02/2021-02-19-13-12-22.png)
+![](../images/React_Error/Error02/2021-02-19-13-12-22.png)
 
 덕분에 새로운 것 알아갑니다~!
 

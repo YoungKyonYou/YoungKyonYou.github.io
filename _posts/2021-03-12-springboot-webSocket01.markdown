@@ -41,7 +41,7 @@ description: WebSocket과 STOMP.js를 이용해서 채팅 앱 만들기
 
 Group 이름은 com.techlead로 하고 Artifact는 websocketpractice로 한다. 영상에서는 Maven과 Jar를 썼지만 나는 Gradle를 War로 설정해서 진행한다. (사실 Maven으로 해도 무방하다)
 
-![](/images/SpringBoot/websocket/2021-03-12-22-43-37.png)
+![](../images/SpringBoot/websocket/2021-03-12-22-43-37.png)
 
 <br>
 
@@ -55,13 +55,13 @@ Group 이름은 com.techlead로 하고 Artifact는 websocketpractice로 한다. 
 
 패키지와 자바 파일 구성은 아래 사진과 같다.
 
-![](/images/SpringBoot/websocket/2021-03-10-22-02-59.png)
+![](../images/SpringBoot/websocket/2021-03-10-22-02-59.png)
 
 <br>
 
 프로젝트를 생성했으면 자바 코드부터 생성한다. 우리는 백엔드와 프론트엔드를 만들지만 백엔드부터 만들어보자, 백엔드를 만드는 것이 더 쉽기 때문이다. 아래 사진과 같이 패키지와 프로젝트를 만든다.
 
-![](/images/SpringBoot/websocket/2021-03-12-22-45-31.png)
+![](../images/SpringBoot/websocket/2021-03-12-22-45-31.png)
 
 <br>
 

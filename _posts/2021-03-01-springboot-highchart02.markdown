@@ -17,25 +17,25 @@ description: 스프링부트로 일일 확진자 그래프 만들기
 
 **[공공데이터포털](https://www.data.go.kr/)**
 
-![](/images/SpringBoot/highchart-public-API/2021-03-01-14-00-02.png)
+![](../images/SpringBoot/highchart-public-API/2021-03-01-14-00-02.png)
 
 <br>
 
 회원가입을 하고 로그인 후 여기서 검색창에 코로나라고 검색한다. 검색해서 스크롤을 내리다보면 **오픈 API**라고 항목이 보이며 그 목록 중에 **보건복지부*코로나19 감염*현황**이라고 되어 있는 부분이 있다. 그것을 클릭한다.
 
-![](/images/SpringBoot/highchart-public-API/2021-03-01-14-03-48.png)
+![](../images/SpringBoot/highchart-public-API/2021-03-01-14-03-48.png)
 
 <br>
 
 들어오게 되면 아래 사진에서 오른쪽에 활용신청 버튼이 있다. 그것을 누르자.
 
-![](/images/SpringBoot/highchart-public-API/2021-03-01-14-04-42.png)
+![](../images/SpringBoot/highchart-public-API/2021-03-01-14-04-42.png)
 
 <br>
 
 눌러서 승인을 받게되면 일반 인증키를 발급해 준다. 이것이 바로 서비스 키이다. 이 키를 잘 보관해 둔다. 이 서비스키는 나중에 코드를 작성할 때 쓰게 된다. 자 이제 인텔리제이 프로젝트를 생성해 보자.
 
-![](/images/SpringBoot/highchart-public-API/2021-03-01-14-21-57.png)
+![](../images/SpringBoot/highchart-public-API/2021-03-01-14-21-57.png)
 
 <br>
 
@@ -48,19 +48,19 @@ description: 스프링부트로 일일 확진자 그래프 만들기
 
 을 설정한다.
 
-![](/images/SpringBoot/highchart-public-API/2021-03-01-14-22-30.png)
+![](../images/SpringBoot/highchart-public-API/2021-03-01-14-22-30.png)
 
 <br>
 
 이제 아래 그림과 같이 패키지와 자바 파일을 만든다.
 
-![](/images/SpringBoot/highchart-public-API/2021-03-01-14-25-16.png)
+![](../images/SpringBoot/highchart-public-API/2021-03-01-14-25-16.png)
 
 <br>
 
 코드를 작성하기 전에 이 API를 좀 더 자세히 살펴보자. 다시 우리가 클릭했던 **보건복지부*코로나19 감염*현황**에 들어가서 스크롤을 제일 아래까지 내리면 각 프로그래밍 언어별로 샘플 코드를 볼 수가 있다.
 
-![](/images/SpringBoot/highchart-public-API/2021-03-01-14-26-28.png)
+![](../images/SpringBoot/highchart-public-API/2021-03-01-14-26-28.png)
 
 <br>
 
@@ -128,13 +128,13 @@ public class CoronaVirusDataService {
 여기서 중요한 것은 아까 우리가 발급받은 인증키를 넣어줘야 한다. 총 2군대를 넣어줘야 하는데 바로 line 17과 line 22 부분이다. 그런데 line 17에 넣을 땐 앞 문자열 '='를 추가한체로 앞에다가 이어서 넣어준다. 지금 내가 적은 코드를 보면 쓸데없이 긴 인증키를 분해해서 ""+"" 식으로 이어 붙이고 있는데 이는 실제로는 불필요하며 내가 하는 이유는 코드의 한 줄 길이가 길어지면 이 코드 블럭에서 에러가 나기 때문에 일부로 줄 길이를 짧게 만들기 위함이다. 그렇기 때문에 나처럼 분해하지 않고 그냥 붙여넣기 하면 된다.
 코드를 정상적으로 붙여넣기 했으면 코드 바로 왼쪽의 초록색 플레이 버튼을 눌러서 실행시켜본다. (둘 중에 어느 것을 눌러도 결과는 똑같다.)
 
-![](/images/SpringBoot/highchart-public-API/2021-03-01-14-31-58.png)
+![](../images/SpringBoot/highchart-public-API/2021-03-01-14-31-58.png)
 
 <br>
 
 그리고 출력된 것을 보면 한줄로 길게 xml 형식으로 정보가 나오는 것을 볼 수가 있다.
 
-![](/images/SpringBoot/highchart-public-API/2021-03-01-14-41-25.png)
+![](../images/SpringBoot/highchart-public-API/2021-03-01-14-41-25.png)
 
 스크롤을 오른쪽으로 밀다보면 xml 형태로 2020년 3월 10일부터 2020년 3월 15일까지의 코로나 현황을 보여주는 것을 볼 수 있다. 만약 최근 코로나 현황을 보고 싶다면 어떻게 해야 할까? 바로 코드에서 날짜를 바꿔주면 된다.
 
@@ -185,13 +185,13 @@ getStartCreateDt 메소드는 시작일 문자열을 만들어준다. 이 메소
 
 그전에 중요한 것 하나를 확인하는 것을 잊었는데 그것부터 살펴보자. 내가 일반 인증키를 받았던 페이지에 들어가면 아래 그림과 같이 참고문서라고 해서 보건복지부 OpenAPI 활용가이드가 있다. 이것을 클릭해서 다운받고 열어보자.
 
-![](/images/SpringBoot/highchart-public-API/2021-03-01-14-55-12.png)
+![](../images/SpringBoot/highchart-public-API/2021-03-01-14-55-12.png)
 
 <br>
 
 word 파일이 열리면 스크롤을 아래로 쭉 내리다보면 **요청/응답 메시지 에제**가 나오는 것을 볼 수 있다.
 
-![](/images/SpringBoot/highchart-public-API/2021-03-01-14-56-19.png)
+![](../images/SpringBoot/highchart-public-API/2021-03-01-14-56-19.png)
 
 <br>
 
@@ -404,13 +404,13 @@ public class CoronaVirusDataService {
 > **line 138**: initialData 에서는 샘플 코드를 사용하고 앞에서 만든 xmlApiTest 메소드에 url 파라미터를 넘겨주고 호출한다. 이 메소드는 @Scheduled 어노테이션을 사용함으로써 매일 한 번식 자동으로 호출이 된다. PostConstruct 어노테이션은 어플리케이션이 시작되면 스프링이 이 서비스 객체를 만들게 되고 객체를 다 생성하고 나면 이 @PostConstruct 어노테이션이
 > 있는 메소드를 자동으로 실행시켜준다. **@Scheduled** 어노테이션이 동작하게 하려면 아래 그림과 같이 @EnableScheduling를 꼭 추가해야 한다.
 
-![](/images/SpringBoot/highchart-public-API/2021-03-01-15-41-42.png)
+![](../images/SpringBoot/highchart-public-API/2021-03-01-15-41-42.png)
 
 <br>
 
 이제 아래 그림과 같이 컨트롤러 클래스를 만든다.
 
-![](/images/SpringBoot/highchart-public-API/2021-03-01-15-46-06.png)
+![](../images/SpringBoot/highchart-public-API/2021-03-01-15-46-06.png)
 
 <br>
 
@@ -453,7 +453,7 @@ public class HomeController {
 
 자 이제 css와 html를 구성해 보자. 아래 그림과 같이 디렉토리와 파일을 만든다.
 
-![](/images/SpringBoot/highchart-public-API/2021-03-01-15-48-48.png)
+![](../images/SpringBoot/highchart-public-API/2021-03-01-15-48-48.png)
 
 <br>
 
@@ -625,6 +625,6 @@ p {
 
 이로써 모든 작업이 끝났다~! 이제 앱을 실행시키고 local:8080에 접속해 본다.
 
-![](/images/SpringBoot/highchart-public-API/2021-03-01-15-57-29.png)
+![](../images/SpringBoot/highchart-public-API/2021-03-01-15-57-29.png)
 
 정상적으로 표가 나오는 것을 볼 수 있다. 물론 지금 그래프가 깔끔하진 않다. 그것은 highchart api를 사용해서 수정하면 된다.

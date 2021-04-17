@@ -67,7 +67,7 @@ description: "아침에 온 다급한 카톡..."
 
 <br>
 
-![](/images/DailyLife/Corona/2021-04-06-22-32-22.png)
+![](../images/DailyLife/Corona/2021-04-06-22-32-22.png)
 
 <br>
 
@@ -93,9 +93,9 @@ description: "아침에 온 다급한 카톡..."
 
 바로 내 현재 보물 1호 **LG Pra.L Medi Hair**
 
-![](/images/DailyLife/Corona/2021-04-06-23-16-46.png)
+![](../images/DailyLife/Corona/2021-04-06-23-16-46.png)
 
-![](/images/DailyLife/Corona/2021-04-06-23-17-00.png)
+![](../images/DailyLife/Corona/2021-04-06-23-17-00.png)
 
 <br>
 
@@ -109,13 +109,13 @@ description: "아침에 온 다급한 카톡..."
 
 그렇게 나는 간단한 옷들 그리고 드라이기 등을 챙겼다. 그리고 택시가 도착했다는 전화를 받았다.
 
-![](/images/DailyLife/Corona/2021-04-06-23-27-41.png)
+![](../images/DailyLife/Corona/2021-04-06-23-27-41.png)
 
 <br>
 
 생각보다 멋있는 택시가 와서 놀랐다. 나랑 룸메를 데려다주기 위해서 두 대가 왔고 모두 다 기숙사 부담이였다.
 
-![](/images/DailyLife/Corona/2021-04-06-23-28-47.png)
+![](../images/DailyLife/Corona/2021-04-06-23-28-47.png)
 
 <br>
 
@@ -128,7 +128,7 @@ description: "아침에 온 다급한 카톡..."
 
 기사님은 내 말을 다 들어주시고 공감해주셨다. 그리고 난 택시 내부 사진을 찍었다. 택시 안 구조는 매우 잘 되어 있었다.
 
-![](../images/DailyLife/Corona/2021-04-06-23-31-51.png)
+![](..../images/DailyLife/Corona/2021-04-06-23-31-51.png)
 
 <br>
 
@@ -146,7 +146,7 @@ description: "아침에 온 다급한 카톡..."
 
 그랬더니 기사님께서 본인도 블로그를 운영하고 싶은데 어떻게 하는 지 모른다고 혹시 알려줄 수 있냐고 물어보셨다. 그래서 나는 흥쾌히 승락하고 가방 안에 있던 내 노트북을 꺼내 들었다. 네이버로 하신다고 하시길래 나는 네이버로 블로그를 만드는 방법을 내 네이버 아이디로 노트북 화면 녹화를 사용해서 녹화한 다음 기사님 카톡으로 보내드렸다.
 
-![](/images/DailyLife/Corona/2021-04-06-23-37-54.png)
+![](../images/DailyLife/Corona/2021-04-06-23-37-54.png)
 
 <br>
 
@@ -158,7 +158,7 @@ description: "아침에 온 다급한 카톡..."
 
 <br>
 
-![](/images/DailyLife/Corona/2021-04-06-23-39-55.png)
+![](../images/DailyLife/Corona/2021-04-06-23-39-55.png)
 
 <br>
 

@@ -51,13 +51,13 @@ description: 방명록 만들기
 
 등록 작업은 GET 방식에서는 화면을 보여주고, POST 방식에서는 처리 후에 목록 페이지로 이동하도록 설계한다. 이때 RedirectAttributes를 이용해서 한 번만 화면에서 'msg'라는 이름의 변수를 사용할 수 있도록 처리한다. RedirectAttributes는 list.html로 내부적으로 msg라는 이름의 데이터를 심어서 전달한다. addFlashAttribute()는 단 한 번만 데이터를 전달하는 용도로 사용한다. 브라우저에 전달되는 'msg'를 이용해서는 화면 상에 모달 창을 보여주는 용도로 사용할 것인데, 글이 등록된 후에 자동으로 아래 그림과 같은 모달 창이 보이게 처리한다.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-05-10-41-56.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-05-10-41-56.png)
 
 <br>
 
 등록 화면 register.html은 부트스트랩의 Form 태그를 이용하는 방식을 참고로 해서 다음과 같이 구성한다.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-05-10-43-10.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-05-10-43-10.png)
 
 <br>
 
@@ -119,11 +119,11 @@ description: 방명록 만들기
 
 registerPost 메소드에게 보내져서 파라미터에 GuestbookDTO dto에게 매핑되어 데이터가 자동수집된다. 즉 각 `<input>` 태그에는 적절한 name 값을 지정해야 하는데 GuestbookDTO로 수집될 데이터이므로 동일하게 맞춰주면 자동 수집이 된다. 브라우저로 입력 화면을 확인하면 아래의 왼쪽 화면이 보이고 방명록(게시물) 등록 후에 목록 화면으로 이동하는 것을 확인할 수 있다.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-05-11-05-53.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-05-11-05-53.png)
 
 <br>
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-05-11-06-07.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-05-11-06-07.png)
 
 <br>
 
@@ -144,7 +144,7 @@ registerPost 메소드에게 보내져서 파라미터에 GuestbookDTO dto에게
 
 앱을 실행하고 register.html에서 폼을 입력하고 submit를 하게 되면 제대로 처리가 되지 않는 것을 볼 수 있다. 그 이유는 우리가 modelMapper를 사용할 때 제대로 설정을 해주지 않은 상태에서 mapping를 시도했기 때문이다. ModelMapper 설정을 해주기 위해서 아래와 같이 프로젝트를 만든다.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-05-13-36-26.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-05-13-36-26.png)
 
 <br>
 
@@ -215,7 +215,7 @@ public interface GuestbookService {
 
 이제 modelMapper 관련해서 제대로 mapping이 동작할 것이다. 다시 앱을 실행해서 등록 작업을 시행해 본다. Thymeleaf의 inline 속성을 이용해서 처리하면 별도의 타입 처리가 필요하지 않기 때문에 만일 새로운 글이 등록되면 다음과 같이 번호가 출력된다.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-05-13-25-10.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-05-13-25-10.png)
 
 <br>
 
@@ -274,7 +274,7 @@ public interface GuestbookService {
 
 최종 실행 결과는 다음 그림처럼 새로운 글이 등록된 후에는 모달창이 우선 보이게 된다.
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-05-13-48-08.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-05-13-48-08.png)
 
 <br>
 
@@ -298,6 +298,6 @@ public interface GuestbookService {
 
 <br>
 
-![](/images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-05-14-11-38.png)
+![](../images/Learning_SpringBoot_with_Web_Project/Part2/Chapter4/2021-03-05-14-11-38.png)
 
 <br>

@@ -17,7 +17,7 @@ _이 게시물의 내용은 이야기의 주인공에게 허락을 맡았으며 
 
 기숙사 1인실에서 살다가 2인실로 오게 된 지 벌써 일주일이 다 돼가고 있다. 아무래도 1인실에서 편하고 넓게 혼자 살다가 2인실로 오게 되니 불편한 게 한 두 가지가 아니었다. 일단 많은 짐을 놓을 공간이 줄어들었고 무엇보다 누군가와 같은 방을 쓰면 그 사람의 눈치도 봐야 한다는 것이 불편했다.
 
-![](/images/DailyLife/Roommate/2021-03-06-09-31-39.png)
+![](../images/DailyLife/Roommate/2021-03-06-09-31-39.png)
 
 <br>
 
@@ -27,7 +27,7 @@ _이 게시물의 내용은 이야기의 주인공에게 허락을 맡았으며 
 
 미리 입주해서 대기하고 있었던 나는 곧 만나게 될 상문이와 카톡을 하던 중 상문이가 자기 자리에 피규어를 가져와 놓을 예정이라고 말하자 나는 건담 피규어, 아니면 멋있는 캐릭터 피규어를 상상했다.:smiley:
 
-![](/images/DailyLife/Roommate/2021-03-06-09-37-00.png)
+![](../images/DailyLife/Roommate/2021-03-06-09-37-00.png)
 
 <br>
 
@@ -49,7 +49,7 @@ _"정말 반갑다~! 상문이 ㅠㅠ:joy:"_
 
 <br><br><br>
 
-![](/images/DailyLife/Roommate/2021-03-06-09-42-21.png)
+![](../images/DailyLife/Roommate/2021-03-06-09-42-21.png)
 
 <br>
 
@@ -57,7 +57,7 @@ _"정말 반갑다~! 상문이 ㅠㅠ:joy:"_
 
 <br>
 
-![](/images/DailyLife/Roommate/2021-03-06-09-43-29.png)
+![](../images/DailyLife/Roommate/2021-03-06-09-43-29.png)
 
 <br>
 
@@ -93,7 +93,7 @@ _"내가 알고 있던 상문이는 매우 정상적?인 Normal한 애인데....
 
 **'시원찮은 그녀를 위한 육성방법'**:flushed:
 
-![](/images/DailyLife/Roommate/2021-03-06-09-47-55.png)
+![](../images/DailyLife/Roommate/2021-03-06-09-47-55.png)
 
 <br>
 
@@ -111,7 +111,7 @@ _"너....혹시 **Hard**...니??_":anguished:
 
 나는 곧바로 네이버에 쳐봤다.
 
-![](/images/DailyLife/Roommate/2021-03-06-09-51-10.png)
+![](../images/DailyLife/Roommate/2021-03-06-09-51-10.png)
 
 <br>
 
@@ -135,7 +135,7 @@ _"너....혹시 **Hard**...니??_":anguished:
 
 그냥 이쁜 캐릭터면 다 좋아할 것처럼 보이지만 전혀 그렇지 않았다. 나름 피규어를 고르는 애만의 기준들이 있었다. 상문이가 피규어를 사는 인터넷 사이트가 하나 있는데 나에게 온갖 피규어를 보여주면서 설명해 주었다.
 
-![](/images/DailyLife/Roommate/2021-03-06-12-45-31.png)
+![](../images/DailyLife/Roommate/2021-03-06-12-45-31.png)
 
 <br>
 
@@ -170,7 +170,7 @@ _"너....혹시 **Hard**...니??_":anguished:
 
 그렇게 자리잡은 **요염한 자태**의 상문이의 피규어
 
-![](/images/DailyLife/Roommate/2021-03-06-09-57-39.png)
+![](../images/DailyLife/Roommate/2021-03-06-09-57-39.png)
 
 <br>
 
@@ -193,19 +193,19 @@ _"그래 뭐 사람마다 특이한 취향은 있을 수 있지 나도 친구들
 
 그렇게 같이 지낸 지 일주일이 지난 지금 상문이는 일이 있어서 주말을 집에서 보내게 되어서 기숙사엔 나 혼자만 남아 있게 되었다. 청소를 하던 중 내 눈에 들어온 흥미로운 책 하나가 상문이 자리에 꽂혀 있었다. :open_mouth:
 
-![](/images/DailyLife/Roommate/2021-03-06-10-02-07.png)
+![](../images/DailyLife/Roommate/2021-03-06-10-02-07.png)
 
 <br>
 
 나를 아는 사람들은 알겠지만 나는 클래식을 좋아한다. 그래서 매일 듣곤 하는데 상문이도 클래식에 관심이 있는지는 몰랐다. 한 번 읽어보고 싶은 마음에 바로 카톡을 날렸다.
 
-![](/images/DailyLife/Roommate/2021-03-06-10-03-42.png)
+![](../images/DailyLife/Roommate/2021-03-06-10-03-42.png)
 
 <br>
 
 허락을 받은 나는 책을 집어들고 중간에 책갈피가 꽂혀 있는 쪽을 폈다.
 
-![](/images/DailyLife/Roommate/2021-03-06-10-05-26.png)
+![](../images/DailyLife/Roommate/2021-03-06-10-05-26.png)
 
 <br>
 
@@ -228,7 +228,7 @@ _"그래 뭐 사람마다 특이한 취향은 있을 수 있지 나도 친구들
 <br>
 이런 책갈피도 있구나 하면서 본 책갈피의 반대면
 
-![](/images/DailyLife/Roommate/2021-03-06-10-10-15.png)
+![](../images/DailyLife/Roommate/2021-03-06-10-10-15.png)
 
 <br>
 
@@ -240,7 +240,7 @@ _"그래 뭐 사람마다 특이한 취향은 있을 수 있지 나도 친구들
 
 이런 인문 지식에 관한 책을 읽는 상문이의 식견은 생각보다 넓었다.
 
-![](/images/DailyLife/Roommate/2021-03-06-10-12-31.png)
+![](../images/DailyLife/Roommate/2021-03-06-10-12-31.png)
 
 <br>
 
@@ -248,7 +248,7 @@ _"그래 뭐 사람마다 특이한 취향은 있을 수 있지 나도 친구들
 
 <br><br><br>
 
-![](/images/DailyLife/Roommate/2021-03-06-10-13-39.png)
+![](../images/DailyLife/Roommate/2021-03-06-10-13-39.png)
 
 <br>
 
@@ -274,7 +274,7 @@ _"그래 뭐 사람마다 특이한 취향은 있을 수 있지 나도 친구들
 
 <br><br>
 
-![](/images/DailyLife/Roommate/2021-03-06-10-17-27.png)
+![](../images/DailyLife/Roommate/2021-03-06-10-17-27.png)
 
 <br>
 
@@ -291,6 +291,6 @@ _"그래 뭐 사람마다 특이한 취향은 있을 수 있지 나도 친구들
 
 ## 그렇게 아침이 되었다.😉
 
-![](/images/DailyLife/Roommate/2021-03-06-10-21-31.png)
+![](../images/DailyLife/Roommate/2021-03-06-10-21-31.png)
 
 ~~9시간 꿀잠 잤네...~~
