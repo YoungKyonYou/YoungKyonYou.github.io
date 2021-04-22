@@ -7,7 +7,7 @@ highlighter: rouge
 markdown: kramdown
 disqus: YoungKyonYou
 google_analytics: YoungKyonYou
-title: MyWay
+title: Red Queen's Race
 
 defaults:
   - scope:
