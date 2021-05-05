@@ -60,7 +60,7 @@
 			
 			<a class="navbar-brand" href="/">
 				<img src="/images/MainImage/karajan.jpg" class="img-circle">
-				MyWay
+				Red Queen's Race
 			</a>
 		</div>
 
@@ -96,7 +96,7 @@
 		<img src="/images/MainImage/karajan.jpg" class="img-circle">
 	</a>
 	<h3 class="title">
-        <a href="/">MyWay</a>
+        <a href="/">Red Queen's Race</a>
     </h3>
 </header>
 
@@ -175,9 +175,11 @@
 	  <p><br><br></p>
 
 <h1 id="n1다대일-연관관계-board-만들기">&lt;N:1(다대일) 연관관계&gt; Board 만들기</h1>
+
 <p><br><br>
-<strong><em>현 게시물은 ‘코드로 배우는 스프링부트 웹 프로젝트’ 라는 서적을 공부하면서 개인적으로 메모하고 공부하기 위해서 작성하는 글입니다.</em></strong>
-—</p>
+<strong><em>현 게시물은 ‘코드로 배우는 스프링부트 웹 프로젝트’ 라는 서적을 공부하면서 개인적으로 메모하고 공부하기 위해서 작성하는 글입니다.</em></strong></p>
+
+<hr>
 
 <p>여기서는 ‘회원’과 ‘게시글’ 그리고 ‘댓글’이라는 주제로 JPA에서 연관관계를 가장 쉽게 적용할 수 있는 방법을 알아본다.
 먼저 연관관계와 관계형 데이터베이스 설계를 해야 한다. <img class="emoji" title=":disappointed:" alt=":disappointed:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f61e.png" height="20" width="20"></p>
@@ -586,11 +588,13 @@ entity 패키지에 Member(회원), Board(게시물), Reply(댓글) 엔티티 �
 <span class="o">}</span>
 </pre></td>
 </tr></tbody></table></code></pre></div></div>
+
 <p>Reply 쪽에서는 Board 쪽의 PK를 참조해서 구성되어야 하므로 아래와 같이 수정한다.</p>
 
 <p><br></p>
 
 <p><strong>Reply 클래스 변경</strong></p>
+
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
 <td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -650,6 +654,7 @@ entity 패키지에 Member(회원), Board(게시물), Reply(댓글) 엔티티 �
 <p><br></p>
 
 <p><strong>MemberRepository 인터페이스</strong></p>
+
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
 <td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -674,6 +679,7 @@ entity 패키지에 Member(회원), Board(게시물), Reply(댓글) 엔티티 �
 <p><br></p>
 
 <p><strong>BoardRepository 인터페이스</strong></p>
+
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
 <td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -712,6 +718,7 @@ entity 패키지에 Member(회원), Board(게시물), Reply(댓글) 엔티티 �
 <p><br></p>
 
 <p><strong>ReplyRepository 인터페이스</strong></p>
+
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
 <td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -774,14 +781,14 @@ entity 패키지에 Member(회원), Board(게시물), Reply(댓글) 엔티티 �
 			 
 				<li>
 					<a href="/tags.html#Intellij-ref">
-					Intellij <span>(30)</span>
+					Intellij <span>(31)</span>
 					,
 					</a>
 				</li>
 			 
 				<li>
 					<a href="/tags.html#SpringBoot-ref">
-					SpringBoot <span>(17)</span>
+					SpringBoot <span>(18)</span>
 					
 					</a>
 				</li>

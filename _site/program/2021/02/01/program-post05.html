@@ -60,7 +60,7 @@
 			
 			<a class="navbar-brand" href="/">
 				<img src="/images/MainImage/karajan.jpg" class="img-circle" />
-				MyWay
+				Red Queen's Race
 			</a>
 		</div>
 
@@ -95,7 +95,7 @@
 		<img src="/images/MainImage/karajan.jpg" class="img-circle" />
 	</a>
 	<h3 class="title">
-        <a href="/">MyWay</a>
+        <a href="/">Red Queen's Race</a>
     </h3>
 </header>
 
@@ -312,7 +312,7 @@
 <p>아래 3줄은 어플리케이션을 실행했을 때 실제 인텔리제이에서 실행하는 query를 표시해 준다.</p>
 
 <p>디비명은 이 그림과 같이 mysql workbench에서 SCHEMAS에서 만든 데이터베이스 명으로 한다.
-![dbName]](........\images\Program\post-5\dbName.PNG)
+<img src="\images\Program\post-5\dbName.PNG" alt="dbName" />
 <br /><br /><br /></p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
@@ -323,10 +323,16 @@
 6
 7
 8
+9
+10
+11
 </pre></td><td class="rouge-code"><pre><span class="n">spring</span><span class="o">.</span><span class="na">datasource</span><span class="o">.</span><span class="na">driver</span><span class="o">-</span><span class="kd">class</span><span class="err">-</span><span class="nc">name</span><span class="o">=</span><span class="n">com</span><span class="o">.</span><span class="na">mysql</span><span class="o">.</span><span class="na">cj</span><span class="o">.</span><span class="na">jdbc</span><span class="o">.</span><span class="na">Driver</span>
 <span class="n">spring</span><span class="o">.</span><span class="na">datasource</span><span class="o">.</span><span class="na">url</span><span class="o">=</span><span class="nl">jdbc:mysql:</span><span class="c1">//엔드포인트:3306/디비명?serverTimezone=UTC&amp;characterEncoding=UTF-8</span>
 <span class="n">spring</span><span class="o">.</span><span class="na">datasource</span><span class="o">.</span><span class="na">username</span><span class="o">=</span><span class="n">계정명</span>
-<span class="n">spring</span><span class="o">.</span><span class="na">datasource</span><span class="o">.</span><span class="na">password</span><span class="o">=</span><span class="n">비번</span>
+<span class="n">spring</span><span class="o">.</span><span class="na">datasource</span><span class="o">.</span><span class="na">password</span><span class="o">=</span><span class="n">비번</span> 
+<span class="n">cloud</span><span class="o">.</span><span class="na">aws</span><span class="o">.</span><span class="na">region</span><span class="o">.</span><span class="na">static</span><span class="o">=</span><span class="n">ap</span><span class="o">-</span><span class="n">northeast</span><span class="o">-</span><span class="mi">2</span>
+<span class="n">cloud</span><span class="o">.</span><span class="na">aws</span><span class="o">.</span><span class="na">region</span><span class="o">.</span><span class="na">auto</span><span class="o">=</span><span class="kc">false</span>
+<span class="n">cloud</span><span class="o">.</span><span class="na">aws</span><span class="o">.</span><span class="na">stack</span><span class="o">.</span><span class="na">auto</span><span class="o">=</span><span class="kc">false</span>
 
 <span class="n">spring</span><span class="o">.</span><span class="na">jpa</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">ddl</span><span class="o">-</span><span class="n">auto</span><span class="o">=</span><span class="n">update</span>
 <span class="n">spring</span><span class="o">.</span><span class="na">jpa</span><span class="o">.</span><span class="na">properties</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">format_sql</span><span class="o">=</span><span class="kc">true</span>
@@ -507,7 +513,7 @@
 			 
 				<li>
 					<a href="/tags.html#Intellij-ref">
-					Intellij <span>(30)</span>
+					Intellij <span>(31)</span>
 					,
 					</a>
 				</li>
