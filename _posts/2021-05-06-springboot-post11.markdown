@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Java Class 타입 List를 자바스크립트에서 데이터를 뽑아 사용하기
-date: 2021-04-03 19:00:00 0000
+date: 2021-05-06 09:00:00 0000
 tags: [Intellij, SpringBoot, Coolsms]
 categories: [SpringBoot]
 description: Passing class type list to javascript
