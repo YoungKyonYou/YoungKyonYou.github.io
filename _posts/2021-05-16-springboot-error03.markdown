@@ -2,7 +2,7 @@
 layout: post
 title: SpringBoot에서 test할 때 나는 에러 해결 및 test 생략하는 방법
 date: 2021-05-16 17:10:00 0000
-tags: [Intellij, SpringBoot, Mysql]
+tags: [Intellij, SpringBoot,gradle]
 categories: [SpringBoot-Error]
 description: Test events were not received
 ---

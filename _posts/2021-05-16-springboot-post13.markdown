@@ -1,0 +1,75 @@
+---
+layout: post
+title: 스프링부트에서 타임리프 Template 경로 바꾸기-1
+date: 2021-05-16 10:00:00 0000
+tags: [Intellij, SpringBoot, Thymeleaf, AWS, EC2]
+categories: [SpringBoot]
+description: Changing the Thymeleaf Template Directory in SpringBoot
+---
+
+<br><br>
+
+# <center>Template 경로 변경하기-1</center>
+
+<br>
+
+스프링부트 프로젝트를 AWS의 EC2 상으로 배포하려고 할 때 문제가 발생했다. 일단 ec2로 접속한 putty로 git clone으로 프로젝트를 받아와서 
+
+**.jar를 뽑아낼 시**
+```
+sudo ./gradlew bootjar
+```
+
+<br>
+
+**.war를 뽑아낼 시**
+```
+sudo ./gradlew bootwar
+```
+
+<br>
+
+war를 bootwar로 뽑아내고 프로젝트 내에서 **build->libs**에 들어가면 내가 원하는 **.jar 이나 .war** 파일을 찾을 수 있는데 
+
+**.jar이나 .war 실행하기**
+```
+java -jar [jar이나 war 파일 이름]
+```
+
+<br>
+
+를 치게되면 배포가 완료가 된다.
+
+ec2 인스턴스는 처음 생성하게 되면 특정 아이피가 랜덤으로 할당되는데 이대 인스턴스를 끄고 킬때마다 아이피가 바뀌게 된다. 그래서 Elastic IP를 할당해야 한 IP주소를 그대로 사용할 수 있어서 할당하고 그 IP주소로 접속하자 문제가 발생했다.
+
+<br>
+
+바로 빈 페이지가 뜨는 것이였다. **f12**를 눌러서 확인해봐도 소용이 없었다. 에러 코드가 따로 없었고 그냥 빈페이지만 떠서 어떤 에러인지도 알 수 없었다. 그저 html, css, js가 먹히지 않는다는 것을 알게됐는데 도저히 원인을 찾을 수가 없었다. 그래서 구글링도 해보고 stackoverflow에서 여러 질문들을 탐색해 봤지만 역시나 해결되지 않았다. 
+
+<br>
+
+**이 문제를 팀원과 함께 이야기를 해 보기 시작했다. 그러자 팀원 중 한명이 해결책을 제시했는데 다행히 해결이 되었다!!.**
+
+<br>
+
+local에서는 제대로 돌아가지만 ec2에서 정상적으로 작동하지 않았던 것을 생각해보니 경로가 제대로 지정이 안 되어있어서 그럴 수도 있다고 생각을 하게 된 것이다. 그래서 스프링부트 문서를 뒤져보던 중 해결의 실마리가 보이기 시작했다. 
+
+**application.properties**
+```
+spring.thymeleaf.prefix=classpath:/templates/
+```
+
+<br>
+
+위 코드와 같이 application.properties 내에 정적 코드의 경로를 지정해 주고 현재 프로젝트의 thymeleaf 템플릿 구조에서 원래는 /layout/commonHead 로 되어 있는 부분에서 맨 앞 '/'를 제거했더니 정상적으로 페이지가 보여지기 시작했다. 그리고 앞서서 war과 jar를 추출하는 부분에서 war대신 jar를 추출했다. 
+
+**html 일부분 발췌**
+```html
+ <th:block th:replace="layout/commonHead"></th:block>
+```
+
+<br>
+
+클라우드 서버에서 제대로 작동하는 모습을 확인하자 마음이 조금 놓이기 시작했다. 오랫동안 해결되지 않을 거라는 생각에 스트레스를 받고 있었는데 정말 다행스러웠다. 그래도 앞으로는 무언가 잘 안되면 혼자 끙끙되지 말고 팀원들과 소통을 해야 겠다는 생각이 앞섰다.
+
+다음 게시물은 아마 내가 찾은 SpringBoot 문서에서 이 Thymeleaf 템플릿 변경 관련 영문 원서 문서에 대한 발번역을 해 볼 예정이다. 
