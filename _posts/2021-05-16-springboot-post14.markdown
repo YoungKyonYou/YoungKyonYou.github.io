@@ -45,7 +45,7 @@ Thymeleaf는 스프링부트 어플리케이션에 사용할 수 있는 템플�
 
 ```
 dependencies {
-    (...)
+    (..)
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 }
 ```
