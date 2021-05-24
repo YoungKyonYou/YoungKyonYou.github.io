@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 스프링부트에서 타임리프 Template 경로 바꾸기-2
-date: 2021-05-16 10:01:00 0000
+date: 2021-05-16 10:00:00 0000
 tags: [Intellij, SpringBoot, Thymeleaf]
 categories: [SpringBoot]
 description: Changing the Thymeleaf Template Directory in SpringBoot
