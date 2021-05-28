@@ -163,6 +163,12 @@ description: All That Jazz
 
 각 층을 돌아보던 중 미술 작품을 파는 곳도 있었다.
 
+<br>
+
+**~~처음엔 그냥 무료 전시회인 줄 알았ㄷ..~~**
+
+<br>
+
 ![](/images/DailyLife/Chicago/2021-05-28-10-25-37.png)
 
 <br>
