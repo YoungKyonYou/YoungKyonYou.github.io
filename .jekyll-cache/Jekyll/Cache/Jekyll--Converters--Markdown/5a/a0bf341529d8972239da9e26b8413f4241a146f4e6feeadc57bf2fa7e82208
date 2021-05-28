@@ -1,0 +1,186 @@
+I"!-<p><br /><br /></p>
+
+<h1 id="template-경로-변경하기-2"><center>Template 경로 변경하기-2</center></h1>
+
+<p><br /></p>
+
+<p>스프링부트에서 타임리프의 정적 리소스 경로를 바꾸는 문서에 대한 링크는 아래에 달아놓겠다.</p>
+
+<p><strong><a href="https://www.baeldung.com/spring-thymeleaf-template-directory">SpringBoot Document</a></strong></p>
+
+<p><br /></p>
+
+<p>지금부터 여기 문서에 적혀 있는 내용을 번역을 해볼까 한다. 발번역이여도 이해해주길 바란다…</p>
+
+<h2 id="소개">소개</h2>
+
+<p>Thymeleaf는 스프링부트 어플리케이션에 사용할 수 있는 템플릿 엔진이다. 많은 것들과 함께 스프링부트는 우리의 templates(정적리소스)를 찾기 위한 디폴트 경로를 제공한다. 이번 짦은 튜토리얼에서는 우리는 tempate 경로를 어떻게 바꿀 수 있는지 알아볼 것이다. 그런 다음 우리는 다중 경로를 바꾸는 방법도 배울 것이다.</p>
+
+<h2 id="구성">구성</h2>
+
+<p>타임리프를 쓰기 위해서는 pom.xml에 적절한 Spring Boot starter를 추가 해줘야 한다.</p>
+
+<p><strong>pom.xml일 경우</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;
+    &lt;versionId&gt;2.2.2.RELEASE&lt;/versionId&gt;
+&lt;/dependency&gt;
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>build.gradle일 경우</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>dependencies {
+    (...)
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="디폴트-경로-바꾸기">디폴트 경로 바꾸기</h2>
+
+<p>스프링부트는 디폴트로 <strong>src/main/resources/templates</strong>를 탐색하게 된다. 우리는 우리의 templates를 거기에 놓고 그 하위 폴더에서 구성(정적 리소스들:html, css, js등)하게 되면 아무 문제없이 할 수 있다.</p>
+
+<p>이제 한번 templates이 <strong>src/main/resources/templates</strong> 아래가 아닌 <strong>src/main/resources/tempates-2</strong> 아래 구성되어야 하는 요구사항이 있다고 해보자.</p>
+
+<p>실제로 한번 <strong>src/main/resources/templates-2</strong> 아래 html 파일 하나를 생성해보자.</p>
+
+<p><strong>src/main/resouces/templates-2 아래 html 파일 내용</strong></p>
+
+<p><strong>hello.html</strong></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">xmlns:th=</span><span class="s">"http://www.thymeleaf.org"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Enums in Thymeleaf<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h2&gt;</span>Hello from 'templates/templates-2'<span class="nt">&lt;/h2&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br /></p>
+
+<p>그리고 controller도 필요할 것이다.</p>
+
+<p><strong>HelloController.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/hello"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="nc">String</span> <span class="nf">sayHello</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="s">"hello"</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br /></p>
+
+<p>위와 같은 간단한 구성으로 application.properties 내에 아래 코드와 같이 설정함으로써 스프링부트가 <strong>templates-2</strong> 디렉토리를 사용하게끔 만든다.</p>
+
+<p><strong>application.properties</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>spring.thymeleaf.prefix=classpath:/templates-2/
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="다중-경로-사용하기">다중 경로 사용하기</h2>
+
+<p>이제 우리는 디폴트 경로를 바꾸는 방법을 배웠다. 이제 다중 template 경로를 바꾸는 법에 대해서 알아보자. 이것을 하기 위해선 <strong>ClassLoaderTemplateResolver bean</strong>를 만들어야 된다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="nd">@Bean</span>
+<span class="kd">public</span> <span class="nc">ClassLoaderTemplateResolver</span> <span class="nf">secondaryTemplateResolver</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">ClassLoaderTemplateResolver</span> <span class="n">secondaryTemplateResolver</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ClassLoaderTemplateResolver</span><span class="o">();</span>
+    <span class="n">secondaryTemplateResolver</span><span class="o">.</span><span class="na">setPrefix</span><span class="o">(</span><span class="s">"templates-2/"</span><span class="o">);</span>
+    <span class="n">secondaryTemplateResolver</span><span class="o">.</span><span class="na">setSuffix</span><span class="o">(</span><span class="s">".html"</span><span class="o">);</span>
+    <span class="n">secondaryTemplateResolver</span><span class="o">.</span><span class="na">setTemplateMode</span><span class="o">(</span><span class="nc">TemplateMode</span><span class="o">.</span><span class="na">HTML</span><span class="o">);</span>
+    <span class="n">secondaryTemplateResolver</span><span class="o">.</span><span class="na">setCharacterEncoding</span><span class="o">(</span><span class="s">"UTF-8"</span><span class="o">);</span>
+    <span class="n">secondaryTemplateResolver</span><span class="o">.</span><span class="na">setOrder</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="n">secondaryTemplateResolver</span><span class="o">.</span><span class="na">setCheckExistence</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+
+    <span class="k">return</span> <span class="n">secondaryTemplateResolver</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br /></p>
+
+<p>우리 커스텀 빈에서 우리는 prefix를 두 번째 디렉토리인 <strong>templates-2</strong>로 설정했다. 그리고 또한 <strong>CheckExistance flag</strong>를 <strong>true</strong>로 설정했다. 이것은 리졸버가 연쇄적으로 작동하게끔 만드는 열쇄이다. 이런 식의 설정은 우리가 templates를 디폴트 템플릿인 <strong>main/resources/templates</strong> 디렉토리와 두 번째 템플릿 경로인 <strong>main/resources/templates-2</strong>를 사용할 수 있게끔 해준다.</p>
+
+<h2 id="에러">에러</h2>
+
+<p>Thymeleaf를 사용할 때 이런 에러를 볼 수 있다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>Error resolving template [hello], template might not exist or might not be accessible
+by any of the configured Template Resolvers
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br /></p>
+
+<p>이런 메시지는 타임리프가 template 경로를 찾을 수 없기 때문에 보는 메시지이다. 가능성 있는 이유들과 해결책들을 살펴보자.</p>
+
+<h3 id="controller-내-타이핑-에러">Controller 내 타이핑 에러</h3>
+
+<p>간단한 타이핑 에러로서 발생할 수도 있다. 가장 먼저 확인해야 할 것은 파일 이름에서 확장자를 뺀 파일 이름과 컨트롤러에서 요청하는 템플릿이 정확히 일치하는 것이다. 하위 디렉터리를 사용하는 경우 해당 디렉터리도 올바른지 확인해야합니다.</p>
+
+<p><br /></p>
+
+<p>추가적으로 그 문제는 특정 운영 체제의 문제일 수 있다. Windows는 대소 문자를 구분하지 않지만 다른 운영 체제는 구분합니다. 예를 들어 로컬 Windows 시스템에서 제대로 작동하는데 배포할 시에 제대로 작동하지 않으면 살펴볼 필요가 있습니다.</p>
+
+<h3 id="컨트롤러에서-파일-확장자를-포함시키는-경우">컨트롤러에서 파일 확장자를 포함시키는 경우</h3>
+
+<p>우리의 파일이 전형적으로 확장자가 있기 때문에 controller에서 그것을 포함시켜서 template path로 리턴하는 것이 자연스러워 보일 수 있다. <strong>타임리프는 자동으로 suffix(여기선 확장자)를 추가하기 때문에 확장자를 포함시키면 안 된다.</strong></p>
+
+<h3 id="디폴트-경로를-사용하지-않는-경우">디폴트 경로를 사용하지 않는 경우</h3>
+
+<p>만약 경로가 <strong>src/main/resources/templates</strong>가 아닌 다른 곳에 파일이 위치되어 있다면 이 에러가 발생할 수 있다. 만약 다른 경로를 사용하고 싶다면 <strong>spring.thymeleaf.prefix</strong> 속성을 세팅하거나 우리만의 <strong>ClassLoaderTemplateResolver bean</strong>를 만들어서 다중 경로를 사용할 수 있게끔 해야한다.</p>
+
+<h2 id="결론">결론</h2>
+
+<p>이번 튜토리얼에서 우리는 타임리프 템플릿 경로에 대해서 배웠다. 먼저 우리는 디폴트 경로를 속성에서 설정해줌으로써 바꾸는 법을 배웠다. 그리고 우리 자신만의 <strong>ClassLoaderTemplateResolver bean</strong>를 만들어서 다중 경로를 사용하는 법에 대해서도 익혔다.</p>
+
+<p>그리고 타임리프가 template경로를 찾지 못할 경우 나오는 에러와 해결방법에 대해서도 이야기 해봤다.</p>
+
+<p>이 예제 코드는 항상 <strong><a href="https://github.com/eugenp/tutorials/tree/master/spring-web-modules/spring-thymeleaf-2">GitHub</a></strong>에서 찾을 수 있다.</p>
+:ET
