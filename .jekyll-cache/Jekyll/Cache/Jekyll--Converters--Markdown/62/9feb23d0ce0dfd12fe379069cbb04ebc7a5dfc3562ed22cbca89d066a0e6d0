@@ -1,0 +1,39 @@
+I"�	<p><br /><br /></p>
+
+<h1 id="map"><center>map</center></h1>
+
+<p><br /></p>
+
+<p>map은 파이썬의 내장 함수이다. 여러 개의 데이터를 한 번에 다른 형태로 변환하기 위해 사용한다. 파이썬으로 처음 백준 문제를 풀어보면서 앞으로 map를 자주 쓰게 될 것 같았다. 한번에 여러 입력값을 받아야되는데 단순한 input() 함수만으로는 한계가 있어서 찾아보니 map를 써야된다는 것을 알았다.</p>
+
+<p><br /></p>
+
+<p>map의 사용법은 아래와 같다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nb">map</span><span class="p">(</span><span class="n">변환</span> <span class="n">함수</span><span class="p">,</span> <span class="n">순회</span> <span class="n">가능한</span> <span class="n">데이터</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br /></p>
+
+<p>백준 문제를 풀면서 자주 쓰게 될 코드는 아래와 같다</p>
+
+<p><br /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()))</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br /></p>
+
+<p>여기서 split() 함수는 입력 받은 것들을 분리해준다. 사실 input().split()의 결과는 <strong>문자열 리스트</strong>라서 map을 사용할 수 있다. map에 두 번째 매개변수는 순회 가능한 데이터가 들어가니까 리스트나 튜플이 들어갈 수 있기 때문이다. 그리고 map에 첫 번째 매개변수로 int를 넣어주게 되면 리스트 형식으로 나온 문자열 데이터를 int로 바꿔주는 역할을 하는 것이다. 그래서 가령 백준 문제의 예제에서 데이터가</p>
+
+<p><br /></p>
+
+<p><strong>1 2 3 4 5</strong></p>
+
+<p><br /></p>
+
+<p>이런 식으로 한번에 입력해야 될 때 위 코드를 써주면 int형인 리스트의 형식으로 데이터를 반환해주는 것이다.</p>
+
+:ET
