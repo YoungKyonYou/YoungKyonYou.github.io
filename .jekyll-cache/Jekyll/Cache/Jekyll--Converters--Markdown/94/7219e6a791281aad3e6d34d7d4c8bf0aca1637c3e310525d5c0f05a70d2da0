@@ -1,0 +1,50 @@
+I"�<p><br /><br /></p>
+
+<h1 id="설탕-배달-2839"><center>설탕 배달-2839</center></h1>
+
+<p><br /></p>
+
+<p>원래 코딩 테스트 언어로 C++로 하려다가 파이썬으로 하는 것이 더 이득인 것 같아서 언어를 바꿨다. 파이썬으로 푸는 첫 백준 문제이다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/BaekJoon/2839/2021-05-29-18-24-45.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>문제는 그리 어렵지 않다. 상근이가 설탕을 배달해야 하는데 가져갈 수 있는 봉지가 3킬로그램과 5킬로그램으로 정해져 있고 어떤 수가 주어졌을 때 가장 적은 개수의 봉지로 <strong>정확하게</strong> 배달할 수 있는 수를 출력해 내면 되는 것이다. 만약 가지고 있는 봉지로 배달을 <strong>정확하게</strong> 할 수 없다면 <strong>-1</strong>를 출력해 준다.</p>
+
+<p><br /></p>
+
+<p>로직은 간단하다 어떤 수가 5로 나누어 떨어지지 않는다면 3를 빼고 봉지 하나를 변수에 추가시킨다. 이때 3를 뺐을 때 0보다 작으면 정확하게 나눌 수 없다는 의미이므로 -1를 출력하고 프로그램을 종료한다. 그렇지 않을 경우엔 게속 주어진 수에 3를 빼가면서 봉지의 수를 하나씩 추가시켜주고 그 수가 5로 나누어 떨어진다면 5로 나눈 몫을 봉지의 수에 더해주면 된다. 그리고 최종적으로 봉지의 수를 출력해 주면 그것이 답이 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="n">num</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">bags</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">while</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">num</span><span class="o">-</span><span class="mi">3</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">bags</span><span class="o">=-</span><span class="mi">1</span>
+        <span class="k">break</span>
+    <span class="k">if</span> <span class="n">num</span><span class="o">%</span><span class="mi">5</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">bags</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">num</span><span class="o">/</span><span class="mi">5</span><span class="o">+</span><span class="n">bags</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">num</span><span class="o">-=</span><span class="mi">3</span>
+        <span class="n">bags</span><span class="o">+=</span><span class="mi">1</span>
+<span class="k">print</span><span class="p">(</span><span class="n">bags</span><span class="p">)</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+:ET
