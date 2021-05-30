@@ -17,15 +17,15 @@ description: Greedy Algorithmn
 
 <br>
 
-![](/images/Baekjoon/11047/2021-05-30-12-42-52.png)
+![](/images/BaekJoon/11047/2021-05-30-12-42-52.png)
 
 <br>
 
-![](/images/Baekjoon/11047/2021-05-30-12-43-27.png)
+![](/images/BaekJoon/11047/2021-05-30-12-43-27.png)
 
 <br>
 
-![](/images/Baekjoon/11047/2021-05-30-12-43-42.png)
+![](/images/BaekJoon/11047/2021-05-30-12-43-42.png)
 
 <br>
 
@@ -33,7 +33,7 @@ description: Greedy Algorithmn
 
 <br>
 
-![](/images/Baekjoon/11047/2021-05-30-12-46-39.png)
+![](/images/BaekJoon/11047/2021-05-30-12-46-39.png)
 
 <br>
 
@@ -41,7 +41,7 @@ description: Greedy Algorithmn
 
 <br>
 
-![](/images/Baekjoon/11047/2021-05-30-12-48-38.png)
+![](/images/BaekJoon/11047/2021-05-30-12-48-38.png)
 
 <br>
 

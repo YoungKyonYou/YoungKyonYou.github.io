@@ -13,11 +13,11 @@ description: Greedy Algorithmn
 
 <br>
 
-![](/images/Baekjoon/ATM/2021-05-29-23-20-10.png)
+![](/images/BaekJoon/ATM/2021-05-29-23-20-10.png)
 
 <br>
 
-![](/images/Baekjoon/ATM/2021-05-29-23-20-24.png)
+![](/images/BaekJoon/ATM/2021-05-29-23-20-24.png)
 
 <br>
 
