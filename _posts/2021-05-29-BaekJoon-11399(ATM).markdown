@@ -1,0 +1,39 @@
+---
+layout: post
+title: 설탕 배달-2839
+date: 2021-05-29 20:00:00 0000
+tags: [Python, BaekJoon, Coding Test]
+categories: [BaekJoon]
+description: Greedy Algorithmn
+---
+
+<br><br>
+
+# <center>ATM-11399</center>
+
+<br>
+
+![](/images/Baekjoon/11399/2021-05-29-23-20-10.png)
+
+<br>
+
+![](/images/Baekjoon/11399/2021-05-29-23-20-24.png)
+
+<br>
+
+별로 어려울 게 없는 문제이다. 결국엔 입력 받은 값들을 오름차순으로 바꾼 다음에
+누적합을 구해서 출력하면 된다. 
+
+```python
+a = int(input())
+l = []
+total = 0
+cur = 0
+l = list(map(int, input().split()))
+
+l.sort()
+for x in l:
+    cur += x
+    total += cur
+print(total)
+```

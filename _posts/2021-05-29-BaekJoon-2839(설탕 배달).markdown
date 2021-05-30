@@ -2,7 +2,7 @@
 layout: post
 title: 설탕 배달-2839
 date: 2021-05-29 18:00:00 0000
-tags: [Python, BaekJoon, Coding Test]]
+tags: [Python, BaekJoon, Coding Test]
 categories: [BaekJoon]
 description: Greedy Algorithmn
 ---
