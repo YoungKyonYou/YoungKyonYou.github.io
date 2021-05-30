@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 설탕 배달-2839
+title: ATM-11399
 date: 2021-05-29 20:00:00 0000
 tags: [Python, BaekJoon, Coding Test]
 categories: [BaekJoon]
