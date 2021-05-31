@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Lambda의 사용과 정렬 조건 주기
-date: 2021-05-31 00:00:00 0000
+date: 2021-05-31 09:00:00 0000
 tags: [Python, Sort, Lambda]
 categories: [Python]
 description: Lambda
@@ -13,7 +13,7 @@ description: Lambda
 
 <br>
 
-파이썬에서는 **'lambda'**라는 매우 편리한 **익명 함수**가 존재한다. 파이썬에서 이 **lambda**는 **filter(), map(), reduce()**와 같은 전형적인 기능 개념과 함께 사용되는 매우 강력하고 편리한 기능이다. 
+파이썬에서는 **'lambda'**라는 매우 편리한 **익명 함수**가 존재한다. 파이썬에서 이 **lambda**는 **filter(), map(), reduce()**와 같은 전형적인 기능 개념과 함께 사용되는 매우 강력하고 편리한 기능이다.
 
 긴 설명보다 예를 보는 것이 더 나을 것이다.
 
@@ -23,6 +23,7 @@ description: Lambda
 n=lambda x:x**2
 print(n(8))
 ```
+
 <br>
 
 **출력: 64**
@@ -33,6 +34,7 @@ print(n(8))
 f=lambda x, y: x+y
 print(f(5,5))
 ```
+
 <br>
 
 **출력: 10**
@@ -81,6 +83,7 @@ f = sorted(e, key=lambda x: (x[0], -x[1]))
 # f = [(0, 3), (0, 1), (1, 5), (1, 4), (1, 3), (2, 4)]
 
 ```
+
 <br>
 
 **정리**
