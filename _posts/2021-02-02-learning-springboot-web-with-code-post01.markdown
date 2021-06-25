@@ -47,10 +47,10 @@ description: 영화 리뷰 만들기
 
 ### 프로젝트 생성
 
-![create](\images\Learning_SpringBoot_with_Web_Project\Part4\Chapter7\create.PNG)
+![create](/images/Learning_SpringBoot_with_Web_Project/Part4/Chapter7/create.PNG)
 <br><br><br>
 
-![dependencies](../images\Learning_SpringBoot_with_Web_Project\Part4\Chapter7\dependencies.PNG)
+![dependencies](/images/Learning_SpringBoot_with_Web_Project/Part4/Chapter7/dependencies.PNG)
 <br><br><br>
 
 ### build.gradle
