@@ -143,7 +143,7 @@ description: 압구정 로데오 탐방기
 
 <br>
 
-~~**물론 돌아오는 길에 길바닥에 떨어진 핸드폰이 있나 유심히 살피며 왔ㄷ..**:stuck_out_tongue_closed_eyes:~~
+~~**물론 돌아오는 길에 길바닥에 떨어진 핸드폰이 있나 유심히 살펴보며 왔ㄷ..**:stuck_out_tongue_closed_eyes:~~
 
 <br>
 
