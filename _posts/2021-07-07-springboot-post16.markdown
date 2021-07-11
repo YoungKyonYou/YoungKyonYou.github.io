@@ -63,7 +63,7 @@ spring.devtools.livereload.enabled=true
 
 <br>
 
-![](/images/Springboot/post16/2021-07-07-16-27-04.png)
+![](/images/SpringBoot/post16/2021-07-07-16-27-04.png)
 
 <br>
 
@@ -73,7 +73,7 @@ spring.devtools.livereload.enabled=true
 
 <br>
 
-![](/images/Springboot/post16/2021-07-07-16-28-29.png)
+![](/images/SpringBoot/post16/2021-07-07-16-28-29.png)
 
 <br>
 
@@ -81,7 +81,7 @@ spring.devtools.livereload.enabled=true
 
 <br>
 
-![](/images/Springboot/post16/2021-07-07-16-31-48.png)
+![](/images/SpringBoot/post16/2021-07-07-16-31-48.png)
 
 <br>
 
@@ -89,7 +89,7 @@ spring.devtools.livereload.enabled=true
 
 <br>
 
-![](/images/Springboot/post16/2021-07-07-17-05-19.png)
+![](/images/SpringBoot/post16/2021-07-07-17-05-19.png)
 
 <br>
 
@@ -97,7 +97,7 @@ spring.devtools.livereload.enabled=true
 
 <br>
 
-![](/images/Springboot/post16/2021-07-07-17-06-23.png)
+![](/images/SpringBoot/post16/2021-07-07-17-06-23.png)
 
 <br>
 
