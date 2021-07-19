@@ -74,7 +74,7 @@ Vagrant.configure("2") do |config|
   #https://app.vagranup.com/sysnet4admin/boxes/CentOS-k8s에서 확인할 수 있다.
     cfg.vm.box = "sysnet4admin/CentOS-k8s"
 
-  #베이그런터의 프로바이더(provider)가 버추얼박스라는 것을 정의한다. 프로바이더는
+  #베이그런트의 프로바이더(provider)가 버추얼박스라는 것을 정의한다. 프로바이더는
   #베이그런트를 통해 제공되는 코드가 실제로 가상 머신으로 배포되게 하는 소프트웨어이다.
   #버추얼박스가 여기에 해당한다. 다음으로 버추얼박스에 필요한 설정을 정의하는데
   #그 시작을 do |vb|로 선언한다. provider가 존재하지 않을 경우 Vagrant는 이 설정 블록을
@@ -191,7 +191,7 @@ Vagrant private network(사설 네트워크)는 글로벌 인터넷에서 공개
 
 <br>
 
-원하는 IP를 선택할 수 있지만 **[reserved private address apce](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces)** 에 나와있는 IP 주소를 사용하는 게 좋습니다. 이 IP들은 절대로 공개적으로 라우팅 되지 않는 것을 보장하며 대부분의 라우터들이 실제로 외부 트래픽이 이 IP로 들어가는 것을 막는다.
+원하는 IP를 선택할 수 있지만 **[reserved private address space](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces)** 에 나와있는 IP 주소를 사용하는 게 좋습니다. 이 IP들은 절대로 공개적으로 라우팅 되지 않는 것을 보장하며 대부분의 라우터들이 실제로 외부 트래픽이 이 IP로 들어가는 것을 막는다.
 
 <br>
 
@@ -204,3 +204,7 @@ Vagrant private network(사설 네트워크)는 글로벌 인터넷에서 공개
 ---
 
 <br>
+
+**[호스트 네트워크 및 NAT에 대한 블로그 1](https://developerin.tistory.com/18)**
+
+**[호스트 네트워크 및 NAT에 대한 블로그 2](https://liveyourit.tistory.com/26)**

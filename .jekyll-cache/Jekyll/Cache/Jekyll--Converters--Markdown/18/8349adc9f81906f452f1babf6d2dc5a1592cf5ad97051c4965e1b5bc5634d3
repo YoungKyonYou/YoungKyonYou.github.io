@@ -1,0 +1,29 @@
+I"n<p><br /><br /></p>
+
+<p><strong><em>해당 내용은 책 &lt;컨테이너 인프라 환경 구축을 위한 쿠버네티스/도커&gt;에 나오는 내용이며 이는 개인적으로 공부하기 위해서 게시하는 글임을 알립니다.</em></strong></p>
+
+<h1 id="가상-머신-추가로-구성하기"><center>가상 머신 추가로 구성하기</center></h1>
+
+<p><br /></p>
+
+<blockquote>
+  <p>Vagranfile 55pg</p>
+</blockquote>
+
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>알아야 할 내용</p>
+
+    <ul>
+      <li>Vagrant Box: 설정에서 가장 기본적인 단위이다. 독립적인 운영체제 환경의 이미지다.</li>
+      <li>Ruby 문법 <strong>do</strong>: Paired with end, 코드 블럭을 구분할 수 있다.</li>
+      <li>VirtualBox에서 호스트는 개인 PC Window, 게스트 os는 CentOS 리눅스이다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+:ET
