@@ -1,0 +1,36 @@
+I"�<p><br /><br /></p>
+
+<h1 id="npm-install"><center>npm install</center></h1>
+
+<p><br /></p>
+
+<p>정말 오늘 하루종일 이거 고치느라 아무것도 못했다.</p>
+
+<p><br /></p>
+
+<p><del>오늘 하루는 정말 아무것도 하기 싫ㄷ..</del></p>
+
+<p><br /></p>
+
+<p>유투브에 있는 Vue Project를 따라서 해보려는 중 기본적인 틀은 유투버의 git에서 가져와서 npm를 install하는 과정에서 중간에 계속 에러가 났다.</p>
+
+<p><br /></p>
+
+<p>에러 내용을 스크린샷을 찍어놨어야 되는데… 못찍었다. 무슨 gyp 관련해서 에러가 엄청 떴었다. 그런데 구글링을하고 스택오버플로우에서 검색을 해보고 거기서 제시하는 해결책을 시도해도 안되는 것이었다.</p>
+
+<p><br /></p>
+
+<p>한 12시간 이상은 뻘짓한 거 같아서 과정은 다 못올릴 거 같고 결론만 말하자면</p>
+
+<p><br /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>C:\Users\nick1\AppData\Roaming\npm
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br /></p>
+
+<p>이 npm폴더 안에 있던 모든 파일들을 다 지우고 <strong>npm install</strong>를 했더니 작동했다.</p>
+
+<p>정말 오늘 하루는 지친다 ㅠㅠ 그래도 해결했으니 안심해본다.</p>
+:ET

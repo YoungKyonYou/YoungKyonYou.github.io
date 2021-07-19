@@ -7,6 +7,348 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>컨테이너 인프라 환경 구축을 위한 쿠버네티스/도커-2.2.1</title>
+				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;해당 내용은 책 &amp;lt;컨테이너 인프라 환경 구축을 위한 쿠버네티스/도커&amp;gt;에 나오는 내용이며 이는 개인적으로 공부하기 위해서 게시하는 글임을 알립니다.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;가상-머신에-필요한-설정-자동으로-구성하기&quot;&gt;&lt;center&gt;가상 머신에 필요한 설정 자동으로 구성하기&lt;/center&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Vagranfile 48pg&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;알아야 할 내용&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Vagrant Box: 설정에서 가장 기본적인 단위이다. 독립적인 운영체제 환경의 이미지다.&lt;/li&gt;
+      &lt;li&gt;Ruby 문법 &lt;strong&gt;do&lt;/strong&gt;: Paired with end, 코드 블럭을 구분할 수 있다.&lt;/li&gt;
+      &lt;li&gt;VirtualBox에서 호스트는 개인 PC Window, 게스트 os는 CentOS 리눅스이다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;일단 원래 코드를 깔끔하게 보고 설명은 다시 이 코드 아래에 주석으로 적겠다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c&quot;&gt;# -*- mode: ruby -*-&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# vi: set ft=ruby :&lt;/span&gt;
+Vagrant.configure&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; |config|
+  config.vm.define &lt;span class=&quot;s2&quot;&gt;&quot;m-k8s&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; |cfg|
+    cfg.vm.box &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;sysnet4admin/CentOS-k8s&quot;&lt;/span&gt;
+    cfg.vm.provider &lt;span class=&quot;s2&quot;&gt;&quot;virtualbox&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; |vb|
+      vb.name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;m-k8s(github_SysNet4Admin)&quot;&lt;/span&gt;
+      vb.cpus &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 2
+      vb.memory &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 2048
+      vb.customize &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;modifyvm&quot;&lt;/span&gt;, :id, &lt;span class=&quot;s2&quot;&gt;&quot;--groups&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;/k8s-SM(github_SysNet4Admin)&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+    end
+    cfg.vm.host_name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;m-k8s&quot;&lt;/span&gt;
+    cfg.vm.network &lt;span class=&quot;s2&quot;&gt;&quot;private_network&quot;&lt;/span&gt;, ip: &lt;span class=&quot;s2&quot;&gt;&quot;192.168.1.10&quot;&lt;/span&gt;
+    cfg.vm.network &lt;span class=&quot;s2&quot;&gt;&quot;forwarded_port&quot;&lt;/span&gt;, guest: 22, host: 60010, auto_correct: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;, &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;ssh&quot;&lt;/span&gt;
+    cfg.vm.synced_folder &lt;span class=&quot;s2&quot;&gt;&quot;../data&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;/vagrant&quot;&lt;/span&gt;, disabled: &lt;span class=&quot;nb&quot;&gt;true
+  &lt;/span&gt;end
+end
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c&quot;&gt;#아래 두줄의 주석은 에디터에 현재 파일이 루비임을 인식하게 하는 호환 코드이다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#ft는 file type(파일종류)의 약자이다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# -*- mode: ruby -*-&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# vi: set ft=ruby :&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#&quot;2&quot;는 configuration object |config|의 버전을 명시하는 것이다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#이것은 configuration 블록으로 사용된다.&lt;/span&gt;
+Vagrant.configure&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; |config|
+
+&lt;span class=&quot;c&quot;&gt;#https://www.vagrantup.com/docs/vagrantfile/machine_settings 참고&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#config.vm.define: 버추얼박스에서 보이는 가상 머신을 &quot;m-k8s&quot;로 정의한다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#do |cfg|를 추가해 원하는 설정으로 변경한다.&lt;/span&gt;
+  config.vm.define &lt;span class=&quot;s2&quot;&gt;&quot;m-k8s&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; |cfg|
+
+  &lt;span class=&quot;c&quot;&gt;#config.vm.box: 어떤 box에 대해 machine이 표시되는지 구성한다. 여기에 값은&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;#HashiCorp's Vagrant Clout에 설치된 박스나 약칭으로된 이름이 들어가야 한다.&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;#즉 사람들이 만들어 놓은 운영체제 이미지의 이름이 들어간다.&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;#42pg를 보면 필자가 만들어 놓은 운영체제 이미지를 사용한다.&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;#필자가 만든 운영체제 이미지의 이름이 &quot;sysnet4admin/CentOS-k8s&quot;이다.&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;#https://app.vagranup.com/sysnet4admin/boxes/CentOS-k8s에서 확인할 수 있다.&lt;/span&gt;
+    cfg.vm.box &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;sysnet4admin/CentOS-k8s&quot;&lt;/span&gt;
+
+  &lt;span class=&quot;c&quot;&gt;#베이그런터의 프로바이더(provider)가 버추얼박스라는 것을 정의한다. 프로바이더는&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;#베이그런트를 통해 제공되는 코드가 실제로 가상 머신으로 배포되게 하는 소프트웨어이다.&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;#버추얼박스가 여기에 해당한다. 다음으로 버추얼박스에 필요한 설정을 정의하는데&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;#그 시작을 do |vb|로 선언한다. provider가 존재하지 않을 경우 Vagrant는 이 설정 블록을&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;#무시한다.&lt;/span&gt;
+    cfg.vm.provider &lt;span class=&quot;s2&quot;&gt;&quot;virtualbox&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; |vb|
+
+    &lt;span class=&quot;c&quot;&gt;#VirtualBox provider는 더 VirtualBox 기반 Vagrant 환경을 보다 세밀하게 제어할 수 있는&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;#몇 가지 추가 구성 옵션을 제공한다.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;#https://www.vagrantup.com/docs/providers/virtualbox/configuration 참고&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;#버추얼박스에 생성한 가상 머신의 이름, CPU 수, 메모리 크기, 소속된 그룹을 명시한다.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;#그리고 마지막으로 end를 적어 버추얼박스 설정이 끝났음을 알린다.&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;#VirtualBox GUI에 표시될 이름을 설정한다&lt;/span&gt;
+      vb.name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;m-k8s(github_SysNet4Admin)&quot;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;#사용할 CPU 수 설정&lt;/span&gt;
+      vb.cpus &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 2
+    &lt;span class=&quot;c&quot;&gt;#사용할 메모리 크기 설정&lt;/span&gt;
+      vb.memory &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 2048
+
+    &lt;span class=&quot;c&quot;&gt;# :id는 생성되는 가상 머신의 ID를 반환하는 특별한 매개변수이다.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;#그래서 VBoxManage 커맨드가 ID를 요구할 때 이 특별한 매개변수를 사용한다.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;#--groups를 이용해서 명시된 그룹으로 분리하는 것이다.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# 여러개의 vms가 있으면 헷갈릴 수 있으므로 분류한다.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;#modifyvm은 ID에 해당하는 vm의 설정을 한다.&lt;/span&gt;
+      vb.customize &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;modifyvm&quot;&lt;/span&gt;, :id, &lt;span class=&quot;s2&quot;&gt;&quot;--groups&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;/k8s-SM(github_SysNet4Admin)&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+    end
+
+    &lt;span class=&quot;c&quot;&gt;#여기서는 가상 머신 자체에 대한 설정이다.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;#do |cfg|에 속한 작업이다. 즉 호스트의 이름(m-k8s)을 설정한다.&lt;/span&gt;
+    cfg.vm.host_name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;m-k8s&quot;&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;#호스트 전용 네트워크를 private_network로 설정해 eth1 인터페이스를&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;#호스트 전용(Host-Only)으로 구성하고 IP는 192.168.1.10으로 지정한다. 고정 IP를 설정해주는 방법이다. 아래 document 참고&lt;/span&gt;
+    cfg.vm.network &lt;span class=&quot;s2&quot;&gt;&quot;private_network&quot;&lt;/span&gt;, ip: &lt;span class=&quot;s2&quot;&gt;&quot;192.168.1.10&quot;&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;#ssh 통신은 호스트 60010번을 게스트 22번으로 전달되도록 구성한다.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;#이때 혹시 모를 포트 중복을 대비해 auto_correct: true로 설정해서&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;#포트가 중복되면 포트가 자동으로 변경되도록 한다.&lt;/span&gt;
+    cfg.vm.network &lt;span class=&quot;s2&quot;&gt;&quot;forwarded_port&quot;&lt;/span&gt;, guest: 22, host: 60010, auto_correct: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;, &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;ssh&quot;&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;#호스트(PC 또는 노트북)와 게스트(가상 머신) 사이에&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;#디렉터리 동기화가 이뤄지지 않게 설정(disabled: true)한다.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;#첫 번째 파라미터는 host의 경로이다 두 번째 파라미터는 guest(vm)의 경로이다.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;#가상머신에 들어가보면 /vagrant 경로에 Vagrantfile이 있다&lt;/span&gt;
+    cfg.vm.synced_folder &lt;span class=&quot;s2&quot;&gt;&quot;../data&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;/vagrant&quot;&lt;/span&gt;, disabled: &lt;span class=&quot;nb&quot;&gt;true
+  &lt;/span&gt;end
+end
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;cfg.vm.network “private_network”, ip: “192.168.1.10”&lt;/strong&gt;에 대해서 좀 더 알아보자.&lt;/p&gt;
+
+&lt;p&gt;공식 document에 들어가면 그 내용이 있는데 발번역을 해보려 한다. 링크는 아래에 남긴다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://www.vagrantup.com/docs/networking/private_network&quot;&gt;Vagrant&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/post1/2021-07-19-09-05-59.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;네트워크 식별자: private_network&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Vagrant private network(사설 네트워크)는 글로벌 인터넷에서 공개적으로 접근 불가한 IP으로 게스트 머신(가상 머신)에 접근하는 것을 가능하게 한다. 일반적으로 이것은 당신의 머신이 &lt;strong&gt;사설 주소 공간&lt;/strong&gt;으로부터 주소를 얻는 다는 것을 의미한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;동일한 사설 네트워크 안에 여러 대의 머신은 동일한 공급자가 지원한다는 제한이 있지만 사설 네트워크 안에서 통신이 가능하다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/post1/2021-07-19-09-13-30.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;DHCP&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;사설 네트워크를 사용하기 위한 가장 쉬운 방법은 DHCP를 통해서 IP를 할당 받는 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이렇게 하면 예약된 주소 공간에서 IP 주소가 자동으로 할당됩니다. IP 주소는 SSH에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vagrant ssh&lt;/code&gt; 명령을 입력하고 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ifconfig&lt;/code&gt;와 같은 적절한 명령줄 도구를 사용해서 IP를 찾을 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/post1/2021-07-19-09-17-55.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;고정 IP&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그리고 당신은 머신에게 고정 IP 주소를 기입할 수 있습니다. 이를 통해 알려진 고정 IP를 사용하여 Vagrant 관리 시스템에 액세스할 수 있습니다. Vagrantfile에서 고정 IP 주소를 설정하는 방법은 아래와 같습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/post1/2021-07-19-09-22-14.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;동일한 네트워크에 다른 머신의 IP와 충돌하지 않도록 IP를 할당하는 것은 사용자에게 달렸습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;원하는 IP를 선택할 수 있지만 &lt;strong&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces&quot;&gt;reserved private address apce&lt;/a&gt;&lt;/strong&gt; 에 나와있는 IP 주소를 사용하는 게 좋습니다. 이 IP들은 절대로 공개적으로 라우팅 되지 않는 것을 보장하며 대부분의 라우터들이 실제로 외부 트래픽이 이 IP로 들어가는 것을 막는다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;일부 운영 체제의 경우 기본 게이트웨이 또는 MTU 설정과 같은 고정 IP 주소에 대한 추가 구성 옵션을 사용할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;경고!&lt;/strong&gt; 시스템의 다른 IP 공간과 겹치는 IP를 선택하지 마십시오. 이로 인해 네트워크에 연결할 수 없습니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+</description>
+				<pubDate>Sun, 18 Jul 2021 10:00:00 +0900</pubDate>
+				<link>/vue/2021/07/18/Kubernetes-2.2.1.html</link>
+				<guid isPermaLink="true">/vue/2021/07/18/Kubernetes-2.2.1.html</guid>
+			</item>
+		
+			<item>
+				<title>npm install Err 문제 해결</title>
+				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;npm-install&quot;&gt;&lt;center&gt;npm install&lt;/center&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;정말 오늘 하루종일 이거 고치느라 아무것도 못했다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;del&gt;오늘 하루는 정말 아무것도 하기 싫ㄷ..&lt;/del&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;유투브에 있는 Vue Project를 따라서 해보려는 중 기본적인 틀은 유투버의 git에서 가져와서 npm를 install하는 과정에서 중간에 계속 에러가 났다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;에러 내용을 스크린샷을 찍어놨어야 되는데… 못찍었다. 무슨 gyp 관련해서 에러가 엄청 떴었다. 그런데 구글링을하고 스택오버플로우에서 검색을 해보고 거기서 제시하는 해결책을 시도해도 안되는 것이었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;한 12시간 이상은 뻘짓한 거 같아서 과정은 다 못올릴 거 같고 결론만 말하자면&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;C:\Users\nick1\AppData\Roaming\npm
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이 npm폴더 안에 있던 모든 파일들을 다 지우고 &lt;strong&gt;npm install&lt;/strong&gt;를 했더니 작동했다.&lt;/p&gt;
+
+&lt;p&gt;정말 오늘 하루는 지친다 ㅠㅠ 그래도 해결했으니 안심해본다.&lt;/p&gt;
+</description>
+				<pubDate>Fri, 16 Jul 2021 12:00:00 +0900</pubDate>
+				<link>/vue/2021/07/16/Vue-post1.html</link>
+				<guid isPermaLink="true">/vue/2021/07/16/Vue-post1.html</guid>
+			</item>
+		
+			<item>
 				<title>Springboot Intellij에서 Livereload 사용하기</title>
 				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -60,7 +402,7 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Springboot/post16/2021-07-07-16-27-04.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/SpringBoot/post16/2021-07-07-16-27-04.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -72,7 +414,7 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Springboot/post16/2021-07-07-16-28-29.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/SpringBoot/post16/2021-07-07-16-28-29.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -82,7 +424,7 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Springboot/post16/2021-07-07-16-31-48.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/SpringBoot/post16/2021-07-07-16-31-48.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -92,7 +434,7 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Springboot/post16/2021-07-07-17-05-19.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/SpringBoot/post16/2021-07-07-17-05-19.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -100,7 +442,7 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Springboot/post16/2021-07-07-17-06-23.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/SpringBoot/post16/2021-07-07-17-06-23.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -2100,113 +2442,6 @@
 				<pubDate>Sat, 29 May 2021 20:00:00 +0900</pubDate>
 				<link>/python/2021/05/29/Python-map.html</link>
 				<guid isPermaLink="true">/python/2021/05/29/Python-map.html</guid>
-			</item>
-		
-			<item>
-				<title>ATM(11399)</title>
-				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;atm-11399&quot;&gt;&lt;center&gt;ATM-11399&lt;/center&gt;&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/BaekJoon/ATM/2021-05-29-23-20-10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/BaekJoon/ATM/2021-05-29-23-20-24.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;별로 어려울 게 없는 문제이다. 결국엔 입력 받은 값들을 오름차순으로 바꾼 다음에
-누적합을 구해서 출력하면 된다.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;total&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;cur&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()))&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;cur&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;total&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cur&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;total&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-				<pubDate>Sat, 29 May 2021 20:00:00 +0900</pubDate>
-				<link>/baekjoon/2021/05/29/BaekJoon-11399.html</link>
-				<guid isPermaLink="true">/baekjoon/2021/05/29/BaekJoon-11399.html</guid>
-			</item>
-		
-			<item>
-				<title>설탕 배달(2839)</title>
-				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;설탕-배달-2839&quot;&gt;&lt;center&gt;설탕 배달-2839&lt;/center&gt;&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;원래 코딩 테스트 언어로 C++로 하려다가 파이썬으로 하는 것이 더 이득인 것 같아서 언어를 바꿨다. 파이썬으로 푸는 첫 백준 문제이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/BaekJoon/2839/2021-05-30-14-16-18.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/BaekJoon/2839/2021-05-30-14-16-34.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;문제는 그리 어렵지 않다. 상근이가 설탕을 배달해야 하는데 가져갈 수 있는 봉지가 3킬로그램과 5킬로그램으로 정해져 있고 어떤 수가 주어졌을 때 가장 적은 개수의 봉지로 &lt;strong&gt;정확하게&lt;/strong&gt; 배달할 수 있는 수를 출력해 내면 되는 것이다. 만약 가지고 있는 봉지로 배달을 &lt;strong&gt;정확하게&lt;/strong&gt; 할 수 없다면 &lt;strong&gt;-1&lt;/strong&gt;를 출력해 준다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;로직은 간단하다 어떤 수가 5로 나누어 떨어지지 않는다면 3를 빼고 봉지 하나를 변수에 추가시킨다. 이때 3를 뺐을 때 0보다 작으면 정확하게 나눌 수 없다는 의미이므로 -1를 출력하고 프로그램을 종료한다. 그렇지 않을 경우엔 게속 주어진 수에 3를 빼가면서 봉지의 수를 하나씩 추가시켜주고 그 수가 5로 나누어 떨어진다면 5로 나눈 몫을 봉지의 수에 더해주면 된다. 그리고 최종적으로 봉지의 수를 출력해 주면 그것이 답이 된다.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;bags&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;bags&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;bags&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;bags&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-				<pubDate>Sat, 29 May 2021 13:00:00 +0900</pubDate>
-				<link>/baekjoon/2021/05/29/BaekJoon-2839.html</link>
-				<guid isPermaLink="true">/baekjoon/2021/05/29/BaekJoon-2839.html</guid>
 			</item>
 		
 	</channel>
