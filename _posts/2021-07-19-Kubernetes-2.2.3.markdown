@@ -3,7 +3,7 @@ layout: post
 title: 컨테이너 인프라 환경 구축을 위한 쿠버네티스/도커-2.2.3
 date: 2021-07-19 10:00:00 0000
 tags: [Kubernetes, Ruby, Vagrantfile]
-categories: [Vue]
+categories: [Kubernetes]
 description: Vagrantfile 내용 분석
 ---
 
@@ -70,7 +70,10 @@ end
 
 <br>
 
-한줄한줄 씩 알아가보자.
+한 줄 한 줄씩 알아가보자.
+
+
+<br>
 
 **Vagrantfile**
 
