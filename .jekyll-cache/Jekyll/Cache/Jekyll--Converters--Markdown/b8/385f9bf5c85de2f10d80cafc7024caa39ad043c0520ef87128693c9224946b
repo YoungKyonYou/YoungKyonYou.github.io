@@ -1,4 +1,4 @@
-I"�*<p><br /><br /></p>
+I"=(<p><br /><br /></p>
 
 <h1 id="thymeleaf-inline-속성에-대해-알아보기"><center>Thymeleaf-inline 속성에 대해 알아보기</center></h1>
 
@@ -43,22 +43,7 @@
 
 <p><strong>SampleDTO</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.techlead.thymeleafexample.dto</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.techlead.thymeleafexample.dto</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">lombok.Builder</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">lombok.Data</span><span class="o">;</span>
@@ -73,52 +58,11 @@
     <span class="kd">private</span> <span class="nc">LocalDateTime</span> <span class="n">regTime</span><span class="o">;</span>
 <span class="o">}</span>
 
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><strong>SampleController</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.zerock.ex3.controller</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.zerock.ex3.controller</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">lombok.extern.log4j.Log4j2</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.springframework.ui.Model</span><span class="o">;</span>
@@ -159,7 +103,7 @@
 
 <span class="o">}</span>
 
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p>실제 화면은 ex3.html로 확인할 수 있으므로 templates 폴더에 추가한다.</p>
 
@@ -169,23 +113,7 @@
 
 <p><strong>ex3.html</strong></p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-</pre></td><td class="rouge-code"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span> <span class="na">xmlns:th=</span><span class="s">"http://www.thymeleaf.org"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;head&gt;</span>
     <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span> <span class="nt">/&gt;</span>
@@ -201,7 +129,7 @@
     <span class="nt">&lt;/script&gt;</span>
   <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 

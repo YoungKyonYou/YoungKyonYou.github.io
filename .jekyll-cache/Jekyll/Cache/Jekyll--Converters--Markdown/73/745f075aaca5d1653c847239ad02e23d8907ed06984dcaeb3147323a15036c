@@ -1,4 +1,4 @@
-I"��<p><br /><br /></p>
+I"W�<p><br /><br /></p>
 
 <p><strong><em>해당 내용은 책 &lt;컨테이너 인프라 환경 구축을 위한 쿠버네티스/도커&gt;에 나오는 내용이며 이는 개인적으로 공부하기 위해서 게시하는 글임을 알립니다.</em></strong></p>
 
@@ -14,59 +14,7 @@
 
 <p><strong>Vagrantfile</strong></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-</pre></td><td class="rouge-code"><pre><span class="c"># -*- mode: ruby -*-</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># -*- mode: ruby -*-</span>
 <span class="c"># vi: set ft=ruby :</span>
 
 Vagrant.configure<span class="o">(</span><span class="s2">"2"</span><span class="o">)</span> <span class="k">do</span> |config|
@@ -118,7 +66,7 @@ Vagrant.configure<span class="o">(</span><span class="s2">"2"</span><span class=
   end
 
 end
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -128,153 +76,7 @@ end
 
 <p><strong>Vagrantfile</strong></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-</pre></td><td class="rouge-code"><pre><span class="c">#아래 두줄의 주석은 에디터에 현재 파일이 루비임을 인식하게 하는 호환 코드이다.</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#아래 두줄의 주석은 에디터에 현재 파일이 루비임을 인식하게 하는 호환 코드이다.</span>
 <span class="c">#ft는 file type(파일종류)의 약자이다.</span>
 <span class="c"># -*- mode: ruby -*-</span>
 <span class="c"># vi: set ft=ruby :</span>
@@ -420,7 +222,7 @@ Vagrant.configure<span class="o">(</span><span class="s2">"2"</span><span class=
   end
 
 end
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -430,51 +232,7 @@ end
 
 <p><strong>config.sh</strong></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-</pre></td><td class="rouge-code"><pre><span class="c">#!/usr/bin/env bash</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env bash</span>
 
 <span class="c"># vim configuration</span>
 <span class="nb">echo</span> <span class="s1">'alias vi=vim'</span> <span class="o">&gt;&gt;</span> /etc/profile
@@ -518,7 +276,7 @@ nameserver 8.8.8.8 #Google DNS
 </span><span class="no">EOF
 
 
-</span></pre></td></tr></tbody></table></code></pre></div></div>
+</span></code></pre></div></div>
 
 <p><br /></p>
 
@@ -528,139 +286,7 @@ nameserver 8.8.8.8 #Google DNS
 
 <p><strong>config.sh</strong></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-</pre></td><td class="rouge-code"><pre><span class="c">#!/usr/bin/env bash</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env bash</span>
 
 <span class="c">#vim configuration</span>
 <span class="c">#vi를 호출하면 vim을 호출하도록 프로파일에 입력한다</span>
@@ -792,34 +418,13 @@ modprobe br_netfilter
 nameserver 1.1.1.1 #cloudflare DNS
 nameserver 8.8.8.8 #Google DNS
 </span><span class="no">EOF
-</span></pre></td></tr></tbody></table></code></pre></div></div>
+</span></code></pre></div></div>
 
 <p><br /></p>
 
 <p><strong>install_pkg.sh</strong></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-</pre></td><td class="rouge-code"><pre><span class="c">#!/usr/bin/env bash</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env bash</span>
 
 <span class="c"># install packages</span>
 yum <span class="nb">install </span>epel-release <span class="nt">-y</span>
@@ -840,68 +445,13 @@ systemctl <span class="nb">enable</span> <span class="nt">--now</span> kubelet
   find <span class="nv">$HOME</span>/_Book_k8sInfra/ <span class="nt">-regex</span> <span class="s2">".*</span><span class="se">\.\(</span><span class="s2">sh</span><span class="se">\)</span><span class="s2">"</span> <span class="nt">-exec</span> <span class="nb">chmod </span>700 <span class="o">{}</span> <span class="se">\;</span>
 <span class="k">fi</span>
 
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
 <p><strong>install_pkg.sh</strong></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-</pre></td><td class="rouge-code"><pre><span class="c">#!/usr/bin/env bash</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env bash</span>
 
 <span class="c"># install packages</span>
 
@@ -956,27 +506,13 @@ systemctl <span class="nb">enable</span> <span class="nt">--now</span> kubelet
   find <span class="nv">$HOME</span>/_Book_k8sInfra/ <span class="nt">-regex</span> <span class="s2">".*</span><span class="se">\.\(</span><span class="s2">sh</span><span class="se">\)</span><span class="s2">"</span> <span class="nt">-exec</span> <span class="nb">chmod </span>700 <span class="o">{}</span> <span class="se">\;</span>
 <span class="k">fi</span>
 
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
 <p><strong>master_node.sh</strong></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="rouge-code"><pre><span class="c">#!/usr/bin/env bash</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env bash</span>
 
 <span class="c"># init kubernetes</span>
 kubeadm init <span class="nt">--token</span> 123456.1234567890123456 <span class="nt">--token-ttl</span> 0 <span class="se">\</span>
@@ -990,55 +526,13 @@ kubeadm init <span class="nt">--token</span> 123456.1234567890123456 <span class
 <span class="c"># config for kubernetes's network</span>
 kubectl apply <span class="nt">-f</span> <span class="se">\</span>
 https://raw.githubusercontent.com/sysnet4admin/IaC/master/manifests/172.16_net_calico.yaml
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
 <p><strong>master_node.sh</strong></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-</pre></td><td class="rouge-code"><pre><span class="c">#!/usr/bin/env bash</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env bash</span>
 
 <span class="c"># init kubernetes</span>
 <span class="c">#kubeadm을 통해 쿠버네티스의 워커 노드를 받아들일 준비를 한다.</span>
@@ -1080,41 +574,24 @@ kubeadm init <span class="nt">--token</span> 123456.1234567890123456 <span class
 <span class="c">#kubectl apply를 사용해서 리소스를 생성하거나 업데이트 할 수 있다</span>
 kubectl apply <span class="nt">-f</span> <span class="se">\</span>
 https://raw.githubusercontent.com/sysnet4admin/IaC/master/manifests/172.16_net_calico.yaml
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
 <p><strong>work_nodes.sh</strong></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre><span class="c">#!/usr/bin/env bash</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env bash</span>
 
 <span class="c"># config for work_nodes only</span>
 kubeadm <span class="nb">join</span> <span class="nt">--token</span> 123456.1234567890123456 <span class="se">\</span>
              <span class="nt">--discovery-token-unsafe-skip-ca-verification</span> 192.168.1.10:6443
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
 <p><strong>work_nodes.sh</strong></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-</pre></td><td class="rouge-code"><pre><span class="c">#!/usr/bin/env bash</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env bash</span>
 
 <span class="c"># config for work_nodes only</span>
 <span class="c">#kubeadm을 이용해 쿠버네티스 마스터 노드에 접속합니다. 이때 연결에 필요한 토큰은</span>
@@ -1126,5 +603,5 @@ kubeadm <span class="nb">join</span> <span class="nt">--token</span> 123456.1234
 <span class="c">#impersonate the Kubernetes Control Plane.</span>
 kubeadm <span class="nb">join</span> <span class="nt">--token</span> 123456.1234567890123456 <span class="se">\</span>
              <span class="nt">--discovery-token-unsafe-skip-ca-verification</span> 192.168.1.10:6443
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 :ET

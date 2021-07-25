@@ -1,4 +1,4 @@
-I",<p><br /><br /></p>
+I"�<p><br /><br /></p>
 
 <h1 id="동전-0-11047"><center>동전 0-11047</center></h1>
 
@@ -40,22 +40,7 @@
 
 <p><br /></p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="rouge-code"><pre><span class="n">N</span><span class="p">,</span><span class="n">K</span><span class="o">=</span><span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">N</span><span class="p">,</span><span class="n">K</span><span class="o">=</span><span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()</span>
 <span class="n">N</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 <span class="n">K</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
 <span class="n">l</span><span class="o">=</span><span class="p">[]</span>
@@ -70,7 +55,7 @@
         <span class="n">K</span><span class="o">-=</span><span class="n">l</span><span class="p">[</span><span class="n">cnt</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">ans</span><span class="o">+=</span><span class="mi">1</span>
 <span class="k">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -78,17 +63,7 @@
 
 <p><br /></p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td><td class="rouge-code"><pre><span class="n">N</span><span class="p">,</span><span class="n">K</span><span class="o">=</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">N</span><span class="p">,</span><span class="n">K</span><span class="o">=</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
 <span class="n">l</span><span class="o">=</span><span class="p">[]</span>
 <span class="n">ans</span><span class="o">=</span><span class="mi">0</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
@@ -98,7 +73,7 @@
     <span class="n">ans</span><span class="o">+=</span><span class="n">K</span><span class="o">//</span><span class="n">coin</span>
     <span class="n">K</span><span class="o">%=</span><span class="n">coin</span>
 <span class="k">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 

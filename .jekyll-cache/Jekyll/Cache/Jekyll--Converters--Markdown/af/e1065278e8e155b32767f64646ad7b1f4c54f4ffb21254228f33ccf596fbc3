@@ -1,4 +1,4 @@
-I"Ao<p><br /><br /></p>
+I"�g<p><br /><br /></p>
 
 <h1 id="part-4-mn다대다-관계와-파일-업로드-처리"><center>Part 4-M:N(다대다) 관계와 파일 업로드 처리</center></h1>
 
@@ -68,19 +68,7 @@
 
 <p>책에서는 mariaDB를 썼지만 나는 mysql workbench를 쓸 것임으로 mysql connector를 사용한다.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-</pre></td><td class="rouge-code"><pre><span class="n">dependencies</span> <span class="o">{</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dependencies</span> <span class="o">{</span>
     <span class="n">implementation</span> <span class="err">'</span><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">boot</span><span class="o">:</span><span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="n">jpa</span><span class="err">'</span>
     <span class="n">implementation</span> <span class="err">'</span><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">boot</span><span class="o">:</span><span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">-</span><span class="n">thymeleaf</span><span class="err">'</span>
     <span class="n">implementation</span> <span class="err">'</span><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">boot</span><span class="o">:</span><span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">-</span><span class="n">web</span><span class="err">'</span>
@@ -92,23 +80,13 @@
     <span class="n">compile</span> <span class="nl">group:</span> <span class="err">'</span><span class="n">mysql</span><span class="err">'</span><span class="o">,</span> <span class="nl">name:</span> <span class="err">'</span><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">java</span><span class="err">'</span><span class="o">,</span> <span class="nl">version:</span> <span class="err">'</span><span class="mf">8.0</span><span class="o">.</span><span class="mi">22</span><span class="err">'</span>
     <span class="n">compile</span> <span class="nl">group:</span> <span class="err">'</span><span class="n">org</span><span class="o">.</span><span class="na">thymeleaf</span><span class="o">.</span><span class="na">extras</span><span class="err">'</span><span class="o">,</span> <span class="nl">name:</span> <span class="err">'</span><span class="n">thymeleaf</span><span class="o">-</span><span class="n">extras</span><span class="o">-</span><span class="n">java8time</span><span class="err">'</span>
 <span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /><br /></p>
 
 <h3 id="applicationproperties">application.properties</h3>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td><td class="rouge-code"><pre><span class="n">spring</span><span class="o">.</span><span class="na">datasource</span><span class="o">.</span><span class="na">driver</span><span class="o">-</span><span class="kd">class</span><span class="err">-</span><span class="nc">name</span><span class="o">=</span><span class="n">com</span><span class="o">.</span><span class="na">mysql</span><span class="o">.</span><span class="na">cj</span><span class="o">.</span><span class="na">jdbc</span><span class="o">.</span><span class="na">Driver</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">spring</span><span class="o">.</span><span class="na">datasource</span><span class="o">.</span><span class="na">driver</span><span class="o">-</span><span class="kd">class</span><span class="err">-</span><span class="nc">name</span><span class="o">=</span><span class="n">com</span><span class="o">.</span><span class="na">mysql</span><span class="o">.</span><span class="na">cj</span><span class="o">.</span><span class="na">jdbc</span><span class="o">.</span><span class="na">Driver</span>
 <span class="n">spring</span><span class="o">.</span><span class="na">datasource</span><span class="o">.</span><span class="na">url</span><span class="o">=</span><span class="nl">jdbc:mysql:</span><span class="c1">//localhost:3306/bootex?serverTimezone=UTC&amp;characterEncoding=UTF-8</span>
 <span class="n">spring</span><span class="o">.</span><span class="na">datasource</span><span class="o">.</span><span class="na">username</span><span class="o">=</span><span class="n">bootex</span>
 <span class="n">spring</span><span class="o">.</span><span class="na">datasource</span><span class="o">.</span><span class="na">password</span><span class="o">=</span><span class="n">bootex</span>
@@ -118,7 +96,7 @@
 <span class="n">spring</span><span class="o">.</span><span class="na">jpa</span><span class="o">.</span><span class="na">show</span><span class="o">-</span><span class="n">sql</span><span class="o">=</span><span class="kc">true</span>
 
 <span class="n">spring</span><span class="o">.</span><span class="na">thymeleaf</span><span class="o">.</span><span class="na">cache</span><span class="o">=</span><span class="kc">false</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /><br /></p>
 
@@ -129,16 +107,7 @@
 
 <p><strong>MreviewApplication 클래스 일부</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="rouge-code"><pre><span class="nd">@SpringBootApplication</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@SpringBootApplication</span>
 <span class="nd">@EnableJpaAuditing</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">MreviewApplication</span> <span class="o">{</span>
 
@@ -147,7 +116,7 @@
     <span class="o">}</span>
 
 <span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /><br />
 <img src="\images\Learning_SpringBoot_with_Web_Project\Part4\Chapter7\Movie.PNG" alt="Movie" />
@@ -155,29 +124,7 @@
 
 <p><strong>Movie 클래스</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.zerock.mreview.entity</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.zerock.mreview.entity</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">lombok.*</span><span class="o">;</span>
 
@@ -199,7 +146,7 @@
     <span class="kd">private</span> <span class="nc">String</span> <span class="n">title</span><span class="o">;</span>
 <span class="o">}</span>
 
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /><br /></p>
 
@@ -215,31 +162,7 @@
 
 <p><strong>MovieImage 클래스</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.zerock.mreview.entity</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.zerock.mreview.entity</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">lombok.*</span><span class="o">;</span>
 
@@ -263,7 +186,7 @@
     <span class="kd">private</span> <span class="nc">Movie</span> <span class="n">movie</span><span class="o">;</span>
 <span class="o">}</span>
 
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <ul>
   <li>MovieImage 클래스에는 나중에 사용할 이미젱 대한 정보를 기록</li>
@@ -281,31 +204,7 @@
 <p><img src="\images\Learning_SpringBoot_with_Web_Project\Part4\Chapter7\member.PNG" alt="member" />
 <br /></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.zerock.mreview.entity</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.zerock.mreview.entity</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">lombok.*</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.hibernate.annotations.GeneratorType</span><span class="o">;</span>
@@ -329,7 +228,7 @@
     <span class="kd">private</span> <span class="nc">String</span> <span class="n">nickname</span><span class="o">;</span>
 <span class="o">}</span>
 
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /><br /></p>
 
@@ -352,34 +251,7 @@
 <img src="\images\Learning_SpringBoot_with_Web_Project\Part4\Chapter7\review.PNG" alt="review" />
 <br /></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.zerock.mreview.entity</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.zerock.mreview.entity</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">lombok.*</span><span class="o">;</span>
 
@@ -406,7 +278,7 @@
 
     <span class="kd">private</span> <span class="nc">String</span> <span class="n">text</span><span class="o">;</span>
 <span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <ul>
   <li>Fetch 모드는 모두 LAZY 설정을 이용</li>
@@ -425,36 +297,20 @@
 
 <p><strong>MemberRepository 인터페이스</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.zerock.mreview.repository</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.zerock.mreview.repository</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">org.springframework.data.jpa.repository.JpaRepository</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.zerock.mreview.entity.Member</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">MemberRepository</span> <span class="kd">extends</span> <span class="nc">JpaRepository</span><span class="o">&lt;</span><span class="nc">Member</span><span class="o">,</span><span class="nc">Long</span><span class="o">&gt;</span> <span class="o">{</span>
 <span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
 <p><strong>MovieImageRepository</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.zerock.mreview.repository</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.zerock.mreview.repository</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">org.springframework.data.jpa.repository.JpaRepository</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.zerock.mreview.entity.Movie</span><span class="o">;</span>
@@ -463,21 +319,11 @@
 <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">MovieImageRepository</span> <span class="kd">extends</span> <span class="nc">JpaRepository</span><span class="o">&lt;</span><span class="nc">MovieImage</span><span class="o">,</span> <span class="nc">Long</span><span class="o">&gt;</span> <span class="o">{</span>
 <span class="o">}</span>
 
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><strong>ReviewRepository</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.zerock.mreview.repository</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.zerock.mreview.repository</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.springframework.data.jpa.repository.JpaRepository</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.zerock.mreview.entity.Review</span><span class="o">;</span>
 
@@ -487,7 +333,7 @@
 
 <span class="o">}</span>
 
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p>이 데이터를 이용해서 화면에서 필요한 데이터를 생각해보기</p>
 

@@ -1,4 +1,4 @@
-I"�<p><br /></p>
+I"h<p><br /></p>
 
 <p><br /><br /></p>
 
@@ -18,9 +18,8 @@
   <li>첫 번째 방법</li>
 </ol>
 
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="k">SELECT</span> <span class="o">@@</span><span class="k">global</span><span class="p">.</span><span class="n">time_zone</span><span class="p">,</span> <span class="o">@@</span><span class="k">session</span><span class="p">.</span><span class="n">time_zone</span><span class="p">;</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">@@</span><span class="k">global</span><span class="p">.</span><span class="n">time_zone</span><span class="p">,</span> <span class="o">@@</span><span class="k">session</span><span class="p">.</span><span class="n">time_zone</span><span class="p">;</span>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -34,9 +33,8 @@
 
 <p>위 사진과 같이 바꾸는 코드는 아래와 같다</p>
 
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="k">SET</span> <span class="o">@@</span><span class="k">session</span><span class="p">.</span><span class="n">time_zone</span><span class="o">=</span><span class="s1">'+09:00'</span><span class="p">;</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SET</span> <span class="o">@@</span><span class="k">session</span><span class="p">.</span><span class="n">time_zone</span><span class="o">=</span><span class="s1">'+09:00'</span><span class="p">;</span>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -48,9 +46,8 @@
   <li>두 번째 방법</li>
 </ol>
 
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="k">SELECT</span> <span class="k">CURRENT_TIMESTAMP</span><span class="p">();</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">CURRENT_TIMESTAMP</span><span class="p">();</span>
+</code></pre></div></div>
 
 <p>위 코드를 치게 되면 아래 사진과 같이 나온다.</p>
 
@@ -60,17 +57,12 @@
 
 <p>원래는 이게 지금은 현재 시간을 나타내지만 처음 설정 전에는 9시간 이전 시간으로 나타났던 것 같다. 그래서 아래와 같이 설정했더니 정상적으로 현재 시간이 나오게 되었다.</p>
 
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre><span class="k">DELIMITER</span> <span class="o">//</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DELIMITER</span> <span class="o">//</span>
 <span class="k">CREATE</span> <span class="k">TRIGGER</span> <span class="nv">`update_to_utc`</span> <span class="k">BEFORE</span> <span class="k">INSERT</span> <span class="k">ON</span> <span class="nv">`my_table`</span> <span class="k">FOR</span> <span class="k">EACH</span> <span class="k">ROW</span> <span class="k">BEGIN</span>
 <span class="k">set</span> <span class="k">new</span><span class="p">.</span><span class="n">my_field</span><span class="o">=</span><span class="n">utc_timestamp</span><span class="p">();</span>
 <span class="k">END</span><span class="o">//</span>
 <span class="k">DELIMITER</span> <span class="p">;</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -87,17 +79,12 @@
 
 <p><strong>application.properties</strong></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre>spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 
 spring.datasource.url=jdbc:mysql://localhost:3306/frames?serverTimezone=Asia/Seoul&amp;characterEncoding=UTF-8
 
 (...)
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 

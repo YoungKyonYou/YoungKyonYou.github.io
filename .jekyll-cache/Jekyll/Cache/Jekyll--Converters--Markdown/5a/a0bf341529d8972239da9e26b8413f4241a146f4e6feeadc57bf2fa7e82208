@@ -1,4 +1,4 @@
-I"!-<p><br /><br /></p>
+I"�(<p><br /><br /></p>
 
 <h1 id="template-경로-변경하기-2"><center>Template 경로 변경하기-2</center></h1>
 
@@ -22,31 +22,22 @@
 
 <p><strong>pom.xml일 경우</strong></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre>&lt;dependency&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;dependency&gt;
     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
     &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;
     &lt;versionId&gt;2.2.2.RELEASE&lt;/versionId&gt;
 &lt;/dependency&gt;
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
 <p><strong>build.gradle일 경우</strong></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-</pre></td><td class="rouge-code"><pre>dependencies {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dependencies {
     (...)
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 }
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -62,17 +53,7 @@
 
 <p><strong>hello.html</strong></p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td><td class="rouge-code"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html</span> <span class="na">xmlns:th=</span><span class="s">"http://www.thymeleaf.org"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;head&gt;</span>
     <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span> <span class="nt">/&gt;</span>
@@ -82,7 +63,7 @@
     <span class="nt">&lt;h2&gt;</span>Hello from 'templates/templates-2'<span class="nt">&lt;/h2&gt;</span>
   <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -90,15 +71,11 @@
 
 <p><strong>HelloController.java</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-</pre></td><td class="rouge-code"><pre><span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/hello"</span><span class="o">)</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/hello"</span><span class="o">)</span>
 <span class="kd">public</span> <span class="nc">String</span> <span class="nf">sayHello</span><span class="o">()</span> <span class="o">{</span>
     <span class="k">return</span> <span class="s">"hello"</span><span class="o">;</span>
 <span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -106,9 +83,8 @@
 
 <p><strong>application.properties</strong></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>spring.thymeleaf.prefix=classpath:/templates-2/
-</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spring.thymeleaf.prefix=classpath:/templates-2/
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -116,19 +92,7 @@
 
 <p>이제 우리는 디폴트 경로를 바꾸는 방법을 배웠다. 이제 다중 template 경로를 바꾸는 법에 대해서 알아보자. 이것을 하기 위해선 <strong>ClassLoaderTemplateResolver bean</strong>를 만들어야 된다.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-</pre></td><td class="rouge-code"><pre><span class="nd">@Bean</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Bean</span>
 <span class="kd">public</span> <span class="nc">ClassLoaderTemplateResolver</span> <span class="nf">secondaryTemplateResolver</span><span class="o">()</span> <span class="o">{</span>
     <span class="nc">ClassLoaderTemplateResolver</span> <span class="n">secondaryTemplateResolver</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ClassLoaderTemplateResolver</span><span class="o">();</span>
     <span class="n">secondaryTemplateResolver</span><span class="o">.</span><span class="na">setPrefix</span><span class="o">(</span><span class="s">"templates-2/"</span><span class="o">);</span>
@@ -140,7 +104,7 @@
 
     <span class="k">return</span> <span class="n">secondaryTemplateResolver</span><span class="o">;</span>
 <span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -150,11 +114,9 @@
 
 <p>Thymeleaf를 사용할 때 이런 에러를 볼 수 있다.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-</pre></td><td class="rouge-code"><pre>Error resolving template [hello], template might not exist or might not be accessible
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Error resolving template [hello], template might not exist or might not be accessible
 by any of the configured Template Resolvers
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 

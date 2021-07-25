@@ -1,4 +1,4 @@
-I"1�<p><br /><br /></p>
+I"��<p><br /><br /></p>
 
 <h1 id="검색처리"><center>검색처리</center></h1>
 
@@ -29,39 +29,7 @@
 
 <p><strong>PageRequestDTO.java</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.zerock.guestbook.dto</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.zerock.guestbook.dto</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">lombok.AllArgsConstructor</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">lombok.Builder</span><span class="o">;</span>
@@ -93,7 +61,7 @@
     <span class="o">}</span>
 <span class="o">}</span>
 
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -103,66 +71,7 @@
 
 <p><strong>GuestbookServiceImpl.java 일부</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-</pre></td><td class="rouge-code"><pre><span class="o">(...)</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(...)</span>
 <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="nc">GuestbookDTO</span> <span class="nf">read</span><span class="o">(</span><span class="nc">Long</span> <span class="n">gno</span><span class="o">)</span> <span class="o">{</span>
          <span class="o">(...)</span>
@@ -221,7 +130,7 @@
 
 <span class="o">}</span>
 
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -231,21 +140,7 @@
 
 <p><strong>GuestbookServiceImpl.java 일부</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="rouge-code"><pre>    <span class="nd">@Override</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="nc">PageResultDTO</span><span class="o">&lt;</span><span class="nc">GuestbookDTO</span><span class="o">,</span> <span class="nc">Guestbook</span><span class="o">&gt;</span> <span class="nf">getList</span><span class="o">(</span><span class="nc">PageRequestDTO</span> <span class="n">requestDTO</span><span class="o">)</span> <span class="o">{</span>
 
         <span class="nc">Pageable</span> <span class="n">pageable</span> <span class="o">=</span> <span class="n">requestDTO</span><span class="o">.</span><span class="na">getPageable</span><span class="o">(</span><span class="nc">Sort</span><span class="o">.</span><span class="na">by</span><span class="o">(</span><span class="s">"gno"</span><span class="o">).</span><span class="na">descending</span><span class="o">());</span>
@@ -259,7 +154,7 @@
 
         <span class="k">return</span> <span class="k">new</span> <span class="nc">PageResultDTO</span><span class="o">&lt;&gt;(</span><span class="n">result</span><span class="o">,</span> <span class="n">fn</span> <span class="o">);</span>
     <span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -271,28 +166,7 @@
 
 <p><strong>GuestbookServiceTests.java 일부</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-</pre></td><td class="rouge-code"><pre><span class="nd">@Test</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testSearch</span><span class="o">(){</span>
         <span class="nc">PageRequestDTO</span> <span class="n">pageRequestDTO</span><span class="o">=</span><span class="nc">PageRequestDTO</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
                 <span class="o">.</span><span class="na">page</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
@@ -313,7 +187,7 @@
         <span class="n">resultDTO</span><span class="o">.</span><span class="na">getPageList</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="n">i</span><span class="o">-&gt;</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
 
     <span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -335,56 +209,7 @@
 
 <p><strong>list.html 일부</strong></p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-</pre></td><td class="rouge-code"><pre>(...)
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(...)
 <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"mt-4"</span><span class="nt">&gt;</span>
   GuestBook List Page
   <span class="nt">&lt;span&gt;</span>
@@ -433,7 +258,7 @@
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/form&gt;</span>
 (...)
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -449,31 +274,7 @@
 
 <p><strong>list.html의 하단</strong></p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-</pre></td><td class="rouge-code"><pre>(...)
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(...)
 <span class="nt">&lt;script </span><span class="na">th:inline=</span><span class="s">"javascript"</span><span class="nt">&gt;</span>
 
   <span class="kd">var</span> <span class="nx">msg</span> <span class="o">=</span> <span class="p">[[</span><span class="nx">$</span><span class="p">{</span><span class="nx">msg</span><span class="p">}]];</span>
@@ -497,7 +298,7 @@
 
   <span class="p">});</span>
 <span class="nt">&lt;/script&gt;</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -515,43 +316,7 @@
 
 <p><strong>list.html 일부</strong></p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-</pre></td><td class="rouge-code"><pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"pagination h-100 justify-content-center align-items-center"</span><span class="nt">&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"pagination h-100 justify-content-center align-items-center"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"page-item "</span> <span class="na">th:if=</span><span class="s">"${result.prev}"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;a</span>
       <span class="na">class=</span><span class="s">"page-link"</span>
@@ -587,7 +352,7 @@
     <span class="nt">&gt;</span>
   <span class="nt">&lt;/li&gt;</span>
 <span class="nt">&lt;/ul&gt;</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -595,24 +360,7 @@
 
 <p><strong>list.html 일부</strong></p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-</pre></td><td class="rouge-code"><pre>(...)
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(...)
 <span class="nt">&lt;tr</span> <span class="na">th:each=</span><span class="s">"dto : ${result.dtoList}"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;a</span>
@@ -629,7 +377,7 @@
   <span class="nt">&lt;td&gt;</span>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]<span class="nt">&lt;/td&gt;</span>
 <span class="nt">&lt;/tr&gt;</span>
 (...)
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -641,20 +389,7 @@
 
 <p><strong>read.html 하단의 링크 처리</strong></p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="rouge-code"><pre><span class="nt">&lt;a</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span>
   <span class="na">th:href=</span><span class="s">"@{/guestbook/modify(gno = ${dto.gno}, page=${requestDTO.page},
    type=${requestDTO.type}, keyword =${requestDTO.keyword})}"</span>
 <span class="nt">&gt;</span>
@@ -667,7 +402,7 @@
 <span class="nt">&gt;</span>
   <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-info"</span><span class="nt">&gt;</span>List<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;/a&gt;</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -695,26 +430,7 @@
 
 <p>*modify.html 일부**</p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-</pre></td><td class="rouge-code"><pre>(...)
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(...)
 <span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"/guestbook/modify"</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
   <span class="c">&lt;!--페이지 번호  --&gt;</span>
   <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">name=</span><span class="s">"page"</span> <span class="na">th:value=</span><span class="s">"${requestDTO.page}"</span> <span class="nt">/&gt;</span>
@@ -733,7 +449,7 @@
   <span class="nt">&lt;/div&gt;</span>
   (...)
 <span class="nt">&lt;/form&gt;</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -741,17 +457,12 @@
 
 <p><strong>modify.html 일부</strong></p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre>(...) $(".listBtn").click(function() { var page = $("input[name='page']"); var
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(...) $(".listBtn").click(function() { var page = $("input[name='page']"); var
 type = $("input[name='type']"); var keyword = $("input[name='keyword']");
 actionForm.empty(); //form 태그의 모든 내용을 지우고 actionForm.append(page);
 actionForm.append(type); actionForm.append(keyword); actionForm .attr("action",
 "/guestbook/list") .attr("method","get"); actionForm.submit(); }) (...)
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -759,30 +470,7 @@ actionForm.append(type); actionForm.append(keyword); actionForm .attr("action",
 
 <p><strong>GuestbookController.java</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-</pre></td><td class="rouge-code"><pre><span class="o">(...)</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(...)</span>
  <span class="nd">@PostMapping</span><span class="o">(</span><span class="s">"/modify"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="nc">String</span> <span class="nf">modify</span><span class="o">(</span><span class="nc">GuestbookDTO</span> <span class="n">dto</span><span class="o">,</span>
                      <span class="nd">@ModelAttribute</span><span class="o">(</span><span class="s">"requestDTO"</span><span class="o">)</span> <span class="nc">PageRequestDTO</span> <span class="n">requestDTO</span><span class="o">,</span>
@@ -805,7 +493,7 @@ actionForm.append(type); actionForm.append(keyword); actionForm .attr("action",
 
 <span class="o">}</span>
     <span class="o">(...)</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 

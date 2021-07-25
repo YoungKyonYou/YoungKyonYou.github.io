@@ -179,16 +179,14 @@
 
 <p>리액트를 공부하면서 styled-components를 쓸 일이 있어서 책에 나온대로</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>$yarn add styled-components
-</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$yarn add styled-components
+</code></pre></div></div>
 
 <p>를 설치해주었다.
 그리고 프로젝트를 생성하고 테스트 해보려고 로컬에서 서버를 돌리려고</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>$yarn start
-</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$yarn start
+</code></pre></div></div>
 
 <p>를 하는 순간 발생한 에러..</p>
 
@@ -196,11 +194,9 @@
 
 <p><br /></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-</pre></td><td class="rouge-code"><pre>./.yarn/$$virtual/styled-components-virtual-c4a0488559/0/cache/styled-components-npm-5.2.1-e180c24b63-c27911be08.zip/node_modules/styled-components/dist/styled-components.browser.esm.js
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./.yarn/$$virtual/styled-components-virtual-c4a0488559/0/cache/styled-components-npm-5.2.1-e180c24b63-c27911be08.zip/node_modules/styled-components/dist/styled-components.browser.esm.js
 Module not found: styled-components tried to access react-is (a peer dependency) but it isn't provided by its ancestors; this makes the require call ambiguous and unsound.
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><del>무슨 개xxx..</del></p>
 
@@ -208,9 +204,8 @@ Module not found: styled-components tried to access react-is (a peer dependency)
 
 <p>다행히 구글링해서 찾은 해결책</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>$yarn add react-is
-</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$yarn add react-is
+</code></pre></div></div>
 
 <p>이 명령어를 치고 다시 yarn start를 하니까 컴파일이 성공했다.!!!!</p>
 

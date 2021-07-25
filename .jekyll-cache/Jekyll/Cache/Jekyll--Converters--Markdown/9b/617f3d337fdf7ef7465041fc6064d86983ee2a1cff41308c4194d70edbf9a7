@@ -1,4 +1,4 @@
-I"�v<p><br /><br /></p>
+I"Mq<p><br /><br /></p>
 
 <h1 id="목록-데이터-페이지-처리하기"><center>목록 데이터 페이지 처리하기</center></h1>
 
@@ -8,51 +8,7 @@
 
 <p><strong>PageResultDTO.java</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.techlead.guestbook.dto</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.techlead.guestbook.dto</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">lombok.Data</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.springframework.data.domain.Page</span><span class="o">;</span>
@@ -96,7 +52,7 @@
     <span class="o">}</span>
 <span class="o">}</span>
 
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -132,24 +88,7 @@
 
 <p><strong>GuestbookServiceTests.java</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-</pre></td><td class="rouge-code"><pre><span class="nd">@Test</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testList</span><span class="o">(){</span>
         <span class="nc">PageRequestDTO</span> <span class="n">pageRequestDTO</span><span class="o">=</span><span class="nc">PageRequestDTO</span><span class="o">.</span><span class="na">builder</span><span class="o">().</span><span class="na">page</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">size</span><span class="o">(</span><span class="mi">10</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
         <span class="nc">PageResultDTO</span><span class="o">&lt;</span><span class="nc">GuestbookDTO</span><span class="o">,</span> <span class="nc">Guestbook</span><span class="o">&gt;</span> <span class="n">resultDTO</span><span class="o">=</span><span class="n">service</span><span class="o">.</span><span class="na">getList</span><span class="o">(</span><span class="n">pageRequestDTO</span><span class="o">);</span>
@@ -166,7 +105,7 @@
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"========================================"</span><span class="o">);</span>
         <span class="n">resultDTO</span><span class="o">.</span><span class="na">getPageList</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="n">i</span><span class="o">-&gt;</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
     <span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -180,33 +119,7 @@
 
 <p><strong>GuestbookController.java</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-</pre></td><td class="rouge-code"><pre><span class="o">(...)</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(...)</span>
 <span class="nd">@Controller</span>
 <span class="c1">//guestbook으로부터 시작해서 guestbook/register, guestbook/list 이런식으로 사용</span>
 <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">"/guestbook"</span><span class="o">)</span>
@@ -232,7 +145,7 @@
 
     <span class="o">}</span>
 <span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -248,33 +161,7 @@
 
 <p><strong>list.html</strong></p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-</pre></td><td class="rouge-code"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span> <span class="na">xmlns:th=</span><span class="s">"http://www.thymeleaf.org"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;th:block</span> <span class="na">th:replace=</span><span class="s">"~{/layout/basic :: setContent(~{this::content} )}"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;th:block</span> <span class="na">th:fragment=</span><span class="s">"content"</span><span class="nt">&gt;</span>
@@ -300,7 +187,7 @@
     <span class="nt">&lt;/th:block&gt;</span>
   <span class="nt">&lt;/th:block&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -325,30 +212,7 @@
 
 <p><strong>list.html 일부</strong></p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-</pre></td><td class="rouge-code"><pre><span class="nt">&lt;/tbody&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;/tbody&gt;</span>
         <span class="nt">&lt;/table&gt;</span>
 
         <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"pagination h-100 justify-content-center align-items-center"</span><span class="nt">&gt;</span>
@@ -371,7 +235,7 @@
     <span class="nt">&lt;/th:block&gt;</span>
 
 <span class="nt">&lt;/th:block&gt;</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -401,35 +265,7 @@
 
 <p><strong>list.html의 일부</strong></p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-</pre></td><td class="rouge-code"><pre><span class="nt">&lt;/tbody&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;/tbody&gt;</span>
         <span class="nt">&lt;/table&gt;</span>
 
         <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"pagination h-100 justify-content-center align-items-center"</span><span class="nt">&gt;</span>
@@ -457,7 +293,7 @@
     <span class="nt">&lt;/th:block&gt;</span>
 
 <span class="nt">&lt;/th:block&gt;</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 

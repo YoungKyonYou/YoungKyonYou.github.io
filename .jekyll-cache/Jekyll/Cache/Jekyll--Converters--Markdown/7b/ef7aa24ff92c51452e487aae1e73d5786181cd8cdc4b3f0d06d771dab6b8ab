@@ -1,4 +1,4 @@
-I"�<p><br /><br /></p>
+I"V<p><br /><br /></p>
 
 <h1 id="auto_increment-재정렬"><center>AUTO_INCREMENT 재정렬</center></h1>
 
@@ -32,11 +32,9 @@
 
 <p>그리고 구글링과 stackoverflow를 뒤진 결과 해결 방법은 아래와 같다.</p>
 
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-</pre></td><td class="rouge-code"><pre><span class="k">set</span> <span class="o">@</span><span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">set</span> <span class="o">@</span><span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 <span class="k">update</span> <span class="nv">"테이블명"</span> <span class="k">set</span> <span class="nv">"테이블명"</span><span class="p">.</span><span class="nv">"컬럼명"</span><span class="o">=@</span><span class="n">cnt</span><span class="p">:</span><span class="o">=@</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -50,17 +48,7 @@
 
 <p><strong>repository class</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td><td class="rouge-code"><pre>    <span class="nd">@Modifying</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nd">@Modifying</span>
     <span class="nd">@Transactional</span>
     <span class="nd">@Query</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">"set @cnt=0"</span><span class="o">,</span> <span class="n">nativeQuery</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
     <span class="kt">void</span> <span class="nf">initialCnt</span><span class="o">();</span>
@@ -70,7 +58,7 @@
     <span class="nd">@Transactional</span>
     <span class="nd">@Query</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">"update guestbook set guestbook.gno=@cnt\\:=@cnt+1"</span><span class="o">,</span><span class="n">nativeQuery</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
     <span class="kt">void</span> <span class="nf">reorderKeyId</span><span class="o">();</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><img src="/images/SpringBoot/post08/2021-03-05-20-10-35.png" alt="" /></p>
 

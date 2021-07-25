@@ -189,33 +189,7 @@
 <p><br /></p>
 
 <p><strong>MemberRepositoryTests 클래스</strong></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.zerock.board.repository</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.zerock.board.repository</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
@@ -241,7 +215,7 @@
     <span class="o">}</span>
 <span class="o">}</span>
 
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 <p><br /></p>
 
 <p>테스트의 실행 결과로 데이트베이스에 회원 데이터가 추가되었는지 확인한다.</p>
@@ -251,42 +225,7 @@
 <p><br /></p>
 
 <p><strong>BoardRepositoryTests 클래스</strong></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.zerock.board.repository</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.zerock.board.repository</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
@@ -321,7 +260,7 @@
         <span class="o">});</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 <p><br /></p>
 
 <p>testInsert()는 한 명의 사용자가 하나의 게시물을 등록하도록 작성되었다. 테스트 결과는 데이터베이스를 통해 확인한다.</p>
@@ -331,39 +270,7 @@
 <p><br /></p>
 
 <p><strong>ReplyRepositoryTests 클래스</strong></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.zerock.board.repository</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.zerock.board.repository</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
@@ -395,7 +302,7 @@
         <span class="o">});</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 <p>insertReply()는 300개의 댓글을 1~100 사이의 번호로 추가한다. 데이터베이스에는 1번부터 100번까지 게시물에 대해서 n개의 댓글이 추가된다.</p>
 
 <p><br /></p>
@@ -425,21 +332,14 @@
 <p><br /></p>
 
 <p><strong>BoardRepositoryTests 클래스 일부</strong></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="rouge-code"><pre>    <span class="nd">@Test</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testRead1</span><span class="o">(){</span>
         <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Board</span><span class="o">&gt;</span> <span class="n">result</span><span class="o">=</span><span class="n">boardRepository</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="mi">100L</span><span class="o">);</span>
         <span class="nc">Board</span> <span class="n">board</span><span class="o">=</span><span class="n">result</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">board</span><span class="o">);</span>
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">board</span><span class="o">.</span><span class="na">getWriter</span><span class="o">());</span>
     <span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 <p>위의 코드를 실행하면 쿼리가 내부적으로 left outer join 처리가 된 것을 확인 가능하다.</p>
 
 <p>Reply와 Board 역시 @ManyToOne의 관계이므로 테스트를 하면 자동으로 조인이 처리되는 것을 볼 수 있다.</p>
@@ -447,21 +347,14 @@
 <p><br /></p>
 
 <p><strong>ReplyRepositoryTests 클래스</strong></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="rouge-code"><pre>    <span class="nd">@Test</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">readReply1</span><span class="o">(){</span>
         <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Reply</span><span class="o">&gt;</span> <span class="n">result</span><span class="o">=</span><span class="n">replyRepository</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="mi">1L</span><span class="o">);</span>
         <span class="nc">Reply</span> <span class="n">reply</span><span class="o">=</span><span class="n">result</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">reply</span><span class="o">);</span>
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">reply</span><span class="o">.</span><span class="na">getBoard</span><span class="o">());</span>
     <span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -483,29 +376,7 @@ Board 클래스를 수정해보자.</p>
 <p><br /></p>
 
 <p><strong>Lazy loading를 사용하는 Board 클래스</strong></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.zerock.board.entity</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.zerock.board.entity</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">lombok.*</span><span class="o">;</span>
 
@@ -527,7 +398,7 @@ Board 클래스를 수정해보자.</p>
     <span class="kd">private</span> <span class="nc">Member</span> <span class="n">writer</span><span class="o">;</span>
 <span class="o">}</span>
 
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -539,15 +410,7 @@ Board 클래스를 수정해보자.</p>
 <p><br /></p>
 
 <p><strong>BoardRepositoryTests</strong></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="rouge-code"><pre>    <span class="nd">@Transactional</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nd">@Transactional</span>
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testRead1</span><span class="o">(){</span>
         <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Board</span><span class="o">&gt;</span> <span class="n">result</span><span class="o">=</span><span class="n">boardRepository</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="mi">100L</span><span class="o">);</span>
@@ -555,7 +418,7 @@ Board 클래스를 수정해보자.</p>
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">board</span><span class="o">);</span>
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">board</span><span class="o">.</span><span class="na">getWriter</span><span class="o">());</span>
     <span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -584,25 +447,7 @@ Board 클래스를 수정해보자.</p>
 <p><br /></p>
 
 <p><strong>BoardRepository 인터페이스</strong></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.zerock.board.repository</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.zerock.board.repository</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">org.springframework.data.domain.Page</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.springframework.data.domain.Pageable</span><span class="o">;</span>
@@ -620,28 +465,21 @@ Board 클래스를 수정해보자.</p>
     <span class="nc">Object</span> <span class="nf">getBoardWithWriter</span><span class="o">(</span><span class="nd">@Param</span><span class="o">(</span><span class="s">"bno"</span><span class="o">)</span> <span class="nc">Long</span> <span class="n">bno</span><span class="o">);</span>
 <span class="o">}</span>
 
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p>getBoardWithWriter()는 Board를 사용하고 있지만, Member를 같이 조회해야 하는 상황이다. Board 클래스에는 Member와의 연관관계를 맺고 있으므로 b.writer와 같은 형태로 사용한다. 이처럼 내부에 있는 엔티티를 이용할 때는 ‘LEFT JOIN’ 뒤에 ‘ON’을 이용하는 부분이 없다. 작성한 getBoardWithWriter()를 테스트 코드로 확인하자.</p>
 
 <p><br /></p>
 
 <p><strong>BoardRepositoryTests 테스크 코드</strong></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="rouge-code"><pre>    <span class="nd">@Test</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testReadWithWriter</span><span class="o">(){</span>
         <span class="nc">Object</span> <span class="n">result</span><span class="o">=</span><span class="n">boardRepository</span><span class="o">.</span><span class="na">getBoardWithWriter</span><span class="o">(</span><span class="mi">100L</span><span class="o">);</span>
         <span class="nc">Object</span><span class="o">[]</span> <span class="n">arr</span><span class="o">=(</span><span class="nc">Object</span><span class="o">[])</span><span class="n">result</span><span class="o">;</span>
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"-------------------------------"</span><span class="o">);</span>
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">arr</span><span class="o">));</span>
     <span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 <p><br /></p>
 
 <p>테스트 코드의 실행 결과를 보면 지연 로딩으로 처리되었으나 실행되는 쿼리를 보면 조인 처리가 되어 한 번에 board 테이블과 member 테이블을 이용하는 것을 확인할 수 있다.</p>
@@ -673,15 +511,7 @@ Board 클래스를 수정해보자.</p>
 <p><br /></p>
 
 <p><strong>BoardRepositoryTests</strong></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="rouge-code"><pre>    <span class="nd">@Test</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testGetBoardWithReply</span><span class="o">(){</span>
         <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Object</span><span class="o">[]&gt;</span> <span class="n">result</span><span class="o">=</span><span class="n">boardRepository</span><span class="o">.</span><span class="na">getBoardWithReply</span><span class="o">(</span><span class="mi">100L</span><span class="o">);</span>
 
@@ -689,7 +519,7 @@ Board 클래스를 수정해보자.</p>
             <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">arr</span><span class="o">));</span>
         <span class="o">}</span>
     <span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -716,35 +546,7 @@ Board 클래스를 수정해보자.</p>
 <p><br /></p>
 
 <p><strong>BoardRepository 인터페이스</strong></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.zerock.board.repository</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.zerock.board.repository</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">org.springframework.data.domain.Page</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.springframework.data.domain.Pageable</span><span class="o">;</span>
@@ -772,7 +574,7 @@ Board 클래스를 수정해보자.</p>
     <span class="nc">Page</span><span class="o">&lt;</span><span class="nc">Object</span><span class="o">[]&gt;</span> <span class="nf">getBoardWithReplyCount</span><span class="o">(</span><span class="nc">Pageable</span> <span class="n">pageable</span><span class="o">);</span>
 <span class="o">}</span>
 
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -781,16 +583,7 @@ Board 클래스를 수정해보자.</p>
 <p><br /></p>
 
 <p><strong>BoardRepositoryTests 클래스 일부</strong></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="rouge-code"><pre>    <span class="nd">@Test</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testWithReplyCount</span><span class="o">(){</span>
         <span class="nc">Pageable</span> <span class="n">pageable</span><span class="o">=</span> <span class="nc">PageRequest</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">10</span><span class="o">,</span> <span class="nc">Sort</span><span class="o">.</span><span class="na">by</span><span class="o">(</span><span class="s">"bno"</span><span class="o">).</span><span class="na">descending</span><span class="o">());</span>
         <span class="nc">Page</span><span class="o">&lt;</span><span class="nc">Object</span><span class="o">[]&gt;</span> <span class="n">result</span><span class="o">=</span><span class="n">boardRepository</span><span class="o">.</span><span class="na">getBoardWithReplyCount</span><span class="o">(</span><span class="n">pageable</span><span class="o">);</span>
@@ -799,7 +592,7 @@ Board 클래스를 수정해보자.</p>
             <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">arr</span><span class="o">));</span>
         <span class="o">});</span>
     <span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 <p>1페이지의 데이터를 처리한다고 가정하고 페이지 번호는 0으로 지정하고, 10개를 조회한다. 위의 테스트 코드의 실행 결과로 발생하는 쿼리 결과는 아래와 같다.</p>
 
 <p><img src="/images/Learning_SpringBoot_with_Web_Project/Part3/Chapter5/2021-02-18-13-52-41.png" alt="" /></p>
@@ -815,29 +608,7 @@ Board 클래스를 수정해보자.</p>
 <p><br /></p>
 
 <p><strong>BoardRepository 인터페이스 일부</strong></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">BoardRepository</span> <span class="kd">extends</span> <span class="nc">JpaRepository</span><span class="o">&lt;</span><span class="nc">Board</span><span class="o">,</span> <span class="nc">Long</span><span class="o">&gt;,</span> <span class="nc">SearchBoardRepository</span> <span class="o">{</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">BoardRepository</span> <span class="kd">extends</span> <span class="nc">JpaRepository</span><span class="o">&lt;</span><span class="nc">Board</span><span class="o">,</span> <span class="nc">Long</span><span class="o">&gt;,</span> <span class="nc">SearchBoardRepository</span> <span class="o">{</span>
     <span class="c1">//한 개의 로우(Object) 내에 Object[]로 나옴</span>
     <span class="nd">@Query</span><span class="o">(</span><span class="s">"select b, w from Board b left join b.writer w where b.bno=:bno"</span><span class="o">)</span>
     <span class="nc">Object</span> <span class="nf">getBoardWithWriter</span><span class="o">(</span><span class="nd">@Param</span><span class="o">(</span><span class="s">"bno"</span><span class="o">)</span> <span class="nc">Long</span> <span class="n">bno</span><span class="o">);</span>
@@ -859,7 +630,7 @@ Board 클래스를 수정해보자.</p>
     <span class="nc">Object</span> <span class="nf">getBoardByBno</span><span class="o">(</span><span class="nd">@Param</span><span class="o">(</span><span class="s">"bno"</span><span class="o">)</span> <span class="nc">Long</span> <span class="n">bno</span><span class="o">);</span>
 <span class="o">}</span>
 
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -869,19 +640,13 @@ Board 클래스를 수정해보자.</p>
 <p><br /></p>
 
 <p><strong>BoardRepositoryTests 클래스 일부</strong></p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-</pre></td><td class="rouge-code"><pre>    <span class="nd">@Test</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testRead3</span><span class="o">(){</span>
         <span class="nc">Object</span> <span class="n">result</span><span class="o">=</span><span class="n">boardRepository</span><span class="o">.</span><span class="na">getBoardByBno</span><span class="o">(</span><span class="mi">100L</span><span class="o">);</span>
         <span class="nc">Object</span><span class="o">[]</span> <span class="n">arr</span><span class="o">=(</span><span class="nc">Object</span><span class="o">[])</span><span class="n">result</span><span class="o">;</span>
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">arr</span><span class="o">));</span>
     <span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p>그리고 실행해서 결과를 확인해 본다.</p>
 
@@ -894,7 +659,7 @@ Board 클래스를 수정해보자.</p>
 		  
 			 
 				<li><a href="/categories.html#SpringBoot-ref">
-					SpringBoot <span>(27)</span>
+					SpringBoot <span>(28)</span>
 					
 				</a></li>
 			
@@ -910,14 +675,14 @@ Board 클래스를 수정해보자.</p>
 			 
 				<li>
 					<a href="/tags.html#Intellij-ref">
-					Intellij <span>(38)</span>
+					Intellij <span>(39)</span>
 					,
 					</a>
 				</li>
 			 
 				<li>
 					<a href="/tags.html#SpringBoot-ref">
-					SpringBoot <span>(24)</span>
+					SpringBoot <span>(25)</span>
 					
 					</a>
 				</li>

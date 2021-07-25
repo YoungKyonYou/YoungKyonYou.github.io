@@ -1,4 +1,4 @@
-I"�?<p><br /><br /></p>
+I":<p><br /><br /></p>
 
 <h1 id="참조-관계-auto_increment-재정렬"><center>참조 관계 AUTO_INCREMENT 재정렬</center></h1>
 
@@ -18,36 +18,7 @@
 
 <p><strong>MemberImage.java</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.morgorithm.frames.entity</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.morgorithm.frames.entity</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">lombok.*</span><span class="o">;</span>
 
@@ -76,47 +47,13 @@
     <span class="kd">private</span> <span class="nc">Member</span> <span class="n">member</span><span class="o">;</span>
 <span class="o">}</span>
 
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
 <p><strong>Member.java</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.morgorithm.frames.entity</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.morgorithm.frames.entity</span><span class="o">;</span>
 
 
 <span class="kn">import</span> <span class="nn">lombok.*</span><span class="o">;</span>
@@ -150,51 +87,12 @@
     <span class="o">}</span>
 <span class="o">}</span>
 
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br />
 <strong>Status.java</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.morgorithm.frames.entity</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.morgorithm.frames.entity</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">com.sun.istack.Nullable</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">lombok.*</span><span class="o">;</span>
@@ -233,35 +131,13 @@
 
 <span class="o">}</span>
 
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
 <p><strong>Facility.java</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.morgorithm.frames.entity</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.morgorithm.frames.entity</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">lombok.*</span><span class="o">;</span>
 
@@ -283,33 +159,21 @@
     <span class="kd">private</span> <span class="nc">String</span> <span class="n">building</span><span class="o">;</span>
 <span class="o">}</span>
 
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
 <p><strong>Springboot JPA에서 Auto-increment 재정렬-01</strong> 포스트에서 테이블 중간에 있는 컬럼 하나를 삭제하고 나서 재정렬하기 위해서 우리가 사용한 코드는 아래와 같다.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-</pre></td><td class="rouge-code"><pre>set @cnt=0;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set @cnt=0;
 update "테이블명" set "테이블명"."컬럼명"=@cnt:=@cnt+1;
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
 <p>이 코드를 리포지토리 인터페이스에서 @Query(쿼리 메소드)로 선언을 해서 아래와 같이 사용을 했다.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td><td class="rouge-code"><pre>    <span class="nd">@Modifying</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nd">@Modifying</span>
     <span class="nd">@Transactional</span>
     <span class="nd">@Query</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">"set @cnt=0"</span><span class="o">,</span> <span class="n">nativeQuery</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
     <span class="kt">void</span> <span class="nf">initialCnt</span><span class="o">();</span>
@@ -319,30 +183,13 @@ update "테이블명" set "테이블명"."컬럼명"=@cnt:=@cnt+1;
     <span class="nd">@Transactional</span>
     <span class="nd">@Query</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">"update guestbook set guestbook.gno=@cnt\\:=@cnt+1"</span><span class="o">,</span><span class="n">nativeQuery</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
     <span class="kt">void</span> <span class="nf">reorderKeyId</span><span class="o">();</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
 <p>하지만 참조관계에 있는 테이블에서 재정렬하기 위해선 여기서 @Query 메소드를 하나 더 추가해주기만 하면 된다.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-</pre></td><td class="rouge-code"><pre>    <span class="nd">@Modifying</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nd">@Modifying</span>
     <span class="nd">@Transactional</span>
     <span class="nd">@Query</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">"SET SQL_SAFE_UPDATES = 0"</span><span class="o">,</span> <span class="n">nativeQuery</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
     <span class="kt">void</span> <span class="nf">setSafeUpdate</span><span class="o">();</span>
@@ -359,7 +206,7 @@ update "테이블명" set "테이블명"."컬럼명"=@cnt:=@cnt+1;
     <span class="nd">@Query</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">"update member set member.mno=@cnt\\:=@cnt+1"</span><span class="o">,</span><span class="n">nativeQuery</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
     <span class="kt">void</span> <span class="nf">reorderKeyId</span><span class="o">();</span>
 
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 

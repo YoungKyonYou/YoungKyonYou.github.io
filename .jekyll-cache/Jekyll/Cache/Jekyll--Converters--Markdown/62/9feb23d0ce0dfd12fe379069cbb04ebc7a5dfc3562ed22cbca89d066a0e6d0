@@ -1,4 +1,4 @@
-I"�	<p><br /><br /></p>
+I"�<p><br /><br /></p>
 
 <h1 id="map"><center>map</center></h1>
 
@@ -10,9 +10,8 @@
 
 <p>map의 사용법은 아래와 같다</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="nb">map</span><span class="p">(</span><span class="n">변환</span> <span class="n">함수</span><span class="p">,</span> <span class="n">순회</span> <span class="n">가능한</span> <span class="n">데이터</span><span class="p">)</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">map</span><span class="p">(</span><span class="n">변환</span> <span class="n">함수</span><span class="p">,</span> <span class="n">순회</span> <span class="n">가능한</span> <span class="n">데이터</span><span class="p">)</span>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -20,9 +19,8 @@
 
 <p><br /></p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()))</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()))</span>
+</code></pre></div></div>
 
 <p><br /></p>
 

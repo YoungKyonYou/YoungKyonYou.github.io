@@ -1,4 +1,4 @@
-I"v#<p><br /><br /></p>
+I"�<p><br /><br /></p>
 
 <h1 id="스프링부트로-일일-확진자-그래프-만들기-02"><center>스프링부트로 일일 확진자 그래프 만들기-02</center></h1>
 
@@ -61,61 +61,7 @@
 
 <p><strong>CoronaVirusDataService.java</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.techlead.public_api_highcahrt.service</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.techlead.public_api_highcahrt.service</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.net.HttpURLConnection</span><span class="o">;</span>
@@ -169,7 +115,7 @@
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p>여기서 중요한 것은 아까 우리가 발급받은 인증키를 넣어줘야 한다. 총 2군대를 넣어줘야 하는데 바로 line 17과 line 22 부분이다. 그런데 line 17에 넣을 땐 앞 문자열 ‘=’를 추가한체로 앞에다가 이어서 넣어준다. 지금 내가 적은 코드를 보면 쓸데없이 긴 인증키를 분해해서 “”+”” 식으로 이어 붙이고 있는데 이는 실제로는 불필요하며 내가 하는 이유는 코드의 한 줄 길이가 길어지면 이 코드 블럭에서 에러가 나기 때문에 일부로 줄 길이를 짧게 만들기 위함이다. 그렇기 때문에 나처럼 분해하지 않고 그냥 붙여넣기 하면 된다.
 코드를 정상적으로 붙여넣기 했으면 코드 바로 왼쪽의 초록색 플레이 버튼을 눌러서 실행시켜본다. (둘 중에 어느 것을 눌러도 결과는 똑같다.)</p>
@@ -186,19 +132,13 @@
 
 <p><strong>CoronaVirusDataService.java의 일부</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-</pre></td><td class="rouge-code"><pre><span class="o">(...)</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(...)</span>
  <span class="n">urlBuilder</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"&amp;"</span> <span class="o">+</span> <span class="nc">URLEncoder</span><span class="o">.</span><span class="na">encode</span><span class="o">(</span><span class="s">"startCreateDt"</span><span class="o">,</span><span class="s">"UTF-8"</span><span class="o">)</span> <span class="o">+</span>
   <span class="s">"="</span> <span class="o">+</span> <span class="nc">URLEncoder</span><span class="o">.</span><span class="na">encode</span><span class="o">(</span><span class="s">"20200310"</span><span class="o">,</span> <span class="s">"UTF-8"</span><span class="o">));</span> <span class="cm">/*검색할 생성일 범위의 시작*/</span>
  <span class="n">urlBuilder</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"&amp;"</span> <span class="o">+</span> <span class="nc">URLEncoder</span><span class="o">.</span><span class="na">encode</span><span class="o">(</span><span class="s">"endCreateDt"</span><span class="o">,</span><span class="s">"UTF-8"</span><span class="o">)</span> <span class="o">+</span>
  <span class="s">"="</span> <span class="o">+</span> <span class="nc">URLEncoder</span><span class="o">.</span><span class="na">encode</span><span class="o">(</span><span class="s">"20200315"</span><span class="o">,</span> <span class="s">"UTF-8"</span><span class="o">));</span> <span class="cm">/*검색할 생성일 범위의 종료*/</span>
 <span class="o">(...)</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -208,26 +148,7 @@
 
 <p><strong>CoronaVirusDataService.java</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-</pre></td><td class="rouge-code"><pre>    <span class="o">(...)</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="o">(...)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">getStartCreateDt</span><span class="o">(){</span>
         <span class="nc">DateTimeFormatter</span> <span class="n">dtf</span> <span class="o">=</span> <span class="nc">DateTimeFormatter</span><span class="o">.</span><span class="na">ofPattern</span><span class="o">(</span><span class="s">"yyyyMMdd"</span><span class="o">);</span>
         <span class="nc">LocalDateTime</span> <span class="n">now</span> <span class="o">=</span> <span class="nc">LocalDateTime</span><span class="o">.</span><span class="na">now</span><span class="o">();</span>
@@ -246,7 +167,7 @@
         <span class="n">urlBuilder</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"&amp;"</span> <span class="o">+</span> <span class="nc">URLEncoder</span><span class="o">.</span><span class="na">encode</span><span class="o">(</span><span class="s">"endCreateDt"</span><span class="o">,</span><span class="s">"UTF-8"</span><span class="o">)</span> <span class="o">+</span> <span class="s">"="</span> <span class="o">+</span>
          <span class="nc">URLEncoder</span><span class="o">.</span><span class="na">encode</span><span class="o">(</span><span class="n">getEndCreateDt</span><span class="o">(),</span> <span class="s">"UTF-8"</span><span class="o">));</span> <span class="cm">/*검색할 생성일 범위의 종료*/</span>
         <span class="o">(...)</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -275,193 +196,7 @@
 <p>먼저 xml를 파싱하는 코드를 작성하고 우리가 데이터를 담을 리스트 변수들을 선언하고 초기화하는 작업을 한 번에 해보자. 많은 코드 변화가 있으니 귀찮으신 분들은 복붙을 추천드립니다.
 <strong>CoronaVirusDataService.java</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177
-178
-179
-180
-181
-182
-183
-184
-185
-186
-</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.techlead.public_api_highcahrt.service</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.techlead.public_api_highcahrt.service</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">lombok.Data</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">lombok.RequiredArgsConstructor</span><span class="o">;</span>
@@ -647,7 +382,7 @@
 
 
 <span class="o">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <blockquote>
   <p><strong>line 49</strong>: 이 메소드에서는 dateList 리스트 배열을 초기화한다. 이 dateList 문자열 배열에는 추후에 그래프에서 X 축에 찔힐 문자열을 나타내준다. 포맷은 월/일 형식으로 나타내기 위해 DateTimeFormatter.ofPattern를 설정하고 for 문으로 나머지 날짜 문자열을 저장한다.<br /></p>
@@ -678,37 +413,7 @@
 
 <p><strong>HomeController.java</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-</pre></td><td class="rouge-code"><pre><span class="kn">package</span> <span class="nn">org.techlead.public_api_highcahrt.controller</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.techlead.public_api_highcahrt.controller</span><span class="o">;</span>
 
 
 <span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
@@ -738,7 +443,7 @@
 <span class="o">}</span>
 
 
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -750,58 +455,7 @@
 
 <p><strong>index.css</strong></p>
 
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-</pre></td><td class="rouge-code"><pre><span class="nc">.highcharts-figure</span><span class="o">,</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.highcharts-figure</span><span class="o">,</span>
 <span class="nc">.highcharts-data-table</span> <span class="nt">table</span> <span class="p">{</span>
   <span class="nl">min-width</span><span class="p">:</span> <span class="m">360px</span><span class="p">;</span>
   <span class="nl">max-width</span><span class="p">:</span> <span class="m">800px</span><span class="p">;</span>
@@ -852,114 +506,13 @@
 <span class="nt">p</span> <span class="p">{</span>
   <span class="nl">font-family</span><span class="p">:</span> <span class="nb">sans-serif</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
 <p><strong>index.html</strong></p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-</pre></td><td class="rouge-code"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span> <span class="na">xmlns:th=</span><span class="s">"http://www.thymeleaf.org"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;head&gt;</span>
     <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span> <span class="nt">/&gt;</span>
@@ -1060,7 +613,7 @@
     <span class="nt">&lt;/script&gt;</span>
   <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 

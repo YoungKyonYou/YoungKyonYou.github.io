@@ -1,4 +1,4 @@
-I"�<p><br /><br /></p>
+I"e<p><br /><br /></p>
 
 <h1 id="클래스-타입의-리스트-데이터-사용하기"><center>클래스 타입의 리스트 데이터 사용하기</center></h1>
 
@@ -43,17 +43,7 @@
 
 <p>음.. 중괄호는 객체를 의미하고 지금 각 인덱스 0~6까지 객체들을 각각 담고 있다. 일단 forEach문을 이용해서 각각을 임시 배열에 넣은 다음 분리해보자고 생각했다.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td><td class="rouge-code"><pre><span class="kd">var</span> <span class="nx">dateData</span> <span class="o">=</span> <span class="p">[];</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">dateData</span> <span class="o">=</span> <span class="p">[];</span>
 <span class="kd">var</span> <span class="nx">temperatureData</span> <span class="o">=</span> <span class="p">[];</span>
 <span class="kd">var</span> <span class="nx">tempData</span> <span class="o">=</span> <span class="p">[];</span>
 <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -63,7 +53,7 @@
     <span class="nx">tempData</span><span class="p">[</span><span class="nx">i</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="nx">element</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
   <span class="p">});</span>
 <span class="p">});</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -77,16 +67,7 @@
 
 <p>완벽하다. 보니까 짝수 인덱스엔 날짜 데이터가 들어가 있고 홀수 인덱스에는 온도 데이터가 들어가 있으니 이것을 이제 if문으로 분리 시켜주면 되겠다.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="rouge-code"><pre><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">tempData</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">tempData</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">j</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">dateData</span><span class="p">[</span><span class="nx">didx</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="nx">tempData</span><span class="p">[</span><span class="nx">j</span><span class="p">];</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">짝수:</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">tempData</span><span class="p">[</span><span class="nx">j</span><span class="p">]);</span>
@@ -95,7 +76,7 @@
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">홀수:</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">tempData</span><span class="p">[</span><span class="nx">j</span><span class="p">]);</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p><br /></p>
 

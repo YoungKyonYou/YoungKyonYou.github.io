@@ -1,4 +1,4 @@
-I"�<p><br /><br /></p>
+I"�<p><br /><br /></p>
 
 <h1 id="atm-11399"><center>ATM-11399</center></h1>
 
@@ -15,18 +15,7 @@
 <p>별로 어려울 게 없는 문제이다. 결국엔 입력 받은 값들을 오름차순으로 바꾼 다음에
 누적합을 구해서 출력하면 된다.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="rouge-code"><pre><span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 <span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">cur</span> <span class="o">=</span> <span class="mi">0</span>
@@ -37,5 +26,5 @@
     <span class="n">cur</span> <span class="o">+=</span> <span class="n">x</span>
     <span class="n">total</span> <span class="o">+=</span> <span class="n">cur</span>
 <span class="k">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 :ET
