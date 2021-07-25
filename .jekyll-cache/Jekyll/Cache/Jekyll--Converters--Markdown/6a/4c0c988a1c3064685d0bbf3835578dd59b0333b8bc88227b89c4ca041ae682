@@ -1,0 +1,17 @@
+I"�<p><br /><br /></p>
+
+<p><strong><em>해당 내용은 책 &lt;컨테이너 인프라 환경 구축을 위한 쿠버네티스/도커&gt;에 나오는 내용이며 이는 개인적으로 공부하기 위해서 게시하는 글임을 알립니다.</em></strong></p>
+
+<h1 id="레플리카셋으로-파드-수-관리하기"><center>레플리카셋으로 파드 수 관리하기</center></h1>
+
+<p><br /></p>
+
+<p>많은 사용자를 대상으로 웹 서비스를 하려면 다수의 파드가 필요하다. 그래서 쿠버네티스에서는 다수의 파드를 만드는 레플리카셋 오브젝트를 제공한다.
+<br />
+디플로이먼트로 생성한 파드여야 replica 옵션을 사용할 수 있다.</p>
+
+<p><br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl create deployment dpy-hname <span class="nt">--image</span><span class="o">=</span>sysnet4admin/echo-hname
+</code></pre></div></div>
+:ET

@@ -1,0 +1,102 @@
+I"�<p><br /><br /></p>
+
+<p><strong><em>해당 내용은 책 &lt;컨테이너 인프라 환경 구축을 위한 쿠버네티스/도커&gt;에 나오는 내용이며 이는 개인적으로 공부하기 위해서 게시하는 글임을 알립니다.</em></strong></p>
+
+<h1 id="레플리카셋으로-파드-수-관리하기"><center>레플리카셋으로 파드 수 관리하기</center></h1>
+
+<p><br /></p>
+
+<p>많은 사용자를 대상으로 웹 서비스를 하려면 다수의 파드가 필요하다. 그래서 쿠버네티스에서는 다수의 파드를 만드는 레플리카셋 오브젝트를 제공한다.
+<br />
+디플로이먼트로 생성한 파드여야 replica 옵션을 사용할 수 있다.</p>
+
+<p><br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//sysnet4admin/echo-hname은 도커 허브에서 해당되는 이미지를 가져온다
+kubectl create deployment dpy-hname <span class="nt">--image</span><span class="o">=</span>sysnet4admin/echo-hname
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>통해서 디플로이먼트를 생성한다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl scale deployment echo-hname <span class="nt">--replicas</span><span class="o">=</span>3
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>위 명령을 통해 replica 셋을 생성할 수 있지만 한꺼번에 여러 개의 파드를 만드려면 YAML 파일로 작성해야 한다. 설정은 Pod-Template에 맞게 설정한다. 이러한 파일을 <strong>오브젝트 스펙(spec)</strong>이라 한다.</p>
+
+<p><br /></p>
+
+<p><strong>echo-hname.yaml</strong></p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">echo-hname</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">nginx</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="m">3</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">matchLabels</span><span class="pi">:</span>
+      <span class="na">app</span><span class="pi">:</span> <span class="s">nginx</span>
+  <span class="na">template</span><span class="pi">:</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">labels</span><span class="pi">:</span>
+        <span class="na">app</span><span class="pi">:</span> <span class="s">nginx-test</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">containers</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">echo-hname</span>
+          <span class="na">image</span><span class="pi">:</span> <span class="s">sysnet4admin/echo-hname</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>위 내용을 하나하나 알아가 보자.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#apiVersion: API 버전을 명시한다</span>
+<span class="c1">#이 오브젝트를 생성하기 위해 사용하고 있는 쿠버네티스 API 버전이 어떤 것인지 </span>
+<span class="c1">#명시한다. apps/v1에서는 .spec.selector 와 .metadata.labels 이 </span>
+<span class="c1">#설정되지 않으면 .spec.template.metadata.labels 은 기본 설정되지 않는다. </span>
+<span class="c1">#그래서 이것들은 명시적으로 설정되어야 한다. 또한 apps/v1 에서는 </span>
+<span class="c1">#디플로이먼트를 생성한 후에는 .spec.selector 이 변경되지 않는 점을 참고한다.</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
+
+<span class="c1">#어떤 종류의 오브젝트를 생성하고자 하는지 명시한다.</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+
+<span class="c1">#이름 문자열, UID, 그리고 선택적인 네임스페이스를 포함하여</span>
+<span class="c1">#오브젝트를 유일하게 구분지어 줄 데이터이다.</span>
+<span class="c1">#디플로이먼트 이름(name)은 echo-hname이다.</span>
+<span class="c1">#차후에 이 디플로이먼트를 delete할 때 이 이름으로 지운다.</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">echo-hname</span>
+
+  <span class="c1">#오브젝트에 첨부된 카와 값의 쌍이다. 레이블은 오브젝트 특성을</span>
+  <span class="c1">#식별하는 데 사용되어 사용자에게 중요하지만</span>
+  <span class="c1">#코어 시스템에 직접적인 의미는 없다. </span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">nginx</span>
+
+<span class="c1">#오브젝트에 대해 어떤 상태를 의도하는지 명시한다.</span>
+<span class="na">spec</span><span class="pi">:</span>
+
+  <span class="c1">#필드에 따라 디플로이먼트는 3개의 레플리카 파드를 생성</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="m">3</span>
+
+  <span class="c1">#디플로이먼트가 관리할 파드르르 찾는 방법</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">matchLabels</span><span class="pi">:</span>
+      <span class="na">app</span><span class="pi">:</span> <span class="s">nginx</span>
+  <span class="na">template</span><span class="pi">:</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">labels</span><span class="pi">:</span>
+        <span class="na">app</span><span class="pi">:</span> <span class="s">nginx-test</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">containers</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">echo-hname</span>
+          <span class="na">image</span><span class="pi">:</span> <span class="s">sysnet4admin/echo-hname</span>
+</code></pre></div></div>
+:ET
