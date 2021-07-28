@@ -1,0 +1,208 @@
+I"�J<p><em>해당 내용은 책 ‘코드로 배우는 스프링 부트 웹 프로젝트’에 나오는 내용이며 이는 개인적으로 공부하기 위해 기록함을 알려드립니다</em></p>
+
+<p><br /><br /></p>
+
+<h1 id="시큐리티를-위한-userdetailsservice"><center>시큐리티를 위한 UserDetailsService</center></h1>
+
+<p><br /></p>
+
+<p>다음으로 진행할 작업은 스프링 시큐리티가 ClubMemberRepository를 이용해서 회원을 처리하는 부분을 제작해야 한다.</p>
+
+<p>새로운 패키지와 자바 파일을 생성한다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter10/10-4/2021-07-26-16-14-17.png" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>ClubAuthMemberDTO.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.young.club.security.dto</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">lombok.extern.log4j.Log4j2</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.core.GrantedAuthority</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.core.userdetails.User</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Collection</span><span class="o">;</span>
+
+<span class="nd">@Log4j2</span>
+<span class="c1">//User 클래스는 UserDetailsService로부터 핵심 유저 정보를 모델링한다.</span>
+<span class="c1">//User 클래스를 상속하고 부모 클래스인 User 클래스의 생성자를 호출할 수 있는 코드를 만든다.</span>
+<span class="c1">//부모 클래스인 User 클래스에 사용자 정의 생성자가 있으므로 반드시 호출할 필요가 있다.</span>
+
+<span class="c1">//ClubAuthMemberDTO는 DTO 역할을 수행하는 클래스인 동시에 스프링 시큐리티에서 인가/인증 작업에 사용할 수 있다.</span>
+<span class="c1">//password는 부모 클래스를 사용하므로 별도의 멤버 변수로 선언하지 않는다.</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ClubAuthMemberDTO</span> <span class="kd">extends</span> <span class="nc">User</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">email</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">fromSocial</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">ClubAuthMemberDTO</span><span class="o">(</span><span class="nc">String</span> <span class="n">username</span><span class="o">,</span> <span class="nc">String</span> <span class="n">password</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">fromSocial</span><span class="o">,</span> <span class="nc">Collection</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="nc">GrantedAuthority</span><span class="o">&gt;</span> <span class="n">authorities</span><span class="o">){</span>
+        <span class="c1">//User 클래스의 생성자를 호출한다.</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">username</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span> <span class="n">authorities</span><span class="o">);</span>
+
+        <span class="k">this</span><span class="o">.</span><span class="na">email</span><span class="o">=</span><span class="n">username</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">fromSocial</span><span class="o">=</span><span class="n">fromSocial</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>ClubMember가 ClubAuthMemberDTO라는 타입으로 처리된 가장 큰 이유는 사용자의 정보를 가져오는 핵심적인 역할을 하는 UserDetailsService라는 인터페이스 때문이다.</p>
+
+<p>스프링 시큐리티의 구조에서 인증을 담당하는 AuthenticationManager는 내부적으로 UserDetailsService를 호출해서 사용자의 정보를 가져온다.</p>
+
+<p>현재 예제와 같이 JPA로 사용자의 정보를 가져오고 싶다면 이 부분을 UserDetailsService가 이용하는 구조로 작성할 필요가 있다.</p>
+
+<p>추가된 service패키지에는 이를 위한 ClubUserDetailsService 클래스를 다음과 같이 추가한다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter10/10-4/2021-07-26-16-23-19.png" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>ClubUserDetailsService.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.young.club.security.service</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">lombok.extern.log4j.Log4j2</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.core.userdetails.UserDetails</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.core.userdetails.UserDetailsService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.core.userdetails.UsernameNotFoundException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Service</span><span class="o">;</span>
+
+<span class="nd">@Log4j2</span>
+<span class="c1">//Service어노테이션을 사용해서 자동으로 스프링에서 빈으로 처리될 수 있게 한다.</span>
+<span class="c1">//ClubUserDetailsService가 빈(Bean)으로 등록되면 이를 자동으로 스프링 시큐리티에서</span>
+<span class="c1">//UserDetailsService로 인식하기 때문에 기존에 임시로 코드로 직접 설정한</span>
+<span class="c1">//configure(AuthenticationManagerBuilder auth) 부분을 사용하지 않도록 수정한다.</span>
+<span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ClubUserDetailsService</span> <span class="kd">implements</span> <span class="nc">UserDetailsService</span> <span class="o">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">UserDetails</span> <span class="nf">loadUserByUsername</span><span class="o">(</span><span class="nc">String</span> <span class="n">username</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">UsernameNotFoundException</span> <span class="o">{</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"ClubUserDetailsService loadUserByUsername"</span><span class="o">+</span><span class="n">username</span><span class="o">);</span>
+        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>이제 SecureConfig.java 에서 정의했던 configure 메서드가 필요없으므로 지우거나 주석 처리한다.</p>
+
+<p><br /></p>
+
+<p><strong>SecureConfig.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.young.club.config</span><span class="o">;</span>
+
+<span class="c1">//시큐리티 관련 기능을 쉽게 설정하기 위해서 WebSecurity ConfigurerAdapter라는 클래스를 상속으로 처리한다.</span>
+<span class="c1">//WebSecurityConfigurer Adapter 클래스는 주로 override를 통해서 여러 설정을 조정하게 된다.</span>
+
+<span class="kn">import</span> <span class="nn">lombok.extern.log4j.Log4j2</span><span class="o">;</span>
+ <span class="o">(...)</span>
+<span class="nd">@Configuration</span>
+<span class="nd">@Log4j2</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SecurityConfig</span> <span class="kd">extends</span> <span class="nc">WebSecurityConfigurerAdapter</span> <span class="o">{</span>
+    <span class="nd">@Bean</span>
+    <span class="nc">PasswordEncoder</span> <span class="nf">passwordEncoder</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">BCryptPasswordEncoder</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">configure</span><span class="o">(</span><span class="nc">HttpSecurity</span> <span class="n">http</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+        <span class="n">http</span><span class="o">.</span><span class="na">authorizeRequests</span><span class="o">().</span><span class="na">antMatchers</span><span class="o">(</span><span class="s">"/sample/all"</span><span class="o">).</span><span class="na">permitAll</span><span class="o">()</span>
+                                <span class="c1">//아래와 같이 설정하고 /sample/member'를 호출하면 Access Denied 된다.</span>
+                                <span class="o">.</span><span class="na">antMatchers</span><span class="o">(</span><span class="s">"/sample/member"</span><span class="o">).</span><span class="na">hasRole</span><span class="o">(</span><span class="s">"USER"</span><span class="o">);</span>
+
+        <span class="c1">//인가/인증에 문제시 로그인 화면면</span>
+       <span class="n">http</span><span class="o">.</span><span class="na">formLogin</span><span class="o">();</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>정상적인 처리를 위해서 ClubUserDetailsService와 ClubMemberRepository를 연동하는 것은 아래와 같이 처리할 수 있다.</p>
+
+<p><br /></p>
+
+<p><strong>ClubUserDetailsService.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.young.club.security.service</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">lombok.RequiredArgsConstructor</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">lombok.extern.log4j.Log4j2</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.core.authority.SimpleGrantedAuthority</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.core.userdetails.UserDetails</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.core.userdetails.UserDetailsService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.core.userdetails.UsernameNotFoundException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Service</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.young.club.entity.ClubMember</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.young.club.repository.ClubMemberRepository</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.young.club.security.dto.ClubAuthMemberDTO</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.stream.Collectors</span><span class="o">;</span>
+
+<span class="nd">@Log4j2</span>
+<span class="c1">//Service어노테이션을 사용해서 자동으로 스프링에서 빈으로 처리될 수 있게 한다.</span>
+<span class="c1">//ClubUserDetailsService가 빈(Bean)으로 등록되면 이를 자동으로 스프링 시큐리티에서</span>
+<span class="c1">//UserDetailsService로 인식하기 때문에 기존에 임시로 코드로 직접 설정한</span>
+<span class="c1">//configure(AuthenticationManagerBuilder auth) 부분을 사용하지 않도록 수정한다.</span>
+<span class="nd">@Service</span>
+<span class="nd">@RequiredArgsConstructor</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ClubUserDetailsService</span> <span class="kd">implements</span> <span class="nc">UserDetailsService</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">ClubMemberRepository</span> <span class="n">clubMemberRepository</span><span class="o">;</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">UserDetails</span> <span class="nf">loadUserByUsername</span><span class="o">(</span><span class="nc">String</span> <span class="n">username</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">UsernameNotFoundException</span> <span class="o">{</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"ClubUserDetailsService loadUserByUsername"</span><span class="o">+</span><span class="n">username</span><span class="o">);</span>
+
+        <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">ClubMember</span><span class="o">&gt;</span> <span class="n">result</span><span class="o">=</span><span class="n">clubMemberRepository</span><span class="o">.</span><span class="na">findByEmail</span><span class="o">(</span><span class="n">username</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"username:"</span><span class="o">+</span><span class="n">username</span><span class="o">);</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">isPresent</span><span class="o">()==</span><span class="kc">false</span><span class="o">){</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">UsernameNotFoundException</span><span class="o">(</span><span class="s">"Check Email or Social "</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="nc">ClubMember</span> <span class="n">clubMember</span><span class="o">=</span><span class="n">result</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">clubMember</span><span class="o">.</span><span class="na">getRoleSet</span><span class="o">().</span><span class="na">toString</span><span class="o">());</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"--------------------------"</span><span class="o">);</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">clubMember</span><span class="o">);</span>
+
+        <span class="c1">//ClubMember를 UserDetails 타입으로 처리하기 위해서 ClubAuthMemberDTO 타입으로 변환</span>
+        <span class="nc">ClubAuthMemberDTO</span> <span class="n">clubAuthMember</span><span class="o">=</span><span class="k">new</span> <span class="nc">ClubAuthMemberDTO</span><span class="o">(</span>
+                <span class="n">clubMember</span><span class="o">.</span><span class="na">getEmail</span><span class="o">(),</span>
+                <span class="n">clubMember</span><span class="o">.</span><span class="na">getPassword</span><span class="o">(),</span>
+                <span class="n">clubMember</span><span class="o">.</span><span class="na">isFromSocial</span><span class="o">(),</span>
+                <span class="c1">//ClubMemberRole은 스프링 시큐리티에서 사용하는 SimpleGrantedAuthority로 변환,</span>
+                <span class="c1">//이때 'ROLE_'라는 접두어를 추가해서 사용한다.</span>
+                <span class="c1">//user95@zerock.org 같은 경우 롤이 3개다 [USER, MANAGER, ADMIN]</span>
+                <span class="c1">//이 각각을 [ROLE_ADMIN, ROLE_MANAGER, ROLE_USER]로 변환해서 Set으로 넣어주고 그 컬렉션을 반환한다.</span>
+                <span class="n">clubMember</span><span class="o">.</span><span class="na">getRoleSet</span><span class="o">().</span><span class="na">stream</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">role</span><span class="o">-&gt;</span><span class="k">new</span> <span class="nc">SimpleGrantedAuthority</span><span class="o">(</span><span class="s">"ROLE_"</span><span class="o">+</span><span class="n">role</span><span class="o">.</span><span class="na">name</span><span class="o">())).</span><span class="na">collect</span><span class="o">(</span><span class="nc">Collectors</span><span class="o">.</span><span class="na">toSet</span><span class="o">()));</span>
+
+        <span class="n">clubAuthMember</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="n">clubMember</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">clubAuthMember</span><span class="o">.</span><span class="na">getAuthorities</span><span class="o">().</span><span class="na">toString</span><span class="o">());</span>
+        <span class="k">return</span> <span class="n">clubAuthMember</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><img src="/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter10/10-4/2021-07-26-17-04-56.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>정상적으로 로그인한 결과이다. 중요한 것은 AuthenticationManager는 내부적으로 UserDetailsService를 호출해서 사용자의 정보를 가져온다.
+즉 <strong>loadUserByUsername</strong> 메서드를 통해서 사용자 정보(<strong>clubAuthMember</strong>)를 넘겨받는다. 그 clubAuthMember는 DTO형태로 포장되서 반환되는 것이다.</p>
+:ET
