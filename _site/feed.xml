@@ -790,6 +790,8 @@ margin-left: -1px;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
+&lt;p&gt;이 명령어는 MySQL 클라이언트를 실행하는 파드를 클러스터에 생성하고, 서비스를 통하여 서버에 연결한다. 연결된다면, 스테이트풀 MySQL 데이터베이스가 실행 중임을 알 수 있다.&lt;/p&gt;
+
 &lt;p&gt;위 코드를 간단하게 해석해 보자. 자세한 내용은 명령어 &lt;span style=&quot;color:orange; font-weight:bold&quot;&gt;kubectl run –help&lt;/span&gt;를 통해 알 수 있다.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -815,7 +817,7 @@ margin-left: -1px;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;이 명령어는 MySQL 클라이언트를 실행하는 파드를 클러스터에 생성하고, 서비스를 통하여 서버에 연결한다. 연결된다면, 스테이트풀 MySQL 데이터베이스가 실행 중임을 알 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;color:orange; font-weight:bold&quot;&gt;-h&lt;/span&gt;는 mysql hostname를 의미한다. 즉 여기서 호스트네임은 mysql이다.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
