@@ -1,0 +1,676 @@
+I"s<p><br /><br />
+<em><strong>피곤한데 커피 한잔만 마시고 시작해보자..</strong></em>
+<br />
+(Press the Button)</p>
+
+<p><br /><br /></p>
+
+<style>
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: "";
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: "";
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: "";
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: "";
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+</style>
+
+<div class="containercoffee">
+    <div class="coffee-header">
+      <div class="coffee-header__buttons coffee-header__button-one"></div>
+      <div class="coffee-header__buttons coffee-header__button-two"></div>
+      <div class="coffee-header__display"></div>
+      <div class="coffee-header__details"></div>
+    </div>
+    <div class="coffee-medium">
+      <div class="coffe-medium__exit"></div>
+      <div class="coffee-medium__arm"></div>
+      <div class="coffee-medium__liquid"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
+      <div class="coffee-medium__cup"></div>
+    </div>
+    <div class="coffee-footer"></div>
+</div>
+
+<p><br /><br /><br /><br /><br /><br /><br /><br /></p>
+
+<h1 id="docker-image-만들기"><center>Docker Image 만들기</center></h1>
+
+<p><br /></p>
+
+<p>이번 게시물에서는 JPA를 사용하는 SpringBoot 프로젝트를 도커 이미지로 만든 후에 배포하는 작업을 하려고 한다. 그전에 꼭 봐야하는 게시물이 있는데 링크는 아래 걸어놓겠다.</p>
+
+<p><strong><a href="https://youngkyonyou.github.io/kubernetes/2021/07/27/Kubernetes-Mysql.html">Kubernetes와 Mysql Workbench 연동하기</a></strong></p>
+
+<p><br /></p>
+
+<p>위의 링크에서 했던 환경과 동일한 환경으로 구성한다.</p>
+
+<p><br /></p>
+
+<p>그리고 스프링부트 프로젝트는 따로 만드는 것을 하진 않고 JPA와 연동된 프로젝트를 깃허브에서 받아온다. 해당 프로젝트는 <span style="color:#2ECC40; font-weight:bold">‘코드로 배우는 스프링 부트 웹 프로젝트’</span>라는 책에 나오는 프로젝트 중 하나인 <span style="color:orange; font-weight:bold">Movie Review</span> 코드이다. 아래 깃허브 링크를 참고한다.</p>
+
+<link rel="stylesheet" href="https: //www.webnots.com/resources/font-awesome/css/font-awesome.min.css" />
+
+<style>
+.webnots-notification-box {
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+color: #ffffff;
+font-family: verdana, 'open sans', sans-serif;
+margin-bottom: 25px;
+padding: 10px 14px 10px 44px;
+position: relative;
+box-shadow: 0px 1px 5px #999;
+/* width: -moz-fit-content;
+width: -webkit-fit-content;
+width: fit-content; */
+}
+.webnots-notification-box:before {
+font-family: FontAwesome;
+font-size: 21px;
+left: 14px;
+position: absolute;
+}
+.webnots-success {
+background-color: #2ecc71;
+}
+.webnots-success:before {
+content: "\f00c";
+margin-left: -2px;
+}
+.webnots-failure {
+background-color: #e74c3c;
+}
+.webnots-failure:before {
+content: "\f00d";
+}
+.webnots-warning {
+background-color: #e67e22;
+}
+.webnots-warning:before {
+content: "\f12a";
+margin-left: 5px;
+}
+.webnots-information {
+background-color: #3498db;
+}
+.webnots-information:before {
+content: "\f129";
+margin-left: 4px;
+}
+.webnots-question {
+background-color: #f1c40f;
+}
+.webnots-question:before {
+content: "\f128";
+margin-left: 2px;
+}
+.webnots-tip {
+background-color: #16a085;
+}
+.webnots-tip:before {
+content: "\f0eb";
+margin-left: 2px;
+}
+.webnots-notice {
+background-color: #bea474;
+}
+.webnots-notice:before {
+content: "\f0a1";
+margin-left: -1px;
+}
+</style>
+
+<p><br /></p>
+
+<p><strong><a href="https://github.com/YoungKyonYou/MovieReview-SpringBoot/tree/master">Movie Review</a></strong></p>
+
+<p><br /></p>
+
+<p>그리고 <strong>Superputty</strong>를 키고 <strong>m-k8s</strong>에서</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl get pods <span class="nt">-o</span> wide
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>명령으로 mysql pod가 제대로 동작하고 있는지 확인한다.</p>
+
+<p><img src="/images/Kubernetes/kubernetes-springboot/2021-07-30-11-06-12.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>확인 했으면 깃허브에서 가져온 프로젝트의 <strong>jar</strong>파일을 추출한다.</p>
+
+<p>인텔리제이 기준으로 프로젝트를 열면 아래 사진과 같이 우측에 <strong>Gradle</strong> 눌르고 <strong>build-&gt;bootJar</strong>를 더블 클릭한다.</p>
+
+<p><img src="/images/Kubernetes/kubernetes-springboot/2021-07-30-11-24-58.png" alt="" /></p>
+
+<p><br /><br /></p>
+
+<p><span style="color:#85144b; font-weight:bold; font-size: 30px">데이터베이스에 데이터 넣기</span></p>
+
+<p><br /></p>
+
+<div class="webnots-information webnots-notification-box">This is the info box - You can input as much or as little information!</div>
+<div class="webnots-question webnots-notification-box">This is the help box - You can input as much or as little information!</div>
+<div class="webnots-tip webnots-notification-box">This is the tip box - You can input as much or as little information!</div>
+<div class="webnots-notice webnots-notification-box">This is the notice box - You can input as much or as little information!</div>
+<div class="webnots-success webnots-notification-box">This is the success box - You can input as much or as little information!</div>
+<div class="webnots-failure webnots-notification-box">This is the danger box - You can input as much or as little information!</div>
+<div class="webnots-warning webnots-notification-box">This is the warning box - You can input as much or as little information!</div>
+
+<p><br /></p>
+
+<p>Intellij로 깃허브에서 받은 프로젝트를 열고 아래 사진과 같이 들어간다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/Kubernetes/kubernetes-springboot/2021-07-30-13-32-34.png" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>repository</strong> 패키지에는 <strong>MemberRepositoryTests</strong>, <strong>MovieRepositoryTests</strong>, <strong>ReviewRepositoryTests</strong>가 있는데 여기 클래스에 있는 메소드들을 실행시켜서 데이터베이스에 데이터를 넣어준다. 실행시켜줄 메소드는 아래와 같다.</p>
+
+<p><strong>MemberRepositoryTests.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="nc">ReviewRepository</span> <span class="n">reviewRepository</span><span class="o">;</span>
+    <span class="nd">@Rollback</span><span class="o">(</span><span class="kc">false</span><span class="o">)</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">insertMembers</span><span class="o">(){</span>
+        <span class="nc">IntStream</span><span class="o">.</span><span class="na">rangeClosed</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">100</span><span class="o">).</span><span class="na">forEach</span><span class="o">(</span><span class="n">i</span><span class="o">-&gt;{</span>
+           <span class="nc">Member</span> <span class="n">member</span><span class="o">=</span><span class="nc">Member</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
+                   <span class="o">.</span><span class="na">email</span><span class="o">(</span><span class="s">"r"</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="s">"@zerock.org"</span><span class="o">)</span>
+                   <span class="o">.</span><span class="na">pw</span><span class="o">(</span><span class="s">"1111"</span><span class="o">)</span>
+                   <span class="o">.</span><span class="na">nickname</span><span class="o">(</span><span class="s">"reviewer"</span><span class="o">+</span><span class="n">i</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
+           <span class="n">memberRepository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">member</span><span class="o">);</span>
+        <span class="o">});</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>MovieRepositoryTests.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nd">@Commit</span>
+    <span class="nd">@Transactional</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">insertMovies</span><span class="o">(){</span>
+        <span class="nc">IntStream</span><span class="o">.</span><span class="na">rangeClosed</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">100</span><span class="o">).</span><span class="na">forEach</span><span class="o">(</span><span class="n">i</span><span class="o">-&gt;{</span>
+            <span class="nc">Movie</span> <span class="n">movie</span><span class="o">=</span> <span class="nc">Movie</span><span class="o">.</span><span class="na">builder</span><span class="o">().</span><span class="na">title</span><span class="o">(</span><span class="s">"Movie..."</span><span class="o">+</span><span class="n">i</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
+
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"-------------------------------------"</span><span class="o">);</span>
+
+            <span class="n">movieRepository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">movie</span><span class="o">);</span>
+
+            <span class="kt">int</span> <span class="n">count</span><span class="o">=(</span><span class="kt">int</span><span class="o">)(</span><span class="nc">Math</span><span class="o">.</span><span class="na">random</span><span class="o">()*</span><span class="mi">5</span><span class="o">)+</span><span class="mi">1</span><span class="o">;</span>
+
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">count</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
+                <span class="nc">MovieImage</span> <span class="n">movieImage</span><span class="o">=</span><span class="nc">MovieImage</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
+                        <span class="o">.</span><span class="na">uuid</span><span class="o">(</span><span class="no">UUID</span><span class="o">.</span><span class="na">randomUUID</span><span class="o">().</span><span class="na">toString</span><span class="o">())</span>
+                        <span class="o">.</span><span class="na">movie</span><span class="o">(</span><span class="n">movie</span><span class="o">)</span>
+                        <span class="o">.</span><span class="na">imgName</span><span class="o">(</span><span class="s">"test"</span><span class="o">+</span><span class="n">j</span><span class="o">+</span><span class="s">".jpg"</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
+                <span class="n">imageRepository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">movieImage</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"===================================="</span><span class="o">);</span>
+        <span class="o">});</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>ReviewRepositoryTests.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">insertMovieReviews</span><span class="o">(){</span>
+        <span class="nc">IntStream</span><span class="o">.</span><span class="na">rangeClosed</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">200</span><span class="o">).</span><span class="na">forEach</span><span class="o">(</span><span class="n">i</span><span class="o">-&gt;{</span>
+            <span class="nc">Long</span> <span class="n">mno</span><span class="o">=(</span><span class="kt">long</span><span class="o">)(</span><span class="nc">Math</span><span class="o">.</span><span class="na">random</span><span class="o">()*</span><span class="mi">100</span><span class="o">)+</span><span class="mi">1</span><span class="o">;</span>
+            <span class="nc">Long</span> <span class="n">mid</span><span class="o">=((</span><span class="kt">long</span><span class="o">)(</span><span class="nc">Math</span><span class="o">.</span><span class="na">random</span><span class="o">()*</span><span class="mi">100</span><span class="o">)+</span><span class="mi">1</span><span class="o">);</span>
+            <span class="nc">Member</span> <span class="n">member</span><span class="o">=</span> <span class="nc">Member</span><span class="o">.</span><span class="na">builder</span><span class="o">().</span><span class="na">mid</span><span class="o">(</span><span class="n">mid</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
+
+            <span class="nc">Review</span> <span class="n">movieReview</span><span class="o">=</span><span class="nc">Review</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
+                    <span class="o">.</span><span class="na">member</span><span class="o">(</span><span class="n">member</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">movie</span><span class="o">(</span><span class="nc">Movie</span><span class="o">.</span><span class="na">builder</span><span class="o">().</span><span class="na">mno</span><span class="o">(</span><span class="n">mno</span><span class="o">).</span><span class="na">build</span><span class="o">())</span>
+                    <span class="o">.</span><span class="na">grade</span><span class="o">((</span><span class="kt">int</span><span class="o">)(</span><span class="nc">Math</span><span class="o">.</span><span class="na">random</span><span class="o">()*</span><span class="mi">5</span><span class="o">)+</span><span class="mi">1</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">text</span><span class="o">(</span><span class="s">"feeling about this movie is..."</span><span class="o">+</span><span class="n">i</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+            <span class="n">reviewRepository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">movieReview</span><span class="o">);</span>
+        <span class="o">});</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>이 세가지 메소드를 실행하고 <strong>Mysql-Workbench</strong>에 들어가서 확인해보면 아래 사진과 같이 된다.</p>
+
+<p><br /></p>
+
+<p>잠깐 기다리면 <strong>Jar</strong>파일이 완성되고 이는 프로젝트가 있는 폴더에 들어가면 <strong>build-&gt;libs</strong>에서 찾을 수 있다.</p>
+
+<p><br /></p>
+
+<p>그러면 <strong>xxx.jar</strong> 파일이 만들어진 것을 볼 수 있는데 이름이 복잡하니 아래 사진과 같이 <strong>application.jar</strong>로 이름을 변경한다.</p>
+
+<p><img src="/images/Kubernetes/kubernetes-springboot/2021-07-30-11-27-11.png" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>Superputty</strong>로 돌아와서 <strong>m-k8s</strong>에서 <strong>target</strong> 폴더를 만든다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>target
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>이제 이 target 폴더 안에 아까 만들었던 <strong>jar</strong> 파일을 넣어줄 건데 우리는 <strong>FileZilla</strong>를 사용한다.</p>
+
+<p>파일 질라를 연다. 그리고 위의 메뉴에서 <strong>파일-&gt;사이트 관리자</strong>에 들어간다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/Kubernetes/kubernetes-springboot/2021-07-30-11-32-06.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>프로토콜은 <strong>SFTP</strong>로 변경하고 호스트 아이피는 <strong>m-k8s</strong>의 아이피 주소를 넣는다. 사용자엔 <strong>root</strong>를 쓰고 비밀번호는 <strong>vagrant</strong>이다.</p>
+
+<div class="webnots-success webnots-notification-box">Vagrant로 Virtual Machine를 구성했을 때 디폴트 비밀번호가 'vagrant'이다.</div>
+
+<div class="webnots-success webnots-notification-box">m-k8s의 아이피 주소는 Vagrantfile를 구성할 때 설정해 줬으며 명령어 kubectl get node -o wide로 확인할 수 있다.</div>
+
+<p><img src="/images/Kubernetes/kubernetes-springboot/2021-07-30-11-32-41.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>이렇게 설정하고 연결을 누르면 m-k8s에 접속된다. 그리고 아까 <strong>jar</strong>파일을 우리가 만든 target 폴더에 넣는다.</p>
+
+<p><img src="/images/Kubernetes/kubernetes-springboot/2021-07-30-11-36-38.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>자 이제 <strong>FileZilla</strong>를 닫고 <strong>Superputty</strong>로 돌아오자.</p>
+
+<p><br /></p>
+
+<p>우리가 깃허브에서 가져온 프로젝트는 <strong>java openjdk 11</strong>버젼을 사용하므로 그것을 깔아야 한다. 그것은 아래 링크에 달린 블로그를 참고하도록 한다.</p>
+
+<p><strong><a href="https://growingsaja.tistory.com/357">CentOS에서 자바 11 설치하기</a></strong></p>
+
+<p><br /></p>
+
+<p>설치가 완료되었다면 환경변수를 설정해줘야 한다. 이것 또한 아래 링크를 참고한다.</p>
+
+<p><strong><a href="https://www.hanumoka.net/2018/04/30/centOs-20180430-centos-install-jdk/">CentOS에서 자바 11버젼 환경변수 설정하기</a></strong></p>
+
+<p><br /></p>
+
+<p>자 이제 <strong>도커 이미지</strong>를 만들기 위해 <strong>Dockerfile</strong>를 정의해 본다.</p>
+
+<p>도커파일은 <strong>root</strong>에 만든다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vi Dockerfile
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>Dockerfile</strong></p>
+
+<div class="language-Dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">FROM</span><span class="s"> openjdk:11</span>
+<span class="k">LABEL</span><span class="s"> description="Echo OP Java Development"</span>
+<span class="k">EXPOSE</span><span class="s"> 60431</span>
+<span class="k">COPY</span><span class="s"> ./target/application.jar /opt/application.jar</span>
+<span class="k">WORKDIR</span><span class="s"> /opt</span>
+<span class="k">ENTRYPOINT</span><span class="s"> ["java", "-jar", "application.jar"]</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>한 줄 한 줄 알아가보자.</p>
+
+<p><br /></p>
+
+<p><strong>Dockerfile</strong></p>
+
+<div class="language-Dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#import opendjk:11 image를 하는 것과 같다.</span>
+<span class="c">#From &lt;이미지 이름&gt;:[태그] 형식으로 이미지를 가져온다.</span>
+<span class="c">#가져온 이미지 내부에서 컨테이너 이미지를 빌드한다. 즉 누군가가 만들어 놓은</span>
+<span class="c">#이미지에 필요한 부분을 추가한다고 보면 된다. 여기서는 openjdk를 기초 이미지로 사용한다.</span>
+<span class="k">FROM</span><span class="s"> openjdk:11</span>
+
+<span class="c">#LABEL &lt;레이블 이름&gt;=&lt;값&gt;의 형식으로 이미지에 부가적인 설명을 위한 레이블을 추가할 때 사용한다.</span>
+<span class="k">LABEL</span><span class="s"> description="Echo OP Java Development"</span>
+
+<span class="c">#EXPOSE &lt;숫자&gt;의 형식으로 생성된 이미지로 컨테이너를 구동할 때 어떤 포트를</span>
+<span class="c">#사용하는지 알려준다. EXPOSE를 사용한다고 해서 컨테이너를 구동할 때 자동으로</span>
+<span class="c">#해당 포트를 호스트 포트와 연결하지 않는다. 외부에서 접속하려면 docker run으로</span>
+<span class="c">#이미지를 컨테이너로 빌드할 때,반드시 -p 옵션을 넣어 포트를 연결해야 한다.</span>
+<span class="k">EXPOSE</span><span class="s"> 60431</span>
+
+<span class="c">#호스트에서 새로 생성하는 컨테이너 이미지로 필요한 파일을 복사한다.</span>
+<span class="c">#COPY &lt;호스트 경로&gt; &lt;컨테이너 경로&gt;의 형식이다. 생성한 application.jar 파일을</span>
+<span class="c"># 이미지의 /opt/application.jar로 복사한다.</span>
+<span class="k">COPY</span><span class="s"> ./target/application.jar /opt/application.jar</span>
+
+<span class="c">#이미지의 현재 작업 위치를 opt로 변경한다.</span>
+<span class="k">WORKDIR</span><span class="s"> /opt</span>
+
+<span class="c">#ENTRYPOINT["명령어", "옵션"... "옵션"]의 형식이다.</span>
+<span class="c">#컨테이너 구동 시 ENTRYPOINT 뒤에 나오는 대괄호([]) 안에 든 명령을 실행한다.</span>
+<span class="c">#콤마(,)로 구분된 문자열 중 첫 번째 문자열은 실행할 명령어고,</span>
+<span class="c">#두 번째 문자열부터 명령어를 실행할 때 추가하는 옵션이다.</span>
+<span class="c">#여기서는 컨테이너를 구동할 때 java -jar application.jar이 실행된다는 의미이다.</span>
+<span class="c">#ENTRYPOINT로 실행하는 명령어는 컨테이너를 구동할 때 첫 번째로 실행된다.</span>
+<span class="c">#이 명령어로 실행된 프로세스 컨테이너 내부에서 첫 번째로 실행됐다는 의미로 PID는 1이 된다.</span>
+<span class="k">ENTRYPOINT</span><span class="s"> ["java", "-jar", "application.jar"]</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>Dockerfile</strong>를 만들었다면 이제 이 파일이 있는 위치에서 <strong>docker build -t springboot-img .</strong>를 입력한다.</p>
+
+<p><br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker build <span class="nt">-t</span> springboot-img <span class="nb">.</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>docker build</strong> 명령으로 컨테이너 이미지를 빌드한다. 여기서 사용된 <strong>-t</strong>(tag)는 만들어질 이미지를 의미하고 <strong>.</strong>(dot, 점)은 이미지에 원하는 내용을 추가하거나 변경하는 데 필요한 작업 공간을 현재 디렉터리로 지정한다는 의미다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/Kubernetes/kubernetes-springboot/2021-07-30-11-57-20.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>이미지가 제대로 만들어졌는지 확인한다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker images springboot-img
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><img src="/images/Kubernetes/kubernetes-springboot/2021-07-30-11-58-33.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>자 이제 <strong>docker run</strong>으로 컨테이너를 실행하고 docker ps로 컨테이너 상태를 출력한다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">-d</span> <span class="nt">-p</span> 60431:8080 <span class="nt">--name</span> springboot-run <span class="nt">--restart</span> always springboot-img
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><img src="/images/Kubernetes/kubernetes-springboot/2021-07-30-12-00-02.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>그리고 <strong>http://192.168.1.10:60431/movie/list</strong>로 접속해보자.</p>
+
+<p><br /></p>
+
+<p>화면이 아래 사진과 같이 나오면 성공이다.</p>
+
+<p><img src="/images/Kubernetes/kubernetes-springboot/2021-07-30-13-27-30.png" alt="" /></p>
+
+<p><br /></p>
+
+<div class="webnots-warning webnots-notification-box">위 사진처럼 화면이 나오면 성공이다. 하지만 화면 상에 REGISTER 버튼을 눌러서 서비스를 사용하고 나면 에러가 발생하니 그냥 한 예로서 제대로 배포됐는지만 확인하기</div>
+:ET

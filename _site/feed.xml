@@ -7,6 +7,1002 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Mysql Workbench를 사용하는 Springboot를 Docker Image로 만들고 배포하기</title>
+				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
+&lt;em&gt;&lt;strong&gt;피곤한데 커피 한잔만 마시고 시작해보자..&lt;/strong&gt;&lt;/em&gt;
+&lt;br /&gt;
+(Press the Button)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;style&gt;
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: &quot;&quot;;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: &quot;&quot;;
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: &quot;&quot;;
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: &quot;&quot;;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: &quot;&quot;;
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: &quot;&quot;;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: &quot;&quot;;
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+&lt;/style&gt;
+
+&lt;div class=&quot;containercoffee&quot;&gt;
+    &lt;div class=&quot;coffee-header&quot;&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-medium&quot;&gt;
+      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;docker-image-만들기&quot;&gt;&lt;center&gt;Docker Image 만들기&lt;/center&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이번 게시물에서는 JPA를 사용하는 SpringBoot 프로젝트를 도커 이미지로 만든 후에 배포하는 작업을 하려고 한다. 그전에 꼭 봐야하는 게시물이 있는데 링크는 아래 걸어놓겠다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://youngkyonyou.github.io/kubernetes/2021/07/27/Kubernetes-Mysql.html&quot;&gt;Kubernetes와 Mysql Workbench 연동하기&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;위의 링크에서 했던 환경과 동일한 환경으로 구성한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그리고 스프링부트 프로젝트는 따로 만드는 것을 하진 않고 JPA와 연동된 프로젝트를 깃허브에서 받아온다. 해당 프로젝트는 &lt;span style=&quot;color:#2ECC40; font-weight:bold&quot;&gt;‘코드로 배우는 스프링 부트 웹 프로젝트’&lt;/span&gt;라는 책에 나오는 프로젝트 중 하나인 &lt;span style=&quot;color:orange; font-weight:bold&quot;&gt;Movie Review&lt;/span&gt; 코드이다. 아래 깃허브 링크를 참고한다.&lt;/p&gt;
+
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https: //www.webnots.com/resources/font-awesome/css/font-awesome.min.css&quot; /&gt;
+
+&lt;style&gt;
+.webnots-notification-box {
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+color: #ffffff;
+font-family: verdana, 'open sans', sans-serif;
+margin-bottom: 25px;
+padding: 10px 14px 10px 44px;
+position: relative;
+box-shadow: 0px 1px 5px #999;
+/* width: -moz-fit-content;
+width: -webkit-fit-content;
+width: fit-content; */
+}
+.webnots-notification-box:before {
+font-family: FontAwesome;
+font-size: 21px;
+left: 14px;
+position: absolute;
+}
+.webnots-success {
+background-color: #2ecc71;
+}
+.webnots-success:before {
+content: &quot;\f00c&quot;;
+margin-left: -2px;
+}
+.webnots-failure {
+background-color: #e74c3c;
+}
+.webnots-failure:before {
+content: &quot;\f00d&quot;;
+}
+.webnots-warning {
+background-color: #e67e22;
+}
+.webnots-warning:before {
+content: &quot;\f12a&quot;;
+margin-left: 5px;
+}
+.webnots-information {
+background-color: #3498db;
+}
+.webnots-information:before {
+content: &quot;\f129&quot;;
+margin-left: 4px;
+}
+.webnots-question {
+background-color: #f1c40f;
+}
+.webnots-question:before {
+content: &quot;\f128&quot;;
+margin-left: 2px;
+}
+.webnots-tip {
+background-color: #16a085;
+}
+.webnots-tip:before {
+content: &quot;\f0eb&quot;;
+margin-left: 2px;
+}
+.webnots-notice {
+background-color: #bea474;
+}
+.webnots-notice:before {
+content: &quot;\f0a1&quot;;
+margin-left: -1px;
+}
+&lt;/style&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/YoungKyonYou/MovieReview-SpringBoot/tree/master&quot;&gt;Movie Review&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그리고 &lt;strong&gt;Superputty&lt;/strong&gt;를 키고 &lt;strong&gt;m-k8s&lt;/strong&gt;에서&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl get pods &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; wide
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;명령으로 mysql pod가 제대로 동작하고 있는지 확인한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-11-06-12.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;span style=&quot;color:#85144b; font-weight:bold; font-size: 30px&quot;&gt;데이터베이스에 데이터 넣기&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;webnots-warning webnots-notification-box&quot;&gt;그 전에 Intellij나 다른 IDE로 프로젝트를 열고 데이터베이스 테이블 생성을 위해서 한 번 실행시켜준다.&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Intellij로 깃허브에서 받은 프로젝트를 열고 아래 사진과 같이 들어간다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-13-32-34.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;repository&lt;/strong&gt; 패키지에는 &lt;strong&gt;MemberRepositoryTests&lt;/strong&gt;, &lt;strong&gt;MovieRepositoryTests&lt;/strong&gt;, &lt;strong&gt;ReviewRepositoryTests&lt;/strong&gt;가 있는데 여기 클래스에 있는 메소드들을 실행시켜서 데이터베이스에 데이터를 넣어준다. 실행시켜줄 메소드는 아래와 같다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;MemberRepositoryTests.java&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Autowired&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ReviewRepository&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reviewRepository&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Rollback&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;insertMembers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;IntStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;rangeClosed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;{&lt;/span&gt;
+           &lt;span class=&quot;nc&quot;&gt;Member&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;member&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Member&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+                   &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;r&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@zerock.org&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+                   &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;pw&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1111&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+                   &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;nickname&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;reviewer&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+           &lt;span class=&quot;n&quot;&gt;memberRepository&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;member&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;});&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;MovieRepositoryTests.java&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nd&quot;&gt;@Commit&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Transactional&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;insertMovies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;IntStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;rangeClosed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;{&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;Movie&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;movie&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Movie&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Movie...&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+            &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;-------------------------------------&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+            &lt;span class=&quot;n&quot;&gt;movieRepository&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;movie&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++){&lt;/span&gt;
+                &lt;span class=&quot;nc&quot;&gt;MovieImage&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;movieImage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;MovieImage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+                        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;uuid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;UUID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;randomUUID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt;
+                        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;movie&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;movie&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+                        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;imgName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;test&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;.jpg&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;imageRepository&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;movieImage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;====================================&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;});&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ReviewRepositoryTests.java&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;insertMovieReviews&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;IntStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;rangeClosed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;{&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;Long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mno&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;Long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=((&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;Member&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;member&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Member&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+            &lt;span class=&quot;nc&quot;&gt;Review&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;movieReview&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Review&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+                    &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;member&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;member&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+                    &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;movie&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Movie&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mno&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mno&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt;
+                    &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;grade&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+                    &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;feeling about this movie is...&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+                    &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;reviewRepository&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;movieReview&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;});&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이 세가지 메소드를 실행하고 &lt;strong&gt;Mysql-Workbench&lt;/strong&gt;에 들어가서 데이터가 정상적으로 들어갔는지 확인한다.(아래 사진 참고)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-13-37-35.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-13-38-19.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-13-38-32.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-13-38-52.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;span style=&quot;color:#85144b; font-weight:bold; font-size: 30px&quot;&gt;JAR 파일 추출 및 도커 이미지로 만들기&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;확인 했으면 깃허브에서 가져온 프로젝트의 &lt;strong&gt;jar&lt;/strong&gt;파일을 추출한다.&lt;/p&gt;
+
+&lt;p&gt;인텔리제이 기준으로 프로젝트를 열면 아래 사진과 같이 우측에 &lt;strong&gt;Gradle&lt;/strong&gt; 눌르고 &lt;strong&gt;build-&amp;gt;bootJar&lt;/strong&gt;를 더블 클릭한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-11-24-58.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;잠깐 기다리면 &lt;strong&gt;Jar&lt;/strong&gt;파일이 완성되고 이는 프로젝트가 있는 폴더에 들어가면 &lt;strong&gt;build-&amp;gt;libs&lt;/strong&gt;에서 찾을 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그러면 &lt;strong&gt;xxx.jar&lt;/strong&gt; 파일이 만들어진 것을 볼 수 있는데 이름이 복잡하니 아래 사진과 같이 &lt;strong&gt;application.jar&lt;/strong&gt;로 이름을 변경한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-11-27-11.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Superputty&lt;/strong&gt;로 돌아와서 &lt;strong&gt;m-k8s&lt;/strong&gt;에서 &lt;strong&gt;target&lt;/strong&gt; 폴더를 만든다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;target
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이제 이 target 폴더 안에 아까 만들었던 &lt;strong&gt;jar&lt;/strong&gt; 파일을 넣어줄 건데 우리는 &lt;strong&gt;FileZilla&lt;/strong&gt;를 사용한다.&lt;/p&gt;
+
+&lt;p&gt;파일 질라를 연다. 그리고 위의 메뉴에서 &lt;strong&gt;파일-&amp;gt;사이트 관리자&lt;/strong&gt;에 들어간다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-11-32-06.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;프로토콜은 &lt;strong&gt;SFTP&lt;/strong&gt;로 변경하고 호스트 아이피는 &lt;strong&gt;m-k8s&lt;/strong&gt;의 아이피 주소를 넣는다. 사용자엔 &lt;strong&gt;root&lt;/strong&gt;를 쓰고 비밀번호는 &lt;strong&gt;vagrant&lt;/strong&gt;이다.&lt;/p&gt;
+
+&lt;div class=&quot;webnots-success webnots-notification-box&quot;&gt;Vagrant로 Virtual Machine를 구성했을 때 디폴트 비밀번호가 'vagrant'이다.&lt;/div&gt;
+
+&lt;div class=&quot;webnots-success webnots-notification-box&quot;&gt;m-k8s의 아이피 주소는 Vagrantfile를 구성할 때 설정해 줬으며 명령어 kubectl get node -o wide로 확인할 수 있다.&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-11-32-41.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이렇게 설정하고 연결을 누르면 m-k8s에 접속된다. 그리고 아까 &lt;strong&gt;jar&lt;/strong&gt;파일을 우리가 만든 target 폴더에 넣는다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-11-36-38.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;자 이제 &lt;strong&gt;FileZilla&lt;/strong&gt;를 닫고 &lt;strong&gt;Superputty&lt;/strong&gt;로 돌아오자.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;우리가 깃허브에서 가져온 프로젝트는 &lt;strong&gt;java openjdk 11&lt;/strong&gt;버젼을 사용하므로 그것을 깔아야 한다. 그것은 아래 링크에 달린 블로그를 참고하도록 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://growingsaja.tistory.com/357&quot;&gt;CentOS에서 자바 11 설치하기&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;설치가 완료되었다면 환경변수를 설정해줘야 한다. 이것 또한 아래 링크를 참고한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://www.hanumoka.net/2018/04/30/centOs-20180430-centos-install-jdk/&quot;&gt;CentOS에서 자바 11버젼 환경변수 설정하기&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;자 이제 &lt;strong&gt;도커 이미지&lt;/strong&gt;를 만들기 위해 &lt;strong&gt;Dockerfile&lt;/strong&gt;를 정의해 본다.&lt;/p&gt;
+
+&lt;p&gt;도커파일은 &lt;strong&gt;root&lt;/strong&gt;에 만든다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vi Dockerfile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dockerfile&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-Dockerfile highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; openjdk:11&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;LABEL&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; description=&quot;Echo OP Java Development&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;EXPOSE&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; 60431&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;COPY&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; ./target/application.jar /opt/application.jar&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;WORKDIR&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; /opt&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;ENTRYPOINT&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; [&quot;java&quot;, &quot;-jar&quot;, &quot;application.jar&quot;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;한 줄 한 줄 알아가보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dockerfile&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-Dockerfile highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#import opendjk:11 image를 하는 것과 같다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#From &amp;lt;이미지 이름&amp;gt;:[태그] 형식으로 이미지를 가져온다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#가져온 이미지 내부에서 컨테이너 이미지를 빌드한다. 즉 누군가가 만들어 놓은&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#이미지에 필요한 부분을 추가한다고 보면 된다. 여기서는 openjdk를 기초 이미지로 사용한다.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; openjdk:11&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#LABEL &amp;lt;레이블 이름&amp;gt;=&amp;lt;값&amp;gt;의 형식으로 이미지에 부가적인 설명을 위한 레이블을 추가할 때 사용한다.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;LABEL&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; description=&quot;Echo OP Java Development&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#EXPOSE &amp;lt;숫자&amp;gt;의 형식으로 생성된 이미지로 컨테이너를 구동할 때 어떤 포트를&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#사용하는지 알려준다. EXPOSE를 사용한다고 해서 컨테이너를 구동할 때 자동으로&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#해당 포트를 호스트 포트와 연결하지 않는다. 외부에서 접속하려면 docker run으로&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#이미지를 컨테이너로 빌드할 때,반드시 -p 옵션을 넣어 포트를 연결해야 한다.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;EXPOSE&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; 60431&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#호스트에서 새로 생성하는 컨테이너 이미지로 필요한 파일을 복사한다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#COPY &amp;lt;호스트 경로&amp;gt; &amp;lt;컨테이너 경로&amp;gt;의 형식이다. 생성한 application.jar 파일을&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 이미지의 /opt/application.jar로 복사한다.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;COPY&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; ./target/application.jar /opt/application.jar&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#이미지의 현재 작업 위치를 opt로 변경한다.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;WORKDIR&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; /opt&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#ENTRYPOINT[&quot;명령어&quot;, &quot;옵션&quot;... &quot;옵션&quot;]의 형식이다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#컨테이너 구동 시 ENTRYPOINT 뒤에 나오는 대괄호([]) 안에 든 명령을 실행한다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#콤마(,)로 구분된 문자열 중 첫 번째 문자열은 실행할 명령어고,&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#두 번째 문자열부터 명령어를 실행할 때 추가하는 옵션이다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#여기서는 컨테이너를 구동할 때 java -jar application.jar이 실행된다는 의미이다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#ENTRYPOINT로 실행하는 명령어는 컨테이너를 구동할 때 첫 번째로 실행된다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#이 명령어로 실행된 프로세스 컨테이너 내부에서 첫 번째로 실행됐다는 의미로 PID는 1이 된다.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;ENTRYPOINT&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; [&quot;java&quot;, &quot;-jar&quot;, &quot;application.jar&quot;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dockerfile&lt;/strong&gt;를 만들었다면 이제 이 파일이 있는 위치에서 &lt;strong&gt;docker build -t springboot-img .&lt;/strong&gt;를 입력한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker build &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; springboot-img &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;docker build&lt;/strong&gt; 명령으로 컨테이너 이미지를 빌드한다. 여기서 사용된 &lt;strong&gt;-t&lt;/strong&gt;(tag)는 만들어질 이미지를 의미하고 &lt;strong&gt;.&lt;/strong&gt;(dot, 점)은 이미지에 원하는 내용을 추가하거나 변경하는 데 필요한 작업 공간을 현재 디렉터리로 지정한다는 의미다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-11-57-20.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이미지가 제대로 만들어졌는지 확인한다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker images springboot-img
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-11-58-33.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;자 이제 &lt;strong&gt;docker run&lt;/strong&gt;으로 컨테이너를 실행하고 docker ps로 컨테이너 상태를 출력한다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 60431:8080 &lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt; springboot-run &lt;span class=&quot;nt&quot;&gt;--restart&lt;/span&gt; always springboot-img
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-12-00-02.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그리고 &lt;strong&gt;http://192.168.1.10:60431/movie/list&lt;/strong&gt;로 접속해보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;화면이 아래 사진과 같이 나오면 성공이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-13-27-30.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;webnots-warning webnots-notification-box&quot;&gt;위 사진처럼 화면이 나오면 성공이다. 하지만 화면 상에 REGISTER 버튼을 눌러서 서비스를 사용하고 나면 에러가 발생하니 그냥 한 예로서 제대로 배포됐는지만 확인하기&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이미지가 제대로 작동하는 것을 확인했으니 작동 중인 컨테이너를 중지 시키고 삭제한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;중지&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker stop springboot-run
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-13-44-35.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;작동 중인 컨테이너를 삭제&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker &lt;span class=&quot;nb&quot;&gt;rm &lt;/span&gt;springboot-run
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;webnots-information webnots-notification-box&quot;&gt;작동 중인 컨테이너를 -f(force) 옵셔으로 바로 삭제해도 되지만 안전하게 작업하려면 작동을 중지시킨 후 삭제하는 것이 좋다. &lt;br /&gt;
+&lt;span style=&quot;color:yellow; font-weight:bold&quot;&gt;docker rmi -f $(docker images -q springboot-run)&lt;/span&gt; &lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-13-50-39.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;이미지 삭제&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker rmi &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;docker images &lt;span class=&quot;nt&quot;&gt;-q&lt;/span&gt; springboot-img&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-13-47-22.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+</description>
+				<pubDate>Fri, 30 Jul 2021 09:00:00 +0900</pubDate>
+				<link>/kubernetes/2021/07/30/Kubernetes-Springboot.html</link>
+				<guid isPermaLink="true">/kubernetes/2021/07/30/Kubernetes-Springboot.html</guid>
+			</item>
+		
+			<item>
+				<title>스프링 시큐리티 소셜 로그인 처리</title>
+				<description>&lt;p&gt;&lt;span style=&quot;color:orange; font-weight:bold&quot;&gt;&lt;em&gt;해당 내용은 책 ‘코드로 배우는 스프링 부트 웹 프로젝트’에 나오는 내용이며 이는 개인적으로 공부하기 위해 기록함을 알려드립니다&lt;/em&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;구글-로그인-시나리오&quot;&gt;&lt;center&gt;구글 로그인 시나리오&lt;/center&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;스프링 시큐리티를 사용할 때 가장 많이 요구되는 기능은 소셜 로그인이라고 할 수 있다. 소셜 로그인은 국내외 사이트 등에서 제공하는 로그인 통합 기능을 이용해서 사용자가 별도의 회원 가입 없이 자동으로 로그인이 이루어 지도록 구성하는 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;구글 로그인을 위해서는 먼저 구글 개발자 콘솔을 이용해서 프로젝트를 생성한다. 이를 통해서 구글 클라우드 플랫폼 내에 프로젝트를 생성해주어야 한다.&lt;/p&gt;
+
+&lt;p&gt;구글 프로젝트에 현재 프로젝트를 등록하기 위해서는 &lt;span style=&quot;color:#7EDBFF; font-weight:bold&quot;&gt;Google Developers API Console&lt;/span&gt;에 들어가야 한다. 링크는 아래에 두겠다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://console.cloud.google.com/apis/dashboard&quot;&gt;Google Developers API Console&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;들어갔더니 예전에 만들어놓은 프로젝트가 있었는데 지금은 사용하지 않으므로 지우려고 찾아봤지만 찾기가 어려웠다… 물론 계속 찾아본 결과 찾았지만 다음에 헤매지 않게 방법을 추가로 기록해두려고 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;화면의 우측 상단에 보면 메뉴바가 있는데 그것을 클릭하면 &lt;span style=&quot;color:#001f3f; font-weight:bold&quot;&gt;프로젝트 설정&lt;/span&gt;이 있다. 이것을 누른다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-32-00.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;화면 중앙에 바로 종료 버튼이 있는 것을 볼 수 있다. (찾느라 고생했다..)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-32-18.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;자 이제 다 비워진 상태로 링크에 접속하면 아래 사진과 같다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-33-38.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;가장 우측에 보면 &lt;span style=&quot;color:orange; font-weight:bold&quot;&gt;프로젝트 만들기&lt;/span&gt;가 보인다. 그것을 누른다. 그리고 프로젝트 이름을 설정하고 &lt;strong&gt;만들기&lt;/strong&gt; 버튼을 누른다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-37-04.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그리고 아래 사진과 같이 &lt;strong&gt;API 및 서비스&lt;/strong&gt; 메뉴를 클릭하고 들어간다&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-38-48.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그다음 &lt;strong&gt;사용자 인증 정보&lt;/strong&gt;를 누르고 가운데에 상단에 있는 &lt;strong&gt;사용자 인증 정보 만들기&lt;/strong&gt;-&amp;gt;&lt;strong&gt;OAuth 클라이언트 ID&lt;/strong&gt;를 클릭한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-39-19.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+OAuth 클라이언트 ID를 만드려면
+아래 사진과 같이 &lt;strong&gt;동의 화면 구성&lt;/strong&gt;을 먼저 해야 한다. &lt;strong&gt;동의 화면 구성&lt;/strong&gt;를 클릭해서 설정하자.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-41-43.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;동의 화면 구성에서는 구글 계정이 있는 모든 사용자가 사용할 수 있도록 &lt;strong&gt;외부&lt;/strong&gt;에 체크를 하고 만들기 버튼을 누른다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-43-48.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;다음 설정을 이어간다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-47-54.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-55-28.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;아래 사진에서 &lt;strong&gt;범위 추가 또는 삭제&lt;/strong&gt;를 누른다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-56-58.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;세가지 항목에 체크를 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-57-18.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;결과는 아래와 같다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-57-38.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;저장 후 계속을 누른다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-58-35.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이제 OAuth ID를 만들 수 있으므로 다시 **사용자 인증 정보로 와서 아래 사진과 같이 OAuth 클라이언트 ID를 다시 선택한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-18-32-11.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;아래 사진과 같이 설정하고 만들기를 누른다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-18-34-04.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그리고 나면 OAuth 클라이언트가 생성되면서 &lt;span style=&quot;color:#85144b; font-weight:bold&quot;&gt;클라이언트 ID와 클라이언트 보안 비밀번호&lt;/span&gt;가 나오는데 이 둘을 메모장에 복사 붙여넣기 해둔다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;챕터10에서 만들었던 프로젝트를 키고 &lt;strong&gt;build.gradle&lt;/strong&gt;에 &lt;strong&gt;OAuth&lt;/strong&gt;관련 &lt;strong&gt;dependency&lt;/strong&gt;를 추가한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;build.gradle&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-gradle highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(...)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;implementation&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'org.springframework.boot:spring-boot-starter-oauth2-client'&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;(...)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;라이브러를 추가한 후에는 &lt;strong&gt;application.properties&lt;/strong&gt; 파일을 수정해야 한다. 만일 앞으로 여러 개의 OAuth를 사용하고 싶다면 별도의 설정 파일을 만들어 주는 것이 더 낫다. 별도의 설정 파일 이름은 &lt;span style=&quot;color:#7EDBFF; font-weight:bold&quot;&gt;‘application-xxx.properties’&lt;/span&gt;와 같은 이름으로 생성한다. 예제에서는 &lt;span style=&quot;color:#7EDBFF; font-weight:bold&quot;&gt;‘application-oauth.properties’&lt;/span&gt;라는 파일을 생성해서 처리한다.(중간에 ‘-‘ 대신에 다른 기호를 사용하지 않도록 주의해야 합니다).&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;application-oauth.properties&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-application.properties&quot;&gt;spring.security.oauth2.client.registration.google.client-id=(발급 받은 클라이언트 ID)
+spring.security.oauth2.client.registration.google.client-secret=(발급 받은 클라이언트 보안 비밀번호)
+spring.security.oauth2.client.registration.google.scope=email
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;기존의 &lt;strong&gt;application.properties&lt;/strong&gt;에서는 추가된 파일을 포함해서 동작하도록 설정을 추가한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;application.properties&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-application.properties&quot;&gt;spring.profiles.include=oauth
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이제 실제 로그인 시에 OAuth를 사용한 로그인이 가능하도록 HttpSecurity 설정을 변경하기 위해 SecurityConfig 클래스를 수정한다. HttpSecurity의 oauth2Login()이라는 부분을 추가하면 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SecurityConfig.java&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(...)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SecurityConfig&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WebSecurityConfigurerAdapter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;(...)&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;configure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;HttpSecurity&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+       &lt;span class=&quot;c1&quot;&gt;//http.authorizeRequests()로 인증이 필요한 자원들을 설정할 수 있고 antMatchers()는&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// '**/*'와 같은 앤트 스타일의 패턴으로 원하는 자원을 선택할 수 있다.&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;//마지막으로 permitAll()의 경우는 말 그대로 '모든 사용자에게 허락'한다는 의미이므로&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;//로그인하지 않은 사용자도 익명의 사용자로 간주되어서 접근이 가능하게 된다.&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;//프로젝트를 재시작해서 /sample/all에 접속하면 별도의 로그인 없이도 접근이 가능해 진다.&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;authorizeRequests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;antMatchers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/sample/all&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;permitAll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+                                &lt;span class=&quot;c1&quot;&gt;//아래와 같이 설정하고 /sample/member'를 호출하면 Access Denied 된다.&lt;/span&gt;
+                                &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;antMatchers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/sample/member&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;hasRole&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;USER&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;//인가/인증에 문제시 로그인 화면면&lt;/span&gt;
+       &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;formLogin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+       &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;csrf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;disable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+       &lt;span class=&quot;c1&quot;&gt;//실제 로그인 시에 OAuth를 사용한 로그인이 가능하도록 함&lt;/span&gt;
+       &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;oauth2Login&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이제 프로젝트를 실행하고 &lt;span style=&quot;color:orange; font-weight:bold&quot;&gt;‘/sample/member’&lt;/span&gt;를 호출하면 이전과 달리 구글 로그인 링크가 추가된 화면을 아래 사진으로 확인할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-23-13-24.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;위의 사진에서 &lt;strong&gt;‘Google’&lt;/strong&gt;를 선택하면 구글에 등록된 OAuth 클라이언트의 이름이 보이면서 로그인을 유도하게 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-23-14-21.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;정상적으로 로그인이 이루어지면 &lt;strong&gt;‘/sample/member’&lt;/strong&gt;가 호출되면서 화면에는 다음과 같은 결과가 출력된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-23-15-01.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+</description>
+				<pubDate>Thu, 29 Jul 2021 11:00:00 +0900</pubDate>
+				<link>/springboot/2021/07/29/springboot-LearningSpringBoot-11.1.html</link>
+				<guid isPermaLink="true">/springboot/2021/07/29/springboot-LearningSpringBoot-11.1.html</guid>
+			</item>
+		
+			<item>
 				<title>Kubernetes와 Mysql Workbench 연동하기</title>
 				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
 &lt;em&gt;&lt;strong&gt;피곤한데 커피 한잔만 마시고 시작해보자..&lt;/strong&gt;&lt;/em&gt;
@@ -3098,263 +4094,6 @@ ping 192.168.1.103 &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; 3
 				<pubDate>Mon, 19 Jul 2021 10:00:00 +0900</pubDate>
 				<link>/kubernetes/2021/07/19/Kubernetes-2.2.3.html</link>
 				<guid isPermaLink="true">/kubernetes/2021/07/19/Kubernetes-2.2.3.html</guid>
-			</item>
-		
-			<item>
-				<title>컨테이너 인프라 환경 구축을 위한 쿠버네티스/도커-2.2.1</title>
-				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;해당 내용은 책 &amp;lt;컨테이너 인프라 환경 구축을 위한 쿠버네티스/도커&amp;gt;에 나오는 내용이며 이는 개인적으로 공부하기 위해서 게시하는 글임을 알립니다.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;가상-머신에-필요한-설정-자동으로-구성하기&quot;&gt;&lt;center&gt;가상 머신에 필요한 설정 자동으로 구성하기&lt;/center&gt;&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Vagranfile 48pg&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;알아야 할 내용&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;Vagrant Box: 설정에서 가장 기본적인 단위이다. 독립적인 운영체제 환경의 이미지다.&lt;/li&gt;
-      &lt;li&gt;Ruby 문법 &lt;strong&gt;do&lt;/strong&gt;: Paired with end, 코드 블럭을 구분할 수 있다.&lt;/li&gt;
-      &lt;li&gt;VirtualBox에서 호스트는 개인 PC Window, 게스트 os는 CentOS 리눅스이다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;일단 원래 코드를 깔끔하게 보고 설명은 다시 이 코드 아래에 주석으로 적겠다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# -*- mode: ruby -*-&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# vi: set ft=ruby :&lt;/span&gt;
-Vagrant.configure&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; |config|
-  config.vm.define &lt;span class=&quot;s2&quot;&gt;&quot;m-k8s&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; |cfg|
-    cfg.vm.box &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;sysnet4admin/CentOS-k8s&quot;&lt;/span&gt;
-    cfg.vm.provider &lt;span class=&quot;s2&quot;&gt;&quot;virtualbox&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; |vb|
-      vb.name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;m-k8s(github_SysNet4Admin)&quot;&lt;/span&gt;
-      vb.cpus &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 2
-      vb.memory &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 2048
-      vb.customize &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;modifyvm&quot;&lt;/span&gt;, :id, &lt;span class=&quot;s2&quot;&gt;&quot;--groups&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;/k8s-SM(github_SysNet4Admin)&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-    end
-    cfg.vm.host_name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;m-k8s&quot;&lt;/span&gt;
-    cfg.vm.network &lt;span class=&quot;s2&quot;&gt;&quot;private_network&quot;&lt;/span&gt;, ip: &lt;span class=&quot;s2&quot;&gt;&quot;192.168.1.10&quot;&lt;/span&gt;
-    cfg.vm.network &lt;span class=&quot;s2&quot;&gt;&quot;forwarded_port&quot;&lt;/span&gt;, guest: 22, host: 60010, auto_correct: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;, &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;ssh&quot;&lt;/span&gt;
-    cfg.vm.synced_folder &lt;span class=&quot;s2&quot;&gt;&quot;../data&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;/vagrant&quot;&lt;/span&gt;, disabled: &lt;span class=&quot;nb&quot;&gt;true
-  &lt;/span&gt;end
-end
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#아래 두줄의 주석은 에디터에 현재 파일이 루비임을 인식하게 하는 호환 코드이다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#ft는 file type(파일종류)의 약자이다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# -*- mode: ruby -*-&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# vi: set ft=ruby :&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;#&quot;2&quot;는 configuration object |config|의 버전을 명시하는 것이다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#이것은 configuration 블록으로 사용된다.&lt;/span&gt;
-Vagrant.configure&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; |config|
-
-&lt;span class=&quot;c&quot;&gt;#https://www.vagrantup.com/docs/vagrantfile/machine_settings 참고&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#config.vm.define: 버추얼박스에서 보이는 가상 머신을 &quot;m-k8s&quot;로 정의한다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#do |cfg|를 추가해 원하는 설정으로 변경한다.&lt;/span&gt;
-  config.vm.define &lt;span class=&quot;s2&quot;&gt;&quot;m-k8s&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; |cfg|
-
-  &lt;span class=&quot;c&quot;&gt;#config.vm.box: 어떤 box에 대해 machine이 표시되는지 구성한다. 여기에 값은&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;#HashiCorp's Vagrant Clout에 설치된 박스나 약칭으로된 이름이 들어가야 한다.&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;#즉 사람들이 만들어 놓은 운영체제 이미지의 이름이 들어간다.&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;#42pg를 보면 필자가 만들어 놓은 운영체제 이미지를 사용한다.&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;#필자가 만든 운영체제 이미지의 이름이 &quot;sysnet4admin/CentOS-k8s&quot;이다.&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;#https://app.vagranup.com/sysnet4admin/boxes/CentOS-k8s에서 확인할 수 있다.&lt;/span&gt;
-    cfg.vm.box &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;sysnet4admin/CentOS-k8s&quot;&lt;/span&gt;
-
-  &lt;span class=&quot;c&quot;&gt;#베이그런트의 프로바이더(provider)가 버추얼박스라는 것을 정의한다. 프로바이더는&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;#베이그런트를 통해 제공되는 코드가 실제로 가상 머신으로 배포되게 하는 소프트웨어이다.&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;#버추얼박스가 여기에 해당한다. 다음으로 버추얼박스에 필요한 설정을 정의하는데&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;#그 시작을 do |vb|로 선언한다. provider가 존재하지 않을 경우 Vagrant는 이 설정 블록을&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;#무시한다.&lt;/span&gt;
-    cfg.vm.provider &lt;span class=&quot;s2&quot;&gt;&quot;virtualbox&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; |vb|
-
-    &lt;span class=&quot;c&quot;&gt;#VirtualBox provider는 더 VirtualBox 기반 Vagrant 환경을 보다 세밀하게 제어할 수 있는&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;#몇 가지 추가 구성 옵션을 제공한다.&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;#https://www.vagrantup.com/docs/providers/virtualbox/configuration 참고&lt;/span&gt;
-
-    &lt;span class=&quot;c&quot;&gt;#버추얼박스에 생성한 가상 머신의 이름, CPU 수, 메모리 크기, 소속된 그룹을 명시한다.&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;#그리고 마지막으로 end를 적어 버추얼박스 설정이 끝났음을 알린다.&lt;/span&gt;
-
-    &lt;span class=&quot;c&quot;&gt;#VirtualBox GUI에 표시될 이름을 설정한다&lt;/span&gt;
-      vb.name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;m-k8s(github_SysNet4Admin)&quot;&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;#사용할 CPU 수 설정&lt;/span&gt;
-      vb.cpus &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 2
-    &lt;span class=&quot;c&quot;&gt;#사용할 메모리 크기 설정&lt;/span&gt;
-      vb.memory &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 2048
-
-    &lt;span class=&quot;c&quot;&gt;# :id는 생성되는 가상 머신의 ID를 반환하는 특별한 매개변수이다.&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;#그래서 VBoxManage 커맨드가 ID를 요구할 때 이 특별한 매개변수를 사용한다.&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;#--groups를 이용해서 명시된 그룹으로 분리하는 것이다.&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;# 여러개의 vms가 있으면 헷갈릴 수 있으므로 분류한다.&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;#modifyvm은 ID에 해당하는 vm의 설정을 한다.&lt;/span&gt;
-      vb.customize &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;modifyvm&quot;&lt;/span&gt;, :id, &lt;span class=&quot;s2&quot;&gt;&quot;--groups&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;/k8s-SM(github_SysNet4Admin)&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-    end
-
-    &lt;span class=&quot;c&quot;&gt;#여기서는 가상 머신 자체에 대한 설정이다.&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;#do |cfg|에 속한 작업이다. 즉 호스트의 이름(m-k8s)을 설정한다.&lt;/span&gt;
-    cfg.vm.host_name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;m-k8s&quot;&lt;/span&gt;
-
-    &lt;span class=&quot;c&quot;&gt;#호스트 전용 네트워크를 private_network로 설정해 eth1 인터페이스를&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;#호스트 전용(Host-Only)으로 구성하고 IP는 192.168.1.10으로 지정한다. 고정 IP를 설정해주는 방법이다. 아래 document 참고&lt;/span&gt;
-    cfg.vm.network &lt;span class=&quot;s2&quot;&gt;&quot;private_network&quot;&lt;/span&gt;, ip: &lt;span class=&quot;s2&quot;&gt;&quot;192.168.1.10&quot;&lt;/span&gt;
-
-    &lt;span class=&quot;c&quot;&gt;#ssh 통신은 호스트 60010번을 게스트 22번으로 전달되도록 구성한다.&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;#이때 혹시 모를 포트 중복을 대비해 auto_correct: true로 설정해서&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;#포트가 중복되면 포트가 자동으로 변경되도록 한다.&lt;/span&gt;
-    cfg.vm.network &lt;span class=&quot;s2&quot;&gt;&quot;forwarded_port&quot;&lt;/span&gt;, guest: 22, host: 60010, auto_correct: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;, &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;ssh&quot;&lt;/span&gt;
-
-    &lt;span class=&quot;c&quot;&gt;#호스트(PC 또는 노트북)와 게스트(가상 머신) 사이에&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;#디렉터리 동기화가 이뤄지지 않게 설정(disabled: true)한다.&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;#첫 번째 파라미터는 host의 경로이다 두 번째 파라미터는 guest(vm)의 경로이다.&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;#가상머신에 들어가보면 /vagrant 경로에 Vagrantfile이 있다&lt;/span&gt;
-    cfg.vm.synced_folder &lt;span class=&quot;s2&quot;&gt;&quot;../data&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;/vagrant&quot;&lt;/span&gt;, disabled: &lt;span class=&quot;nb&quot;&gt;true
-  &lt;/span&gt;end
-end
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;cfg.vm.network “private_network”, ip: “192.168.1.10”&lt;/strong&gt;에 대해서 좀 더 알아보자.&lt;/p&gt;
-
-&lt;p&gt;공식 document에 들어가면 그 내용이 있는데 발번역을 해보려 한다. 링크는 아래에 남긴다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://www.vagrantup.com/docs/networking/private_network&quot;&gt;Vagrant&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/post1/2021-07-19-09-05-59.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;네트워크 식별자: private_network&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Vagrant private network(사설 네트워크)는 글로벌 인터넷에서 공개적으로 접근 불가한 IP으로 게스트 머신(가상 머신)에 접근하는 것을 가능하게 한다. 일반적으로 이것은 당신의 머신이 &lt;strong&gt;사설 주소 공간&lt;/strong&gt;으로부터 주소를 얻는 다는 것을 의미한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;동일한 사설 네트워크 안에 여러 대의 머신은 동일한 공급자가 지원한다는 제한이 있지만 사설 네트워크 안에서 통신이 가능하다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/post1/2021-07-19-09-13-30.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;DHCP&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;사설 네트워크를 사용하기 위한 가장 쉬운 방법은 DHCP를 통해서 IP를 할당 받는 것이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이렇게 하면 예약된 주소 공간에서 IP 주소가 자동으로 할당됩니다. IP 주소는 SSH에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vagrant ssh&lt;/code&gt; 명령을 입력하고 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ifconfig&lt;/code&gt;와 같은 적절한 명령줄 도구를 사용해서 IP를 찾을 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/post1/2021-07-19-09-17-55.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;고정 IP&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;그리고 당신은 머신에게 고정 IP 주소를 기입할 수 있습니다. 이를 통해 알려진 고정 IP를 사용하여 Vagrant 관리 시스템에 액세스할 수 있습니다. Vagrantfile에서 고정 IP 주소를 설정하는 방법은 아래와 같습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/post1/2021-07-19-09-22-14.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;동일한 네트워크에 다른 머신의 IP와 충돌하지 않도록 IP를 할당하는 것은 사용자에게 달렸습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;원하는 IP를 선택할 수 있지만 &lt;strong&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces&quot;&gt;reserved private address space&lt;/a&gt;&lt;/strong&gt; 에 나와있는 IP 주소를 사용하는 게 좋습니다. 이 IP들은 절대로 공개적으로 라우팅 되지 않는 것을 보장하며 대부분의 라우터들이 실제로 외부 트래픽이 이 IP로 들어가는 것을 막는다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;일부 운영 체제의 경우 기본 게이트웨이 또는 MTU 설정과 같은 고정 IP 주소에 대한 추가 구성 옵션을 사용할 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;경고!&lt;/strong&gt; 시스템의 다른 IP 공간과 겹치는 IP를 선택하지 마십시오. 이로 인해 네트워크에 연결할 수 없습니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://developerin.tistory.com/18&quot;&gt;호스트 네트워크 및 NAT에 대한 블로그 1&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://liveyourit.tistory.com/26&quot;&gt;호스트 네트워크 및 NAT에 대한 블로그 2&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-</description>
-				<pubDate>Sun, 18 Jul 2021 10:00:00 +0900</pubDate>
-				<link>/kubernetes/2021/07/18/Kubernetes-2.2.1.html</link>
-				<guid isPermaLink="true">/kubernetes/2021/07/18/Kubernetes-2.2.1.html</guid>
-			</item>
-		
-			<item>
-				<title>npm install Err 문제 해결</title>
-				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;npm-install&quot;&gt;&lt;center&gt;npm install&lt;/center&gt;&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;정말 오늘 하루종일 이거 고치느라 아무것도 못했다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;del&gt;오늘 하루는 정말 아무것도 하기 싫ㄷ..&lt;/del&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;유투브에 있는 Vue Project를 따라서 해보려는 중 기본적인 틀은 유투버의 git에서 가져와서 npm를 install하는 과정에서 중간에 계속 에러가 났다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;에러 내용을 스크린샷을 찍어놨어야 되는데… 못찍었다. 무슨 gyp 관련해서 에러가 엄청 떴었다. 그런데 구글링을하고 스택오버플로우에서 검색을 해보고 거기서 제시하는 해결책을 시도해도 안되는 것이었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;한 12시간 이상은 뻘짓한 거 같아서 과정은 다 못올릴 거 같고 결론만 말하자면&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;C:\Users\nick1\AppData\Roaming\npm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이 npm폴더 안에 있던 모든 파일들을 다 지우고 &lt;strong&gt;npm install&lt;/strong&gt;를 했더니 작동했다.&lt;/p&gt;
-
-&lt;p&gt;정말 오늘 하루는 지친다 ㅠㅠ 그래도 해결했으니 안심해본다.&lt;/p&gt;
-</description>
-				<pubDate>Fri, 16 Jul 2021 12:00:00 +0900</pubDate>
-				<link>/vue/2021/07/16/Vue-post1.html</link>
-				<guid isPermaLink="true">/vue/2021/07/16/Vue-post1.html</guid>
 			</item>
 		
 	</channel>

@@ -6,6 +6,7 @@ body {
 }
 p {
   font-family: "Jeju Gothic", sans-serif;
+  text-align: center;
 }
 .sidebar {
   position: fixed;
