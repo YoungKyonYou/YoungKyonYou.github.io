@@ -819,6 +819,14 @@ kubectl run -it --rm --image=mysql:5.6 --restart=Never mysql-client -- mysql -h 
 
 <br>
 
+<link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet">
+<div style="background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;">
+
+<span style="color:orange; font-weight:bold">'--'</span>는 인자 값을 나누고 싶을 때 사용한다. 즉 명령어를 구분할 때 사용한다. </div>
+
+<br>
+
 ![](/images/Kubernetes/kubernetes-Mysql/2021-07-28-15-29-14.png){: p}
 
 <br>
