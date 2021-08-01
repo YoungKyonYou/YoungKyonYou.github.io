@@ -7,6 +7,678 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>온프레미스에서 로드밸런서를 제공하는 MetalLB</title>
+				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;해당 내용은 책 &amp;lt;컨테이너 인프라 환경 구축을 위한 쿠버네티스/도커&amp;gt;에 나오는 내용이며 이는 개인적으로 공부하기 위해서 게시하는 글임을 알립니다.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
+&lt;em&gt;&lt;strong&gt;커피 중독자되는 중…&lt;/strong&gt;&lt;/em&gt;
+&lt;br /&gt;
+(Press the Button)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;style&gt;
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: &quot;&quot;;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: &quot;&quot;;
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: &quot;&quot;;
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: &quot;&quot;;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: &quot;&quot;;
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: &quot;&quot;;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: &quot;&quot;;
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+&lt;/style&gt;
+
+&lt;div class=&quot;containercoffee&quot;&gt;
+    &lt;div class=&quot;coffee-header&quot;&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-medium&quot;&gt;
+      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;온프레미스에서-로드밸런서를-제공하는-metallb&quot;&gt;&lt;center&gt;온프레미스에서 로드밸런서를 제공하는 MetalLB&lt;/center&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;노드포트는 굉장히 심플하다. 현실적으로 노드포트가 서비스하는 방식은 굉장히 효율이 떨어진다. 아래 사진을 참고해보자.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;사용자가 워크 노드에 있는 포트에 먼저 접속을 한다. (순서도 1번 참고)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;접속을 한 이후에 해당 워크 노드가 서비스로 이를 바인딩 해준다 (순서도 2번 참고)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;서비스가 현재 있는 상태를 봐 가면서 노드에 연결을 해주게 된다.(순서도 3번 참고)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;즉 비효율적으로 사용자가 &lt;span style=&quot;color:orange; font-weight:bold&quot;&gt;서비스&lt;/span&gt;에 접근해서 &lt;span style=&quot;color:orange; font-weight:bold&quot;&gt;서비스&lt;/span&gt;가 바로 &lt;span style=&quot;color:orange; font-weight:bold&quot;&gt;파드&lt;/span&gt;에 접근하는 게 아니라 사용자가 워크 노드 포트에 꼭 접속을 해서 이를 &lt;span style=&quot;color:orange;font-weight:bold&quot;&gt;서비스&lt;/span&gt;로 보내준 다음에 &lt;span style=&quot;color:orange; font-weight:bold&quot;&gt;서비스&lt;/span&gt;가 파드에 보내주는 구조이기 때문에 효율성이 떨어진다. 그리고 다른 문제는 워크 노드가 죽었다면 접속해야 되는 사용자에 있는 IP가 변경이 된다 그렇다면 이것은 대표 IP라는 컨셉이 떨어지기 때문에 사용자가 IP를 알아야된다. 이부분은 사실 제대로 서비스를 하기에는 부족한 부분이 있다. 그래서 프로덕션에서는 노드포트를 이용해서 서비스를 하진 않고 테스트용으로 노드포트를 사용한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Ingress/2021-08-01-14-45-41.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그래서 쿠버네티스에서는 &lt;strong&gt;로드 밸런서(LoadBalancer)&lt;/strong&gt;라는 서비스 타입을 제공해 간단한 구조로 파드를 외부에 노출하고 부하를 분산한다. 아래 사진을 참고하여 위의 사진과 구조를 비교해보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Ingress/2021-08-01-15-04-07.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;노드포트의 구조와 비교해봤을 때 매우 단순하다. 이는 클라우드 환경에서 동작하는 방식이다. 사용자가 클라우드 노드밸러스 타입에 접근한지는 모른다 즉 보여지지 않지만 거기에 접근해서 바로 &lt;strong&gt;Load Balancer 서비스의 External IP&lt;/strong&gt;(그림의 노란색 부분)에 접근한 이후에 바로 내부에 있는 파드로 연결해주게 된다. 굉장히 간결하게 동작을 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;온프레미스에서 로드밸러서를 사용하려면 로드밸러서를 &lt;strong&gt;이미 구현해 둔 서비스업체&lt;/strong&gt;의 도움을 받아 &lt;strong&gt;쿠버네티스 클러스터 외부&lt;/strong&gt;에 구현해야 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;온프레미스에서 로드밸런서를 사용하려면 내부에 로드밸런서 서비스를 받아주는 구성이 필요한데, 이를 지원하는 것이 &lt;strong&gt;MetalLB&lt;/strong&gt;이다. &lt;strong&gt;MetalLB&lt;/strong&gt;는 베어메탈(bare metal, 운영체제가 설치되지 않은 하드웨어)로 구성된 쿠버네티스에서도 로드밸런서를 사용할 수 있게 고안된 프로젝트이다. &lt;strong&gt;MetalLB&lt;/strong&gt;는 특별한 네트워크 설정이나 구성이 있는 것이 아니라 기존의 &lt;strong&gt;L2 네트워크(ARP/NDP)&lt;/strong&gt;와 &lt;strong&gt;L3 네트워크(BGP)&lt;/strong&gt;로 로드밸런서를 구현한다. 그러므로 네트워크를 새로 배워야 할 부담이 없으며 연동하기도 매우 쉽다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;온프레미스 환경의 로드밸런서의 구조를 아래 사진으로 본다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Ingress/2021-08-01-15-27-31.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;MetalLB 서비스는 위와 같이 동작하는데 기존의 봤던 클라우드 로드 밸런스와 굉장히 유사하다. 사용자가 서비스에 접근을 해서(순서도 1번) 서비스가 파드에 그대로 포워딩(순서도 2번)해주는 구조이다. 점선으로 표시한 부분은 MetalLB 컨트롤러와 MetalLB 스피커에서 자동으로 관리해주는 부분이다. 이것들이 자동으로 관리해줘서 로드 밸런스의 서비스가 파드에 접속할 수 있게 되는 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;link href=&quot;http://fonts.googleapis.com/earlyaccess/hanna.css&quot; rel=&quot;stylesheet&quot; /&gt;
+
+&lt;div style=&quot;background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;&quot;&gt;
+
+&lt;span style=&quot;color:#85144b; font-weight:bold&quot;&gt;ARP(Address Resolution Protocol)&lt;/span&gt;: 아이피주소에서 MAC 주소로 변환되는 과정을 거칠 때 사용하는 프로토콜&lt;/div&gt;
+
+&lt;div style=&quot;background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;&quot;&gt;
+
+&lt;span style=&quot;color:#85144b; font-weight:bold&quot;&gt;MAC 주소&lt;/span&gt;: IP 주소와 MAC 주소가 있어야지만 서로 통신이 가능하다. 이는 TCP/IP와 OSI 7 Layer라는 통신표준에서 설계되어 있는대로 통신이 진행되기 때문이다. IP 주소는 Layer 3 네트워크에서 사용되고 MAC 주소는 Layer 2 데이터링크에서 사용되는 주소이다. 통신을 하기 위한 모든 랜카드에는 고유한 MAC 주소가 존재한다. 이는 세상에 딱 하나만 존재하는 주소다. 그렇기 때문에 MAC 주소를 알면 통신하고 싶은 장비를 찾을 수 있다. 처음 통신이 MAC 주소되는 것은 아니다. 처음에는 IP 주소로 시도된다. 예를 들어 내 컴퓨터 IP 주소가 192.168.0.100이라고 하다면 나랑 통신하는 상대방은 192.168.0.0 네트워크 대역까지 찾아온다. 그 뒤 192.168.0.100을 찾고 내 컴퓨터 맥 주소로 목적지를 변환한 뒤 최종적으로 나와 통신을 할 수 있게 된다. 즉 MAC 주소는 Media Access Control의 줄임말로 통신할 하드웨어 장비를 식별할 수 있는 고유 주소이다. &lt;/div&gt;
+
+&lt;div style=&quot;background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;&quot;&gt;
+
+&lt;span style=&quot;color:#85144b; font-weight:bold&quot;&gt;BGP(Boarder Gateway Protocol)&lt;/span&gt;: AS와 AS 사이에서 이루어지는 라우팅 프로토콜이다.&lt;/div&gt;
+
+&lt;div style=&quot;background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;&quot;&gt;
+
+&lt;span style=&quot;color:#85144b; font-weight:bold&quot;&gt;NDP(Neighbor Discovery Protocol)&lt;/span&gt;: IPv6의 핵심적인 프로토콜로써, 로컬 네트워크 내 이웃 노드, 주소 등의 정보를 탐색하기 위한 프로토콜&lt;/div&gt;
+
+&lt;div style=&quot;background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;&quot;&gt;
+
+&lt;span style=&quot;color:#85144b; font-weight:bold&quot;&gt;AS(Autonomous System)&lt;/span&gt;: 동일한 라우팅 정책으로 하나의 관리자에 의하여 운영되는 네트워크(즉 한 회사나 단체에서 관리하는 라우터 집단이다.) 네트워크의 크기가 커지고, 라우팅 정보가 방대해짐에 따라서 하나의 라우팅 프로토콜로 전체 네트워크를 관리할 수 없게 되었다. 네트워크 관리 범위를 계층화하고, 라우팅 정보를 보다 효율적으로 관리하기 위해 자율 시스템이 도입되었다. 라우터는 모든 네트워크의 도달 정보를 가지지 않고 자율시스템(AS) 내의 도달 정보만을 가지면 된다.&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Ingress/2021-08-01-12-51-11.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;아래 사진은 특정 레이어에 따른 로드밸런싱을 하는 방법 들이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Ingress/2021-08-01-14-04-21.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이 책에서는 MetalLB의 L2 네트워크로 로드밸런서를 구현한다.&lt;/p&gt;
+
+&lt;p&gt;MetalLB 컨트롤러는 작동 방식(Protocol, 프로토콜)을 정의하고 EXTERNAL-IP를 부여해 관리한다. MetalLB 스피커(speaker)는 정해진 작동 방식(L2/ARP, L3/BGP)에 따라 경로를 만들 수 있도록 네트워크 정보를 광고하고 수집해 각 파드의 경로를 제공한다. 이때 L2는 스피커 중에서 리더를 선출해 경로 제공을 총괄한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;디플로이먼트를 이용해 2종류(lb-hname-pods, lb-ip-pods)의 파드를 생성한다. 그리고 scale 명령으로 파드를 3개로 늘려 노드당 1개씩 파드가 배포되게 한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl create deployment lb-hname-pods &lt;span class=&quot;nt&quot;&gt;--image&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;sysnet4admin/echo-hname
+kubectl scale deployment lb-hname-pods &lt;span class=&quot;nt&quot;&gt;--replicas&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;3
+kubectl create deployment lb-ip-pods &lt;span class=&quot;nt&quot;&gt;--image&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;sysnet4admin/echo-ip
+kubectl scale deloyment lb-ip-pods &lt;span class=&quot;nt&quot;&gt;--replicas&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Ingress/2021-08-01-13-16-32.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Ingress/2021-08-01-13-17-03.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Ingress/2021-08-01-13-20-50.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Ingress/2021-08-01-13-21-37.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;2종류의 파드가 3개씩 총 6개가 배포됐는지 확인한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl get pods
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Ingress/2021-08-01-13-22-35.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;인그레스와 마찬가지로 사전에 정의된 오브젝트 스펙으로 MetalLB를 구성한다. 이렇게 하면 MetalLB에 필요한 요소가 모두 설치되고 독립적인 &lt;strong&gt;네임스페이스(metallb-system)&lt;/strong&gt;도 함께 만들어진다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl apply &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; ~/_Book_k8sInfra/ch3/3.3.4/metallb.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Ingress/2021-08-01-13-24-17.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;배포된 MetalLB의 파드가 5개(controller 1개, speaker 4개)인지 확인하고, IP와 상태도 확인한다. 스피커는 각 노드마다 설치가 된다. 컨트롤러 같은 경우는 한 개가 설치되는데 여기 있는 기능들을 관리해주는 기능을 한다. 즉 MetalLB와 관련된 파드들을 deploy했다. 이제 여기에 MetalLB가 L2 통신을 할 수 있도록 거기에 있는 IP라던가 세팅 값을 넣어주는 것들을 배포하도록 하겠다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl get pods &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; metallb-system &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; wide
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Ingress/2021-08-01-13-26-32.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;인그레스와 마찬가지로 MetalLB도 설정을 적용해야 하는데, 다음 방법으로 적용한다. 이때 오브젝트는 ConfigMap을 사용한다. &lt;strong&gt;ConfigMap&lt;/strong&gt;은 설정이 정의된 포맷이라고 생각하면 된다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Ingress/2021-08-01-13-25-59.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;파일의 구성을 보자&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;metallb-l2config.yaml&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;apiVersion&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;v1&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;kind&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ConfigMap&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;metadata&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;namespace&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;metallb-system&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;config&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;address-pools:&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;- name: nginx-ip-range&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;protocol: layer2&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;addresses:&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;- 192.168.1.11-192.168.1.13&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;하나 하나 살펴보자&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;metallb-l2config.yaml&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#apiVersion: API 버전을 명시한다&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#이 오브젝트를 생성하기 위해 사용하고 있는 쿠버네티스 API 버전이 어떤 것인지&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#명시한다.&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;apiVersion&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;v1&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;#어떤 종류의 오브젝트를 생성하고자 하는지 명시한다.&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;kind&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ConfigMap&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;#이름 문자열, UID, 그리고 선택적인 네임스페이스를 포함하여&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#오브젝트를 유일하게 구분지어 줄 데이터이다.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#서비스 이름(name)은 config이다.&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;metadata&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;#ConfigMap이 위치하는 네임스페이스를&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;#metallb-system로 한다.&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;namespace&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;metallb-system&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;config&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
+
+  &lt;span class=&quot;s&quot;&gt;#metallb의 세부 설정&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;address-pools:&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;- name: nginx-ip-range&lt;/span&gt;
+
+    &lt;span class=&quot;s&quot;&gt;#metallb에서 제공하는 로드밸런서의 동작 방식이다. 즉 L2 방식이다.&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;protocol: layer2&lt;/span&gt;
+
+      &lt;span class=&quot;s&quot;&gt;#metallb에서 제공하는 로드밸러서의 External 주소이다.&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;#이 범위 안에서 External 주소를 부여한다.&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;addresses:&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;- 192.168.1.11-192.168.1.13&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;ConfigMap이 생성됐는지 kubectl get configmap -n metallb-system 명령으로 확인한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl get configmap &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; metallb-system
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Ingress/2021-08-01-13-33-20.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;-o yaml&lt;/strong&gt; 옵션을 주고 다시 실행해 MetalLB의 설정이 올바르게 적용됐는지 확인한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl get configmap &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; metallb-system &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Ingress/2021-08-01-13-34-33.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;모든 설정이 완료됐으니 이제 각 디플로이먼트(lb-hname-pods, lb-ip-pods)를 로드밸런서 서비스로 노출한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl expose deployment lb-hname-pods &lt;span class=&quot;nt&quot;&gt;--type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;LoadBalancer &lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;lb-hname-svc &lt;span class=&quot;nt&quot;&gt;--port&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;80
+
+kubectl expose deployment lb-ip-pods &lt;span class=&quot;nt&quot;&gt;--type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;LoadBalancer &lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;lb-ip-svc &lt;span class=&quot;nt&quot;&gt;--port&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;80
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Ingress/2021-08-01-13-36-21.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Ingress/2021-08-01-13-38-11.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;생성된 로드밸런서 서비스별로 CLUSTER-IP와 EXTERNAL-IP가 잘 적용됐는지 확인한다. 특히 EXTERNAL-IP에 ConfigMap을 통해 부여한 IP를 확인한다. 외부와 통신할 수 있는 EXTERNAL-IP가 부여된 것을 볼 수 있다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl get services
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Ingress/2021-08-01-13-40-24.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;EXTERNAL-IP가 잘 작동하는지도 확인해 본다. 호스트 노트북(또는 PC)에서 브라우저를 띄우고 192.168.1.11로 접속한다. 배포된 파드 중 하나의 이름이 브라우저에 표시되는지 확인한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Ingress/2021-08-01-13-41-46.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;192.168.1.12를 접속해 파드에 요청 방법과 IP가 표시되는지 확인한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Ingress/2021-08-01-13-43-22.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;삭제 작업&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl delete deployment lb-hname-pods
+
+kubectl delete deployment lb-ip-pods
+
+kubectl delete service lb-hname-svc
+
+kubectl delete service lb-ip-svc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;link href=&quot;http://fonts.googleapis.com/earlyaccess/hanna.css&quot; rel=&quot;stylesheet&quot; /&gt;
+
+&lt;div style=&quot;background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;&quot;&gt;
+
+&lt;span style=&quot;color:#85144b; font-weight:bold&quot;&gt;부가설명&lt;/span&gt;: 실제로 현재에 있는 시스템은 아래 사진에서 이 **INTERNAL-IP**를 가지고 있는데 이 IP가 외부에 노출되는 IP 성격이다. 왜냐면 현재 시스템들은 각각의 서버들이 가지고 있는 외부와 통신하는 IP를 가지고 쿠버네티스 클러스터 외부에 있는 것과 통신하기 때문에 실제적으로 이 **INTERNAL-IP**가 쿠버네티스 외부 딴에서 노출되는 IP라고 보는 게 좋다 지금은 VM 단에서 하고 있기 때문이다(온프레미스). 우리가 **metallb-l2config.yaml**에서 설정해줬던 **192.168.1.11-192.168.1.13** 이 범위가 외부의 노출되는 IP range로 잡아주는 것이다. 이게 약간 private network ip 같이 생겨서 부가설명을 하였다.&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;기존의 노드포트에서 사용했을 때 인터넷 브라우저로 접근하려면 ip와 노드포트를 적어줘야 했었는데 만약에 해당 노드가 죽게 된다면 이 ip로 접근을 할 수 없었다. 그래서 실질적으로 expose하는 의미가 떨어지게 되는데 metallb를 사용하면 모든 노드에 걸쳐서 데몬셋이 생성이 되고 그 데몬셋이 리턴을 해주기 때문에 &lt;strong&gt;EXTERNAL IP&lt;/strong&gt; 하나로 전체에 있는 클러스터의 대표 IP, 즉 VIP 성격으로 쓸 수 있는 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;또 이런 생각을 해볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;VIP, 즉 지금 EXTERNAl 되는 IP가 &lt;strong&gt;192.168.11-192.168.1.13&lt;/strong&gt;까지 있었는데 만약 추가로 요구사항이 있어서 VIP를 추가로 생성하는 부분에 대해서는 어떻게 할까? 이것은 걱정할 필요는 없다. 우리가 추가로 서비스를 expose하면 된다. 만약에 VIP를 새로 생성한다는 의미는 다른 종류의 deployment를 붙인다는 것이 된다. 아래 사진과 같이 새로 생성한 디플로이먼트를 expose한 경우에 우리가 잡아놓은 IP range에서 부여되는 것을 볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Ingress/2021-08-01-17-54-13.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Ingress/2021-08-01-17-54-52.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div style=&quot;background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;&quot;&gt;
+
+&lt;span style=&quot;color:#85144b; font-weight:bold&quot;&gt;추가설명&lt;/span&gt;: MetalLB는 우리가 앞에서 비교해봤듯이 설치가 간단하고 ConfigMap를 조금만 구성하면 바로 쓸 수 있는 것을 확인했다. 그리고 노드포트와 다르게 노드는 노드가 죽는 경우에는 서비스하기 어렵다. 사용자에게 알려줘야 한다. 하지만 MetalLB는 대표 Ip 즉 VIP 성격을 가지기 때문에 IP를 우리가 설정한 대로만 계속 가져갈 수 있는 것을 확인했다. 그리고 우리가 추가로 Deployment 할 게 있다면 거기에 자동으로 CIDR 개념으로 IP가 자동으로 할동하는 것을 봤다. 굉장히 효율적으로 동작하게 온프레미스를 만들어주는 것을 볼 수 있다. &lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div style=&quot;background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;&quot;&gt;
+
+&lt;span style=&quot;color:#85144b; font-weight:bold&quot;&gt;결론&lt;/span&gt;: MetalLB같은 경우 지금 쭉 설명을 들었다시피 굉장히 간편하고 바로 쓸 수 있는 온프레미스 로드 밸런서이다. 그런데 이게 아래 사진을 보듯이 내부적으로 들어가게 되면 점선 부분에 의해서 효율성이 좀 떨어진다. 엄밀히 따라서 같진 않지만 노드포트와 동일하게 내부에서 L2 통신을 한다는 것은 경로를 모르기 때문에 혹은 경로를 기억하고 통신을 해야 하기 때문에 지속적으로 통신을 해서 이를 업데이트 해줘야 한다는 이야기가 된다. 즉 실질적으로 내부에 L2 스위치가 소프트웨어로 구현된 느낌으로 보면 된다. 소프트웨어로 구현되어 있는 L2 스위칭은 고속 스위칭이 되지 않기 때문에 속도나 효율적인 부분에서 좀 떨어진다. 그래서 현실적으로는 MetalLB를 프로덕션에서 enterprise, 즉 규모가 있는 곳에서 쓴다고 했을 때 MetalLB는 L3 BGP로 구현을 해서 경로를 외부에 알려주고 바로바로 경로로 올 수 있도록 구현을 한다. 그래서 네트워크 엔지니어와 상의를 해서 외부 단에 있는 라우터, BGP 라우터를 통해서 통신이 다 구현되기 때문에 BGP에 대한 개념을 알아야만 좀 더 효과적인 네트워크를 구현할 수 있다. 엄청난 속도를 바라지 않는다면 우리가 했던 L2로 구현해도 문제가 되지 않는다. 사실 성능에 큰 문제가 생기지 않는다. 왜냐면 pod를 deployment하고 pod를 쓰고 scale out하는 부분에 대해서 많은 성능 저하가 일어나지 않는다 당장 쓰는데는 크게 문제가 없지만 규모 큰 규모, 조금이라도 성능 향상 효과적인 네트워크를 구성을 한다고 한다면 L3의 BGP로 구성하는 게 맞다. 그래서 네트워크 엔지니어와 상담해야 한다.&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Ingress/2021-08-01-15-27-31.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+</description>
+				<pubDate>Sun, 01 Aug 2021 11:00:00 +0900</pubDate>
+				<link>/kubernetes/2021/08/01/Kubernetes-MetalLB-3.3.4.html</link>
+				<guid isPermaLink="true">/kubernetes/2021/08/01/Kubernetes-MetalLB-3.3.4.html</guid>
+			</item>
+		
+			<item>
 				<title>사용 목적별로 연결하는 인그레스</title>
 				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -670,7 +1342,7 @@ kubectl create deployment &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;&lt;spa
   &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nginx-ingress-controller&lt;/span&gt;
 
   &lt;span class=&quot;c1&quot;&gt;#NGINX 인그레스 컨트롤러가 위치하는 네임스페이스를&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;#ingress-nginx로&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;#ingress-nginx로 한다.&lt;/span&gt;
   &lt;span class=&quot;na&quot;&gt;namespace&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ingress-nginx&lt;/span&gt;
 
 &lt;span class=&quot;na&quot;&gt;spec&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
@@ -681,6 +1353,7 @@ kubectl create deployment &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;&lt;spa
       &lt;span class=&quot;c1&quot;&gt;#http를 처리하기 위해 30100번 포트로 들어온 요청을&lt;/span&gt;
       &lt;span class=&quot;c1&quot;&gt;#80번 포트로 넘긴다.&lt;/span&gt;
       &lt;span class=&quot;na&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;80&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;#내부에 있는 컨테이너를 연결해주기 위하여 80포트를 사용하는 것이다.&lt;/span&gt;
       &lt;span class=&quot;na&quot;&gt;targetPort&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;80&lt;/span&gt;
       &lt;span class=&quot;na&quot;&gt;nodePort&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;30100&lt;/span&gt;
 
@@ -690,6 +1363,7 @@ kubectl create deployment &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;&lt;spa
       &lt;span class=&quot;c1&quot;&gt;#https를 처리하기 위해 30101번 포트로 들어온 것을&lt;/span&gt;
       &lt;span class=&quot;c1&quot;&gt;#443번 포트로 넘긴다.&lt;/span&gt;
       &lt;span class=&quot;na&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;443&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;#내부에 있는 컨테이너를 연결해주기 위하여 443포트를 사용하는 것이다.&lt;/span&gt;
       &lt;span class=&quot;na&quot;&gt;targetPort&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;443&lt;/span&gt;
       &lt;span class=&quot;na&quot;&gt;nodePort&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;30101&lt;/span&gt;
 
@@ -2680,6 +3354,7 @@ margin-left: -1px;
     &lt;span class=&quot;c1&quot;&gt;#즉 nodePort로 설정한 30003포트로 요청이 들어오면&lt;/span&gt;
     &lt;span class=&quot;c1&quot;&gt;#3306포트로 연결시켜준다는 것이다.&lt;/span&gt;
     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3306&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;#내부에 있는 컨테이너를 연결해주기 위하여 3306포트를 사용하는 것이다.&lt;/span&gt;
       &lt;span class=&quot;na&quot;&gt;targetPort&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3306&lt;/span&gt;
 
       &lt;span class=&quot;c1&quot;&gt;#고정 포트(NodePort)로 각 노드의 IP에 서비스를 노출시킨다.&lt;/span&gt;
@@ -2689,6 +3364,8 @@ margin-left: -1px;
       &lt;span class=&quot;c1&quot;&gt;#모든 요청을 노드포트 서비스로 전달하고 노드포트 서비스는&lt;/span&gt;
       &lt;span class=&quot;c1&quot;&gt;#해당 업무를 처리할 수 잇는 파드로 요청을 전달한다.&lt;/span&gt;
       &lt;span class=&quot;c1&quot;&gt;#노드에 오픈할 Port를 지정하는 것이다(미지정시 30000-32768 중에 자동 할당된다.)&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;#외부에 노드포트로 expose하기 위해 30000번 포트를 지정한다.&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;#이것은 expose 명령으로도 대체가 가능하나 이 30000번은 쓸 수 없다.&lt;/span&gt;
       &lt;span class=&quot;na&quot;&gt;nodePort&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;30000&lt;/span&gt;
   &lt;span class=&quot;na&quot;&gt;selector&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;na&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;mysql&lt;/span&gt;
@@ -4069,620 +4746,6 @@ logging.level.org.young.security=debug
 				<pubDate>Wed, 21 Jul 2021 10:00:00 +0900</pubDate>
 				<link>/springboot/2021/07/21/springboot-LearningSpringBoot-10.1.html</link>
 				<guid isPermaLink="true">/springboot/2021/07/21/springboot-LearningSpringBoot-10.1.html</guid>
-			</item>
-		
-			<item>
-				<title>컨테이너 인프라 환경 구축을 위한 쿠버네티스/도커-3.1.3</title>
-				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;해당 내용은 책 &amp;lt;컨테이너 인프라 환경 구축을 위한 쿠버네티스/도커&amp;gt;에 나오는 내용이며 이는 개인적으로 공부하기 위해서 게시하는 글임을 알립니다.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;쿠버네티스-구성하기&quot;&gt;&lt;center&gt;쿠버네티스 구성하기&lt;/center&gt;&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Vagranfile 87pg&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Vagrantfile&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# -*- mode: ruby -*-&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# vi: set ft=ruby :&lt;/span&gt;
-
-Vagrant.configure&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; |config|
-  N &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 3 &lt;span class=&quot;c&quot;&gt;# max number of worker nodes&lt;/span&gt;
-  Ver &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'1.18.4'&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Kubernetes Version to install&lt;/span&gt;
-
-  &lt;span class=&quot;c&quot;&gt;#=============#&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;# Master Node #&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;#=============#&lt;/span&gt;
-
-    config.vm.define &lt;span class=&quot;s2&quot;&gt;&quot;m-k8s&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; |cfg|
-      cfg.vm.box &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;sysnet4admin/CentOS-k8s&quot;&lt;/span&gt;
-      cfg.vm.provider &lt;span class=&quot;s2&quot;&gt;&quot;virtualbox&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; |vb|
-        vb.name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;m-k8s(github_SysNet4Admin)&quot;&lt;/span&gt;
-        vb.cpus &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 2
-        vb.memory &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 3072
-        vb.customize &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;modifyvm&quot;&lt;/span&gt;, :id, &lt;span class=&quot;s2&quot;&gt;&quot;--groups&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;/k8s-SgMST-1.13.1(github_SysNet4Admin)&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-      end
-      cfg.vm.host_name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;m-k8s&quot;&lt;/span&gt;
-      cfg.vm.network &lt;span class=&quot;s2&quot;&gt;&quot;private_network&quot;&lt;/span&gt;, ip: &lt;span class=&quot;s2&quot;&gt;&quot;192.168.1.10&quot;&lt;/span&gt;
-      cfg.vm.network &lt;span class=&quot;s2&quot;&gt;&quot;forwarded_port&quot;&lt;/span&gt;, guest: 22, host: 60010, auto_correct: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;, &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;ssh&quot;&lt;/span&gt;
-      cfg.vm.synced_folder &lt;span class=&quot;s2&quot;&gt;&quot;../data&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;/vagrant&quot;&lt;/span&gt;, disabled: &lt;span class=&quot;nb&quot;&gt;true
-      &lt;/span&gt;cfg.vm.provision &lt;span class=&quot;s2&quot;&gt;&quot;shell&quot;&lt;/span&gt;, path: &lt;span class=&quot;s2&quot;&gt;&quot;config.sh&quot;&lt;/span&gt;, args: N
-      cfg.vm.provision &lt;span class=&quot;s2&quot;&gt;&quot;shell&quot;&lt;/span&gt;, path: &lt;span class=&quot;s2&quot;&gt;&quot;install_pkg.sh&quot;&lt;/span&gt;, args: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; Ver, &lt;span class=&quot;s2&quot;&gt;&quot;Main&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-      cfg.vm.provision &lt;span class=&quot;s2&quot;&gt;&quot;shell&quot;&lt;/span&gt;, path: &lt;span class=&quot;s2&quot;&gt;&quot;master_node.sh&quot;&lt;/span&gt;
-    end
-
-  &lt;span class=&quot;c&quot;&gt;#==============#&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;# Worker Nodes #&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;#==============#&lt;/span&gt;
-
-  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1..N&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;.each &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; |i|
-    config.vm.define &lt;span class=&quot;s2&quot;&gt;&quot;w#{i}-k8s&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; |cfg|
-      cfg.vm.box &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;sysnet4admin/CentOS-k8s&quot;&lt;/span&gt;
-      cfg.vm.provider &lt;span class=&quot;s2&quot;&gt;&quot;virtualbox&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; |vb|
-        vb.name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;w#{i}-k8s(github_SysNet4Admin)&quot;&lt;/span&gt;
-        vb.cpus &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 1
-        vb.memory &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 2560
-        vb.customize &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;modifyvm&quot;&lt;/span&gt;, :id, &lt;span class=&quot;s2&quot;&gt;&quot;--groups&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;/k8s-SgMST-1.13.1(github_SysNet4Admin)&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-      end
-      cfg.vm.host_name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;w#{i}-k8s&quot;&lt;/span&gt;
-      cfg.vm.network &lt;span class=&quot;s2&quot;&gt;&quot;private_network&quot;&lt;/span&gt;, ip: &lt;span class=&quot;s2&quot;&gt;&quot;192.168.1.10#{i}&quot;&lt;/span&gt;
-      cfg.vm.network &lt;span class=&quot;s2&quot;&gt;&quot;forwarded_port&quot;&lt;/span&gt;, guest: 22, host: &lt;span class=&quot;s2&quot;&gt;&quot;6010#{i}&quot;&lt;/span&gt;, auto_correct: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;, &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;ssh&quot;&lt;/span&gt;
-      cfg.vm.synced_folder &lt;span class=&quot;s2&quot;&gt;&quot;../data&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;/vagrant&quot;&lt;/span&gt;, disabled: &lt;span class=&quot;nb&quot;&gt;true
-      &lt;/span&gt;cfg.vm.provision &lt;span class=&quot;s2&quot;&gt;&quot;shell&quot;&lt;/span&gt;, path: &lt;span class=&quot;s2&quot;&gt;&quot;config.sh&quot;&lt;/span&gt;, args: N
-      cfg.vm.provision &lt;span class=&quot;s2&quot;&gt;&quot;shell&quot;&lt;/span&gt;, path: &lt;span class=&quot;s2&quot;&gt;&quot;install_pkg.sh&quot;&lt;/span&gt;, args: Ver
-      cfg.vm.provision &lt;span class=&quot;s2&quot;&gt;&quot;shell&quot;&lt;/span&gt;, path: &lt;span class=&quot;s2&quot;&gt;&quot;work_nodes.sh&quot;&lt;/span&gt;
-    end
-  end
-
-end
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이제 한 줄 한 줄씩 알아가보자&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Vagrantfile&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#아래 두줄의 주석은 에디터에 현재 파일이 루비임을 인식하게 하는 호환 코드이다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#ft는 file type(파일종류)의 약자이다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# -*- mode: ruby -*-&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# vi: set ft=ruby :&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;#&quot;2&quot;는 configuration object |config|의 버전을 명시하는 것이다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#이것은 configuration 블록으로 사용된다.&lt;/span&gt;
-Vagrant.configure&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; |config|
-
-  &lt;span class=&quot;c&quot;&gt;#생성할 뭐커노드 개수 정의&lt;/span&gt;
-  N &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 3 &lt;span class=&quot;c&quot;&gt;# max number of worker nodes&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;#다운받을 쿠버네티스 버젼 정의&lt;/span&gt;
-  Ver &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'1.18.4'&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Kubernetes Version to install&lt;/span&gt;
-
-  &lt;span class=&quot;c&quot;&gt;#=============#&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;# Master Node #&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;#=============#&lt;/span&gt;
-
-
-    &lt;span class=&quot;c&quot;&gt;#https://www.vagrantup.com/docs/vagrantfile/machine_settings 참고&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;#config.vm.define: 버추얼박스에서 보이는 가상 머신을 &quot;m-k8s&quot;로 정의한다.&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;#do |cfg|를 추가해 원하는 설정으로 변경한다.&lt;/span&gt;
-    config.vm.define &lt;span class=&quot;s2&quot;&gt;&quot;m-k8s&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; |cfg|
-
-        &lt;span class=&quot;c&quot;&gt;#config.vm.box: 어떤 box에 대해 machine이 표시되는지 구성한다. 여기에 값은&lt;/span&gt;
-        &lt;span class=&quot;c&quot;&gt;#HashiCorp's Vagrant Clout에 설치된 박스나 약칭으로된 이름이 들어가야 한다.&lt;/span&gt;
-        &lt;span class=&quot;c&quot;&gt;#즉 사람들이 만들어 놓은 운영체제 이미지의 이름이 들어간다.&lt;/span&gt;
-        &lt;span class=&quot;c&quot;&gt;#42pg를 보면 필자가 만들어 놓은 운영체제 이미지를 사용한다.&lt;/span&gt;
-        &lt;span class=&quot;c&quot;&gt;#필자가 만든 운영체제 이미지의 이름이 &quot;sysnet4admin/CentOS-k8s&quot;이다.&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#https://app.vagranup.com/sysnet4admin/boxes/CentOS-k8s에서 확인할 수 있다.&lt;/span&gt;
-      cfg.vm.box &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;sysnet4admin/CentOS-k8s&quot;&lt;/span&gt;
-
-      &lt;span class=&quot;c&quot;&gt;#베이그런트의 프로바이더(provider)가 버추얼박스라는 것을 정의한다. 프로바이더는&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#베이그런트를 통해 제공되는 코드가 실제로 가상 머신으로 배포되게 하는 소프트웨어이다.&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#버추얼박스가 여기에 해당한다. 다음으로 버추얼박스에 필요한 설정을 정의하는데&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#그 시작을 do |vb|로 선언한다. provider가 존재하지 않을 경우 Vagrant는  이 설정 블록을&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#무시한다.&lt;/span&gt;
-      cfg.vm.provider &lt;span class=&quot;s2&quot;&gt;&quot;virtualbox&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; |vb|
-
-      &lt;span class=&quot;c&quot;&gt;#VirtualBox provider는 더 VirtualBox 기반 Vagrant 환경을 보다 세밀하게 제어할 수 있는&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#몇 가지 추가 구성 옵션을 제공한다.&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#https://www.vagrantup.com/docs/providers/virtualbox/configuration 참고&lt;/span&gt;
-
-      &lt;span class=&quot;c&quot;&gt;#버추얼박스에 생성한 가상 머신의 이름, CPU 수, 메모리 크기, 소속된 그룹을 명시한다.&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#그리고 마지막으로 end를 적어 버추얼박스 설정이 끝났음을 알린다.&lt;/span&gt;
-
-      &lt;span class=&quot;c&quot;&gt;#VirtualBox GUI에 표시될 이름을 설정한다&lt;/span&gt;
-        vb.name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;m-k8s(github_SysNet4Admin)&quot;&lt;/span&gt;
-        vb.cpus &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 2
-        vb.memory &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 3072
-
-       &lt;span class=&quot;c&quot;&gt;# :id는 생성되는 가상 머신의 ID를 반환하는 특별한 매개변수이다.&lt;/span&gt;
-       &lt;span class=&quot;c&quot;&gt;#그래서 VBoxManage 커맨드가 ID를 요구할 때 이 특별한 매개변수를 사용한다.&lt;/span&gt;
-       &lt;span class=&quot;c&quot;&gt;#--groups를 이용해서 명시된 그룹으로 분리하는 것이다.&lt;/span&gt;
-       &lt;span class=&quot;c&quot;&gt;# 여러개의 vms가 있으면 헷갈릴 수 있으므로 분류한다.&lt;/span&gt;
-       &lt;span class=&quot;c&quot;&gt;#modifyvm은 ID에 해당하는 vm의 설정을 한다.&lt;/span&gt;
-        vb.customize &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;modifyvm&quot;&lt;/span&gt;, :id, &lt;span class=&quot;s2&quot;&gt;&quot;--groups&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;/k8s-SgMST-1.13.1(github_SysNet4Admin)&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-      end
-
-      &lt;span class=&quot;c&quot;&gt;#여기서는 가상 머신 자체에 대한 설정이다.&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#do |cfg|에 속한 작업이다. 즉 호스트의 이름(m-k8s)을 설정한다.&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#SSH에 보여질 호스트 이름이다.&lt;/span&gt;
-      cfg.vm.host_name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;m-k8s&quot;&lt;/span&gt;
-
-      &lt;span class=&quot;c&quot;&gt;#호스트 전용 네트워크를 private_network로 설정해 eth1 인터페이스를&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#호스트 전용(Host-Only)으로 구성하고 IP는 192.168.1.10으로 지정한다. 고정 IP를 설정해주는 방법이다.&lt;/span&gt;
-      cfg.vm.network &lt;span class=&quot;s2&quot;&gt;&quot;private_network&quot;&lt;/span&gt;, ip: &lt;span class=&quot;s2&quot;&gt;&quot;192.168.1.10&quot;&lt;/span&gt;
-
-      &lt;span class=&quot;c&quot;&gt;#ssh 통신은 호스트 60010번을 게스트 22번으로 전달되도록 구성한다.&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#이때 혹시 모를 포트 중복을 대비해 auto_correct: true로 설정해서&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#포트가 중복되면 포트가 자동으로 변경되도록 한다.&lt;/span&gt;
-      cfg.vm.network &lt;span class=&quot;s2&quot;&gt;&quot;forwarded_port&quot;&lt;/span&gt;, guest: 22, host: 60010, auto_correct: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;, &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;ssh&quot;&lt;/span&gt;
-
-      &lt;span class=&quot;c&quot;&gt;#호스트(PC 또는 노트북)와 게스트(가상 머신) 사이에&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#디렉터리 동기화가 이뤄지지 않게 설정(disabled: true)한다.&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#첫 번째 파라미터는 host의 경로이다 두 번째 파라미터는 guest(vm)의 경로이다.&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#가상머신에 들어가보면 /vagrant 경로에 Vagrantfile이 있다&lt;/span&gt;
-      cfg.vm.synced_folder &lt;span class=&quot;s2&quot;&gt;&quot;../data&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;/vagrant&quot;&lt;/span&gt;, disabled: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
-
-
-      &lt;span class=&quot;c&quot;&gt;#vm.provision &quot;shell&quot; 구문으로 경로(path)에 있는 install_pkg.sh와 config.sh를&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#게스트(CentOS) 내부에서 호출해 실행되도록 한다.&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#변수 (N=3)를 args: N으로 받는다. 이는 사용자가 워커 노드의 개수를 직접 조절할 수 있게 한다.&lt;/span&gt;
-      cfg.vm.provision &lt;span class=&quot;s2&quot;&gt;&quot;shell&quot;&lt;/span&gt;, path: &lt;span class=&quot;s2&quot;&gt;&quot;config.sh&quot;&lt;/span&gt;, args: N
-
-      &lt;span class=&quot;c&quot;&gt;#args: [Ver, &quot;Main&quot;] 코드를 추가해 쿠버네티스 버전 정보(Ver)와 Main이라&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#는 문자를 install_pkg.sh로 넘긴다. Ver 변수는 각 노드에 해당 버전의 쿠버네티스 버전을&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#설치하게 한다. 두 번째 인자인 Main 문자는 install_pkg.sh에서 조건문으로 처리해 마스터&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#노드에만 이 책의 전체 실행 코드를 내려받게 한다.&lt;/span&gt;
-      cfg.vm.provision &lt;span class=&quot;s2&quot;&gt;&quot;shell&quot;&lt;/span&gt;, path: &lt;span class=&quot;s2&quot;&gt;&quot;install_pkg.sh&quot;&lt;/span&gt;, args: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; Ver, &lt;span class=&quot;s2&quot;&gt;&quot;Main&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-
-      &lt;span class=&quot;c&quot;&gt;#쿠버네티스 마스터 노드를 위한 master_node.sh&lt;/span&gt;
-      cfg.vm.provision &lt;span class=&quot;s2&quot;&gt;&quot;shell&quot;&lt;/span&gt;, path: &lt;span class=&quot;s2&quot;&gt;&quot;master_node.sh&quot;&lt;/span&gt;
-    end
-
-  &lt;span class=&quot;c&quot;&gt;#==============#&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;# Worker Nodes #&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;#==============#&lt;/span&gt;
-
-   &lt;span class=&quot;c&quot;&gt;#for 문을 돌리는데 여기서 i는 1부터 3까지 대입되며 반복된다.&lt;/span&gt;
-   &lt;span class=&quot;c&quot;&gt;#즉 N=3임으로 3번 구문을 반복하여 Worker Node를 3개를 만드는 것이다.&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1..N&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;.each &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; |i|
-
-    &lt;span class=&quot;c&quot;&gt;# #{i} 구문으로 i의 값을 가져온다 그래서 w1-k8s, w2-k8s, w3-k8s로 가상머신을 정의한다.&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;#버추얼박스에서 보이는 가상 머신을 정의하는 것이다.&lt;/span&gt;
-    config.vm.define &lt;span class=&quot;s2&quot;&gt;&quot;w#{i}-k8s&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; |cfg|
-
-    &lt;span class=&quot;c&quot;&gt;#config.vm.box: 어떤 box에 대해 machine이 표시되는지 구성한다. 여기에 값은&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;#HashiCorp's Vagrant Clout에 설치된 박스나 약칭으로된 이름이 들어가야 한다.&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;#즉 사람들이 만들어 놓은 운영체제 이미지의 이름이 들어간다.&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;#42pg를 보면 필자가 만들어 놓은 운영체제 이미지를 사용한다.&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;#필자가 만든 운영체제 이미지의 이름이 &quot;sysnet4admin/CentOS-k8s&quot;이다.&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;#https://app.vagranup.com/sysnet4admin/boxes/CentOS-k8s에서 확인할 수 있다.&lt;/span&gt;
-      cfg.vm.box &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;sysnet4admin/CentOS-k8s&quot;&lt;/span&gt;
-
-      &lt;span class=&quot;c&quot;&gt;#베이그런트의 프로바이더(provider)가 버추얼박스라는 것을 정의한다. 프로바이더는&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#베이그런트를 통해 제공되는 코드가 실제로 가상 머신으로 배포되게 하는 소프트웨어이다.&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#버추얼박스가 여기에 해당한다. 다음으로 버추얼박스에 필요한 설정을 정의하는데&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#그 시작을 do |vb|로 선언한다. provider가 존재하지 않을 경우 Vagrant는 이 설정 블록을&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;#무시한다.&lt;/span&gt;
-      cfg.vm.provider &lt;span class=&quot;s2&quot;&gt;&quot;virtualbox&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; |vb|
-
-        vb.name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;w#{i}-k8s(github_SysNet4Admin)&quot;&lt;/span&gt;
-        vb.cpus &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 1
-        vb.memory &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 2560
-        vb.customize &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;modifyvm&quot;&lt;/span&gt;, :id, &lt;span class=&quot;s2&quot;&gt;&quot;--groups&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;/k8s-SgMST-1.13.1(github_SysNet4Admin)&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-      end
-
-      &lt;span class=&quot;c&quot;&gt;#여기서는 가상 머신 자체에 대한 설정이다.&lt;/span&gt;
-       &lt;span class=&quot;c&quot;&gt;#do |cfg|에 속한 작업이다. 즉 호스트의 이름(w#{i}-k8s)을 설정한다.&lt;/span&gt;
-       &lt;span class=&quot;c&quot;&gt;#superputty의 ssh에서 나타날 호스트 이름이다.&lt;/span&gt;
-      cfg.vm.host_name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;w#{i}-k8s&quot;&lt;/span&gt;
-
-      &lt;span class=&quot;c&quot;&gt;#생략&lt;/span&gt;
-      cfg.vm.network &lt;span class=&quot;s2&quot;&gt;&quot;private_network&quot;&lt;/span&gt;, ip: &lt;span class=&quot;s2&quot;&gt;&quot;192.168.1.10#{i}&quot;&lt;/span&gt;
-      cfg.vm.network &lt;span class=&quot;s2&quot;&gt;&quot;forwarded_port&quot;&lt;/span&gt;, guest: 22, host: &lt;span class=&quot;s2&quot;&gt;&quot;6010#{i}&quot;&lt;/span&gt;, auto_correct: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;, &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;ssh&quot;&lt;/span&gt;
-      cfg.vm.synced_folder &lt;span class=&quot;s2&quot;&gt;&quot;../data&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;/vagrant&quot;&lt;/span&gt;, disabled: &lt;span class=&quot;nb&quot;&gt;true
-      &lt;/span&gt;cfg.vm.provision &lt;span class=&quot;s2&quot;&gt;&quot;shell&quot;&lt;/span&gt;, path: &lt;span class=&quot;s2&quot;&gt;&quot;config.sh&quot;&lt;/span&gt;, args: N
-      cfg.vm.provision &lt;span class=&quot;s2&quot;&gt;&quot;shell&quot;&lt;/span&gt;, path: &lt;span class=&quot;s2&quot;&gt;&quot;install_pkg.sh&quot;&lt;/span&gt;, args: Ver
-
-      &lt;span class=&quot;c&quot;&gt;#쿠버네티스 워커 노드를 위한 work_nodes.sh이다.&lt;/span&gt;
-      cfg.vm.provision &lt;span class=&quot;s2&quot;&gt;&quot;shell&quot;&lt;/span&gt;, path: &lt;span class=&quot;s2&quot;&gt;&quot;work_nodes.sh&quot;&lt;/span&gt;
-    end
-  end
-
-end
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;config.sh는 kubeadm으로 쿠버네티스를 설치하기 위한 사전 조건을 설정하는 스크립트 파일이다. 쿠버네티스의 노드가 되는 가상 머신에 어떤 값을 설정하는지 알아본다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;config.sh&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# vim configuration&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'alias vi=vim'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /etc/profile
-
-&lt;span class=&quot;c&quot;&gt;# swapoff -a to disable swapping&lt;/span&gt;
-swapoff &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# sed to comment the swap partition in /etc/fstab&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt;.bak &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'s/(.+ swap .+)/#\1/'&lt;/span&gt; /etc/fstab
-
-&lt;span class=&quot;c&quot;&gt;# kubernetes repo&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;gg_pkg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;packages.cloud.google.com/yum/doc&quot;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Due to shorten addr for key&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EOF&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt; &amp;gt; /etc/yum.repos.d/kubernetes.repo
-[kubernetes]
-name=Kubernetes
-baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
-enabled=1
-gpgcheck=0
-repo_gpgcheck=0
-gpgkey=https://&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;gg_pkg&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;/yum-key.gpg https://&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;gg_pkg&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;/rpm-package-key.gpg
-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EOF
-
-&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# Set SELinux in permissive mode (effectively disabling it)&lt;/span&gt;
-setenforce 0
-&lt;span class=&quot;nb&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'s/^SELINUX=enforcing$/SELINUX=permissive/'&lt;/span&gt; /etc/selinux/config
-
-&lt;span class=&quot;c&quot;&gt;# RHEL/CentOS 7 have reported traffic issues being routed incorrectly due to iptables bypassed&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EOF&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt; &amp;gt;  /etc/sysctl.d/k8s.conf
-net.bridge.bridge-nf-call-ip6tables = 1
-net.bridge.bridge-nf-call-iptables = 1
-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EOF
-&lt;/span&gt;modprobe br_netfilter
-
-&lt;span class=&quot;c&quot;&gt;# local small dns &amp;amp; vagrant cannot parse and delivery shell code.&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;192.168.1.10 m-k8s&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /etc/hosts
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;((&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; i&amp;lt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; i++  &lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;192.168.1.10&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; w&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;-k8s&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /etc/hosts&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# config DNS&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EOF&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt; &amp;gt; /etc/resolv.conf
-nameserver 1.1.1.1 #cloudflare DNS
-nameserver 8.8.8.8 #Google DNS
-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EOF
-
-
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;한 줄 한 줄 살펴보자.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;config.sh&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;#vim configuration&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#vi를 호출하면 vim을 호출하도록 프로파일에 입력한다&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#이렇게 하면 코드에 하이라이트를 넣어 코드를 쉽게 구분할 수 있다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#리눅스 alias 설정 'alias 별명='명령어 정의'' 를 /etc/profile에 정의하면 된다.&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'alias vi=vim'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /etc/profile
-
-&lt;span class=&quot;c&quot;&gt;# swapoff -a는 스왑을 중지시키라는 명령어이다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# 스왑을 내렸다 다시 시작해 스왑 메모리를 반환 하는데 사용한다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#swap은 시스템에 메모리가 부족할 경우에 하드 디스크의 일부 공간을 활용하여&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#계속 작업을 도와주는 영역이다. 리눅스에서는 RAM 공간이 부족하면 하드디스크의&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#일부 공간을 사용하게 되는데 권장되지 않는다.(하드디스크는 접근 속도가 느리다)&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# swapoff -a to disable swapping&lt;/span&gt;
-swapoff &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;#시스템이 다시 시작되더라도 스왑되지 않도록 설정한다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# sed to comment the swap partition in /etc/fstab&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#sed는 vi 편집기랑 마찬가지로 편집에 특화된 명령어이다. 수정, 치환, 삭제, 글추가 등 편집기 기능은&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#웬만해서 다 된다. vi는 편집기를 열어서 커서로 라인을 옮기고 글을 삭제하고 쓰고 하는 등 워드 파일을&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#수정하는 것과 같다면 sed는 명령행에서 파일을 인자로 받아 명령어를 통해 작업한 후 결과를&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#화면으로 확인하는 방식이다. 특징은 sed 편집기는 원본을 손상시키지 않고 수정한 후 결과를 보여준다&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#그래서 원본을 수정하려면 -i 옵션이 필요한 것이다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#.bak 확장자는 컴퓨터로 작업중에 생길 수 있는 전원 차단과 같은 갑자기 컴퓨터가 꺼질 경우를 대비해&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#자동으로 만들어지는 백업 파일이다. 여기서 sed -i.bak은 원본 수정 후 .bak 확장자로 파일을 생성하여 백업&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#하라는 것이다. 즉 /etc 아래 fstab.bak 파일이 하나 생긴다&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#/etc/fstab은 파일 시스템 정보를 저장하고 있으며 리눅스 부팅시 마운트 정보를 저장하고 있다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#이 파일안에 있는 구성값들로 인해 부팅시에 자동으로 적용될 수 있도록 한다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#s/문자1/문자2/ [파일]은 파일 안에 있는 문자1을 2로 바꾸라는 옵션이다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#여기선 /etc/fstab이라는 파일을 열어서 수정한다는 것이다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#그리고 아래를 보면 .+ 라고 되어 있는 부분은 정규식 표현이다 즉 .은 임의의 한 문자를 의미하고&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#+은 바로 앞의 문자가 1회 이상 반복된다는 뜻이다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#즉 swap 이 중간에 있고 그 앞과 뒤에 반복적으로 임의의 문자가 여러 개있는 다시 말해 그 라인을 선택한다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#/etc/fstab에 들어가보면&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#/dev/mapper/centos_k8s-swap swap                    swap    defaults        0 0&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# 이것 라인 전체를 선택하고 이것은 \1로 역참조하고 주석(#) 앞에 다가 이 라인을 넣으라는 것&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#다시 말해 주석을 처리하는 것이다.&lt;/span&gt;
-
-
-&lt;span class=&quot;c&quot;&gt;#시스템이 다시 시작되더라도 스왑되지 않도록 설정하려면&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#/etc/fstab 파일을 열여서 swap 인트리에 주석'#'을 달아야한다.&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt;.bak &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'s/(.+ swap .+)/#\1/'&lt;/span&gt; /etc/fstab
-
-&lt;span class=&quot;c&quot;&gt;# kubernetes repo&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#쿠버네티스의 리포지터리를 설정하기 위한 경로가 너무 길어지지 않게 경로를 변수로 처리하는 것이다.&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;gg_pkg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;packages.cloud.google.com/yum/doc&quot;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Due to shorten addr for key&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;#cat를 사용해서 여러 줄을 입력하기 위한 방법으로 cat &amp;lt;&amp;lt;EOF를 사용한다. 그리고 다썼으면 마지막에&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#EOF로 저장하고 종료한다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#그래서 cat으로 여러 줄을 입력하되 입력 내용을 /etc/yum.repos.d 아래 kubernetes.repo 파일에 저장한다&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#/etc/yum.repos은 Package를 모아놓은 저장소이다. Yum을 통해 Package 설치 시 활성화 된&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#Yum Repository에서 Package를 다운로드하여 설치하기 때문에&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#Package가 Repository에 없을 경우 설치 할 수 없다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#그래서 여기 안에는 우리가 이전에 설치했던 epel도 들어가 있다.&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EOF&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt; &amp;gt; /etc/yum.repos.d/kubernetes.repo
-[kubernetes]
-name=Kubernetes
-baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
-enabled=1
-gpgcheck=0
-repo_gpgcheck=0
-gpgkey=https://&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;gg_pkg&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;/yum-key.gpg https://&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;gg_pkg&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;/rpm-package-key.gpg
-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EOF
-
-&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;#selinux가 제한적으로 사용되지 않도록 permissive 모드로 변경한다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#SELinux(Security-Enhanced Linux)는 관리자가 시스템 액세스 권한을 효과적으로&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#제어할 수 있게 하는 Linux® 시스템용 보안 아키텍처이다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#SELinux는 enforce, permissive, disable 세 가지 동작 모드가 있으며&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#설치하면 기본적으로 enforce 모드로 동작합니다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#enforce 모드일 경우 SELinux의 정책과 룰에 어긋나는 동작은 모두 차단되며&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#permissive 모드이 경우 정책에 어긋나는 동작은 감사 로그를 남기고 허용한다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#setenforce 0 명령이 permissive로 바꾸는 명령이다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#그리고 /etc/selinux/config 파일에서 SELINUX로 시작되고 enforcing$으로 끝나는 부분을&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#SELINUX=permissive으로 바꿔주고 있다. (옵션 s를 통해서)&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#-i 옵션은 sed에서 원본을 바꾸는 옵션이다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# Set SELinux in permissive mode (effectively disabling it)&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#부팅 할때 SELinux 모드를 결정하는 설정 파일은 /etc/selinux/config 에 존재한다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#부팅 할때 SELinux 모드를 변경하려면 /etc/selinux/config 에서&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#SELINUX=enforcing 부분을 permissive 로 변경하면 된다&lt;/span&gt;
-setenforce 0
-&lt;span class=&quot;nb&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'s/^SELINUX=enforcing$/SELINUX=permissive/'&lt;/span&gt; /etc/selinux/config
-
-&lt;span class=&quot;c&quot;&gt;#브리지 네트워크를 통과하는 IPv4와 IPv6의 패킷을 iptables가 관리하게 설정한다&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#파드의 통신을 iptables로 제어한다. 필요에 따라 IPVS 같은 방식으로도 구성할 수 있다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# RHEL/CentOS 7 have reported traffic issues being routed incorrectly due to iptables bypassed&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#iptables는 리눅스상에서 방화벽을 설정하는 도구로서 커널 2.4 이전 버전에서 사용되던&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# ipchains를 대신하는 방화벽 도구이다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#iptables란 넷필터 프로젝트에서 개발했으며 광범위한 프로토콜 상태 추적,&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#패킷 애플리케이션 계층검사, 속도 제한, 필터링 정책을 명시하기 위한 강력한 매커니즘을 제공한다.&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EOF&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt; &amp;gt;  /etc/sysctl.d/k8s.conf
-net.bridge.bridge-nf-call-ip6tables = 1
-net.bridge.bridge-nf-call-iptables = 1
-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EOF
-
-&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;#br_netfilter 커널 모듈을 사용해 브리지로 네트워크를 구성한다. 이때 IP 마스커레이드(Masquerade)를&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#사용해 내부 네트워크와 외부 네트워크를 분리한다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#IP 마스커레이드는 쉽게 설명하면 커널에서 제공하는 NAT 기능으로 이해하면 된다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#실제로는 br_netfilter를 적용함으로써 28~31번째 줄에서 적용한 iptables가 활성화된다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#쿠버네티스 설치 시 br_netfilter 모듈이 필요하다&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#이 커널 모듈을 사용하면 브릿지를 통과하는 패킷이 필터링 및 포트 전달을 위해&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#iptables에 의해 처리되고 클러스터의 쿠버네티스 Pod는 서로 통신 가능.&lt;/span&gt;
-modprobe br_netfilter
-
-&lt;span class=&quot;c&quot;&gt;# local small dns &amp;amp; vagrant cannot parse and delivery shell code.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#쿠버네티스 안에서 노드 간 통신을 이름으로 할 수 있도록 각 노드의&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#호스트 이름과 IP를 /etc/hosts에 설정한다. 이때 워커 노드는&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#Vagrantfile에서 넘겨받은 N 변수로 전달된 노드 수에 맞게 동적으로 생성한다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#echo는 문자열을 출력하는데 이것을 /etc 폴더 아래 hosts 파일에 저장하게 된다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#즉 그 파일에는 원래 내용에다가&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;#192.168.1.10 m-k8s&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#192.168.1.101 w1-k8s&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#192.168.1.102 w2-k8s&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#192.168.1.103 w3-k8s&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;#가 추가된다.&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;192.168.1.10 m-k8s&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /etc/hosts
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;((&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; i&amp;lt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; i++  &lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;192.168.1.10&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; w&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;-k8s&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /etc/hosts&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# config DNS&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#외부와 통신할 수 있게 DNS 서버를 지정한다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#DNS 서버는 꼭 해당 통신사의 DNS 서버를 이용하지 않아도&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#된다. 단지 PC가 &quot;자동으로 DNS 서버 주소 받기&quot;로&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#설정되어 있으면 자동으로 그 해당 통신사의&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#DNS 서버 주소를 이용하게 된다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#하지만 아래와 같이 DNS 서버를 수동으로 변경하는 과정을 거치게 되면&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#다른 DNS 서버를 이용할 수도 있다&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#아래는 cloudfare와 google의 퍼블릭 DNS를 사용하는 것이다.&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EOF&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt; &amp;gt; /etc/resolv.conf
-nameserver 1.1.1.1 #cloudflare DNS
-nameserver 8.8.8.8 #Google DNS
-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EOF
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;install_pkg.sh&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# install packages&lt;/span&gt;
-yum &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;epel-release &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
-yum &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;vim-enhanced &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
-yum &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;git &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# install docker&lt;/span&gt;
-yum &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;docker &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; systemctl &lt;span class=&quot;nb&quot;&gt;enable&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--now&lt;/span&gt; docker
-
-&lt;span class=&quot;c&quot;&gt;# install kubernetes cluster&lt;/span&gt;
-yum &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;kubectl-&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt; kubelet-&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt; kubeadm-&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
-systemctl &lt;span class=&quot;nb&quot;&gt;enable&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--now&lt;/span&gt; kubelet
-
-&lt;span class=&quot;c&quot;&gt;# git clone _Book_k8sInfra.git&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Main'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
-  &lt;/span&gt;git clone https://github.com/sysnet4admin/_Book_k8sInfra.git
-  &lt;span class=&quot;nb&quot;&gt;mv&lt;/span&gt; /home/vagrant/_Book_k8sInfra &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;
-  find &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/_Book_k8sInfra/ &lt;span class=&quot;nt&quot;&gt;-regex&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;.*&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\.\(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;sh&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-exec&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;chmod &lt;/span&gt;700 &lt;span class=&quot;o&quot;&gt;{}&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;install_pkg.sh&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# install packages&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;#EPEL(Extra Packages for Enterprise Linux) 저장소 설치&lt;/span&gt;
-yum &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;epel-release &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;#코드 하이라이트를 위한 Vim의 추가 기능을 설치&lt;/span&gt;
-yum &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;vim-enhanced &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;#깃허브에서 코드를 내려받을 수 있게 깃을 설치한다.&lt;/span&gt;
-yum &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;git &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# install docker&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#쿠버네티스를 관리하는 컨테이너를 설치하기 위해 도커를 설치하고 구동한다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#systemctl enable 서비스명은 서비스를 활성화시키라는 것이다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#즉 시스템이 재부팅하면 자동으로 서비스를 실행하도록 등록한다.&lt;/span&gt;
-yum &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;docker &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; systemctl &lt;span class=&quot;nb&quot;&gt;enable&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--now&lt;/span&gt; docker
-
-&lt;span class=&quot;c&quot;&gt;# install kubernetes cluster&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#쿠버네티스를 구성하기 위해 첫 번째 변수($1=Ver='1.18.4')로 넘겨받은&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#1.18.4 버전의 kubectl, kubelet, kubeadm을 설치하고 kubelet을 시작한다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#$1는 Vagrantfile에서 arg으로 넘겨주는 인자이다.&lt;/span&gt;
-yum &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;kubectl-&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt; kubelet-&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt; kubeadm-&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
-systemctl &lt;span class=&quot;nb&quot;&gt;enable&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--now&lt;/span&gt; kubelet
-
-&lt;span class=&quot;c&quot;&gt;# git clone _Book_k8sInfra.git&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#이 책의 전체 실행 코드를 마스터 노드에만 내려받도록 Vagrantfile에서&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#두 번째 변수($2='Main')를 넘겨받는다. 그리고 깃에서 코드를 내려받아 실습을 진행할&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#루트 홈디렉터리(/root)로 옮긴다. 배시 스크립트(.sh)를 find로 찾아서 바로 실행 가능한 상태가 되도록&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#chmod 700으로 설정한다.&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Main'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;#clone해서 코드를 내려받는다.&lt;/span&gt;
-  git clone https://github.com/sysnet4admin/_Book_k8sInfra.git
-
-  &lt;span class=&quot;c&quot;&gt;#/home/vagrant에 있는 _Book_k8sInfra 폴더를 HOME(/root)으로 옮긴다.&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;mv&lt;/span&gt; /home/vagrant/_Book_k8sInfra &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;
-
-  &lt;span class=&quot;c&quot;&gt;#/root에 있는 _Book_k8sInfra 폴더 안에&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;#-exec는 검색된 파일에 대해 지정된 명령을 실행한다. 즉 여기서는 chmod 700를 한다.&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;#_Book_k8sInfra 폴더 안에서 .sh 파일을 찾는 것이다. (그 폴더 안에 또 다른 폴더 안에 있을 수 있음)&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;#정규식 표현을 보면 *:0개 이상을 의미하고 \:는 어떤 특수한 문자 앞에 쓰면&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;#그 특수한 문자로 보는 게 아니라 그냥 단순한 문자로 본다.&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;#즉 여기서 .*는 임의의 문자가 0개 이상 나타나고 \( 는 ( 이 문자를 나타내고&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;#.\는 .sh에서 .를 나타낸다.&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;#(sh)의 ()는 문자열에서 같은 순서로 포함된 문자와 일치함을 의미한다.기타 표현식을&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;#그룹화하는 데 사용한다. \)은 )를 문자 자체를 표현한다. 마지막의 \; 는&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;#세미콜론을 사용하기 위한 이스케이프 문자이다 {}문자는&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;#find의 결과로 대체된다 즉 .sh의 풀이름으로 대체된다. 그래서&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;#결론적으로 -exec chmod 700 test.sh; 로 실행되는 것이다.&lt;/span&gt;
-
-  find &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/_Book_k8sInfra/ &lt;span class=&quot;nt&quot;&gt;-regex&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;.*&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\.\(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;sh&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-exec&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;chmod &lt;/span&gt;700 &lt;span class=&quot;o&quot;&gt;{}&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;master_node.sh&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# init kubernetes&lt;/span&gt;
-kubeadm init &lt;span class=&quot;nt&quot;&gt;--token&lt;/span&gt; 123456.1234567890123456 &lt;span class=&quot;nt&quot;&gt;--token-ttl&lt;/span&gt; 0 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--pod-network-cidr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;172.16.0.0/16 &lt;span class=&quot;nt&quot;&gt;--apiserver-advertise-address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;192.168.1.10
-
-&lt;span class=&quot;c&quot;&gt;# config for master node only&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/.kube
-&lt;span class=&quot;nb&quot;&gt;cp&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; /etc/kubernetes/admin.conf &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/.kube/config
-&lt;span class=&quot;nb&quot;&gt;chown&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;:&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/.kube/config
-
-&lt;span class=&quot;c&quot;&gt;# config for kubernetes's network&lt;/span&gt;
-kubectl apply &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-https://raw.githubusercontent.com/sysnet4admin/IaC/master/manifests/172.16_net_calico.yaml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;master_node.sh&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# init kubernetes&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#kubeadm을 통해 쿠버네티스의 워커 노드를 받아들일 준비를 한다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#먼저 토큰을 123456.1234567890123456으로 지정하고 ttl(time to live, 유지되는 시간)을&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#0으로 설정해서 기본값인 24시간 후에 토큰이 계속 유지되게 한다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#그리고 워커 노드가 정해진 토큰으로 들어오게 한다. 쿠버네티스가&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#자동으로 컨테이너에 부여하는 네트워크를 172.16.0.0/16(172.16.0.1~172.16.255.254)으로 제공하고&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#워커 노드가 접속하는 API 서버의 IP를 192.168.1.10으로 지정해 워커 노드들이 자동으로 API 서버에&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#연결되게 한다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#--pod-network-cidr string에 대한 문서 내용&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#Specify range of IP addresses for the pod network.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#If set, the control plane will automatically allocate CIDRs for every node.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#control plane=master node&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#--apiserver-advertise-address에 대한 공식문서 내용은 아래와 같다&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#The IP address the API Server will advertise it's listening on.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#If not set the default network interface will be used.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#CIDR에 대한 내용 https://kim-dragon.tistory.com/9&lt;/span&gt;
-kubeadm init &lt;span class=&quot;nt&quot;&gt;--token&lt;/span&gt; 123456.1234567890123456 &lt;span class=&quot;nt&quot;&gt;--token-ttl&lt;/span&gt; 0 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--pod-network-cidr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;172.16.0.0/16 &lt;span class=&quot;nt&quot;&gt;--apiserver-advertise-address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;192.168.1.10
-
-
-&lt;span class=&quot;c&quot;&gt;#마스터 노드에서 현재 사용자가 쿠버네티스를 정상적으로 구동할 수 있게 설정 파일을&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#루트의 홈디렉터리(/root)에 복사하고 쿠버네티스를 이용할 사용자에게 권한을 준다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# config for master node only&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#/etc/kubernetes 폴더 안에 admin.conf 파일을 /root/.kube 폴더 아래 config 파일을 생성해서&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#내용을 복사한다는 것이다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#chown을 사용하여 파일의 소유자를 소유자가 지정한 사용자 ID 또는 프로파일로&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#설정할 수 있다. 선택적으로 chown은 파일의 그룹을 그룹이 지정한 그룹ID 또는&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#프로파일로 설정할 수도 있다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# Owner와 group을 변경하려면 Owner:Group 여기에 넣으면 된다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#즉 Owner를 id -u로 바꾸고 group를 id -g로 바꾼다.&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/.kube
-&lt;span class=&quot;nb&quot;&gt;cp&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; /etc/kubernetes/admin.conf &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/.kube/config
-&lt;span class=&quot;nb&quot;&gt;chown&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;:&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/.kube/config
-
-&lt;span class=&quot;c&quot;&gt;#컨테이너 네트워크 인터페이스(CNI)인 캘리코(Calico)의 설정을 적용해 쿠버네티스의&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#네트워크를 구성한다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# config for kubernetes's network&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#kubectl apply를 사용해서 리소스를 생성하거나 업데이트 할 수 있다&lt;/span&gt;
-kubectl apply &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-https://raw.githubusercontent.com/sysnet4admin/IaC/master/manifests/172.16_net_calico.yaml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;work_nodes.sh&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# config for work_nodes only&lt;/span&gt;
-kubeadm &lt;span class=&quot;nb&quot;&gt;join&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--token&lt;/span&gt; 123456.1234567890123456 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             &lt;span class=&quot;nt&quot;&gt;--discovery-token-unsafe-skip-ca-verification&lt;/span&gt; 192.168.1.10:6443
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;work_nodes.sh&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# config for work_nodes only&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#kubeadm을 이용해 쿠버네티스 마스터 노드에 접속합니다. 이때 연결에 필요한 토큰은&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#기존에 마스터 노드에서 생성한 123456.1234567890123456을 사용한다&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#간단하게 구성하기 위해 --discovery-token-unsafe-skip-ca-verification으로&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#인증을 무시하고, API 서버 주소인 192.168.1.10으로 기본 포트 번호인 6443번 포트에 접속하도록 설정한다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#--discovery-token-unsafe-skip-ca-verification에 대한 문서 내용은 아래와 같다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#This weakens the kubeadm security model since other nodes can potentially&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#impersonate the Kubernetes Control Plane.&lt;/span&gt;
-kubeadm &lt;span class=&quot;nb&quot;&gt;join&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--token&lt;/span&gt; 123456.1234567890123456 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             &lt;span class=&quot;nt&quot;&gt;--discovery-token-unsafe-skip-ca-verification&lt;/span&gt; 192.168.1.10:6443
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-				<pubDate>Tue, 20 Jul 2021 09:00:00 +0900</pubDate>
-				<link>/kubernetes/2021/07/20/Kubernetes-3.1.3.html</link>
-				<guid isPermaLink="true">/kubernetes/2021/07/20/Kubernetes-3.1.3.html</guid>
 			</item>
 		
 	</channel>

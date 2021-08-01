@@ -661,7 +661,7 @@ metadata:
   name: nginx-ingress-controller
 
   #NGINX 인그레스 컨트롤러가 위치하는 네임스페이스를
-  #ingress-nginx로
+  #ingress-nginx로 한다.
   namespace: ingress-nginx
 
 spec:
@@ -672,6 +672,7 @@ spec:
       #http를 처리하기 위해 30100번 포트로 들어온 요청을
       #80번 포트로 넘긴다.
       port: 80
+      #내부에 있는 컨테이너를 연결해주기 위하여 80포트를 사용하는 것이다.
       targetPort: 80
       nodePort: 30100
 
@@ -681,6 +682,7 @@ spec:
       #https를 처리하기 위해 30101번 포트로 들어온 것을
       #443번 포트로 넘긴다.
       port: 443
+      #내부에 있는 컨테이너를 연결해주기 위하여 443포트를 사용하는 것이다.
       targetPort: 443
       nodePort: 30101
 
