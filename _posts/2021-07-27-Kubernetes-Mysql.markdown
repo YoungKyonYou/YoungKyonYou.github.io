@@ -599,9 +599,18 @@ spec:
     #컨테이너 1개를 생성하고 .spec.template.spec.containers[0].name 필드를
     #사용해서 mysql 이라는 이름을 붙인다.
     #즉 컨테이너의 이름이 mysql이 된다. describe deployment 명령어로 확인 가능
+    #파드는 여러 개의 컨테이너를 가질 수 있는데 여기서는 하나만 선언한 것
     spec:
       containers:
+        #docker image는 docker registry에서 pull을 받아 오게 되는데,
+        #docker registry가 명시되어 있지 않다면 docker 공식 public registry인
+        #docker hub(https://hub.docker.com)에서 해당 image를 가져오게 됩니다.
+        # 만약 private docker registry를 사용한다면 docker image 이름 앞에 해당
+        #url을 명시해 줘야 하며 k8s에서는 remote docker registry와 통신은 http가
+        #아닌 https로만 하게 되어 있어서 private docker registry에 반드시 TLS 인증서를 설치해둬야 합니다.
         - image: mysql:5.6
+
+          #container name은 mysql이고 동일한 pod 내에서 유일한 이름을 가져야 합니다.
           name: mysql
 
           #환경변수를 정의한다.
@@ -690,6 +699,8 @@ kind: PersistentVolume
 #이름 문자열, UID, 그리고 선택적인 네임스페이스를 포함하여
 #오브젝트를 유일하게 구분지어 줄 데이터이다.
 #서비스 이름(name)은 mysql-pv-volume.
+#name은 동일한 namespace 상에서는 유일한 값을 이름으로 가져야 합니다.
+#label은 특정 k8s object만을 나열한다거나 검색할 때 유용하게 쓰일 수 있는 key-value 쌍입니다.
 metadata:
   name: mysql-pv-volume
   labels:
@@ -862,12 +873,13 @@ spec:
     - port: 3306
       targetPort: 3306
 
-      #고정 포트(NodePort)로 각 노의 IP에 서비스를 노출시킨다.
+      #고정 포트(NodePort)로 각 노드의 IP에 서비스를 노출시킨다.
       #NodePort 서비스가 라우팅되는 ClusterIP 서비스가 자동으로 생성된다.
       #<NodeIP>:<NodePort>를 요청하여, 클러스터 외부에서 NodePort 서비스에 접속할 수 있다.
       #즉 워커노드의 특정 포트를 열고(nodePort) 여기로 오는
       #모든 요청을 노드포트 서비스로 전달하고 노드포트 서비스는
       #해당 업무를 처리할 수 잇는 파드로 요청을 전달한다.
+      #노드에 오픈할 Port를 지정하는 것이다(미지정시 30000-32768 중에 자동 할당된다.)
       nodePort: 30000
   selector:
     app: mysql
