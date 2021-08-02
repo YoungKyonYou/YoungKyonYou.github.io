@@ -7,6 +7,146 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>현재 프로젝트와의 연동</title>
+				<description>&lt;p&gt;&lt;span style=&quot;color:orange; font-weight:bold&quot;&gt;&lt;em&gt;해당 내용은 책 ‘코드로 배우는 스프링 부트 웹 프로젝트’에 나오는 내용이며 이는 개인적으로 공부하기 위해 기록함을 알려드립니다&lt;/em&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;현재-프로젝트와의-연동&quot;&gt;&lt;center&gt;현재 프로젝트와의 연동&lt;/center&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이제는 아쉬운 점들을 찾아서 수정해본다.&lt;/p&gt;
+
+&lt;p&gt;아래와 같은 점들을 고려해 본다.&lt;/p&gt;
+
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https: //www.webnots.com/resources/font-awesome/css/font-awesome.min.css&quot; /&gt;
+
+&lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/css/webnots.css&quot; /&gt;
+
+&lt;div class=&quot;webnots-success webnots-notification-box&quot;&gt;소셜 로그인 처리 시에 사용자의 이메일 정보를 추출한다.&lt;/div&gt;
+&lt;div class=&quot;webnots-success webnots-notification-box&quot;&gt;현재 데이터베이스와 연동해서 사용자 정보를 관리해야 한다.&lt;/div&gt;
+&lt;div class=&quot;webnots-success webnots-notification-box&quot;&gt;기존 방식으로도 로그인할 수 있어야 하고, 소셜 로그인으로도 동일하게 동작해야 한다. &lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;가장 먼저 해야 하는 작업은 구글과 같은 서비스에서 로그인 처리가 끝난 결과를 가져오는 작업을 사용할 수 있는 환경을 구성하는 것이다. 이를 위해서는 실제 소셜 로그인 과정에서 동작하는 존재인 &lt;span style=&quot;color:orange; font-weight:bold&quot;&gt;OAuth2UserService&lt;/span&gt;라는 것을 알아야만 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;org.springframework.security.oauth2.client.userinfo.OAuth2UserService 인터페이스&lt;/strong&gt;는 &lt;strong&gt;UserDetailsService&lt;/strong&gt;의 &lt;strong&gt;OAuth&lt;/strong&gt; 버전이라고 생각할 수 있다. 이를 구현하는 것은 &lt;strong&gt;OAuth의 인증 결과&lt;/strong&gt;를 처리한다는 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;인터페이스를 직접 구현할 수도 있지만 편하게 하고 싶다면 구현된 클래스 중에서 하나를 사용하는 방식이 더 편할 것이므로 &lt;strong&gt;DefaultOAuth2UserService&lt;/strong&gt; 클래스를 상속해서 구현한다. security 패키지 내에 있는 service 패키지에 &lt;strong&gt;DefaultOAuth2UserService&lt;/strong&gt;를 상속하는 클래스를 **ClubOAuth2UserDetailsServices라는 클래스로 구성한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/SpringBoot/LearningSpringbootWithWebProject-11.2/2021-08-02-16-54-43.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ClubOAuth2UserDetailsServices.java&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.young.club.security.service&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;lombok.extern.log4j.Log4j2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.security.oauth2.core.OAuth2AuthenticationException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.security.oauth2.core.user.OAuth2User&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.stereotype.Service&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@Log4j2&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Service&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ClubOAuth2UserDetailsService&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DefaultOAuth2UserService&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OAuth2User&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;loadUser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;OAuth2UserRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userRequest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OAuth2AuthenticationException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;---------------------------------------&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;userRequest:&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;userRequest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;loadUser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;userRequest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;프로젝트를 재시작한 후에 ‘/sample/member’로 로그인을 시도하면 위의 코드가 정상적으로 동작하는 것을 확인할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/SpringBoot/LearningSpringbootWithWebProject-11.2/2021-08-02-17-00-56.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;color:#85144b; font-weight:bold; font-size:30px&quot;&gt;사용자의 이메일 추출&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;loadUser()에서 사용하는 OAuth2UserRequest는 현재 어떤 서비스를 통해서 로그인이 이루어졌는지 알아내고 전달된 값들을 추출할 수 있는 데이터를 Map&amp;lt;String, Object&amp;gt;의 형태로 사용할 수 있다. 최대한 많은 정보를 조회하기 위해서 ClubOAuth2UserDetailsService의 loadUser()를 아래와 같이 수정한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ClubOAuth2UserDetailsServices.java&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.young.club.security.service&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;lombok.extern.log4j.Log4j2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.security.oauth2.core.OAuth2AuthenticationException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.security.oauth2.core.user.OAuth2User&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.stereotype.Service&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@Log4j2&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Service&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ClubOAuth2UserDetailsService&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DefaultOAuth2UserService&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OAuth2User&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;loadUser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;OAuth2UserRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userRequest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OAuth2AuthenticationException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;---------------------------------------&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;userRequest:&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;userRequest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clientName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;userRequest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getClientRegistration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getClientName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;//OAuth로 연결한 클라이언트 이름과 이때 사용한 파라미터들을 출력한다.&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;clientName: &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;clientName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;userRequest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getAdditionalParameters&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;//DefaultOAuth2UserService의 loadUser()는 OAuth2UserRequest라는 타입의 파라미터와 OAuth2User&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;//라는 타입의 리턴 타입을 반환한다.&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;OAuth2User&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;oAuth2User&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;loadUser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;userRequest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;========================&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;//loadUser()에서 사용하는 OAuth2UserRequest는 현재 어떤 서비스를 통해서 로그인이 이루어졌는지&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;//알아내고 전달된 값들을 추출할 수 있는 데이터를 Map&amp;lt;String, Object&amp;gt;의 형태로&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;//사용할 수 있다. 최대한 많은 정보를 조회할 수 있다.&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;oAuth2User&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getAttributes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)-&amp;gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;:&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;});&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;oAuth2User&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/SpringBoot/LearningSpringbootWithWebProject-11.2/2021-08-02-17-23-54.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;위의 코드를 이용한 결과로 출력되는 내용은 구글에서 프로젝트를 등록하면서 지정한 ‘API 범위’의 항목과 &lt;strong&gt;application-oauth.properties&lt;/strong&gt; 설정 파일과 관련이 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;위의 사진에서 sub, picture, email, email_verified 항목이 출력되는 것을 볼 수 있다. 위와 같이 &lt;strong&gt;OAuth2User&lt;/strong&gt;를 이용하면 로그인한 사용자의 이메일 주소를 알아낼 수 있으므로 남은 작업은 이를 이용해서 데이터베이스에 추가하는 작업을 진행할 수 있다.&lt;/p&gt;
+
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https: //www.webnots.com/resources/font-awesome/css/font-awesome.min.css&quot; /&gt;
+
+&lt;div class=&quot;webnots-success webnots-notification-box&quot;&gt;이메일은 문제가 없지만 패스워드나 사용자의 이름 등을 데이터베이스에 추가하는 작업은 고민을 좀 해야 한다.&lt;/div&gt;
+</description>
+				<pubDate>Mon, 02 Aug 2021 11:00:00 +0900</pubDate>
+				<link>/springboot/2021/08/02/springboot-LearningSpringBoot-11.2.html</link>
+				<guid isPermaLink="true">/springboot/2021/08/02/springboot-LearningSpringBoot-11.2.html</guid>
+			</item>
+		
+			<item>
 				<title>부하에 따라 자동으로 파드 수를 조절하는 HPA</title>
 				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -2916,6 +3056,7 @@ spring.security.oauth2.client.registration.google.scope=email
 &lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-23-15-01.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
 </description>
 				<pubDate>Thu, 29 Jul 2021 11:00:00 +0900</pubDate>
 				<link>/springboot/2021/07/29/springboot-LearningSpringBoot-11.1.html</link>
@@ -4419,152 +4560,6 @@ margin-left: -1px;
 				<pubDate>Sun, 25 Jul 2021 10:00:00 +0900</pubDate>
 				<link>/springboot/2021/07/25/springboot-LearningSpringBoot-10.3.html</link>
 				<guid isPermaLink="true">/springboot/2021/07/25/springboot-LearningSpringBoot-10.3.html</guid>
-			</item>
-		
-			<item>
-				<title>컨테이너 인프라 환경 구축을 위한 쿠버네티스/도커-3.2.3</title>
-				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;해당 내용은 책 &amp;lt;컨테이너 인프라 환경 구축을 위한 쿠버네티스/도커&amp;gt;에 나오는 내용이며 이는 개인적으로 공부하기 위해서 게시하는 글임을 알립니다.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;레플리카셋으로-파드-수-관리하기&quot;&gt;&lt;center&gt;레플리카셋으로 파드 수 관리하기&lt;/center&gt;&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;많은 사용자를 대상으로 웹 서비스를 하려면 다수의 파드가 필요하다. 그래서 쿠버네티스에서는 다수의 파드를 만드는 레플리카셋 오브젝트를 제공한다.
-&lt;br /&gt;
-디플로이먼트로 생성한 파드여야 replica 옵션을 사용할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//sysnet4admin/echo-hname은 도커 허브에서 해당되는 이미지를 가져온다
-kubectl create deployment dpy-hname &lt;span class=&quot;nt&quot;&gt;--image&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;sysnet4admin/echo-hname
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;통해서 디플로이먼트를 생성한다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl scale deployment echo-hname &lt;span class=&quot;nt&quot;&gt;--replicas&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;3
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;위 명령을 통해 replica 셋을 생성할 수 있지만 한꺼번에 여러 개의 파드를 만드려면 YAML 파일로 작성해야 한다. 이러한 파일을 &lt;strong&gt;오브젝트 스펙(spec)&lt;/strong&gt;이라 한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;echo-hname.yaml&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;apiVersion&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;apps/v1&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;kind&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Deployment&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;metadata&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;echo-hname&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;labels&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nginx&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;spec&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;replicas&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;selector&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;matchLabels&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nginx&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;metadata&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;labels&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nginx-test&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;spec&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;containers&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;echo-hname&lt;/span&gt;
-          &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;sysnet4admin/echo-hname&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;위 내용을 하나하나 알아가 보자.&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;echo-hname.yaml&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#apiVersion: API 버전을 명시한다&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#이 오브젝트를 생성하기 위해 사용하고 있는 쿠버네티스 API 버전이 어떤 것인지&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#명시한다. apps/v1에서는 .spec.selector 와 .metadata.labels 이&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#설정되지 않으면 .spec.template.metadata.labels 은 기본 설정되지 않는다.&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#그래서 이것들은 명시적으로 설정되어야 한다. 또한 apps/v1 에서는&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#디플로이먼트를 생성한 후에는 .spec.selector 이 변경되지 않는 점을 참고한다.&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;apiVersion&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;apps/v1&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;#어떤 종류의 오브젝트를 생성하고자 하는지 명시한다.&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;kind&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Deployment&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;#이름 문자열, UID, 그리고 선택적인 네임스페이스를 포함하여&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#오브젝트를 유일하게 구분지어 줄 데이터이다.&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#디플로이먼트 이름(name)은 echo-hname이다.&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#차후에 이 디플로이먼트를 delete할 때 이 이름으로 지운다.&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;metadata&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;echo-hname&lt;/span&gt;
-
-  &lt;span class=&quot;c1&quot;&gt;#오브젝트에 첨부된 카와 값의 쌍이다. 레이블은 오브젝트 특성을&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;#식별하는 데 사용되어 사용자에게 중요하지만&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;#코어 시스템에 직접적인 의미는 없다.&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;labels&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nginx&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;#오브젝트에 대해 어떤 상태를 의도하는지 명시한다.&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;spec&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;#필드에 따라 디플로이먼트는 3개의 레플리카 파드를 생성&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;replicas&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;
-
-  &lt;span class=&quot;c1&quot;&gt;#(.spec.selector)디플로이먼트가 관리할 파드를 찾는 방법을 정의한다.&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;#이 사례에서는 파드 템플릿(아래 명시된 template)에 정의된 레이블(app:nginx)을&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;#선택한다. 그러나 파드 템플릿(아래 명시된 template을 말함) 자체의 규칙이 만족되는 한,&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;#보다 정교한 선택 규칙의 적용이 가능하다.&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;selector&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;matchLabels&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nginx&lt;/span&gt;
-
-  &lt;span class=&quot;c1&quot;&gt;#template 필드에는 다음 하위 필드가 포함된다&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;#파드는 .metadata.labels 필드를 사용해서&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;#app: nginx레이블을 붙인다&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;metadata&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;c1&quot;&gt;#이 레이블을 담으로써 위에 selector에서 관리할 파드를 찾을 수 있다.&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;labels&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nginx&lt;/span&gt;
-
-    &lt;span class=&quot;c1&quot;&gt;#.template.spec 필드는 파드가 도커 허브의&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;#sysnet4admin/echo-hname 이미지를 실행하는&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;#nginx 컨테이너 1개를 실행하는 것을 나타낸다&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;#컨테이너 1개를 생성하고 .spec.template.spec.containers[0].name 필드를&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;#사용해서 echo-hname 이라는 이름을 붙인다.&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;#즉 컨테이너의 이름이 echo-hname이 된다. describe deployment 명령어로 확인 가능&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;spec&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-
-      &lt;span class=&quot;c1&quot;&gt;#파드는 여러 개의 컨테이너를 가질 수 있는데 여기서는 하나만 선언한 것&lt;/span&gt;
-       &lt;span class=&quot;c1&quot;&gt;#container name은 echo-hname 동일한 pod 내에서 유일한 이름을 가져야 합니다.&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;containers&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;echo-hname&lt;/span&gt;
-          &lt;span class=&quot;c1&quot;&gt;#컨테이너 이미지는 도커허브에 있는 sysnet4admin/echo-hname을 가져온다.&lt;/span&gt;
-          &lt;span class=&quot;c1&quot;&gt;#docker image는 docker registry에서 pull을 받아 오게 되는데,&lt;/span&gt;
-      &lt;span class=&quot;c1&quot;&gt;#docker registry가 명시되어 있지 않다면 docker 공식 public registry인 &lt;/span&gt;
-      &lt;span class=&quot;c1&quot;&gt;#docker hub(https://hub.docker.com)에서 해당 image를 가져오게 됩니다.&lt;/span&gt;
-      &lt;span class=&quot;c1&quot;&gt;# 만약 private docker registry를 사용한다면 docker image 이름 앞에 해당 &lt;/span&gt;
-      &lt;span class=&quot;c1&quot;&gt;#url을 명시해 줘야 하며 k8s에서는 remote docker registry와 통신은 http가 &lt;/span&gt;
-      &lt;span class=&quot;c1&quot;&gt;#아닌 https로만 하게 되어 있어서 private docker registry에 반드시 TLS 인증서를 설치해둬야 합니다.&lt;/span&gt;
-          &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;sysnet4admin/echo-hname&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;그리고 이제&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl create &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; echo-hname.yaml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;명령으로 실행해본다.&lt;/p&gt;
-</description>
-				<pubDate>Sun, 25 Jul 2021 09:00:00 +0900</pubDate>
-				<link>/kubernetes/2021/07/25/Kubernetes-3.2.3.html</link>
-				<guid isPermaLink="true">/kubernetes/2021/07/25/Kubernetes-3.2.3.html</guid>
 			</item>
 		
 	</channel>

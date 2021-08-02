@@ -256,3 +256,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 ![](/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-23-15-01.png){: p}
 
 <br>
+

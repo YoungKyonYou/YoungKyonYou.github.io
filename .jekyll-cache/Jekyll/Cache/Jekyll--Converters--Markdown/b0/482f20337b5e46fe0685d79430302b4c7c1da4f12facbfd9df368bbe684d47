@@ -1,0 +1,89 @@
+I"�<p><span style="color:orange; font-weight:bold"><em>해당 내용은 책 ‘코드로 배우는 스프링 부트 웹 프로젝트’에 나오는 내용이며 이는 개인적으로 공부하기 위해 기록함을 알려드립니다</em></span></p>
+
+<p><br /><br /></p>
+
+<h1 id="현재-프로젝트와의-연동"><center>현재 프로젝트와의 연동</center></h1>
+
+<p><br /></p>
+
+<p>이제는 아쉬운 점들을 찾아서 수정해본다.</p>
+
+<p>아래와 같은 점들을 고려해 본다.</p>
+
+<link rel="stylesheet" href="https: //www.webnots.com/resources/font-awesome/css/font-awesome.min.css" />
+
+<style>
+.webnots-notification-box {
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+color: #ffffff;
+font-family: verdana, 'open sans', sans-serif;
+margin-bottom: 25px;
+padding: 10px 14px 10px 44px;
+position: relative;
+box-shadow: 0px 1px 5px #999;
+/* width: -moz-fit-content;
+width: -webkit-fit-content;
+width: fit-content; */
+}
+.webnots-notification-box:before {
+font-family: FontAwesome;
+font-size: 21px;
+left: 14px;
+position: absolute;
+}
+.webnots-success {
+background-color: #2ecc71;
+}
+.webnots-success:before {
+content: "\f00c";
+margin-left: -2px;
+}
+.webnots-failure {
+background-color: #e74c3c;
+}
+.webnots-failure:before {
+content: "\f00d";
+}
+.webnots-warning {
+background-color: #e67e22;
+}
+.webnots-warning:before {
+content: "\f12a";
+margin-left: 5px;
+}
+.webnots-information {
+background-color: #3498db;
+}
+.webnots-information:before {
+content: "\f129";
+margin-left: 4px;
+}
+.webnots-question {
+background-color: #f1c40f;
+}
+.webnots-question:before {
+content: "\f128";
+margin-left: 2px;
+}
+.webnots-tip {
+background-color: #16a085;
+}
+.webnots-tip:before {
+content: "\f0eb";
+margin-left: 2px;
+}
+.webnots-notice {
+background-color: #bea474;
+}
+.webnots-notice:before {
+content: "\f0a1";
+margin-left: -1px;
+}
+</style>
+
+<div class="webnots-success webnots-notification-box">소셜 로그인 처리 시에 사용자의 이메일 정보를 추출한다.</div>
+<div class="webnots-success webnots-notification-box"></div>
+<div class="webnots-success webnots-notification-box">This is the success box - You can input as much or as little information!</div>
+:ET
