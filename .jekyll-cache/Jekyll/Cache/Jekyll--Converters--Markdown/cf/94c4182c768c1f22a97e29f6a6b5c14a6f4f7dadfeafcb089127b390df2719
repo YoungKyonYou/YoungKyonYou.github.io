@@ -1,0 +1,111 @@
+I"�"<p><span style="color:orange; font-weight:bold"><em>해당 내용은 책 ‘코드로 배우는 스프링 부트 웹 프로젝트’에 나오는 내용이며 이는 개인적으로 공부하기 위해 기록함을 알려드립니다</em></span></p>
+
+<p><br /><br /></p>
+
+<h1 id="자동-회원-가입의-후처리"><center>자동 회원 가입의 후처리</center></h1>
+
+<p><br /></p>
+
+<p>이제 자동으로 회원 가입이 되는 경우에는 다음과 같은 점들을 좀 고민해봐야 한다.</p>
+
+<link rel="stylesheet" href="https: //www.webnots.com/resources/font-awesome/css/font-awesome.min.css" />
+
+<link rel="stylesheet" href="/assets/css/webnots.css" />
+
+<div class="webnots-success webnots-notification-box">패스워드가 모두 '1111'로만 처리되는 점 - 만일 이메일을 알고 있다면 모든 패스워드는 1111로 고정되는 단점</div>
+<div class="webnots-success webnots-notification-box">사용자의 이메일(email) 외에도 이름(name)을 닉네임처럼 사용할 수 없다는 점</div>
+
+<p><br /></p>
+
+<p>다행이도 현재 코드에는 fromSocial이라는 속성값을 이용한다.</p>
+
+<p><br /></p>
+
+<div class="webnots-success webnots-notification-box">폼방식의 로그인은 fromSocial 값이 false인 경우에만 로그인이 가능</div>
+<div class="webnots-success webnots-notification-box">소셜의 경우에는 fromSocial 값이 true인 해당 이메일을 가진 사용자 조회</div>
+
+<p><br /></p>
+
+<p>위와 같은 방식을 이용해서 소셜로 가입한 이메일이 있더라도 일반적인 폼방식으로 로그인이 불가능하도록 처리한다. 아래 그림은 소셜 계정으로 로그인하는 경우에 로그인이 실패하는 화면이다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-11.3/2021-08-04-18-17-58.png" alt="" /></p>
+
+<p><br /></p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-11.3/2021-08-04-18-18-18.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>만일 소셜 로그인을 한 사용자에 한해서 서비스에서 사용할 본인의 이름이나 패스워드를 수정하고자 한다면 로그인 이후에 폼 로그인과 달리 회원 정보를 수정할 수 있는 페이지로 이동할 필요가 있다.</p>
+
+<p><br /></p>
+
+<p>스프링 시큐리티의 로그인 관련 처리에는 <strong>AuthenticationSuccessHandler</strong>와 <strong>AuthenticationFailureHandler</strong>라는 인터페이스를 제공한다. 인터페이스의 이름에서 짐작할 수 있듯이 인증이 성공하거나 실패한 후에 처리를 지정하는 용도로 사용한다. HttpSecurity의 formLogin()이나 oauth2Login() 후에는 이러한 핸들러를 설정할 수 있다. 예제는 oauth2Login() 이후에 이를 적용한다고 가정한다. security 패키지 내에 handler라는 패키지를 추가하고 ClubLoginSuccessHandler라는 클래스를 추가한다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-11.3/2021-08-04-18-58-32.png" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>ClubLoginSuccessHandler.java</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.young.club.security.handler</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">lombok.extern.log4j.Log4j2</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.core.Authentication</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.web.authentication.AuthenticationSuccessHandler</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.servlet.ServletException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="nd">@Log4j2</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ClubLoginSuccessHandler</span> <span class="kd">implements</span> <span class="nc">AuthenticationSuccessHandler</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAuthenticationSuccess</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span> <span class="nc">Authentication</span> <span class="n">authentication</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span><span class="o">,</span> <span class="nc">ServletException</span> <span class="o">{</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"---------------------------------------"</span><span class="o">);</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"onAuthenticationSuccess"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>설정을 위해서 SecurityConfig 클래스를 아래와 같이 수정한다.</p>
+
+<p><strong>SecurityConfig.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(...)</span>
+<span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">configure</span><span class="o">(</span><span class="nc">HttpSecurity</span> <span class="n">http</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+       <span class="c1">//http.authorizeRequests()로 인증이 필요한 자원들을 설정할 수 있고 antMatchers()는</span>
+        <span class="c1">// '**/*'와 같은 앤트 스타일의 패턴으로 원하는 자원을 선택할 수 있다.</span>
+        <span class="c1">//마지막으로 permitAll()의 경우는 말 그대로 '모든 사용자에게 허락'한다는 의미이므로</span>
+        <span class="c1">//로그인하지 않은 사용자도 익명의 사용자로 간주되어서 접근이 가능하게 된다.</span>
+        <span class="c1">//프로젝트를 재시작해서 /sample/all에 접속하면 별도의 로그인 없이도 접근이 가능해 진다.</span>
+        <span class="n">http</span><span class="o">.</span><span class="na">authorizeRequests</span><span class="o">().</span><span class="na">antMatchers</span><span class="o">(</span><span class="s">"/sample/all"</span><span class="o">).</span><span class="na">permitAll</span><span class="o">()</span>
+                                <span class="c1">//아래와 같이 설정하고 /sample/member'를 호출하면 Access Denied 된다.</span>
+                                <span class="o">.</span><span class="na">antMatchers</span><span class="o">(</span><span class="s">"/sample/member"</span><span class="o">).</span><span class="na">hasRole</span><span class="o">(</span><span class="s">"USER"</span><span class="o">);</span>
+
+        <span class="c1">//인가/인증에 문제시 로그인 화면면</span>
+       <span class="n">http</span><span class="o">.</span><span class="na">formLogin</span><span class="o">();</span>
+       <span class="n">http</span><span class="o">.</span><span class="na">csrf</span><span class="o">().</span><span class="na">disable</span><span class="o">();</span>
+       
+       <span class="n">http</span><span class="o">.</span><span class="na">oauth2Login</span><span class="o">().</span><span class="na">successHandler</span><span class="o">(</span><span class="n">successHandler</span><span class="o">());</span>
+
+       <span class="c1">//실제 로그인 시에 OAuth를 사용한 로그인이 가능하도록 함</span>
+       <span class="n">http</span><span class="o">.</span><span class="na">oauth2Login</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="c1">//Club</span>
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="nc">ClubLoginSuccessHandler</span> <span class="nf">successHandler</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">ClubLoginSuccessHandler</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+:ET

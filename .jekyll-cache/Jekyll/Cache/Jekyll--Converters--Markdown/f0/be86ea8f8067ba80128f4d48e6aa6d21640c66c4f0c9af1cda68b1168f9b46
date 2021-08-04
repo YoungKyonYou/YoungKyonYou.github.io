@@ -1,0 +1,20 @@
+I"�<p><span style="color:orange; font-weight:bold"><em>해당 내용은 책 ‘코드로 배우는 스프링 부트 웹 프로젝트’에 나오는 내용이며 이는 개인적으로 공부하기 위해 기록함을 알려드립니다</em></span></p>
+
+<p><br /><br /></p>
+
+<h1 id="자동-회원-가입의-후처리"><center>자동 회원 가입의 후처리</center></h1>
+
+<p><br /></p>
+
+<p>이제 자동으로 회원 가입이 되는 경우에는 다음과 같은 점들을 좀 고민해봐야 한다.</p>
+
+<link rel="stylesheet" href="https: //www.webnots.com/resources/font-awesome/css/font-awesome.min.css" />
+
+<link rel="stylesheet" href="/assets/css/webnots.css" />
+
+<div class="webnots-success webnots-notification-box">패스워드가 모두 '1111'로만 처리되는 점 - 만일 이메일을 알고 있다면 모든 패스워드는 1111로 고정되는 단점</div>
+<div class="webnots-success webnots-notification-box">사용자의 이메일(email) 외에도 이름(name)을 닉네임처럼 사용할 수 없다는 점</div>
+
+<div class="webnots-success webnots-notification-box"></div>
+<div class="webnots-success webnots-notification-box"></div>
+:ET

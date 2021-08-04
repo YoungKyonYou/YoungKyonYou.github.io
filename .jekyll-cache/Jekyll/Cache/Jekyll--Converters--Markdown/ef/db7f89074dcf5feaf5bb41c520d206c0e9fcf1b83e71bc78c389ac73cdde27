@@ -1,0 +1,375 @@
+I"�<p><span style="color:orange; font-weight:bold"><em>해당 내용은 책 ‘코드로 배우는 스프링 부트 웹 프로젝트’에 나오는 내용이며 이는 개인적으로 공부하기 위해 기록함을 알려드립니다</em></span></p>
+
+<p><br /><br /></p>
+
+<h1 id="현재-프로젝트와의-연동"><center>현재 프로젝트와의 연동</center></h1>
+
+<p><br /></p>
+
+<p>이제는 아쉬운 점들을 찾아서 수정해본다.</p>
+
+<p>아래와 같은 점들을 고려해 본다.</p>
+
+<link rel="stylesheet" href="https: //www.webnots.com/resources/font-awesome/css/font-awesome.min.css" />
+
+<link rel="stylesheet" href="/assets/css/webnots.css" />
+
+<div class="webnots-success webnots-notification-box">소셜 로그인 처리 시에 사용자의 이메일 정보를 추출한다.</div>
+<div class="webnots-success webnots-notification-box">현재 데이터베이스와 연동해서 사용자 정보를 관리해야 한다.</div>
+<div class="webnots-success webnots-notification-box">기존 방식으로도 로그인할 수 있어야 하고, 소셜 로그인으로도 동일하게 동작해야 한다. </div>
+
+<p><br /></p>
+
+<p>가장 먼저 해야 하는 작업은 구글과 같은 서비스에서 로그인 처리가 끝난 결과를 가져오는 작업을 사용할 수 있는 환경을 구성하는 것이다. 이를 위해서는 실제 소셜 로그인 과정에서 동작하는 존재인 <span style="color:orange; font-weight:bold">OAuth2UserService</span>라는 것을 알아야만 한다.</p>
+
+<p><br /></p>
+
+<p><strong>org.springframework.security.oauth2.client.userinfo.OAuth2UserService 인터페이스</strong>는 <strong>UserDetailsService</strong>의 <strong>OAuth</strong> 버전이라고 생각할 수 있다. 이를 구현하는 것은 <strong>OAuth의 인증 결과</strong>를 처리한다는 것이다.</p>
+
+<p><br /></p>
+
+<p>인터페이스를 직접 구현할 수도 있지만 편하게 하고 싶다면 구현된 클래스 중에서 하나를 사용하는 방식이 더 편할 것이므로 <strong>DefaultOAuth2UserService</strong> 클래스를 상속해서 구현한다. security 패키지 내에 있는 service 패키지에 <strong>DefaultOAuth2UserService</strong>를 상속하는 클래스를 **ClubOAuth2UserDetailsServices라는 클래스로 구성한다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-11.2/2021-08-02-16-54-43.png" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>ClubOAuth2UserDetailsServices.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.young.club.security.service</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">lombok.extern.log4j.Log4j2</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.oauth2.core.OAuth2AuthenticationException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.oauth2.core.user.OAuth2User</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Service</span><span class="o">;</span>
+
+<span class="nd">@Log4j2</span>
+<span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ClubOAuth2UserDetailsService</span> <span class="kd">extends</span> <span class="nc">DefaultOAuth2UserService</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">OAuth2User</span> <span class="nf">loadUser</span><span class="o">(</span><span class="nc">OAuth2UserRequest</span> <span class="n">userRequest</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">OAuth2AuthenticationException</span> <span class="o">{</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"---------------------------------------"</span><span class="o">);</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"userRequest:"</span> <span class="o">+</span><span class="n">userRequest</span><span class="o">);</span>
+        <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">loadUser</span><span class="o">(</span><span class="n">userRequest</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>프로젝트를 재시작한 후에 ‘/sample/member’로 로그인을 시도하면 위의 코드가 정상적으로 동작하는 것을 확인할 수 있다.</p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-11.2/2021-08-02-17-00-56.png" alt="" /></p>
+
+<p><br /></p>
+
+<p><span style="color:#85144b; font-weight:bold; font-size:30px">사용자의 이메일 추출</span></p>
+
+<p>loadUser()에서 사용하는 OAuth2UserRequest는 현재 어떤 서비스를 통해서 로그인이 이루어졌는지 알아내고 전달된 값들을 추출할 수 있는 데이터를 Map&lt;String, Object&gt;의 형태로 사용할 수 있다. 최대한 많은 정보를 조회하기 위해서 ClubOAuth2UserDetailsService의 loadUser()를 아래와 같이 수정한다.</p>
+
+<p><strong>ClubOAuth2UserDetailsServices.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.young.club.security.service</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">lombok.extern.log4j.Log4j2</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.oauth2.core.OAuth2AuthenticationException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.oauth2.core.user.OAuth2User</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Service</span><span class="o">;</span>
+
+<span class="nd">@Log4j2</span>
+<span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ClubOAuth2UserDetailsService</span> <span class="kd">extends</span> <span class="nc">DefaultOAuth2UserService</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">OAuth2User</span> <span class="nf">loadUser</span><span class="o">(</span><span class="nc">OAuth2UserRequest</span> <span class="n">userRequest</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">OAuth2AuthenticationException</span> <span class="o">{</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"---------------------------------------"</span><span class="o">);</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"userRequest:"</span> <span class="o">+</span><span class="n">userRequest</span><span class="o">);</span>
+
+        <span class="nc">String</span> <span class="n">clientName</span><span class="o">=</span><span class="n">userRequest</span><span class="o">.</span><span class="na">getClientRegistration</span><span class="o">().</span><span class="na">getClientName</span><span class="o">();</span>
+
+        <span class="c1">//OAuth로 연결한 클라이언트 이름과 이때 사용한 파라미터들을 출력한다.</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"clientName: "</span><span class="o">+</span><span class="n">clientName</span><span class="o">);</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">userRequest</span><span class="o">.</span><span class="na">getAdditionalParameters</span><span class="o">());</span>
+
+        <span class="c1">//DefaultOAuth2UserService의 loadUser()는 OAuth2UserRequest라는 타입의 파라미터와 OAuth2User</span>
+        <span class="c1">//라는 타입의 리턴 타입을 반환한다.</span>
+        <span class="nc">OAuth2User</span> <span class="n">oAuth2User</span><span class="o">=</span><span class="kd">super</span><span class="o">.</span><span class="na">loadUser</span><span class="o">(</span><span class="n">userRequest</span><span class="o">);</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"========================"</span><span class="o">);</span>
+
+        <span class="c1">//loadUser()에서 사용하는 OAuth2UserRequest는 현재 어떤 서비스를 통해서 로그인이 이루어졌는지</span>
+        <span class="c1">//알아내고 전달된 값들을 추출할 수 있는 데이터를 Map&lt;String, Object&gt;의 형태로</span>
+        <span class="c1">//사용할 수 있다. 최대한 많은 정보를 조회할 수 있다.</span>
+        <span class="n">oAuth2User</span><span class="o">.</span><span class="na">getAttributes</span><span class="o">().</span><span class="na">forEach</span><span class="o">((</span><span class="n">k</span><span class="o">,</span><span class="n">v</span><span class="o">)-&gt;{</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">k</span><span class="o">+</span><span class="s">":"</span><span class="o">+</span><span class="n">v</span><span class="o">);</span>
+        <span class="o">});</span>
+        <span class="k">return</span> <span class="n">oAuth2User</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-11.2/2021-08-02-17-23-54.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>위의 코드를 이용한 결과로 출력되는 내용은 구글에서 프로젝트를 등록하면서 지정한 ‘API 범위’의 항목과 <strong>application-oauth.properties</strong> 설정 파일과 관련이 있다.</p>
+
+<p><br /></p>
+
+<p>위의 사진에서 sub, picture, email, email_verified 항목이 출력되는 것을 볼 수 있다. 위와 같이 <strong>OAuth2User</strong>를 이용하면 로그인한 사용자의 이메일 주소를 알아낼 수 있으므로 남은 작업은 이를 이용해서 데이터베이스에 추가하는 작업을 진행할 수 있다.</p>
+
+<div class="webnots-success webnots-notification-box">이메일은 문제가 없지만 패스워드나 사용자의 이름 등을 데이터베이스에 추가하는 작업은 고민을 좀 해야 한다.</div>
+
+<p><br /></p>
+
+<p>임의로 패스워드를 지정해서 데이터베이스에 저장하는 경우 나중에 문제가 될 수 있기 때문이다. 이에 대한 논의는 조금 미룬다. 우선은 데이터베이스에 저장하는 코드를 작성한다.</p>
+
+<p><br /></p>
+
+<p><strong>ClubOAuth2UserDetailsService.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.young.club.security.service</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">lombok.RequiredArgsConstructor</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">lombok.extern.log4j.Log4j2</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.crypto.password.PasswordEncoder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.oauth2.core.OAuth2AuthenticationException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.oauth2.core.user.OAuth2User</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Service</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.young.club.entity.ClubMember</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.young.club.entity.ClubMemberRole</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.young.club.repository.ClubMemberRepository</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="o">;</span>
+
+<span class="nd">@Log4j2</span>
+<span class="nd">@Service</span>
+<span class="nd">@RequiredArgsConstructor</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ClubOAuth2UserDetailsService</span> <span class="kd">extends</span> <span class="nc">DefaultOAuth2UserService</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">ClubMemberRepository</span> <span class="n">repository</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">PasswordEncoder</span> <span class="n">passwordEncoder</span><span class="o">;</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">OAuth2User</span> <span class="nf">loadUser</span><span class="o">(</span><span class="nc">OAuth2UserRequest</span> <span class="n">userRequest</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">OAuth2AuthenticationException</span> <span class="o">{</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"---------------------------------------"</span><span class="o">);</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"userRequest:"</span> <span class="o">+</span><span class="n">userRequest</span><span class="o">);</span>
+
+        <span class="nc">String</span> <span class="n">clientName</span><span class="o">=</span><span class="n">userRequest</span><span class="o">.</span><span class="na">getClientRegistration</span><span class="o">().</span><span class="na">getClientName</span><span class="o">();</span>
+
+        <span class="c1">//OAuth로 연결한 클라이언트 이름과 이때 사용한 파라미터들을 출력한다.</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"clientName: "</span><span class="o">+</span><span class="n">clientName</span><span class="o">);</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">userRequest</span><span class="o">.</span><span class="na">getAdditionalParameters</span><span class="o">());</span>
+
+        <span class="c1">//DefaultOAuth2UserService의 loadUser()는 OAuth2UserRequest라는 타입의 파라미터와 OAuth2User</span>
+        <span class="c1">//라는 타입의 리턴 타입을 반환한다.</span>
+        <span class="nc">OAuth2User</span> <span class="n">oAuth2User</span><span class="o">=</span><span class="kd">super</span><span class="o">.</span><span class="na">loadUser</span><span class="o">(</span><span class="n">userRequest</span><span class="o">);</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"========================"</span><span class="o">);</span>
+
+        <span class="c1">//loadUser()에서 사용하는 OAuth2UserRequest는 현재 어떤 서비스를 통해서 로그인이 이루어졌는지</span>
+        <span class="c1">//알아내고 전달된 값들을 추출할 수 있는 데이터를 Map&lt;String, Object&gt;의 형태로</span>
+        <span class="c1">//사용할 수 있다. 최대한 많은 정보를 조회할 수 있다.</span>
+        <span class="n">oAuth2User</span><span class="o">.</span><span class="na">getAttributes</span><span class="o">().</span><span class="na">forEach</span><span class="o">((</span><span class="n">k</span><span class="o">,</span><span class="n">v</span><span class="o">)-&gt;{</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">k</span><span class="o">+</span><span class="s">":"</span><span class="o">+</span><span class="n">v</span><span class="o">);</span>
+        <span class="o">});</span>
+
+        <span class="nc">String</span> <span class="n">email</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+
+        <span class="c1">//이메일 정보 추출</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">clientName</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"Google"</span><span class="o">)){</span>
+            <span class="n">email</span><span class="o">=</span><span class="n">oAuth2User</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="s">"email"</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"EMAIL: "</span><span class="o">+</span><span class="n">email</span><span class="o">);</span>
+
+        <span class="nc">ClubMember</span> <span class="n">member</span><span class="o">=</span><span class="n">saveSocialMember</span><span class="o">(</span><span class="n">email</span><span class="o">);</span>
+
+        <span class="k">return</span> <span class="n">oAuth2User</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">//ClubMemberRepository를 이용해서 소셜 로그인한 이메일을 처리하는 부분은 다음과 같다.</span>
+    <span class="kd">private</span> <span class="nc">ClubMember</span> <span class="nf">saveSocialMember</span><span class="o">(</span><span class="nc">String</span> <span class="n">email</span><span class="o">){</span>
+        <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">ClubMember</span><span class="o">&gt;</span> <span class="n">result</span><span class="o">=</span><span class="n">repository</span><span class="o">.</span><span class="na">findByEmail</span><span class="o">(</span><span class="n">email</span><span class="o">,</span><span class="kc">true</span><span class="o">);</span>
+
+        <span class="c1">//추출된 이메일 주소로 현재 데이터베이스에 있는 사용자가 아니라면 자동으로 회원 가입을 처리한다.</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">isPresent</span><span class="o">()){</span>
+            <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+        <span class="o">}</span>
+
+        <span class="nc">ClubMember</span> <span class="n">clubMember</span><span class="o">=</span><span class="nc">ClubMember</span><span class="o">.</span><span class="na">builder</span><span class="o">().</span><span class="na">email</span><span class="o">(</span><span class="n">email</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">name</span><span class="o">(</span><span class="n">email</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">password</span><span class="o">(</span><span class="n">passwordEncoder</span><span class="o">.</span><span class="na">encode</span><span class="o">(</span><span class="s">"1111"</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">fromSocial</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+
+        <span class="n">clubMember</span><span class="o">.</span><span class="na">addMemberRole</span><span class="o">(</span><span class="nc">ClubMemberRole</span><span class="o">.</span><span class="na">USER</span><span class="o">);</span>
+        <span class="n">repository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">clubMember</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">clubMember</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>DefaultOAuth2UserService의 loadUser()의 경우 일반적인 로그인과 다르게 OAuth2User 타입의 객체를 반환해야 하는데 지금까지 개발했던 코드로는 화면에서 아래와 같이 메일 주소가 아닌 사용자의 번호가 출력되는 것을 볼 수 있다.</p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-11.2/2021-08-02-17-46-49.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>컨트롤러에서도 동일하게 같은 문제가 발생하는데 앞에서 만들어진 컨트롤러는 파라미터로 ClubAuthMemberDTO 타입을 사용하기 때문에 소셜 로그인을 하는 경우에는 null이라는 결과가 발생한다. 이를 해결하기 위해서는 OAuth2User 타입을 ClubAuthMemberDTO 타입으로 사용할 수 있도록 처리해 줄 필요가 있다. 다행히도 OAuth2User 타입은 인터페이스로 설계되어 있으므로 ClubAuthMemberDTO를 수정해서 이 문제를 해결한다.</p>
+
+<p><br /></p>
+
+<p><strong>ClubAuthMemberDTO.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.young.club.security.dto</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">lombok.Getter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">lombok.Setter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">lombok.ToString</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">lombok.extern.log4j.Log4j2</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.core.GrantedAuthority</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.core.userdetails.User</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.oauth2.core.user.OAuth2User</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Collection</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+
+<span class="nd">@Log4j2</span>
+<span class="c1">//User 클래스는 UserDetailsService로부터 핵심 유저 정보를 모델링한다.</span>
+<span class="c1">//User 클래스를 상속하고 부모 클래스인 User 클래스의 생성자를 호출할 수 있는 코드를 만든다.</span>
+<span class="c1">//부모 클래스인 User 클래스에 사용자 정의 생성자가 있으므로 반드시 호출할 필요가 있다.</span>
+
+<span class="c1">//ClubAuthMemberDTO는 DTO 역할을 수행하는 클래스인 동시에 스프링 시큐리티에서 인가/인증 작업에 사용할 수 있다.</span>
+<span class="c1">//password는 부모 클래스를 사용하므로 별도의 멤버 변수로 선언하지 않는다.</span>
+<span class="nd">@Getter</span>
+<span class="nd">@Setter</span>
+<span class="nd">@ToString</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ClubAuthMemberDTO</span> <span class="kd">extends</span> <span class="nc">User</span> <span class="kd">implements</span> <span class="nc">OAuth2User</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">email</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">password</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">fromSocial</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Object</span><span class="o">&gt;</span> <span class="n">attr</span><span class="o">;</span>
+
+    <span class="c1">//OAuth2User는 Map 타입으로 모든 인증 결과를 attributes라는 이름으로 가지고 있기 때문에</span>
+    <span class="c1">// ClubAuthMember 역시 attr이라는 변수를 만들어주고 getAttribute() 메서드를 override한 점이다.</span>
+    <span class="kd">public</span> <span class="nf">ClubAuthMemberDTO</span><span class="o">(</span><span class="nc">String</span> <span class="n">username</span><span class="o">,</span> <span class="nc">String</span> <span class="n">password</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">fromSocial</span><span class="o">,</span> <span class="nc">Collection</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="nc">GrantedAuthority</span><span class="o">&gt;</span> <span class="n">authorities</span><span class="o">,</span> <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Object</span><span class="o">&gt;</span> <span class="n">attr</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">(</span><span class="n">username</span><span class="o">,</span><span class="n">password</span><span class="o">,</span> <span class="n">fromSocial</span><span class="o">,</span> <span class="n">authorities</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">attr</span><span class="o">=</span><span class="n">attr</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="nf">ClubAuthMemberDTO</span><span class="o">(</span><span class="nc">String</span> <span class="n">username</span><span class="o">,</span> <span class="nc">String</span> <span class="n">password</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">fromSocial</span><span class="o">,</span> <span class="nc">Collection</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="nc">GrantedAuthority</span><span class="o">&gt;</span> <span class="n">authorities</span><span class="o">){</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">username</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span> <span class="n">authorities</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">email</span><span class="o">=</span><span class="n">username</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">password</span><span class="o">=</span><span class="n">password</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">fromSocial</span><span class="o">=</span><span class="n">fromSocial</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Object</span><span class="o">&gt;</span> <span class="nf">getAttributes</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">attr</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>loadUser()의 내부는 다음과 같이 수정한다.</p>
+
+<p><strong>ClubOAuth2UserDetailsService.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(...)</span>
+<span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">OAuth2User</span> <span class="nf">loadUser</span><span class="o">(</span><span class="nc">OAuth2UserRequest</span> <span class="n">userRequest</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">OAuth2AuthenticationException</span> <span class="o">{</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"---------------------------------------"</span><span class="o">);</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"userRequest:"</span> <span class="o">+</span><span class="n">userRequest</span><span class="o">);</span>
+
+        <span class="nc">String</span> <span class="n">clientName</span><span class="o">=</span><span class="n">userRequest</span><span class="o">.</span><span class="na">getClientRegistration</span><span class="o">().</span><span class="na">getClientName</span><span class="o">();</span>
+
+        <span class="c1">//OAuth로 연결한 클라이언트 이름과 이때 사용한 파라미터들을 출력한다.</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"clientName: "</span><span class="o">+</span><span class="n">clientName</span><span class="o">);</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">userRequest</span><span class="o">.</span><span class="na">getAdditionalParameters</span><span class="o">());</span>
+
+        <span class="c1">//DefaultOAuth2UserService의 loadUser()는 OAuth2UserRequest라는 타입의 파라미터와 OAuth2User</span>
+        <span class="c1">//라는 타입의 리턴 타입을 반환한다.</span>
+        <span class="nc">OAuth2User</span> <span class="n">oAuth2User</span><span class="o">=</span><span class="kd">super</span><span class="o">.</span><span class="na">loadUser</span><span class="o">(</span><span class="n">userRequest</span><span class="o">);</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"========================"</span><span class="o">);</span>
+
+        <span class="c1">//loadUser()에서 사용하는 OAuth2UserRequest는 현재 어떤 서비스를 통해서 로그인이 이루어졌는지</span>
+        <span class="c1">//알아내고 전달된 값들을 추출할 수 있는 데이터를 Map&lt;String, Object&gt;의 형태로</span>
+        <span class="c1">//사용할 수 있다. 최대한 많은 정보를 조회할 수 있다.</span>
+        <span class="n">oAuth2User</span><span class="o">.</span><span class="na">getAttributes</span><span class="o">().</span><span class="na">forEach</span><span class="o">((</span><span class="n">k</span><span class="o">,</span><span class="n">v</span><span class="o">)-&gt;{</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">k</span><span class="o">+</span><span class="s">":"</span><span class="o">+</span><span class="n">v</span><span class="o">);</span>
+        <span class="o">});</span>
+
+        <span class="nc">String</span> <span class="n">email</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+
+        <span class="c1">//이메일 정보 추출</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">clientName</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"Google"</span><span class="o">)){</span>
+            <span class="n">email</span><span class="o">=</span><span class="n">oAuth2User</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="s">"email"</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"EMAIL: "</span><span class="o">+</span><span class="n">email</span><span class="o">);</span>
+        <span class="c1">//조금 뒤에 사용</span>
+       <span class="c1">// ClubMember member=saveSocialMember(email);</span>
+      <span class="c1">//  return oAuth2User;</span>
+        <span class="nc">ClubMember</span> <span class="n">member</span><span class="o">=</span><span class="n">saveSocialMember</span><span class="o">(</span><span class="n">email</span><span class="o">);</span>
+        <span class="nc">ClubAuthMemberDTO</span> <span class="n">clubAuthMember</span><span class="o">=</span><span class="k">new</span> <span class="nc">ClubAuthMemberDTO</span><span class="o">(</span><span class="n">member</span><span class="o">.</span><span class="na">getEmail</span><span class="o">(),</span><span class="n">member</span><span class="o">.</span><span class="na">getPassword</span><span class="o">(),</span><span class="kc">true</span><span class="o">,</span><span class="n">member</span><span class="o">.</span><span class="na">getRoleSet</span><span class="o">().</span><span class="na">stream</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">role</span><span class="o">-&gt;</span><span class="k">new</span> <span class="nc">SimpleGrantedAuthority</span><span class="o">(</span><span class="s">"ROLE_"</span><span class="o">+</span><span class="n">role</span><span class="o">.</span><span class="na">name</span><span class="o">()))</span>
+        <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="nc">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">()),</span>
+                <span class="n">oAuth2User</span><span class="o">.</span><span class="na">getAttributes</span><span class="o">());</span>
+        <span class="n">clubAuthMember</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="n">member</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+        <span class="k">return</span> <span class="n">clubAuthMember</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">//ClubMemberRepository를 이용해서 소셜 로그인한 이메일을 처리하는 부분은 다음과 같다.</span>
+    <span class="kd">private</span> <span class="nc">ClubMember</span> <span class="nf">saveSocialMember</span><span class="o">(</span><span class="nc">String</span> <span class="n">email</span><span class="o">){</span>
+        <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">ClubMember</span><span class="o">&gt;</span> <span class="n">result</span><span class="o">=</span><span class="n">repository</span><span class="o">.</span><span class="na">findByEmail</span><span class="o">(</span><span class="n">email</span><span class="o">,</span><span class="kc">true</span><span class="o">);</span>
+
+        <span class="c1">//추출된 이메일 주소로 현재 데이터베이스에 있는 사용자가 아니라면 자동으로 회원 가입을 처리한다.</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">isPresent</span><span class="o">()){</span>
+            <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+        <span class="o">}</span>
+
+        <span class="nc">ClubMember</span> <span class="n">clubMember</span><span class="o">=</span><span class="nc">ClubMember</span><span class="o">.</span><span class="na">builder</span><span class="o">().</span><span class="na">email</span><span class="o">(</span><span class="n">email</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">name</span><span class="o">(</span><span class="n">email</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">password</span><span class="o">(</span><span class="n">passwordEncoder</span><span class="o">.</span><span class="na">encode</span><span class="o">(</span><span class="s">"1111"</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">fromSocial</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+
+        <span class="n">clubMember</span><span class="o">.</span><span class="na">addMemberRole</span><span class="o">(</span><span class="nc">ClubMemberRole</span><span class="o">.</span><span class="na">USER</span><span class="o">);</span>
+        <span class="n">repository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">clubMember</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">clubMember</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>loadUser()에서 가장 달라지는 점은 다음과 같다.</p>
+
+<div class="webnots-success webnots-notification-box">saveSocialMember()한 결과로 나오는 ClubMember를 이용해서 ClubAuthMemberDTO를 구성한다.</div>
+<div class="webnots-success webnots-notification-box">OAuth2User의 모든 데이터는 ClubAuthMemberDTO의 내부로 전달해서 필요한 순간에 사용할 수 있도록 한다.</div>
+
+<p><br /></p>
+
+<p>위오 같은 구조를 가진 후에 구글 계정으로 ‘/sample/member’를 시도하면 아래와 같이 구글 계정을 이용하더라도 이메일 주소를 사용할 수 있게 된다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-11.2/2021-08-02-18-00-32.png" alt="" /></p>
+:ET
