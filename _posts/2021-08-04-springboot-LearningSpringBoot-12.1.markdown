@@ -406,6 +406,8 @@ NoteController에는 GET 방식으로 특정한 번호의 Note를 확인할 수 
 
 ```java
 (...)
+    //ResponseEntity를 리턴할 때 어떤 Mime Type으로 할 것인지 지정한다
+    //Json이 리턴됨으로 Application Json Value로 지정한다.
     @GetMapping(value="/{num}", produces= MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<NoteDTO> read(@PathVariable("num") Long num){
 
@@ -433,6 +435,8 @@ NoteController에는 특정 이메일을 가진 회원(나중에 시큐리티로
 
 ```java
 (...)
+    //ResponseEntity를 리턴할 때 어떤 Mime Type으로 할 것인지 지정한다
+    //Json이 리턴됨으로 Application Json Value로 지정한다.
     @GetMapping(value="/all", produces= MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<NoteDTO>> getList(String email){
 
