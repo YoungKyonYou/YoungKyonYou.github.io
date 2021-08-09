@@ -7,6 +7,171 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>API 서버를 위한 필터-코드로 배우는 스프링 부트 웹 프로젝트-12.2</title>
+				<description>&lt;p&gt;&lt;span style=&quot;color:orange; font-weight:bold&quot;&gt;&lt;em&gt;해당 내용은 책 ‘코드로 배우는 스프링 부트 웹 프로젝트’에 나오는 내용이며 이는 개인적으로 공부하기 위해 기록함을 알려드립니다&lt;/em&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;api-서버를-위한-필터&quot;&gt;&lt;center&gt;API 서버를 위한 필터&lt;/center&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;지금까지 작성한 ‘/notes’라는 경로는 외부에서 데이터를 주고받기 위한 경로이다. 이 경로를 외부에서 아무런 제약없이 호출하는 것은 서버에 상당한 부담을 주기 때문에 인증을 거친 사용자에 한해서 서비스를 제공하고자 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;기존 웹 애플리케이션의 쿠키(Cookie)나 세션(Session)을 사용하는 경우 동일한 사이트에서만 동작하기 때문에 API 서버처럼 외부에서 자유롭게 데이터를 주고받을 때는 유용하지 못하다. 외부에서 API를 호출할 때는 주로 ‘인증 정보나 인증 키(key)’를 같이 전송해서 처리한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;예를 들어 앞에서 소셜 로그인을 하기 위해서 구글에서 키(key)를 발급받아서 사용했듯이 API를 이용할 때 자신의 고유한 키(key)를 같이 전송하고 이를 이용해서 해당 요청이 정상적인 사용자임을 알아내는 방식을 사용한다. 이러한 키(key)를 토큰(token)이라는 용어로 사용하기도 하는데 예제에서는 JWT(JSON Web Token)라는 것을 이용한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;외부에서는 특정한 API를 호출할 때 반드시 인증에 사용할 토큰을 같이 전송하고, 서버에서는 이를 검증한다. 이 과정에서 필요한 것은 특정한 URL을 호출할 때 전달된 토큰을 검사하는 필터이다. 스프링 시큐리티는 원하는 필터를 사용자가 작성하고 이를 설정에서 시큐리티 동작의 일부로 추가할 수 있다. 필터를 추가할 때는 기존에 있는 여러 필터 사이에 위치시킬 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;가장 먼저 살펴볼 필터는 &lt;strong&gt;org.springframework.web.filter.OncePerRequestFilter&lt;/strong&gt;이다. OncePerRequestFilter는 추상 클래스로 제공되는 필터로 가장 일반적이며 매번 동작하는 기본적인 필터라고 생각하면 된다. OncePerRequestFilter는 추상 클래스이므로 이를 사용하기 위해서는 상속으로 구현해서 사용한다. 프로젝트에 securiy 패키지 내에 filter 패키지를 추가하고, ApiCheckFilter라는 클래스를 추가한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Prometheus/2021-08-09-15-48-25.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ApiCheckFilter.java&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.young.club.security.filter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;lombok.extern.log4j.Log4j2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.web.filter.OncePerRequestFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;javax.servlet.FilterChain&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;javax.servlet.ServletException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;javax.servlet.http.HttpServletRequest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;javax.servlet.http.HttpServletResponse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.IOException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@Log4j2&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ApiCheckFilter&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OncePerRequestFilter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;doFilterInternal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;HttpServletRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HttpServletResponse&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FilterChain&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filterChain&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;APICheckerFilter..................................&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;APICheckerFilter..................................&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;APICheckerFilter..................................&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;//다음 필터의 단계로 넘어가는 역할을 위해서 필요하다&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;filterChain&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;doFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그 다음 SecurityConfig를 통해서 스프링의 빈으로 설정한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SecurityConfig.java&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(...)&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Bean&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ApiCheckFilter&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;apiCheckFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ApiCheckFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;(...)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;ApiCheckFilter의 동작 순서를 조절하고 싶다면 기존에 있는 특정한 필터의 이전이나 다음에 동작하도록 지정할 수 있다. 예를 들어 여러 필터 중에서 UsernamePasswordAuthenticationFilter는 사용자의 아디이(username)와 패스워드를 기반으로 동작하는 필터이다. 조금 전에 작성한 ApiCheckFilter를 UsernamePasswordAuthenticationFilter 이전에 동작하도록 지정하려면 다음과 같이 작성한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Securityconfig.java&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(...)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;configure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;HttpSecurity&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;(...)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addFilterBefore&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;apiCheckFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UsernamePasswordAuthenticationFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;(...)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;필터의 순서를 조정하기는 했지만 ApiCheckFilter는 오직 &lt;strong&gt;‘/notes/..’&lt;/strong&gt;로 시작하는 경우에만 동작하는게 바람직할 것이다.(기존 로그인과 달리 토큰 기반이므로). 이를 처리하는 방법으로는 AntPathMatcher라는 것을 사용한다. AntPathMatcher는 엔트 패턴(Ant Pattern은 중간에 ?,*,** 와 같은 기호를 이용해서 패턴을 표시)에 맞는지를 검사하는 유틸리티라고 생각하면 된다. ApiCheckFilter에 문자열로 된 패턴을 넣어서 패턴에 맞는 경우에는 다른 동작을 하도록 변경한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ApiCheckFilter.java&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(...)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Log4j2&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ApiCheckFilter&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OncePerRequestFilter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AntPathMatcher&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;antPathMatcher&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pattern&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ApiCheckFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pattern&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;antPathMatcher&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AntPathMatcher&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;pattern&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pattern&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;doFilterInternal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;HttpServletRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HttpServletResponse&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FilterChain&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filterChain&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;REQUESTURI: &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getRequestURI&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+        
+        &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;antPathMatcher&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pattern&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getRequestURI&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()));&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;antPathMatcher&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pattern&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getRequestURI&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())){&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;APICheckerFilter..................................&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;APICheckerFilter..................................&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;APICheckerFilter..................................&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+
+        &lt;span class=&quot;c1&quot;&gt;//다음 필터의 단계로 넘어가는 역할을 위해서 필요하다&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;filterChain&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;doFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;변경된 ApiCheckFilter 클래스는 문자열로 패턴을 입력받는 생성자가 추가되었으므로 SecurityConfig를 아래와 같이 수정한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SecurityConfig.java&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;```java
+(…)
+    @Bean
+    public ApiCheckFilter apiCheckFilter(){
+        return new ApiCheckFilter(“/notes/&lt;em&gt;*/&lt;/em&gt;”);
+    }
+(…)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;위와 같이 변경된 후에 프로젝트를 실행하면 &lt;strong&gt;‘/notes’&lt;/strong&gt;로 시작하는 경로에만 로그가 출력되는 것을 볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Prometheus/2021-08-09-16-02-51.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Prometheus/2021-08-09-16-03-06.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+</description>
+				<pubDate>Mon, 09 Aug 2021 11:00:00 +0900</pubDate>
+				<link>/springboot/2021/08/09/springboot-LearningSpringBoot-12.2.html</link>
+				<guid isPermaLink="true">/springboot/2021/08/09/springboot-LearningSpringBoot-12.2.html</guid>
+			</item>
+		
+			<item>
 				<title>프로메테우스로 모니터링 데이터 수집과 통합하기-1</title>
 				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -1391,7 +1556,7 @@ cleanup
 			</item>
 		
 			<item>
-				<title>API 서비스 만들기-코드로 배우는 스프링 부트 웹 프로젝트-12.-1</title>
+				<title>API 서비스 만들기-코드로 배우는 스프링 부트 웹 프로젝트-12-1</title>
 				<description>&lt;p&gt;&lt;span style=&quot;color:orange; font-weight:bold&quot;&gt;&lt;em&gt;해당 내용은 책 ‘코드로 배우는 스프링 부트 웹 프로젝트’에 나오는 내용이며 이는 개인적으로 공부하기 위해 기록함을 알려드립니다&lt;/em&gt;&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
@@ -5364,260 +5529,6 @@ margin-left: -1px;
 				<pubDate>Fri, 30 Jul 2021 09:00:00 +0900</pubDate>
 				<link>/kubernetes/2021/07/30/Kubernetes-Springboot.html</link>
 				<guid isPermaLink="true">/kubernetes/2021/07/30/Kubernetes-Springboot.html</guid>
-			</item>
-		
-			<item>
-				<title>스프링 시큐리티 소셜 로그인 처리</title>
-				<description>&lt;p&gt;&lt;span style=&quot;color:orange; font-weight:bold&quot;&gt;&lt;em&gt;해당 내용은 책 ‘코드로 배우는 스프링 부트 웹 프로젝트’에 나오는 내용이며 이는 개인적으로 공부하기 위해 기록함을 알려드립니다&lt;/em&gt;&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;구글-로그인-시나리오&quot;&gt;&lt;center&gt;구글 로그인 시나리오&lt;/center&gt;&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;스프링 시큐리티를 사용할 때 가장 많이 요구되는 기능은 소셜 로그인이라고 할 수 있다. 소셜 로그인은 국내외 사이트 등에서 제공하는 로그인 통합 기능을 이용해서 사용자가 별도의 회원 가입 없이 자동으로 로그인이 이루어 지도록 구성하는 것이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;구글 로그인을 위해서는 먼저 구글 개발자 콘솔을 이용해서 프로젝트를 생성한다. 이를 통해서 구글 클라우드 플랫폼 내에 프로젝트를 생성해주어야 한다.&lt;/p&gt;
-
-&lt;p&gt;구글 프로젝트에 현재 프로젝트를 등록하기 위해서는 &lt;span style=&quot;color:#7EDBFF; font-weight:bold&quot;&gt;Google Developers API Console&lt;/span&gt;에 들어가야 한다. 링크는 아래에 두겠다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://console.cloud.google.com/apis/dashboard&quot;&gt;Google Developers API Console&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;들어갔더니 예전에 만들어놓은 프로젝트가 있었는데 지금은 사용하지 않으므로 지우려고 찾아봤지만 찾기가 어려웠다… 물론 계속 찾아본 결과 찾았지만 다음에 헤매지 않게 방법을 추가로 기록해두려고 한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;화면의 우측 상단에 보면 메뉴바가 있는데 그것을 클릭하면 &lt;span style=&quot;color:#001f3f; font-weight:bold&quot;&gt;프로젝트 설정&lt;/span&gt;이 있다. 이것을 누른다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-32-00.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;화면 중앙에 바로 종료 버튼이 있는 것을 볼 수 있다. (찾느라 고생했다..)&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-32-18.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;자 이제 다 비워진 상태로 링크에 접속하면 아래 사진과 같다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-33-38.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;가장 우측에 보면 &lt;span style=&quot;color:orange; font-weight:bold&quot;&gt;프로젝트 만들기&lt;/span&gt;가 보인다. 그것을 누른다. 그리고 프로젝트 이름을 설정하고 &lt;strong&gt;만들기&lt;/strong&gt; 버튼을 누른다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-37-04.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;그리고 아래 사진과 같이 &lt;strong&gt;API 및 서비스&lt;/strong&gt; 메뉴를 클릭하고 들어간다&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-38-48.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;그다음 &lt;strong&gt;사용자 인증 정보&lt;/strong&gt;를 누르고 가운데에 상단에 있는 &lt;strong&gt;사용자 인증 정보 만들기&lt;/strong&gt;-&amp;gt;&lt;strong&gt;OAuth 클라이언트 ID&lt;/strong&gt;를 클릭한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-39-19.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-OAuth 클라이언트 ID를 만드려면
-아래 사진과 같이 &lt;strong&gt;동의 화면 구성&lt;/strong&gt;을 먼저 해야 한다. &lt;strong&gt;동의 화면 구성&lt;/strong&gt;를 클릭해서 설정하자.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-41-43.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;동의 화면 구성에서는 구글 계정이 있는 모든 사용자가 사용할 수 있도록 &lt;strong&gt;외부&lt;/strong&gt;에 체크를 하고 만들기 버튼을 누른다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-43-48.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;다음 설정을 이어간다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-47-54.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-55-28.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;아래 사진에서 &lt;strong&gt;범위 추가 또는 삭제&lt;/strong&gt;를 누른다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-56-58.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;세가지 항목에 체크를 한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-57-18.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;결과는 아래와 같다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-57-38.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;저장 후 계속을 누른다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-17-58-35.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이제 OAuth ID를 만들 수 있으므로 다시 **사용자 인증 정보로 와서 아래 사진과 같이 OAuth 클라이언트 ID를 다시 선택한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-18-32-11.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;아래 사진과 같이 설정하고 만들기를 누른다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-18-34-04.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;그리고 나면 OAuth 클라이언트가 생성되면서 &lt;span style=&quot;color:#85144b; font-weight:bold&quot;&gt;클라이언트 ID와 클라이언트 보안 비밀번호&lt;/span&gt;가 나오는데 이 둘을 메모장에 복사 붙여넣기 해둔다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;챕터10에서 만들었던 프로젝트를 키고 &lt;strong&gt;build.gradle&lt;/strong&gt;에 &lt;strong&gt;OAuth&lt;/strong&gt;관련 &lt;strong&gt;dependency&lt;/strong&gt;를 추가한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;build.gradle&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-gradle highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(...)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;implementation&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'org.springframework.boot:spring-boot-starter-oauth2-client'&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;(...)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;라이브러를 추가한 후에는 &lt;strong&gt;application.properties&lt;/strong&gt; 파일을 수정해야 한다. 만일 앞으로 여러 개의 OAuth를 사용하고 싶다면 별도의 설정 파일을 만들어 주는 것이 더 낫다. 별도의 설정 파일 이름은 &lt;span style=&quot;color:#7EDBFF; font-weight:bold&quot;&gt;‘application-xxx.properties’&lt;/span&gt;와 같은 이름으로 생성한다. 예제에서는 &lt;span style=&quot;color:#7EDBFF; font-weight:bold&quot;&gt;‘application-oauth.properties’&lt;/span&gt;라는 파일을 생성해서 처리한다.(중간에 ‘-‘ 대신에 다른 기호를 사용하지 않도록 주의해야 합니다).&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;application-oauth.properties&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-application.properties&quot;&gt;spring.security.oauth2.client.registration.google.client-id=(발급 받은 클라이언트 ID)
-spring.security.oauth2.client.registration.google.client-secret=(발급 받은 클라이언트 보안 비밀번호)
-spring.security.oauth2.client.registration.google.scope=email
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;기존의 &lt;strong&gt;application.properties&lt;/strong&gt;에서는 추가된 파일을 포함해서 동작하도록 설정을 추가한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;application.properties&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-application.properties&quot;&gt;spring.profiles.include=oauth
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이제 실제 로그인 시에 OAuth를 사용한 로그인이 가능하도록 HttpSecurity 설정을 변경하기 위해 SecurityConfig 클래스를 수정한다. HttpSecurity의 oauth2Login()이라는 부분을 추가하면 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;SecurityConfig.java&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(...)&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SecurityConfig&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WebSecurityConfigurerAdapter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;(...)&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;configure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;HttpSecurity&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-       &lt;span class=&quot;c1&quot;&gt;//http.authorizeRequests()로 인증이 필요한 자원들을 설정할 수 있고 antMatchers()는&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// '**/*'와 같은 앤트 스타일의 패턴으로 원하는 자원을 선택할 수 있다.&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;//마지막으로 permitAll()의 경우는 말 그대로 '모든 사용자에게 허락'한다는 의미이므로&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;//로그인하지 않은 사용자도 익명의 사용자로 간주되어서 접근이 가능하게 된다.&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;//프로젝트를 재시작해서 /sample/all에 접속하면 별도의 로그인 없이도 접근이 가능해 진다.&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;authorizeRequests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;antMatchers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/sample/all&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;permitAll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
-                                &lt;span class=&quot;c1&quot;&gt;//아래와 같이 설정하고 /sample/member'를 호출하면 Access Denied 된다.&lt;/span&gt;
-                                &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;antMatchers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/sample/member&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;hasRole&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;USER&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-        &lt;span class=&quot;c1&quot;&gt;//인가/인증에 문제시 로그인 화면면&lt;/span&gt;
-       &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;formLogin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-       &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;csrf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;disable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-
-       &lt;span class=&quot;c1&quot;&gt;//실제 로그인 시에 OAuth를 사용한 로그인이 가능하도록 함&lt;/span&gt;
-       &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;oauth2Login&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이제 프로젝트를 실행하고 &lt;span style=&quot;color:orange; font-weight:bold&quot;&gt;‘/sample/member’&lt;/span&gt;를 호출하면 이전과 달리 구글 로그인 링크가 추가된 화면을 아래 사진으로 확인할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-23-13-24.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;위의 사진에서 &lt;strong&gt;‘Google’&lt;/strong&gt;를 선택하면 구글에 등록된 OAuth 클라이언트의 이름이 보이면서 로그인을 유도하게 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-23-14-21.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;정상적으로 로그인이 이루어지면 &lt;strong&gt;‘/sample/member’&lt;/strong&gt;가 호출되면서 화면에는 다음과 같은 결과가 출력된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Learning_SpringBoot_with_Web_Project/Part5/Chapter11/11-1/2021-07-29-23-15-01.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-</description>
-				<pubDate>Thu, 29 Jul 2021 11:00:00 +0900</pubDate>
-				<link>/springboot/2021/07/29/springboot-LearningSpringBoot-11.1.html</link>
-				<guid isPermaLink="true">/springboot/2021/07/29/springboot-LearningSpringBoot-11.1.html</guid>
 			</item>
 		
 	</channel>

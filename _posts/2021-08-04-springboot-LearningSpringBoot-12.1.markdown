@@ -1,6 +1,6 @@
 ---
 layout: post
-title: API 서비스 만들기-코드로 배우는 스프링 부트 웹 프로젝트-12.-1
+title: API 서비스 만들기-코드로 배우는 스프링 부트 웹 프로젝트-12-1
 date: 2021-08-08 11:00:00 0000
 tags: [Intellij, SpringBoot, Spring Security, API Service]
 categories: [SpringBoot]

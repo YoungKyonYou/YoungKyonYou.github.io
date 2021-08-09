@@ -1,0 +1,137 @@
+I"�1<p><span style="color:orange; font-weight:bold"><em>해당 내용은 책 ‘코드로 배우는 스프링 부트 웹 프로젝트’에 나오는 내용이며 이는 개인적으로 공부하기 위해 기록함을 알려드립니다</em></span></p>
+
+<p><br /><br /></p>
+
+<h1 id="api-서버를-위한-필터"><center>API 서버를 위한 필터</center></h1>
+
+<p><br /></p>
+
+<p>지금까지 작성한 ‘/notes’라는 경로는 외부에서 데이터를 주고받기 위한 경로이다. 이 경로를 외부에서 아무런 제약없이 호출하는 것은 서버에 상당한 부담을 주기 때문에 인증을 거친 사용자에 한해서 서비스를 제공하고자 한다.</p>
+
+<p><br /></p>
+
+<p>기존 웹 애플리케이션의 쿠키(Cookie)나 세션(Session)을 사용하는 경우 동일한 사이트에서만 동작하기 때문에 API 서버처럼 외부에서 자유롭게 데이터를 주고받을 때는 유용하지 못하다. 외부에서 API를 호출할 때는 주로 ‘인증 정보나 인증 키(key)’를 같이 전송해서 처리한다.</p>
+
+<p><br /></p>
+
+<p>예를 들어 앞에서 소셜 로그인을 하기 위해서 구글에서 키(key)를 발급받아서 사용했듯이 API를 이용할 때 자신의 고유한 키(key)를 같이 전송하고 이를 이용해서 해당 요청이 정상적인 사용자임을 알아내는 방식을 사용한다. 이러한 키(key)를 토큰(token)이라는 용어로 사용하기도 하는데 예제에서는 JWT(JSON Web Token)라는 것을 이용한다.</p>
+
+<p><br /></p>
+
+<p>외부에서는 특정한 API를 호출할 때 반드시 인증에 사용할 토큰을 같이 전송하고, 서버에서는 이를 검증한다. 이 과정에서 필요한 것은 특정한 URL을 호출할 때 전달된 토큰을 검사하는 필터이다. 스프링 시큐리티는 원하는 필터를 사용자가 작성하고 이를 설정에서 시큐리티 동작의 일부로 추가할 수 있다. 필터를 추가할 때는 기존에 있는 여러 필터 사이에 위치시킬 수 있다.</p>
+
+<p><br /></p>
+
+<p>가장 먼저 살펴볼 필터는 <strong>org.springframework.web.filter.OncePerRequestFilter</strong>이다. OncePerRequestFilter는 추상 클래스로 제공되는 필터로 가장 일반적이며 매번 동작하는 기본적인 필터라고 생각하면 된다. OncePerRequestFilter는 추상 클래스이므로 이를 사용하기 위해서는 상속으로 구현해서 사용한다. 프로젝트에 securiy 패키지 내에 filter 패키지를 추가하고, ApiCheckFilter라는 클래스를 추가한다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/Kubernetes/kubernetes-Prometheus/2021-08-09-15-48-25.png" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>ApiCheckFilter.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.young.club.security.filter</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">lombok.extern.log4j.Log4j2</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.filter.OncePerRequestFilter</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.servlet.FilterChain</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.ServletException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="nd">@Log4j2</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ApiCheckFilter</span> <span class="kd">extends</span> <span class="nc">OncePerRequestFilter</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doFilterInternal</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span> <span class="nc">FilterChain</span> <span class="n">filterChain</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">ServletException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"APICheckerFilter.................................."</span><span class="o">);</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"APICheckerFilter.................................."</span><span class="o">);</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"APICheckerFilter.................................."</span><span class="o">);</span>
+
+        <span class="c1">//다음 필터의 단계로 넘어가는 역할을 위해서 필요하다</span>
+        <span class="n">filterChain</span><span class="o">.</span><span class="na">doFilter</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>그 다음 SecurityConfig를 통해서 스프링의 빈으로 설정한다.</p>
+
+<p><strong>SecurityConfig.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(...)</span>
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="nc">ApiCheckFilter</span> <span class="nf">apiCheckFilter</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">ApiCheckFilter</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">(...)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>ApiCheckFilter의 동작 순서를 조절하고 싶다면 기존에 있는 특정한 필터의 이전이나 다음에 동작하도록 지정할 수 있다. 예를 들어 여러 필터 중에서 UsernamePasswordAuthenticationFilter는 사용자의 아디이(username)와 패스워드를 기반으로 동작하는 필터이다. 조금 전에 작성한 ApiCheckFilter를 UsernamePasswordAuthenticationFilter 이전에 동작하도록 지정하려면 다음과 같이 작성한다.</p>
+
+<p><br /></p>
+
+<p><strong>Securityconfig.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(...)</span>
+<span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">configure</span><span class="o">(</span><span class="nc">HttpSecurity</span> <span class="n">http</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+      <span class="o">(...)</span>
+        <span class="n">http</span><span class="o">.</span><span class="na">addFilterBefore</span><span class="o">(</span><span class="n">apiCheckFilter</span><span class="o">(),</span> <span class="nc">UsernamePasswordAuthenticationFilter</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">(...)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>필터의 순서를 조정하기는 했지만 ApiCheckFilter는 오직 <strong>‘/notes/..’</strong>로 시작하는 경우에만 동작하는게 바람직할 것이다.(기존 로그인과 달리 토큰 기반이므로). 이를 처리하는 방법으로는 AntPathMatcher라는 것을 사용한다. AntPathMatcher는 엔트 패턴(Ant Pattern은 중간에 ?,*,** 와 같은 기호를 이용해서 패턴을 표시)에 맞는지를 검사하는 유틸리티라고 생각하면 된다. ApiCheckFilter에 문자열로 된 패턴을 넣어서 패턴에 맞는 경우에는 다른 동작을 하도록 변경한다.</p>
+
+<p><br /></p>
+
+<p><strong>ApiCheckFilter.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(...)</span>
+<span class="nd">@Log4j2</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ApiCheckFilter</span> <span class="kd">extends</span> <span class="nc">OncePerRequestFilter</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">AntPathMatcher</span> <span class="n">antPathMatcher</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">pattern</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="nf">ApiCheckFilter</span><span class="o">(</span><span class="nc">String</span> <span class="n">pattern</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">antPathMatcher</span><span class="o">=</span><span class="k">new</span> <span class="nc">AntPathMatcher</span><span class="o">();</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">pattern</span><span class="o">=</span><span class="n">pattern</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doFilterInternal</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span> <span class="nc">FilterChain</span> <span class="n">filterChain</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">ServletException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"REQUESTURI: "</span><span class="o">+</span><span class="n">request</span><span class="o">.</span><span class="na">getRequestURI</span><span class="o">());</span>
+        
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">antPathMatcher</span><span class="o">.</span><span class="na">match</span><span class="o">(</span><span class="n">pattern</span><span class="o">,</span> <span class="n">request</span><span class="o">.</span><span class="na">getRequestURI</span><span class="o">()));</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">antPathMatcher</span><span class="o">.</span><span class="na">match</span><span class="o">(</span><span class="n">pattern</span><span class="o">,</span><span class="n">request</span><span class="o">.</span><span class="na">getRequestURI</span><span class="o">())){</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"APICheckerFilter.................................."</span><span class="o">);</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"APICheckerFilter.................................."</span><span class="o">);</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"APICheckerFilter.................................."</span><span class="o">);</span>
+            
+            <span class="k">return</span><span class="o">;</span>
+        <span class="o">}</span>
+
+
+        <span class="c1">//다음 필터의 단계로 넘어가는 역할을 위해서 필요하다</span>
+        <span class="n">filterChain</span><span class="o">.</span><span class="na">doFilter</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
+    <span class="o">}</span>
+    
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>변경된 ApiCheckFilter 클래스는 문자열로 패턴을 입력받는 생성자가 추가되었으므로 SecurityConfig를 아래와 같이 수정한다.</p>
+
+<p><br /></p>
+
+:ET
