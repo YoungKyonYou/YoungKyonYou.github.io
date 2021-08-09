@@ -617,7 +617,7 @@ kubectl delete service lb-ip-svc
 <div style="background: #eee;
   box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;">
 
-<span style="color:#85144b; font-weight:bold">부가설명</span>: 실제로 현재에 있는 시스템은 아래 사진에서 이 **INTERNAL-IP**를 가지고 있는데 이 IP가 외부에 노출되는 IP 성격이다. 왜냐면 현재 시스템들은 각각의 서버들이 가지고 있는 외부와 통신하는 IP를 가지고 쿠버네티스 클러스터 외부에 있는 것과 통신하기 때문에 실제적으로 이 **INTERNAL-IP**가 쿠버네티스 외부 딴에서 노출되는 IP라고 보는 게 좋다 지금은 VM 단에서 하고 있기 때문이다(온프레미스). 우리가 **metallb-l2config.yaml**에서 설정해줬던 **192.168.1.11-192.168.1.13** 이 범위가 외부의 노출되는 IP range로 잡아주는 것이다. 이게 약간 private network ip 같이 생겨서 부가설명을 하였다.</div>
+<span style="color:#85144b; font-weight:bold">부가설명</span>: 실제로 현재에 있는 시스템은 아래 사진에서 이 <bold>INTERNAL-IP</bold>를 가지고 있는데 이 IP가 외부에 노출되는 IP 성격이다. 왜냐면 현재 시스템들은 각각의 서버들이 가지고 있는 외부와 통신하는 IP를 가지고 쿠버네티스 클러스터 외부에 있는 것과 통신하기 때문에 실제적으로 이 <bold>INTERNAL-IP</bold>가 쿠버네티스 외부 딴에서 노출되는 IP라고 보는 게 좋다 지금은 VM 단에서 하고 있기 때문이다(온프레미스). 우리가 <bold>metallb-l2config.yaml</bold>에서 설정해줬던 <bold>192.168.1.11-192.168.1.13</bold> 이 범위가 외부의 노출되는 IP range로 잡아주는 것이다. 이게 약간 private network ip 같이 생겨서 부가설명을 하였다.</div>
 
 <br>
 
