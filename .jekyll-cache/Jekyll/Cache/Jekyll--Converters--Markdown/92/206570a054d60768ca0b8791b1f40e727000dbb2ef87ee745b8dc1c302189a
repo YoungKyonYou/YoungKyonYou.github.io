@@ -1,0 +1,1250 @@
+I":o<p><br /><br /></p>
+
+<p><strong><em>해당 내용은 책 &lt;컨테이너 인프라 환경 구축을 위한 쿠버네티스/도커&gt;에 나오는 내용이며 이는 개인적으로 공부하기 위해서 게시하는 글임을 알립니다.</em></strong></p>
+
+<p><br /><br />
+<em><strong>커피 중독자되는 중…</strong></em>
+<br />
+(Press the Button)</p>
+
+<p><br /><br /></p>
+
+<style>
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: "";
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: "";
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: "";
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: "";
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+</style>
+
+<div class="containercoffee">
+    <div class="coffee-header">
+      <div class="coffee-header__buttons coffee-header__button-one"></div>
+      <div class="coffee-header__buttons coffee-header__button-two"></div>
+      <div class="coffee-header__display"></div>
+      <div class="coffee-header__details"></div>
+    </div>
+    <div class="coffee-medium">
+      <div class="coffe-medium__exit"></div>
+      <div class="coffee-medium__arm"></div>
+      <div class="coffee-medium__liquid"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
+      <div class="coffee-medium__cup"></div>
+    </div>
+    <div class="coffee-footer"></div>
+</div>
+
+<p><br /><br /><br /><br /><br /><br /><br /><br /></p>
+
+<h1 id="프로메테우스로-모니터링-데이터-수집과-통합하기"><center>프로메테우스로 모니터링 데이터 수집과 통합하기</center></h1>
+
+<p><br /></p>
+
+<p>프로메테우스는 젠킨스처럼 헬름으로 쉽게 설치할 수 있다. 다만 젠킨스 설치 때와 마찬가지로 <span style="color:orange; font-weight:bold">NFS 디렉터리(/nfs_shared/prometheus)</span>를 만들고, 만든 NFS 디렉터리를 쿠버네티스 환경에서 사용할 수 있도록 <span style="color:orange; font-weight:bold">PV</span>와 <span style="color:orange; font-weight:bold">PVC</span>로 구성해야 한다. 접근 ID(사용자 ID, 그룹 ID)는 1000번으로 설정한다.</p>
+
+<p><br /></p>
+
+<link rel="stylesheet" href="https: //www.webnots.com/resources/font-awesome/css/font-awesome.min.css" />
+
+<link rel="stylesheet" href="/assets/css/webnots.css" />
+
+<div class="webnots-success webnots-notification-box">프로메테우스를 설치하는 데 필요한 사전 준비를 위해 MetalLB를 설치하고 헬름으로 배포를 간편화 시켜야 한다.</div>
+
+<p><br /></p>
+
+<p><span style="color: rgba(131, 24, 67);">MetalLB</span> 관련 실습 내용은 아래 링크를 통해 확인할 수 있다.</p>
+
+<p><strong><a href="https://youngkyonyou.github.io/kubernetes/2021/08/01/Kubernetes-MetalLB-3.3.4.html">MetalLB</a></strong></p>
+
+<p><br /></p>
+
+<p>일단 책의 Chapter 5.2.2를 펼쳐서 사전 작업을 진행해 본다.</p>
+
+<p><br /></p>
+
+<hr />
+
+<p><span style="color:maroon; font-weight:bold; font-size:30px;">커스터마이즈로 MetalLB 한 번에 만들기</span></p>
+
+<p><br /></p>
+
+<link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet" />
+
+<div style="background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;">
+
+커스터마이즈는 야믈 파일에 정의된 값을 사용자가 원하는 값으로 변경할 수 있다. 쿠버네티스에서 오브젝트에 대한 수정 사항을 반영하려면 사용자가 직접 야믈 파일을 편집기 프로그램으로 수정해야 한다. 만약 수정해야 하는 야믈 파일이 매우 많거나 하나의 야믈 파일로 환경이 다른 여러 개의 쿠버네티스 클러스터에 배포해야 해서 <bold>LABEL</bold>이나 <bold>NAME</bold> 같은 일부 항목을 수정해야 한다면 매번 일일이 고치는 데 많은 노력이 든다. 커스터마이즈는 이를 위해 kustomize 명령을 제공한다. kustomize 명령과 creat 옵션으로 kustomization.yaml이라는 기본 매니페스트를 만들고 이 파일에 변경해야 하는 값들을 적용한다. 그리고 build 옵션으로 변경할 내용이 적용된 최종 야믈 파일을 저장하거나 변경된 내용이 바로 실행되도록 지정한다. </div>
+
+<p><br /></p>
+
+<p>커스터마이즈 명령을 사용하기 위해서 <strong>~/_Book_k8sInfra.ch5/5.2.2/kustomize-install.sh</strong>를 실행해 커스터마이즈 압축 파일을 내려받는다.</p>
+
+<p><br /></p>
+
+<p><strong>kustomize-install.sh</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env bash</span>
+curl <span class="nt">-L</span> <span class="se">\</span>
+https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv3.6.1/kustomize_v3.6.1_linux_amd64.tar.gz <span class="nt">-o</span> /tmp/kustomize.tar.gz
+<span class="nb">tar</span> <span class="nt">-xzf</span> /tmp/kustomize.tar.gz <span class="nt">-C</span>  /usr/local/bin
+<span class="nb">echo</span> <span class="s2">"kustomize install successfully"</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>한 줄 한 줄 의미를 알아 보자.</p>
+
+<p><br /></p>
+
+<p><strong>kustomize-install.sh</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env bash</span>
+<span class="c">#curl은 사용자 상호 작용 없이 작동하도록 설계된 서버로 데이터를 전송하기 위한 명령줄 유틸리티이다.</span>
+<span class="c">#curl을 사용하면 HTTP, HTTPS, SCP, SFTP 및 FTP 등 지원되는 프로토콜 중 하나를 사용하여 데이터를 다운로드하거나 업로드할 수 있다.</span>
+<span class="c">#curl의 -L 옵션은 서버에서 HTTP 301이나 HTTP 302 응답이 왔을 경우 redirection URL로 따라간다는 것이다.</span>
+<span class="c">#301은 301, Permanently Moved</span>
+<span class="c">#Permanently라는 뜻이 영구히, 영구적인 이라는 뜻이므로, 영구적으로 이동한다는 것이다. 요청된 리소스가 영구적으로 이동 페이지로 이동되었다는 것이다.</span>
+<span class="c">#302, Temporarily Moved</span>
+<span class="c">#Temporarily라는 뜻이 임시적, 임시적인 이라는 뜻이므로, 임시적으로 이동했다는 것을 나타냅니다. 요청된 리소스가 임시적으로 이동 페이지로 이동되었다는 것이다.</span>
+<span class="c"># '\' 표시는 줄바꿈하는 것이다.</span>
+curl <span class="nt">-L</span> <span class="se">\</span>
+
+<span class="c">#-o 옵션은 해당 링크에서 다운로드 받은 결과를 지정한 /tmp 아래 kustomize.tar.gz라는 이름의 파일로 저장한다.</span>
+<span class="c">#윈도우에서 기본적이고 많이 사용하는 압축 형식이 zip이라면</span>
+<span class="c">#리눅스에서는 tar.gz를 많이 사용한다. 리눅스에서 tar.gz는 별도의</span>
+<span class="c">#설치 없이 기본적으로 지원하는 압축 형식이다.</span>
+https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv3.6.1/kustomize_v3.6.1_linux_amd64.tar.gz <span class="nt">-o</span> /tmp/kustomize.tar.gz
+
+<span class="c">#tar -xzf는 압축을 해제하는 명령이다.</span>
+<span class="c">#tar 옵션 -x: 묶음을 해제</span>
+<span class="c">#-z: gunzip을 사용</span>
+<span class="c">#-f: 파일 이름을 지정</span>
+<span class="c">#즉 /tmp 아래 kustomize.tar.gz 파일의 압축을 해제한다.</span>
+<span class="c">#-C 옵션은 압축을 해제한 다음에 /usr/local/bin 디렉터리에 넣으라는 것이다.</span>
+<span class="c">#이를 통해 배시 쉘에서 바로 실행할 수 있게 만든다.</span>
+<span class="nb">tar</span> <span class="nt">-xzf</span> /tmp/kustomize.tar.gz <span class="nt">-C</span>  /usr/local/bin
+<span class="nb">echo</span> <span class="s2">"kustomize install successfully"</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>위의 명령을 실행한다. 그 다음 커스터마이즈에서 리소스 및 주소 할당 영역(Pool)을 구성할 때 사용할 파일들을 확인하기 위해서 <strong>~/_Book_k8sInfra/ch5/5.2.2</strong> 디렉터리로 이동하고 <strong>metallb-l2config.yaml, metallb.yaml, namespace.yaml</strong>이 있는 것을 확인하고 각각을 살펴보자.</p>
+
+<p><br /></p>
+
+<p><strong>metallb-l2config.yaml</strong></p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">ConfigMap</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">metallb-system</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">config</span>
+<span class="na">data</span><span class="pi">:</span>
+  <span class="na">config</span><span class="pi">:</span> <span class="pi">|</span>
+    <span class="s">address-pools:</span>
+    <span class="s">- name: nginx-ip-range</span>
+      <span class="s">protocol: layer2</span>
+      <span class="s">addresses:</span>
+      <span class="s">- 192.168.1.11-192.168.1.13</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>metallb-l2config.yaml</strong></p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#apiVersion: API 버전을 명시한다</span>
+<span class="c1">#이 오브젝트를 생성하기 위해 사용하고 있는 쿠버네티스 API 버전이 어떤 것인지</span>
+<span class="c1">#명시한다.</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+
+<span class="c1">#어떤 종류의 오브젝트를 생성하고자 하는지 명시한다.</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">ConfigMap</span>
+
+<span class="c1">#이름 문자열, UID, 그리고 선택적인 네임스페이스를 포함하여</span>
+<span class="c1">#오브젝트를 유일하게 구분지어 줄 데이터이다.</span>
+<span class="c1">#서비스 이름(name)은 config이다.</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="c1">#ConfigMap이 위치하는 네임스페이스를</span>
+  <span class="c1">#metallb-system로 한다.</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">metallb-system</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">config</span>
+
+<span class="na">data</span><span class="pi">:</span>
+  <span class="na">config</span><span class="pi">:</span> <span class="pi">|</span>
+
+    <span class="s">#metallb의 세부 설정</span>
+    <span class="s">#address-pools의 이름을 nginx-ip-range로 설정한다. </span>
+     <span class="s">address-pools:</span>
+     <span class="s">- name: nginx-ip-range</span>
+
+       <span class="s">#metallb에서 제공하는 로드밸런서의 동작 방식이다. 즉 L2 방식이다.</span>
+       <span class="s">protocol: layer2</span>
+
+       <span class="s">#metallb에서 제공하는 로드밸러서의 External 주소이다.</span>
+       <span class="s">#이 범위 안에서 External 주소를 부여한다.</span>
+       <span class="s">addresses:</span>
+       <span class="s">- 192.168.1.11-192.168.1.13</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>metallb.yaml 설명은 생략한다.</p>
+
+<p><br /></p>
+
+<p><strong>metallb.yaml</strong></p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">policy/v1beta1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">PodSecurityPolicy</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">metallb</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">speaker</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">metallb-system</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">allowPrivilegeEscalation</span><span class="pi">:</span> <span class="no">false</span>
+  <span class="na">allowedCapabilities</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">NET_ADMIN</span>
+    <span class="pi">-</span> <span class="s">NET_RAW</span>
+    <span class="pi">-</span> <span class="s">SYS_ADMIN</span>
+  <span class="na">fsGroup</span><span class="pi">:</span>
+    <span class="na">rule</span><span class="pi">:</span> <span class="s">RunAsAny</span>
+  <span class="na">hostNetwork</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">hostPorts</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">max</span><span class="pi">:</span> <span class="m">7472</span>
+      <span class="na">min</span><span class="pi">:</span> <span class="m">7472</span>
+  <span class="na">privileged</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">runAsUser</span><span class="pi">:</span>
+    <span class="na">rule</span><span class="pi">:</span> <span class="s">RunAsAny</span>
+  <span class="na">seLinux</span><span class="pi">:</span>
+    <span class="na">rule</span><span class="pi">:</span> <span class="s">RunAsAny</span>
+  <span class="na">supplementalGroups</span><span class="pi">:</span>
+    <span class="na">rule</span><span class="pi">:</span> <span class="s">RunAsAny</span>
+  <span class="na">volumes</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">*"</span>
+<span class="nn">---</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">ServiceAccount</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">metallb</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">controller</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">metallb-system</span>
+<span class="nn">---</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">ServiceAccount</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">metallb</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">speaker</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">metallb-system</span>
+<span class="nn">---</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">rbac.authorization.k8s.io/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">ClusterRole</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">metallb</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">metallb-system:controller</span>
+<span class="na">rules</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">apiGroups</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">"</span>
+    <span class="na">resources</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">services</span>
+    <span class="na">verbs</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">get</span>
+      <span class="pi">-</span> <span class="s">list</span>
+      <span class="pi">-</span> <span class="s">watch</span>
+      <span class="pi">-</span> <span class="s">update</span>
+  <span class="pi">-</span> <span class="na">apiGroups</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">"</span>
+    <span class="na">resources</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">services/status</span>
+    <span class="na">verbs</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">update</span>
+  <span class="pi">-</span> <span class="na">apiGroups</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">"</span>
+    <span class="na">resources</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">events</span>
+    <span class="na">verbs</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">create</span>
+      <span class="pi">-</span> <span class="s">patch</span>
+<span class="nn">---</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">rbac.authorization.k8s.io/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">ClusterRole</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">metallb</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">metallb-system:speaker</span>
+<span class="na">rules</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">apiGroups</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">"</span>
+    <span class="na">resources</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">services</span>
+      <span class="pi">-</span> <span class="s">endpoints</span>
+      <span class="pi">-</span> <span class="s">nodes</span>
+    <span class="na">verbs</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">get</span>
+      <span class="pi">-</span> <span class="s">list</span>
+      <span class="pi">-</span> <span class="s">watch</span>
+  <span class="pi">-</span> <span class="na">apiGroups</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">"</span>
+    <span class="na">resources</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">events</span>
+    <span class="na">verbs</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">create</span>
+      <span class="pi">-</span> <span class="s">patch</span>
+  <span class="pi">-</span> <span class="na">apiGroups</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">extensions</span>
+    <span class="na">resourceNames</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">speaker</span>
+    <span class="na">resources</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">podsecuritypolicies</span>
+    <span class="na">verbs</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">use</span>
+<span class="nn">---</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">rbac.authorization.k8s.io/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Role</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">metallb</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">config-watcher</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">metallb-system</span>
+<span class="na">rules</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">apiGroups</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">"</span>
+    <span class="na">resources</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">configmaps</span>
+    <span class="na">verbs</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">get</span>
+      <span class="pi">-</span> <span class="s">list</span>
+      <span class="pi">-</span> <span class="s">watch</span>
+<span class="nn">---</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">rbac.authorization.k8s.io/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">ClusterRoleBinding</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">metallb</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">metallb-system:controller</span>
+<span class="na">roleRef</span><span class="pi">:</span>
+  <span class="na">apiGroup</span><span class="pi">:</span> <span class="s">rbac.authorization.k8s.io</span>
+  <span class="na">kind</span><span class="pi">:</span> <span class="s">ClusterRole</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">metallb-system:controller</span>
+<span class="na">subjects</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">kind</span><span class="pi">:</span> <span class="s">ServiceAccount</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">controller</span>
+    <span class="na">namespace</span><span class="pi">:</span> <span class="s">metallb-system</span>
+<span class="nn">---</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">rbac.authorization.k8s.io/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">ClusterRoleBinding</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">metallb</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">metallb-system:speaker</span>
+<span class="na">roleRef</span><span class="pi">:</span>
+  <span class="na">apiGroup</span><span class="pi">:</span> <span class="s">rbac.authorization.k8s.io</span>
+  <span class="na">kind</span><span class="pi">:</span> <span class="s">ClusterRole</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">metallb-system:speaker</span>
+<span class="na">subjects</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">kind</span><span class="pi">:</span> <span class="s">ServiceAccount</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">speaker</span>
+    <span class="na">namespace</span><span class="pi">:</span> <span class="s">metallb-system</span>
+<span class="nn">---</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">rbac.authorization.k8s.io/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">RoleBinding</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">metallb</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">config-watcher</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">metallb-system</span>
+<span class="na">roleRef</span><span class="pi">:</span>
+  <span class="na">apiGroup</span><span class="pi">:</span> <span class="s">rbac.authorization.k8s.io</span>
+  <span class="na">kind</span><span class="pi">:</span> <span class="s">Role</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">config-watcher</span>
+<span class="na">subjects</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">kind</span><span class="pi">:</span> <span class="s">ServiceAccount</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">controller</span>
+  <span class="pi">-</span> <span class="na">kind</span><span class="pi">:</span> <span class="s">ServiceAccount</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">speaker</span>
+<span class="nn">---</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">DaemonSet</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">metallb</span>
+    <span class="na">component</span><span class="pi">:</span> <span class="s">speaker</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">speaker</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">metallb-system</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">matchLabels</span><span class="pi">:</span>
+      <span class="na">app</span><span class="pi">:</span> <span class="s">metallb</span>
+      <span class="na">component</span><span class="pi">:</span> <span class="s">speaker</span>
+  <span class="na">template</span><span class="pi">:</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">annotations</span><span class="pi">:</span>
+        <span class="s">prometheus.io/port</span><span class="pi">:</span> <span class="s2">"</span><span class="s">7472"</span>
+        <span class="s">prometheus.io/scrape</span><span class="pi">:</span> <span class="s2">"</span><span class="s">true"</span>
+      <span class="na">labels</span><span class="pi">:</span>
+        <span class="na">app</span><span class="pi">:</span> <span class="s">metallb</span>
+        <span class="na">component</span><span class="pi">:</span> <span class="s">speaker</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">containers</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">args</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="s">--port=7472</span>
+            <span class="pi">-</span> <span class="s">--config=config</span>
+          <span class="na">env</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">METALLB_NODE_NAME</span>
+              <span class="na">valueFrom</span><span class="pi">:</span>
+                <span class="na">fieldRef</span><span class="pi">:</span>
+                  <span class="na">fieldPath</span><span class="pi">:</span> <span class="s">spec.nodeName</span>
+            <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">METALLB_HOST</span>
+              <span class="na">valueFrom</span><span class="pi">:</span>
+                <span class="na">fieldRef</span><span class="pi">:</span>
+                  <span class="na">fieldPath</span><span class="pi">:</span> <span class="s">status.hostIP</span>
+          <span class="na">image</span><span class="pi">:</span> <span class="s">metallb/speaker:v0.8.2</span>
+          <span class="na">imagePullPolicy</span><span class="pi">:</span> <span class="s">IfNotPresent</span>
+          <span class="na">name</span><span class="pi">:</span> <span class="s">speaker</span>
+          <span class="na">ports</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="m">7472</span>
+              <span class="na">name</span><span class="pi">:</span> <span class="s">monitoring</span>
+          <span class="na">resources</span><span class="pi">:</span>
+            <span class="na">limits</span><span class="pi">:</span>
+              <span class="na">cpu</span><span class="pi">:</span> <span class="s">100m</span>
+              <span class="na">memory</span><span class="pi">:</span> <span class="s">100Mi</span>
+          <span class="na">securityContext</span><span class="pi">:</span>
+            <span class="na">allowPrivilegeEscalation</span><span class="pi">:</span> <span class="no">false</span>
+            <span class="na">capabilities</span><span class="pi">:</span>
+              <span class="na">add</span><span class="pi">:</span>
+                <span class="pi">-</span> <span class="s">NET_ADMIN</span>
+                <span class="pi">-</span> <span class="s">NET_RAW</span>
+                <span class="pi">-</span> <span class="s">SYS_ADMIN</span>
+              <span class="na">drop</span><span class="pi">:</span>
+                <span class="pi">-</span> <span class="s">ALL</span>
+            <span class="na">readOnlyRootFilesystem</span><span class="pi">:</span> <span class="no">true</span>
+      <span class="na">hostNetwork</span><span class="pi">:</span> <span class="no">true</span>
+      <span class="na">nodeSelector</span><span class="pi">:</span>
+        <span class="s">beta.kubernetes.io/os</span><span class="pi">:</span> <span class="s">linux</span>
+      <span class="na">serviceAccountName</span><span class="pi">:</span> <span class="s">speaker</span>
+      <span class="na">terminationGracePeriodSeconds</span><span class="pi">:</span> <span class="m">0</span>
+      <span class="na">tolerations</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">effect</span><span class="pi">:</span> <span class="s">NoSchedule</span>
+          <span class="na">key</span><span class="pi">:</span> <span class="s">node-role.kubernetes.io/master</span>
+<span class="nn">---</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">metallb</span>
+    <span class="na">component</span><span class="pi">:</span> <span class="s">controller</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">controller</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">metallb-system</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">revisionHistoryLimit</span><span class="pi">:</span> <span class="m">3</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">matchLabels</span><span class="pi">:</span>
+      <span class="na">app</span><span class="pi">:</span> <span class="s">metallb</span>
+      <span class="na">component</span><span class="pi">:</span> <span class="s">controller</span>
+  <span class="na">template</span><span class="pi">:</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">annotations</span><span class="pi">:</span>
+        <span class="s">prometheus.io/port</span><span class="pi">:</span> <span class="s2">"</span><span class="s">7472"</span>
+        <span class="s">prometheus.io/scrape</span><span class="pi">:</span> <span class="s2">"</span><span class="s">true"</span>
+      <span class="na">labels</span><span class="pi">:</span>
+        <span class="na">app</span><span class="pi">:</span> <span class="s">metallb</span>
+        <span class="na">component</span><span class="pi">:</span> <span class="s">controller</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">containers</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">args</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="s">--port=7472</span>
+            <span class="pi">-</span> <span class="s">--config=config</span>
+          <span class="na">image</span><span class="pi">:</span> <span class="s">metallb/controller:v0.8.2</span>
+          <span class="na">imagePullPolicy</span><span class="pi">:</span> <span class="s">IfNotPresent</span>
+          <span class="na">name</span><span class="pi">:</span> <span class="s">controller</span>
+          <span class="na">ports</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="m">7472</span>
+              <span class="na">name</span><span class="pi">:</span> <span class="s">monitoring</span>
+          <span class="na">resources</span><span class="pi">:</span>
+            <span class="na">limits</span><span class="pi">:</span>
+              <span class="na">cpu</span><span class="pi">:</span> <span class="s">100m</span>
+              <span class="na">memory</span><span class="pi">:</span> <span class="s">100Mi</span>
+          <span class="na">securityContext</span><span class="pi">:</span>
+            <span class="na">allowPrivilegeEscalation</span><span class="pi">:</span> <span class="no">false</span>
+            <span class="na">capabilities</span><span class="pi">:</span>
+              <span class="na">drop</span><span class="pi">:</span>
+                <span class="pi">-</span> <span class="s">all</span>
+            <span class="na">readOnlyRootFilesystem</span><span class="pi">:</span> <span class="no">true</span>
+      <span class="na">nodeSelector</span><span class="pi">:</span>
+        <span class="s">beta.kubernetes.io/os</span><span class="pi">:</span> <span class="s">linux</span>
+      <span class="na">securityContext</span><span class="pi">:</span>
+        <span class="na">runAsNonRoot</span><span class="pi">:</span> <span class="no">true</span>
+        <span class="na">runAsUser</span><span class="pi">:</span> <span class="m">65534</span>
+      <span class="na">serviceAccountName</span><span class="pi">:</span> <span class="s">controller</span>
+      <span class="na">terminationGracePeriodSeconds</span><span class="pi">:</span> <span class="m">0</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>namespace.yaml</strong></p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Namespace</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">metallb-system</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">metallb</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>namespace.yaml</strong></p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#버젼 명시</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+
+<span class="c1">#오브젝트 종류 명시</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Namespace</span>
+
+<span class="c1">#오브젝트 이름 metallb-system으로 지정</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">metallb-system</span>
+
+  <span class="c1">#레이블 지정</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">metallb</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>이제 커스터마이즈로 변경될 작업을 정의하기 위해서 <strong>kustomize create –namespace=metallb-system –resources namespace.yaml, metallb.yaml, metallb-l2config.yaml</strong> 명령으로 <span style="color:orange; font-weight:bold">kustomization.yaml</span>을 생성한다. 이때 –namespace는 작업의 네임스페이스를 설정하며, –resources 명령은 커스터마이즈 명령을 이용해서 <strong>kustomization.yaml</strong>를 만들기 위한 소스 파일을 정의한다.</p>
+
+<p><br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kustomize create <span class="nt">--namespace</span><span class="o">=</span>metallb-system <span class="nt">--resources</span> namespace.yaml, metallb.yaml, metallb-l2config.yaml
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>생성한 kustomization.yaml 파일을 보자.</p>
+
+<p><br /></p>
+
+<p><img src="/images/Kubernetes/kubernetes-Prometheus/2021-08-09-11-20-52.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>리소스로 <strong>namespace.yaml, metallb.yaml 그리고 metallb-l2config.yaml</strong>이 설정됐고, 네임스페이스는 <strong>metallb-system</strong>으로 설정된 것을 확인할 수 있다.</p>
+
+<p><br /></p>
+
+<p>설치된 이미지를 안정적인 버전으로 유지하기 위해서 <strong>kustomize edit set image</strong> 옵션을 이용해 MetalLB controller와 speaker의 이미지 태그를 <strong>v0.8.2</strong>로 지정한다.</p>
+
+<p><br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kustomize edit <span class="nb">set </span>image metallb/controller:v0.8.2
+kustomize edit <span class="nb">set </span>image metallb/speaker:v0.8.2
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>커스터마이즈로 생성된 kustomization.yaml에 이미지 태그 정보(v0.8.2)가 설정됐는지 확인한다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/Kubernetes/kubernetes-Prometheus/2021-08-09-11-20-26.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>이제 kustomizae build 명령으로 MetalLB 설치를 위한 매니페스트를 생성해 보면, 다음과 같이 metallb-l2config.yaml을 통해서 컨피그맵이 만들어졌으며, 이미지 태그인 v0.8.2가 적용된 것을 확인할 수 있다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/Kubernetes/kubernetes-Prometheus/2021-08-09-11-22-38.png" alt="" /></p>
+
+<p><br /></p>
+
+<p><img src="/images/Kubernetes/kubernetes-Prometheus/2021-08-09-11-23-27.png" alt="" /></p>
+
+<p><br /></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>이를 파일로 저장해 MetalLB를 배포할 수도 있지만 편의를 위해서 **kustomize build</td>
+      <td>kubectl apply -f -** 명령으로 빌드한 결과한 바로 kubectl apply에 인자로 전달돼 배포되도록 한다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kustomize build | kubectl apply <span class="nt">-f</span> -
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><img src="/images/Kubernetes/kubernetes-Prometheus/2021-08-09-11-26-09.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>MetalLB가 정상적으로 배포됐는지 <strong>kubectl get pods -n metallb-system</strong> 명령과 <strong>kubectl get configmap -n metallb-system</strong> 명령으로 확인한다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl get pods <span class="nt">-n</span> metallb-system
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><img src="/images/Kubernetes/kubernetes-Prometheus/2021-08-09-11-28-10.png" alt="" /></p>
+
+<p><br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl get configmap <span class="nt">-n</span> metallb-system
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><img src="/images/Kubernetes/kubernetes-Prometheus/2021-08-09-11-29-32.png" alt="" /></p>
+
+<p><br /></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>**kubectl describe pods -n metallbe-system</td>
+      <td>grep Image:** 명령으로 커스터마이즈를 통해서 고정한 MetalLB의 태그가 v0.8.2인지 확인한다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl describe pods <span class="nt">-n</span> metallb-system | <span class="nb">grep </span>Image:
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><img src="/images/Kubernetes/kubernetes-Prometheus/2021-08-09-11-31-24.png" alt="" /></p>
+
+<p><br /></p>
+
+<link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet" />
+
+<div style="background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;">
+
+나중에 우리가 생성한 MetalLB를 삭제하는 경우<br />
+
+kustomize build | kubectl delete -f - </div>
+
+<p><br /></p>
+
+<p><span style="color:#85144b; font-weight:bold; font-size:30px;">헬름으로 배포 간편화하기</span></p>
+
+<p><br /></p>
+
+<p>헬름을 통한 배포는 커스터마이즈에서 제한적이었던 주소 할당 영역과 같은 값을 대체하면서 간단하게 설치할 수 있도록 설계돼 있다. 헬름은 쿠버네티스에 패키지를 손쉽게 배포할 수 있도록 패키지를 관리하는 쿠버네티스 전용 패키지 매니저이다. 일반적으로 패키지는 실행 파일뿐만 아니라 실행 환경에 필요한 의존성 파일과 환경 정보들의 묶음이다.</p>
+
+<p><br /></p>
+
+<p>커스터마이즈를 사용하면 많은 부분을 환경에 맞춰 변경할 수 있지만 주소 할당 영역과 같은 정보는 값의 형태가 아니라서 변경할 수가 없다. 이런 경우에 헬름을 사용하면 주소 할당 영역도 변경이 가능하다. 커스터마이즈에서 변경할 수 없는 값을 환경에 맞게 변경할 수 있다는 점 외에도 헬름은 여러 장점이 있다.</p>
+
+<p><br /></p>
+
+<p>이제 헬름으로 MetalLB를 한 번에 만들어보자.</p>
+
+<p>커스터마이즈를 통해서도 변동이 있는 값과 컨피그맵 파일을 쉽게 설치했었다. 헬름을 사용하면 얼마나 더 편해질까? 이제부터 확인해 보자.</p>
+
+<p>헬름 명령을 사용하기 위해서 <strong>~/_Book_k8sInfra/ch5/5.2.3/helm-install.sh</strong>를 실행해 헬름을 설치한다. helm-install.sh를 실행하면 항상 최신 버전의 헬름을 내려받기 때문에 호환성 이슈를 방지하기 위해서 <strong>DESIRED_VERSION</strong> 환경변수를 설정해 헬름 버전을 v3.2.1로 고정해 설치한다. 헬름 실행 파일도 /usr/local/bin에 위치시킨다.</p>
+
+<p><br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">DESIRED_VERSION</span><span class="o">=</span>v3.2.1<span class="p">;</span> ~/Book_k8sInfra/ch5/5.2.3/helm-install.sh
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>helm-install.sh</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env bash</span>
+
+<span class="c"># Copyright The Helm Authors.</span>
+<span class="c">#</span>
+<span class="c"># Licensed under the Apache License, Version 2.0 (the "License");</span>
+<span class="c"># you may not use this file except in compliance with the License.</span>
+<span class="c"># You may obtain a copy of the License at</span>
+<span class="c">#</span>
+<span class="c">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c">#</span>
+<span class="c"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c"># distributed under the License is distributed on an "AS IS" BASIS,</span>
+<span class="c"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c"># See the License for the specific language governing permissions and</span>
+<span class="c"># limitations under the License.</span>
+
+<span class="c"># The install script is based off of the MIT-licensed script from glide,</span>
+<span class="c"># the package manager for Go: https://github.com/Masterminds/glide.sh/blob/master/get</span>
+
+: <span class="k">${</span><span class="nv">BINARY_NAME</span>:<span class="p">=</span><span class="s2">"helm"</span><span class="k">}</span>
+: <span class="k">${</span><span class="nv">USE_SUDO</span>:<span class="p">=</span><span class="s2">"true"</span><span class="k">}</span>
+: <span class="k">${</span><span class="nv">DEBUG</span>:<span class="p">=</span><span class="s2">"false"</span><span class="k">}</span>
+: <span class="k">${</span><span class="nv">VERIFY_CHECKSUM</span>:<span class="p">=</span><span class="s2">"true"</span><span class="k">}</span>
+: <span class="k">${</span><span class="nv">VERIFY_SIGNATURES</span>:<span class="p">=</span><span class="s2">"false"</span><span class="k">}</span>
+: <span class="k">${</span><span class="nv">HELM_INSTALL_DIR</span>:<span class="p">=</span><span class="s2">"/usr/local/bin"</span><span class="k">}</span>
+
+<span class="nv">HAS_CURL</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span><span class="nb">type</span> <span class="s2">"curl"</span> &amp;&gt; /dev/null <span class="o">&amp;&amp;</span> <span class="nb">echo true</span> <span class="o">||</span> <span class="nb">echo false</span><span class="si">)</span><span class="s2">"</span>
+<span class="nv">HAS_WGET</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span><span class="nb">type</span> <span class="s2">"wget"</span> &amp;&gt; /dev/null <span class="o">&amp;&amp;</span> <span class="nb">echo true</span> <span class="o">||</span> <span class="nb">echo false</span><span class="si">)</span><span class="s2">"</span>
+<span class="nv">HAS_OPENSSL</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span><span class="nb">type</span> <span class="s2">"openssl"</span> &amp;&gt; /dev/null <span class="o">&amp;&amp;</span> <span class="nb">echo true</span> <span class="o">||</span> <span class="nb">echo false</span><span class="si">)</span><span class="s2">"</span>
+<span class="nv">HAS_GPG</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span><span class="nb">type</span> <span class="s2">"gpg"</span> &amp;&gt; /dev/null <span class="o">&amp;&amp;</span> <span class="nb">echo true</span> <span class="o">||</span> <span class="nb">echo false</span><span class="si">)</span><span class="s2">"</span>
+
+<span class="c"># initArch discovers the architecture for this system.</span>
+initArch<span class="o">()</span> <span class="o">{</span>
+  <span class="nv">ARCH</span><span class="o">=</span><span class="si">$(</span><span class="nb">uname</span> <span class="nt">-m</span><span class="si">)</span>
+  <span class="k">case</span> <span class="nv">$ARCH</span> <span class="k">in
+    </span>armv5<span class="k">*</span><span class="p">)</span> <span class="nv">ARCH</span><span class="o">=</span><span class="s2">"armv5"</span><span class="p">;;</span>
+    armv6<span class="k">*</span><span class="p">)</span> <span class="nv">ARCH</span><span class="o">=</span><span class="s2">"armv6"</span><span class="p">;;</span>
+    armv7<span class="k">*</span><span class="p">)</span> <span class="nv">ARCH</span><span class="o">=</span><span class="s2">"arm"</span><span class="p">;;</span>
+    aarch64<span class="p">)</span> <span class="nv">ARCH</span><span class="o">=</span><span class="s2">"arm64"</span><span class="p">;;</span>
+    x86<span class="p">)</span> <span class="nv">ARCH</span><span class="o">=</span><span class="s2">"386"</span><span class="p">;;</span>
+    x86_64<span class="p">)</span> <span class="nv">ARCH</span><span class="o">=</span><span class="s2">"amd64"</span><span class="p">;;</span>
+    i686<span class="p">)</span> <span class="nv">ARCH</span><span class="o">=</span><span class="s2">"386"</span><span class="p">;;</span>
+    i386<span class="p">)</span> <span class="nv">ARCH</span><span class="o">=</span><span class="s2">"386"</span><span class="p">;;</span>
+  <span class="k">esac</span>
+<span class="o">}</span>
+
+<span class="c"># initOS discovers the operating system for this system.</span>
+initOS<span class="o">()</span> <span class="o">{</span>
+  <span class="nv">OS</span><span class="o">=</span><span class="si">$(</span><span class="nb">echo</span> <span class="sb">`</span><span class="nb">uname</span><span class="sb">`</span>|tr <span class="s1">'[:upper:]'</span> <span class="s1">'[:lower:]'</span><span class="si">)</span>
+
+  <span class="k">case</span> <span class="s2">"</span><span class="nv">$OS</span><span class="s2">"</span> <span class="k">in</span>
+    <span class="c"># Minimalist GNU for Windows</span>
+    mingw<span class="k">*</span><span class="p">)</span> <span class="nv">OS</span><span class="o">=</span><span class="s1">'windows'</span><span class="p">;;</span>
+  <span class="k">esac</span>
+<span class="o">}</span>
+
+<span class="c"># runs the given command as root (detects if we are root already)</span>
+runAsRoot<span class="o">()</span> <span class="o">{</span>
+  <span class="nb">local </span><span class="nv">CMD</span><span class="o">=</span><span class="s2">"</span><span class="nv">$*</span><span class="s2">"</span>
+
+  <span class="k">if</span> <span class="o">[</span> <span class="nv">$EUID</span> <span class="nt">-ne</span> 0 <span class="nt">-a</span> <span class="nv">$USE_SUDO</span> <span class="o">=</span> <span class="s2">"true"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nv">CMD</span><span class="o">=</span><span class="s2">"sudo </span><span class="nv">$CMD</span><span class="s2">"</span>
+  <span class="k">fi</span>
+
+  <span class="nv">$CMD</span>
+<span class="o">}</span>
+
+<span class="c"># verifySupported checks that the os/arch combination is supported for</span>
+<span class="c"># binary builds, as well whether or not necessary tools are present.</span>
+verifySupported<span class="o">()</span> <span class="o">{</span>
+  <span class="nb">local </span><span class="nv">supported</span><span class="o">=</span><span class="s2">"darwin-amd64</span><span class="se">\n</span><span class="s2">linux-386</span><span class="se">\n</span><span class="s2">linux-amd64</span><span class="se">\n</span><span class="s2">linux-arm</span><span class="se">\n</span><span class="s2">linux-arm64</span><span class="se">\n</span><span class="s2">linux-ppc64le</span><span class="se">\n</span><span class="s2">linux-s390x</span><span class="se">\n</span><span class="s2">windows-amd64"</span>
+  <span class="k">if</span> <span class="o">!</span> <span class="nb">echo</span> <span class="s2">"</span><span class="k">${</span><span class="nv">supported</span><span class="k">}</span><span class="s2">"</span> | <span class="nb">grep</span> <span class="nt">-q</span> <span class="s2">"</span><span class="k">${</span><span class="nv">OS</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">ARCH</span><span class="k">}</span><span class="s2">"</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"No prebuilt binary for </span><span class="k">${</span><span class="nv">OS</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">ARCH</span><span class="k">}</span><span class="s2">."</span>
+    <span class="nb">echo</span> <span class="s2">"To build from source, go to https://github.com/helm/helm"</span>
+    <span class="nb">exit </span>1
+  <span class="k">fi
+
+  if</span> <span class="o">[</span> <span class="s2">"</span><span class="k">${</span><span class="nv">HAS_CURL</span><span class="k">}</span><span class="s2">"</span> <span class="o">!=</span> <span class="s2">"true"</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="s2">"</span><span class="k">${</span><span class="nv">HAS_WGET</span><span class="k">}</span><span class="s2">"</span> <span class="o">!=</span> <span class="s2">"true"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"Either curl or wget is required"</span>
+    <span class="nb">exit </span>1
+  <span class="k">fi
+
+  if</span> <span class="o">[</span> <span class="s2">"</span><span class="k">${</span><span class="nv">VERIFY_CHECKSUM</span><span class="k">}</span><span class="s2">"</span> <span class="o">==</span> <span class="s2">"true"</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="s2">"</span><span class="k">${</span><span class="nv">HAS_OPENSSL</span><span class="k">}</span><span class="s2">"</span> <span class="o">!=</span> <span class="s2">"true"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"In order to verify checksum, openssl must first be installed."</span>
+    <span class="nb">echo</span> <span class="s2">"Please install openssl or set VERIFY_CHECKSUM=false in your environment."</span>
+    <span class="nb">exit </span>1
+  <span class="k">fi
+
+  if</span> <span class="o">[</span> <span class="s2">"</span><span class="k">${</span><span class="nv">VERIFY_SIGNATURES</span><span class="k">}</span><span class="s2">"</span> <span class="o">==</span> <span class="s2">"true"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    if</span> <span class="o">[</span> <span class="s2">"</span><span class="k">${</span><span class="nv">HAS_GPG</span><span class="k">}</span><span class="s2">"</span> <span class="o">!=</span> <span class="s2">"true"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+      </span><span class="nb">echo</span> <span class="s2">"In order to verify signatures, gpg must first be installed."</span>
+      <span class="nb">echo</span> <span class="s2">"Please install gpg or set VERIFY_SIGNATURES=false in your environment."</span>
+      <span class="nb">exit </span>1
+    <span class="k">fi
+    if</span> <span class="o">[</span> <span class="s2">"</span><span class="k">${</span><span class="nv">OS</span><span class="k">}</span><span class="s2">"</span> <span class="o">!=</span> <span class="s2">"linux"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+      </span><span class="nb">echo</span> <span class="s2">"Signature verification is currently only supported on Linux."</span>
+      <span class="nb">echo</span> <span class="s2">"Please set VERIFY_SIGNATURES=false or verify the signatures manually."</span>
+      <span class="nb">exit </span>1
+    <span class="k">fi
+  fi</span>
+<span class="o">}</span>
+
+<span class="c"># checkDesiredVersion checks if the desired version is available.</span>
+checkDesiredVersion<span class="o">()</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">"x</span><span class="nv">$DESIRED_VERSION</span><span class="s2">"</span> <span class="o">==</span> <span class="s2">"x"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="c"># Get tag from release URL</span>
+    <span class="nb">local </span><span class="nv">latest_release_url</span><span class="o">=</span><span class="s2">"https://github.com/helm/helm/releases"</span>
+    <span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="k">${</span><span class="nv">HAS_CURL</span><span class="k">}</span><span class="s2">"</span> <span class="o">==</span> <span class="s2">"true"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+      </span><span class="nv">TAG</span><span class="o">=</span><span class="si">$(</span>curl <span class="nt">-Ls</span> <span class="nv">$latest_release_url</span> | <span class="nb">grep</span> <span class="s1">'href="/helm/helm/releases/tag/v3.[0-9]*.[0-9]*\"'</span> | <span class="nb">grep</span> <span class="nt">-v</span> no-underline | <span class="nb">head</span> <span class="nt">-n</span> 1 | <span class="nb">cut</span> <span class="nt">-d</span> <span class="s1">'"'</span> <span class="nt">-f</span> 2 | <span class="nb">awk</span> <span class="s1">'{n=split($NF,a,"/");print a[n]}'</span> | <span class="nb">awk</span> <span class="s1">'a !~ $0{print}; {a=$0}'</span><span class="si">)</span>
+    <span class="k">elif</span> <span class="o">[</span> <span class="s2">"</span><span class="k">${</span><span class="nv">HAS_WGET</span><span class="k">}</span><span class="s2">"</span> <span class="o">==</span> <span class="s2">"true"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+      </span><span class="nv">TAG</span><span class="o">=</span><span class="si">$(</span>wget <span class="nv">$latest_release_url</span> <span class="nt">-O</span> - 2&gt;&amp;1 | <span class="nb">grep</span> <span class="s1">'href="/helm/helm/releases/tag/v3.[0-9]*.[0-9]*\"'</span> | <span class="nb">grep</span> <span class="nt">-v</span> no-underline | <span class="nb">head</span> <span class="nt">-n</span> 1 | <span class="nb">cut</span> <span class="nt">-d</span> <span class="s1">'"'</span> <span class="nt">-f</span> 2 | <span class="nb">awk</span> <span class="s1">'{n=split($NF,a,"/");print a[n]}'</span> | <span class="nb">awk</span> <span class="s1">'a !~ $0{print}; {a=$0}'</span><span class="si">)</span>
+    <span class="k">fi
+  else
+    </span><span class="nv">TAG</span><span class="o">=</span><span class="nv">$DESIRED_VERSION</span>
+  <span class="k">fi</span>
+<span class="o">}</span>
+
+<span class="c"># checkHelmInstalledVersion checks which version of helm is installed and</span>
+<span class="c"># if it needs to be changed.</span>
+checkHelmInstalledVersion<span class="o">()</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">[[</span> <span class="nt">-f</span> <span class="s2">"</span><span class="k">${</span><span class="nv">HELM_INSTALL_DIR</span><span class="k">}</span><span class="s2">/</span><span class="k">${</span><span class="nv">BINARY_NAME</span><span class="k">}</span><span class="s2">"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">local </span><span class="nv">version</span><span class="o">=</span><span class="si">$(</span><span class="s2">"</span><span class="k">${</span><span class="nv">HELM_INSTALL_DIR</span><span class="k">}</span><span class="s2">/</span><span class="k">${</span><span class="nv">BINARY_NAME</span><span class="k">}</span><span class="s2">"</span> version <span class="nt">--template</span><span class="o">=</span><span class="s2">""</span><span class="si">)</span>
+    <span class="k">if</span> <span class="o">[[</span> <span class="s2">"</span><span class="nv">$version</span><span class="s2">"</span> <span class="o">==</span> <span class="s2">"</span><span class="nv">$TAG</span><span class="s2">"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
+      </span><span class="nb">echo</span> <span class="s2">"Helm </span><span class="k">${</span><span class="nv">version</span><span class="k">}</span><span class="s2"> is already </span><span class="k">${</span><span class="nv">DESIRED_VERSION</span><span class="k">:-</span><span class="nv">latest</span><span class="k">}</span><span class="s2">"</span>
+      <span class="k">return </span>0
+    <span class="k">else
+      </span><span class="nb">echo</span> <span class="s2">"Helm </span><span class="k">${</span><span class="nv">TAG</span><span class="k">}</span><span class="s2"> is available. Changing from version </span><span class="k">${</span><span class="nv">version</span><span class="k">}</span><span class="s2">."</span>
+      <span class="k">return </span>1
+    <span class="k">fi
+  else
+    return </span>1
+  <span class="k">fi</span>
+<span class="o">}</span>
+
+<span class="c"># downloadFile downloads the latest binary package and also the checksum</span>
+<span class="c"># for that binary.</span>
+downloadFile<span class="o">()</span> <span class="o">{</span>
+  <span class="nv">HELM_DIST</span><span class="o">=</span><span class="s2">"helm-</span><span class="nv">$TAG</span><span class="s2">-</span><span class="nv">$OS</span><span class="s2">-</span><span class="nv">$ARCH</span><span class="s2">.tar.gz"</span>
+  <span class="nv">DOWNLOAD_URL</span><span class="o">=</span><span class="s2">"https://get.helm.sh/</span><span class="nv">$HELM_DIST</span><span class="s2">"</span>
+  <span class="nv">CHECKSUM_URL</span><span class="o">=</span><span class="s2">"</span><span class="nv">$DOWNLOAD_URL</span><span class="s2">.sha256"</span>
+  <span class="nv">HELM_TMP_ROOT</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span><span class="nb">mktemp</span> <span class="nt">-dt</span> helm-installer-XXXXXX<span class="si">)</span><span class="s2">"</span>
+  <span class="nv">HELM_TMP_FILE</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HELM_TMP_ROOT</span><span class="s2">/</span><span class="nv">$HELM_DIST</span><span class="s2">"</span>
+  <span class="nv">HELM_SUM_FILE</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HELM_TMP_ROOT</span><span class="s2">/</span><span class="nv">$HELM_DIST</span><span class="s2">.sha256"</span>
+  <span class="nb">echo</span> <span class="s2">"Downloading </span><span class="nv">$DOWNLOAD_URL</span><span class="s2">"</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="k">${</span><span class="nv">HAS_CURL</span><span class="k">}</span><span class="s2">"</span> <span class="o">==</span> <span class="s2">"true"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span>curl <span class="nt">-SsL</span> <span class="s2">"</span><span class="nv">$CHECKSUM_URL</span><span class="s2">"</span> <span class="nt">-o</span> <span class="s2">"</span><span class="nv">$HELM_SUM_FILE</span><span class="s2">"</span>
+    curl <span class="nt">-SsL</span> <span class="s2">"</span><span class="nv">$DOWNLOAD_URL</span><span class="s2">"</span> <span class="nt">-o</span> <span class="s2">"</span><span class="nv">$HELM_TMP_FILE</span><span class="s2">"</span>
+  <span class="k">elif</span> <span class="o">[</span> <span class="s2">"</span><span class="k">${</span><span class="nv">HAS_WGET</span><span class="k">}</span><span class="s2">"</span> <span class="o">==</span> <span class="s2">"true"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span>wget <span class="nt">-q</span> <span class="nt">-O</span> <span class="s2">"</span><span class="nv">$HELM_SUM_FILE</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$CHECKSUM_URL</span><span class="s2">"</span>
+    wget <span class="nt">-q</span> <span class="nt">-O</span> <span class="s2">"</span><span class="nv">$HELM_TMP_FILE</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$DOWNLOAD_URL</span><span class="s2">"</span>
+  <span class="k">fi</span>
+<span class="o">}</span>
+
+<span class="c"># verifyFile verifies the SHA256 checksum of the binary package</span>
+<span class="c"># and the GPG signatures for both the package and checksum file</span>
+<span class="c"># (depending on settings in environment).</span>
+verifyFile<span class="o">()</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="k">${</span><span class="nv">VERIFY_CHECKSUM</span><span class="k">}</span><span class="s2">"</span> <span class="o">==</span> <span class="s2">"true"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span>verifyChecksum
+  <span class="k">fi
+  if</span> <span class="o">[</span> <span class="s2">"</span><span class="k">${</span><span class="nv">VERIFY_SIGNATURES</span><span class="k">}</span><span class="s2">"</span> <span class="o">==</span> <span class="s2">"true"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span>verifySignatures
+  <span class="k">fi</span>
+<span class="o">}</span>
+
+<span class="c"># installFile installs the Helm binary.</span>
+installFile<span class="o">()</span> <span class="o">{</span>
+  <span class="nv">HELM_TMP</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HELM_TMP_ROOT</span><span class="s2">/</span><span class="nv">$BINARY_NAME</span><span class="s2">"</span>
+  <span class="nb">mkdir</span> <span class="nt">-p</span> <span class="s2">"</span><span class="nv">$HELM_TMP</span><span class="s2">"</span>
+  <span class="nb">tar </span>xf <span class="s2">"</span><span class="nv">$HELM_TMP_FILE</span><span class="s2">"</span> <span class="nt">-C</span> <span class="s2">"</span><span class="nv">$HELM_TMP</span><span class="s2">"</span>
+  <span class="nv">HELM_TMP_BIN</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HELM_TMP</span><span class="s2">/</span><span class="nv">$OS</span><span class="s2">-</span><span class="nv">$ARCH</span><span class="s2">/helm"</span>
+  <span class="nb">echo</span> <span class="s2">"Preparing to install </span><span class="nv">$BINARY_NAME</span><span class="s2"> into </span><span class="k">${</span><span class="nv">HELM_INSTALL_DIR</span><span class="k">}</span><span class="s2">"</span>
+  runAsRoot <span class="nb">cp</span> <span class="s2">"</span><span class="nv">$HELM_TMP_BIN</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$HELM_INSTALL_DIR</span><span class="s2">/</span><span class="nv">$BINARY_NAME</span><span class="s2">"</span>
+  <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$BINARY_NAME</span><span class="s2"> installed into </span><span class="nv">$HELM_INSTALL_DIR</span><span class="s2">/</span><span class="nv">$BINARY_NAME</span><span class="s2">"</span>
+<span class="o">}</span>
+
+<span class="c"># verifyChecksum verifies the SHA256 checksum of the binary package.</span>
+verifyChecksum<span class="o">()</span> <span class="o">{</span>
+  <span class="nb">printf</span> <span class="s2">"Verifying checksum... "</span>
+  <span class="nb">local sum</span><span class="o">=</span><span class="si">$(</span>openssl sha1 <span class="nt">-sha256</span> <span class="k">${</span><span class="nv">HELM_TMP_FILE</span><span class="k">}</span> | <span class="nb">awk</span> <span class="s1">'{print $2}'</span><span class="si">)</span>
+  <span class="nb">local </span><span class="nv">expected_sum</span><span class="o">=</span><span class="si">$(</span><span class="nb">cat</span> <span class="k">${</span><span class="nv">HELM_SUM_FILE</span><span class="k">}</span><span class="si">)</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$sum</span><span class="s2">"</span> <span class="o">!=</span> <span class="s2">"</span><span class="nv">$expected_sum</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"SHA sum of </span><span class="k">${</span><span class="nv">HELM_TMP_FILE</span><span class="k">}</span><span class="s2"> does not match. Aborting."</span>
+    <span class="nb">exit </span>1
+  <span class="k">fi
+  </span><span class="nb">echo</span> <span class="s2">"Done."</span>
+<span class="o">}</span>
+
+<span class="c"># verifySignatures obtains the latest KEYS file from GitHub master branch</span>
+<span class="c"># as well as the signature .asc files from the specific GitHub release,</span>
+<span class="c"># then verifies that the release artifacts were signed by a maintainer's key.</span>
+verifySignatures<span class="o">()</span> <span class="o">{</span>
+  <span class="nb">printf</span> <span class="s2">"Verifying signatures... "</span>
+  <span class="nb">local </span><span class="nv">keys_filename</span><span class="o">=</span><span class="s2">"KEYS"</span>
+  <span class="nb">local </span><span class="nv">github_keys_url</span><span class="o">=</span><span class="s2">"https://raw.githubusercontent.com/helm/helm/master/</span><span class="k">${</span><span class="nv">keys_filename</span><span class="k">}</span><span class="s2">"</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="k">${</span><span class="nv">HAS_CURL</span><span class="k">}</span><span class="s2">"</span> <span class="o">==</span> <span class="s2">"true"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span>curl <span class="nt">-SsL</span> <span class="s2">"</span><span class="k">${</span><span class="nv">github_keys_url</span><span class="k">}</span><span class="s2">"</span> <span class="nt">-o</span> <span class="s2">"</span><span class="k">${</span><span class="nv">HELM_TMP_ROOT</span><span class="k">}</span><span class="s2">/</span><span class="k">${</span><span class="nv">keys_filename</span><span class="k">}</span><span class="s2">"</span>
+  <span class="k">elif</span> <span class="o">[</span> <span class="s2">"</span><span class="k">${</span><span class="nv">HAS_WGET</span><span class="k">}</span><span class="s2">"</span> <span class="o">==</span> <span class="s2">"true"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span>wget <span class="nt">-q</span> <span class="nt">-O</span> <span class="s2">"</span><span class="k">${</span><span class="nv">HELM_TMP_ROOT</span><span class="k">}</span><span class="s2">/</span><span class="k">${</span><span class="nv">keys_filename</span><span class="k">}</span><span class="s2">"</span> <span class="s2">"</span><span class="k">${</span><span class="nv">github_keys_url</span><span class="k">}</span><span class="s2">"</span>
+  <span class="k">fi
+  </span><span class="nb">local </span><span class="nv">gpg_keyring</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">HELM_TMP_ROOT</span><span class="k">}</span><span class="s2">/keyring.gpg"</span>
+  <span class="nb">local </span><span class="nv">gpg_homedir</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">HELM_TMP_ROOT</span><span class="k">}</span><span class="s2">/gnupg"</span>
+  <span class="nb">mkdir</span> <span class="nt">-p</span> <span class="nt">-m</span> 0700 <span class="s2">"</span><span class="k">${</span><span class="nv">gpg_homedir</span><span class="k">}</span><span class="s2">"</span>
+  <span class="nb">local </span><span class="nv">gpg_stderr_device</span><span class="o">=</span><span class="s2">"/dev/null"</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="k">${</span><span class="nv">DEBUG</span><span class="k">}</span><span class="s2">"</span> <span class="o">==</span> <span class="s2">"true"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nv">gpg_stderr_device</span><span class="o">=</span><span class="s2">"/dev/stderr"</span>
+  <span class="k">fi
+  </span>gpg <span class="nt">--batch</span> <span class="nt">--quiet</span> <span class="nt">--homedir</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">gpg_homedir</span><span class="k">}</span><span class="s2">"</span> <span class="nt">--import</span> <span class="s2">"</span><span class="k">${</span><span class="nv">HELM_TMP_ROOT</span><span class="k">}</span><span class="s2">/</span><span class="k">${</span><span class="nv">keys_filename</span><span class="k">}</span><span class="s2">"</span> 2&gt; <span class="s2">"</span><span class="k">${</span><span class="nv">gpg_stderr_device</span><span class="k">}</span><span class="s2">"</span>
+  gpg <span class="nt">--batch</span> <span class="nt">--no-default-keyring</span> <span class="nt">--keyring</span> <span class="s2">"</span><span class="k">${</span><span class="nv">gpg_homedir</span><span class="k">}</span><span class="s2">/pubring.kbx"</span> <span class="nt">--export</span> <span class="o">&gt;</span> <span class="s2">"</span><span class="k">${</span><span class="nv">gpg_keyring</span><span class="k">}</span><span class="s2">"</span>
+  <span class="nb">local </span><span class="nv">github_release_url</span><span class="o">=</span><span class="s2">"https://github.com/helm/helm/releases/download/</span><span class="k">${</span><span class="nv">TAG</span><span class="k">}</span><span class="s2">"</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="k">${</span><span class="nv">HAS_CURL</span><span class="k">}</span><span class="s2">"</span> <span class="o">==</span> <span class="s2">"true"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span>curl <span class="nt">-SsL</span> <span class="s2">"</span><span class="k">${</span><span class="nv">github_release_url</span><span class="k">}</span><span class="s2">/helm-</span><span class="k">${</span><span class="nv">TAG</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">OS</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">ARCH</span><span class="k">}</span><span class="s2">.tar.gz.sha256.asc"</span> <span class="nt">-o</span> <span class="s2">"</span><span class="k">${</span><span class="nv">HELM_TMP_ROOT</span><span class="k">}</span><span class="s2">/helm-</span><span class="k">${</span><span class="nv">TAG</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">OS</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">ARCH</span><span class="k">}</span><span class="s2">.tar.gz.sha256.asc"</span>
+    curl <span class="nt">-SsL</span> <span class="s2">"</span><span class="k">${</span><span class="nv">github_release_url</span><span class="k">}</span><span class="s2">/helm-</span><span class="k">${</span><span class="nv">TAG</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">OS</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">ARCH</span><span class="k">}</span><span class="s2">.tar.gz.asc"</span> <span class="nt">-o</span> <span class="s2">"</span><span class="k">${</span><span class="nv">HELM_TMP_ROOT</span><span class="k">}</span><span class="s2">/helm-</span><span class="k">${</span><span class="nv">TAG</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">OS</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">ARCH</span><span class="k">}</span><span class="s2">.tar.gz.asc"</span>
+  <span class="k">elif</span> <span class="o">[</span> <span class="s2">"</span><span class="k">${</span><span class="nv">HAS_WGET</span><span class="k">}</span><span class="s2">"</span> <span class="o">==</span> <span class="s2">"true"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span>wget <span class="nt">-q</span> <span class="nt">-O</span> <span class="s2">"</span><span class="k">${</span><span class="nv">HELM_TMP_ROOT</span><span class="k">}</span><span class="s2">/helm-</span><span class="k">${</span><span class="nv">TAG</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">OS</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">ARCH</span><span class="k">}</span><span class="s2">.tar.gz.sha256.asc"</span> <span class="s2">"</span><span class="k">${</span><span class="nv">github_release_url</span><span class="k">}</span><span class="s2">/helm-</span><span class="k">${</span><span class="nv">TAG</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">OS</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">ARCH</span><span class="k">}</span><span class="s2">.tar.gz.sha256.asc"</span>
+    wget <span class="nt">-q</span> <span class="nt">-O</span> <span class="s2">"</span><span class="k">${</span><span class="nv">HELM_TMP_ROOT</span><span class="k">}</span><span class="s2">/helm-</span><span class="k">${</span><span class="nv">TAG</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">OS</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">ARCH</span><span class="k">}</span><span class="s2">.tar.gz.asc"</span> <span class="s2">"</span><span class="k">${</span><span class="nv">github_release_url</span><span class="k">}</span><span class="s2">/helm-</span><span class="k">${</span><span class="nv">TAG</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">OS</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">ARCH</span><span class="k">}</span><span class="s2">.tar.gz.asc"</span>
+  <span class="k">fi
+  </span><span class="nb">local </span><span class="nv">error_text</span><span class="o">=</span><span class="s2">"If you think this might be a potential security issue,"</span>
+  <span class="nv">error_text</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">error_text</span><span class="k">}</span><span class="se">\n</span><span class="s2">please see here: https://github.com/helm/community/blob/master/SECURITY.md"</span>
+  <span class="nb">local </span><span class="nv">num_goodlines_sha</span><span class="o">=</span><span class="si">$(</span>gpg <span class="nt">--verify</span> <span class="nt">--keyring</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">gpg_keyring</span><span class="k">}</span><span class="s2">"</span> <span class="nt">--status-fd</span><span class="o">=</span>1 <span class="s2">"</span><span class="k">${</span><span class="nv">HELM_TMP_ROOT</span><span class="k">}</span><span class="s2">/helm-</span><span class="k">${</span><span class="nv">TAG</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">OS</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">ARCH</span><span class="k">}</span><span class="s2">.tar.gz.sha256.asc"</span> 2&gt; <span class="s2">"</span><span class="k">${</span><span class="nv">gpg_stderr_device</span><span class="k">}</span><span class="s2">"</span> | <span class="nb">grep</span> <span class="nt">-c</span> <span class="nt">-E</span> <span class="s1">'^\[GNUPG:\] (GOODSIG|VALIDSIG)'</span><span class="si">)</span>
+  <span class="k">if</span> <span class="o">[[</span> <span class="k">${</span><span class="nv">num_goodlines_sha</span><span class="k">}</span> <span class="nt">-lt</span> 2 <span class="o">]]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"Unable to verify the signature of helm-</span><span class="k">${</span><span class="nv">TAG</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">OS</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">ARCH</span><span class="k">}</span><span class="s2">.tar.gz.sha256!"</span>
+    <span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"</span><span class="k">${</span><span class="nv">error_text</span><span class="k">}</span><span class="s2">"</span>
+    <span class="nb">exit </span>1
+  <span class="k">fi
+  </span><span class="nb">local </span><span class="nv">num_goodlines_tar</span><span class="o">=</span><span class="si">$(</span>gpg <span class="nt">--verify</span> <span class="nt">--keyring</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">gpg_keyring</span><span class="k">}</span><span class="s2">"</span> <span class="nt">--status-fd</span><span class="o">=</span>1 <span class="s2">"</span><span class="k">${</span><span class="nv">HELM_TMP_ROOT</span><span class="k">}</span><span class="s2">/helm-</span><span class="k">${</span><span class="nv">TAG</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">OS</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">ARCH</span><span class="k">}</span><span class="s2">.tar.gz.asc"</span> 2&gt; <span class="s2">"</span><span class="k">${</span><span class="nv">gpg_stderr_device</span><span class="k">}</span><span class="s2">"</span> | <span class="nb">grep</span> <span class="nt">-c</span> <span class="nt">-E</span> <span class="s1">'^\[GNUPG:\] (GOODSIG|VALIDSIG)'</span><span class="si">)</span>
+  <span class="k">if</span> <span class="o">[[</span> <span class="k">${</span><span class="nv">num_goodlines_tar</span><span class="k">}</span> <span class="nt">-lt</span> 2 <span class="o">]]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"Unable to verify the signature of helm-</span><span class="k">${</span><span class="nv">TAG</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">OS</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">ARCH</span><span class="k">}</span><span class="s2">.tar.gz!"</span>
+    <span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"</span><span class="k">${</span><span class="nv">error_text</span><span class="k">}</span><span class="s2">"</span>
+    <span class="nb">exit </span>1
+  <span class="k">fi
+  </span><span class="nb">echo</span> <span class="s2">"Done."</span>
+<span class="o">}</span>
+
+<span class="c"># fail_trap is executed if an error occurs.</span>
+fail_trap<span class="o">()</span> <span class="o">{</span>
+  <span class="nv">result</span><span class="o">=</span><span class="nv">$?</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$result</span><span class="s2">"</span> <span class="o">!=</span> <span class="s2">"0"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    if</span> <span class="o">[[</span> <span class="nt">-n</span> <span class="s2">"</span><span class="nv">$INPUT_ARGUMENTS</span><span class="s2">"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
+      </span><span class="nb">echo</span> <span class="s2">"Failed to install </span><span class="nv">$BINARY_NAME</span><span class="s2"> with the arguments provided: </span><span class="nv">$INPUT_ARGUMENTS</span><span class="s2">"</span>
+      <span class="nb">help
+    </span><span class="k">else
+      </span><span class="nb">echo</span> <span class="s2">"Failed to install </span><span class="nv">$BINARY_NAME</span><span class="s2">"</span>
+    <span class="k">fi
+    </span><span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"</span><span class="se">\t</span><span class="s2">For support, go to https://github.com/helm/helm."</span>
+  <span class="k">fi
+  </span>cleanup
+  <span class="nb">exit</span> <span class="nv">$result</span>
+<span class="o">}</span>
+
+<span class="c"># testVersion tests the installed client to make sure it is working.</span>
+testVersion<span class="o">()</span> <span class="o">{</span>
+  <span class="nb">set</span> +e
+  <span class="nv">HELM</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span><span class="nb">command</span> <span class="nt">-v</span> <span class="nv">$BINARY_NAME</span><span class="si">)</span><span class="s2">"</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$?</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"1"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"</span><span class="nv">$BINARY_NAME</span><span class="s2"> not found. Is </span><span class="nv">$HELM_INSTALL_DIR</span><span class="s2"> on your "</span><span class="s1">'$PATH?'</span>
+    <span class="nb">exit </span>1
+  <span class="k">fi
+  </span><span class="nb">set</span> <span class="nt">-e</span>
+<span class="o">}</span>
+
+<span class="c"># help provides possible cli installation arguments</span>
+<span class="nb">help</span> <span class="o">()</span> <span class="o">{</span>
+  <span class="nb">echo</span> <span class="s2">"Accepted cli arguments are:"</span>
+  <span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"</span><span class="se">\t</span><span class="s2">[--help|-h ] -&gt;&gt; prints this help"</span>
+  <span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"</span><span class="se">\t</span><span class="s2">[--version|-v &lt;desired_version&gt;] . When not defined it fetches the latest release from GitHub"</span>
+  <span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"</span><span class="se">\t</span><span class="s2">e.g. --version v3.0.0 or -v canary"</span>
+  <span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"</span><span class="se">\t</span><span class="s2">[--no-sudo]  -&gt;&gt; install without sudo"</span>
+<span class="o">}</span>
+
+<span class="c"># cleanup temporary files to avoid https://github.com/helm/helm/issues/2977</span>
+cleanup<span class="o">()</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">[[</span> <span class="nt">-d</span> <span class="s2">"</span><span class="k">${</span><span class="nv">HELM_TMP_ROOT</span><span class="k">:-}</span><span class="s2">"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">rm</span> <span class="nt">-rf</span> <span class="s2">"</span><span class="nv">$HELM_TMP_ROOT</span><span class="s2">"</span>
+  <span class="k">fi</span>
+<span class="o">}</span>
+
+<span class="c"># Execution</span>
+
+<span class="c">#Stop execution on any error</span>
+<span class="nb">trap</span> <span class="s2">"fail_trap"</span> EXIT
+<span class="nb">set</span> <span class="nt">-e</span>
+
+<span class="c"># Set debug if desired</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="k">${</span><span class="nv">DEBUG</span><span class="k">}</span><span class="s2">"</span> <span class="o">==</span> <span class="s2">"true"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+  </span><span class="nb">set</span> <span class="nt">-x</span>
+<span class="k">fi</span>
+
+<span class="c"># Parsing input arguments (if any)</span>
+<span class="nb">export </span><span class="nv">INPUT_ARGUMENTS</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="p">@</span><span class="k">}</span><span class="s2">"</span>
+<span class="nb">set</span> <span class="nt">-u</span>
+<span class="k">while</span> <span class="o">[[</span> <span class="nv">$# </span><span class="nt">-gt</span> 0 <span class="o">]]</span><span class="p">;</span> <span class="k">do
+  case</span> <span class="nv">$1</span> <span class="k">in</span>
+    <span class="s1">'--version'</span><span class="p">|</span><span class="nt">-v</span><span class="p">)</span>
+       <span class="nb">shift
+       </span><span class="k">if</span> <span class="o">[[</span> <span class="nv">$# </span><span class="nt">-ne</span> 0 <span class="o">]]</span><span class="p">;</span> <span class="k">then
+           </span><span class="nb">export </span><span class="nv">DESIRED_VERSION</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">1</span><span class="k">}</span><span class="s2">"</span>
+       <span class="k">else
+           </span><span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"Please provide the desired version. e.g. --version v3.0.0 or -v canary"</span>
+           <span class="nb">exit </span>0
+       <span class="k">fi</span>
+       <span class="p">;;</span>
+    <span class="s1">'--no-sudo'</span><span class="p">)</span>
+       <span class="nv">USE_SUDO</span><span class="o">=</span><span class="s2">"false"</span>
+       <span class="p">;;</span>
+    <span class="s1">'--help'</span><span class="p">|</span><span class="nt">-h</span><span class="p">)</span>
+       <span class="nb">help
+       exit </span>0
+       <span class="p">;;</span>
+    <span class="k">*</span><span class="p">)</span> <span class="nb">exit </span>1
+       <span class="p">;;</span>
+  <span class="k">esac</span>
+  <span class="nb">shift
+</span><span class="k">done
+</span><span class="nb">set</span> +u
+
+initArch
+initOS
+verifySupported
+checkDesiredVersion
+<span class="k">if</span> <span class="o">!</span> checkHelmInstalledVersion<span class="p">;</span> <span class="k">then
+  </span>downloadFile
+  verifyFile
+  installFile
+<span class="k">fi
+</span>testVersion
+cleanup
+</code></pre></div></div>
+
+:ET
