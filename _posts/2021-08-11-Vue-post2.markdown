@@ -1,0 +1,94 @@
+---
+layout: post
+title: npm run serve 에러
+date: 2021-08-11 16:00:00 0000
+tags: [Vue, npm]
+categories: [Vue]
+description: Error: listen EFAULT: bad address in system call argument(...)
+---
+
+<br><br>
+
+# <center>npm install</center>
+
+<br>
+
+어제까지만 해도 잘 되던 것이 오늘 서버를 키니까 이상한 에러가 나타났다..
+
+<br>
+
+![](/images/Vue/post2/2021-08-11-16-04-39.png){: p}
+
+<br>
+
+<link rel="stylesheet" href="https: //www.webnots.com/resources/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/assets/css/webnots.css">
+
+<div class="webnots-warning webnots-notification-box">Error: listen EFAULT: bad address in system call argument 0.0.0.0:8081<br>Error: listen EFAULT: bad address in system call argument 0.0.0.0:8081<br>ad Server.setupListenHandle (...)</div>
+
+<br>
+
+꼭 공부하려는 마음이 충만할 때 이런 이상한 에러가 생긴다.. 어제까지만 해도 잘 됐는데 이 에러를 보니까 과거에 생겼던 npm 공포증이 다시 올라오기 시작했다. 이전에 npm 관련해서 다른 오류를 만나서 하루를 통째로 날린 적이 있었다..
+
+구글에 이 에러를 검색해 보면 대부분의 해결책은 아래와 같다.
+
+```bash
+$ npm cache clean --force
+$ rm -rf node_modules
+$ rm -rf package-lock.json
+$ npm install
+$ npm run dev // 이건 아무거나 자신의 빌드 명령어
+```
+
+하지만 나는 위와 같은 해결책으로 해결되지 않았다..
+
+그래서 에러를 잘 읽어보던 중 **vue-cli-service serve**가 있길래 입력해 봤더니 찾을 수 없다고 나왔다.
+
+그래서 이 명령이 작동하게 하기 위해서 여러 것을 설치했다.
+
+```bash
+npm vue-cli-service
+npm install -g @vue/cli-service
+npm install -g @vue/cli-plugin-babel
+npm install -g @vue/cli-plugin-eslint
+npm i -g vue-template-compiler
+```
+
+위 명령들을 설치하고 나면 이제 **vue-cli-service serve**를 사용할 수 있다.
+그렇게 되는 가 싶더니?
+
+![](/images/Vue/post2/2021-08-11-16-10-43.png){: p}
+
+또 이러한 에러가 나왔다...
+
+<br>
+
+가만히 생각해 보다가 **Bad address** 이것에 주목했다. 보통 IP나 포트가 잘못되면 났던 에러인 걸로 기억하는데??
+
+하면서 혹시나 8081 포트가 다른 프로세스에 의해서 쓰여지고 있나 싶어서 **netstat** 명령으로 확인해봤다.
+
+<br>
+
+**netstat -na |findstr "포트"** 이 명령어를 사용하면 특정 포트가 사용 중인지 알 수 있다. 하지만 이 명령으로 8081에 대한 포트를 찾아봤지만 아무것도 나오지 않았다..
+
+그래도 혹시나 하는 마음에 이런 시도를 해봤다. 우리가 보통 **npm run serve** 하게 되면 <span style="color:#85144b; font-weight:bold">http://localhost:8080/</span>으로 실행된다. 하지만 기본 포트 외에 다른 포트를 사용하려면 <span style="color:#85144b; font-weight:bold">nmp run serve -- --port 포트번호</span>를 치면 다른 포트를 이용할 수 있다.
+
+그래서 시도한 방법이다.
+
+```bash
+npm run serve -- --port 8082
+```
+
+<br>
+
+8080 대신 8082를 사용해 보는 것이다.
+
+<br>
+
+그랬더니 작동이 됐다.!!!!!!
+
+그리고 다시 끄고 다시 했는데 처음에 나왔던 에러가 다시 뜨기 시작했다.
+
+이럴 땐 **netstate -ano** 명령으로 포트를 사용하고 있는 프로세스 아이디를 알아낸 다음
+
+**taskkill /f /pid PID번호**로 죽이고 난 다음에 다시 실행하면 될 것이다.
