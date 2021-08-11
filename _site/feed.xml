@@ -7,6 +7,727 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>프로메테우스로 모니터링 데이터 수집과 통합하기-2</title>
+				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;해당 내용은 책 &amp;lt;컨테이너 인프라 환경 구축을 위한 쿠버네티스/도커&amp;gt;에 나오는 내용이며 이는 개인적으로 공부하기 위해서 게시하는 글임을 알립니다.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
+&lt;em&gt;&lt;strong&gt;커피 중독자되는 중…&lt;/strong&gt;&lt;/em&gt;
+&lt;br /&gt;
+(Press the Button)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;style&gt;
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: &quot;&quot;;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: &quot;&quot;;
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: &quot;&quot;;
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: &quot;&quot;;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: &quot;&quot;;
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: &quot;&quot;;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: &quot;&quot;;
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+&lt;/style&gt;
+
+&lt;div class=&quot;containercoffee&quot;&gt;
+    &lt;div class=&quot;coffee-header&quot;&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-medium&quot;&gt;
+      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;프로메테우스로-모니터링-데이터-수집과-통합하기&quot;&gt;&lt;center&gt;프로메테우스로 모니터링 데이터 수집과 통합하기&lt;/center&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이전 게시물에서 프로메테우스를 설치하기 위한 사전작업을 진행하였다. 이제 프로메테우스 설치를 위한 사전에 준비한 스크립트를 실행한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;prometheus-server-preconfig.sh&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# check helm command&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[Step 1/4] Task [Check helm status]&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/usr/local/bin/helm&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
+  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[Step 1/4] helm not found&quot;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;1
+&lt;span class=&quot;k&quot;&gt;fi
+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[Step 1/4] ok&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# check metallb&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[Step 2/4] Task [Check MetalLB status]&quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;namespace&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;kubectl get namespace metallb-system &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;jsonpath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;={&lt;/span&gt;.metadata.name&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; 2&amp;gt; /dev/null&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$namespace&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
+  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[Step 2/4] metallb not found&quot;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;1
+&lt;span class=&quot;k&quot;&gt;fi
+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[Step 2/4] ok&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# create nfs directory &amp;amp; change owner&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;nfsdir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/nfs_shared/prometheus/server
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[Step 3/4] Task [Create NFS directory for prometheus-server]&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$nfsdir&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+  ~/_Book_k8sInfra/ch6/6.2.1/nfs-exporter.sh prometheus/server
+  &lt;span class=&quot;nb&quot;&gt;chown &lt;/span&gt;1000:1000 &lt;span class=&quot;nv&quot;&gt;$nfsdir&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$nfsdir&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; created&quot;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[Step 3/4] Successfully completed&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else
+  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[Step 3/4] failed: &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$nfsdir&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; already exists&quot;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;1
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# create pv,pvc&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[Step 4/4] Task [Create PV,PVC for prometheus-server]&quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;pvc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;kubectl get pvc prometheus-server &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;jsonpath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;={&lt;/span&gt;.metadata.name&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; 2&amp;gt; /dev/null&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$pvc&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
+  &lt;/span&gt;kubectl apply &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; ~/_Book_k8sInfra/ch6/6.2.1/prometheus-server-volume.yaml
+  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[Step 4/4] Successfully completed&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else
+  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[Step 4/4] failed: prometheus-server pv,pvc already exist&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;한 줄 한 줄씩 알아가 보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;prometheus-server-preconfig.sh&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# check helm command&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#터미널에 해당 내용을 출력한다.&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[Step 1/4] Task [Check helm status]&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#if[조건] 조건 양 옆에 '['와 ']' 사이에 공백이 꼭 있어야 한다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#then 다음에 명령어가 나온다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#-e 옵션이 파일이 존재한다는 옵션이다 즉 여기서 ! 부정을 넣었으므로 파일이 존재하지 않을 경우&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#아래 echo를 출력하고 exit한다.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/usr/local/bin/helm&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
+  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[Step 1/4] helm not found&quot;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;1
+
+&lt;span class=&quot;c&quot;&gt;#fi는 그냥 if절을 끝내는 문구이다.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#아래 문구 출력&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[Step 1/4] ok&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# check metallb&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#아래 문구 출력&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[Step 2/4] Task [Check MetalLB status]&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#namespace라는 변수를 선언하고 해당 값을 넣어주는 것이다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#$() 구문으로 명령어 실행 결과를 넣을 수 있다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#마스터 노드에서 명령어로 kubectl get namespace metallb-system -o jsonpath={.metadata.name} 2&amp;gt; /dev/null를&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#입력하면(이전 게시물에 사전작업을 했다면) metallb-system이 출력된다 즉 이 문자열이 namespace 변수 안에 들어가게 되는 것이다. &lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#JSONPath 템플릿은 중괄호 {}로 둘러싸인 JSONPath 표현식으로 구성된다. Kubectl은 JSONPath 표현식을&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#사용하여 JSON 오브젝트의 특정 필드를 필터링하고 출력 형식을 지정한다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#즉 metallb-system의 metadata에 설정되어 있는 name를 검색하는 것이다. 보통 이렇게 -o josnpath해서 사용한다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#여기서 2는 STRERR(standard error)의 의미이고 1일 땐 STDOUT(standard output)이다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#즉 STDOUT은 표준출력으로 정상적인 메시지를 출력하고 STDERR은 표준에러로 에러메시지를 출력하는 것이다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#일반적으로 /dev/null과 1&amp;gt;/dev/null은 같은 의미이다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#/dev/null이나 1&amp;gt;/dev/null로 했을 경우 에러 메시지가 터미널에 출력이 된다. 그럼 해당 에러메시지를 null로 만드려면&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#2&amp;gt;/dev/null로 하는 것이다. &lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#즉 이는 터미널상에서 명령어를 입력하고 그에 대한 표준 출력이 표시되지 않게 하기 위해서 자주 사용하는 방법인 것이다.&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;namespace&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;kubectl get namespace metallb-system &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;jsonpath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;={&lt;/span&gt;.metadata.name&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; 2&amp;gt; /dev/null&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#namespace 변수가 빈 문자열일 경우&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$namespace&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#아래 문구 출력하고 exit한다.&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[Step 2/4] metallb not found&quot;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;1
+&lt;span class=&quot;k&quot;&gt;fi
+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[Step 2/4] ok&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# create nfs directory &amp;amp; change owner&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#nfsdir 변수에 해당 경로 문자열을 넣는다.&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;nfsdir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/nfs_shared/prometheus/server
+
+&lt;span class=&quot;c&quot;&gt;#아래 문구 출력&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[Step 3/4] Task [Create NFS directory for prometheus-server]&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#nfsdir 경로가 존재하지 않을 경우&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$nfsdir&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#nfs-exporter.sh의 내용은 아래에서 살표보도록 하자.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#chown은 소유자를 변경하는 명령어이다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#리눅스에서 파일은 어떤 Owner, Group에 속해있다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#chown 명령어는 파일의 Owner 또는 Group을 변경하는 명령어이다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#아래는 nfsdir 변수에 담긴 디렉터리의 UID와 GID를 1000, 1000으로 변경하는 것이다&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#UID값이 0일경우 관리자라 생각한다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#UID는 값을 지정하지않으면 1000부터 시작, 그다음은 1001~...가 된다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#값을 지정하지않으면 1000부터 시작, 그다음은 1001~ ....&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#그룹이 하나일 필요는 없다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#아래 prometheus-server-colume.yaml를 통해 /nfs_shared/prometheus/server 라는 디렉터리가 만들어진다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#여기서는 nfs-exporter.sh로 prometheus/server라는 아규먼트를 넘긴다 그 sh에서는 $1로 아규먼트를 받음&lt;/span&gt;
+  ~/_Book_k8sInfra/ch6/6.2.1/nfs-exporter.sh prometheus/server
+  &lt;span class=&quot;nb&quot;&gt;chown &lt;/span&gt;1000:1000 &lt;span class=&quot;nv&quot;&gt;$nfsdir&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$nfsdir&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; created&quot;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[Step 3/4] Successfully completed&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else
+  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[Step 3/4] failed: &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$nfsdir&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; already exists&quot;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;1
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# create pv,pvc&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[Step 4/4] Task [Create PV,PVC for prometheus-server]&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#pvc라는 변수에 prometheus-server라는 문자열이 들어간다.&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;pvc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;kubectl get pvc prometheus-server &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;jsonpath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;={&lt;/span&gt;.metadata.name&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; 2&amp;gt; /dev/null&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#빈 문자열일 경우 즉 존재하지 않을 경우 &lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$pvc&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#해당 파일을 실행한다.&lt;/span&gt;
+  kubectl apply &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; ~/_Book_k8sInfra/ch6/6.2.1/prometheus-server-volume.yaml
+  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[Step 4/4] Successfully completed&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else
+  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;[Step 4/4] failed: prometheus-server pv,pvc already exist&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;위에 나왔던 스크립트들을 살펴보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;nfs-exporter.sh&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;nfsdir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/nfs_shared/&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$# &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-eq&lt;/span&gt; 0 &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
+  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;usage: nfs-exporter.sh &amp;lt;name&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;0
+&lt;span class=&quot;k&quot;&gt;fi
+
+if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$nfsdir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
+  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$nfsdir&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$nfsdir&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; 192.168.1.0/24(rw,sync,no_root_squash)&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /etc/exports
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;systemctl is-enabled nfs&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-eq&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;disabled&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
+    &lt;/span&gt;systemctl &lt;span class=&quot;nb&quot;&gt;enable &lt;/span&gt;nfs
+  &lt;span class=&quot;k&quot;&gt;fi
+    &lt;/span&gt;systemctl restart nfs
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;nfs-exporter.sh&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#prometheus-server-preconfig.sh에서 아규먼트로 넘겨진 것을 $1로 받는다&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#prometheus/server가 아규먼트로 넘겨온다.&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;nfsdir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/nfs_shared/&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#$#는 매개변수의 총 개수를 의미한다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# -eq는 같음을 의미 즉 총 매개변수의 개수가 0일 경우 &lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#then이하를 실행한다.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$# &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-eq&lt;/span&gt; 0 &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
+  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;usage: nfs-exporter.sh &amp;lt;name&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;0
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# -d 는 파일이 존재하고 디렉터리인 경우이다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#즉 위에서 설정한 변수 nfsdir의 값에 해당하는 디렉터리가 존재하는 경우&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$nfsdir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#-p 옵션은 부모 디렉터리를 같이 생성하라는 것이다. &lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$nfsdir&lt;/span&gt;
+
+  &lt;span class=&quot;c&quot;&gt;#/etc 아래 exports 파일 안에 해당 내용을 넣으라는 것이다.&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$nfsdir&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; 192.168.1.0/24(rw,sync,no_root_squash)&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /etc/exports
+
+  &lt;span class=&quot;c&quot;&gt;#systemctl은 systemd를 관리하는 명령어이다. &lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;#Systemd는 부팅부터 서비스관리 로그관리등의 시스템 전반적인 영역에 걸쳐있는 프로세스이다. &lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;#이것이 도입된 OS는 이것의 개념이나 기능등을 한번은 파악하는 것이 도움이 될 것이다. &lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;#이것이 도입되면 부팅시에도 병렬로 실행되어서 상당히 부팅속도가 빨리잔다.&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;#$() 구문으로 명령어 실행 결과를 넣을 수 있다.&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;#is-enalbed name.service를 통해 서비스의 활성화 여부를 표시할 수 있다.&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;#활성화되어 있으면 enabled라고 뜨고 비활성화되어 있으면 disabled라고 뜬다.&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;#즉 저 명령어를 쳐서 나오는 문자열이 disabled일 경우 then 이하가 실행된다. &lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;systemctl is-enabled nfs&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-eq&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;disabled&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
+    &lt;/span&gt;systemctl &lt;span class=&quot;nb&quot;&gt;enable &lt;/span&gt;nfs
+  &lt;span class=&quot;k&quot;&gt;fi
+    &lt;/span&gt;systemctl restart nfs
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;prometheus-server-volumn.yaml&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;apiVersion&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;v1&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;kind&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;PersistentVolume&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;metadata&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;prometheus-server&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;spec&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;capacity&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;storage&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;10Gi&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;accessModes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ReadWriteMany&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;persistentVolumeReclaimPolicy&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Retain&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;nfs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;192.168.1.10&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/nfs_shared/prometheus/server&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;apiVersion&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;v1&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;kind&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;PersistentVolumeClaim&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;metadata&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;prometheus-server&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;spec&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;accessModes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ReadWriteMany&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;resources&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;storage&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;10Gi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;prometheus-server-volume.yaml&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#apiVersion: API 버전을 명시한다&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#이 오브젝트를 생성하기 위해 사용하고 있는 쿠버네티스 API 버전이 어떤 것인지&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#명시한다.&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;apiVersion&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;v1&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;#어떤 종류의 오브젝트를 생성하고자 하는지 명시한다.&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;kind&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;PersistentVolume&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;#이름 문자열, UID, 그리고 선택적인 네임스페이스를 포함하여&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#오브젝트를 유일하게 구분지어 줄 데이터이다.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#서비스 이름(name)은 prometheus-server이다.&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;metadata&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;prometheus-server&lt;/span&gt;
+
+
+&lt;span class=&quot;na&quot;&gt;spec&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;capacity&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;#storage는 실제로 사용하는 용량을 제한하는 것이 아니라 쓸 수 있는 양을 레이블로&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;#붙이는 것과 같다. 이는 현재 스토리지가 단순히 NFS로 설정돼서 그렇다.&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;storage&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;10Gi&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;#PV를 어떤 방식으로 사용할지를 정의한 부분이다. ReadWriteMany는 여러 개의 노드가&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;#읽고 쓸 수 있도록 마운트하는 옵션이다. 이외에도 ReadWriteOnce(하나의 노드에서만 볼륨을 &lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;#읽고 쓸 수 있게 마운트)와 ReadOnlyMany(여러 개의 노드가 읽도록 마운트) 옵션이 있다&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;accessModes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ReadWriteMany&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;#persistentVolumeReclaimPolicy는 PV가 제거됐을 때 PV가 작동하는 방법을 정의하는 것으로&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;#여기서는 유지하는 Retain을 사용합니다. 그 외에 Delete(삭제)와 Recycle(재활용, Deprecated) 옵션이 있다.&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;persistentVolumeReclaimPolicy&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Retain&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;#NFS 서버의 연결 위치에 대한 설정이다. &lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;nfs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;192.168.1.10&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/nfs_shared/prometheus/server&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;apiVersion&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;v1&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;kind&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;PersistentVolumeClaim&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;metadata&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;prometheus-server&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;spec&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;accessModes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ReadWriteMany&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;resources&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  
+  &lt;span class=&quot;c1&quot;&gt;#PV는 사용자가 요청할 볼륨 공간을 관리자가 만들고 PVC는 사용자(개발자)간 보륨을 요청하는 데&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;#사용한다는 점에서 차이가 있다.&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;#여기서 요청하는 storage: 10Gi는 동적 볼륨이 아닌 경우에는 레이블 정도의 의미를 가진다.&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;storage&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;10Gi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이제 마스터노드에서 실행해 본다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~/_Book_k8sInfra/ch6/6.2.1/prometheus-server-preconfig.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Prometheus/2021-08-11-13-48-06.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;나는 이미 전에 설치한 적이 있어서 출력화면이 다를 수 있다.&lt;/p&gt;
+
+&lt;p&gt;이제 프로메테우스 차트를 설치하려고 준비해 둔 prometheus-install.sh를 실행해 모니터링에 필요한 3가지 프로메테우스 오브젝트(프로메테우스 서버, 노드 익스포터, 쿠버 스테이트 메트릭)를 설치한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~/_Book_k8sInfra/ch6/6.2.1/prometheus-install.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;나는 이미 설치했으므로 따로 사진을 올리지 않는다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;prometheus-install.sh&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
+helm &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;prometheus edu/prometheus &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--set&lt;/span&gt; pushgateway.enabled&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--set&lt;/span&gt; alertmanager.enabled&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--set&lt;/span&gt; nodeExporter.tolerations[0].key&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;node-role.kubernetes.io/master &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--set&lt;/span&gt; nodeExporter.tolerations[0].effect&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;NoSchedule &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--set&lt;/span&gt; nodeExporter.tolerations[0].operator&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Exists &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--set&lt;/span&gt; server.persistentVolume.existingClaim&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;prometheus-server&quot;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--set&lt;/span&gt; server.securityContext.runAsGroup&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1000 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--set&lt;/span&gt; server.securityContext.runAsUser&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1000 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--set&lt;/span&gt; server.service.type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;LoadBalancer&quot;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--set&lt;/span&gt; server.extraFlags[0]&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;storage.tsdb.no-lockfile&quot;&lt;/span&gt; 
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;prometheus-install.sh&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#edu 차트 저장소의 prometheus 차트를 사용해 prometheus 릴리스를 설치한다.&lt;/span&gt;
+helm &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;prometheus edu/prometheus &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#푸시게이트웨이를 사용하지 않도록 설정한다. 푸시게이트웨이는 짧은 작업의&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#메트릭을 적재하거나 보안상 내부 접급을 제어하는 폐쇄망 등에서 프로메테우스로 데이터를&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#내보내는 데 사용한다.&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--set&lt;/span&gt; pushgateway.enabled&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#얼럿매니저를 사용하지 않도록 설정한다. &lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--set&lt;/span&gt; alertmanager.enabled&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#테인트가 설정된 노드의 설정을 무시하는 톨러레이션을 설정한다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#톨러레이션을 설정하면 마스터 노드에도 노드 익스포터를 배포할 수 있고, 프로메테우스가&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#마스터노드의 메트릭 데이터를 수집할 수 있다.&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--set&lt;/span&gt; nodeExporter.tolerations[0].key&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;node-role.kubernetes.io/master &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--set&lt;/span&gt; nodeExporter.tolerations[0].effect&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;NoSchedule &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--set&lt;/span&gt; nodeExporter.tolerations[0].operator&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Exists &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#PVC 동적 프로비저닝을 사용할 수 없는 가상 머신 환경이기 때문에 이미 만들어 놓은&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#prometheus-server라는 이름의 PVC를 사용하게 설정한다.&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--set&lt;/span&gt; server.persistentVolume.existingClaim&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;prometheus-server&quot;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#프로메테우스 서버를 구성할 때 컨테이너에 할당할 사용자 ID와 그룹 ID를 1000번으로 설정한다&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--set&lt;/span&gt; server.securityContext.runAsGroup&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1000 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--set&lt;/span&gt; server.securityContext.runAsUser&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1000 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#MetalLB로부터 외부 IP를 할당받기 위해서 타입을 LoadBalancer로 설정한다&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--set&lt;/span&gt; server.service.type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;LoadBalancer&quot;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#프로메테우스의 설정을 변경할 때 lockfile(잠긴 파일)이 있으면 변경 작업을 실패할 수 있다.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#특히 얼럿매니저를 나중에 설치할 대 lockfile 관련 문제가 발생할 수 있으므로&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#lockfile이 생성되지 않게 설정한다. &lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--set&lt;/span&gt; server.extraFlags[0]&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;storage.tsdb.no-lockfile&quot;&lt;/span&gt; 
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;프로메테우스 차트를 설치하고 나면 구성 요소인 프로메테우스 서버, 노드 익스포터, 쿠버 스테이트 메트릭이 설치됐는지 확인한다. 이때 노드 익스포터가 여러 개인 이유는 노드마다 메트릭을 수집하기 위해 데몬셋으로 설치했기 때문이다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl get pods &lt;span class=&quot;nt&quot;&gt;--selector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;prometheus
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Prometheus/2021-08-11-13-57-34.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;프로메테우스 서버에서 제공하는 웹 UI로 접속하기 위한 프로메테우스 서비스의 IP 주소(EXTERNAL-IP)를 확인한다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl get service prometheus-server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Prometheus/2021-08-11-13-58-30.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;호스트 노트북(혹은 PC)의 웹 브라우저에 192.168.1.11을 입력해 프로메테우스의 웹 UI가 정상적으로 동작하는지 확인한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-Prometheus/2021-08-11-13-59-25.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+</description>
+				<pubDate>Wed, 11 Aug 2021 10:00:00 +0900</pubDate>
+				<link>/kubernetes/2021/08/11/Kubernetes-Prometheus-6.2-2.html</link>
+				<guid isPermaLink="true">/kubernetes/2021/08/11/Kubernetes-Prometheus-6.2-2.html</guid>
+			</item>
+		
+			<item>
 				<title>API 서버를 위한 필터-코드로 배우는 스프링 부트 웹 프로젝트-12.2</title>
 				<description>&lt;p&gt;&lt;span style=&quot;color:orange; font-weight:bold&quot;&gt;&lt;em&gt;해당 내용은 책 ‘코드로 배우는 스프링 부트 웹 프로젝트’에 나오는 내용이며 이는 개인적으로 공부하기 위해 기록함을 알려드립니다&lt;/em&gt;&lt;/span&gt;&lt;/p&gt;
 
@@ -4786,749 +5507,6 @@ kubectl delete &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; ~/_Book_k8sInfra
 				<pubDate>Sat, 31 Jul 2021 11:00:00 +0900</pubDate>
 				<link>/kubernetes/2021/07/31/Kubernetes-Ingress-3.3.2.html</link>
 				<guid isPermaLink="true">/kubernetes/2021/07/31/Kubernetes-Ingress-3.3.2.html</guid>
-			</item>
-		
-			<item>
-				<title>Mysql Workbench를 사용하는 Springboot를 Docker Image로 만들고 배포하기</title>
-				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
-&lt;em&gt;&lt;strong&gt;피곤한데 커피 한잔만 마시고 시작해보자..&lt;/strong&gt;&lt;/em&gt;
-&lt;br /&gt;
-(Press the Button)&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;style&gt;
-.containercoffee {
-  width: 300px;
-  height: 280px;
-  position: relative;
-  top: calc(50% - 140px);
-  left: calc(50% - 150px);
-}
-.coffee-header {
-  width: 100%;
-  height: 80px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #ddcfcc;
-  border-radius: 10px;
-}
-.coffee-header__buttons {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  top: 25px;
-  background-color: #282323;
-  border-radius: 50%;
-}
-.coffee-header__buttons::after {
-  content: &quot;&quot;;
-  width: 8px;
-  height: 8px;
-  position: absolute;
-  bottom: -8px;
-  left: calc(50% - 4px);
-  background-color: #615e5e;
-}
-.coffee-header__button-one {
-  left: 15px;
-}
-.coffee-header__button-two {
-  left: 50px;
-}
-.coffee-header__display {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: calc(50% - 25px);
-  left: calc(50% - 25px);
-  border-radius: 50%;
-  background-color: #9acfc5;
-  border: 5px solid #43beae;
-  box-sizing: border-box;
-}
-.coffee-header__details {
-  width: 8px;
-  height: 20px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #9b9091;
-  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
-}
-.coffee-medium {
-  width: 90%;
-  height: 160px;
-  position: absolute;
-  top: 80px;
-  left: calc(50% - 45%);
-  background-color: #bcb0af;
-}
-.coffee-medium:before {
-  content: &quot;&quot;;
-  width: 90%;
-  height: 100px;
-  background-color: #776f6e;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 45%);
-  border-radius: 20px 20px 0 0;
-}
-.coffe-medium__exit {
-  width: 60px;
-  height: 20px;
-  position: absolute;
-  top: 0;
-  left: calc(50% - 30px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::before {
-  content: &quot;&quot;;
-  width: 50px;
-  height: 20px;
-  border-radius: 0 0 50% 50%;
-  position: absolute;
-  bottom: -20px;
-  left: calc(50% - 25px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::after {
-  content: &quot;&quot;;
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  bottom: -30px;
-  left: calc(50% - 5px);
-  background-color: #231f20;
-}
-.coffee-medium__arm {
-  width: 70px;
-  height: 20px;
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  background-color: #231f20;
-}
-.coffee-medium__arm::before {
-  content: &quot;&quot;;
-  width: 15px;
-  height: 5px;
-  position: absolute;
-  top: 7px;
-  left: -15px;
-  background-color: #9e9495;
-}
-.coffee-medium__cup {
-  width: 80px;
-  height: 47px;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 40px);
-  background-color: #FFF;
-  border-radius: 0 0 70px 70px / 0 0 110px 110px;
-}
-.coffee-medium__cup::after {
-  content: &quot;&quot;;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 6px;
-  right: -13px;
-  border: 5px solid #FFF;
-  border-radius: 50%;
-}
-@keyframes liquid {
-  0% {
-    height: 0px;  
-    opacity: 1;
-  }
-  5% {
-    height: 0px;  
-    opacity: 1;
-  }
-  20% {
-    height: 62px;  
-    opacity: 1;
-  }
-  95% {
-    height: 62px;
-    opacity: 1;
-  }
-  100% {
-    height: 62px;
-    opacity: 0;
-  }
-}
-.coffee-medium__liquid {
-  width: 6px;
-  height: 63px;
-  opacity: 0;
-  position: absolute;
-  top: 50px;
-  left: calc(50% - 3px);
-  background-color: #74372b;
-  animation: liquid 4s 4s linear infinite;
-}
-.coffee-medium__smoke {
-  width: 8px;
-  height: 20px;
-  position: absolute;  
-  border-radius: 5px;
-  background-color: #b3aeae;
-}
-@keyframes smokeOne {
-  0% {
-    bottom: 20px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 50px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-@keyframes smokeTwo {
-  0% {
-    bottom: 40px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 70px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-.coffee-medium__smoke-one {
-  opacity: 0;
-  bottom: 50px;
-  left: 102px;
-  animation: smokeOne 3s 4s linear infinite;
-}
-.coffee-medium__smoke-two {
-  opacity: 0;
-  bottom: 70px;
-  left: 118px;
-  animation: smokeTwo 3s 5s linear infinite;
-}
-.coffee-medium__smoke-three {
-  opacity: 0;
-  bottom: 65px;
-  right: 118px;
-  animation: smokeTwo 3s 6s linear infinite;
-}
-.coffee-medium__smoke-for {
-  opacity: 0;
-  bottom: 50px;
-  right: 102px;
-  animation: smokeOne 3s 5s linear infinite;
-}
-.coffee-footer {
-  width: 95%;
-  height: 15px;
-  position: absolute;
-  bottom: 25px;
-  left: calc(50% - 47.5%);
-  background-color: #41bdad;
-  border-radius: 10px;
-}
-.coffee-footer::after {
-  content: &quot;&quot;;
-  width: 106%;
-  height: 26px;
-  position: absolute;
-  bottom: -25px;
-  left: -8px;
-  background-color: #000;
-}
-&lt;/style&gt;
-
-&lt;div class=&quot;containercoffee&quot;&gt;
-    &lt;div class=&quot;coffee-header&quot;&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-medium&quot;&gt;
-      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;docker-image-만들기&quot;&gt;&lt;center&gt;Docker Image 만들기&lt;/center&gt;&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이번 게시물에서는 JPA를 사용하는 SpringBoot 프로젝트를 도커 이미지로 만든 후에 배포하는 작업을 하려고 한다. 그전에 꼭 봐야하는 게시물이 있는데 링크는 아래 걸어놓겠다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://youngkyonyou.github.io/kubernetes/2021/07/27/Kubernetes-Mysql.html&quot;&gt;Kubernetes와 Mysql Workbench 연동하기&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;위의 링크에서 했던 환경과 동일한 환경으로 구성한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;그리고 스프링부트 프로젝트는 따로 만드는 것을 하진 않고 JPA와 연동된 프로젝트를 깃허브에서 받아온다. 해당 프로젝트는 &lt;span style=&quot;color:#2ECC40; font-weight:bold&quot;&gt;‘코드로 배우는 스프링 부트 웹 프로젝트’&lt;/span&gt;라는 책에 나오는 프로젝트 중 하나인 &lt;span style=&quot;color:orange; font-weight:bold&quot;&gt;Movie Review&lt;/span&gt; 코드이다. 아래 깃허브 링크를 참고한다.&lt;/p&gt;
-
-&lt;link rel=&quot;stylesheet&quot; href=&quot;https: //www.webnots.com/resources/font-awesome/css/font-awesome.min.css&quot; /&gt;
-
-&lt;style&gt;
-.webnots-notification-box {
--moz-border-radius: 5px;
--webkit-border-radius: 5px;
-border-radius: 5px;
-color: #ffffff;
-font-family: verdana, 'open sans', sans-serif;
-margin-bottom: 25px;
-padding: 10px 14px 10px 44px;
-position: relative;
-box-shadow: 0px 1px 5px #999;
-/* width: -moz-fit-content;
-width: -webkit-fit-content;
-width: fit-content; */
-}
-.webnots-notification-box:before {
-font-family: FontAwesome;
-font-size: 21px;
-left: 14px;
-position: absolute;
-}
-.webnots-success {
-background-color: #2ecc71;
-}
-.webnots-success:before {
-content: &quot;\f00c&quot;;
-margin-left: -2px;
-}
-.webnots-failure {
-background-color: #e74c3c;
-}
-.webnots-failure:before {
-content: &quot;\f00d&quot;;
-}
-.webnots-warning {
-background-color: #e67e22;
-}
-.webnots-warning:before {
-content: &quot;\f12a&quot;;
-margin-left: 5px;
-}
-.webnots-information {
-background-color: #3498db;
-}
-.webnots-information:before {
-content: &quot;\f129&quot;;
-margin-left: 4px;
-}
-.webnots-question {
-background-color: #f1c40f;
-}
-.webnots-question:before {
-content: &quot;\f128&quot;;
-margin-left: 2px;
-}
-.webnots-tip {
-background-color: #16a085;
-}
-.webnots-tip:before {
-content: &quot;\f0eb&quot;;
-margin-left: 2px;
-}
-.webnots-notice {
-background-color: #bea474;
-}
-.webnots-notice:before {
-content: &quot;\f0a1&quot;;
-margin-left: -1px;
-}
-&lt;/style&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/YoungKyonYou/MovieReview-SpringBoot/tree/master&quot;&gt;Movie Review&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;그리고 &lt;strong&gt;Superputty&lt;/strong&gt;를 키고 &lt;strong&gt;m-k8s&lt;/strong&gt;에서&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl get pods &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; wide
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;명령으로 mysql pod가 제대로 동작하고 있는지 확인한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-11-06-12.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;span style=&quot;color:#85144b; font-weight:bold; font-size: 30px&quot;&gt;데이터베이스에 데이터 넣기&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;webnots-warning webnots-notification-box&quot;&gt;그 전에 Intellij나 다른 IDE로 프로젝트를 열고 데이터베이스 테이블 생성을 위해서 한 번 실행시켜준다.&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Intellij로 깃허브에서 받은 프로젝트를 열고 아래 사진과 같이 들어간다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-13-32-34.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;repository&lt;/strong&gt; 패키지에는 &lt;strong&gt;MemberRepositoryTests&lt;/strong&gt;, &lt;strong&gt;MovieRepositoryTests&lt;/strong&gt;, &lt;strong&gt;ReviewRepositoryTests&lt;/strong&gt;가 있는데 여기 클래스에 있는 메소드들을 실행시켜서 데이터베이스에 데이터를 넣어준다. 실행시켜줄 메소드는 아래와 같다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;MemberRepositoryTests.java&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Autowired&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ReviewRepository&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reviewRepository&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;@Rollback&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;insertMembers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;IntStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;rangeClosed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;{&lt;/span&gt;
-           &lt;span class=&quot;nc&quot;&gt;Member&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;member&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Member&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
-                   &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;r&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@zerock.org&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-                   &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;pw&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1111&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-                   &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;nickname&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;reviewer&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-           &lt;span class=&quot;n&quot;&gt;memberRepository&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;member&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;});&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;MovieRepositoryTests.java&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nd&quot;&gt;@Commit&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;@Transactional&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;insertMovies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;IntStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;rangeClosed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;{&lt;/span&gt;
-            &lt;span class=&quot;nc&quot;&gt;Movie&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;movie&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Movie&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Movie...&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-
-            &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;-------------------------------------&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-            &lt;span class=&quot;n&quot;&gt;movieRepository&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;movie&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++){&lt;/span&gt;
-                &lt;span class=&quot;nc&quot;&gt;MovieImage&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;movieImage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;MovieImage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
-                        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;uuid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;UUID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;randomUUID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt;
-                        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;movie&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;movie&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-                        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;imgName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;test&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;.jpg&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;imageRepository&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;movieImage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-            &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;====================================&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;});&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;ReviewRepositoryTests.java&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-    &lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;insertMovieReviews&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;IntStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;rangeClosed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;{&lt;/span&gt;
-            &lt;span class=&quot;nc&quot;&gt;Long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mno&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;nc&quot;&gt;Long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=((&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;nc&quot;&gt;Member&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;member&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Member&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-
-            &lt;span class=&quot;nc&quot;&gt;Review&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;movieReview&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Review&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
-                    &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;member&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;member&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-                    &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;movie&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Movie&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mno&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mno&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt;
-                    &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;grade&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-                    &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;feeling about this movie is...&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-                    &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;reviewRepository&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;movieReview&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;});&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이 세가지 메소드를 실행하고 &lt;strong&gt;Mysql-Workbench&lt;/strong&gt;에 들어가서 데이터가 정상적으로 들어갔는지 확인한다.(아래 사진 참고)&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-13-37-35.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-13-38-19.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-13-38-32.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-13-38-52.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;span style=&quot;color:#85144b; font-weight:bold; font-size: 30px&quot;&gt;JAR 파일 추출 및 도커 이미지로 만들기&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;확인 했으면 깃허브에서 가져온 프로젝트의 &lt;strong&gt;jar&lt;/strong&gt;파일을 추출한다.&lt;/p&gt;
-
-&lt;p&gt;인텔리제이 기준으로 프로젝트를 열면 아래 사진과 같이 우측에 &lt;strong&gt;Gradle&lt;/strong&gt; 눌르고 &lt;strong&gt;build-&amp;gt;bootJar&lt;/strong&gt;를 더블 클릭한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-11-24-58.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;잠깐 기다리면 &lt;strong&gt;Jar&lt;/strong&gt;파일이 완성되고 이는 프로젝트가 있는 폴더에 들어가면 &lt;strong&gt;build-&amp;gt;libs&lt;/strong&gt;에서 찾을 수 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;그러면 &lt;strong&gt;xxx.jar&lt;/strong&gt; 파일이 만들어진 것을 볼 수 있는데 이름이 복잡하니 아래 사진과 같이 &lt;strong&gt;application.jar&lt;/strong&gt;로 이름을 변경한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-11-27-11.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Superputty&lt;/strong&gt;로 돌아와서 &lt;strong&gt;m-k8s&lt;/strong&gt;에서 &lt;strong&gt;target&lt;/strong&gt; 폴더를 만든다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;target
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이제 이 target 폴더 안에 아까 만들었던 &lt;strong&gt;jar&lt;/strong&gt; 파일을 넣어줄 건데 우리는 &lt;strong&gt;FileZilla&lt;/strong&gt;를 사용한다.&lt;/p&gt;
-
-&lt;p&gt;파일 질라를 연다. 그리고 위의 메뉴에서 &lt;strong&gt;파일-&amp;gt;사이트 관리자&lt;/strong&gt;에 들어간다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-11-32-06.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;프로토콜은 &lt;strong&gt;SFTP&lt;/strong&gt;로 변경하고 호스트 아이피는 &lt;strong&gt;m-k8s&lt;/strong&gt;의 아이피 주소를 넣는다. 사용자엔 &lt;strong&gt;root&lt;/strong&gt;를 쓰고 비밀번호는 &lt;strong&gt;vagrant&lt;/strong&gt;이다.&lt;/p&gt;
-
-&lt;div class=&quot;webnots-success webnots-notification-box&quot;&gt;Vagrant로 Virtual Machine를 구성했을 때 디폴트 비밀번호가 'vagrant'이다.&lt;/div&gt;
-
-&lt;div class=&quot;webnots-success webnots-notification-box&quot;&gt;m-k8s의 아이피 주소는 Vagrantfile를 구성할 때 설정해 줬으며 명령어 kubectl get node -o wide로 확인할 수 있다.&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-11-32-41.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이렇게 설정하고 연결을 누르면 m-k8s에 접속된다. 그리고 아까 &lt;strong&gt;jar&lt;/strong&gt;파일을 우리가 만든 target 폴더에 넣는다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-11-36-38.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;자 이제 &lt;strong&gt;FileZilla&lt;/strong&gt;를 닫고 &lt;strong&gt;Superputty&lt;/strong&gt;로 돌아오자.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;우리가 깃허브에서 가져온 프로젝트는 &lt;strong&gt;java openjdk 11&lt;/strong&gt;버젼을 사용하므로 그것을 깔아야 한다. 그것은 아래 링크에 달린 블로그를 참고하도록 한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://growingsaja.tistory.com/357&quot;&gt;CentOS에서 자바 11 설치하기&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;설치가 완료되었다면 환경변수를 설정해줘야 한다. 이것 또한 아래 링크를 참고한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://www.hanumoka.net/2018/04/30/centOs-20180430-centos-install-jdk/&quot;&gt;CentOS에서 자바 11버젼 환경변수 설정하기&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;자 이제 &lt;strong&gt;도커 이미지&lt;/strong&gt;를 만들기 위해 &lt;strong&gt;Dockerfile&lt;/strong&gt;를 정의해 본다.&lt;/p&gt;
-
-&lt;p&gt;도커파일은 &lt;strong&gt;root&lt;/strong&gt;에 만든다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vi Dockerfile
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Dockerfile&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-Dockerfile highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; openjdk:11&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;LABEL&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; description=&quot;Echo OP Java Development&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;EXPOSE&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; 60431&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;COPY&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; ./target/application.jar /opt/application.jar&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;WORKDIR&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; /opt&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;ENTRYPOINT&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; [&quot;java&quot;, &quot;-jar&quot;, &quot;application.jar&quot;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;한 줄 한 줄 알아가보자.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Dockerfile&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-Dockerfile highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#import opendjk:11 image를 하는 것과 같다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#From &amp;lt;이미지 이름&amp;gt;:[태그] 형식으로 이미지를 가져온다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#가져온 이미지 내부에서 컨테이너 이미지를 빌드한다. 즉 누군가가 만들어 놓은&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#이미지에 필요한 부분을 추가한다고 보면 된다. 여기서는 openjdk를 기초 이미지로 사용한다.&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; openjdk:11&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;#LABEL &amp;lt;레이블 이름&amp;gt;=&amp;lt;값&amp;gt;의 형식으로 이미지에 부가적인 설명을 위한 레이블을 추가할 때 사용한다.&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;LABEL&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; description=&quot;Echo OP Java Development&quot;&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;#EXPOSE &amp;lt;숫자&amp;gt;의 형식으로 생성된 이미지로 컨테이너를 구동할 때 어떤 포트를&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#사용하는지 알려준다. EXPOSE를 사용한다고 해서 컨테이너를 구동할 때 자동으로&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#해당 포트를 호스트 포트와 연결하지 않는다. 외부에서 접속하려면 docker run으로&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#이미지를 컨테이너로 빌드할 때,반드시 -p 옵션을 넣어 포트를 연결해야 한다.&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;EXPOSE&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; 60431&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;#호스트에서 새로 생성하는 컨테이너 이미지로 필요한 파일을 복사한다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#COPY &amp;lt;호스트 경로&amp;gt; &amp;lt;컨테이너 경로&amp;gt;의 형식이다. 생성한 application.jar 파일을&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# 이미지의 /opt/application.jar로 복사한다.&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;COPY&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; ./target/application.jar /opt/application.jar&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;#이미지의 현재 작업 위치를 opt로 변경한다.&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;WORKDIR&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; /opt&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;#ENTRYPOINT[&quot;명령어&quot;, &quot;옵션&quot;... &quot;옵션&quot;]의 형식이다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#컨테이너 구동 시 ENTRYPOINT 뒤에 나오는 대괄호([]) 안에 든 명령을 실행한다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#콤마(,)로 구분된 문자열 중 첫 번째 문자열은 실행할 명령어고,&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#두 번째 문자열부터 명령어를 실행할 때 추가하는 옵션이다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#여기서는 컨테이너를 구동할 때 java -jar application.jar이 실행된다는 의미이다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#ENTRYPOINT로 실행하는 명령어는 컨테이너를 구동할 때 첫 번째로 실행된다.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#이 명령어로 실행된 프로세스 컨테이너 내부에서 첫 번째로 실행됐다는 의미로 PID는 1이 된다.&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;ENTRYPOINT&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; [&quot;java&quot;, &quot;-jar&quot;, &quot;application.jar&quot;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Dockerfile&lt;/strong&gt;를 만들었다면 이제 이 파일이 있는 위치에서 &lt;strong&gt;docker build -t springboot-img .&lt;/strong&gt;를 입력한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker build &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; springboot-img &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;docker build&lt;/strong&gt; 명령으로 컨테이너 이미지를 빌드한다. 여기서 사용된 &lt;strong&gt;-t&lt;/strong&gt;(tag)는 만들어질 이미지를 의미하고 &lt;strong&gt;.&lt;/strong&gt;(dot, 점)은 이미지에 원하는 내용을 추가하거나 변경하는 데 필요한 작업 공간을 현재 디렉터리로 지정한다는 의미다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-11-57-20.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이미지가 제대로 만들어졌는지 확인한다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker images springboot-img
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-11-58-33.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;자 이제 &lt;strong&gt;docker run&lt;/strong&gt;으로 컨테이너를 실행하고 docker ps로 컨테이너 상태를 출력한다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 60431:8080 &lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt; springboot-run &lt;span class=&quot;nt&quot;&gt;--restart&lt;/span&gt; always springboot-img
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-12-00-02.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;그리고 &lt;strong&gt;http://192.168.1.10:60431/movie/list&lt;/strong&gt;로 접속해보자.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;화면이 아래 사진과 같이 나오면 성공이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-13-27-30.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;webnots-warning webnots-notification-box&quot;&gt;위 사진처럼 화면이 나오면 성공이다. 하지만 화면 상에 REGISTER 버튼을 눌러서 서비스를 사용하고 나면 에러가 발생하니 그냥 한 예로서 제대로 배포됐는지만 확인하기&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이미지가 제대로 작동하는 것을 확인했으니 작동 중인 컨테이너를 중지 시키고 삭제한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;중지&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker stop springboot-run
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-13-44-35.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;작동 중인 컨테이너를 삭제&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker &lt;span class=&quot;nb&quot;&gt;rm &lt;/span&gt;springboot-run
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;webnots-information webnots-notification-box&quot;&gt;작동 중인 컨테이너를 -f(force) 옵셔으로 바로 삭제해도 되지만 안전하게 작업하려면 작동을 중지시킨 후 삭제하는 것이 좋다. &lt;br /&gt;
-&lt;span style=&quot;color:yellow; font-weight:bold&quot;&gt;docker rmi -f $(docker images -q springboot-run)&lt;/span&gt; &lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-13-50-39.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;이미지 삭제&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker rmi &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;docker images &lt;span class=&quot;nt&quot;&gt;-q&lt;/span&gt; springboot-img&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Kubernetes/kubernetes-springboot/2021-07-30-13-47-22.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-</description>
-				<pubDate>Fri, 30 Jul 2021 09:00:00 +0900</pubDate>
-				<link>/kubernetes/2021/07/30/Kubernetes-Springboot.html</link>
-				<guid isPermaLink="true">/kubernetes/2021/07/30/Kubernetes-Springboot.html</guid>
 			</item>
 		
 	</channel>
