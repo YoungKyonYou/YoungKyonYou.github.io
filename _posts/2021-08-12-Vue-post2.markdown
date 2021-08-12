@@ -1,10 +1,10 @@
 ---
 layout: post
 title: npm run serve 에러
-date: 2021-08-11 16:00:00 0000
+date: 2021-08-12 12:00:00 0000
 tags: [Vue, npm]
 categories: [Vue]
-description: Error: listen EFAULT: bad address in system call argument(...)
+description: 'Error: listen EFAULT: bad address in system call argument(...)'
 ---
 
 <br><br>
