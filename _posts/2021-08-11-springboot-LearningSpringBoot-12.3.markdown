@@ -511,22 +511,22 @@ import java.util.Date;
 
 @Log4j2
 public class JWTUtil {
-    //이 키를 이용해서 Signature를 생성한다. 
+    //이 키를 이용해서 Signature를 생성한다.
     private String secretKey="zerock12345678";
 
     //1month
     //JWT 문자열 자체를 알면 누구든 API를 사용할 수 있다는 문제가 생기므로 만료 기간(expire) 값을 설정한다
     private long expire=60*24*30;
 
-    //JWT 토큰을 생성하는 역할을 한다. 
+    //JWT 토큰을 생성하는 역할을 한다.
     public String generateToken(String content) throws Exception{
         return Jwts.builder()
                 //언제 발행되는지 세팅한다. 이것을 실행하는 현재 시간과 날짜로 설정함
                 .setIssuedAt(new Date())
-                
+
                 //위에 설정한 유효기간을 설정한다.
                 .setExpiration(Date.from(ZonedDateTime.now().plusMinutes(expire).toInstant()))
-                //사용자의 이메일 주소를 입력해 주어서 나중에 사용할 수 있도록 구성한다. 
+                //사용자의 이메일 주소를 입력해 주어서 나중에 사용할 수 있도록 구성한다.
                 .claim("sub", content)
                 //getBytes는 secretKey 문자열을 바이트로 인코딩한다.
                 .signWith(SignatureAlgorithm.ES256, secretKey.getBytes("UTF-8"))
@@ -534,8 +534,8 @@ public class JWTUtil {
                 .compact();
     }
 
-    //인코딩된 문자열에서 원하는 값을 추출하는 용도이다. 
-    //여기서는 JWT 문자열을 검증하는 역할을 한다. JWT가 만료기간이 지난 것이라면 이 과정에서 Exception이 발생한다. 
+    //인코딩된 문자열에서 원하는 값을 추출하는 용도이다.
+    //여기서는 JWT 문자열을 검증하는 역할을 한다. JWT가 만료기간이 지난 것이라면 이 과정에서 Exception이 발생한다.
     public String validateAndExtract(String tokenStr) throws Exception{
         String contentValue=null;
         try{
@@ -545,8 +545,8 @@ public class JWTUtil {
             log.info(defaultJws);
 
             log.info(defaultJws.getBody().getClass());
-            
-            //getBody()는 JWT 바디를 리턴한다(문자열일 수도 있고 Claim 객체일 수도 있다.) 
+
+            //getBody()는 JWT 바디를 리턴한다(문자열일 수도 있고 Claim 객체일 수도 있다.)
             DefaultClaims claims=(DefaultClaims)defaultJws.getBody();
 
             log.info("----------------");
@@ -569,7 +569,6 @@ public class JWTUtil {
 이제 test를 해본다.
 
 <br>
-
 
 ![](/images/SpringBoot/LearningSpringbootWithWebProject-12.3/2021-08-12-17-53-46.png){: p}
 
@@ -625,13 +624,13 @@ public class JWTTests {
     @Test
     public void testValidate() throws Exception{
         String email="user95@zerock.org";
-        
+
         String str=jwtUtil.generateToken(email);
-        
+
         Thread.sleep(5000);
-        
+
         String resultEmail=jwtUtil.validateAndExtract(str);
-        
+
         System.out.println(resultEmail);
     }
 (...)
@@ -760,4 +759,178 @@ SecurityConfig 클래스에서는 ApiLoginFilter를 생성하는 부분에 JWTUi
 
 <br>
 
-프로젝트를 실행하고 브라우저에서 'h
+APICheckerFilter는 'Authorization' 헤더 메시지를 통해서 JWT를 확인하도록 수정해야 한다. ApiCheckFilter는 JWTUitl이 필요하므로 생성자를 통해서 주입하도록 수정한다.
+
+<br>
+
+**ApiCheckFilter.java**
+
+```java
+(...)
+@Log4j2
+public class ApiCheckFilter extends OncePerRequestFilter {
+    private AntPathMatcher antPathMatcher;
+    private String pattern;
+    private JWTUtil jwtUtil;
+
+    public ApiCheckFilter(String pattern,JWTUtil jwtUtil){
+        this.antPathMatcher=new AntPathMatcher();
+        this.pattern=pattern;
+        this.jwtUtil=jwtUtil;
+    }
+(...)
+```
+
+<br>
+
+ApiCheckFilter 내부의 checkAuthHeader()는 아래와 같이 JWTUitl의 validateAndExtract()를 호출하도록 수정한다.
+
+<br>
+
+**ApiCheckFilter.java**
+
+```java
+(...)
+private boolean checkAuthHeader(HttpServletRequest request){
+        boolean checkResult=false;
+
+
+        //헤더의 값을 인증하기 위해서 Authorzation 헤더를 추출한다.
+        String authHeader=request.getHeader("Authorization");
+
+        //authHeader 문자열 변수가 문자열을 포함하는지 체크한다.
+        if(StringUtils.hasText(authHeader) && authHeader.startsWith("Bearer ")){
+            log.info("Authorization exist: "+authHeader);
+            try{
+                String email=jwtUtil.validateAndExtract(authHeader.substring(7));
+                log.info("validate result: "+email);
+                checkResult=email.length()>0;
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+            //if(authHeader.equals("12345678")){
+            //"12345678"을 담고 있으면 true를 담는다.
+            //    checkResult=true;
+           // }
+        }
+        return checkResult;
+    }
+(...)
+```
+
+<br>
+
+checkAuthHeader()는 내부에서 'Authorization' 헤더를 추출해서 검증하는 역할을 한다. 'Authorization' 헤더 메시지의 경우 앞에는 인증 타입을 이용하는데 일반적인 경우에는 Basic을 사용하고 JWT를 이용할 대는 'Bearer'를 사용한다. SecurityConfig에서는 ApiCheckFilter를 이용할 때 JWTUitl을 사용하도록 수정한다.
+
+<br>
+
+**SecurityConfig.java**
+
+```java
+(...)
+    @Bean
+    public ApiCheckFilter apiCheckFilter(){
+        return new ApiCheckFilter("/notes/**/*",jwtUtil());
+    }
+(...)
+```
+
+<br>
+
+최종적으로 테스트 도구를 이용해서 확인한다. 우선은 GET 방식으로 테스트할 수 있는 URL을 작성하고 Header를 작성할 때 'Bearer'와 같이 JWT 토큰 앞에 공백 문자를 주고 JWT 문자열을 추가한다.
+
+<br>
+
+![](/images/SpringBoot/LearningSpringbootWithWebProject-12.3/2021-08-12-19-18-23.png){: p}
+
+<br>
+
+헤더가 정상적인 경우에는 위 사진과 같이 정상적인 조회가 가능하다.
+
+반면에 'Authorization'을 제거한 상태에서 실행하면 403 상태 코드(요청이 거부됨)와 메시지가 전송되는 것을 볼 수 있다.
+
+<br>
+
+![](/images/SpringBoot/LearningSpringbootWithWebProject-12.3/2021-08-12-19-19-17.png){: p}
+
+<br>
+<br>
+
+<span style="color:#85144b; font-weight:bold; font-size: 30px">CORS 필터 처리</span>
+
+<br>
+
+REST 방식의 테스트는 모두 성공했지만 결정적으로 외부에서 Ajax를 이용해서 API를 사용하기 위해서는 CORS(Cross-Origin Resource Sharing) 문제를 해결해야만 한다.
+CORS 처리를 위한 필터를 만들거나 설정하는 방법은 여러 가지가 있겠지만 프로젝트에서는 지금껏 작성했더 예제처럼 추가하는 형태로 작성한다.
+
+<br>
+
+![](/images/SpringBoot/LearningSpringbootWithWebProject-12.3/2021-08-12-19-33-04.png){: p}
+
+<br>
+
+**CORSFilter.java**
+
+```java
+package org.young.club.security.filter;
+
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
+import org.springframework.web.filter.OncePerRequestFilter;
+
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@Component
+@Order(Ordered.HIGHEST_PRECEDENCE)
+//OncePerRequestFilter는 추상 클래스로 제공되는 필터로 가장 일반적이며 매번 동작하는 기본적인 필터이다.
+public class CORSFilter extends OncePerRequestFilter {
+    @Override
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+        //모든 오리진으로부터 API요청을 수락한다.
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        //브라우저에게 response를 request의 credentials mode가 포함될 때 프론트엔드 자바스크립트 코드에 노출시킬지 결정한다
+        response.setHeader("Access-Control-Allow-Credentials","true");
+        //(that is the information contained in the Access-Control-Allow-Methods and Access-Control-Allow-Headers headers)
+        //response 헤더 중 하나로 얼마나 오래동안 preflight request(Access-Control-Allow-Methods와 Access-Control-Allow-Headers 헤더의 정보를 가지고 있는)가 캐싱될 지 시간을 정한다.
+        response.setHeader("Access-Control-Max-Age","3600");
+        //response 헤더 중 하나로 preflight request의 response로 쓰이며 이는 어떤 HTTP 헤더가 실제 request 도중에 사용될 수 있는지 명시하는 Access-Control-Request-Headers를 포함한다.
+        response.setHeader("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept, Key, Authorization");
+
+        if("OPTIONS".equalsIgnoreCase(request.getMethod())){
+            response.setStatus(HttpServletResponse.SC_OK);
+        }else{
+            filterChain.doFilter(request,response);
+        }
+    }
+}
+
+```
+
+<br>
+
+CORSFilter는 모든 필터 중에서 가장 먼저 동작하도록 @Order(Ordered.HIGHEST_PRECEDENCE)로 지정한다. 만일 jQuery로 외부에서 **'/notes/xxx'**를 이용한다면 다음과 같이 코드를 작성하게 된다.
+
+<br>
+
+```javascript
+$(".btn").click(function()){
+    $.ajax({
+        beforeSend: function(request){
+            request.setRequestHeader("Authorization", 'Bearer '+jwtValue);
+            //jwtValue는 JWT값
+        },
+        dataType: "json",
+        url: 'http://localhost:8080/notes/all',
+        data:{email: 'user10@zerock.org'},
+        success: function(arr){
+            console.log(arr);
+        }
+    });
+})
+
+```
