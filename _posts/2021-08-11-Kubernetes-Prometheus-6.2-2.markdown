@@ -717,6 +717,14 @@ kubectl get pods --selector=app=prometheus
 
 프로메테우스 서버에서 제공하는 웹 UI로 접속하기 위한 프로메테우스 서비스의 IP 주소(EXTERNAL-IP)를 확인한다.
 
+<link rel="stylesheet" href="https: //www.webnots.com/resources/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/assets/css/webnots.css">
+
+
+<div class="webnots-warning webnots-notification-box">위에 사진에 나오는 prometheus-node-exporter 파드 4개를 지우기 위해서는 helm uninstall prometheus한 다음에 kubectl delete pods --all 해줘야 한다.</div>
+
+<br>
+
 ```bash
 kubectl get service prometheus-server
 ```
