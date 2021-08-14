@@ -1,0 +1,910 @@
+I"�G<p><span style="color:orange; font-weight:bold"><em>해당 내용은 책 ‘코드로 배우는 스프링 부트 웹 프로젝트’에 나오는 내용이며 이는 개인적으로 공부하기 위해 기록함을 알려드립니다</em></span></p>
+
+<p><br /><br /></p>
+
+<h1 id="api를-위한-인증처리"><center>API를 위한 인증처리</center></h1>
+
+<p><br /></p>
+
+<p>API를 이용한다면 일반적인 로그인의 URL이 아닌 별도의 URL로 로그인을 처리하는 것이 일반적이다. 폼 방식의 로그인과 달리 API는 URL이 변경되면 API를 이용하는 입장에서는 호출하는 URL를 변경해야 하기 때문에 위험한 일이다.</p>
+
+<p>예제는 ApiLoginFilter를 작성한다. ApiLoginFilter는 특정한 URL로 외부에서 로그인이 가능하도록 하고, 로그인이 성공하면 클라이언트가 Authorization 헤더의 값으로 이용할 데이터를 전송할 것이다. 예제에서는 <strong>‘/api/login’</strong>이라는 URL을 이용해서 외부의 클라이언트가 자신의 아이디와 패스워드로 로그인한다고 가정한다.(API를 사용하기 위해서 별도의 메뉴로 승인을 받는 것이 일반적이지만 예제에서는 좀 더 극단적으로 일반 로그인과 동일한 계정으로 로그인하면 일정 기간 동안 API를 호출할 수 있도록 구성한다)</p>
+
+<p><br /></p>
+
+<p>작성하려는 코드는 ApiLoginFilter라는 이름으로 생성한다. 다만 이전의 ApiCheckFilter와 달리 org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter라는 스프링 시큐리티에서 제공하는 필터를 이용한다. security 패키지 밑에 filter 패키지를 찾아 ApiLoginFilter 클래스를 추가한다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-12.3/2021-08-11-16-47-33.png" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>ApiLoginFilter.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.young.club.security.filter</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">lombok.extern.log4j.Log4j2</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.authentication.BadCredentialsException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.core.Authentication</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.core.AuthenticationException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.servlet.ServletException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="nd">@Log4j2</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ApiLoginFilter</span> <span class="kd">extends</span> <span class="nc">AbstractAuthenticationProcessingFilter</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">ApiLoginFilter</span><span class="o">(</span><span class="nc">String</span> <span class="n">defaultFilterProcessesUrl</span><span class="o">){</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">defaultFilterProcessesUrl</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">Authentication</span> <span class="nf">attemptAuthentication</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">AuthenticationException</span><span class="o">,</span> <span class="nc">IOException</span><span class="o">,</span> <span class="nc">ServletException</span> <span class="o">{</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"-----------------------ApiLoginFilter----------------------"</span><span class="o">);</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"attemptAuthentication"</span><span class="o">);</span>
+
+        <span class="nc">String</span> <span class="n">email</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="na">getParameter</span><span class="o">(</span><span class="s">"email"</span><span class="o">);</span>
+        <span class="nc">String</span> <span class="n">pw</span><span class="o">=</span><span class="s">"1111"</span><span class="o">;</span>
+
+        <span class="k">if</span><span class="o">(</span><span class="n">email</span><span class="o">==</span><span class="kc">null</span><span class="o">){</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">BadCredentialsException</span><span class="o">(</span><span class="s">"email cannot be null"</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>attemptAuthentication()에서는 간단히 email이라는 파라미터가 있어야만 동작이 가능하다. 우선은 간단히 동작 여부를 확인하기 위한 용도이므로 메서드 내부의 내용은 앞으로 많이 수정될 것이다. SecurityConfig에 ApiLoginFilter를 추가한다. AbstractAuthenticationProcessingFilter는 반드시 AuthenticationManager가 필요하므로 AuthenticationManager()를 이용해서 추가해 주어야 한다.</p>
+
+<p><br /></p>
+
+<p><strong>SecurityConfig.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(...)</span>
+<span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">configure</span><span class="o">(</span><span class="nc">HttpSecurity</span> <span class="n">http</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+       <span class="c1">//http.authorizeRequests()로 인증이 필요한 자원들을 설정할 수 있고 antMatchers()는</span>
+        <span class="c1">// '**/*'와 같은 앤트 스타일의 패턴으로 원하는 자원을 선택할 수 있다.</span>
+        <span class="c1">//마지막으로 permitAll()의 경우는 말 그대로 '모든 사용자에게 허락'한다는 의미이므로</span>
+        <span class="c1">//로그인하지 않은 사용자도 익명의 사용자로 간주되어서 접근이 가능하게 된다.</span>
+        <span class="c1">//프로젝트를 재시작해서 /sample/all에 접속하면 별도의 로그인 없이도 접근이 가능해 진다.</span>
+       <span class="c1">// http.authorizeRequests().antMatchers("/sample/all").permitAll()</span>
+                                <span class="c1">//아래와 같이 설정하고 /sample/member'를 호출하면 Access Denied 된다.</span>
+      <span class="c1">//                          .antMatchers("/sample/member").hasRole("USER");</span>
+
+        <span class="c1">//인가/인증에 문제시 로그인 화면면</span>
+       <span class="n">http</span><span class="o">.</span><span class="na">formLogin</span><span class="o">();</span>
+       <span class="n">http</span><span class="o">.</span><span class="na">csrf</span><span class="o">().</span><span class="na">disable</span><span class="o">();</span>
+
+       <span class="n">http</span><span class="o">.</span><span class="na">logout</span><span class="o">();</span>
+
+
+       <span class="c1">//이것을 추가해줌으로써 구글 로그인을 하면 이전과 달리 빈 화면만 보이게 된다.</span>
+       <span class="n">http</span><span class="o">.</span><span class="na">oauth2Login</span><span class="o">().</span><span class="na">successHandler</span><span class="o">(</span><span class="n">successHandler</span><span class="o">());</span>
+
+       <span class="c1">//remember me 설정하는 것이다</span>
+        <span class="c1">//rememberMe()를 적용할 때는 주로 쿠키를 얼마나 유지할 것인지를 같이 지정한다. 초(second) 단위로 설정하므로 이 코드는 7일간 쿠키가 유지되도록 지정하였다.</span>
+       <span class="n">http</span><span class="o">.</span><span class="na">rememberMe</span><span class="o">().</span><span class="na">tokenValiditySeconds</span><span class="o">(</span><span class="mi">60</span><span class="o">*</span><span class="mi">60</span><span class="o">*</span><span class="mi">7</span><span class="o">).</span><span class="na">userDetailsService</span><span class="o">(</span><span class="n">userDetailsService</span><span class="o">());</span>
+
+       <span class="c1">//실제 로그인 시에 OAuth를 사용한 로그인이 가능하도록 함</span>
+      <span class="c1">// http.oauth2Login();</span>
+
+        <span class="n">http</span><span class="o">.</span><span class="na">addFilterBefore</span><span class="o">(</span><span class="n">apiCheckFilter</span><span class="o">(),</span> <span class="nc">UsernamePasswordAuthenticationFilter</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="n">http</span><span class="o">.</span><span class="na">addFilterBefore</span><span class="o">(</span><span class="n">apiLoginFilter</span><span class="o">(),</span> <span class="nc">UsernamePasswordAuthenticationFilter</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="nc">ApiLoginFilter</span> <span class="nf">apiLoginFilter</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span><span class="o">{</span>
+        <span class="nc">ApiLoginFilter</span> <span class="n">apiLoginFilter</span><span class="o">=</span><span class="k">new</span> <span class="nc">ApiLoginFilter</span><span class="o">(</span><span class="s">"/api/login"</span><span class="o">);</span>
+        <span class="n">apiLoginFilter</span><span class="o">.</span><span class="na">setAuthenticationManager</span><span class="o">(</span><span class="n">authenticationManager</span><span class="o">());</span>
+
+        <span class="k">return</span> <span class="n">apiLoginFilter</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">(...)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>추가한 apiLoginFilter()는 ‘/api/login’ 이라는 경로로 접근할 때 동작하도록 지정하고, UsernamePasswordAuthenticationFilter 전에 동작하도록 지정하였다. 프로젝트를 실행하고 ‘/api/login’을 email 파라미터 없이 전송하면 아래 사진과 같이 401 에러가 발생하는 것을 볼 수 있다.</p>
+
+<link rel="stylesheet" href="https: //www.webnots.com/resources/font-awesome/css/font-awesome.min.css" />
+
+<link rel="stylesheet" href="/assets/css/webnots.css" />
+
+<p><br /></p>
+
+<div class="webnots-information webnots-notification-box">현재 url를 보면 포트가 8085로 되어 있는데 이는 내가 일부로 application.properties에 <span style="color:#85144b; font-weight:bold">server.port=8085</span>를 추가한 것이다. 스프링부트 앱을 실행하는데 8080포트에 오류가 나서 임시적으로 변경했다.</div>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-12.3/2021-08-11-17-11-06.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>위 사진은 이메일이 없어서 발생하는 에러이다.</p>
+
+<p><br /></p>
+
+<p>특정한 API르르 호출하는 클라이언트에서는 다른 서버나 Application으로 실행되기 때문에 쿠키나 세션을 활용할 수 없다. 이러한 제약 때문에 API를 호출하는 경우에는 Request를 전송할 때 Http 헤더 메시지에 특별한 값을 지정해서 전송한다.</p>
+
+<p><br /></p>
+
+<p>Authorization 헤더는 이러한 용도로 사용한다. 클라이언트에서 전송한 Reqeust에 포함된 Authorization 헤더의 값을 파악해서 사용자가 정상적인 요청인지를 알아내는 것이다. ApiCheckFilter에서 Authorization 헤더를 추출하고 헤더의 값이 ‘12345678’인 경우에는 인증을 한다고 가정해 보자. 만일 헤더의 값이 정확하다면 다음 단계를 진행하고 그렇지 못하다면 다른 메시지를 전송해야 한다. 기존의 checkAuthHeader() 메서드를 추가해서 이러한 기능을 구현하면 아래와 같다.</p>
+
+<p><br /></p>
+
+<p><strong>ApiCheckFilter.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(...)</span>
+<span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doFilterInternal</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span> <span class="nc">FilterChain</span> <span class="n">filterChain</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">ServletException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"REQUESTURI: "</span><span class="o">+</span><span class="n">request</span><span class="o">.</span><span class="na">getRequestURI</span><span class="o">());</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">antPathMatcher</span><span class="o">.</span><span class="na">match</span><span class="o">(</span><span class="n">pattern</span><span class="o">,</span> <span class="n">request</span><span class="o">.</span><span class="na">getRequestURI</span><span class="o">()));</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">antPathMatcher</span><span class="o">.</span><span class="na">match</span><span class="o">(</span><span class="n">pattern</span><span class="o">,</span><span class="n">request</span><span class="o">.</span><span class="na">getRequestURI</span><span class="o">()))</span> <span class="o">{</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"APICheckerFilter.................................."</span><span class="o">);</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"APICheckerFilter.................................."</span><span class="o">);</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"APICheckerFilter.................................."</span><span class="o">);</span>
+
+
+            <span class="c1">//checkAuthHeader()에서 헤더의 값을 인증한다.</span>
+            <span class="kt">boolean</span> <span class="n">checkHeader</span><span class="o">=</span><span class="n">checkAuthHeader</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+
+            <span class="k">if</span><span class="o">(</span><span class="n">checkHeader</span><span class="o">){</span>
+                <span class="n">filterChain</span><span class="o">.</span><span class="na">doFilter</span><span class="o">(</span><span class="n">request</span><span class="o">,</span><span class="n">response</span><span class="o">);</span>
+                <span class="k">return</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="k">return</span><span class="o">;</span>
+        <span class="o">}</span>
+
+
+        <span class="c1">//다음 필터의 단계로 넘어가는 역할을 위해서 필요하다</span>
+        <span class="n">filterChain</span><span class="o">.</span><span class="na">doFilter</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">checkAuthHeader</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">){</span>
+        <span class="kt">boolean</span> <span class="n">checkResult</span><span class="o">=</span><span class="kc">false</span><span class="o">;</span>
+
+
+        <span class="c1">//헤더의 값을 인증하기 위해서 Authorzation 헤더를 추출한다.</span>
+        <span class="nc">String</span> <span class="n">authHeader</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="na">getHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">);</span>
+
+        <span class="c1">//authHeader 문자열 변수가 문자열을 포함하는지 체크한다.</span>
+        <span class="k">if</span><span class="o">(</span><span class="nc">StringUtils</span><span class="o">.</span><span class="na">hasText</span><span class="o">(</span><span class="n">authHeader</span><span class="o">)){</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"Authorization exist: "</span><span class="o">+</span><span class="n">authHeader</span><span class="o">);</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">authHeader</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"12345678"</span><span class="o">)){</span>
+                <span class="c1">//"12345678"을 담고 있으면 true를 담는다.</span>
+                <span class="n">checkResult</span><span class="o">=</span><span class="kc">true</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">checkResult</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">(...)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>checkAuthHeader()는 ‘Authorization’이라는 헤더의 값을 확인하고 boolean 타입의 결과를 반환한다. 이를 이용해서 doFilterInternal()에서 다음 필터로 진행할 것인지를 결정한다. 테스트 도구로 ‘/notes/2’와 같이 기존에 테스트했던 URL을 확인한다.</p>
+
+<p>Request를 전송하기 전에 ‘Add New Header’를 선택해서 ‘Authorization’ 헤더 값을 조정한다.</p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-12.3/2021-08-11-17-35-25.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>이제 Send 버튼을 눌러서 결과를 확인한다.</p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-12.3/2021-08-11-17-35-11.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>위의 코드는 Authorization 헤더의 값이 정상일 때도 동작하지만 불행히도 Authorization 헤더가 없는 경우에는 정상이라는 메시지가 전송된다. 테스트 도구에서 Authorization 헤더를 삭제하고 테스트를 진행한다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-12.3/2021-08-11-17-36-47.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>실행 결과를 보면 아래와 같이 결과 데이터는 없어도 ‘200’ 메시지가 발행된다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-12.3/2021-08-11-17-41-17.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>위에 사진으로 잘 안 보일 수도 있으니 확대해서 보여주겠다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-12.3/2021-08-11-17-41-40.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>이것은 ApiCheckFilter가 스프링 시큐리티가 사용하는 쿠키나 세션을 이용하지 않기 때문에 발생하는 문제이다. 이를 해결하기 위해서는 정상적인 인증을 처리하도록 AuthenticationManager를 이용하는 방식을 사용하거나 ApiCheckFilter에서 간단하게 JSON 포맷의 에러 메시지를 전송하는 방법을 사용할 수 있다. 예제에서는 간단히 JSON 데이터를 전송한다.</p>
+
+<p><br /></p>
+
+<p><strong>ApiCheckFilter.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(...)</span>
+<span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doFilterInternal</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span> <span class="nc">FilterChain</span> <span class="n">filterChain</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">ServletException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"REQUESTURI: "</span><span class="o">+</span><span class="n">request</span><span class="o">.</span><span class="na">getRequestURI</span><span class="o">());</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">antPathMatcher</span><span class="o">.</span><span class="na">match</span><span class="o">(</span><span class="n">pattern</span><span class="o">,</span> <span class="n">request</span><span class="o">.</span><span class="na">getRequestURI</span><span class="o">()));</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">antPathMatcher</span><span class="o">.</span><span class="na">match</span><span class="o">(</span><span class="n">pattern</span><span class="o">,</span><span class="n">request</span><span class="o">.</span><span class="na">getRequestURI</span><span class="o">()))</span> <span class="o">{</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"APICheckerFilter.................................."</span><span class="o">);</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"APICheckerFilter.................................."</span><span class="o">);</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"APICheckerFilter.................................."</span><span class="o">);</span>
+
+
+            <span class="c1">//checkAuthHeader()에서 헤더의 값을 인증한다.</span>
+            <span class="kt">boolean</span> <span class="n">checkHeader</span><span class="o">=</span><span class="n">checkAuthHeader</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+
+            <span class="k">if</span><span class="o">(</span><span class="n">checkHeader</span><span class="o">){</span>
+                <span class="n">filterChain</span><span class="o">.</span><span class="na">doFilter</span><span class="o">(</span><span class="n">request</span><span class="o">,</span><span class="n">response</span><span class="o">);</span>
+                <span class="k">return</span><span class="o">;</span>
+            <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+                <span class="c1">//</span>
+                <span class="c1">//403에러를 띄운다.</span>
+                <span class="n">response</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="nc">HttpServletResponse</span><span class="o">.</span><span class="na">SC_FORBIDDEN</span><span class="o">);</span>
+                <span class="c1">//json 리턴 및 한글깨짐 수정.</span>
+                <span class="n">response</span><span class="o">.</span><span class="na">setContentType</span><span class="o">(</span><span class="s">"application/json;charset=utf-8"</span><span class="o">);</span>
+                <span class="nc">JSONObject</span> <span class="n">json</span><span class="o">=</span><span class="k">new</span> <span class="nc">JSONObject</span><span class="o">();</span>
+                <span class="nc">String</span> <span class="n">message</span><span class="o">=</span><span class="s">"FAIL CHECK API TOKEN"</span><span class="o">;</span>
+                <span class="n">json</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"code"</span><span class="o">,</span><span class="s">"403"</span><span class="o">);</span>
+                <span class="n">json</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"message"</span><span class="o">,</span><span class="n">message</span><span class="o">);</span>
+
+                <span class="nc">PrintWriter</span> <span class="n">out</span><span class="o">=</span><span class="n">response</span><span class="o">.</span><span class="na">getWriter</span><span class="o">();</span>
+                <span class="n">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">json</span><span class="o">);</span>
+                <span class="k">return</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+
+        <span class="c1">//다음 필터의 단계로 넘어가는 역할을 위해서 필요하다</span>
+        <span class="n">filterChain</span><span class="o">.</span><span class="na">doFilter</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">(...)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>변경된 내용은 checkHeader()가 false를 반환하는 경우에 net.minidev.json.JSONObject.JSONObject를 이용해서 간단한 JSON 데이터와 403 에러 메시지를 만들어서 전송한다. 위의 코드를 반영하면 Authorization 헤더가 없거나 다른 값을 전송하는 경우 아래와 같은 결과가 생기는 것을 확인할 수 있다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-12.3/2021-08-11-18-05-51.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>Authorization 헤더에 따라서 다르게 동작하는 코드가 완성되었다면 다음과 같은 작업을 처리해야 한다.</p>
+
+<p><br /></p>
+
+<div class="webnots-success webnots-notification-box">외부에서 인증할 수 있는 인증처리</div>
+<div class="webnots-success webnots-notification-box">ApiCheckFilter가 Authorization 헤더의 값을 발행하기</div>
+
+<p><br /></p>
+
+<p>ApiLoginFilter가 정상적으로 동작하기 위해서는 내부적으로 AuthticationManager를 사용해서 동작하도록 수정해야 한다. AuthenticationManager는 authenticate() 메서드를 가지고 있는데 특이하게도 파라미터와 리턴 타입이 동일하게 Authentication 타입이다.</p>
+
+<p><br /></p>
+
+<p>파라미터로 전송하는 Authentication 타입의 객체로는 ‘xxxToken’이라는 것을 사용한다. 예를 들어 UsernamePasswordAuthenticationFilter 클래스는 org.springframework.security.authentication.UsernamePasswordAuthenticationToken이라는 객체를 사용한다. 직접 Authentication 타입의 객체를 만들어서 파라미터로 전달할 수도 있지만 예제에서는 최대한 간단히 사용할 수 있는 UsernamePasswordAuthenticationToken을 사용해서 인증을 진행한다.</p>
+
+<p><br /></p>
+
+<p><strong>ApiLoginFilter.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(...)</span>
+<span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">Authentication</span> <span class="nf">attemptAuthentication</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">AuthenticationException</span><span class="o">,</span> <span class="nc">IOException</span><span class="o">,</span> <span class="nc">ServletException</span> <span class="o">{</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"-----------------------ApiLoginFilter----------------------"</span><span class="o">);</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"attemptAuthentication"</span><span class="o">);</span>
+
+        <span class="nc">String</span> <span class="n">email</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="na">getParameter</span><span class="o">(</span><span class="s">"email"</span><span class="o">);</span>
+        <span class="nc">String</span> <span class="n">pw</span><span class="o">=</span><span class="s">"1111"</span><span class="o">;</span>
+
+        <span class="nc">UsernamePasswordAuthenticationToken</span> <span class="n">authToken</span><span class="o">=</span><span class="k">new</span> <span class="nc">UsernamePasswordAuthenticationToken</span><span class="o">(</span><span class="n">email</span><span class="o">,</span><span class="n">pw</span><span class="o">);</span>
+
+        <span class="k">if</span><span class="o">(</span><span class="n">email</span><span class="o">==</span><span class="kc">null</span><span class="o">){</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">BadCredentialsException</span><span class="o">(</span><span class="s">"email cannot be null"</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">(...)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>변경된 내용은 email, pw를 파라미터로 받아서 실제 인증을 처리하는 것이다. 브라우저를 이용해서 ‘/api/login?email=xxx&amp;pw=xxx’와 같이 실제 사용자 계정으로 로그인을 시도해 보면 ‘/’로 이동하기는 하지만 정상적으로 로그인된 것을 확인할 수 있다.</p>
+
+<p><br /></p>
+
+<p>로그인 후에 화면에는 ‘/’로 이동했지만 ‘/sample/member’ 등의 URL을 호출하면 정상적으로 로그인된 것을 확인할 수 있다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-12.3/2021-08-11-18-17-49.png" alt="" /></p>
+
+<p><br /></p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-12.3/2021-08-11-18-18-04.png" alt="" /></p>
+
+<p><br /></p>
+
+<link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet" />
+
+<div style="background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;">
+
+당연한 이야기지만 실제 위와 같이 로그인을 처리하는 것은 POST 방식으로 하고, 가능하면 전달되는 파라미터들 역시 암호화를 해 주어야 한다. 예제에서는 빨리 결과를 확인할 수 있게 GET 방식과 평문으로 데이터를 처리하였다.</div>
+
+<p><br /></p>
+
+<p>ApiLoginFilter로 직접 인증처리를 했다면 남은 작업은 인증 후 성공 혹은 실패에 따른 처리이다. 이러한 처리는 메서드를 override해서 처리하거나 별도의 클래스를 지정할 수 있으므로 예제에서는 2가지 모두를 소개하려 한다.</p>
+
+<p><br /></p>
+
+<p>ApiLoginFilter에서 인증에 실패하는 경우 API 서버는 일반 화면이 아니라 JSON 결과가 전송되도록 수정해야 하고 성공하는 경우에는 클라이언트가 보관할 인증 토큰이 전송되어야 한다. AbstractAuthenticationProcessingFilter에는 setAuthenticationFailureHandler()를 이용해서 인증에 실패했을 경우 처리를 지정할 수 있다. security 패키지의 handler 패키지 내 ApiLoginFailHandler 클래스를 추가한다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-12.3/2021-08-11-18-23-56.png" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>ApiLoginFailHandler.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.young.club.security.handler</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">lombok.extern.log4j.Log4j2</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.minidev.json.JSONObject</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.core.AuthenticationException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.web.authentication.AuthenticationFailureHandler</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.servlet.ServletException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.PrintWriter</span><span class="o">;</span>
+
+<span class="nd">@Log4j2</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ApiLoginFailHandler</span> <span class="kd">implements</span> <span class="nc">AuthenticationFailureHandler</span> <span class="o">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAuthenticationFailure</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span> <span class="nc">AuthenticationException</span> <span class="n">exception</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span><span class="o">,</span> <span class="nc">ServletException</span> <span class="o">{</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"login fail handler............."</span><span class="o">);</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">exception</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+
+        <span class="n">response</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="nc">HttpServletResponse</span><span class="o">.</span><span class="na">SC_UNAUTHORIZED</span><span class="o">);</span>
+        <span class="c1">//json리턴</span>
+        <span class="n">response</span><span class="o">.</span><span class="na">setContentType</span><span class="o">(</span><span class="s">"application/json;charset=utf-8"</span><span class="o">);</span>
+        <span class="nc">JSONObject</span> <span class="n">json</span><span class="o">=</span><span class="k">new</span> <span class="nc">JSONObject</span><span class="o">();</span>
+        <span class="nc">String</span> <span class="n">message</span><span class="o">=</span><span class="n">exception</span><span class="o">.</span><span class="na">getMessage</span><span class="o">();</span>
+        <span class="n">json</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"code"</span><span class="o">,</span><span class="s">"401"</span><span class="o">);</span>
+        <span class="n">json</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"message"</span><span class="o">,</span><span class="n">message</span><span class="o">);</span>
+
+        <span class="nc">PrintWriter</span> <span class="n">out</span><span class="o">=</span><span class="n">response</span><span class="o">.</span><span class="na">getWriter</span><span class="o">();</span>
+        <span class="n">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">json</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>ApiLoginFailHandler는 AuthenticationFailureHandler 인터페이스를 구현하는 클래스로 오직 인증에 실패하는 경우에 처리를 전담하도록 구성한다. 인증에 실패하면 ‘401’ 상태 코드를 반환하도록 한다. SecurityConfig 클래스에는 ApiLoginFilter의 setAuthenticationFailureHandler()를 적용해 주어야 한다.</p>
+
+<p><br /></p>
+
+<p><strong>SecurityConfig.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(...)</span>
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="nc">ApiLoginFilter</span> <span class="nf">apiLoginFilter</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span><span class="o">{</span>
+        <span class="nc">ApiLoginFilter</span> <span class="n">apiLoginFilter</span><span class="o">=</span><span class="k">new</span> <span class="nc">ApiLoginFilter</span><span class="o">(</span><span class="s">"/api/login"</span><span class="o">);</span>
+        <span class="n">apiLoginFilter</span><span class="o">.</span><span class="na">setAuthenticationManager</span><span class="o">(</span><span class="n">authenticationManager</span><span class="o">());</span>
+
+        <span class="n">apiLoginFilter</span><span class="o">.</span><span class="na">setAuthenticationFailureHandler</span><span class="o">(</span><span class="k">new</span> <span class="nc">ApiLoginFailHandler</span><span class="o">());</span>
+        <span class="k">return</span> <span class="n">apiLoginFilter</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">(...)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>프로젝트를 재시작하고 인증이 불가능한 정보를 전송하면 ‘401’ 상태 코드와 함께 에러 메시지가 전송된다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-12.3/2021-08-11-18-28-18.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>인증의 실패와 마찬가지로 인증의 성공 또한 별도의 클래스로 작성해서 처리할 수 있긴 하지만 AbstractAuthenticationProcessingFilter 클래스에는 successfulAuthentication()라는 메서드를 override 해서 구현이 가능하다.</p>
+
+<p><br /></p>
+
+<p><strong>ApiLoginFilter.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(...)</span>
+<span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">successfulAuthentication</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span> <span class="nc">FilterChain</span> <span class="n">chain</span><span class="o">,</span> <span class="nc">Authentication</span> <span class="n">authResult</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span><span class="o">,</span> <span class="nc">ServletException</span> <span class="o">{</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"---------------------ApiLoginFilter--------------"</span><span class="o">);</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"successfulAuthentication: "</span><span class="o">+</span><span class="n">authResult</span><span class="o">);</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">authResult</span><span class="o">.</span><span class="na">getPrincipal</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">(...)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>successfulAuthentication()의 마지막 파라미터는 성공한 사용자의 인증 정보를 가지고 있는 Authentication 객체이다. 이를 통해서 인증에 성공한 사용자의 정보를 로그에서 확인할 수 있다. 브라우저에서 ‘/api/login?email=user90@zerock.org@pw=1111’과 같이 정상적인 계정 정보를 이용하면 아래와 같은 로그가 기록되는 것을 볼 수 있다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-12.3/2021-08-11-18-32-25.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>인증에 성공한 후에는 사용자가 ‘/notes/xx’와 같은 api를 호출할 때 사용할 적절한 데이터를 만들어서 전송해 주어야 한다. 여기서 JWT(JSON Web Token)를 이용할 것이다. 이늦ㅇ이 성공한 사용자에게는 특수한 문자열(JWT)을 전송해 주고, API를 호출할 때는 이 문자열을 읽어서 해당 Request가 정상적인 요청인지를 확인하는 용도로 사용할 것이다.</p>
+
+<p>JWT를 사용하기 위해 라이브러리를 사용한다.</p>
+
+<p><br /></p>
+
+<p><strong>build.gradle</strong></p>
+
+<div class="language-gradle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">implementation</span> <span class="nl">group:</span> <span class="s1">'io.jsonwebtoken'</span><span class="o">,</span> <span class="nl">name:</span> <span class="s1">'jjwt'</span><span class="o">,</span> <span class="nl">version:</span> <span class="s1">'0.9.1'</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>JWT를 현재 프로젝트에서는 1) 인증에 성공했을 때 JWT 문자열을 만들어서 클라이언트에게 전송하는 것과, 2) 클라이언트가 보낸 토큰의 값을 검증하는 경우에 사용된다. 예제 프로젝트 내에는 security 패키지 내에 util이라는 패키지를 구성하고 JWTUtil이라는 클래스를 추가한다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-12.3/2021-08-12-17-35-18.png" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>JWTUitl.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.young.club.security.util</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">io.jsonwebtoken.Jwts</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.jsonwebtoken.SignatureAlgorithm</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.jsonwebtoken.impl.DefaultClaims</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.jsonwebtoken.impl.DefaultJws</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">lombok.extern.log4j.Log4j2</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.nio.charset.StandardCharsets</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.time.ZonedDateTime</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Date</span><span class="o">;</span>
+
+<span class="nd">@Log4j2</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">JWTUtil</span> <span class="o">{</span>
+    <span class="c1">//이 키를 이용해서 Signature를 생성한다.</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">secretKey</span><span class="o">=</span><span class="s">"zerock12345678"</span><span class="o">;</span>
+
+    <span class="c1">//1month</span>
+    <span class="c1">//JWT 문자열 자체를 알면 누구든 API를 사용할 수 있다는 문제가 생기므로 만료 기간(expire) 값을 설정한다</span>
+    <span class="kd">private</span> <span class="kt">long</span> <span class="n">expire</span><span class="o">=</span><span class="mi">60</span><span class="o">*</span><span class="mi">24</span><span class="o">*</span><span class="mi">30</span><span class="o">;</span>
+
+    <span class="c1">//JWT 토큰을 생성하는 역할을 한다.</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">generateToken</span><span class="o">(</span><span class="nc">String</span> <span class="n">content</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span><span class="o">{</span>
+        <span class="k">return</span> <span class="nc">Jwts</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
+                <span class="c1">//언제 발행되는지 세팅한다. 이것을 실행하는 현재 시간과 날짜로 설정함</span>
+                <span class="o">.</span><span class="na">setIssuedAt</span><span class="o">(</span><span class="k">new</span> <span class="nc">Date</span><span class="o">())</span>
+
+                <span class="c1">//위에 설정한 유효기간을 설정한다.</span>
+                <span class="o">.</span><span class="na">setExpiration</span><span class="o">(</span><span class="nc">Date</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="nc">ZonedDateTime</span><span class="o">.</span><span class="na">now</span><span class="o">().</span><span class="na">plusMinutes</span><span class="o">(</span><span class="n">expire</span><span class="o">).</span><span class="na">toInstant</span><span class="o">()))</span>
+                <span class="c1">//사용자의 이메일 주소를 입력해 주어서 나중에 사용할 수 있도록 구성한다.</span>
+                <span class="o">.</span><span class="na">claim</span><span class="o">(</span><span class="s">"sub"</span><span class="o">,</span> <span class="n">content</span><span class="o">)</span>
+                <span class="c1">//getBytes는 secretKey 문자열을 바이트로 인코딩한다.</span>
+                <span class="o">.</span><span class="na">signWith</span><span class="o">(</span><span class="nc">SignatureAlgorithm</span><span class="o">.</span><span class="na">ES256</span><span class="o">,</span> <span class="n">secretKey</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(</span><span class="s">"UTF-8"</span><span class="o">))</span>
+                <span class="c1">//JWT를 빌드하고 시리얼라이즈 한다.</span>
+                <span class="o">.</span><span class="na">compact</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="c1">//인코딩된 문자열에서 원하는 값을 추출하는 용도이다.</span>
+    <span class="c1">//여기서는 JWT 문자열을 검증하는 역할을 한다. JWT가 만료기간이 지난 것이라면 이 과정에서 Exception이 발생한다.</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">validateAndExtract</span><span class="o">(</span><span class="nc">String</span> <span class="n">tokenStr</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span><span class="o">{</span>
+        <span class="nc">String</span> <span class="n">contentValue</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+        <span class="k">try</span><span class="o">{</span>
+            <span class="c1">//parseClaimsJws는 시리얼라이즈된 특정 JWS 문자열을 파싱해서 JWS 객체를 반환한다</span>
+            <span class="nc">DefaultJws</span> <span class="n">defaultJws</span><span class="o">=(</span><span class="nc">DefaultJws</span><span class="o">)</span><span class="nc">Jwts</span><span class="o">.</span><span class="na">parser</span><span class="o">().</span><span class="na">setSigningKey</span><span class="o">(</span><span class="n">secretKey</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(</span><span class="s">"UTF-8"</span><span class="o">)).</span><span class="na">parseClaimsJws</span><span class="o">(</span><span class="n">tokenStr</span><span class="o">);</span>
+
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">defaultJws</span><span class="o">);</span>
+
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">defaultJws</span><span class="o">.</span><span class="na">getBody</span><span class="o">().</span><span class="na">getClass</span><span class="o">());</span>
+
+            <span class="c1">//getBody()는 JWT 바디를 리턴한다(문자열일 수도 있고 Claim 객체일 수도 있다.)</span>
+            <span class="nc">DefaultClaims</span> <span class="n">claims</span><span class="o">=(</span><span class="nc">DefaultClaims</span><span class="o">)</span><span class="n">defaultJws</span><span class="o">.</span><span class="na">getBody</span><span class="o">();</span>
+
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"----------------"</span><span class="o">);</span>
+
+            <span class="c1">//Returns the JWT sub (subject) value or null if not present.</span>
+            <span class="n">contentValue</span><span class="o">=</span> <span class="n">claims</span><span class="o">.</span><span class="na">getSubject</span><span class="o">();</span>
+        <span class="o">}</span><span class="k">catch</span><span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">){</span>
+            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+            <span class="n">contentValue</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">contentValue</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>이제 test를 해본다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-12.3/2021-08-12-17-53-46.png" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>JWTTests.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.young.club.security</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.BeforeEach</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.young.club.security.util.JWTUtil</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">JWTTests</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">JWTUtil</span> <span class="n">jwtUtil</span><span class="o">;</span>
+
+    <span class="c1">//@BeforeEach는 @Test 어노테이션이 붙은 메서드가 호출되기 전에 먼저 호출되어야 한다는 의미를 지닌다.</span>
+    <span class="nd">@BeforeEach</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testBefore</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"testBefore........."</span><span class="o">);</span>
+        <span class="n">jwtUtil</span><span class="o">=</span><span class="k">new</span> <span class="nc">JWTUtil</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testEncode</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span><span class="o">{</span>
+        <span class="nc">String</span> <span class="n">email</span><span class="o">=</span><span class="s">"user95@zerock.org"</span><span class="o">;</span>
+
+        <span class="nc">String</span> <span class="n">str</span><span class="o">=</span><span class="n">jwtUtil</span><span class="o">.</span><span class="na">generateToken</span><span class="o">(</span><span class="n">email</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>기존의 테스트 코드와는 달리 JWTTests 클래스는 스프링을 이용하는 테스트가 아니므로 내부에서 직접 JWTUtil 객체를 만들어서 사용할 필요가 있다. testEncode()를 이용해서 만들어지는 JWT 문자열을 확인할 수 있다.</p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-12.3/2021-08-12-18-10-34.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>이제 JWTUtil의 generateToke()에 대한 검증을 테스트 코드에서도 확인해 볼 필요가 있다.</p>
+
+<p><br /></p>
+
+<p><strong>JWTTests.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(...)</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testValidate</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span><span class="o">{</span>
+        <span class="nc">String</span> <span class="n">email</span><span class="o">=</span><span class="s">"user95@zerock.org"</span><span class="o">;</span>
+
+        <span class="nc">String</span> <span class="n">str</span><span class="o">=</span><span class="n">jwtUtil</span><span class="o">.</span><span class="na">generateToken</span><span class="o">(</span><span class="n">email</span><span class="o">);</span>
+
+        <span class="nc">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">5000</span><span class="o">);</span>
+
+        <span class="nc">String</span> <span class="n">resultEmail</span><span class="o">=</span><span class="n">jwtUtil</span><span class="o">.</span><span class="na">validateAndExtract</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">resultEmail</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">(...)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>위의 테스트 코드를 실행했을 때 결과는 email 변수의 값과 동일한 문자열이 출력되는지 확인한다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-12.3/2021-08-12-18-14-08.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>JWT에 대한 생성과 검증에 문제가 없다면 최종적으로 ApiLoginFilter/ApiCheckFilter에 적용해야 한다.</p>
+
+<p>ApiLoginFilter에서는 성공한 후에 JWT 문자열을 사용자에게 전송한다.</p>
+
+<p><br /></p>
+
+<p><strong>ApiLoginFilter.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(...)</span>
+<span class="nd">@Log4j2</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ApiLoginFilter</span> <span class="kd">extends</span> <span class="nc">AbstractAuthenticationProcessingFilter</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">JWTUtil</span> <span class="n">jwtUtil</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">ApiLoginFilter</span><span class="o">(</span><span class="nc">String</span> <span class="n">defaultFilterProcessesUrl</span><span class="o">){</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">defaultFilterProcessesUrl</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">jwtUtil</span><span class="o">=</span><span class="n">jwtUtil</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">(...)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>주입 받은 JWTUtil을 이용해서 successfulAuthentication() 내에서 문자열을 발행해 준다.</p>
+
+<p><br /></p>
+
+<p><strong>ApiLoginFilter.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(...)</span>
+<span class="nd">@Log4j2</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ApiLoginFilter</span> <span class="kd">extends</span> <span class="nc">AbstractAuthenticationProcessingFilter</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">JWTUtil</span> <span class="n">jwtUtil</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">ApiLoginFilter</span><span class="o">(</span><span class="nc">String</span> <span class="n">defaultFilterProcessesUrl</span><span class="o">,</span> <span class="nc">JWTUtil</span> <span class="n">jwtUtil</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="kd">super</span><span class="o">(</span><span class="n">defaultFilterProcessesUrl</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">jwtUtil</span> <span class="o">=</span> <span class="n">jwtUtil</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">Authentication</span> <span class="nf">attemptAuthentication</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">AuthenticationException</span><span class="o">,</span> <span class="nc">IOException</span><span class="o">,</span> <span class="nc">ServletException</span> <span class="o">{</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"-----------------ApiLoginFilter---------------------"</span><span class="o">);</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"attemptAuthentication"</span><span class="o">);</span>
+
+        <span class="nc">String</span> <span class="n">email</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getParameter</span><span class="o">(</span><span class="s">"email"</span><span class="o">);</span>
+        <span class="nc">String</span> <span class="n">pw</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getParameter</span><span class="o">(</span><span class="s">"pw"</span><span class="o">);</span>
+
+        <span class="nc">UsernamePasswordAuthenticationToken</span> <span class="n">authToken</span> <span class="o">=</span>
+                <span class="k">new</span> <span class="nf">UsernamePasswordAuthenticationToken</span><span class="o">(</span><span class="n">email</span><span class="o">,</span> <span class="n">pw</span><span class="o">);</span>
+
+        <span class="k">return</span> <span class="nf">getAuthenticationManager</span><span class="o">().</span><span class="na">authenticate</span><span class="o">(</span><span class="n">authToken</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">successfulAuthentication</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span> <span class="nc">FilterChain</span> <span class="n">chain</span><span class="o">,</span> <span class="nc">Authentication</span> <span class="n">authResult</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span><span class="o">,</span> <span class="nc">ServletException</span> <span class="o">{</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"-----------------ApiLoginFilter---------------------"</span><span class="o">);</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"successfulAuthentication: "</span> <span class="o">+</span> <span class="n">authResult</span><span class="o">);</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">authResult</span><span class="o">.</span><span class="na">getPrincipal</span><span class="o">());</span>
+
+        <span class="c1">//email address</span>
+        <span class="nc">String</span> <span class="n">email</span> <span class="o">=</span> <span class="o">((</span><span class="nc">ClubAuthMemberDTO</span><span class="o">)</span><span class="n">authResult</span><span class="o">.</span><span class="na">getPrincipal</span><span class="o">()).</span><span class="na">getUsername</span><span class="o">();</span>
+
+        <span class="nc">String</span> <span class="n">token</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">token</span> <span class="o">=</span> <span class="n">jwtUtil</span><span class="o">.</span><span class="na">generateToken</span><span class="o">(</span><span class="n">email</span><span class="o">);</span>
+
+            <span class="n">response</span><span class="o">.</span><span class="na">setContentType</span><span class="o">(</span><span class="s">"text/plain"</span><span class="o">);</span>
+            <span class="n">response</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">().</span><span class="na">write</span><span class="o">(</span><span class="n">token</span><span class="o">.</span><span class="na">getBytes</span><span class="o">());</span>
+
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">token</span><span class="o">);</span>
+
+
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>SecurityConfig 클래스에서는 ApiLoginFilter를 생성하는 부분에 JWTUitl을 생성자에서 사용할 수 있도록 수정해 준다.</p>
+
+<p><br /></p>
+
+<p><strong>SecurityConfig.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(...)</span>
+<span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="nc">ApiLoginFilter</span> <span class="nf">apiLoginFilter</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span><span class="o">{</span>
+
+        <span class="nc">ApiLoginFilter</span> <span class="n">apiLoginFilter</span> <span class="o">=</span>  <span class="k">new</span> <span class="nc">ApiLoginFilter</span><span class="o">(</span><span class="s">"/api/login"</span><span class="o">,</span> <span class="n">jwtUtil</span><span class="o">());</span>
+        <span class="n">apiLoginFilter</span><span class="o">.</span><span class="na">setAuthenticationManager</span><span class="o">(</span><span class="n">authenticationManager</span><span class="o">());</span>
+
+        <span class="n">apiLoginFilter</span>
+                <span class="o">.</span><span class="na">setAuthenticationFailureHandler</span><span class="o">(</span><span class="k">new</span> <span class="nc">ApiLoginFailHandler</span><span class="o">());</span>
+
+        <span class="k">return</span> <span class="n">apiLoginFilter</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="nc">JWTUtil</span> <span class="nf">jwtUtil</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">JWTUtil</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">(...)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>APICheckerFilter는 ‘Authorization’ 헤더 메시지를 통해서 JWT를 확인하도록 수정해야 한다. ApiCheckFilter는 JWTUitl이 필요하므로 생성자를 통해서 주입하도록 수정한다.</p>
+
+<p><br /></p>
+
+<p><strong>ApiCheckFilter.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(...)</span>
+<span class="nd">@Log4j2</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ApiCheckFilter</span> <span class="kd">extends</span> <span class="nc">OncePerRequestFilter</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">AntPathMatcher</span> <span class="n">antPathMatcher</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">pattern</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">JWTUtil</span> <span class="n">jwtUtil</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">ApiCheckFilter</span><span class="o">(</span><span class="nc">String</span> <span class="n">pattern</span><span class="o">,</span><span class="nc">JWTUtil</span> <span class="n">jwtUtil</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">antPathMatcher</span><span class="o">=</span><span class="k">new</span> <span class="nc">AntPathMatcher</span><span class="o">();</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">pattern</span><span class="o">=</span><span class="n">pattern</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">jwtUtil</span><span class="o">=</span><span class="n">jwtUtil</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">(...)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>ApiCheckFilter 내부의 checkAuthHeader()는 아래와 같이 JWTUitl의 validateAndExtract()를 호출하도록 수정한다.</p>
+
+<p><br /></p>
+
+<p><strong>ApiCheckFilter.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(...)</span>
+<span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">checkAuthHeader</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">){</span>
+        <span class="kt">boolean</span> <span class="n">checkResult</span><span class="o">=</span><span class="kc">false</span><span class="o">;</span>
+
+
+        <span class="c1">//헤더의 값을 인증하기 위해서 Authorzation 헤더를 추출한다.</span>
+        <span class="nc">String</span> <span class="n">authHeader</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="na">getHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">);</span>
+
+        <span class="c1">//authHeader 문자열 변수가 문자열을 포함하는지 체크한다.</span>
+        <span class="k">if</span><span class="o">(</span><span class="nc">StringUtils</span><span class="o">.</span><span class="na">hasText</span><span class="o">(</span><span class="n">authHeader</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">authHeader</span><span class="o">.</span><span class="na">startsWith</span><span class="o">(</span><span class="s">"Bearer "</span><span class="o">)){</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"Authorization exist: "</span><span class="o">+</span><span class="n">authHeader</span><span class="o">);</span>
+            <span class="k">try</span><span class="o">{</span>
+                <span class="nc">String</span> <span class="n">email</span><span class="o">=</span><span class="n">jwtUtil</span><span class="o">.</span><span class="na">validateAndExtract</span><span class="o">(</span><span class="n">authHeader</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">7</span><span class="o">));</span>
+                <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"validate result: "</span><span class="o">+</span><span class="n">email</span><span class="o">);</span>
+                <span class="n">checkResult</span><span class="o">=</span><span class="n">email</span><span class="o">.</span><span class="na">length</span><span class="o">()&gt;</span><span class="mi">0</span><span class="o">;</span>
+            <span class="o">}</span><span class="k">catch</span><span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">){</span>
+                <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+            <span class="o">}</span>
+            <span class="c1">//if(authHeader.equals("12345678")){</span>
+            <span class="c1">//"12345678"을 담고 있으면 true를 담는다.</span>
+            <span class="c1">//    checkResult=true;</span>
+           <span class="c1">// }</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">checkResult</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">(...)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>checkAuthHeader()는 내부에서 ‘Authorization’ 헤더를 추출해서 검증하는 역할을 한다. ‘Authorization’ 헤더 메시지의 경우 앞에는 인증 타입을 이용하는데 일반적인 경우에는 Basic을 사용하고 JWT를 이용할 대는 ‘Bearer’를 사용한다. SecurityConfig에서는 ApiCheckFilter를 이용할 때 JWTUitl을 사용하도록 수정한다.</p>
+
+<p><br /></p>
+
+<p><strong>SecurityConfig.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(...)</span>
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="nc">ApiCheckFilter</span> <span class="nf">apiCheckFilter</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">ApiCheckFilter</span><span class="o">(</span><span class="s">"/notes/**/*"</span><span class="o">,</span><span class="n">jwtUtil</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">(...)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>최종적으로 테스트 도구를 이용해서 확인한다. 우선은 GET 방식으로 테스트할 수 있는 URL을 작성하고 Header를 작성할 때 ‘Bearer’와 같이 JWT 토큰 앞에 공백 문자를 주고 JWT 문자열을 추가한다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-12.3/2021-08-12-19-18-23.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>헤더가 정상적인 경우에는 위 사진과 같이 정상적인 조회가 가능하다.</p>
+
+<p>반면에 ‘Authorization’을 제거한 상태에서 실행하면 403 상태 코드(요청이 거부됨)와 메시지가 전송되는 것을 볼 수 있다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-12.3/2021-08-12-19-19-17.png" alt="" /></p>
+
+<p><br />
+<br /></p>
+
+<p><span style="color:#85144b; font-weight:bold; font-size: 30px">CORS 필터 처리</span></p>
+
+<p><br /></p>
+
+<p>REST 방식의 테스트는 모두 성공했지만 결정적으로 외부에서 Ajax를 이용해서 API를 사용하기 위해서는 CORS(Cross-Origin Resource Sharing) 문제를 해결해야만 한다.
+CORS 처리를 위한 필터를 만들거나 설정하는 방법은 여러 가지가 있겠지만 프로젝트에서는 지금껏 작성했더 예제처럼 추가하는 형태로 작성한다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/SpringBoot/LearningSpringbootWithWebProject-12.3/2021-08-12-19-33-04.png" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>CORSFilter.java</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.young.club.security.filter</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.core.Ordered</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.core.annotation.Order</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Component</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.filter.OncePerRequestFilter</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.servlet.FilterChain</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.ServletException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="nd">@Component</span>
+<span class="nd">@Order</span><span class="o">(</span><span class="nc">Ordered</span><span class="o">.</span><span class="na">HIGHEST_PRECEDENCE</span><span class="o">)</span>
+<span class="c1">//OncePerRequestFilter는 추상 클래스로 제공되는 필터로 가장 일반적이며 매번 동작하는 기본적인 필터이다.</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CORSFilter</span> <span class="kd">extends</span> <span class="nc">OncePerRequestFilter</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doFilterInternal</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span> <span class="nc">FilterChain</span> <span class="n">filterChain</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">ServletException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
+        <span class="c1">//모든 오리진으로부터 API요청을 수락한다.</span>
+        <span class="n">response</span><span class="o">.</span><span class="na">setHeader</span><span class="o">(</span><span class="s">"Access-Control-Allow-Origin"</span><span class="o">,</span> <span class="s">"*"</span><span class="o">);</span>
+        <span class="c1">//브라우저에게 response를 request의 credentials mode가 포함될 때 프론트엔드 자바스크립트 코드에 노출시킬지 결정한다</span>
+        <span class="n">response</span><span class="o">.</span><span class="na">setHeader</span><span class="o">(</span><span class="s">"Access-Control-Allow-Credentials"</span><span class="o">,</span><span class="s">"true"</span><span class="o">);</span>
+        <span class="c1">//(that is the information contained in the Access-Control-Allow-Methods and Access-Control-Allow-Headers headers)</span>
+        <span class="c1">//response 헤더 중 하나로 얼마나 오래동안 preflight request(Access-Control-Allow-Methods와 Access-Control-Allow-Headers 헤더의 정보를 가지고 있는)가 캐싱될 지 시간을 정한다.</span>
+        <span class="n">response</span><span class="o">.</span><span class="na">setHeader</span><span class="o">(</span><span class="s">"Access-Control-Max-Age"</span><span class="o">,</span><span class="s">"3600"</span><span class="o">);</span>
+        <span class="c1">//response 헤더 중 하나로 preflight request의 response로 쓰이며 이는 어떤 HTTP 헤더가 실제 request 도중에 사용될 수 있는지 명시하는 Access-Control-Request-Headers를 포함한다.</span>
+        <span class="n">response</span><span class="o">.</span><span class="na">setHeader</span><span class="o">(</span><span class="s">"Access-Control-Allow-Headers"</span><span class="o">,</span><span class="s">"Origin, X-Requested-With, Content-Type, Accept, Key, Authorization"</span><span class="o">);</span>
+
+        <span class="k">if</span><span class="o">(</span><span class="s">"OPTIONS"</span><span class="o">.</span><span class="na">equalsIgnoreCase</span><span class="o">(</span><span class="n">request</span><span class="o">.</span><span class="na">getMethod</span><span class="o">())){</span>
+            <span class="n">response</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="nc">HttpServletResponse</span><span class="o">.</span><span class="na">SC_OK</span><span class="o">);</span>
+        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+            <span class="n">filterChain</span><span class="o">.</span><span class="na">doFilter</span><span class="o">(</span><span class="n">request</span><span class="o">,</span><span class="n">response</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>CORSFilter는 모든 필터 중에서 가장 먼저 동작하도록 @Order(Ordered.HIGHEST_PRECEDENCE)로 지정한다. 만일 jQuery로 외부에서 <strong>‘/notes/xxx’</strong>를 이용한다면 다음과 같이 코드를 작성하게 된다.</p>
+
+<p><br /></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">.btn</span><span class="dl">"</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">()){</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+        <span class="na">beforeSend</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">){</span>
+            <span class="nx">request</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="dl">"</span><span class="s2">Authorization</span><span class="dl">"</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Bearer </span><span class="dl">'</span><span class="o">+</span><span class="nx">jwtValue</span><span class="p">);</span>
+            <span class="c1">//jwtValue는 JWT값</span>
+        <span class="p">},</span>
+        <span class="na">dataType</span><span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">http://localhost:8080/notes/all</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">data</span><span class="p">:{</span><span class="na">email</span><span class="p">:</span> <span class="dl">'</span><span class="s1">user10@zerock.org</span><span class="dl">'</span><span class="p">},</span>
+        <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">arr</span><span class="p">){</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">})</span>
+
+</code></pre></div></div>
+:ET
