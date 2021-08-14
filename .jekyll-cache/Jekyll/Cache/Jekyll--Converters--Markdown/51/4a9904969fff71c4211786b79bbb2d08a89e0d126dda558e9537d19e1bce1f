@@ -1,0 +1,10 @@
+I"T<p><span style="color:orange; font-weight:bold"><em>해당 내용은 책 ‘스프링 부트와 AWS로 혼자 구현하는 웹 서비스’에 나오는 내용이며 이는 개인적으로 공부하기 위해 기록함을 알려드립니다</em></span></p>
+
+<p><br /><br /></p>
+
+<h1 id="롬복-소개-및-설치하기"><center>롬복 소개 및 설치하기</center></h1>
+
+<p><br /></p>
+
+<p>롬복은 자바 개발할 때 자주 사용하는 코드 Getter, Setter, 기본생성자, toString 등을 어노테이션으로 자동 생성해 준다. 우리는 이미 프로젝트를 생성할 때</p>
+:ET
