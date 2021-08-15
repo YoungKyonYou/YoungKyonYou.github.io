@@ -573,8 +573,7 @@ metadata:
 #오브젝트에 대해 어떤 상태를 의도하는지 명시한다.
 spec:
   #(.spec.selector)디플로이먼트가 관리할 파드를 찾는 방법을 정의한다.
-  #이 사례에서는 파드 템플릿(아래 명시된 template)에 정의된 레이블(app:mysql)을
-  #선택한다.
+  #이 사례에서는 파드 템플릿(아래 명시된 template)에 정의된 레이블(app:mysql)을 선택한다.
   selector:
     matchLabels:
       app: mysql
