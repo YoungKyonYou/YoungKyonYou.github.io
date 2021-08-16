@@ -449,7 +449,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
 
   nfs:
-    #ip 주소는 pv가 가질 ip주소를 설정한다.
+    #nfs 서버의 ip 주소 
     server: 192.168.1.10
     #우리가 위에서 생성한 디렉터리랑 바인딩한다.
     path: /nfs_shared
