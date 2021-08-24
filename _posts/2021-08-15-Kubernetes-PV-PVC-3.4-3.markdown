@@ -449,7 +449,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
 
   nfs:
-    #nfs 서버의 ip 주소 
+    #
     server: 192.168.1.10
     #우리가 위에서 생성한 디렉터리랑 바인딩한다.
     path: /nfs_shared
@@ -529,12 +529,8 @@ spec:
 
 <br>
 
-![](/images/Kubernetes/Kubernetes-PV-PVC/ㅇ.png){: p}
-
-<br>
-
 ```bash
-kubectl get pvc
+kubectl get pv
 ```
 
 <br>

@@ -8,6 +8,14 @@ p {
   font-family: "Jeju Gothic", sans-serif;
   text-align: center;
 }
+
+li.span {
+  text-align: start;
+}
+
+li > p {
+  text-align: start;
+}
 .sidebar {
   position: fixed;
   top: 0px;
