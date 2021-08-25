@@ -13,7 +13,7 @@ defaults:
   - scope:
       path: "" # empty string for all files
     values:
-      title: MyWay
+      title: Seeker
 
 description: Stylish Jekyll Theme
 author:
