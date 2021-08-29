@@ -392,7 +392,62 @@ public class FacilityController {
 
 <br>
 
-그리고 **WebSocketEventListener.java**에 보면 <span style="color:orange; font-weight:bold">@CrossOrigin(origins = "http://192.168.1.17:8080")</span>라고 되어 있는 부분이 있다. 이는 CORS를 해결하기 위한 것이다. 나중에 이에 대해 더 자세히 다루겠다. 해당 ip 192.168.1.17은 쿠버네티스 클러스터에서 **Frames-App**를 외부에 노출 시킬 때 사용할 ip이다.
+**WebSocketConfig.java**
+
+```java
+package org.morgorithm.websocket.configuration;
+
+import org.morgorithm.websocket.filter.ApiCheckFilter;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.messaging.simp.config.MessageBrokerRegistry;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
+import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
+import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
+
+//CORS 문제를 해결하기 위해 설정한다.
+@CrossOrigin(origins = "192.168.1.17:8081")
+//이 어노테이션은 해당 클래스가 Bean의 설정을 할 것이라는 것을 나타낸다.
+@Configuration
+//WebSocket 서버를 활성화하는 데 사용한다.
+@EnableWebSocketMessageBroker
+//implements WebSocketMessageBrokerConfigurer
+//웹 소켓 연결을 구성하기 위한 메서드를 구현하고 제공한다.
+public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
+    //클라이언트가 웹 소켓 서버에 연결하는 데 사용할 웹 소켓 엔드 포인트를 등록
+    //엔드 포인트 구성에 withSockJS()를 사용한다.
+    //webSocket은 통신 프로토콜 일뿐입니다.
+    // 특정 주제를 구독한 사용자에게만 메시지를 보내는 방법 또는 특정 사용자에게 메시지를 보내는 방법과 같은 내용은 정의하지 않습니다.
+    // 이러한 기능을 위해서는 STOMP가 필요하다.
+    @Bean
+    public ApiCheckFilter apiCheckFilter(){
+        return new ApiCheckFilter();
+    }
+    @Override
+    public void registerStompEndpoints(StompEndpointRegistry registry) {
+        System.out.println("end point 연결!!!***");
+        registry.addEndpoint("/ws").setAllowedOriginPatterns("*").withSockJS().setClientLibraryUrl("https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.min.js");
+    }
+
+    //한 클라이언트에서 다른 클라이언트로 메시지를 라우팅 하는 데 사용될 메시지 브로커를 구성한다.
+    @Override
+    public void configureMessageBroker(MessageBrokerRegistry registry) {
+
+        System.out.println("confiureMessageBroker 연동!!**");
+        //"/app" 시작되는 메시지가 message-handling methods으로 라우팅 되어야 한다는 것을 명시
+        registry.setApplicationDestinationPrefixes("/app");
+        //"/topic" 시작되는 메시지가 메시지 브로커로 라우팅 되도록 정의한다.
+        //메시지 브로커는 특정 주제를 구독 한 연결된 모든 클라이언트에게 메시지를 broadcast한다.
+        registry.enableSimpleBroker("/topic");
+    }
+}
+
+```
+
+<br>
+
+그리고 **WebSocketConfig.java**에 보면 <span style="color:orange; font-weight:bold">@CrossOrigin()</span>라고 되어 있는 부분이 있다. 이는 CORS를 해결하기 위한 것이다. 나중에 이에 대해 더 자세히 다루겠다. 해당 ip 192.168.1.17은 쿠버네티스 클러스터에서 **Frames-App**를 외부에 노출 시킬 때 사용할 ip이다.
 
 <br>
 
@@ -521,6 +576,7 @@ spec:
       protocol: TCP
   type: LoadBalancer
   loadBalancerIP: 192.168.1.17
+  sessionAffinity: ClientIP
 ```
 
 <br>
@@ -611,11 +667,16 @@ spec:
 
   #로드밸런서의 고정아이피를 설정한다.
   loadBalancerIP: 192.168.1.17
+
+  #특정 클라이언트의 연결이 매번 동일한 파드로 전달되도록 하려면
+  #ervice.spec.sessionAffinity를 "ClientIP"로 설정하여
+  #클라이언트의 IP 주소를 기반으로 세션 어피니티를 선택할 수 있다.
+  sessionAffinity: ClientIP
 ```
 
 <br>
 
-그리고 마지막으로 websocket.yaml를 살펴보자.
+세션 어피니티를 설정한 이유는 현재 앱이 <span style="color:orange; font-weight:bold">Spring Security</span>를 사용하고 있기 때문이다. 우리는 replica를 3개를 생성해서 배포하는데 이때 웹에 접속하고 다른 페이지에 접속하게 되면 로그인 세션이 유지가 안 될 수도 있다. 이는 세션 어피니티를 설정해줌으로써 해당 클라이언트가 특정 Pod로 지속적으로 연결되게 만들어주는 것이다.
 
 <br>
 
