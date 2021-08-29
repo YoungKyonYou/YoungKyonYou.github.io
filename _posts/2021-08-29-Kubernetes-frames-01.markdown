@@ -1,6 +1,6 @@
 ---
 layout: post
-title: WebSocket을 사용하는 SpringBoot 앱을 로컬 쿠버네티스 클러스터에서 Deployment로 배포하기
+title: WebSocket을 사용하는 SpringBoot 앱을 로컬 쿠버네티스 클러스터에서 Deployment로 배포하기-1
 date: 2021-08-29 09:00:00 0000
 tags:
   [
