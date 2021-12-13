@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 디자인 패턴
+title: 디자인 패턴-Factory Method
 date: 2021-12-14 10:00:00 0000
 tags: [Design Pattern, Factory Method]
 categories: [Interview]
