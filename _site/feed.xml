@@ -544,6 +544,14 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
+&lt;h5 id=&quot;빌더-패턴-장점&quot;&gt;빌더 패턴 장점&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;필요한 데이터만 설정할 수 있음&lt;/li&gt;
+  &lt;li&gt;유연성을 확보할 수 있음&lt;/li&gt;
+  &lt;li&gt;가독성을 높일 수 있음&lt;/li&gt;
+  &lt;li&gt;불변성을 확보할 수 있음&lt;/li&gt;
+&lt;/ul&gt;
 </description>
 				<pubDate>Tue, 14 Dec 2021 11:00:00 +0900</pubDate>
 				<link>/interview/2021/12/14/Interview-interview-02.html</link>
@@ -551,7 +559,7 @@
 			</item>
 		
 			<item>
-				<title>디자인 패턴</title>
+				<title>디자인 패턴-Factory Method</title>
 				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
 &lt;em&gt;&lt;strong&gt;오늘보다 발전된 내일의 나를 위해…&lt;/strong&gt;&lt;/em&gt;
 &lt;br /&gt;&lt;/p&gt;
