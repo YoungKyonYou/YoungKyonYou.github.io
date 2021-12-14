@@ -14,7 +14,6 @@ description: MetalLB 실습
 <br><br>
 _**커피 중독자되는 중...**_
 <br>
-(Press the Button)
 
 <br><br>
 

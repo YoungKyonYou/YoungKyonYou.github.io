@@ -10,7 +10,6 @@ description: Springboot 도커 이미지 만들고 배포하기
 <br><br>
 _**피곤한데 커피 한잔만 마시고 시작해보자..**_
 <br>
-(Press the Button)
 
 <br><br>
 

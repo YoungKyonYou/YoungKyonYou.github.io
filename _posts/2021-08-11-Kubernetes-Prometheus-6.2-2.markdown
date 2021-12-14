@@ -14,7 +14,6 @@ description: 프로메테우스 설치하기
 <br><br>
 _**커피 중독자되는 중...**_
 <br>
-(Press the Button)
 
 <br><br>
 
@@ -304,7 +303,7 @@ _**커피 중독자되는 중...**_
 
 <br>
 
-이전 게시물에서 프로메테우스를 설치하기 위한 사전작업을 진행하였다. 이제 프로메테우스 설치를 위한 사전에 준비한 스크립트를 실행한다. 
+이전 게시물에서 프로메테우스를 설치하기 위한 사전작업을 진행하였다. 이제 프로메테우스 설치를 위한 사전에 준비한 스크립트를 실행한다.
 
 **prometheus-server-preconfig.sh**
 
@@ -388,7 +387,7 @@ echo "[Step 2/4] Task [Check MetalLB status]"
 #namespace라는 변수를 선언하고 해당 값을 넣어주는 것이다.
 #$() 구문으로 명령어 실행 결과를 넣을 수 있다.
 #마스터 노드에서 명령어로 kubectl get namespace metallb-system -o jsonpath={.metadata.name} 2> /dev/null를
-#입력하면(이전 게시물에 사전작업을 했다면) metallb-system이 출력된다 즉 이 문자열이 namespace 변수 안에 들어가게 되는 것이다. 
+#입력하면(이전 게시물에 사전작업을 했다면) metallb-system이 출력된다 즉 이 문자열이 namespace 변수 안에 들어가게 되는 것이다.
 #JSONPath 템플릿은 중괄호 {}로 둘러싸인 JSONPath 표현식으로 구성된다. Kubectl은 JSONPath 표현식을
 #사용하여 JSON 오브젝트의 특정 필드를 필터링하고 출력 형식을 지정한다.
 #즉 metallb-system의 metadata에 설정되어 있는 name를 검색하는 것이다. 보통 이렇게 -o josnpath해서 사용한다.
@@ -396,7 +395,7 @@ echo "[Step 2/4] Task [Check MetalLB status]"
 #즉 STDOUT은 표준출력으로 정상적인 메시지를 출력하고 STDERR은 표준에러로 에러메시지를 출력하는 것이다.
 #일반적으로 /dev/null과 1>/dev/null은 같은 의미이다.
 #/dev/null이나 1>/dev/null로 했을 경우 에러 메시지가 터미널에 출력이 된다. 그럼 해당 에러메시지를 null로 만드려면
-#2>/dev/null로 하는 것이다. 
+#2>/dev/null로 하는 것이다.
 #즉 이는 터미널상에서 명령어를 입력하고 그에 대한 표준 출력이 표시되지 않게 하기 위해서 자주 사용하는 방법인 것이다.
 namespace=$(kubectl get namespace metallb-system -o jsonpath={.metadata.name} 2> /dev/null)
 
@@ -445,7 +444,7 @@ echo "[Step 4/4] Task [Create PV,PVC for prometheus-server]"
 #pvc라는 변수에 prometheus-server라는 문자열이 들어간다.
 pvc=$(kubectl get pvc prometheus-server -o jsonpath={.metadata.name} 2> /dev/null)
 
-#빈 문자열일 경우 즉 존재하지 않을 경우 
+#빈 문자열일 경우 즉 존재하지 않을 경우
 if [ "$pvc" == "" ]; then
 
 #해당 파일을 실행한다.
@@ -492,7 +491,7 @@ fi
 nfsdir=/nfs_shared/$1
 
 #$#는 매개변수의 총 개수를 의미한다.
-# -eq는 같음을 의미 즉 총 매개변수의 개수가 0일 경우 
+# -eq는 같음을 의미 즉 총 매개변수의 개수가 0일 경우
 #then이하를 실행한다.
 if [ $# -eq 0 ]; then
   echo "usage: nfs-exporter.sh <name>"; exit 0
@@ -502,20 +501,20 @@ fi
 #즉 위에서 설정한 변수 nfsdir의 값에 해당하는 디렉터리가 존재하는 경우
 if [[ ! -d $nfsdir ]]; then
 
-#-p 옵션은 부모 디렉터리를 같이 생성하라는 것이다. 
+#-p 옵션은 부모 디렉터리를 같이 생성하라는 것이다.
   mkdir -p $nfsdir
 
   #/etc 아래 exports 파일 안에 해당 내용을 넣으라는 것이다.
   echo "$nfsdir 192.168.1.0/24(rw,sync,no_root_squash)" >> /etc/exports
 
-  #systemctl은 systemd를 관리하는 명령어이다. 
-  #Systemd는 부팅부터 서비스관리 로그관리등의 시스템 전반적인 영역에 걸쳐있는 프로세스이다. 
-  #이것이 도입된 OS는 이것의 개념이나 기능등을 한번은 파악하는 것이 도움이 될 것이다. 
+  #systemctl은 systemd를 관리하는 명령어이다.
+  #Systemd는 부팅부터 서비스관리 로그관리등의 시스템 전반적인 영역에 걸쳐있는 프로세스이다.
+  #이것이 도입된 OS는 이것의 개념이나 기능등을 한번은 파악하는 것이 도움이 될 것이다.
   #이것이 도입되면 부팅시에도 병렬로 실행되어서 상당히 부팅속도가 빨리잔다.
   #$() 구문으로 명령어 실행 결과를 넣을 수 있다.
   #is-enalbed name.service를 통해 서비스의 활성화 여부를 표시할 수 있다.
   #활성화되어 있으면 enabled라고 뜨고 비활성화되어 있으면 disabled라고 뜬다.
-  #즉 저 명령어를 쳐서 나오는 문자열이 disabled일 경우 then 이하가 실행된다. 
+  #즉 저 명령어를 쳐서 나오는 문자열이 disabled일 경우 then 이하가 실행된다.
   if [[ $(systemctl is-enabled nfs) -eq "disabled" ]]; then
     systemctl enable nfs
   fi
@@ -573,15 +572,14 @@ kind: PersistentVolume
 metadata:
   name: prometheus-server
 
-
 spec:
   capacity:
-  #storage는 실제로 사용하는 용량을 제한하는 것이 아니라 쓸 수 있는 양을 레이블로
-  #붙이는 것과 같다. 이는 현재 스토리지가 단순히 NFS로 설정돼서 그렇다.
+    #storage는 실제로 사용하는 용량을 제한하는 것이 아니라 쓸 수 있는 양을 레이블로
+    #붙이는 것과 같다. 이는 현재 스토리지가 단순히 NFS로 설정돼서 그렇다.
     storage: 10Gi
 
   #PV를 어떤 방식으로 사용할지를 정의한 부분이다. ReadWriteMany는 여러 개의 노드가
-  #읽고 쓸 수 있도록 마운트하는 옵션이다. 이외에도 ReadWriteOnce(하나의 노드에서만 볼륨을 
+  #읽고 쓸 수 있도록 마운트하는 옵션이다. 이외에도 ReadWriteOnce(하나의 노드에서만 볼륨을
   #읽고 쓸 수 있게 마운트)와 ReadOnlyMany(여러 개의 노드가 읽도록 마운트) 옵션이 있다
   accessModes:
     - ReadWriteMany
@@ -590,7 +588,7 @@ spec:
   #여기서는 유지하는 Retain을 사용합니다. 그 외에 Delete(삭제)와 Recycle(재활용, Deprecated) 옵션이 있다.
   persistentVolumeReclaimPolicy: Retain
 
-  #NFS 서버의 연결 위치에 대한 설정이다. 
+  #NFS 서버의 연결 위치에 대한 설정이다.
   nfs:
     server: 192.168.1.10
     path: /nfs_shared/prometheus/server
@@ -603,10 +601,9 @@ spec:
   accessModes:
     - ReadWriteMany
   resources:
-  
-  #PV는 사용자가 요청할 볼륨 공간을 관리자가 만들고 PVC는 사용자(개발자)간 보륨을 요청하는 데
-  #사용한다는 점에서 차이가 있다.
-  #여기서 요청하는 storage: 10Gi는 동적 볼륨이 아닌 경우에는 레이블 정도의 의미를 가진다.
+    #PV는 사용자가 요청할 볼륨 공간을 관리자가 만들고 PVC는 사용자(개발자)간 보륨을 요청하는 데
+    #사용한다는 점에서 차이가 있다.
+    #여기서 요청하는 storage: 10Gi는 동적 볼륨이 아닌 경우에는 레이블 정도의 의미를 가진다.
     requests:
       storage: 10Gi
 ```
@@ -655,7 +652,7 @@ helm install prometheus edu/prometheus \
 --set server.securityContext.runAsGroup=1000 \
 --set server.securityContext.runAsUser=1000 \
 --set server.service.type="LoadBalancer" \
---set server.extraFlags[0]="storage.tsdb.no-lockfile" 
+--set server.extraFlags[0]="storage.tsdb.no-lockfile"
 
 ```
 
@@ -673,7 +670,7 @@ helm install prometheus edu/prometheus \
 #내보내는 데 사용한다.
 --set pushgateway.enabled=false \
 
-#얼럿매니저를 사용하지 않도록 설정한다. 
+#얼럿매니저를 사용하지 않도록 설정한다.
 --set alertmanager.enabled=false \
 
 #테인트가 설정된 노드의 설정을 무시하는 톨러레이션을 설정한다.
@@ -696,8 +693,8 @@ helm install prometheus edu/prometheus \
 
 #프로메테우스의 설정을 변경할 때 lockfile(잠긴 파일)이 있으면 변경 작업을 실패할 수 있다.
 #특히 얼럿매니저를 나중에 설치할 대 lockfile 관련 문제가 발생할 수 있으므로
-#lockfile이 생성되지 않게 설정한다. 
---set server.extraFlags[0]="storage.tsdb.no-lockfile" 
+#lockfile이 생성되지 않게 설정한다.
+--set server.extraFlags[0]="storage.tsdb.no-lockfile"
 
 ```
 
@@ -719,7 +716,6 @@ kubectl get pods --selector=app=prometheus
 
 <link rel="stylesheet" href="https: //www.webnots.com/resources/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="/assets/css/webnots.css">
-
 
 <div class="webnots-warning webnots-notification-box">위에 사진에 나오는 prometheus-node-exporter 파드 4개를 지우기 위해서는 helm uninstall prometheus한 다음에 kubectl delete pods --all 해줘야 한다.</div>
 

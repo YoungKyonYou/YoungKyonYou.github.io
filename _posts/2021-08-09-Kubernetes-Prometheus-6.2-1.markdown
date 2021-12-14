@@ -14,7 +14,6 @@ description: 프로메테우스 설치 사전 작업하기
 <br><br>
 _**커피 중독자되는 중...**_
 <br>
-(Press the Button)
 
 <br><br>
 

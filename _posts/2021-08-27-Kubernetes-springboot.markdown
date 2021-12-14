@@ -10,7 +10,6 @@ description: 도커 이미지를 도커 허브에 저장하고 Deployment로 배
 <br><br>
 _**믹스 컴피 중독자가 되가는 중..**_
 <br>
-(Press the Button)
 
 <br><br>
 
@@ -510,4 +509,4 @@ kubectl get service
 
 <br>
 
-위 사진은 <span style="color:orange; font-weight:bold">External IP</span>만을 사용해서 접근한다. 다시 말하지만 expose할 때 port 옵션에 80를 사용하였기 때문에 가능한 것이다. 즉 <span style="color:orange; font-weight:bold">192.168.1.16:80</span>를 쓴 것과 다름이 없다. 
+위 사진은 <span style="color:orange; font-weight:bold">External IP</span>만을 사용해서 접근한다. 다시 말하지만 expose할 때 port 옵션에 80를 사용하였기 때문에 가능한 것이다. 즉 <span style="color:orange; font-weight:bold">192.168.1.16:80</span>를 쓴 것과 다름이 없다.

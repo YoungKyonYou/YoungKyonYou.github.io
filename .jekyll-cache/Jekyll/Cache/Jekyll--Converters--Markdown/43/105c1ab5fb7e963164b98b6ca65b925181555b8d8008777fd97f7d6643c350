@@ -1,0 +1,149 @@
+I"1(<p><br /><br /></p>
+
+<h1 id="thymeleaf-inline-속성에-대해-알아보기"><center>Thymeleaf-inline 속성에 대해 알아보기</center></h1>
+
+<p><br /><br /></p>
+
+<p>먼저 프로젝트를 생성해 보자.</p>
+
+<p><img src="/images/SpringBoot/Thymeleaf/2021-03-01-16-59-05.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>의존성으로는</p>
+
+<ul>
+  <li>Thymeleaf</li>
+  <li>Spring Boot DevTools</li>
+  <li>Lombok</li>
+  <li>Spring Web</li>
+</ul>
+
+<p>을 설정한다.</p>
+
+<p><img src="/images/SpringBoot/Thymeleaf/2021-03-01-16-59-53.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>프로젝트가 완성되었으면 applicaton.properties를 열고 다음 내용을 추가해 준다.</p>
+
+<p><img src="/images/SpringBoot/Thymeleaf/2021-03-01-17-01-49.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>위 설정은 Thymeleaf를 이용하는 프로젝트가 변경 후에 만들어진 결과를 보관(캐싱)하지 않도록 설정하는 것이다.</p>
+
+<p>이제 아래 사진과 같이 패키지와 자바 파일을 생성한다. 그리고 코드를 적는다.</p>
+
+<p>exInline() 메소드는 내부적으로 RedirectAttributes를 이용하여 ‘/ex3’으로 result와 dto라는 이름의 데이터를 심어서 전달한다. result는 단순한 문자열이지만, dto는 SampleDTO의 객체이다.</p>
+
+<p><img src="/images/SpringBoot/Thymeleaf/2021-03-01-17-07-29.png" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>SampleDTO</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.techlead.thymeleafexample.dto</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">lombok.Builder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">lombok.Data</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.time.LocalDateTime</span><span class="o">;</span>
+
+<span class="nd">@Data</span>
+<span class="nd">@Builder</span><span class="o">(</span><span class="n">toBuilder</span><span class="o">=</span><span class="kc">true</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SampleDTO</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">Long</span> <span class="n">sno</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">first</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">last</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">LocalDateTime</span> <span class="n">regTime</span><span class="o">;</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p><strong>SampleController</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.zerock.ex3.controller</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">lombok.extern.log4j.Log4j2</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.ui.Model</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.GetMapping</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RequestMapping</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.servlet.mvc.support.RedirectAttributes</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.zerock.ex3.dto.SampleDTO</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.time.LocalDateTime</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.stream.Collectors</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.stream.IntStream</span><span class="o">;</span>
+
+<span class="nd">@Controller</span>
+<span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">"/sample"</span><span class="o">)</span>
+<span class="nd">@Log4j2</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SampleController</span><span class="o">{</span>
+    <span class="nd">@GetMapping</span><span class="o">({</span><span class="s">"/exInline"</span><span class="o">})</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">exInline</span><span class="o">(</span><span class="nc">RedirectAttributes</span> <span class="n">redirectAttributes</span><span class="o">){</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"exInline.............."</span><span class="o">);</span>
+
+        <span class="nc">SampleDTO</span> <span class="n">dto</span><span class="o">=</span><span class="nc">SampleDTO</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">sno</span><span class="o">(</span><span class="mi">100L</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">first</span><span class="o">(</span><span class="s">"First..100"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">last</span><span class="o">(</span><span class="s">"Last..100"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">regTime</span><span class="o">(</span><span class="nc">LocalDateTime</span><span class="o">.</span><span class="na">now</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+        <span class="n">redirectAttributes</span><span class="o">.</span><span class="na">addFlashAttribute</span><span class="o">(</span><span class="s">"result"</span><span class="o">,</span><span class="s">"success"</span><span class="o">);</span>
+        <span class="n">redirectAttributes</span><span class="o">.</span><span class="na">addFlashAttribute</span><span class="o">(</span><span class="s">"dto"</span><span class="o">,</span><span class="n">dto</span><span class="o">);</span>
+
+        <span class="k">return</span> <span class="s">"redirect:/sample/ex3"</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/ex3"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">ex3</span><span class="o">(){</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"ex3"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p>실제 화면은 ex3.html로 확인할 수 있으므로 templates 폴더에 추가한다.</p>
+
+<p><img src="/images/SpringBoot/Thymeleaf/2021-03-01-17-08-50.png" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>ex3.html</strong></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span> <span class="na">xmlns:th=</span><span class="s">"http://www.thymeleaf.org"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Title<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">th:text=</span><span class="s">"${result}"</span><span class="nt">&gt;&lt;/h1&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">th:text=</span><span class="s">"${dto}"</span><span class="nt">&gt;&lt;/h1&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">th:inline=</span><span class="s">"javascript"</span><span class="nt">&gt;</span>
+
+      <span class="kd">var</span> <span class="nx">msg</span><span class="o">=</span><span class="p">[[</span><span class="nx">$</span><span class="p">{</span><span class="nx">result</span><span class="p">}]]</span>
+      <span class="kd">var</span> <span class="nx">dto</span><span class="o">=</span><span class="p">[[</span><span class="nx">$</span><span class="p">{</span><span class="nx">dto</span><span class="p">}]]</span>
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>ex3.html에서 가장 중요한 부분은 &lt;script&gt; 태그에 사용된 th:inline 속성이다. 속성값이 javascript로 지정되었는데 이로 인해 많은 변화가 생겨난다. 브라우저에서 경로는 <strong>‘/sample/exline’</strong>으로 호출된다.</p>
+
+<p>이제 앱을 실행하고 브라우저를 킨다음 F12를 눌러 해당 url로 들어가본다.</p>
+
+<p><em>아래 사진과 같이 별도의 처리가 없음에도 불구하고 문자열은 자동으로 이 추가되어 문자열이 되는 것을 볼 수 있고 같이 전송된 dto는 JSON 포맷의 문자열이 된 것을 볼 수 있다.</em></p>
+
+<p>만일 위의 코드를 javaScript 객체로 변환해서 사용하고자 한다면 간단히 JSON.parse(‘"‘+dto+’'”); 와 같은 형태로 을 추가해서 사용할 수 있다.</p>
+
+<p><img src="/images/SpringBoot/Thymeleaf/2021-03-01-17-13-52.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>그리고 추가적으로 script 태그에 th:inline=”javascript” 속성을 정의하면 그 안에 포함된 스크립트에서는 [[..]] 표현식으로 서버 데이터를 스크립트 영역에 표현할 수 있다.</p>
+:ET

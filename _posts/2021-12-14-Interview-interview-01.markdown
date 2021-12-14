@@ -10,7 +10,6 @@ description: Factory Method에 대해 알아보자
 <br><br>
 _**오늘보다 발전된 내일의 나를 위해...**_
 <br>
-(Press the Button)
 
 <br><br>
 

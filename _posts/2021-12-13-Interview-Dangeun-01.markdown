@@ -10,7 +10,6 @@ description: 당근페이를 향한 도전기 1탄
 <br><br>
 _**3달만에 블로그 포스팅...**_
 <br>
-(Press the Button)
 
 <br><br>
 
@@ -426,6 +425,3 @@ _**3달만에 블로그 포스팅...**_
 ![](/images/Interview/post1/2021-12-13-22-13-42.png?style=centerme)
 
 <br>
-
-
-

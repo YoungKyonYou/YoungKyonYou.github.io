@@ -10,7 +10,6 @@ description: AllocationFailed
 <br><br>
 _**커피 중독자되는 중...**_
 <br>
-(Press the Button)
 
 <br><br>
 
@@ -300,7 +299,7 @@ _**커피 중독자되는 중...**_
 
 <br>
 
-쿠버네티스 프로메테우스를 helm으로 설치하고 grafana를 사용하던 중 원래 사용하던 프로메테우스의 External IP를 브라우저로 접속하려고 해도 작동하지 않았다. 
+쿠버네티스 프로메테우스를 helm으로 설치하고 grafana를 사용하던 중 원래 사용하던 프로메테우스의 External IP를 브라우저로 접속하려고 해도 작동하지 않았다.
 
 <br>
 
@@ -312,7 +311,7 @@ _**커피 중독자되는 중...**_
 
 <br>
 
-원래 <span style="color:orange; font-weight:bold">External IP</span>가 존재했는데 어느 순간 <span style="color:#85144b; font-weight:bold">pending</span>이 되어 있었다. 
+원래 <span style="color:orange; font-weight:bold">External IP</span>가 존재했는데 어느 순간 <span style="color:#85144b; font-weight:bold">pending</span>이 되어 있었다.
 
 원인을 찾기 위해서 **describe** 명령으로 살펴봤다.
 
@@ -322,11 +321,11 @@ _**커피 중독자되는 중...**_
 
 <br>
 
-애레를 보니 <span style="color:orange; font-weight:bold">AllocationFailed</span>라고 나오면서 **metallb-controller**가 IP 할당을 실패한 것을 볼 수 있었다. 
+애레를 보니 <span style="color:orange; font-weight:bold">AllocationFailed</span>라고 나오면서 **metallb-controller**가 IP 할당을 실패한 것을 볼 수 있었다.
 
 <br>
 
-에러 문구를 읽어보자 이해가 됐다. 내가 프로메테우스 단독으로 사용할 때는 괜찮았는데 grafana를 연동시키면서 IP가 <span style="color:orange; font-weight:bold">Overwrite</span>된 것 같다. grafana로 접속할 땐 내가 원래 프로메테우스를 접속할 때 사용했던 External IP가 할당되어 있었고 프로메테우스로 접속하려고 했던 External IP가 막혀서 <span style="color:orange; font-weight:bold">pending</span> 상태였던 것이다. 
+에러 문구를 읽어보자 이해가 됐다. 내가 프로메테우스 단독으로 사용할 때는 괜찮았는데 grafana를 연동시키면서 IP가 <span style="color:orange; font-weight:bold">Overwrite</span>된 것 같다. grafana로 접속할 땐 내가 원래 프로메테우스를 접속할 때 사용했던 External IP가 할당되어 있었고 프로메테우스로 접속하려고 했던 External IP가 막혀서 <span style="color:orange; font-weight:bold">pending</span> 상태였던 것이다.
 
 <br>
 
@@ -354,19 +353,19 @@ kubectl patch svc prometheus-server -p '{"spec":{"externalIPs":["192.168.1.11"]}
 
 <br>
 
-현재 grafana가 **192.168.12**를 사용하고 있으므로 프로메테우스를 **192.168.11**로 설정해 준 것이었다. 
+현재 grafana가 **192.168.12**를 사용하고 있으므로 프로메테우스를 **192.168.11**로 설정해 준 것이었다.
 
 <br>
 
-이렇게 설정하면 **prometheus-server**의 **External-IP**가 **192.168.11**로 바꿔지긴 한다. 
+이렇게 설정하면 **prometheus-server**의 **External-IP**가 **192.168.11**로 바꿔지긴 한다.
 
 <br>
 
-<span style="color: rgba(131, 24, 67);">그러나..</span> 브라우저로 접속이 되지 않는다. 
+<span style="color: rgba(131, 24, 67);">그러나..</span> 브라우저로 접속이 되지 않는다.
 
 <br>
 
-이는 서비스가 제공하는 Service가 제공하는 External-IP가 **192.168.11**이기 때문이다. 내가 처음 프로메테우스를 설치할 때 **MetalLB**와 연동해서 설치해줬었다. 즉 MetalLB의 metallb-controller가 제공하는 **External IP**를 바꿔줘야 한다. 
+이는 서비스가 제공하는 Service가 제공하는 External-IP가 **192.168.11**이기 때문이다. 내가 처음 프로메테우스를 설치할 때 **MetalLB**와 연동해서 설치해줬었다. 즉 MetalLB의 metallb-controller가 제공하는 **External IP**를 바꿔줘야 한다.
 
 <br>
 
@@ -410,7 +409,7 @@ External IP를 확인해 보자.
 
 <br>
 
-External IP가 두개가 할당되어 있는데 **192.168.1.11**은 처음에 우리가 stackoverflow에서 본 해결책으로 할당한 것이고 **192.168.1.15**로 우리가 방금 할당한 것이다. 
+External IP가 두개가 할당되어 있는데 **192.168.1.11**은 처음에 우리가 stackoverflow에서 본 해결책으로 할당한 것이고 **192.168.1.15**로 우리가 방금 할당한 것이다.
 
 <link rel="stylesheet" href="https: //www.webnots.com/resources/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="/assets/css/webnots.css">

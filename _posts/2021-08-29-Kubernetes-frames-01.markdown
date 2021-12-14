@@ -21,7 +21,6 @@ description: 안정적인 서버 운영을 위한 쿠버네티스 클러스터 �
 <br><br>
 _**15시간을 컴퓨터 앞에서 불태웠다..**_
 <br>
-(Press the Button)
 
 <br><br>
 

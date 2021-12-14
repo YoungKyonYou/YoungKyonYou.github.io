@@ -14,7 +14,6 @@ description: PV와 PVC 다루기
 <br><br>
 _**커피 중독자되는 중...**_
 <br>
-(Press the Button)
 
 <br><br>
 

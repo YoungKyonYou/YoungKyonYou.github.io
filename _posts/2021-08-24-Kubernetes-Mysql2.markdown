@@ -10,7 +10,6 @@ description: 쿠버네티스와 Mysql Workbench 연동하기(로드밸런서 사
 <br><br>
 _**피곤한데 커피 한잔만 마시고 시작해보자..**_
 <br>
-(Press the Button)
 
 <br><br>
 
