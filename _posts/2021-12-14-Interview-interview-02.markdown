@@ -41,7 +41,7 @@ _**오늘보다 발전된 내일의 나를 위해...**_
   border-radius: 50%;
 }
 .coffee-header__buttons::after {
-  content: ;
+  content: "";
   width: 8px;
   height: 8px;
   position: absolute;
@@ -84,7 +84,7 @@ _**오늘보다 발전된 내일의 나를 위해...**_
   background-color: #bcb0af;
 }
 .coffee-medium:before {
-  content: ;
+  content: "";
   width: 90%;
   height: 100px;
   background-color: #776f6e;
@@ -102,7 +102,7 @@ _**오늘보다 발전된 내일의 나를 위해...**_
   background-color: #231f20;
 }
 .coffe-medium__exit::before {
-  content: ;
+  content: "";
   width: 50px;
   height: 20px;
   border-radius: 0 0 50% 50%;
@@ -112,7 +112,7 @@ _**오늘보다 발전된 내일의 나를 위해...**_
   background-color: #231f20;
 }
 .coffe-medium__exit::after {
-  content: ;
+  content: "";
   width: 10px;
   height: 10px;
   position: absolute;
@@ -129,7 +129,7 @@ _**오늘보다 발전된 내일의 나를 위해...**_
   background-color: #231f20;
 }
 .coffee-medium__arm::before {
-  content: ;
+  content: "";
   width: 15px;
   height: 5px;
   position: absolute;
@@ -147,7 +147,7 @@ _**오늘보다 발전된 내일의 나를 위해...**_
   border-radius: 0 0 70px 70px / 0 0 110px 110px;
 }
 .coffee-medium__cup::after {
-  content: ;
+  content: "";
   width: 20px;
   height: 20px;
   position: absolute;
@@ -265,7 +265,7 @@ _**오늘보다 발전된 내일의 나를 위해...**_
   border-radius: 10px;
 }
 .coffee-footer::after {
-  content: ;
+  content: "";
   width: 106%;
   height: 26px;
   position: absolute;
