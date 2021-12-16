@@ -1,10 +1,10 @@
 ---
 layout: post
-title: 디자인 패턴-Builder Pattern
-date: 2021-12-14 11:00:00 0000
-tags: [Design Pattern, Builder Pattern]
+title: 디자인 패턴-Wrapper Pattern
+date: 2021-12-15 11:00:00 0000
+tags: [Design Pattern, Wrapper Pattern]
 categories: [Interview]
-description: Builder Pattern에 대해 알아보자
+description: Wrapper Pattern에 대해 알아보자
 ---
 
 <br><br>
