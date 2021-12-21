@@ -1,0 +1,446 @@
+I"�1<p><br /><br /></p>
+
+<p><em><strong>오늘보다 발전된 내일의 나를 위해…</strong></em></p>
+
+<p><br /></p>
+
+<p><br /><br /></p>
+
+<style>
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: "";
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: "";
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: "";
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: "";
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+</style>
+
+<div class="containercoffee">
+    <div class="coffee-header">
+      <div class="coffee-header__buttons coffee-header__button-one"></div>
+      <div class="coffee-header__buttons coffee-header__button-two"></div>
+      <div class="coffee-header__display"></div>
+      <div class="coffee-header__details"></div>
+    </div>
+    <div class="coffee-medium">
+      <div class="coffe-medium__exit"></div>
+      <div class="coffee-medium__arm"></div>
+      <div class="coffee-medium__liquid"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
+      <div class="coffee-medium__cup"></div>
+    </div>
+    <div class="coffee-footer"></div>
+</div>
+
+<p><br /><br /><br /><br /><br /><br /><br /><br /></p>
+
+<h1 id="당근페이-면접-후기"><center>당근페이 면접 후기</center></h1>
+
+<p><br /></p>
+
+<p>사실 당근페이에 서류를 합격했을 때 조금 놀랐다. 왜냐면 기대를 애초에 안했다. 그냥 자기소개서와 코딩테스트 없이 서류만 내면 되서 매우 간단했고 이렇게 생각한 사람이 매우 많아서 지원자가 많을 거라고 생각했다. 그리고 그 수많은 지원자 중에 내가 붙을까라는 의문이 있었기 때문이다. 그래도 어떻게 서류 합격이 되었고 면접 시간을 약속 잡았다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/Interview/post7/2021-12-21-15-31-24.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>면접을 진행한 결과 <strong>불합격</strong>을 했다. 물론 내가 CS 지식이 부족한 탓이다. 나름 짧은 기간에 여러 당근마켓 면접 후기들을 보며 준비를 했지만 어려웠다. 그래도 당근페이 면접에서 물어봤던 질문들은 다른 회사 면접에서 충분히 물어볼만한 주제이기 때문에 여기에 정리를 하려고 한다. 다 기억이 나진 않지만 기억나는 것만 적어보도록 하자.</p>
+
+<p><br /></p>
+
+<h3 id="q-https의-작동-방식에-대해-설명해주세요"><strong>Q: HTTPS의 작동 방식에 대해 설명해주세요</strong></h3>
+
+<p><br /></p>
+
+<p><img src="/images/Interview/post7/2021-12-21-15-43-33.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>HTTP의 보안처리가 된 버전이 HTTPS이다. 요즘은 HTTPS는 웹의 기본 스펙이다라고 봐도 문제가 없다. API를 사용하려고 하여도 HTTPS가 안되어 있으면 API를 신청, 사용할 수 없다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/Interview/post7/2021-12-21-15-46-43.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>HTTPS는 TCP 위에 SSL/TLS 층을 추가하여 암호화, 인증 그리고 무결성 보장을 통해 더 안전하게 만들어주는 프로토콜이다. 이제 HTTPS의 동작 방식을 알아보기 전에 3가지 개념을 집고 넘어가자.</p>
+
+<p><br /></p>
+
+<ul>
+  <li><strong>대칭키</strong>: 암호화에 쓰이는 키와 복호화에 쓰이는 키가 동일한 기법
+<br /></li>
+</ul>
+
+<p><img src="/images/Interview/post7/2021-12-21-15-48-44.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>만약 클라이언트와 서버가 대칭키 방식으로 통신을 한다면 클라이언트도 키를 가지고 있어야 한다. 클라이언트에게 키를 전달하기도 위함하며 소스코드는 누구든지 열어볼 수 있으므로 가지고 있기도 굉장히 위험하다.</p>
+
+<p><br /></p>
+
+<p><strong><em>즉, 원거리에서 대칭키를 안전하게 전달하는 것이 매우 어렵다</em></strong></p>
+
+<p><br /></p>
+
+<ul>
+  <li><strong>공개키</strong>: 공개키와 개인키(비밀키)라는 2가지 키를 사용하는 기법이다.</li>
+</ul>
+
+<p><br /></p>
+
+<p>공개키는 말 그대로 누구나 획득할 수 있는 공개된 키를 뜻한다. 정보를 보내는 쪽(클라이언트)은 이 키를 가지고 데이터를 암호화해서 전송한다. 개인키(비밀키)는 공개키로 암호화된 데이터를 복호화할 수 있는 키로써 자신(서버)만이 가지고 있는 키이다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/Interview/post7/2021-12-21-15-53-42.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong><em>이 방법은 안전하게 데이터를 주고 받을 수 있게 만들어주지만 속도가 느리다</em></strong></p>
+
+<p><br /></p>
+
+<ul>
+  <li><strong>인증서와 CA(Certificate authority)</strong>: SSL을 적용하기 위해서는 인증서라는 것이 필요하다.</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="https의-동작-원리">HTTPS의 동작 원리</h3>
+
+<p><br /></p>
+
+<p><img src="/images/Interview/post7/2021-12-21-16-56-47.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<ol>
+  <li>네이버의 로그인 창에서 아이디와 비밀번호를 입력하고 로그인을 한다.</li>
+</ol>
+
+<p><br /></p>
+
+<ol>
+  <li>로그인 버튼을 누르면 이 두 정보(아이디와 비밀번호)는 인터넷을 타고 네이버의 서버로 전송이된다</li>
+</ol>
+
+<p><br /></p>
+
+<p>만약 그냥 HTTP로 보내면 이 암호가 입력한 텍스트 그대로, 누구든 알아볼 수 있는 형식으로 보내진다. <strong>만약 누군가가 이 정보를 중간에 들여다본다면</strong> 그 누군가는 우리의 <strong>네이버 아이디와 비밀번호</strong>를 알게될 것이다.</p>
+
+<p><br /></p>
+
+<p>HTTPS는 이 정보를 네이버만 알아볼 수 있는 뒤죽박죽(Random Data)된 데이터를 싣어서 보내게 된다 (즉 아래 사진에서 <strong>xyaerXzabc</strong>에 해당)</p>
+
+<p><br /></p>
+
+<p><img src="/images/Interview/post7/2021-12-21-17-01-20.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>나쁜 사람이 들여다봐도 뭐라고 쓴 건지 알아볼 수 없도록 말이다.</p>
+
+<p><br /></p>
+
+<p>네이버에 들어가려고 링크를 클릭했는데 알고보니 <strong>‘네이놈’</strong>이라는 피싱 사이트인 경우가 있다고 해보자. 거기에 <strong>네이버 아이디랑 비밀번호를</strong> 입력해버리면 이 피싱 사이트가 우리의 네이버 계정을 알게 된다.</p>
+
+<p><br /></p>
+
+<p><em><strong>HTTPS는 이런 수상한 사이트를 걸러낼 수 있도록 도와준다</strong></em></p>
+
+<p><br /></p>
+
+<p>기관으로부터 검증된 사이트만 주소에 HTTPS 사용이 허가되고 이제 그냥 HTTP를 사용하는 사이트들은 주소창에 아래와 같은 <strong>‘안전하지 않다’</strong>는 표시가 뜨게 된다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/Interview/post7/2021-12-21-17-05-23.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<h4 id="https-요약">HTTPS 요약</h4>
+
+<ul>
+  <li><strong>내가 사이트에 보내는 정보들을 제 3자가 못 보게 한다.</strong></li>
+  <li><strong>접속한 사이트가 믿을 만한 곳인지를 알려준다</strong></li>
+</ul>
+
+<p><br /></p>
+
+<p>이제 좀더 들어가보자. 위의 요약이 어떤 원리로 이루어지는 지 알아보자.</p>
+
+<p><br /></p>
+
+<p>그러기 위해서는 앞서 배웠던 대칭키와 비대칭키를 알아야된다. 다시 한번 상기시켜보자.</p>
+
+<p>예를 들어 전쟁에서 아군에게 편지로 메시지를 보낼 때 중간에 적이 편지를 탈취해도 이를 알아볼 수 없도록 하려면 메시지를 암호화 해야 한다. 그 암호화된 메시지를 아군만 읽을 수 있어야 된다. 그래서 이런 방식들이 고민되어 왔다. 그동안 널리 사용되어 온 건 대칭키 방식이다.</p>
+
+<p><br /></p>
+
+<p>메시지를 보내는 쪽과 메시지를 받는 쪽이 메시지를 암호화하고 이를 다시 메시지로 바꾸는 즉, 복호화하는 같은 방식을 공유하는 것이다.</p>
+
+<p><br /></p>
+
+<p>아래 사진과 같이 A는 27에 대응되고 B는 9에 대응되고 C는 51에 대응되는 이런 표를 양측이 똑같이 가지고 있다면 중간에</p>
+
+<p><img src="/images/Interview/post7/2021-12-21-17-13-03.png?style=centerme" alt="" /></p>
+:ET
