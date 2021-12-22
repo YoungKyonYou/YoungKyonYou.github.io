@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 당근페이 면접 후기
-date: 2021-12-16 13:00:00 0000
-tags: [Https, Http, CSRF, Intercepter, Filter]
+title: 당근페이 면접 후기 및 질문과 답-1
+date: 2021-12-21 13:00:00 0000
+tags: [Https]
 categories: [Interview]
 description: 당근페이 면접 질문에 대한 답
 ---
@@ -600,3 +600,5 @@ CA의 인증을 받은 인증서들은 해당 CA의 개인키로 암호화가 �
 <br>
 
 이제 이 대칭키는 서버와 이 클라이언트 둘만 갖고 있으니까 이후 서로 주고받아지는 메시지들을 제3자가 알아볼 걱정은 없는 것이다. 
+
+내용이 길어졌다 아무래도 여러 편으로 쪼개서 만들어야 되겠다. 

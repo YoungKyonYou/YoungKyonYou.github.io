@@ -1,0 +1,462 @@
+I"a2<p><br /><br /></p>
+
+<p><em><strong>오늘보다 발전된 내일의 나를 위해…</strong></em></p>
+
+<p><br /></p>
+
+<p><br /><br /></p>
+
+<style>
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: "";
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: "";
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: "";
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: "";
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+</style>
+
+<div class="containercoffee">
+    <div class="coffee-header">
+      <div class="coffee-header__buttons coffee-header__button-one"></div>
+      <div class="coffee-header__buttons coffee-header__button-two"></div>
+      <div class="coffee-header__display"></div>
+      <div class="coffee-header__details"></div>
+    </div>
+    <div class="coffee-medium">
+      <div class="coffe-medium__exit"></div>
+      <div class="coffee-medium__arm"></div>
+      <div class="coffee-medium__liquid"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
+      <div class="coffee-medium__cup"></div>
+    </div>
+    <div class="coffee-footer"></div>
+</div>
+
+<p><br /><br /><br /><br /><br /><br /><br /><br /></p>
+
+<h1 id="버전별-http의-변화-흐름"><center>버전별 HTTP의 변화 흐름</center></h1>
+
+<p><br /></p>
+
+<p>다음 당근 페이 질문은 아래와 같다.</p>
+
+<h2 id="q-http-10과-http-20의-차이를-말해주세요">Q: HTTP 1.0과 HTTP 2.0의 차이를 말해주세요</h2>
+
+<p><br /></p>
+
+<p>사실 HTTP 1.0과 HTTP 2.0에 대한 설명만 하고 끝내려고 했지만 잘 설명된 동영상에서 HTTP 0.9, 1.0, 1.1, 2.0에 대해서 설명하기 때문에 4개 다 다뤄보려 한다.</p>
+
+<p><br /></p>
+
+<h3 id="http-09">HTTP 0.9</h3>
+
+<p><br /></p>
+
+<p>사실 HTTP 초기 버전에는 버전 번호가 없었다. 이는 차후 버전과 구별하기 위해 붙여진 것이라고 할 수 있다.</p>
+
+<p><br /></p>
+
+<p>HTTP 0.9는 극히 단순하다. 요청은 단일 라인으로 구성되며 리소스에 대한 경로로 가능한 메서드는 <strong>GET</strong>이 유일했다.</p>
+
+<p><br /></p>
+
+<p><strong>요청</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">GET</span> <span class="o">/</span><span class="n">mypage</span><span class="o">.</span><span class="na">html</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>응답 또한 극도로 단순하다. 오로지 파일 내용 자체로 구성된다.</p>
+
+<p><br /></p>
+
+<p><strong>응답</strong></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;HTML&gt;</span>
+  A very simple HTML page
+<span class="nt">&lt;/HTML&gt;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>그 이후에 진화와는 다르게 HTTP 헤더가 없었는데 이는 HTML 파일만 전송될 수 있으며 다른 유형의 문서는 전송될 수 없음을 의미한다. 상태 혹은 오류 코드도 없었다. 문제가 발생한 경우 특정 HTML 파일이 사람이 처리할 수 있도록, 해당 파일 내부에 문제에 대한 설명과 함께 되돌려 보내졌었다.</p>
+
+<h3 id="http-10">HTTP 1.0</h3>
+
+<p><br /></p>
+
+<p><img src="/images/Interview/post8/2021-12-21-19-50-43.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>위 사진과 같이 HTTP 1.0에는 빨간색 네모칸과 같은 것들이 추가되었다. HTTP 0.9이 매우 제한적이었고 브라우저와 서버 모두 좀 더 융통성을 가지도록 빠르게 확장한 형태이다.</p>
+
+<p><br /></p>
+
+<ul>
+  <li>버전 정보가 각 요청 사이내로 전송되기 시작했다. (HTTP/1.0이 GET 라인에 붙은 형태)</li>
+  <li>상태 코드 라인 또한 응답의 시작 부분에 붙어 전송되어, 브라우저가 요청에 대한 성공과 실패를 알 수 있고 그 결과에 대한 동작을 할 수 있게 되었다.</li>
+  <li>HTTP 헤더 개념은 요청과 응답 모두를 위해 도입되어, 메타데이터 전송을 허용하고 프로토콜을 극도로 유연하고 확장 가능하도록 만들어주었다.</li>
+  <li>새로운 HTTP 헤더의 도움으로 평이한 HTML 파일들 외에 다른 문서들을 전송하는 기능이 추가되었다(Content-Type 덕분에)</li>
+</ul>
+
+<p><br /></p>
+
+<p>HTTP 1.0의 단점으로는 1개의 요청과 1개의 응답이 1개의 Connection과 대응된다는 단점이 있다.</p>
+
+<p><img src="/images/Interview/post8/2021-12-21-19-54-38.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>이는 아래와 같은 단점들이 있다.</p>
+
+<ul>
+  <li>매번 새로운 연결로 성능 저하</li>
+  <li>서버 부하 비용 증가</li>
+</ul>
+
+<p><br /></p>
+
+<p>매번 요청이 나올때 마다 Connection이 만들어지니까 성능의 저하가 심했다. 그에 따른 서버 부하 비용도 만만치 않았다.</p>
+
+<p><br /></p>
+
+<p>이것을 보완하기 위해 등장한 것이 HTTP 1.0이다.</p>
+
+<p><br /></p>
+
+<h3 id="http-11">HTTP 1.1</h3>
+
+<p><br /></p>
+
+<p>HTTP 1.1은 모호함을 명확하게 하고 많은 개선 사항들을 도입했다.</p>
+
+<p><br /></p>
+
+<p>HTTP 1.1에서는 <strong>Persistent Connection</strong>이라는 개념을 도입하게 된다. 이는 지정한 timeout 동안 커넥션을 닫지 않는 방식이다. 즉, 특정 시간동안 여러 요청이 한 커넥션을 사용할 수 있는 것이다. 이전 HTTP 1.0과 비교했을 때 네트워크 사용시간이 줄어드는 것이다. 이거에서 더 나아가 <strong>Pipeline</strong>이라는 기법이 도입이 된다.</p>
+
+<p><br /></p>
+
+<p>Persistent Connection에서 추가적으로 도입된 Pipeline 같은 경우는 다음과 같은 문제를 해결하기 위함이다. HTTP 요청들 같은 경우엔 순차적으로 응답을 받아야되는데 첫 번째로 들어온 요청을 응답해줘야 다음으로 들어오는 두 번째 요청을 받을 수 있고 두 번째 요청을 응답해줘야 세 번째 요청을 받을 수 있다는 것이다. 이는 대기시간이 길어진다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/Interview/post8/2021-12-21-20-02-35.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>파이프라인은 하나의 컨넥션에서 응답을 기다리지 않고 순차적인 여러 요청을 연속적으로 보내 그 순서에 맞춰 응답을 받는 방식으로 지연 시간을 줄인다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/Interview/post8/2021-12-21-20-04-14.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>그런데 이 파이프라인에는 치명적인 문제가 있었다. 그것은 바로 <strong>Head Of Line Blocking</strong>이라는 것이다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/Interview/post8/2021-12-21-20-04-59.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>이는 첫 번째 요청이 왔는데 서버에서 처리하는 시간이 너무 오래 걸려서 두 번째 요청, 세 번째 요청이 기다려야 하는 것이다. 만약 두 번째 요청이 0.1초만에 끝나는 요청이여도 첫 번째 요청이 끝나지 않았다면 처리될 수 없는 것이다.</p>
+
+<p><br /></p>
+
+<p>또다른 문제는 <strong>Header 구조의 중복</strong>이다.</p>
+
+<p><img src="/images/Interview/post8/2021-12-21-20-06-23.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>요청이 연속적으로 이루어질 때 헤더의 값이 중복되는게 있지만 그 데이터를 중복적으로 보내게 된다는 비효율적인 측면이 있다. 그래서 주고받는 데이터가 쓸데없이 커지게 되는 것이다.</p>
+
+<p><br /></p>
+
+<p>HTTP 2.0이 2015년에 등장하게 되는데 이는 기존 HTTP/1.x 버전의 성능 향상에 초점을 맞춘 프로토콜이라고 할 수 있다.</p>
+
+<p><strong>표준의 대체가 아닌 확장</strong>이다.</p>
+
+<p><br /></p>
+
+<h3 id="http-20">HTTP 2.0</h3>
+
+<p><br /></p>
+
+<p>HTTP/2 프로토콜은 HTTP/1.1 버전과 다른 몇가지 근본적인 차이점을 가지고 있다. 우리가 자주 사용하고 있는 네이버에서 HTTP 2.0를 사용하고 있는 것을 확인할 수 있다.</p>
+
+<p><img src="/images/Interview/post8/2021-12-21-20-15-35.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>HTTP 2.0의 특징을 보자. 그 중에 가장 중요한 것은 아래와 같다.</p>
+
+<ul>
+  <li>HTTP  메시지 전송 방식의 변화
+    <ul>
+      <li>바이너리 프레이밍 계층 사용
+        <ul>
+          <li>파싱, 전송 속도 증가, 오류 발생 가능성 감소</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+:ET

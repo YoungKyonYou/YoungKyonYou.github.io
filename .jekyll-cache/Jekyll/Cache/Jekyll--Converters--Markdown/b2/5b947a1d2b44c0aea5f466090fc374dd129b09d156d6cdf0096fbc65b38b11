@@ -1,0 +1,376 @@
+I"�#<p><br /><br /></p>
+
+<p><em><strong>오늘보다 발전된 내일의 나를 위해…</strong></em></p>
+
+<p><br /></p>
+
+<p><br /><br /></p>
+
+<style>
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: "";
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: "";
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: "";
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: "";
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+</style>
+
+<div class="containercoffee">
+    <div class="coffee-header">
+      <div class="coffee-header__buttons coffee-header__button-one"></div>
+      <div class="coffee-header__buttons coffee-header__button-two"></div>
+      <div class="coffee-header__display"></div>
+      <div class="coffee-header__details"></div>
+    </div>
+    <div class="coffee-medium">
+      <div class="coffe-medium__exit"></div>
+      <div class="coffee-medium__arm"></div>
+      <div class="coffee-medium__liquid"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
+      <div class="coffee-medium__cup"></div>
+    </div>
+    <div class="coffee-footer"></div>
+</div>
+
+<p><br /><br /><br /><br /><br /><br /><br /><br /></p>
+
+<h1 id="버전별-http의-변화-흐름"><center>버전별 HTTP의 변화 흐름</center></h1>
+
+<p><br /></p>
+
+<p>다음 당근 페이 질문은 아래와 같다.</p>
+
+<h2 id="q-http-10과-http-20의-차이를-말해주세요">Q: HTTP 1.0과 HTTP 2.0의 차이를 말해주세요</h2>
+
+<p><br /></p>
+
+<p>사실 HTTP 1.0과 HTTP 2.0에 대한 설명만 하고 끝내려고 했지만 잘 설명된 동영상에서 HTTP 0.9, 1.0, 1.1, 2.0에 대해서 설명하기 때문에 4개 다 다뤄보려 한다.</p>
+
+<p><br /></p>
+
+<h3 id="http-09">HTTP 0.9</h3>
+
+<p><br /></p>
+
+<p>사실 HTTP 초기 버전에는 버전 번호가 없었다. 이는 차후 버전과 구별하기 위해 붙여진 것이라고 할 수 있다.</p>
+
+<p><br /></p>
+
+<p>HTTP 0.9는 극히 단순하다. 요청은 단일 라인으로 구성되며 리소스에 대한 경로로 가능한 메서드는 <strong>GET</strong>이 유일했다.</p>
+
+<p><br /></p>
+
+<p><strong>요청</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">GET</span> <span class="o">/</span><span class="n">mypage</span><span class="o">.</span><span class="na">html</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>응답 또한 극도로 단순하다. 오로지 파일 내용 자체로 구성된다.</p>
+
+<p><br /></p>
+
+<p><strong>응답</strong></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;HTML&gt;</span>
+  A very simple HTML page
+<span class="nt">&lt;/HTML&gt;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>그 이후에 진화와는 다르게 HTTP 헤더가 없었는데 이는 HTML 파일만 전송될 수 있으며 다른 유형의 문서는 전송될 수 없음을 의미한다. 상태 혹은 오류 코드도 없었다. 문제가 발생한 경우 특정 HTML 파일이 사람이 처리할 수 있도록, 해당 파일 내부에 문제에 대한 설명과 함께 되돌려 보내졌었다.</p>
+
+<h3 id="http-10">HTTP 1.0</h3>
+
+<p><br /></p>
+
+<p><img src="/images/Interview/post8/2021-12-21-19-50-43.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>위 사진과 같이 HTTP 1.0에는 빨간색 네모칸과 같은 것들이 추가되었다. HTTP 0.9이 매우 제한적이었고 브라우저와 서버 모두 좀 더 융통성을 가지도록 빠르게 확장한 형태이다.</p>
+
+<p><br /></p>
+
+<ul>
+  <li>버전 정보가 각 요청 사이내로 전송되기 시작했다. (HTTP/1.0이 GET 라인에 붙은 형태)</li>
+  <li>상태 코드 라인 또한 응답의 시작 부분에 붙어 전송되어, 브라우저가 요청에 대한 성공과 실패를 알 수 있고 그 결과에 대한 동작을 할 수 있게 되었다.</li>
+  <li>HTTP 헤더 개념은 요청과 응답 모두를 위해 도입되어, 메타데이터 전송을 허용하고 프로토콜을 극도로 유연하고 확장 가능하도록 만들어주었다.</li>
+  <li>새로운 HTTP 헤더의 도움으로 평이한 HTML 파일들 외에 다른 문서들을 전송하는 기능이 추가되었다(Content-Type 덕분에)</li>
+</ul>
+
+<p><br /></p>
+
+<p>HTTP 1.0의 단점으로는 1개의 요청과 1개의 응답이 1개의 Connection과 대응된다는 단점이 있다.</p>
+
+<p><img src="/images/Interview/post8/2021-12-21-19-54-38.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>이는 아래와 같은 단점들이 있다.</p>
+
+<ul>
+  <li>매번 새로운 연결로 성능 저하</li>
+  <li>서버 부하 비용 증가</li>
+</ul>
+
+<p><br /></p>
+
+<p>매번 요청이 나올때 마다 Connection이 만들어지</p>
+:ET
