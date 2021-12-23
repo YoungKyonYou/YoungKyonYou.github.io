@@ -1,10 +1,10 @@
 ---
 layout: post
-title: I/O 모델 - 동기, 비동기, Blocking, Non-Blocking
-date: 2021-12-23 16:00:00 0000
-tags: [IO Model]
+title: Spring MVC
+date: 2021-12-25 12:00:00 0000
+tags: [Spring MVC]
 categories: [Interview]
-description: I/O 관점에서의 동기, 비동기, Blocking, Non-Blocking
+description: Spring MVC의 동작 원리
 ---
 
 <br><br>
@@ -299,126 +299,98 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <br>
 
-이전 포스트에서 동기, 비동기, 블로킹, 논블로킹에 대해서 충분히 다뤘는데도 불구하고 또 다루는 이유는 이렇다. 전의 포스트에서는 일반적인 개념에 대해서 다뤘다면 이번에는 I/O 관점에서 다루고 싶었다. 
+**_크리스마스 때는 뭐니뭐니 해도 공부지~_**
 
 <br>
 
-많은 면접을 거친 결과 이런 질문들이 있다.
+**~~울지 말고 다시 말해봐..:cry::cry::cry::cry:~~**
 
 <br>
 
-### Q: 동기와 비동기에 대해서 설명해 주세요
-
-혹인
-
-### Q: 동기 비동기 I/O에 대해서 설명해 주세요
-
-혹은 
-
-### Q: 블로킹과 논블로킹에 대해서 설명해 주세요
-
-혹은
-
-### Q: 블로킹 I/O와 논블로킹 I/O에 대해서 설명해 주세요
+오늘은 기분좋은 크리스마스 날이다. 새로운 지식을 쌓기에 정말 좋은 날인 것 같다.
 
 <br>
 
-물론 I/O 하나 붙었다고 해서 큰 개념에 차이가 있는 것은 아니다. 일반적인 의미는 이전 포스트에서 다룬 내용과 같다. 다만 이번에는 운영체제 관점에서 들여다 본다는 차이가 있다.
+그동안 제대로 알지 못하고 사용하고 있었던 Spring MVC에 대해서 알아보자.
 
 <br>
 
-하나씩 살펴보도록 하자.
+## Spring MVC
 
 <br>
 
-### 동기식 입출력 (Synchronous I/O)
+Spring MVC는 모델 2방식 구조이다.
+
+모델2 방식이 뭘까?
+
+화면을 담당하는 View적인 부분과 데이터를 처리하는 비즈니스로직 부분을 분리한 것으로 디자이너와 개발자의 작업분리가 되어 있어 작업하기 편리하며 재사용이 가능한 구조이다.
 
 <br>
 
-- 프로그램 I/O 요청을 했을 때 해당 I/O 작업이 완료되어야 다음 작업을 할 수 있는 방식이다. 
-  - I/O가 진행되는 동안 다음 명령을 수행하지 않고 기다린다.
-  - I/O 상태의 프로세스는 blocked state로 전환된다.
-  - I/O가 완료되면 인터럽트를 통해 완료를 알린다. 이후 CPU의 제어권이 기존 프로그램에게 넘어간다.
-  - blocked state의 프로세스는 wait 상태로 돌아간다.
+MVC는 **Model, View, Controller**의 약자라고 할 수 있다.
 
 <br>
 
-- 명령 수행 속도는 빠르지만 입출력 연산은 상대적으로 느리다. 기다리는 과정에서 자원 낭비를 초래한다.
+<span style="color:#3D9970; font-weight:bold">Model(모델):</span> 데이터를 처리하는 부분
 
 <br>
 
-- 보통 I/O가 진행되면 CPU는 다른 프로그램의 작업을 수행하게 된다.
+<span style="color:#3D9970; font-weight:bold">View(뷰):</span> 화면을 담당하는 부분
 
 <br>
 
-- 입출력 요청의 동기화
-  - 여러 프로세스가 동시에 I/O 요청을 할 경우 각 요청을 큐에 넣어 순서대로 처리한다.
-
----
-
-### 비동기식 입출력(Non-Synchronous I/O)
+<span style="color:#3D9970; font-weight:bold">Controller(컨트롤러): </span> 요청을 처리하는 부분으로 뷰와 모델 사이의 통신 역할을 함
 
 <br>
 
-- CPU의 제어권을 입출력 연산을 호출한 프로그램에게 곧바로 다시 부여한다.
+**모델 2**는 어떤 요청이 들어오면 **Controller**가 요청을 받고 요청에 해당하는 **Model**을 호출하게 된다. 호출된 **Model**은 데이터들을 처리한 후 **Controller**에게 요청에 대한 결과(응답)를 보내고 **Controller**는 **View**에게 전송하는 원리이다.
 
 <br>
 
-- I/O 결과와 관련 없는 연산이 있을 경우 주로 사용된다.
+(요청->컨트롤러->모델->컨트롤러->뷰)
 
 <br>
 
-- CPU는 I/O 결과와 상관 없이 처리 가능한 작업부터 처리한다.
+이 구조의 장점은 **개발자**와 **디자이너(웹 퍼블리셔)**의 작업공간을 분리시킬 수 있고 **Controller**는 URL을 통해 **View**를 제어하기 때문에 **View(화면)**을 변경하거나 수정할 대 유용하게 사용된다.
 
 <br>
 
-- I/O 연산이 오나료되면 인터럽트를 통해 알린다. 
+즉 유지보수가 좋다!
 
 <br>
 
----
-
-### Blocking I/O
+좀 더 구체적으로 구조적 설명을 해보자.
 
 <br>
 
-- 직접 제어할 수 없는 대상의 작업(I/O)이 완료될 때까지 기다린다.
-  - I/O가 완료되어야 제어권이 프로세스로 넘어간다.
+![](/images/Interview/post13/2021-12-26-00-24-51.png?style=centerme)
 
 <br>
 
-- 동기와 마찬가지로 자원이 낭비된다.
+**1.** 클라이언트(사용자)의 모든 요청은 <span style="color:#2ECC40; font-weight:bold">DispatcherServlet</span>이 받는다.<br><br>
 
----
+**2.** <span style="color:#2ECC40; font-weight:bold">DispatcherServlet</span>은 <span style="color:#2ECC40; font-weight:bold">handlerMapping</span>을 통해서 요청에 해당하는 <span style="color:#2ECC40; font-weight:bold">Controller</span>를 실행 시킨다.<br><br>
 
-### Non-Blocking I/O
+**3.** <span style="color:#2ECC40; font-weight:bold">Controller</span>는 적절한 서비스 객체를 호출 시킨다.<br><br>
 
-<br>
+**4.** <span style="color:#2ECC40; font-weight:bold">Service</span>는 <span style="color:#2ECC40; font-weight:bold">DB</span>처리를 위해 <span style="color:#2ECC40; font-weight:bold">DAO</span>를 이용하여 데이터를 요청한다.<br><br>
 
-- I/O 작업이 진행되는 동안에는 유저 프로세스의 작업을 중단시키지 않는다.
-  - 제어권을 바로 반납한다.
+**5.** <span style="color:#2ECC40; font-weight:bold">DAO</span>는 <span style="color:#2ECC40; font-weight:bold">mybatis</span>를 이용하는 <span style="color:#2ECC40; font-weight:bold">Mapper</span>를 통해 처리를 한다.<br><br>
 
-<br>
+**6.** 결과(처리한 데이터)가 <span style="color:#2ECC40; font-weight:bold">mapper->DAO->Service->Controller</span>로 전달된다.<br><br>
 
-- I/O 완료와 상관없이 작업 결과가 반환된다.
-  - 이를 입력 데이터가 있을 때까지 반복하고, 입력 데이터가 있으면 결과가 전달된다.
+**7.** <span style="color:#2ECC40; font-weight:bold">Controller</span>는 전달된 결과(처리된 데이터)를 <span style="color:#2ECC40; font-weight:bold">View Resolver</span>를 통해 전달 받을 <span style="color:#2ECC40; font-weight:bold">View</span>가 있는지 검색한다.<br><br>
 
-<br>
+**8.** 전달 받은 <span style="color:#2ECC40; font-weight:bold">View</span>가 있다면 <span style="color:#2ECC40; font-weight:bold">View</span>에게 전달된 결과(처리된 데이터)를 전달한다.<br><br>
 
-- 대기하지 않아도 되지만 I/O 완료를 확인해야 하기 때문에 시스템 호출이 반복된다.
+**9.** <span style="color:#2ECC40; font-weight:bold">View</span>는 전달받은 결과(처리된 데이터)를 다시 <span style="color:#2ECC40; font-weight:bold">DispatcherServlet</span>에게 전달한다.<br><br>
 
-<br>
+**10.** <span style="color:#2ECC40; font-weight:bold">DispatcherServlet</span>은 전달받은 결과(처리된 데이터)를 <span style="color:#2ECC40; font-weight:bold">Client</span>에게 전달한다.
 
-- 동기, 비동기는 개선된 I/O 이벤트 통지 모델이다.
+<br><br>
 
----
-
-### 정리
+- <span style="color: rgba(131, 24, 67); font-weight:bold">Front Controller</span>: 서버로 들어오는 모든 요청을 받아서 처리(공통 처리 작업을 먼저 수행 한 후 적절한 세부 controller에게 작업을 위힘해주고 예외 발생시 일관된 방식으로 에러를 처리해줌)
+  - 위와 같은 일을 하기 때문에 각 controller 사이의 중복된 코드 문제나 협업시 개발자들의 개발 방식이 다른 경우 등을 해결할 수 있음.
 
 <br>
 
-![](/images/Interview/post11/2021-12-23-17-53-39.png?style=centerme)
-
-<br>
-
-- 동기/비동기는 인터럽트 발생으로 인한 제어권 반한 시점에 중점을 두고 Blocking/Non-Blocking은 제어권 자체에 중점을 둔다는 점에서 차이가 있다.

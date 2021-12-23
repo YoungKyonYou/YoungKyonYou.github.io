@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 동기 vs 비동기 Blocking vs Non-Blocking
-date: 2021-12-21 15:00:00 0000
+date: 2021-12-23 15:00:00 0000
 tags: [Blocking, Non-Blocking, Synchronous, Asynchronous]
 categories: [Interview]
 description: 동기와 비동기 그리고 블로킹과 논 블로킹의 차이

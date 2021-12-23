@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 웹의 동작 원리
-date: 2021-12-21 18:00:00 0000
+date: 2021-12-23 18:00:00 0000
 tags: [Web]
 categories: [Interview]
 description: Web이 어떤 식으로 동작하는 가
