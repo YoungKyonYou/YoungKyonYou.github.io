@@ -1,6 +1,6 @@
 ---
 layout: post
-title: I/O 모델: 동기, 비동기, Blocking, Non-Blocking
+title: I/O 모델 - 동기, 비동기, Blocking, Non-Blocking
 date: 2021-12-21 16:00:00 0000
 tags: [IO Model]
 categories: [Interview]
