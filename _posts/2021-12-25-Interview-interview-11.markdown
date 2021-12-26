@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Spring MVC
-date: 2021-12-26 13:00:00 0000
+title: Sevlet
+date: 2021-12-25 13:00:00 0000
 tags: [Servlet]
 categories: [Interview]
 description: Servlet에 대하여
