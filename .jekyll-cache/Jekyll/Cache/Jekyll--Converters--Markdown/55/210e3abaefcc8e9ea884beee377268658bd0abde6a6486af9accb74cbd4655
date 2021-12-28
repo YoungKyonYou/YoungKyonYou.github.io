@@ -1,19 +1,10 @@
----
-layout: post
-title: Sevlet
-date: 2021-12-25 13:00:00 0000
-tags: [Servlet]
-categories: [Interview]
-description: Servlet에 대하여
----
+I" <p><br /><br /></p>
 
-<br><br>
+<p><em><strong>오늘의 나보다 성장한 내일의 나를 위해…</strong></em></p>
 
-_**오늘의 나보다 성장한 내일의 나를 위해...**_
+<p><br /></p>
 
-<br>
-
-<br><br>
+<p><br /><br /></p>
 
 <style>
 .containercoffee {
@@ -295,86 +286,111 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
     <div class="coffee-footer"></div>
 </div>
 
-<br><br><br><br><br><br><br><br>
+<p><br /><br /><br /><br /><br /><br /><br /><br /></p>
 
-<br>
+<p><br /></p>
 
-**_크리스마스 때는 뭐니뭐니 해도 공부지~_**
+<p><strong><em>크리스마스 때는 뭐니뭐니 해도 공부지~</em></strong></p>
 
-<br>
+<p><br /></p>
 
-**~~울지 말고 다시 말해봐..:cry::cry::cry::cry:~~**
+<p><strong><del>울지 말고 다시 말해봐..:cry::cry::cry::cry:</del></strong></p>
 
-<br>
+<p><br /></p>
 
-## Servlet
+<h2 id="servlet">Servlet</h2>
 
-<br>
+<p><br /></p>
 
-- 웹 통신에서 요청과 응답을 처리하고 결과를 반한
+<ul>
+  <li>웹 통신에서 요청과 응답을 처리하고 결과를 반한</li>
+</ul>
 
-<br>
+<p><br /></p>
 
-- 요청 당 쓰레드가 생성되거나, 풀에서 가져와서 사용됨
+<ul>
+  <li>요청 당 쓰레드가 생성되거나, 풀에서 가져와서 사용됨</li>
+</ul>
 
-<br>
+<p><br /></p>
 
-- 주요 클래스로 **HttpServlet**이 있음
+<ul>
+  <li>주요 클래스로 <strong>HttpServlet</strong>이 있음</li>
+</ul>
 
-<br>
+<p><br /></p>
 
-- 서블릿 등장이전에는 **CGI (Common Gateway Interface)** 기술이 있었는데 이는 요청 당 프로세스를 생성함
-  - 서블릿은 CGI에 비해서 작동이 빠르고, 플랫폼에 독립적이며, 보안이 좋고, 이식성이 강함
+<ul>
+  <li>서블릿 등장이전에는 <strong>CGI (Common Gateway Interface)</strong> 기술이 있었는데 이는 요청 당 프로세스를 생성함
+    <ul>
+      <li>서블릿은 CGI에 비해서 작동이 빠르고, 플랫폼에 독립적이며, 보안이 좋고, 이식성이 강함</li>
+    </ul>
+  </li>
+</ul>
 
-<br>
+<p><br /></p>
 
-- 클라이언트 요청에 대해 동적으로 작동하는 웹 애플리케이션 컴포넌트
+<ul>
+  <li>클라이언트 요청에 대해 동적으로 작동하는 웹 애플리케이션 컴포넌트</li>
+</ul>
 
-<br>
+<p><br /></p>
 
-- html을 사용하여 요청에 응답
+<ul>
+  <li>html을 사용하여 요청에 응답</li>
+</ul>
 
-<br>
+<p><br /></p>
 
-- MVC 패턴에서 **Controller**로 이용
+<ul>
+  <li>MVC 패턴에서 <strong>Controller</strong>로 이용</li>
+</ul>
 
-<br>
+<p><br /></p>
 
-![](/images/Interview/post14/2021-12-26-00-50-11.png?style=centerme)
+<p><img src="/images/Interview/post14/2021-12-26-00-50-11.png?style=centerme" alt="" /></p>
 
-<br>
+<p><br /></p>
+
+<link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet" />
+
+<div style="background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;">
 
 - 서블릿을 관리하기 위한 모든 작업을 수행 (생성 / 호출 / 관리)
 
-<br>
+<br />
 
 - java thread를 사용해서 서블릿을 호출
 
-<br>
+<br />
 
 - 톰캣처럼 서블릿을 지원하는 WAS를 서블릿 컨테이너라고 함
 
-<br>
+<br />
 
-- 서블릿 객체는 싱글톤으로 관리<br>
-  - 고객의 요청이 올 때마다 생성하는 것은 비효율적이기 때문<br>
-  - 공유 변수 사용에 주의해야 함<br>
-  - 서블릿 컨테이너가 종료되면 서블릿도 종료
+- 서블릿 객체는 싱글톤으로 관리<br />
+<blockquote> - 고객의 요청이 올 때마다 생성하는 것은 비효율적이기 때문<br />
+<blockquote>- 공유 변수 사용에 주의해야 함<br />
+<blockquote>- 서블릿 컨테이너가 종료되면 서블릿도 종료
 
-<br>
+<br />
 
 - 동시 요청을 위한 멀티 쓰레드(Multi Thread) 처리를 지원
+&lt;/div&gt;
 
 #### 서블릿 엔진 (=서블릿 컨테이너)
 
-<br>
+<br />
 
 - Tomcat, Jetty, Undertow 같은 WAS(Web Application Server)가 서블릿 엔진
-  - 서블릿을 실행시킬 수 있음
+  - 서블릿을 실행시킬 수 이음
   - 세션 관리, 네트워크 서비스, 서블릿 생명주기 관리, MIME 기반 메시지 인코딩, 디코딩 등의 기능을 제공
 
-<br>
+<br />
 
 #### 참고 할 만한 좋은 링크
 
 **[서블릿과 JSP의 차이 및 MVC가 나타나게 된 배경](https://steady-coding.tistory.com/463)**
+</blockquote></blockquote></blockquote></div>
+:ET
