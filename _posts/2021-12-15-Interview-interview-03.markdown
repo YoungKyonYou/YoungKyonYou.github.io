@@ -372,13 +372,7 @@ this.graphics.clearScreen(1.f, 0.f, 0.f, 0.f);
 
 <br>
 
-```java
-this.graphics.clearScreen(1.f, 0.f, 0.f, 1.f);
-```
-
-<br>
-
-그리고 추후 DirectX로 바꾸기로 결정하면 도늑 소을 찾아 고쳐야 한다.
+그리고 추후 DirectX로 바꾸기로 결정하면 위의 코드를 찾아 고쳐야 한다.
 
 <br>
 
@@ -388,13 +382,7 @@ this.graphics.clear(0,0,0,255);
 
 <br>
 
-```java
-this.graphics.clear(255,0,0,255);
-```
-
-<br>
-
-즉 수정할 코드가 많을수록 실수할 가능성이 높아진다. 
+즉 수정할 코드가 많을수록 실수할 가능성이 높아진다.
 
 <span style="color:orange; font-weight:bold">이럴 때 래퍼 클래스를 만들어 사용하면 한 곳에서만 바꾸면 된다.</span>
 
@@ -416,7 +404,7 @@ public final class Graphics{
 
 <br>
 
-내부에 OpenGL 개체를 들고 있고 Graphics 메서드는 OpenGL의 메서드를 호출한다. 
+내부에 OpenGL 개체를 들고 있고 Graphics 메서드는 OpenGL의 메서드를 호출한다.
 
 <br>
 
@@ -429,7 +417,7 @@ this.graphics.clear(0.f, 0.f, 0.f, 1.f);
 
 <br>
 
-Graphics 개체만 만들고 속에 OpenGL 개체가 들어있다. Graphics 개체의 메서드만 호출한다. 이제 여기서 OpenGL 대신 DirectX를 사용하려면 어떻게 해야 할까? **Graphics** 클래스 안에서 OpenGL 개체를 DirectX 개체로 변경하면 된다. 
+Graphics 개체만 만들고 속에 OpenGL 개체가 들어있다. Graphics 개체의 메서드만 호출한다. 이제 여기서 OpenGL 대신 DirectX를 사용하려면 어떻게 해야 할까? **Graphics** 클래스 안에서 OpenGL 개체를 DirectX 개체로 변경하면 된다.
 
 **Graphics Class**
 
@@ -451,7 +439,7 @@ public final class Graphics{
 
 <br>
 
-** Graphics Class**
+**Graphics Class**
 
 ```java
 public final class Graphics{
@@ -467,7 +455,7 @@ public final class Graphics{
 
 <br>
 
-즉, **Graphics** 메서드들이 DirectX 메서드를 호출하게 변경한다. 
+즉, **Graphics** 메서드들이 DirectX 메서드를 호출하게 변경한다.
 
 <br>
 
@@ -475,7 +463,7 @@ public final class Graphics{
 
 <br>
 
-이제 DTO 변환하기의 간단한 예를 살펴보자. 시스템 규모가 크면 종종 이런 문제들을 겪는다. 
+이제 DTO 변환하기의 간단한 예를 살펴보자. 시스템 규모가 크면 종종 이런 문제들을 겪는다.
 
 <br>
 
@@ -483,7 +471,7 @@ public final class Graphics{
 
 <br>
 
-Db에 저장된 데이터를 읽어와서 웹페이지에 보여준다고 가정했을 때 PersonEntitiy의 모든 정보를 반환하면 필요 이상의 데이터를 반환하게 되는 것이다. 따라서 정말 클라이언트가 필요로 하는 정보만 반환하는 게 더 좋다 이때 데이터 전송에만 사용하는 개체를 데이터 전공 개체(DTO)라 한다.
+DB에 저장된 데이터를 읽어와서 웹페이지에 보여준다고 가정했을 때 PersonEntitiy의 모든 정보를 반환하면 필요 이상의 데이터를 반환하게 되는 것이다. 따라서 정말 클라이언트가 필요로 하는 정보만 반환하는 게 더 좋다 이때 데이터 전송에만 사용하는 개체를 데이터 전공 개체(DTO)라 한다.
 
 <br>
 
@@ -512,4 +500,227 @@ public final class PersonEntity{
 
 <br>
 
-위와 같이 구성하게 되면 웹에서 필요한 데이터만 DTO로 변환해 전달해줄 수 있다. 즉 필요없는 정보를 안 보내게 됨으로 메모리를 아끼고 보안성을 갖출 수 있는 것이다. 
+위와 같이 구성하게 되면 웹에서 필요한 데이터만 DTO로 변환해 전달해줄 수 있다. 즉 필요없는 정보를 안 보내게 됨으로 메모리를 아끼고 보안성을 갖출 수 있는 것이다.
+
+---
+
+### 적응자(Adapter) 패턴
+
+<br>
+
+적응자 패턴은 다른 이름으로 래퍼(Wrapper)라고 불리우는 패턴이다.
+
+**클래스의 인터페이스를 사용자가 원하는 형태로 변환(적응) 시킨다.**
+
+이렇게 변환(적응)을 통해서 일치하지 않는 인터페이스를 갖는 클래스들이 함께 동작할 수 있도록 한다.
+
+<br>
+
+### <span style="color:#2ECC40; font-weight:bold">시나리오</span>
+
+<br>
+
+그림 편집기가 있다.
+
+그림판의 주요한 추상적 개념은 그래픽 객체들이다.
+
+이런 공통 그래픽 요소에 대한 인터페이스는 추상 클래스인 Shape에 정의되어 있다.
+
+그리고 각 그래픽 요소인 선과 다각형은 각각 **LineShape, PolygonShape**과 같은 클래스로 개발해야 한다.
+
+<br>
+
+위와 같이 간단한 도형도 있겠지만 **TextShape**는 텍스트 처리시 **버퍼 관리**와 같이 다른 그래픽 요소에 비해 **특별하게 고려해야할 점**이 있을 수 있다.
+
+<br>
+
+이때 재사용할 수 있는 라이브러리나 자원이 없을까 조사를 하게 된다.
+
+다행히 **사용자 인터페이스 툴킷**에서 복잡한 **TextView**를 처리하는 클래스를 제공하고 있다고 **가정**하자.
+
+당연히 재사용하는 것이 바람직하긴 하지만 **TextView**는 **Shape**를 고려해서 설계한 것이 아니라서 곧바로 **TextShape** 클래스로 대체하여 사용할 수 없다.
+
+<br>
+
+### <span style="color:#2ECC40; font-weight:bold">적응자 패턴의 구조</span>
+
+<br>
+
+적응자 패턴에는 2 가지 구현 방식이 있다.
+
+- TextShape(Adapter)가 Shape의 인터페이스와 TextView의 구현을 모두 상속
+- TextShape(Adapter)가 TextView의 인스턴스를 포함하고, TextView의 인터페이스를 사용
+
+<br>
+
+아래 다이어그램은 위의 방법 중 **인스턴스를 포함한 방식**으로 적응자 패턴을 구현한 다이어그램이다.
+
+<br>
+
+![](/images/Interview/post16/2021-12-29-23-27-50.png?style=centerme)
+
+<br>
+
+위에서 TextShape은 TextView 클래스에 정의된 인터페이스를 바꾸어 Shape 클래스에 정의된 인터페이스와 잘 부합되게 한다. 
+
+이로써 TextView 클래스를 TextShape 적응자를 통해 재사용할 수 있게 되었다.
+
+<br>
+
+적응자 패턴의 참여자는 아래와 같다.
+
+<br>
+
+<span style="color:#3D9970; font-weight:bold">Client(DrawingEditor):</span> **Target** 인터페이스를 만족하는 객체와 동작할 대상
+
+<span style="color:#3D9970; font-weight:bold">Target(Shape):</span> 사용자(Client)가 사용하는데 필요한 인터페이스를 정의한 클래스가
+
+<span style="color:#3D9970; font-weight:bold">Adaptee(TextView):</span> 인터페이스에 적응이 필요한 기존 인터페이스, 적응 대상자
+
+<span style="color:#3D9970; font-weight:bold">Adapter(TextShape):</span> **Target** 인터페이스에 **Adaptee**의 인터페이스를 적응 시키는 클래스
+
+<br>
+
+### <span style="color:#2ECC40; font-weight:bold">Java Example</span>
+
+<br>
+
+**DrawingEditor.java(Client)**
+
+```java
+public class DrawingEditor {
+
+	public void useShape(Shape shape) {
+		
+		shape.boundingBox();
+		shape.createManipulator();
+	}
+}
+```
+
+<br>
+
+**Shape Interface(Target)**
+
+```java
+public interface Shape {
+
+	void boundingBox();
+	
+	void createManipulator();
+}
+```
+
+<br>
+
+**Line.java(평범한 클래스)**
+
+```java
+public class Line implements Shape {
+
+	@Override
+	public void boundingBox() {
+		System.out.println("Line bounding box");
+	}
+
+	@Override
+	public void createManipulator() {
+		System.out.println("Line create manipulator");
+	}
+}
+```
+
+<br>
+
+**TextView Interface(Adaptee)**
+
+```java
+public interface TextView {
+
+	void getExtent();
+}
+```
+
+<br>
+
+**TextShape.java(Adapter)**
+
+```java
+public class TextShape implements Shape{
+
+	private TextView text;
+
+	public TextShape(TextView text) {
+		super();
+		this.text = text;
+	}
+
+	@Override
+	public void boundingBox() {
+		
+		text.getExtent();
+		System.out.println("TextShape bounding box.");
+	}
+
+	@Override
+	public void createManipulator() {
+		System.out.println("TextShape create manipulator.");
+	}
+}
+```
+
+<br>
+
+**TextShape** 클래스는 **Adaptee**인 **TextView**를 생성자의 인자를 통해 받아서 속성에 설정하였다.
+
+**boundingBox()** 메서드에서 **Adaptee**인 **TextView**의 메서드를 이용하여 기능을 구현하고 있다.
+
+이 패턴의 참여자들을 이용하여 작성한 Main 코드는 아래와 같다.
+
+<br>
+
+**Main**
+
+```java
+public static void main(String[] args) {
+		
+		DrawingEditor drawingEitor = new DrawingEditor();
+		
+		Shape lineShape = new Line();
+		
+		TextView text = () -> {
+			System.out.println("getExtent called in Text View");
+		};
+		Shape textShape = new TextShape(text);
+		
+		System.out.println("====DrawingEditor use line shape.====");
+		drawingEitor.useShape(lineShape);
+		System.out.println();
+		
+		System.out.println("====DrawingEditor use text shape.====");
+		drawingEitor.useShape(textShape);
+	}
+```
+
+<br>
+
+lineShape는 특별한것이 없다. 
+
+우리가 작성한 코드에서 adaptee인 TextView는 인터페이스만 정의하였고, 구현체는 없었다. 
+
+TextView는 추상 method가 1개인 FunctionalInterface 이기 때문에 익명함수를 이용하여 구현체 text를 생성하였다. 
+
+그리고 adapter인 TextShape에서 TextView 를 생성자 인자로 받으므로, text를 인자로 넘겨주었다.
+
+<br>
+
+```
+====DrawingEditor use line shape.====
+Line bounding box
+Line create manipulator
+
+====DrawingEditor use text shape.====
+getExtent called in Text View
+TextShape bounding box.
+TextShape create manipulator.
+```

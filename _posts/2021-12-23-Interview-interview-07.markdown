@@ -548,7 +548,7 @@ Thread1이 task1의 완료 여부를 신경쓰지 않고 다른 자신의 작업
 
 <br>
 
-\*\*Example
+**Example**
 
 ```javascript
 function getData() {

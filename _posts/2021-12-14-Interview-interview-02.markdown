@@ -546,9 +546,42 @@ String mdText=builder.toMarkDownText();
 
 위 두 코드의 차이점은 하나는 HtmlTableBuilder 클래스와 MarkdownTableBuilder 클래스 밖에 없다. 즉 원하는 포맷에 맞는 구체 빌더 클래스의 개체를 생성한다. 
 
+csvText는 csv 파일의 문자열을 넣어준다고 보면 된다. **CsvReader** 클래스의 **writeTo** 메서드는 파라미터로 TableBuilder 클래스 타입으로 가지고 있다. 이는 즉 **TableBuilder**의 자식 클래스 타입을 받을 수 있게 되는 것이다. 
+
+**reader.writeTo(builder)** 부분에서 builder를 호출해주면 자체적으로 "한 줄 더하거나" "한 column 를 더하거나" 하는 작업을 할 것이다. 즉 builder가 자기 포맷에 맞게 알아서 build해 나아갈 것이다.
+
 <br>
 
-### **장점**
+**writeTo() 메서드 의사 코드**
+
+- 첫 줄을 읽음
+- 빌더의 addHeadingRow() 메서드를 호출
+- 읽은 줄을 쉼표에 따라 토큰화
+- 토큰 배열을 foreach 문으로 돌면서 빌더의 addColumn(token)을 호출
+- 나머지 줄을 한 줄씩 읽으면서 다음의 과정을 반복
+  - 빌더의 addRow() 메서드를 호출
+  - 각 토큰마다 빌더의 addColumn(token)을 호출
+
+<br>
+
+위 코드에서 **reader.writeTo(builder)**가 호출되고 끝나는 순간 **builder 안에는** 모든 필요한 구성요소가 만들어졌다는 것이다. 그러면 그것을 최종 문서로 뽑아내기만 하면 된다. 그리고 마지막에 **builder.toHtmlDocument**과 **builder.toMarkDownText**으로 최종 문서로 뽑아낸다. 
+
+```java
+HtmlDocument html=builder.toHtmlDocument();
+```
+과
+```java
+String mdText=builder.toMarkDownText();
+```
+
+부분은 **다형적 함수 호출이 아니다!**
+
+**실제 빌더 개체의 레퍼런스를 들고 있기에 가능한 것이다**
+
+
+<br>
+
+### **빌더 패턴 장점**
 
 <br>
 
