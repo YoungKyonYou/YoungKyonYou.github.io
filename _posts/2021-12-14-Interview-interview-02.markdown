@@ -402,7 +402,7 @@ Employee robert=new Employee("Lee", "Robert", 31,2020,1);
 
 <br>
 
-컴파일과 실행이 되지만 위의 코드엔 버그가 있다. 두 번째 robert 개체를 한번 살펴보자. 자세히 보면 firstName과 lastName의 위치가 바뀌었다. 나이와 ID도 바뀌었다. <span style="color:orange; font-weight:bold">이것은 컴파일러가 잡아줄 수 있는 문제가 아니다. 컴파일러는 자료형이 안 맞는 정도이지 형이 같은 매개변수가 있는 것은 잡아주지 못한다.</span>
+컴파일과 실행이 되지만 위의 코드엔 버그가 있다. 두 번째 Robert 개체를 한번 살펴보자. 자세히 보면 firstName과 lastName의 위치가 바뀌었다. 나이와 ID도 바뀌었다. <span style="color:orange; font-weight:bold">이것은 컴파일러가 잡아줄 수 있는 문제가 아니다. 컴파일러는 자료형이 안 맞는 정도이지 형이 같은 매개변수가 있는 것은 잡아주지 못한다.</span>
 
 <br>
 
@@ -548,3 +548,13 @@ String mdText=builder.toMarkDownText();
 
 <br>
 
+### **장점**
+
+<br>
+
+- 필요한 데이터만 설정할 수 있음
+  - 예를 들어 User 객체를 생성해야 하는데 age라는 파라미터가 필요 없는 상황
+    - 생성자나 정적 메서드였으면 age에 더미 값을 넣어주거나 age가 없는 생성자 필요
+- 유연성을 확보할 수 있음
+  - 클래스에 새로운 변수가 추가되야 하는 상황에 직면해도 기존 코드에 영향을 주지 않음
+- 가독성을 높일 수 있음
