@@ -348,7 +348,7 @@ GC(Garbage Collector)에 대해서 이야기 하기 전에 먼저 JVM의 구조�
 
 <br>
 
-- **로딩:** .class 파일을 익어온다.
+- **로딩:** .class 파일을 읽어온다.
 - **링크:** 코드 내부의 래퍼런스를 연결
 - **초기화:** 클래스에 있는 static 값들을 초기화
 
@@ -464,13 +464,13 @@ Root Space에서부터 해당 객체에 접근이 가능하다면 메모리에 �
 
 <br>
 
-그렇다면 JVM의 Root Space는 어디일까?
+**그렇다면 JVM의 Root Space는 어디일까?**
 
 <br>
 
 Heap 영역 메모리에 대한 참조를 들고 있을 수 있는 영역일 것이다.
 
-JBM Memory 영역 중에서는 다음과 같다.
+JVM Memory 영역 중에서는 다음과 같다.
 
 <br>
 
@@ -487,3 +487,219 @@ JBM Memory 영역 중에서는 다음과 같다.
 ![](/images/Interview/post16/2021-12-30-16-04-49.png?style=centerme)
 
 <br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> Mark and Sweep
+</h3>
+
+<br>
+
+Root가 참조하는 모든 객체, 또 그 객체들이 참조하는 객체들을 탐색해 내려가며 할당받은 각 메모리 영역에 1비트씩 남겨서 사용 중을 표시(Mark) 한다. 이게 바로 GC의 첫 번째 단계인 **Mark** 단계이다.
+
+<br>
+
+![](/images/Interview/post16/2021-12-31-20-35-01.png?style=centerme)
+
+<br>
+
+Mark가 끝나면 GC는 힙 내부 전체를 돌면서 Mark 되지 않은 메모리들을 해제한다. 이 과정을 **Sweep**라고 부른다.
+
+<br>
+
+![](/images/Interview/post16/2021-12-31-20-35-44.png?style=centerme)
+
+<br>
+
+**Mark and Sweep Algorithm**의 단점은 GC를 수행하는 동안 **Stop the World**가 발생한다는 것이다.
+
+- **Stop The World:** Stop The World는 가비지 컬렉션을 실행하기 위해 JBM이 애플리케이션의 실행을 멈추는 작업이다. GC가 실행될 때는 GC를 실행하는 쓰레드를 제외한 모든 쓰레드들의 작업이 중단되고 GC가 완료되면 작업이 재개된다. 당연히 모든 쓰르데들의 작업이 중단되면 애플리케이션이 멈추기 때문에, GC의 성능 개선을 위해 튜닝을 한다고 하면 보통 stop-the-world의 시간을 줄이는 작업을 하는 것이다. 
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 힙(Heap) 영역의 구조와 가비지 컬렉션 프로세스
+</h3>
+
+<br>
+
+힙 영역은 **Old, Eden, S0, S1** 총 네 개 영역으로 나눌 수 있다.
+
+인스턴스의 메모리 할당 측면에서 성능을 높이려고 용도를 구분해둔 것이다.
+
+<br>
+
+![](/images/Interview/post16/2021-12-31-20-45-12.png?style=centerme)
+
+<br>
+
+- **Metaspace:** 클래스 메타 데이터를 native 메모리에 저장하고 메모리가 부족할 경우 이를 자동으로 늘려주는 공간을 말한다.
+
+<br>
+
+힙은 Young, Generation, Old Generation으로 크게 두 개의 영역으로 나누어 지고, Young Generation은 또다시 Eden, Survivor Space 0, 1로 세분화 되어진다. S0, S1 으로 표시되는 영역이 Survivor Space 0, 1이다. 각 영역의 역할은 가비지 컬렉션 프로세스를 알면 알 수 있다.
+
+<br>
+
+**(1)** 새로운 객체는 **Eden** 영역에 할당된다. 두 개의 **Survivor Space**는 비워진 상태로 시작한다.
+
+<br>
+
+![](/images/Interview/post16/2021-12-31-20-53-18.png?style=centerme)
+
+<br>
+
+**(2)** Eden 영역이 가득 차면, **MinorGC(Young Generation을 대상으로 하는 GC)가 발생한다.
+
+<br>
+
+**(3)** MinorGC가 발생하면, Reachable 객체들은 S0으로 옮겨진다. Unreachable 객체들은 Eden 영역이 클리어 될 때 함께 메모리에서 사라진다.
+
+<br>
+
+![](/images/Interview/post16/2021-12-31-20-55-05.png?style=centerme)
+
+<br>
+
+**(4)** 다음 MinorGC 가 발생할 때, Eden 영역에는 3번과 같은 과정이 발생한다. Unreachable 객체들은 지워지고, Reachable 객체들은 Survivor Space로 이동한다. 기존에 S0에 있었던 Reachable 객체들은 S1으로 옮겨지는데, 이때, age 값이 증가되어 옮겨진다. 살아남은 모든 객체들이 S1 으로 모두 옮겨지면, S0와 Eden 은 클리어 된다.
+
+<br>
+
+<link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet">
+<div style="background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;">
+
+Survivor Spae 간의 이동마다 age 값이 증가한다. JVM 중 가장 일반적인 HotSpot JVM의 경우 이 age의 기본 임계값은 31이다. 객체 헤더에 age를 기록하는 부분이 6 bit로 되어 있기 때문이다. 아래 그림은 S0(From)에서 age가 1이었던 객체들이 S1(To)로 이동하면서 2로 증가한 예시이다.</div>
+
+<br>
+
+![](/images/Interview/post16/2021-12-31-20-56-55.png?style=centerme)
+
+<br>
+
+**(5)** 다음 MinorGC가 발생하면, 4번 과정이 반복되는데 S1이 가득 차 있었으므로 S1에서 살아남은 객체들은 S0으로 옮겨지면서 Eden과 S1은 클리어 된다. 이때도 age값이 증가되어 옮겨진다.
+
+<br>
+
+<link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet">
+<div style="background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;">
+
+Survivor 영역 중 하나는 반드시 비어 있는 상태로 남아 있어야 한다. 만약 두 Survivor 영역에 모두 데이터가 존재하거나, 두 영역 모두 사용량이 0이라면 여러분의 시스템은 정상적인 상황이 아니라고 생각하면 된다.</div>
+
+<br>
+
+![](/images/Interview/post16/2021-12-31-20-58-28.png?style=centerme)
+
+<br>
+
+**(6)** Young Generation에서 계속해서 살아남으며 age 값이 증가하는 객체들은 age 값이 특정값 이상이 되면 Old Generation(Java 8까지는 Tenured Generation라 부름)으로 옮겨지는데 이 단계를 **Promotion**이라고 한다.
+
+<br>
+
+![](/images/Interview/post16/2021-12-31-20-59-18.png?style=centerme)
+
+<br>
+
+그렇기 때문에 MinorGC가 계속해서 반복된다면 Promotion 작업도 꾸준히 발생하게 된다.
+
+<br>
+
+![](/images/Interview/post16/2021-12-31-21-00-15.png?style=centerme)
+
+<br>
+
+**(7)** Promotion 작업이 계속해서 반복되면서 **Old Generation**이 가득 차게 되면 **MajorGC**(Old Generation을 대상으로 하는 GC)가 발생하게 된다.
+
+<br>
+
+<link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet">
+<div style="background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;">
+
+Young 영역은 일반적으로 Old 영역보다 크키가 작기 때문에 GC가 보통 0.5초에서 1초 사이에 끝난다. 그렇기 때문에 Minor GC는 애플리케이션에 크게 영향을 주지 않는다. 하지만 Old 영역은 Young 영역보다 크며 Young 영역을 참조할 수도 있다. 그렇기 때문에 Major GC는 일반적으로 Minor GC보다 시간이 오래걸리며, 10배 이상의 시간을 사용한다.
+
+</div>
+
+<br>
+
+![](/images/Interview/post16/2021-12-31-21-01-20.png?style=centerme)
+
+<br>
+
+![](/images/Interview/post16/2021-12-31-21-03-31.png?style=centerme)
+
+<br>
+
+---
+
+<br>
+
+<h2 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/270f.png" height="30" width="30"> Garbage Collection의 종류
+</h2>
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> Serial GC
+</h3>
+
+<br>
+
+- Mark-Sweep-Compact 알고리즘 사용
+- 적은 메모리와 CPU 코어 갯수가 적을 때 적합
+
+<br>
+
+Old 영역에 살아있는 객체를 Mark하고 Heap의 앞부분부터 살아있는 객체를 Sweep한 뒤 힙의 앞부분부터 객체를 쌓는다.(Compact) 메모리와 CPU 코어수가 적을 때 좋다.
+
+<br>
+
+1. mark 단계에서는 old 영역에서 살아있는 객체를 확인한다.
+2. sweep 단계에서는 heap 영역의 앞부분부터 확인하여 표시된 객체를 제거한다.
+3. compact 단계에서는 메모리 단편화를 방지하기 위해 힙의 앞부분부터 객체를 채워 넣는다.
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> Parallel GC
+</h3>
+
+<br>
+
+- Serial GC와 알고리즘은 같지만 GC를 처리하는 Thread가 여러 개이다.
+- 메모리와 코어가 충분할 때 적합하다.
+
+<br>
+
+Serial GC와 기본적인 알고리즘은 같지만, GC를 처리하는 Thread의 개수가 여러 개다. 메모리와 CPU 코어 수가 많을수록 좋다. Java 8 버전에서 default로 사용되는 gc이다.
+
+<br>
+
+![](/images/Interview/post16/2021-12-31-21-29-52.png?style=centerme)
+
+<br>
+
+이는 Parallel GC 에서의 GC 프로세스가 더 빠르게 동작할 수 있게 해주며 이러한 차이는 GC를 처리하는 동안 Java의 프로세스가 모두 멈춰버리는 Stop-The-World 현상이 나타나는 시간에도 영향을 주게된다. 즉, STW(Stop-The-World) 시간이 좀 더 적게 걸리는 Parallel GC에서의 Java 애플리케이션이 좀 더 매끄럽게 동작한다는 의미이다.
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> Paraelle Old GC
+</h3> 
+
+<br>
+
+- Parallel GC에서 Old GC 알고리즘을 개선한 버전이다.
+- Mark-Summary-Compact 알고리즘을 사용하며 좀 더 복잡하다.
+
+<br>
+
+Mark-Sweep-Compact 방식은 단일 쓰레드가 old 영역을 검사하는 방식이라면 mark-summary-compact 방식은 여러 쓰르데를 사용해서 old 영역을 탐색한다.
+
+<br>
+
+1. mark 단계에서는 old 영역을 region 별로 나누고 region 별로 살아있는 객체를 식별한다.
+2. summary 단계에서는 region 별 통계정보로 살아있는 객체의 밀도가 높은 부분이 어디까지 인지 dense prefix를 정한다. 오랜 기간 참조된 객체는 앞으로 사용할 확률이 높다는 가정하에 dense prefix를 기준으로 compact 영역을 줄인다.
+3. compact 단계에서는 compact 영역을 destination과 source로 나누며 살아있는 개체는 destination으로 이동시키고 참조되지 않는 객체는 제거한다.
+
