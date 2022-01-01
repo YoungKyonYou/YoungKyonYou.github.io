@@ -319,4 +319,216 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 Spring의 3가지 특징은 위에 명시된 것과 같다. 이런 특징으로 인해 <span style="background: rgb(251,243,219)">결합도를 낮춰(Loose Coupling)</span> 유연한 개발이 가능해졌다.
 
-간단하게 살펴보도록 하자 (**[title](link)** )
+간단하게 살펴보도록 하자 (**[자세한 내용 - 링크](https://youngkyonyou.github.io/interview/2022/01/01/Interview-interview-19.html)** )
+
+<br>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 제어의 역전(IoC)
+</h4>
+
+<br>
+
+제어의 역전 패턴이 인기를 끄는 이유는 <span style="background: rgb(251,243,219)">생명주기에 대한 제어권이 웹 애플리케이션 컨테이너에 있기 때문이다.</span>
+
+즉, 사용자가 직접 new 연산자를 통해 인스턴스를 생성하고 메서드를 호출하는 일련의 생명주기에 대한 작업들을 스프링에 <span style="background: rgb(251,243,219)">위임</span>할 수 있게 되는 것이다.
+
+IoC는 직관적이지 못하기 때문에 IoC를 구현하는 방법으로는 **의존성 주입(DI)**가 있다.
+
+<br>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 의존성 주입(DI: Dependency Injection)
+</h4>
+
+<br>
+
+객체 사이에 필요한 의존 관계에 대해서 스프링 컨테이너가 자동으로 연결해 주는 것을 말한다.
+
+스프링 컨테이너는 DI를 이용하여 빈(Bean) 객체를 관리하며 스프링 컨테이너에 클래스를 등록하면 스프링이 클래스의 인스턴스를 관리해 준다.
+
+**스프링 컨테이너에 빈(Bean)을 등록하고 설정하는 방법은 크게 두 가지가 있다.**
+
+**(1)** XML 설정을 통한 DI
+**(2)** 어노테이션(Annotations)을 이용한 DI
+
+<br>
+
+첫 번째로 XML 설정을 통한 DI에 대해서 알아보자
+
+<br>
+
+**applicationContext.xml**
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+	<bean id="UserAddController" class="com.lotts.web.user.UserAddController">
+		<property name="userImpl" ref="userImpl"/>
+	</bean>
+	<bean id="userImpl" class="com.lotts.domain.logic.UserImpl">
+		<property name="userDao" ref="userDao"/>
+		<property name="orgDao" ref="orgDao"/>
+		<property name="uploadpath" value="${file.upload.path}" />
+	</bean>
+	<bean id="userDao" class="com.lotts.dao.ibatis.SqlMapUserDao">
+		<property name="sqlMapClient" ref="sqlMapClient"/>
+	</bean>
+	<bean id="OrgDao" class="com.lotts.dao.ibatis.SqlMapOrgDao">
+		<property name="sqlMapClient" ref="sqlMapClient"/>
+	</bean>
+	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocation" value="WEB-INF/config/SqlMap.xml"/>
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+```
+
+<br>
+
+**SpringTest.java**
+
+```java
+public class SpringTest {
+    public static void main(String ar[]) {
+        ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+        UserFacade userImpl = (UserImpl) ctx.getBean("userImpl");
+        userImpl.사용자_정보를_조회한다();
+        userImpl.사용자를_등록한다();
+    }
+}
+```
+
+<br>
+
+이제 어노테이션을 이용한 DI에 대해 알아보자.
+
+<br>
+
+@Component를 사용하여 해당 클래스를 찾아 @Autowired가 붙은 클래스를 자동적으로 객체로 만들어주고 사용할 수 있게 해준다.
+
+또한, XML에 설정에 auto scan을 설정하면 해당 패키지 범위에 Component를 설정하여 사용할 수 있다.
+
+<br>
+
+```xml
+<context:component-scan base-package="com.lotts.web" />
+```
+
+<br>
+
+@Component의 확장된 어노테이션을 사용하면 스프링은 패키지 및 하위 패키지 내에서 해당 어노테이션을 찾아서 인젝션을 한다.
+
+<br>
+
+- **@Repository**: 데이터베이스에서 정보를 검새하는 DAO(Data Access Objects)에 사용된다.
+- **@Service**: 서비스 계층 클래스에 사용되며 데이터 및 비즈니스 로직 처리에 사용된다.
+- **@Controller**: UI에서 요청 처리에 사용된다.
+
+<br>
+
+**Example**
+
+```java
+@Controller
+public class InfoController extends MultiActionController {
+    @Autowired private InfoServiceImpl InfoService;
+}
+
+@Service("InfoService")
+public class InfoServiceImpl implements InfoService {
+    @Autowired private InfoDaoImpl InfoDao;
+}
+
+@Repository("InfoDao")
+ public class InfoDaoImpl implements InfoDao {
+    @Autowired private SqlSessionTemplate sst;
+}
+```
+
+<br>
+
+---
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> Spring과 SpringBoot의 차이점
+</h3>
+
+<br>
+
+앞에서 설명한 것처럼 스프링은 IOC나 DI를 통해 의존성을 주입할 수 있기 때문에 다양한 스프링 모듈을 사용할 수 있다.
+
+<br>
+
+![](/images/Interview/post16/2022-01-01-17-37-40.png?style=centerme)
+
+<br>
+
+Spring MVC 프레임워크를 사용할 때 위에 applicationContext.xml이외에 다양한 설정을 통해 의존성을 주입한다.
+
+Spring MVC는 DispatcherServlet, View Resolver, Interceptor, Handler, View 등으로 구성되어 있으며 아래의 설정은 실무에서 약간씩 가져온 대략적인 설정이다.
+
+<br>
+
+기존의 Spring과의 차이점을 대략 정리해 보자면 아래와 같다.
+
+<br>
+
+**(1)** <span style="background: rgb(251,243,219)">내장 톰캣</span>
+
+내장 톰캣을 사용하기 때문에 따로 톰캣을 설치하거나 매번 버전을 관리해 주지 않아도 된다.
+
+<br>
+
+**(2)** <span style="background: rgb(251,243,219)">starter를 통한 dependency를 자동화</span>
+
+기존의 Spring에서는 dependency들의 호환되는 버전을 일일히 맞추어 주어야 했고 이 때문에 하나의 dependency 버전을 바꾸게 되는 경우 나머지의 버전 또한 직접 설정해주어야 했다
+
+<br>
+
+```gradle
+/* gradle */ implementation 'org.springframework.boot:spring-boot-starter-aop:2.2.0.RELEASE'
+```
+
+<br>
+
+위와 같이 작성해주면 스프링 부트에서는 이 starter를 통해 종속된 모든 라이브러리를 알맞게 찾아서 함께 가져오기 때문에 의존성이나 호환버전에 대해 신경 쓸 필요가 없다.
+
+<br>
+
+**(3)** <span style="background: rgb(251,243,219)">XML</span>
+
+View Resolver, 데이터 액세스 등의 xml 설정을 하지 않아도 된다.
+
+<br>
+
+**(4)** <span style="background: rgb(251,243,219)">jar</span>
+
+jar file을 이용해 자바 옵션만으로 손쉽게 배포가 가능하다
+
+<br>
+
+**(5)** <span style="background: rgb(251,243,219)">AutoConfigurator</span>
+
+공통적으로 필요한 설정을 어노테이션을 이용하여 대신할 수 있다.
+
+예를 들어 스프링부트의 main 메서드는 @SpringBootApplication이라는 어노테이션을 가지고 있는데 이것은 @ComponentScan+@Configuration+@EnableAutoConfiguration 등의 어노테이션을 합쳐놓았다.
+
+<br>
+
+**(6)** <span style="background: rgb(251,243,219)">Spring Initializr</span>
+
+https://starter.spring.io/ 에서 스프링이 공식적으로 제공하는 Spring Initilizr를 사용하면 실행 환경이나 의존성 관리 등의 인프라 부분을 신경 쓸 필요 없이 바로 코딩을 시작할 수 있게끔 환경을 제공해 준다.
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 정리
+</h3>
+
+<br>
+
+![](/images/Interview/post16/2022-01-01-17-44-13.png?style=centerme)

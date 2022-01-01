@@ -1,0 +1,397 @@
+---
+layout: post
+title: Index란?
+date: 2022-01-01 14:00:00 0000
+tags: [Index]
+categories: [Interview]
+description: Index에 대하여
+---
+
+<br><br>
+
+_**오늘의 나보다 성장한 내일의 나를 위해...**_
+
+<br>
+
+<br><br>
+
+<style>
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: "";
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: "";
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: "";
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: "";
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+</style>
+
+<div class="containercoffee">
+    <div class="coffee-header">
+      <div class="coffee-header__buttons coffee-header__button-one"></div>
+      <div class="coffee-header__buttons coffee-header__button-two"></div>
+      <div class="coffee-header__display"></div>
+      <div class="coffee-header__details"></div>
+    </div>
+    <div class="coffee-medium">
+      <div class="coffe-medium__exit"></div>
+      <div class="coffee-medium__arm"></div>
+      <div class="coffee-medium__liquid"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
+      <div class="coffee-medium__cup"></div>
+    </div>
+    <div class="coffee-footer"></div>
+</div>
+
+<br><br><br><br><br><br><br><br>
+
+<br>
+
+<h2 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/270f.png" height="30" width="30"> Index
+</h2>
+
+<br>
+
+인덱스란 <span style="background: rgb(251,243,219)">추가적인 쓰기 작업과 저장 공간을 활용하여 데이트베이스 테이블의 검색 속도를 향상시키기 위한 자료구조이다.</span>
+
+만약 우리가 책에서 원하는 내용을 찾는다고 하면, 책의 모든 페이지를 찾아보는 것은 오랜 시간이 걸린다.
+
+그렇기 때문에 책의 저자들은 맨 앞 또는 맨 뒤에 **색인**을 추가하는데, 데이터베이스의 **index**는 책의 색인과 같다.
+
+데이터베이스에서도 테이블의 모든 데이터를 검색하면 시간이 오래 걸리기 때문에 데이터와 데이터의 위치를 포함한 자료구조를 생성하여 빠르게 조회할 수 있도록 돕는다.
+
+인덱스는 사용 빈도가 낮고 column의 선별도가 나쁜 곳에는 쓰지 말아야 한다.
+
+예를 들어 컬럼의 값이 true/fase, 성별(M/F) 등에는 인덱스를 사용하지 않는 것이 좋다.
+
+또 테이블이 작거나 자주 갱신될 때도 사용하지 않는 게 좋다.
+
+<br>
+
+![](/images/Interview/post16/2022-01-01-18-45-02.png?style=centerme)
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 인덱스의 장점
+</h3>
+
+<br>
+
+- 테이블을 조회하는 속도와 그에 따른 성능을 향상시킬 수 있다.
+- 키 값을 기초로 하여 테이블에서 검색과 정렬 속도를 향상시킨다.
+- 인덱스를 사용하면 테이블 행의 고유성을 강화시킬 수 있다.
+- 테이블의 기본 키는 자동으로 인덱스 된다.
+-
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 인덱스의 단점
+</h3>
+
+<br>
+
+- 인덱스를 관리하기 위해 DB의 약 10%에 해당하는 저장공간이 필요하다.
+- 인덱스를 관리하기 위해 추가 작업이 필요하다.
+- 인덱스를 잘못 사용할 경우 오히려 성능이 저하되는 역효과가 발생할 수 있다.
+- 인덱스 된 필드에서 데이터를 업데이트하거나, 레코드를 추가 또는 삭제할 때 성능이 떨어진다.
+
+<br>
+
+만약 <span style="background: rgb(251,243,219)">CREATE, DELETE, UPDATE</span>가 빈번한 속성에 인덱스를 걸게 되면 <span style="color:#093145; font-weight:bold">인덱스의 크기가 비대해져서 성능이 오히려 저하되는 역효과</span>가 발생할 수 있다.
+
+그러한 이유 중 하나는 <span style="background: rgb(251,243,219)">DELETE와 UPDATE 연산</span> 때문이다.
+
+UPDATE와 DELETE는 기존의 인덱스를 삭제하지 않고 '사용하지 않음' 처리를 해준다.
+
+만약 어떤 테이블에 <span style="background: rgb(251,243,219)">UPDATE와 DELETE가</span> 빈번하게 발생된다면 실제 데이터는 10만건이지만 인덱스는 100만 건이 넘어가게 되어, SQL문 처리 시 비대해진 인덱스에 의해 오히려 성능이 떨어지게 될 것이다.
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> Index를 사용하면 좋은 경우
+</h3>
+
+<br>
+
+- INSERT, UPDATE, DELETE가 자주 발생하지 않는 컬럼
+- JOIN이나 WHERE 또는 ORDER BY에 자주 사용되는 컬럼
+- 데이터의 중복도가 낮은 컬럼
+- 필드에 저장된 값을 찾는 작업이 예상되는 경우
+- 필드의 값을 정렬하는 작업이 예상되는 경우
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 왜 Index를 생성하는데 b-tree를 사용하는가
+</h3>
+
+<br>
+
+데이터에 접근하는 시간복잡도가 O(1)인 hash table이 더 효율적으로 보일 수가 있다.
+
+SELECT 질의의 조건에는 등호(<>) 연산도 포함이 된다. Hashtable을 사용하게 된다면 = 연산이 아닌 등호 연산의 경우에 문제가 발생한다.
+
+동등 연산(=)에 특화된 hashtable은 데이터베이스의 자료구조로 적합하지 않다.
+
+<br>
+
+반면, B-Tree 인덱스는 디스크 I/O를 고려하여 관계형 데이터베이스에서 가장 일반적으로 사용되는 인덱스이다.
+
+이 인덱스도 크기가 커저 보조 기억 장치에 저장되게 되는데 이 또한 디스크 I/O가 발생하게 되는 것이다.
+
+따라서 B-Tree의 깊이를 줄여야 디스크 I/O를 줄일 수 있기 때문에 B-Tree를 사용한다.

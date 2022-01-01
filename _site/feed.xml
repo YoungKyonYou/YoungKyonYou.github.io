@@ -7,6 +7,1008 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Clustered Index vs Non-Clustered Index</title>
+				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해…&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;style&gt;
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: &quot;&quot;;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: &quot;&quot;;
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: &quot;&quot;;
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: &quot;&quot;;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: &quot;&quot;;
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: &quot;&quot;;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: &quot;&quot;;
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+&lt;/style&gt;
+
+&lt;div class=&quot;containercoffee&quot;&gt;
+    &lt;div class=&quot;coffee-header&quot;&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-medium&quot;&gt;
+      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/270f.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; Clustered Index vs Non-Clustered Index
+&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이번에는 인덱스의 종류인 클러스터 인덱스와 넌 클러스터 인덱스에 대해서 알아보자.&lt;/p&gt;
+
+&lt;p&gt;일단 인덱스란 데이터를 빠르게 검색할 수 있게 해주는 객체이다.&lt;/p&gt;
+
+&lt;p&gt;컬럼을 정렬한 후에 데이터를 빠르게 찾을 수 있도록 도와주는 역할을 한다.&lt;/p&gt;
+
+&lt;p&gt;인덱스를 생성한다고 무조건 데이터를 빠르게 검색할 수 있는 것은 아니다.&lt;/p&gt;
+
+&lt;p&gt;인덱스를 무작정 생성하는 것은 좋은 방법이 아닌 것이다.&lt;/p&gt;
+
+&lt;p&gt;중요한 것은 인덱스를 생성할 때 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;테이블의 용도&lt;/span&gt;를 정확하게 파악하는 것이다.&lt;/p&gt;
+
+&lt;p&gt;용도에 따라서 적절한 컬럼으로 &lt;strong&gt;Clustered Index와 Non-Clustered Index&lt;/strong&gt;를 구성해야 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 클러스터 인덱스
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;클러스터 인덱스는 데이터페이지 자체가 인덱스 키 값에 의해 물리적으로 정렬이 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;즉, 데이터페이지는&lt;/strong&gt; &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;리프 레벨&lt;/span&gt;이라고 볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;아래와 같은 SQL를 실행해서 &lt;strong&gt;클러스터 인덱스를 구성해보자&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;USE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tempdb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clusterExTable&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nvarchar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clusterExTable&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'indexTest1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clusterExTable&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'indexTest15'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clusterExTable&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'indexTest7'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clusterExTable&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'indexTest8'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clusterExTable&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'indexTest4'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clusterExTable&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'indexTest2'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clusterExTable&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'indexTest3'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clusterExTable&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'indexTest7'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clusterExTable&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'indexTest8'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clusterExTable&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;14&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'indexTest14'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clusterExTable&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'indexTest5'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clusterExTable&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'indexTes10'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clusterExTable&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'indexTest13'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clusterExTable&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'indexTest6'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clusterExTable&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'indexTest12'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;ALTER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clusterExTable&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ADD&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CONSTRINT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PK_clusterExTable_id&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;PRIMARY&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;KEY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;클러스터형 인덱스를 구성하려면 행 데이터를 해당 열로 정렬한 후에 루트 페이지를 만들게 된다. 즉 &lt;strong&gt;데이터 페이지&lt;/strong&gt;는 &lt;strong&gt;리프 노드&lt;/strong&gt;와 같은 것을 확인할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-01-20-48-44.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 특징
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;테이블 당 1개만 허용&lt;/li&gt;
+  &lt;li&gt;기본 키 설정시 자동으로 만들어짐&lt;/li&gt;
+  &lt;li&gt;테이블 자체가 인덱스 (클러스터 인덱스를 기준으로 테이블을 정렬하기 때문에 인덱스 페이지가 없다)&lt;/li&gt;
+  &lt;li&gt;데이터 입력, 수정, 삭제 시 항상 정렬을 유지함&lt;/li&gt;
+  &lt;li&gt;기본적으로 접근 성능이 좋음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 넌클러스터 인덱스
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;넌 클러스트형 인덱스는 &lt;strong&gt;데이터 페이지&lt;/strong&gt;를 건들지 않고, 별도의 장소에 &lt;strong&gt;인덱스 페이지&lt;/strong&gt;를 생성한다.&lt;/p&gt;
+
+&lt;p&gt;우선 &lt;strong&gt;인덱스 페이지&lt;/strong&gt;의 &lt;strong&gt;리프 페이지&lt;/strong&gt;에 인덱스로 구성한 열을 정렬하고 데이터 위치 포인터를 생성한다.&lt;/p&gt;
+
+&lt;p&gt;데이터의 위치 포인트는 클러스터형 인덱스와 달리 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;‘페이지 번호 + #오프셋’&lt;/span&gt;이 기록되어 바로 데이터 위치를 가리킨다.&lt;/p&gt;
+
+&lt;p&gt;아래 그림을 예시로 들어보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;indexTest2&lt;/strong&gt;로 보자면 102번 페이지의 두 번째(#2)에 데이터가 있다고 기록하게 된다.&lt;/p&gt;
+
+&lt;p&gt;그러므로 이 데이터 위치 포인터는 데이터가 위치한 고유한 값이 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-01-20-51-29.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 특징
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;테이블 당 최대 240개 생성 가능&lt;/li&gt;
+  &lt;li&gt;인덱스 페이지를 별도로 저장&lt;/li&gt;
+  &lt;li&gt;테이블 자체는 정렬되지 않고, 인덱스 페이지에만 정렬&lt;/li&gt;
+  &lt;li&gt;성능 증가는 정말 “Case By Case”&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 활용
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 클러스터 인덱스
+&lt;/h4&gt;
+
+&lt;p&gt;쿼리를 기준으로 예를 들어보자&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hire_date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employees&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hire_date&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'1997-01-01'&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;GROUP&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hire_date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;조건절에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;hire_date&lt;/span&gt;가 있고, 범위 탐색이다. 이 경우 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;hire_date&lt;/span&gt;에 클러스터 인덱스를 적용하면 성능이 엄청나게 향상된다.&lt;/p&gt;
+
+&lt;p&gt;여기서 WHERE 절만 빼보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hire_date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employees&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;GROUP&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hire_date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;여기서도 마찬가지로 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;hire_date&lt;/span&gt;에 클러스터 인덱스를 건다면 어떻게 될까?&lt;/p&gt;
+
+&lt;p&gt;성능 향상에 도움이 안되거나, 데이터가 많아지는 경우 오히려 느려진다.&lt;/p&gt;
+
+&lt;p&gt;스캔 방식을 생각해야 한다.&lt;/p&gt;
+
+&lt;p&gt;클러스터 인덱스가 없는 경우 기본적으로 Heap 테이블 스캔이 이루어진다.&lt;/p&gt;
+
+&lt;p&gt;클러스터 인덱스가 있는 경우에는 클러스터 인덱스 스캔이 이루어진다.&lt;/p&gt;
+
+&lt;p&gt;하지만 조건절이 없으므로 무식하게 다 읽는건 Heap 테이블 스캔이 빠르다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 넌클러스터 인덱스
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;위의 예시와 같은 쿼리이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hire_date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employees&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hire_date&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'1997-01-01'&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;GROUP&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hire_date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;여기서 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;hire_date&lt;/span&gt;에 넌클러스터 인덱스를 건다면 어떻게 될까?&lt;/p&gt;
+
+&lt;p&gt;놀랍게도 클러스터 인덱스를 걸었을 때보다 더 빠르다.&lt;/p&gt;
+
+&lt;p&gt;그 이유는 넌클러스터 인덱스가 탐색 범위에 포함되었기 때문에 옵티마이저에서는 인덱스 스캔이 아닌 &lt;strong&gt;Non-Clustered Index Seek&lt;/strong&gt; 방식을 선택하기 때문이다.&lt;/p&gt;
+
+&lt;p&gt;Index Scan은 인덱스의 모든 행을 인덱스 순서로 읽는 반면에 Index Seek은 필터 기준에 따라 일치하는 행이나 한정된 행만 찾으려고 리프 노드를 거치기 때문에 논리적 읽기 수가 훨씬 감소한다&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;link href=&quot;http://fonts.googleapis.com/earlyaccess/hanna.css&quot; rel=&quot;stylesheet&quot; /&gt;
+
+&lt;div style=&quot;background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;&quot;&gt;
+
+Index Seek는 B-Tree 구조상의 Root 페이지부터 Leaf Level까지 검색 경로를 따라 수행되는 방법. Leaf Level을 제외한 상위 각 레벨에서 1페이지씩을 검색하게 된다.&lt;br /&gt;&lt;br /&gt;
+
+Index Scan은 Leaf Level의 첫번째 페이지부터 데이터 검색을 수행하는 방법. 일반적으로 얘기하는 Table Scan과 동일한 방법이지만, 그 대상이 Leaf Level의 인덱스 페이지라는 것이다.
+
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 정리
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-01-21-20-10.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;여기서 물리적으로 행을 재배열한다는 것을 알아보자&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;아래와 같은 SQL이 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TBL_CLUSTERED_TEST&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;LOG_DATE&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;CHAR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;MEDIA_ID&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;CHAR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;PROCEEDS&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;DOUBLE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;PRIMARY&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;KEY&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LOG_DATE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MEDIA_ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ENGINE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;INNODB&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CHARSET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;utf8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;5개의 테스트 데이터를 저장해 본다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TBL_CLUSTERED_TEST&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LOG_DATE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MEDIA_ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PROCEEDS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'20130618'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'A'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TBL_CLUSTERED_TEST&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LOG_DATE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MEDIA_ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PROCEEDS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'20130619'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'A'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TBL_CLUSTERED_TEST&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LOG_DATE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MEDIA_ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PROCEEDS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'20130619'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'C'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TBL_CLUSTERED_TEST&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LOG_DATE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MEDIA_ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PROCEEDS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'20130619'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'B'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TBL_CLUSTERED_TEST&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LOG_DATE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MEDIA_ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PROCEEDS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'20130613'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'B'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;해당 테이블을 select 하면 insert 되어 있는 순서대로 데이터가 누적되어 있을까?&lt;/p&gt;
+
+&lt;p&gt;아니다. &lt;strong&gt;LOG_DATE, MEDIA_ID&lt;/strong&gt;는 클러스터드 인덱스로 생성이 되어 있기 때문에 물리적으로 &lt;strong&gt;LOG_DATE&lt;/strong&gt;를 정렬한 후 &lt;strong&gt;MEDIA_ID&lt;/strong&gt;를 정렬하게 된다.&lt;/p&gt;
+
+&lt;p&gt;물리적으로 정렬을 한다는 말은 이를 두고 하는 말이다. 실제 DB의 데이터파일에 정렬이 되어 있는 상태로 디스크에 저장이 된다는 것이다.&lt;/p&gt;
+
+&lt;p&gt;테이블 조회를 해보면 아래와 같이 데이터가 정렬되어 있는 것을 확인할 수 있다. (6월 13일 데이터가 가장 위에 있음)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql&amp;gt; select * from tbl_clustered_test;
+
++----------+----------+----------+
+
+| LOG_DATE | MEDIA_ID | PROCEEDS |
+
++----------+----------+----------+
+
+| 20130613 | B        |     3000 |
+
+| 20130618 | A        |     1000 |
+
+| 20130619 | A        |     1000 |
+
+| 20130619 | B        |     1000 |
+
+| 20130619 | C        |     2000 |
+
++----------+----------+----------+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그럼 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;넌 클러스터드 인덱스는?&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;일반적으로 조회문 성능 향상을 위해서 넌 클러스터드 인덱스를 생성하여 사용하곤 한다.&lt;/p&gt;
+
+&lt;p&gt;허나, 이 인덱스는 클러스터드인덱스와는 다르게 물리적으로 데이터가 정렬되어 저장되지 않는다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-01-21-24-18.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;위 사진의 넌클러스터 인덱스에서 데이터 페이지에 있는 데이터들은 정렬이 되지 않은 상태인 것을 볼 수 있다.&lt;/p&gt;
+</description>
+				<pubDate>Sat, 01 Jan 2022 14:00:00 +0900</pubDate>
+				<link>/interview/2022/01/01/Interview-interview-22.html</link>
+				<guid isPermaLink="true">/interview/2022/01/01/Interview-interview-22.html</guid>
+			</item>
+		
+			<item>
+				<title>Index란?</title>
+				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해…&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;style&gt;
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: &quot;&quot;;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: &quot;&quot;;
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: &quot;&quot;;
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: &quot;&quot;;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: &quot;&quot;;
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: &quot;&quot;;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: &quot;&quot;;
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+&lt;/style&gt;
+
+&lt;div class=&quot;containercoffee&quot;&gt;
+    &lt;div class=&quot;coffee-header&quot;&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-medium&quot;&gt;
+      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/270f.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; Index
+&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;인덱스란 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;추가적인 쓰기 작업과 저장 공간을 활용하여 데이트베이스 테이블의 검색 속도를 향상시키기 위한 자료구조이다.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;만약 우리가 책에서 원하는 내용을 찾는다고 하면, 책의 모든 페이지를 찾아보는 것은 오랜 시간이 걸린다.&lt;/p&gt;
+
+&lt;p&gt;그렇기 때문에 책의 저자들은 맨 앞 또는 맨 뒤에 &lt;strong&gt;색인&lt;/strong&gt;을 추가하는데, 데이터베이스의 &lt;strong&gt;index&lt;/strong&gt;는 책의 색인과 같다.&lt;/p&gt;
+
+&lt;p&gt;데이터베이스에서도 테이블의 모든 데이터를 검색하면 시간이 오래 걸리기 때문에 데이터와 데이터의 위치를 포함한 자료구조를 생성하여 빠르게 조회할 수 있도록 돕는다.&lt;/p&gt;
+
+&lt;p&gt;인덱스는 사용 빈도가 낮고 column의 선별도가 나쁜 곳에는 쓰지 말아야 한다.&lt;/p&gt;
+
+&lt;p&gt;예를 들어 컬럼의 값이 true/fase, 성별(M/F) 등에는 인덱스를 사용하지 않는 것이 좋다.&lt;/p&gt;
+
+&lt;p&gt;또 테이블이 작거나 자주 갱신될 때도 사용하지 않는 게 좋다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-01-18-45-02.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 인덱스의 장점
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;테이블을 조회하는 속도와 그에 따른 성능을 향상시킬 수 있다.&lt;/li&gt;
+  &lt;li&gt;키 값을 기초로 하여 테이블에서 검색과 정렬 속도를 향상시킨다.&lt;/li&gt;
+  &lt;li&gt;인덱스를 사용하면 테이블 행의 고유성을 강화시킬 수 있다.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;h2 id=&quot;테이블의-기본-키는-자동으로-인덱스-된다&quot;&gt;테이블의 기본 키는 자동으로 인덱스 된다.&lt;/h2&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 인덱스의 단점
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;인덱스를 관리하기 위해 DB의 약 10%에 해당하는 저장공간이 필요하다.&lt;/li&gt;
+  &lt;li&gt;인덱스를 관리하기 위해 추가 작업이 필요하다.&lt;/li&gt;
+  &lt;li&gt;인덱스를 잘못 사용할 경우 오히려 성능이 저하되는 역효과가 발생할 수 있다.&lt;/li&gt;
+  &lt;li&gt;인덱스 된 필드에서 데이터를 업데이트하거나, 레코드를 추가 또는 삭제할 때 성능이 떨어진다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;만약 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;CREATE, DELETE, UPDATE&lt;/span&gt;가 빈번한 속성에 인덱스를 걸게 되면 &lt;span style=&quot;color:#093145; font-weight:bold&quot;&gt;인덱스의 크기가 비대해져서 성능이 오히려 저하되는 역효과&lt;/span&gt;가 발생할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;그러한 이유 중 하나는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;DELETE와 UPDATE 연산&lt;/span&gt; 때문이다.&lt;/p&gt;
+
+&lt;p&gt;UPDATE와 DELETE는 기존의 인덱스를 삭제하지 않고 ‘사용하지 않음’ 처리를 해준다.&lt;/p&gt;
+
+&lt;p&gt;만약 어떤 테이블에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;UPDATE와 DELETE가&lt;/span&gt; 빈번하게 발생된다면 실제 데이터는 10만건이지만 인덱스는 100만 건이 넘어가게 되어, SQL문 처리 시 비대해진 인덱스에 의해 오히려 성능이 떨어지게 될 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; Index를 사용하면 좋은 경우
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;INSERT, UPDATE, DELETE가 자주 발생하지 않는 컬럼&lt;/li&gt;
+  &lt;li&gt;JOIN이나 WHERE 또는 ORDER BY에 자주 사용되는 컬럼&lt;/li&gt;
+  &lt;li&gt;데이터의 중복도가 낮은 컬럼&lt;/li&gt;
+  &lt;li&gt;필드에 저장된 값을 찾는 작업이 예상되는 경우&lt;/li&gt;
+  &lt;li&gt;필드의 값을 정렬하는 작업이 예상되는 경우&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 왜 Index를 생성하는데 b-tree를 사용하는가
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;데이터에 접근하는 시간복잡도가 O(1)인 hash table이 더 효율적으로 보일 수가 있다.&lt;/p&gt;
+
+&lt;p&gt;SELECT 질의의 조건에는 등호(&amp;lt;&amp;gt;) 연산도 포함이 된다. Hashtable을 사용하게 된다면 = 연산이 아닌 등호 연산의 경우에 문제가 발생한다.&lt;/p&gt;
+
+&lt;p&gt;동등 연산(=)에 특화된 hashtable은 데이터베이스의 자료구조로 적합하지 않다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;반면, B-Tree 인덱스는 디스크 I/O를 고려하여 관계형 데이터베이스에서 가장 일반적으로 사용되는 인덱스이다.&lt;/p&gt;
+
+&lt;p&gt;이 인덱스도 크기가 커저 보조 기억 장치에 저장되게 되는데 이 또한 디스크 I/O가 발생하게 되는 것이다.&lt;/p&gt;
+
+&lt;p&gt;따라서 B-Tree의 깊이를 줄여야 디스크 I/O를 줄일 수 있기 때문에 B-Tree를 사용한다.&lt;/p&gt;
+</description>
+				<pubDate>Sat, 01 Jan 2022 14:00:00 +0900</pubDate>
+				<link>/interview/2022/01/01/Interview-interview-21.html</link>
+				<guid isPermaLink="true">/interview/2022/01/01/Interview-interview-21.html</guid>
+			</item>
+		
+			<item>
 				<title>Spring vs SpringBoot</title>
 				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -322,7 +1324,216 @@
 
 &lt;p&gt;Spring의 3가지 특징은 위에 명시된 것과 같다. 이런 특징으로 인해 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;결합도를 낮춰(Loose Coupling)&lt;/span&gt; 유연한 개발이 가능해졌다.&lt;/p&gt;
 
-&lt;p&gt;간단하게 살펴보도록 하자 (&lt;strong&gt;&lt;a href=&quot;link&quot;&gt;title&lt;/a&gt;&lt;/strong&gt; )&lt;/p&gt;
+&lt;p&gt;간단하게 살펴보도록 하자 (&lt;strong&gt;&lt;a href=&quot;https://youngkyonyou.github.io/interview/2022/01/01/Interview-interview-19.html&quot;&gt;자세한 내용 - 링크&lt;/a&gt;&lt;/strong&gt; )&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 제어의 역전(IoC)
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;제어의 역전 패턴이 인기를 끄는 이유는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;생명주기에 대한 제어권이 웹 애플리케이션 컨테이너에 있기 때문이다.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;즉, 사용자가 직접 new 연산자를 통해 인스턴스를 생성하고 메서드를 호출하는 일련의 생명주기에 대한 작업들을 스프링에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;위임&lt;/span&gt;할 수 있게 되는 것이다.&lt;/p&gt;
+
+&lt;p&gt;IoC는 직관적이지 못하기 때문에 IoC를 구현하는 방법으로는 &lt;strong&gt;의존성 주입(DI)&lt;/strong&gt;가 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 의존성 주입(DI: Dependency Injection)
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;객체 사이에 필요한 의존 관계에 대해서 스프링 컨테이너가 자동으로 연결해 주는 것을 말한다.&lt;/p&gt;
+
+&lt;p&gt;스프링 컨테이너는 DI를 이용하여 빈(Bean) 객체를 관리하며 스프링 컨테이너에 클래스를 등록하면 스프링이 클래스의 인스턴스를 관리해 준다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;스프링 컨테이너에 빈(Bean)을 등록하고 설정하는 방법은 크게 두 가지가 있다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(1)&lt;/strong&gt; XML 설정을 통한 DI
+&lt;strong&gt;(2)&lt;/strong&gt; 어노테이션(Annotations)을 이용한 DI&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;첫 번째로 XML 설정을 통한 DI에 대해서 알아보자&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;applicationContext.xml&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;beans&lt;/span&gt;
+	&lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/beans&quot;&lt;/span&gt;
+	&lt;span class=&quot;na&quot;&gt;xmlns:xsi=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xsi:schemaLocation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;UserAddController&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;com.lotts.web.user.UserAddController&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;userImpl&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ref=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;userImpl&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;userImpl&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;com.lotts.domain.logic.UserImpl&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;userDao&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ref=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;userDao&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;orgDao&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ref=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;orgDao&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uploadpath&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;${file.upload.path}&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;userDao&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;com.lotts.dao.ibatis.SqlMapUserDao&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sqlMapClient&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ref=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sqlMapClient&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;OrgDao&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;com.lotts.dao.ibatis.SqlMapOrgDao&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sqlMapClient&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ref=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sqlMapClient&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sqlMapClient&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.springframework.orm.ibatis.SqlMapClientFactoryBean&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;configLocation&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;WEB-INF/config/SqlMap.xml&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dataSource&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ref=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dataSource&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SpringTest.java&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SpringTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[])&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;ApplicationContext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ClassPathXmlApplicationContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ApplicationContext.xml&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;UserFacade&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userImpl&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;UserImpl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getBean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;userImpl&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;userImpl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;사용자_정보를_조회한다&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;userImpl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;사용자를_등록한다&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이제 어노테이션을 이용한 DI에 대해 알아보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;@Component를 사용하여 해당 클래스를 찾아 @Autowired가 붙은 클래스를 자동적으로 객체로 만들어주고 사용할 수 있게 해준다.&lt;/p&gt;
+
+&lt;p&gt;또한, XML에 설정에 auto scan을 설정하면 해당 패키지 범위에 Component를 설정하여 사용할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;context:component-scan&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;base-package=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;com.lotts.web&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;@Component의 확장된 어노테이션을 사용하면 스프링은 패키지 및 하위 패키지 내에서 해당 어노테이션을 찾아서 인젝션을 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;@Repository&lt;/strong&gt;: 데이터베이스에서 정보를 검새하는 DAO(Data Access Objects)에 사용된다.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;@Service&lt;/strong&gt;: 서비스 계층 클래스에 사용되며 데이터 및 비즈니스 로직 처리에 사용된다.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;@Controller&lt;/strong&gt;: UI에서 요청 처리에 사용된다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Controller&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InfoController&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MultiActionController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Autowired&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InfoServiceImpl&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InfoService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@Service&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;InfoService&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InfoServiceImpl&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InfoService&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Autowired&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InfoDaoImpl&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InfoDao&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@Repository&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;InfoDao&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InfoDaoImpl&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InfoDao&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Autowired&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SqlSessionTemplate&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sst&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; Spring과 SpringBoot의 차이점
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;앞에서 설명한 것처럼 스프링은 IOC나 DI를 통해 의존성을 주입할 수 있기 때문에 다양한 스프링 모듈을 사용할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-01-17-37-40.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Spring MVC 프레임워크를 사용할 때 위에 applicationContext.xml이외에 다양한 설정을 통해 의존성을 주입한다.&lt;/p&gt;
+
+&lt;p&gt;Spring MVC는 DispatcherServlet, View Resolver, Interceptor, Handler, View 등으로 구성되어 있으며 아래의 설정은 실무에서 약간씩 가져온 대략적인 설정이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;기존의 Spring과의 차이점을 대략 정리해 보자면 아래와 같다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(1)&lt;/strong&gt; &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;내장 톰캣&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;내장 톰캣을 사용하기 때문에 따로 톰캣을 설치하거나 매번 버전을 관리해 주지 않아도 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(2)&lt;/strong&gt; &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;starter를 통한 dependency를 자동화&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;기존의 Spring에서는 dependency들의 호환되는 버전을 일일히 맞추어 주어야 했고 이 때문에 하나의 dependency 버전을 바꾸게 되는 경우 나머지의 버전 또한 직접 설정해주어야 했다&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-gradle highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/* gradle */&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;implementation&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'org.springframework.boot:spring-boot-starter-aop:2.2.0.RELEASE'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;위와 같이 작성해주면 스프링 부트에서는 이 starter를 통해 종속된 모든 라이브러리를 알맞게 찾아서 함께 가져오기 때문에 의존성이나 호환버전에 대해 신경 쓸 필요가 없다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(3)&lt;/strong&gt; &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;XML&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;View Resolver, 데이터 액세스 등의 xml 설정을 하지 않아도 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(4)&lt;/strong&gt; &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;jar&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;jar file을 이용해 자바 옵션만으로 손쉽게 배포가 가능하다&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(5)&lt;/strong&gt; &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;AutoConfigurator&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;공통적으로 필요한 설정을 어노테이션을 이용하여 대신할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;예를 들어 스프링부트의 main 메서드는 @SpringBootApplication이라는 어노테이션을 가지고 있는데 이것은 @ComponentScan+@Configuration+@EnableAutoConfiguration 등의 어노테이션을 합쳐놓았다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(6)&lt;/strong&gt; &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Spring Initializr&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;https://starter.spring.io/ 에서 스프링이 공식적으로 제공하는 Spring Initilizr를 사용하면 실행 환경이나 의존성 관리 등의 인프라 부분을 신경 쓸 필요 없이 바로 코딩을 시작할 수 있게끔 환경을 제공해 준다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 정리
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-01-17-44-13.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 </description>
 				<pubDate>Sat, 01 Jan 2022 12:00:00 +0900</pubDate>
 				<link>/interview/2022/01/01/Interview-interview-20.html</link>
@@ -3944,1024 +5155,6 @@ Young 영역은 일반적으로 Old 영역보다 크키가 작기 때문에 GC�
 				<pubDate>Mon, 27 Dec 2021 10:00:00 +0900</pubDate>
 				<link>/interview/2021/12/27/Interview-interview-13.html</link>
 				<guid isPermaLink="true">/interview/2021/12/27/Interview-interview-13.html</guid>
-			</item>
-		
-			<item>
-				<title>Spring WebFlux</title>
-				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해…&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;style&gt;
-.containercoffee {
-  width: 300px;
-  height: 280px;
-  position: relative;
-  top: calc(50% - 140px);
-  left: calc(50% - 150px);
-}
-.coffee-header {
-  width: 100%;
-  height: 80px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #ddcfcc;
-  border-radius: 10px;
-}
-.coffee-header__buttons {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  top: 25px;
-  background-color: #282323;
-  border-radius: 50%;
-}
-.coffee-header__buttons::after {
-  content: &quot;&quot;;
-  width: 8px;
-  height: 8px;
-  position: absolute;
-  bottom: -8px;
-  left: calc(50% - 4px);
-  background-color: #615e5e;
-}
-.coffee-header__button-one {
-  left: 15px;
-}
-.coffee-header__button-two {
-  left: 50px;
-}
-.coffee-header__display {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: calc(50% - 25px);
-  left: calc(50% - 25px);
-  border-radius: 50%;
-  background-color: #9acfc5;
-  border: 5px solid #43beae;
-  box-sizing: border-box;
-}
-.coffee-header__details {
-  width: 8px;
-  height: 20px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #9b9091;
-  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
-}
-.coffee-medium {
-  width: 90%;
-  height: 160px;
-  position: absolute;
-  top: 80px;
-  left: calc(50% - 45%);
-  background-color: #bcb0af;
-}
-.coffee-medium:before {
-  content: &quot;&quot;;
-  width: 90%;
-  height: 100px;
-  background-color: #776f6e;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 45%);
-  border-radius: 20px 20px 0 0;
-}
-.coffe-medium__exit {
-  width: 60px;
-  height: 20px;
-  position: absolute;
-  top: 0;
-  left: calc(50% - 30px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::before {
-  content: &quot;&quot;;
-  width: 50px;
-  height: 20px;
-  border-radius: 0 0 50% 50%;
-  position: absolute;
-  bottom: -20px;
-  left: calc(50% - 25px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::after {
-  content: &quot;&quot;;
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  bottom: -30px;
-  left: calc(50% - 5px);
-  background-color: #231f20;
-}
-.coffee-medium__arm {
-  width: 70px;
-  height: 20px;
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  background-color: #231f20;
-}
-.coffee-medium__arm::before {
-  content: &quot;&quot;;
-  width: 15px;
-  height: 5px;
-  position: absolute;
-  top: 7px;
-  left: -15px;
-  background-color: #9e9495;
-}
-.coffee-medium__cup {
-  width: 80px;
-  height: 47px;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 40px);
-  background-color: #FFF;
-  border-radius: 0 0 70px 70px / 0 0 110px 110px;
-}
-.coffee-medium__cup::after {
-  content: &quot;&quot;;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 6px;
-  right: -13px;
-  border: 5px solid #FFF;
-  border-radius: 50%;
-}
-@keyframes liquid {
-  0% {
-    height: 0px;  
-    opacity: 1;
-  }
-  5% {
-    height: 0px;  
-    opacity: 1;
-  }
-  20% {
-    height: 62px;  
-    opacity: 1;
-  }
-  95% {
-    height: 62px;
-    opacity: 1;
-  }
-  100% {
-    height: 62px;
-    opacity: 0;
-  }
-}
-.coffee-medium__liquid {
-  width: 6px;
-  height: 63px;
-  opacity: 0;
-  position: absolute;
-  top: 50px;
-  left: calc(50% - 3px);
-  background-color: #74372b;
-  animation: liquid 4s 4s linear infinite;
-}
-.coffee-medium__smoke {
-  width: 8px;
-  height: 20px;
-  position: absolute;  
-  border-radius: 5px;
-  background-color: #b3aeae;
-}
-@keyframes smokeOne {
-  0% {
-    bottom: 20px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 50px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-@keyframes smokeTwo {
-  0% {
-    bottom: 40px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 70px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-.coffee-medium__smoke-one {
-  opacity: 0;
-  bottom: 50px;
-  left: 102px;
-  animation: smokeOne 3s 4s linear infinite;
-}
-.coffee-medium__smoke-two {
-  opacity: 0;
-  bottom: 70px;
-  left: 118px;
-  animation: smokeTwo 3s 5s linear infinite;
-}
-.coffee-medium__smoke-three {
-  opacity: 0;
-  bottom: 65px;
-  right: 118px;
-  animation: smokeTwo 3s 6s linear infinite;
-}
-.coffee-medium__smoke-for {
-  opacity: 0;
-  bottom: 50px;
-  right: 102px;
-  animation: smokeOne 3s 5s linear infinite;
-}
-.coffee-footer {
-  width: 95%;
-  height: 15px;
-  position: absolute;
-  bottom: 25px;
-  left: calc(50% - 47.5%);
-  background-color: #41bdad;
-  border-radius: 10px;
-}
-.coffee-footer::after {
-  content: &quot;&quot;;
-  width: 106%;
-  height: 26px;
-  position: absolute;
-  bottom: -25px;
-  left: -8px;
-  background-color: #000;
-}
-&lt;/style&gt;
-
-&lt;div class=&quot;containercoffee&quot;&gt;
-    &lt;div class=&quot;coffee-header&quot;&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-medium&quot;&gt;
-      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;spring-webflux&quot;&gt;Spring WebFlux&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;우리가 보통 사용하던 Spring MVC + RDBMS 패턴은 &lt;span style=&quot;color:#2ECC40; font-weight:bold&quot;&gt;Blocking IO&lt;/span&gt; 방식이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;color:#2ECC40; font-weight:bold&quot;&gt;Blocking IO&lt;/span&gt; 방식이라는 것은 요청을 처리하기 전까지는 다른 작업을 수행할 수 없는 상태라는 것을 말한다.&lt;/p&gt;
-
-&lt;p&gt;동시에 여러 요청을 처리하기 위해서는 &lt;span style=&quot;color:#2ECC40; font-weight:bold&quot;&gt;Thread&lt;/span&gt; 수를 늘려서 하는 방법이 존재하기는 하지만 오버헤드가 발생한다.&lt;/p&gt;
-
-&lt;p&gt;이를 개선하기 위해서 나온 기술이 &lt;span style=&quot;color: rgba(131, 24, 67); font-weight:bold&quot;&gt;Non-Blocking IO&lt;/span&gt; 방식인 &lt;span style=&quot;color: rgba(131, 24, 67); font-weight:bold&quot;&gt;Spring WebFlux&lt;/span&gt;이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;color: rgba(131, 24, 67); font-weight:bold&quot;&gt;Spring WebFlux&lt;/span&gt;는 동시에 처리되어야 할 많은 요청에 대해 효율적으로 처리해줄 수 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;스레드 풀을 이용한 동기식 호출 방식은 코드가 간단하고 순차적으로 동작하기 때문에 개발자가 코드를 직관적이고 빠르게 작성할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;하지만 이렇게 작성한 코드로 만든 서버도 빠르게 동작하고 많은 요청을 처리할 수 있을까?&lt;/p&gt;
-
-&lt;p&gt;동기식 호출 방식에서는 상대편의 응답이 올 때까지 스레드는 기다려야(blocking)한다.&lt;/p&gt;
-
-&lt;p&gt;응답이 빨리 오면 그 기다림은 길지 않겠지만 만약 응답이 늦게 오면 서버가 요청에 대한 응답을 기다리는 데 스레드를 모두 소진해서 추가 요청을 처리할 수 없는 상태가 될 수 있다.&lt;/p&gt;
-
-&lt;p&gt;특히 MSA에서는 타임아웃이 발생할 정도의 지연이 발생하면 순식간에 다른 모듈로 전파되어 전체 시스템이 마비되는 등의 악영향을 끼칠 수 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;여기서 의문점이 생긴다.&lt;/p&gt;
-
-&lt;p&gt;쓰레드가 서버로 요청을 하고 나서 꼭 응답을 기다리면서 아무 것도 하지 않고 대기해야 할까?&lt;/p&gt;
-
-&lt;p&gt;쓰레드가 응답을 기다리지 않고 다른 일을 처리하다가 응답이 왔을 때 해당 일을 처리한다면 응답만 기다리면서 불필요하게 리소스를 점유하는 일은 없을 것이다.&lt;/p&gt;
-
-&lt;p&gt;이러한 요구 사항에서 나온 것이 이벤트 루프를 이용한 &lt;span style=&quot;color:#2ECC40; font-weight:bold&quot;&gt;비동기 프로그래밍&lt;/span&gt;이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이벤트 루프를 활용하면 요청을 보내고 응답이 올 때까지 무작정 기다리는 대신 자신에게 할당된 다른 여러 소켓의 요청을 순차적으로 빠르게 처리한다.&lt;/p&gt;
-
-&lt;p&gt;이제 우리의 서버와 클라이언트의 스레드는 더이상 blocking되지 않는다.&lt;/p&gt;
-
-&lt;p&gt;Spring 생태계에서도 버전 5부터 도입된 WebFlux를 통해 비동기 프로그래밍을 본격적으로 도입하고 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;물론 단점도 있다.&lt;/p&gt;
-
-&lt;p&gt;순차적으로 처리되는 방식이 아니라 디버깅이 힘들고 개발이 어렵다.&lt;/p&gt;
-
-&lt;p&gt;즉 SI에서 사용하기는 좀 힘든 부분이 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;example&quot;&gt;Example&lt;/h4&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;아래 예제는 &lt;strong&gt;Spring.io&lt;/strong&gt;에 있는 간단한 &lt;span style=&quot;color:#85144b; font-weight:bold&quot;&gt;Reactive RESTful Web Service&lt;/span&gt;이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://spring.io/guides/gs/reactive-rest-service/&quot;&gt;원문 링크&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;원문을 하나하나 해석해 보자.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;목적&quot;&gt;목적&lt;/h4&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이제부터 우리는 Spring WebFlux를 이용하여 RESTful web service와 service의 WebClient consumer를 만들게 될 것이다.&lt;/p&gt;
-
-&lt;p&gt;우리는 아래로 요청했을 때의 &lt;strong&gt;System.out&lt;/strong&gt;의 출력 값을 확인할 수 있다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-url&quot;&gt;http://localhost:8080/hello
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;시작-전-필요한-것들&quot;&gt;시작 전 필요한 것들&lt;/h4&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;15분 정도의 시간&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;좋은 텍스트 에디터 아니면 IDE&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;JDK 1.8 이상&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Gradle 4+ 아니면 Maven 3.2+&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;코드를 IDE로 바로 가져올 수도 있음
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://spring.io/guides/gs/sts/&quot;&gt;Spring Tool Suite (STS)&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://spring.io/guides/gs/intellij-idea/&quot;&gt;IntelliJ IDEA&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;pom.xml&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;dependencies&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-starter-webflux&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-starter-test&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;scope&amp;gt;&lt;/span&gt;test&lt;span class=&quot;nt&quot;&gt;&amp;lt;/scope&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;io.projectreactor&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;reactor-test&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;scope&amp;gt;&lt;/span&gt;test&lt;span class=&quot;nt&quot;&gt;&amp;lt;/scope&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependencies&amp;gt;&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이중 pom.xml 을 열어보면 이렇게 spring-boot-starter-webflux dependency를 가지고 있는것을 확인할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;이번엔 hello package 내의 클래스를 하나씩 보면서 어떤 방식으로 동작하는지 알아보자.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Handler&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.http.MediaType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.stereotype.Component&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.web.reactive.function.BodyInserters&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.web.reactive.function.server.ServerRequest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.web.reactive.function.server.ServerResponse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;reactor.core.publisher.Mono&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;nd&quot;&gt;@Component&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GreetingHandler&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Mono&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ServerResponse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ServerRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServerResponse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ok&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;contentType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;MediaType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;TEXT_PLAIN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;BodyInserters&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;fromValue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello, Spring!&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Spring Reactive 접근 방식에서는 Handler를 사용하여 요청을 처리하고 응답을 생성한다. 이 예제에서는 요청에 대해 “Hello, Spring!”을 반환하는 역할을 해주고 있다. 여기서 Mono라는 객체가 나오는데 이것은 Reactor에서 결과값을 처리하기 위한 객체라고 이해하면 된다. 주로 0개~1개의 결과값은 Mono에 담고 Flux 객체는 Mono와 유사한데 0개~n개의 결과값을 처리하는 객체이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Router&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.context.annotation.Bean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.context.annotation.Configuration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.http.MediaType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.web.reactive.function.server.RequestPredicates&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.web.reactive.function.server.RouterFunction&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.web.reactive.function.server.RouterFunctions&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.web.reactive.function.server.ServerResponse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nd&quot;&gt;@Configuration&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GreetingRouter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;@Bean&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;RouterFunction&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ServerResponse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;route&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;GreetingHandler&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;greetingHandler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;RouterFunctions&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;route&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;RequestPredicates&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/hello&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;RequestPredicates&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;accept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;MediaType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;TEXT_PLAIN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)),&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;greetingHandler:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Spring MVC의 Controller의 역할 중 RequestMapping의 역할을 하는 녀석이 Router라고 생각하면 이해가 빠를것 같다. 예제에서는 /hello 라는 요청을 greetingHandler::hello 에 매핑을 시켜주고 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;WebClient&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.http.MediaType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.web.reactive.function.client.ClientResponse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.web.reactive.function.client.WebClient&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;reactor.core.publisher.Mono&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GreetingWebClient&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WebClient&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;client&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WebClient&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://localhost:8080&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Mono&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ClientResponse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;uri&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/hello&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;accept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;MediaType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;TEXT_PLAIN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;exchange&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getResult&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&amp;gt;&amp;gt; result = &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;flatMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;bodyToMono&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;WebClient는 외부와 통신을 하는 창구 역할을 한다고 보면 된다.&lt;/p&gt;
-
-&lt;p&gt;기존에는 RestTemplate을 이용해서 HTTP 통신을 했지만 이것은 Blocking IO 방식이다. 그래서 Non-Blocking IO 방식과 비동기 방식을 지원하기 위한 WebClient 를 만들었고 WebFlux에서는 이것을 써야 한다.&lt;/p&gt;
-
-&lt;p&gt;가장 간단한 예제라 create()를 통해서 WebClient를 생성했지만 다른 옵션들을 더 추가하려면 build() 를 써야 한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Aplication.java&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.boot.SpringApplication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.boot.autoconfigure.SpringBootApplication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nd&quot;&gt;@SpringBootApplication&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Application&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;SpringApplication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Application&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;GreetingWebClient&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gwc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GreetingWebClient&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gwc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getResult&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post14/2021-12-26-12-16-37.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;서버는 tomcat 이 아닌 embedded Netty 를 사용한다. Application.java 에서 WebClient에서 result를 가지고 오라고 되어 있어서 구동할때도 result = Hello, Spring! 을 출력해준다. 또한 http://localhost:8080/hello 를 입력하면 result 인 Hello, Spring! 가 출력되는 것을 볼수 있다.&lt;/p&gt;
-</description>
-				<pubDate>Sun, 26 Dec 2021 10:00:00 +0900</pubDate>
-				<link>/interview/2021/12/26/Interview-interview-12.html</link>
-				<guid isPermaLink="true">/interview/2021/12/26/Interview-interview-12.html</guid>
-			</item>
-		
-			<item>
-				<title>Sevlet</title>
-				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해…&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;style&gt;
-.containercoffee {
-  width: 300px;
-  height: 280px;
-  position: relative;
-  top: calc(50% - 140px);
-  left: calc(50% - 150px);
-}
-.coffee-header {
-  width: 100%;
-  height: 80px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #ddcfcc;
-  border-radius: 10px;
-}
-.coffee-header__buttons {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  top: 25px;
-  background-color: #282323;
-  border-radius: 50%;
-}
-.coffee-header__buttons::after {
-  content: &quot;&quot;;
-  width: 8px;
-  height: 8px;
-  position: absolute;
-  bottom: -8px;
-  left: calc(50% - 4px);
-  background-color: #615e5e;
-}
-.coffee-header__button-one {
-  left: 15px;
-}
-.coffee-header__button-two {
-  left: 50px;
-}
-.coffee-header__display {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: calc(50% - 25px);
-  left: calc(50% - 25px);
-  border-radius: 50%;
-  background-color: #9acfc5;
-  border: 5px solid #43beae;
-  box-sizing: border-box;
-}
-.coffee-header__details {
-  width: 8px;
-  height: 20px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #9b9091;
-  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
-}
-.coffee-medium {
-  width: 90%;
-  height: 160px;
-  position: absolute;
-  top: 80px;
-  left: calc(50% - 45%);
-  background-color: #bcb0af;
-}
-.coffee-medium:before {
-  content: &quot;&quot;;
-  width: 90%;
-  height: 100px;
-  background-color: #776f6e;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 45%);
-  border-radius: 20px 20px 0 0;
-}
-.coffe-medium__exit {
-  width: 60px;
-  height: 20px;
-  position: absolute;
-  top: 0;
-  left: calc(50% - 30px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::before {
-  content: &quot;&quot;;
-  width: 50px;
-  height: 20px;
-  border-radius: 0 0 50% 50%;
-  position: absolute;
-  bottom: -20px;
-  left: calc(50% - 25px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::after {
-  content: &quot;&quot;;
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  bottom: -30px;
-  left: calc(50% - 5px);
-  background-color: #231f20;
-}
-.coffee-medium__arm {
-  width: 70px;
-  height: 20px;
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  background-color: #231f20;
-}
-.coffee-medium__arm::before {
-  content: &quot;&quot;;
-  width: 15px;
-  height: 5px;
-  position: absolute;
-  top: 7px;
-  left: -15px;
-  background-color: #9e9495;
-}
-.coffee-medium__cup {
-  width: 80px;
-  height: 47px;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 40px);
-  background-color: #FFF;
-  border-radius: 0 0 70px 70px / 0 0 110px 110px;
-}
-.coffee-medium__cup::after {
-  content: &quot;&quot;;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 6px;
-  right: -13px;
-  border: 5px solid #FFF;
-  border-radius: 50%;
-}
-@keyframes liquid {
-  0% {
-    height: 0px;  
-    opacity: 1;
-  }
-  5% {
-    height: 0px;  
-    opacity: 1;
-  }
-  20% {
-    height: 62px;  
-    opacity: 1;
-  }
-  95% {
-    height: 62px;
-    opacity: 1;
-  }
-  100% {
-    height: 62px;
-    opacity: 0;
-  }
-}
-.coffee-medium__liquid {
-  width: 6px;
-  height: 63px;
-  opacity: 0;
-  position: absolute;
-  top: 50px;
-  left: calc(50% - 3px);
-  background-color: #74372b;
-  animation: liquid 4s 4s linear infinite;
-}
-.coffee-medium__smoke {
-  width: 8px;
-  height: 20px;
-  position: absolute;  
-  border-radius: 5px;
-  background-color: #b3aeae;
-}
-@keyframes smokeOne {
-  0% {
-    bottom: 20px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 50px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-@keyframes smokeTwo {
-  0% {
-    bottom: 40px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 70px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-.coffee-medium__smoke-one {
-  opacity: 0;
-  bottom: 50px;
-  left: 102px;
-  animation: smokeOne 3s 4s linear infinite;
-}
-.coffee-medium__smoke-two {
-  opacity: 0;
-  bottom: 70px;
-  left: 118px;
-  animation: smokeTwo 3s 5s linear infinite;
-}
-.coffee-medium__smoke-three {
-  opacity: 0;
-  bottom: 65px;
-  right: 118px;
-  animation: smokeTwo 3s 6s linear infinite;
-}
-.coffee-medium__smoke-for {
-  opacity: 0;
-  bottom: 50px;
-  right: 102px;
-  animation: smokeOne 3s 5s linear infinite;
-}
-.coffee-footer {
-  width: 95%;
-  height: 15px;
-  position: absolute;
-  bottom: 25px;
-  left: calc(50% - 47.5%);
-  background-color: #41bdad;
-  border-radius: 10px;
-}
-.coffee-footer::after {
-  content: &quot;&quot;;
-  width: 106%;
-  height: 26px;
-  position: absolute;
-  bottom: -25px;
-  left: -8px;
-  background-color: #000;
-}
-&lt;/style&gt;
-
-&lt;div class=&quot;containercoffee&quot;&gt;
-    &lt;div class=&quot;coffee-header&quot;&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-medium&quot;&gt;
-      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;크리스마스 때는 뭐니뭐니 해도 공부지~&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;del&gt;울지 말고 다시 말해봐..:cry::cry::cry::cry:&lt;/del&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/270f.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; Servlet
-&lt;/h2&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;서블릿을 한 줄로 정의하자면 아래와 같다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;color:#093145; font-weight:bold&quot;&gt;Servlet:&lt;/span&gt; &lt;strong&gt;클라이언트의 요청을 처리하고, 그 결과를 반환하는 Servlet 클래스의 구현 규칙을 지킨 자바 웹 프로그래밍 기술&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;클라이언트가 어떠한 요청을 하면 그에 대한 결과를 다시 전송&lt;/strong&gt;해주어야 하는데, 이러한 역할을 하는 자바 프로그램이 &lt;strong&gt;서블릿&lt;/strong&gt;이다.&lt;/p&gt;
-
-&lt;p&gt;예를 들어 어떠한 사용자가 로그인 버튼을 누른다.&lt;/p&gt;
-
-&lt;p&gt;그때 서버는 클라이언트의 아이디와 비밀번호를 확인하고, 다음 페이지를 띄워주어야 하는데, 이러한 역할을 하는 것이 바로 &lt;strong&gt;서블릿(Servlet)&lt;/strong&gt;이다.&lt;/p&gt;
-
-&lt;p&gt;서블릿은 &lt;strong&gt;웹 요청과 응답의 흐름을 간단한 메서드 호출만으로 체계적으로 다룰 수 있게 해주는 기술&lt;/strong&gt;이라고도 할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-01-00-56-58.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 서블릿의 특징
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;웹 통신에서 요청과 응답을 처리하고 결과를 반한&lt;/li&gt;
-  &lt;li&gt;요청 당 쓰레드가 생성되거나, 풀에서 가져와서 사용됨&lt;/li&gt;
-  &lt;li&gt;주요 클래스로 &lt;strong&gt;HttpServlet&lt;/strong&gt;이 있음&lt;/li&gt;
-  &lt;li&gt;서블릿 등장이전에는 &lt;strong&gt;CGI (Common Gateway Interface)&lt;/strong&gt; 기술이 있었는데 이는 요청 당 프로세스를 생성함
-    &lt;ul&gt;
-      &lt;li&gt;서블릿은 CGI에 비해서 작동이 빠르고, 플랫폼에 독립적이며, 보안이 좋고, 이식성이 강함&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;클라이언트 요청에 대해 동적으로 작동하는 웹 애플리케이션 컴포넌트&lt;/li&gt;
-  &lt;li&gt;html을 사용하여 요청에 응답&lt;/li&gt;
-  &lt;li&gt;MVC 패턴에서 &lt;strong&gt;Controller&lt;/strong&gt;로 이용&lt;/li&gt;
-  &lt;li&gt;서블릿 객체는 싱글톤으로 관리&lt;br /&gt;
-    &lt;ul&gt;
-      &lt;li&gt;고객의 요청이 올 때마다 생성하는 것은 비효율적이기 때문&lt;br /&gt;&lt;/li&gt;
-      &lt;li&gt;공유 변수 사용에 주의해야 함&lt;br /&gt;&lt;/li&gt;
-      &lt;li&gt;서블릿 컨테이너가 종료되면 서블릿도 종료
-&lt;br /&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 서블릿 컨테이너(Servlet Container)
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post14/2021-12-26-00-50-11.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;서블릿 컨테이너란 말 그대로 서블릿을 담고 관리해주는 컨테이너이다.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;서블릿 컨테이너는 구현되어 있는 servlet 클래스의 규칙에 맞게 서블릿을 관리해주며 클라이언트에서 요청을 하면 컨테이너는 &lt;span style=&quot;color:#093145; font-weight:bold&quot;&gt;HttpServletRequest, HttpServletResponse&lt;/span&gt; 두 객체를 생성하며 post, get여부에 따라 동적인 페이지를 생성하여 응답을 보낸다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;link href=&quot;http://fonts.googleapis.com/earlyaccess/hanna.css&quot; rel=&quot;stylesheet&quot; /&gt;
-
-&lt;div style=&quot;background: #eee;
-  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;&quot;&gt;
-
-&lt;span style=&quot;color:#3D9970; font-weight:bold&quot;&gt;HttpServletRequest&lt;/span&gt;&lt;br /&gt;
-http 프로토콜의 request 정보를 서블릿에게 전달하기 위한 목적으로 사용하며 헤더 정보, 파라미터, 쿠키, URI, URL 등의 정보를 읽어 들이는 메서드와 Body의 Stream을 읽어 들이는 메서드를 가지고 있다.&lt;br /&gt;
-
-&lt;span style=&quot;color:#3D9970; font-weight:bold&quot;&gt;HttpServletResponse&lt;/span&gt;&lt;br /&gt;
-WAS는 어떤 클라이언트가 요청을 보냈는지 알고 있고, 해당 클라이언트에게 응답을 보내기 위한 HttpServletResponse 객체를 생성하여 서블릿에게 전달하고 이 객체를 활용하여 content type, 응답 코드, 응답 메시지 등을 전송한다.&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 서블릿 컨테이너의 특징
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;서블릿을 관리하기 위한 모든 작업을 수행 (생성 / 호출 / 관리)&lt;/li&gt;
-  &lt;li&gt;java thread를 사용해서 서블릿을 호출&lt;/li&gt;
-  &lt;li&gt;톰캣처럼 서블릿을 지원하는 WAS를 서블릿 컨테이너라고 함&lt;/li&gt;
-  &lt;li&gt;동시 요청을 위한 멀티 쓰레드(Multi Thread) 처리를 지원&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 서블릿 컨테이너의 주요 기능
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;color:#2ECC40; font-weight:bold&quot;&gt;1. 생명주기 관리&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;서블릿의 생명주기를 관리한다. 서블릿 컨테이너가 기동 되는 순간 서블릿 클래스를 로딩해서 인스턴스 화하고, 초기화 메서드를 호출하고, 요청이 들어오면 적절한 서블릿 메서드를 찾아서 동작한다. 그리고 서블릿의 생명이 다하는 순간 가비지 컬렉션을 통해 메모리에서 제거한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;color:#2ECC40; font-weight:bold&quot;&gt;2. 통신 지원&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;클라이언트의 Request를 받아주고 Response를 보낼 수 있게 웹 서버와 소켓을 만들어서 통신을 해준다. 우리가 통신을 한다고 생각할 때 소켓을 만들고, 특정 포트를 리스닝하고, 연결 요청이 들어오면 스트림을 생성해서 요청을 받는다고 알고 있는데 이 과정을 서블릿 컨테이너가 대신 해주고 있는 것이다. 서블릿 컨테이너는 이렇게 소켓을 만들고 listen, accept 등의 기능을 API로 제공하여 복잡한 과정을 생략할 수 있게 해주고 개발자로서 비즈니스 로직에 더욱 집중할 수 있게 만들어준다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;color:#2ECC40; font-weight:bold&quot;&gt;3. 멀티스레딩 관리&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;서블릿 컨테이너는 해당 서블릿의 요청이 들어오면 스레드를 생성해서 작업을 수행한다. 그렇기에 동시에 여러 요청이 들어와도 멀티스레딩 환경으로 동시다발적인 작업을 관리할 수 있다. 또한, 이렇게 한번 메모리에 올라간 스레드는 다시 생성할 필요가 없기에 메모리 관리에 효율적이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;color:#2ECC40; font-weight:bold&quot;&gt;4. 선언적인 보안관리&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;서블릿 컨테이너는 보안 관련된 기능을 지원한다. 그렇기에 서블릿 또는 자바 클래스 안에 보안 관련된 메서드를 구현하지 않아도 된다. 대체적으로 보안관리는 XML 배포 서술자에 기록하기 때문에 보안 이슈로 소스를 수정할 일이 생겨도 자바 소스 코드를 수정하여 다시 컴파일 하지 않아도 된다.&lt;/p&gt;
-
-&lt;h4 id=&quot;서블릿-엔진-서블릿-컨테이너-ex-톰캣&quot;&gt;서블릿 엔진 (=서블릿 컨테이너) ex: 톰캣&lt;/h4&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Tomcat, Jetty, Undertow 같은 WAS(Web Application Server)가 서블릿 엔진
-    &lt;ul&gt;
-      &lt;li&gt;서블릿을 실행시킬 수 있음&lt;/li&gt;
-      &lt;li&gt;세션 관리, 네트워크 서비스, 서블릿 생명주기 관리, MIME 기반 메시지 인코딩, 디코딩 등의 기능을 제공&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;참고-할-만한-좋은-링크&quot;&gt;참고 할 만한 좋은 링크&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://steady-coding.tistory.com/463&quot;&gt;서블릿과 JSP의 차이 및 MVC가 나타나게 된 배경&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-</description>
-				<pubDate>Sat, 25 Dec 2021 13:00:00 +0900</pubDate>
-				<link>/interview/2021/12/25/Interview-interview-11.html</link>
-				<guid isPermaLink="true">/interview/2021/12/25/Interview-interview-11.html</guid>
 			</item>
 		
 	</channel>
