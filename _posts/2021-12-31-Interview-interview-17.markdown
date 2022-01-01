@@ -300,7 +300,45 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 <br>
 
 <h2 style="color:#107896;  font-weight:bold">
-<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/270f.png" height="30" width="30"> Garbage Collector & JVM
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/270f.png" height="30" width="30"> Filter & Interceptor & AOP
 </h2>
 
 <br>
+
+자바 웹 개발을 하다보면 **공통적으로 처리**해야 할 업무들이 많다.
+
+<br>
+
+**Example**
+
+<br>
+
+- 로그인 관련(세션체크)처리
+- 권한 체크
+- XSS(Cross site script)방어
+- pc와 모바일 웹의 분기처리
+- 로그 처리
+- 페이지 인코딩 변환
+- (...)
+
+<br>
+
+공통업무에 관련된 코드를 모든 페이지 마다 작성 해야한다면 중복된 코드가 많아지게 되고 프로젝트 단위가 커질수록 서버에 부하를 줄 수도 있으며, 소스 관리도 되지 않는다.
+
+<br>
+
+<span style="color:#85144b; font-weight:bold">즉, 공통 부분은 빼서 따로 관리하는 게 좋다!</span>
+
+<br>
+
+위와 같은 공통처리를 위해 활용할 수 있는 것이 3가지가 있다.
+
+<br>
+
+1. **Filter**
+2. **Interceptor**
+3. **AOP**
+
+<br>
+
+> 스프링에서 사용되는 Filter, Interceptor, AOP 세 가지 기능은 모두 무슨 행동을 하기전에 먼저 실행하거나, 실행한 후에 추가적인 행동을 할 때 사용되는 기능들이다.
