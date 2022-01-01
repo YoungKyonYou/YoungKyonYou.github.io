@@ -342,3 +342,203 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 <br>
 
 > 스프링에서 사용되는 Filter, Interceptor, AOP 세 가지 기능은 모두 무슨 행동을 하기전에 먼저 실행하거나, 실행한 후에 추가적인 행동을 할 때 사용되는 기능들이다.
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> Filter, Interceptor, AOP의 흐름
+</h3>
+
+<br>
+
+![](/images/Interview/post16/2022-01-01-15-48-41.png?style=centerme)
+
+<br>
+
+Interceptor와 Filter는 Servlet 단위에서 실행된다. 반면 AOP는 메소드 앞에 Proxy 패턴의 형태로 실행된다.
+
+실행 순서를 보면 Filter가 가장 바깥 쪽에 있고, 그 안에 Interceptor와 AOP가 있는 형태다.
+
+요청이 들어오면 Filter → Interceptor → AOP → Interceptor → Filter 순으로 거치게 된다.
+
+<br>
+
+하나 하나 살펴보자.
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30">필터(Filter) 
+</h3>
+
+<br>
+
+필터는 <span style="background: rgb(251,243,219)">Dispathcer Servlet에 요청이 전달되기 전/후에 url 패턴에 맞는 모든 요청에 대해 부가작업을 처리할 수 있는 기능을 제공한다.</span>
+
+<br>
+
+> 요청과 응답을 거른 뒤 정제하는 역할을 한다. 서블릿 필터는 DispatcherServlet 이전에 실행이 되는데 필터가 동작하도록 지정된 자원의 앞단에서 요청내용을 변경하거나, 여러가지 체크를 수행할 수 있다.
+
+<br>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 필터의 업무
+</h4>
+
+<br>
+
+- 보안 관련 공통 작업
+- 모든 요청에 대한 로킹 또는 감사
+- 이미지/데이터 압축 및 문자열 인코딩
+
+<br>
+
+필터에서는 <span style="background: rgb(251,243,219)">스프링과 무관하게 전역적으로 처리해야 하는 작업들을 처리할 수 있다.</span>
+
+대표적인 예시로 보안과 관련된 공통 작업이 있다. 필터는 인터셉터보다 앞단에서 동작하기 때문에 전역적으로 해야하는 보안 검사(XSS 방어 등)를 하여 올바른 요청이 아닐 경우 차단을 할 수 있다. 그러면 스프링 컨테이너까지 요청이 전달되지 못하고 차단되므로 안정성을 더욱 높일 수 있다.
+
+또한 필터는 이미지나 데이터의 압축이나 문자열 인코딩과 같이 웹 애플리케이션에 전반적으로 사용되는 기능을 구현하기에 적당하다. Filter는 다음 체인으로 넘기는 ServletRequest/ServletResponse 객체를 조작할 수 있다는 점에서 Interceptor보다 훨씬 강력한 기술이다.
+
+<br>
+
+즉, 스프링 컨테이너가 아닌 톰캣과 같은 웹 컨테이너에 의해 관리되므로 DispatcherServlet으로 가기 전에 요청을 처리하는 것이다.
+
+<br>
+
+![](/images/Interview/post16/2022-01-01-15-53-10.png?style=centerme)
+
+<br>
+
+필터를 추가하기 위해서는 javax.servlet의 Filter 인터페이스를 구현(implement)해야 하며 이는 다음의 3가지 메소드를 가지고 있다.
+
+<br>
+
+- init 메서드
+- doFilter 메서드
+- destroy 메서드
+
+<br>
+
+**init 메소드**
+
+init 메소드는 필터 객체를 초기화하고 서비스에 추가하기 위한 메소드이다. 웹 컨테이너가 1회 init 메소드를 호출하여 필터 객체를 초기화하면 이후의 요청들은 doFilter를 통해 전/후에 처리된다.
+
+<br>
+
+**doFilter 메소드**
+
+doFilter 메소드는 url-pattern에 맞는 모든 HTTP 요청이 디스패처 서블릿으로 전달되기 전/후에 웹 컨테이너에 의해 실행되는 메소드이다. doFilter의 파라미터로는 FilterChain이 있는데, FilterChain의 doFilter를 통해 다음 대상으로 요청을 전달하게 된다.
+
+<br>
+
+**destroy 메소드**
+
+destroy 메소드는 필터 객체를 서비스에서 제거하고 사용하는 자원을 반환하기 위한 메소드이다. 이는 웹 컨테이너에 의해 1번 호출되며 이후에는 이제 doFilter에 의해 처리되지 않는다.
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 인터셉터(Interceptor)
+</h3>
+
+<br>
+
+요청에 대한 작업 전/후로 가로챈다고 보면 된다.
+
+필터는 스프링 컨텍스트 외부에 존재하여 스프링과 무관한 자원에 대해 동작한다.
+
+하지만 인터셉터는 스프링의 DispatcherServlet이 컨트롤러를 호출하기 전, 후로 끼어들기 때문에 스프링 컨텍스트 내부에서 Controller에 관한 요청과 응답에 대해 처리한다.
+
+스프링의 모든 빈 객체에 접근할 수 있다.
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 인터셉터의 업무
+</h4>
+
+<br>
+
+- 인증/인가 등과 같은 공통 작업
+- API 호출에 대한 로깅 또는 감사
+- Controller로 넘겨주는 정보(데이터)의 가공
+
+<br>
+
+인터셉터에서는 클라이언트의 요청과 관련되어 전역적으로 처리해야 하는 작업들을 처리할 수 있다.
+
+대표적으로 인증이나 인가와 같이 클라이언트 요청과 관련된 작업 등이 있다. 이러한 작업들은 컨트롤러로 넘어가기 전에 검사해야 하므로 인터셉터가 처리하기에 적합하다.
+
+또한 인터셉터는 필터와 다르게 HttpServletRequest나 HttpServletResponse 등과 같은 객체를 제공받으므로 객체 자체를 조작할 수는 없다. 대신 해당 객체가 내부적으로 갖는 값은 조작할 수 있으므로 컨트롤러로 넘겨주기 위한 정보를 가공하기에 용이하다. 예를 들어 JWT 토큰 정보를 파싱해서 컨트롤러에게 사용자의 정보를 제공하도록 가공할 수 있는 것이다.
+
+그 외에도 우리는 다양한 목적으로 API 호출에 대한 정보들을 기록해야 할 수 있다. 이러한 경우에 HttpServletRequest나 HttpServletResponse를 제공해주는 인터셉터는 클라이언트의 IP나 요청 정보들을 포함해 기록하기에 용이하다.
+
+<br>
+
+**preHandler()**
+
+컨트롤러 메서드가 실행되기 전
+
+<br>
+
+**postHandler()**
+
+컨트롤러 메서드 실행직 후 view페이지 렌더링 되기 전
+
+<br>
+
+**afterCompletion()**
+
+view 페이지가 렌더링 되고 난 후
+
+<br>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 필터 vs 인터셉터 차이 및 용도
+</h4>
+
+<br>
+
+![](/images/Interview/post16/2022-01-01-16-28-45.png?style=centerme)
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> AOP
+</h3>
+
+<br>
+
+AOP는 객체 지향의 프로그래밍을 했을 때, 중복을 줄일 수 없는 부분을 줄이기 위해 종단면(관점)에서 바라보고 처리한다.
+
+<span style="background: rgb(251,243,219)">주로 로깅, 트랜잭션, 에러 처리 등 비즈니스단의 메서드에서 조금 더 세밀하게 조정하고 싶을 때 사용한다.</span>
+
+Interceptor와 Filter와 달리 메소드 전 후의 지점에 자유롭게 설정이 가능하며 주소, 파라미터, 어노테이션 등 다양한 방법으로 대상을 지정할 수 있다.
+
+<br>
+
+**@Before**
+
+대상 메서드의 수행 전
+
+<br>
+
+**@After**
+
+대상 메서드의 수행 후
+
+<br>
+
+**@After-returning**
+
+대상 메서드의 정상적인 수행 후
+
+<br>
+
+**@After-throwing**
+
+예외 발생 후
+
+<br>
+
+**@Around**
+
+대상 메서드의 수행 전/후
