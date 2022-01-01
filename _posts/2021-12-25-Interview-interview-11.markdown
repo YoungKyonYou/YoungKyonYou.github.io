@@ -307,65 +307,130 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <br>
 
-## Servlet
+<h2 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/270f.png" height="30" width="30"> Servlet
+</h2>
+
+<br>
+
+서블릿을 한 줄로 정의하자면 아래와 같다.
+
+<br>
+
+<span style="color:#093145; font-weight:bold">Servlet:</span> **클라이언트의 요청을 처리하고, 그 결과를 반환하는 Servlet 클래스의 구현 규칙을 지킨 자바 웹 프로그래밍 기술**
+
+<br>
+
+**클라이언트가 어떠한 요청을 하면 그에 대한 결과를 다시 전송**해주어야 하는데, 이러한 역할을 하는 자바 프로그램이 **서블릿**이다.
+
+예를 들어 어떠한 사용자가 로그인 버튼을 누른다.
+
+그때 서버는 클라이언트의 아이디와 비밀번호를 확인하고, 다음 페이지를 띄워주어야 하는데, 이러한 역할을 하는 것이 바로 **서블릿(Servlet)**이다.
+
+서블릿은 **웹 요청과 응답의 흐름을 간단한 메서드 호출만으로 체계적으로 다룰 수 있게 해주는 기술**이라고도 할 수 있다.
+
+<br>
+
+![](/images/Interview/post16/2022-01-01-00-56-58.png?style=centerme)
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 서블릿의 특징
+</h3>
 
 <br>
 
 - 웹 통신에서 요청과 응답을 처리하고 결과를 반한
-
-<br>
-
 - 요청 당 쓰레드가 생성되거나, 풀에서 가져와서 사용됨
-
-<br>
-
 - 주요 클래스로 **HttpServlet**이 있음
-
-<br>
-
 - 서블릿 등장이전에는 **CGI (Common Gateway Interface)** 기술이 있었는데 이는 요청 당 프로세스를 생성함
   - 서블릿은 CGI에 비해서 작동이 빠르고, 플랫폼에 독립적이며, 보안이 좋고, 이식성이 강함
-
-<br>
-
 - 클라이언트 요청에 대해 동적으로 작동하는 웹 애플리케이션 컴포넌트
-
-<br>
-
 - html을 사용하여 요청에 응답
-
-<br>
-
 - MVC 패턴에서 **Controller**로 이용
+- 서블릿 객체는 싱글톤으로 관리<br>
+  - 고객의 요청이 올 때마다 생성하는 것은 비효율적이기 때문<br>
+  - 공유 변수 사용에 주의해야 함<br>
+  - 서블릿 컨테이너가 종료되면 서블릿도 종료
+    <br>
 
-<br>
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 서블릿 컨테이너(Servlet Container)
+</h3>
 
 ![](/images/Interview/post14/2021-12-26-00-50-11.png?style=centerme)
 
 <br>
 
+**서블릿 컨테이너란 말 그대로 서블릿을 담고 관리해주는 컨테이너이다.**
+
+서블릿 컨테이너는 구현되어 있는 servlet 클래스의 규칙에 맞게 서블릿을 관리해주며 클라이언트에서 요청을 하면 컨테이너는 <span style="color:#093145; font-weight:bold">HttpServletRequest, HttpServletResponse</span> 두 객체를 생성하며 post, get여부에 따라 동적인 페이지를 생성하여 응답을 보낸다.
+
+<br>
+
+<link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet">
+<div style="background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;">
+
+<span style="color:#3D9970; font-weight:bold">HttpServletRequest</span><br>
+http 프로토콜의 request 정보를 서블릿에게 전달하기 위한 목적으로 사용하며 헤더 정보, 파라미터, 쿠키, URI, URL 등의 정보를 읽어 들이는 메서드와 Body의 Stream을 읽어 들이는 메서드를 가지고 있다.<br>
+
+<span style="color:#3D9970; font-weight:bold">HttpServletResponse</span><br>
+WAS는 어떤 클라이언트가 요청을 보냈는지 알고 있고, 해당 클라이언트에게 응답을 보내기 위한 HttpServletResponse 객체를 생성하여 서블릿에게 전달하고 이 객체를 활용하여 content type, 응답 코드, 응답 메시지 등을 전송한다.</div>
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 서블릿 컨테이너의 특징
+</h3>
+
+<br>
+
 - 서블릿을 관리하기 위한 모든 작업을 수행 (생성 / 호출 / 관리)
-
-<br>
-
 - java thread를 사용해서 서블릿을 호출
-
-<br>
-
 - 톰캣처럼 서블릿을 지원하는 WAS를 서블릿 컨테이너라고 함
-
-<br>
-
-- 서블릿 객체는 싱글톤으로 관리<br>
-  - 고객의 요청이 올 때마다 생성하는 것은 비효율적이기 때문<br>
-  - 공유 변수 사용에 주의해야 함<br>
-  - 서블릿 컨테이너가 종료되면 서블릿도 종료
-
-<br>
-
 - 동시 요청을 위한 멀티 쓰레드(Multi Thread) 처리를 지원
 
-#### 서블릿 엔진 (=서블릿 컨테이너)
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 서블릿 컨테이너의 주요 기능
+</h3>
+
+<br>
+
+<span style="color:#2ECC40; font-weight:bold">1. 생명주기 관리</span>
+
+<br>
+
+서블릿의 생명주기를 관리한다. 서블릿 컨테이너가 기동 되는 순간 서블릿 클래스를 로딩해서 인스턴스 화하고, 초기화 메서드를 호출하고, 요청이 들어오면 적절한 서블릿 메서드를 찾아서 동작한다. 그리고 서블릿의 생명이 다하는 순간 가비지 컬렉션을 통해 메모리에서 제거한다.
+
+<br>
+
+<span style="color:#2ECC40; font-weight:bold">2. 통신 지원</span>
+
+<br>
+
+클라이언트의 Request를 받아주고 Response를 보낼 수 있게 웹 서버와 소켓을 만들어서 통신을 해준다. 우리가 통신을 한다고 생각할 때 소켓을 만들고, 특정 포트를 리스닝하고, 연결 요청이 들어오면 스트림을 생성해서 요청을 받는다고 알고 있는데 이 과정을 서블릿 컨테이너가 대신 해주고 있는 것이다. 서블릿 컨테이너는 이렇게 소켓을 만들고 listen, accept 등의 기능을 API로 제공하여 복잡한 과정을 생략할 수 있게 해주고 개발자로서 비즈니스 로직에 더욱 집중할 수 있게 만들어준다.
+
+<br>
+
+<span style="color:#2ECC40; font-weight:bold">3. 멀티스레딩 관리</span>
+
+<br>
+
+서블릿 컨테이너는 해당 서블릿의 요청이 들어오면 스레드를 생성해서 작업을 수행한다. 그렇기에 동시에 여러 요청이 들어와도 멀티스레딩 환경으로 동시다발적인 작업을 관리할 수 있다. 또한, 이렇게 한번 메모리에 올라간 스레드는 다시 생성할 필요가 없기에 메모리 관리에 효율적이다.
+
+<br>
+
+<span style="color:#2ECC40; font-weight:bold">4. 선언적인 보안관리</span>
+
+<br>
+
+서블릿 컨테이너는 보안 관련된 기능을 지원한다. 그렇기에 서블릿 또는 자바 클래스 안에 보안 관련된 메서드를 구현하지 않아도 된다. 대체적으로 보안관리는 XML 배포 서술자에 기록하기 때문에 보안 이슈로 소스를 수정할 일이 생겨도 자바 소스 코드를 수정하여 다시 컴파일 하지 않아도 된다.
+
+#### 서블릿 엔진 (=서블릿 컨테이너) ex: 톰캣
 
 <br>
 

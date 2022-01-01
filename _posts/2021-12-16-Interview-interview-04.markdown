@@ -305,7 +305,9 @@ _해당 내용은 POCU 아카데미 COMP_2500에서 배운 내용을 공부하�
 
 <br>
 
-### Proxy Pattern
+<h2 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/270f.png" height="30" width="30"> Proxy Pattern
+</h2>
 
 <br>
 
@@ -434,3 +436,147 @@ public final class Image{
 <br>
 
 위의 코드에서 isLoaded() / load() / unload() 는 이미지의 로딩 상태를 클라이언트가 명확히 알 수 있게 해준다. 클라이언트가 로딩과 언로딩 시점을 직접 제어할 수 있게 해준다. 이를 이용해 게임이나 앱에서 봤던 로딩 스크린을 보여줄 수 있다.(모든 이미지를 다 읽어올 때까지)
+
+---
+
+**_프록시 패턴의 흔한 다른 예시 살펴보기_**
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 
+프록시 패턴이란?</h3>
+
+<br>
+
+프록시는 대리인이라는 뜻으로 무엇인가를 대신 처리하는 의미이다.
+
+일종의 비서라고 생각하면 된다.
+
+어떤 객체를 사용하고자 할때, 객체를 **직접적으로 참조** 하는 것이 아니라, 해당 객체를 대행(대리, proxy)하는 객체를 통해 대상객체에 접근하는 방식을 사용하면 해당 객체가 메모리에 존재하지 않아도 기본적인 정보를 참조하거나 설정할 수 있고 또한 실제 객체의 기능이 반드시 필요한 시점까지 객체의 생성을 미룰 수 있다.
+
+<br>
+
+![](/images/Interview/post16/2022-01-01-12-15-29.png?style=centerme)
+
+<br>
+
+예를 들어 용량이 큰 이미지와 글이 같이 있는 문서를 모니터 화면에 띄운다고 가정하였을 때 이미지 파일은 용량이 크고 텍스트는 용량이 작아서 텍스트는 빠르게 나타나지만 그림은 조금 느리게 로딩되는 것을 본 적이 있다.
+
+만약 이렇게 처리가 안되고 이미지와 텍스트가 모두 로딩이 된 후에야 화면이 나온다면 사용자는 페이지가 로딩될 때까지 의미없이 기다려야 한다. 그러므로 먼저 로딩이 되는 텍스트라도 먼저 나오는게 좋다.
+
+이런 방식을 취하려면 텍스트 처리용 프로세서, 그림 처리용 프로세스를 별도로 운영하면 된다.
+
+이런 구조를 갖도록 설계하는 것이 바로 **프록시 패턴**이다.
+
+일반적으로 다른 무언가와 이어지는 인터페이스의 역할을 하는 클래스를 의미한다.
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 프록시 패턴 장점
+</h3>
+
+<br>
+
+- 사이즈가 큰 객체(ex: 이미지)가 로딩되기 전에도 프록시를 통해 참조를 할 수 있다.
+- 실제 객체의 public, protected 메소드들을 숨기고 인터페이스를 통해 노출시킬 수 있다.
+- 로컬에 있지 않고 떨어져 객체를 사용할 수 있다.
+- 원래 객체의 접근에 대해서 사전처리를 할 수 있다.
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 프록시 패턴 단점
+</h3>
+
+<br>
+
+- 객체를 생성할 때 한 단계를 거치게 되므로, 빈번한 객체 생성이 필요한 경우 성능이 저하될 수 있다.
+- 프록시 내부에서 객체 생성을 위해 스레드가 생성, 동기화가 구현되야 하는 경우 성능이 저하될 수 있다.
+- 로직이 난해해져 가독성이 떨어질 수 있다.
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 프록시 패턴 예제
+</h3>
+
+<br>
+
+**Image Interface**
+
+```java
+public interface Image {
+   void displayImage();
+}
+```
+
+<br>
+
+**RealImage.java**
+
+```java
+public class RealImage implements Image {
+
+    private String fileName;
+    
+    public RealImage(String fileName) {
+        this.fileName = fileName;
+        loadFromDisk(fileName);
+    }
+    
+    private void loadFromDisk(String fileName) {
+        System.out.println("Loading " + fileName);
+    }
+    
+    @Override
+    public void displayImage() {
+        System.out.println("Displaying " + fileName);
+    }
+}
+```
+
+<br>
+
+**ProxyImage.java**
+
+```java
+public class ProxyImage implements Image {
+    private RealImage realImage;
+    private String fileName;
+    
+    public ProxyImage(String fileName) {
+        this.fileName = fileName;
+    }
+    
+    @Override
+    public void displayImage() {
+        if (realImage == null) {
+            realImage = new Real_Image(fileName);
+        }
+        realImage.displayImage();
+    }
+}
+```
+
+<br>
+
+**Main**
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        Image image1 = new Proxy_Image("test1.png");
+        Image image2 = new Proxy_Image("test2.png");
+        
+        image1.displayImage();
+        System.out.println();
+        image2.displayImage();
+    }
+}
+```
+
+<br>
+
+![](/images/Interview/post16/2022-01-01-12-23-24.png?style=centerme)
