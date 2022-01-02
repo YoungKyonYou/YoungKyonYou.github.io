@@ -1,0 +1,597 @@
+I"+I<p><br /><br /></p>
+
+<p><em><strong>오늘의 나보다 성장한 내일의 나를 위해…</strong></em></p>
+
+<p><br /></p>
+
+<p><br /><br /></p>
+
+<style>
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: "";
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: "";
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: "";
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: "";
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+</style>
+
+<div class="containercoffee">
+    <div class="coffee-header">
+      <div class="coffee-header__buttons coffee-header__button-one"></div>
+      <div class="coffee-header__buttons coffee-header__button-two"></div>
+      <div class="coffee-header__display"></div>
+      <div class="coffee-header__details"></div>
+    </div>
+    <div class="coffee-medium">
+      <div class="coffe-medium__exit"></div>
+      <div class="coffee-medium__arm"></div>
+      <div class="coffee-medium__liquid"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
+      <div class="coffee-medium__cup"></div>
+    </div>
+    <div class="coffee-footer"></div>
+</div>
+
+<p><br /><br /><br /><br /><br /><br /><br /><br /></p>
+
+<p><br /></p>
+
+<h2 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/270f.png" height="30" width="30" /> Transaction Isolation Level
+</h2>
+
+<p><br /></p>
+
+<p>트랜잭션 격리 수준에 대해 알기 위해서는 일단 <strong>트랜잭션</strong>이 무엇인지부터 알아야 한다.</p>
+
+<p><br /></p>
+
+<p><strong>트랜잭션</strong>: 데이터베이스의 상태를 변화시키기 위해서 수행하는 작업의 단위를 뜻한다.</p>
+
+<p><br /></p>
+
+<p>데이터베이스의 상태를 변화시킨다는 것은 아래의 질의어(SQL)를 이용하여 데이터베이스를 접근하는 것을 의미한다.</p>
+
+<p><br /></p>
+
+<ul>
+  <li>SELECT</li>
+  <li>INSERT</li>
+  <li>DELETE</li>
+  <li>UPDATE</li>
+</ul>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> 트랜잭션의 특징(ACID)
+</h4>
+
+<p><br /></p>
+
+<ul>
+  <li>원자성(Atomicity)</li>
+  <li>일관성(Consistency)</li>
+  <li>독립성(Isolation)</li>
+  <li>지속성(Durability)</li>
+</ul>
+
+<p><br /></p>
+
+<p><span style="background: rgb(251,243,219)">원자성(Atomicity)</span></p>
+
+<ol>
+  <li>트랜잭션의 연산은 데이터베이스에 모두 반영되든지 아니면 전혀 반영되지 않아야 한다.</li>
+  <li>트랜잭션 내의 모든 명령은 반드시 완벽히 수행되어야 하며, 모두가 완벽히 수행되지 않고 어느 하나라도 오류가 발생하면 트랜잭션 전부가 취소되어야 한다.</li>
+</ol>
+
+<p><br /></p>
+
+<p><span style="background: rgb(251,243,219)">일관성(Consistency)</span></p>
+
+<ol>
+  <li>트랜잭션이 그 실행을 성공적으로 완료하면 언제나 일관성 있는 데이터베이스 상태로 변환한다.</li>
+  <li>시스템이 가지고 있는 고정요소는 트랜잭션 수행 전과 트랜잭션 수행 완료 후의 상태가 같아야 한다.</li>
+</ol>
+
+<p><br /></p>
+
+<p><span style="background: rgb(251,243,219)">독립성, 격리성(Isolation)</span></p>
+
+<ol>
+  <li>둘 이상의 트랜잭션이 동시에 병행 실행되는 경우 어느 하나의 트랜잭션 실행 중에 다른 트랜잭션의 연산이 끼어들 수 없다.</li>
+  <li>수행중인 트랜잭션은 완전히 완료될 때까지 다른 트랜잭션에서 수행 결과를 참조할 수 없다.</li>
+</ol>
+
+<p><br /></p>
+
+<p><span style="background: rgb(251,243,219)">영속성, 지속성(Durability)</span></p>
+
+<ol>
+  <li>성공적으로 완료된 트랜잭션의 결과는 시스템이 고장나더라도 영구적으로 반영되어야 한다.</li>
+</ol>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> Commit 연산과 Rollback 연산
+</h4>
+
+<p><br /></p>
+
+<p><span style="background: rgb(251,243,219)">Commit 연산</span></p>
+
+<ol>
+  <li>Commit 연산은 한 개의 논리적 단위(트랜잭션)에 대한 작업이 성공적으로 끝났고 데이터베이스가 다시 일관된 상태에 있을 때, 이 트랜잭션이 행한 갱신 연산이 완료된 것을 트랜잭션 관리자에게 알려주는 연산이다.</li>
+</ol>
+
+<p><br /></p>
+
+<p><span style="background: rgb(251,243,219)">Rollback 연산</span></p>
+
+<ol>
+  <li>Rollback 연산은 하나의 트랜잭션 처리가 비정상적으로 종료되어 데이터베이스의 일관성을 깨뜨렸을 때, 이 트랜잭션의 일부가 정상적으로 처리되었더라도 트랜잭션의 원자성을 구현하기 위해 이 트랜잭션이 행한 모든 연산을 취소(Undo)하는 연산이다.</li>
+  <li>Rollback시에는 해당 트랜잭션을 재시작하거나 폐기한다.</li>
+</ol>
+
+<p><br /></p>
+
+<hr />
+
+<p><br /></p>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> 트랜잭션 격리 수준
+</h3>
+
+<p><br /></p>
+
+<p>본론으로 돌아와서 이제 트랜잭션 격리 수준에 대해서 살펴보자.</p>
+
+<p><br /></p>
+
+<p>트랜잭션 격리 수준은 <span style="color:#2ECC40; font-weight:bold">고립도</span>와 <span style="color:#2ECC40; font-weight:bold">성능</span>의 <strong>Trade-off</strong>를 조절한다.</p>
+
+<p><br /></p>
+
+<ul>
+  <li><span style="color: rgba(131, 24, 67); font-weight:bold">READ UNCOMMITED:</span> 다른 트랜잭션에서 커밋되지 않은 내용도 참조할 수 있다.</li>
+  <li><span style="color: rgba(131, 24, 67); font-weight:bold">READ COMMITED:</span> 다른 트랜잭션에서 커밋된 내용만 참조할 수 있다.</li>
+  <li><span style="color: rgba(131, 24, 67); font-weight:bold">REPEATABLE READ:</span> 트랜잭션에 진입하기 이전에 커밋된 내용만 참조할 수 있다.</li>
+  <li><span style="color: rgba(131, 24, 67); font-weight:bold">SERIALIZABLE:</span> 트랜잭션에 진입하면 락을 걸어 다른 트랜잭션이 접근하지 못하게 한다. (성능이 매우 떨어짐)</li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="/images/Interview/post16/2022-01-01-22-54-26.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>트랜잭션 격리 수준이란 <strong>트랜잭션들끼리 얼마나 고립되어있는지(잠금수준)를 나타내는 것이다.</strong></p>
+
+<p>특정 트랜잭션이 다른 트랜잭션에 의해 변경된 데이터를 볼 수 있도록 허용할지 말지를 결정하는 것이다.</p>
+
+<p><br /></p>
+
+<p>격리 수준은 위에 명시된 순서로 내려갈수록 <strong>고립도가 높아지나 성능이 떨어지는 게 일반적</strong>이다.</p>
+
+<p><br /></p>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> 트랜잭션 격리 수준이 필요한 이유
+</h3>
+
+<p><br /></p>
+
+<p>트랜잭션 수준 읽기 일관성 (Transaction-Level Read Consistency)을 지키기 위해서이다.(다시 말해 <strong>동시성 제어 문제</strong> 해결을 위해서이다.)</p>
+
+<p><br /></p>
+
+<link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet" />
+
+<div style="background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;">
+
+트랜잭션 수준 읽기 일관성이란<br /><br />
+트랜잭션이 시작된 시점으로부터 일관성 있게 데이터를 읽어 들이는 것을 말한다. 하나의 트랜잭션이 진행되는 동안 다른 트랜잭션에 의해 변경사항이 발생하더라도 이를 무시하고 계속 일관성 있는 데이터를 보여준다. (물론 트랜잭션 자신이 발생한 변경사항은 읽을 수 있다.)</div>
+
+<p><br /></p>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> READ UNCOMMITTED (트랜잭션 레벨 0)
+</h3>
+
+<p><br /></p>
+
+<p><img src="/images/Interview/post16/2022-01-01-23-02-12.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>이 단계에서는 트랜잭션에서 처리 중인, 아직 커밋되지 않은 데이터를 다른 트랜잭션이 읽는 것을 허용한다.</p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> 특징
+</h4>
+
+<p><br /></p>
+
+<ul>
+  <li>Dirty Read, Non-Repeatable Read, Phantom Read 현상이 발생한다.</li>
+</ul>
+
+<p><br /></p>
+
+<link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet" />
+
+<div style="background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;">
+
+</div>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> 문제점
+</h4>
+
+<p><br /></p>
+
+<p>데이터 정합성에 문제가 많다. 그렇기에 RDBMS 표준에서는 격리수준으로 인정하지 않는다.</p>
+
+<p><br /></p>
+
+<p><strong>예시</strong></p>
+
+<p><br /></p>
+
+<ul>
+  <li><span style="background: rgb(251,243,219)">트랜잭션 A</span>는 테이블의 데이터를 수정중인 상태이고 아직 <span style="background: rgb(251,243,219)">COMMIT</span> 전이다.</li>
+  <li><span style="background: rgb(251,243,219)">트랜잭션 B</span>는 트랜잭션 A가 수정중인 데이터를 조회한다. (이를 <span style="background: rgb(251,243,219)">Dirty Read라고 한다.</span>)</li>
+  <li>하지만 <span style="background: rgb(251,243,219)">트랜잭션 B</span>는 COMMIT 되지 않은 데이터를 가지고 로직을 수행한다. (문제 발생)</li>
+</ul>
+
+<p><br /></p>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> READ COMMITTED (트랜잭션 레벨 1)
+</h3>
+
+<p><br /></p>
+
+<p><img src="/images/Interview/post16/2022-01-01-23-06-40.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>RDB에서 대부분 기본적으로 사용되고 있는 격리 수준으로 <strong>실제 테이블 값</strong>을 가져오는 것이 아니라 <strong>Undo</strong> 영역에 백업된 레코드에서 값을 가져온다.</p>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> 특징
+</h4>
+
+<p><br /></p>
+
+<ul>
+  <li>Dirty Read가 발생하지 않지만(트랜잭션이 COMMIT되어 확정된 데이터만 읽는 것을 허용한다.) Non-Repeatable Read, Phantom Read 현상은 여전히 발생한다.</li>
+  <li>온라인 서비스에서 가장 많이 선택되는 격리수준이다.
+    <ul>
+      <li>DB2, SQL Server, Sybase의 경우 <span style="background: rgb(251,243,219)">읽기, 공유 Lock</span>을 이용하여 구현한다.</li>
+      <li>Oracle은 Lock을 사용하지 않고 쿼리시작 시점의 <span style="background: rgb(251,243,219)">Undo 데이터</span>를 제공한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> 문제점
+</h4>
+
+<p><br /></p>
+
+<p><strong>NON-REPEATBLE READ</strong> 부정합 문제가 발생할 수 있다.</p>
+
+<p>READ COMMITED 격리 수준에서 실행되는 SQL 문장의 결과가 무엇인지 정확히 예측하고 있어야 한다.</p>
+
+<p><br /></p>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> REPEATABLE READ (트랜잭션 레벨 2)
+</h3>
+
+<p><br /></p>
+
+<p><img src="/images/Interview/post16/2022-01-01-23-10-59.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>트랜잭션이 시작되기 전에 COMMIT된 내용에 대해서만 조회할 수 있는 격리수준이다.</p>
+
+<ul>
+  <li>MySQL에서는 트랜잭션마다 트랜잭션 ID를 부여하여 <strong>트랜잭션 ID 보다 작은 트랜잭션 번호에서 변경한 것만 읽게 된다.</strong></li>
+  <li>변경되기 전 레코드는 <span style="background: rgb(251,243,219)">Undo 공간</span>에 백업해 두고 <span style="background: rgb(251,243,219)">실제 레코드 값</span>을 변경한다.</li>
+</ul>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> 특징
+</h4>
+
+<p><br /></p>
+
+<ul>
+  <li>Dirty Read와 같은 현상은 발생하지 않지만 <strong>Phantom Read</strong> 현상은 여전히 발생한다.</li>
+</ul>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> 문제점
+</h4>
+
+<p><br /></p>
+
+<p>하나의 트랜잭션 실행시간이 길어질수록 <strong>Undo에 백업된 레코드가 많아져서 멀티 버전을 관리해야 하는 단점이</strong> 있다.
+(하지만 영향을 미칠정도로 트랜잭션이 오래 지속되는 경우가 없어서 READ COMMITTED와 REPEATABLE READ의 성능 차이는 거의 없다고 한다.)</p>
+
+<p>또한, <span style="background: rgb(251,243,219)">UPDATE 부정합</span>와 <span style="background: rgb(251,243,219)">Phantom Read</span>가 발생할 수 있다.</p>
+
+<p><br /></p>
+
+:ET

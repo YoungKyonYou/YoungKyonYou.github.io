@@ -7,6 +7,1478 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>REST API와 HTTP Methods</title>
+				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해…&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;style&gt;
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: &quot;&quot;;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: &quot;&quot;;
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: &quot;&quot;;
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: &quot;&quot;;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: &quot;&quot;;
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: &quot;&quot;;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: &quot;&quot;;
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+&lt;/style&gt;
+
+&lt;div class=&quot;containercoffee&quot;&gt;
+    &lt;div class=&quot;coffee-header&quot;&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-medium&quot;&gt;
+      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/270f.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; REST API와 HTTP METHOD
+&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;REST API는 웹에서 데이터를 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;전송 및 처리&lt;/span&gt;하는 방법을 정의한 인터페이스를 말한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;HTTP METHOD를 통해 해당 자원에 대한 CRUD Operation을 적용하여 아래와 같이 사용한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Create: 데이터 생성 (POST)&lt;/li&gt;
+  &lt;li&gt;Read: 데이터 조회 (GET)&lt;/li&gt;
+  &lt;li&gt;Update: 데이터 수정 (PUT)&lt;/li&gt;
+  &lt;li&gt;Delete: 데이터 삭제 (DELETE)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; REST 구성
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;쉽게 말해 REST API는 다음의 구성으로 이루어져 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;자원(RESOURCE) - URI&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;행위(Verb) - HTTP METHOD&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;표현(Representations)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 자원(RESOURCE)
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;모든 자원에 고유한 ID가 존재하고, 이 자원은 Server에 존재한다.&lt;/li&gt;
+  &lt;li&gt;자원을 구별하는 ID는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/orders/order_id/1&lt;/code&gt;와 같은 HTTP URI이다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 행위(Verb)
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;HTTP 프로토콜의 Method를 사용한다.&lt;/li&gt;
+  &lt;li&gt;HTTP 프로토콜은 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;GET, POST, PUT, DELETE&lt;/span&gt;와 같은 메서드를 제공한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 표현 (Representation of Resource)
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Client가 자원의 상태(정보)에 대한 조작을 요청하면 Server는 이에 적절한 응답(Representation)을 보낸다.&lt;/li&gt;
+  &lt;li&gt;REST에서 하나의 자원은 JSON, XML, TEXT, RSS 등 여러 형태의 Representation으로 나타낼 수 있다.&lt;/li&gt;
+  &lt;li&gt;현재는 JSON으로 주고 받는 것이 대부분이다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-02-12-14-32.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; REST의 특징
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1)&lt;/strong&gt; &lt;span style=&quot;color:#093145; font-weight:bold&quot;&gt;Uniform (유니폼 인터페이스)&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;Uniform Interface는 URI로 지정한 리소스에 대한 조작을 통일되고 한정적인 인터페이스로 수행하는 아키텍처 스타일을 말한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2)&lt;/strong&gt; &lt;span style=&quot;color:#093145; font-weight:bold&quot;&gt;Stateless (무상태성)&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;REST는 무상태성 성격을 갖는다. 다시 말해 작업을 위한 상태정보를 따로 저장하고 관리하지 않는다. 세션 정보나 쿠키정보를 별도로 저장하고 관리하지 않기 때문에 API 서버는 들어오는 요청만을 단순히 처리하면 된다. 때문에 서비스의 자유도가 높아지고 서버에서 불필요한 정보를 관리하지 않음으로써 구현이 단순해진다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3)&lt;/strong&gt; &lt;span style=&quot;color:#093145; font-weight:bold&quot;&gt;Cacheable (캐시 가능)&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;REST의 가장 큰 특징 중 하나는 HTTP라는 기존 웹표준을 그대로 사용하기 때문에, 웹에서 사용하는 기존 인프라를 그대로 활용이 가능하다. 따라서 HTTP가 가진 캐싱 기능이 적용 가능합니다. HTTP 프로토콜 표준에서 사용하는 Last-Modified 태그나 E-Tag를 이용하면 캐싱 구현이 가능하다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4)&lt;/strong&gt; &lt;span style=&quot;color:#093145; font-weight:bold&quot;&gt;Self-Descriptiveness (자체 표현 구조)&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;REST의 또 다른 특징 중 하나는 REST API 메시지만 보고도 이를 쉽게 이해 할 수 있는 자체 표현 구조로 되어 있는 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5)&lt;/strong&gt; &lt;span style=&quot;color:#093145; font-weight:bold&quot;&gt;Client-Server 구조&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;REST 서버는 API 제공, 클라이언트는 사용자 인증이나 컨텍스트(세션, 로그인 정보)등을 직접 관리하는 구조로 각각의 역할이 확실히 구분되기 때문에 클라이언트와 서버에서 개발해야 할 내용이 명확해지고 서로간 의존성이 줄어들게 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;6)&lt;/strong&gt; &lt;span style=&quot;color:#093145; font-weight:bold&quot;&gt;계층형 구조&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;REST 서버는 다중 계층으로 구성될 수 있으며 보안, 로드 밸런싱, 암호화 계층을 추가해 구조상의 유연성을 둘 수 있고 PROXY, 게이트웨이 같은 네트워크 기반의 중간매체를 사용할 수 있게 합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; REST API 디자인 가이드
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;REST API 설계 시 가장 중요한 항목은 다음의 2가지로 요약할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;첫 번쨰,&lt;/strong&gt; URI는 정보의 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;자원&lt;/span&gt;을 표현해야 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;두 번쨰,&lt;/strong&gt; 자원에 대한 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;행위&lt;/span&gt;는 HTTP Method(GET, POST, PUT, DELETE)로 표현한다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;꼭 기억하기!!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; REST API 중심 규칙
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1)&lt;/strong&gt; URI는 정보의 자원을 표현해야 한다. (리소스명은 동사보다는 명사를 사용)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-url&quot;&gt;GET /members/delete/1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;위와 같은 방식은 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;REST를 제대로 적용하지 않은&lt;/span&gt; URI이다. URI는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;자원&lt;/span&gt;을 표현하는데 중점을 두어야 한다. &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;delete&lt;/span&gt;와 같은 행위에 대한 표현이 들어가서는 안된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2)&lt;/strong&gt; 자원에 대한 행위는 HTTP Method(GET, POST, PUT, DELETE 등)로 표현&lt;/p&gt;
+
+&lt;p&gt;위의 잘못 된 URI를 HTTP Method를 통해 수정해 보자.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-uri&quot;&gt;DELETE /members/1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;으로 수정할 수 있다. 회원정보를 가져올 때는 GET, 회원 추가 시의 행위를 표현하고자 할 때는 POST METHOD를 사용하여 표현한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;color:#85144b; font-weight:bold&quot;&gt;회원정보를 가져오는 URI&lt;/span&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-uri&quot;&gt;GET /members/show/1    (x)
+GET /members/1         (o)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;color:#85144b; font-weight:bold&quot;&gt;회원을 추가할 때&lt;/span&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-uri&quot;&gt;GET /members/insert/2    (x)   - GET 메서드는 리소스 생성에 맞지 않는다.
+POST /members/2          (o)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3)&lt;/strong&gt; 슬래시 구분자(/)는 계층 관계를 나타내는 데 사용&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-uri&quot;&gt;   http://restapi.example.com/houses/apartments
+   http://restapi.example.com/animals/mammals/whales
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4)&lt;/strong&gt; URI 마지막 문자로 슬래시(/)를 포함하지 않는다.&lt;/p&gt;
+
+&lt;p&gt;URI에 포함되는 모든 글자는 리소스의 유일한 식별자로 사용되어야 하며 URI가 다르다는 것은 리소스가 다르다는 것이고, 역으로 리소스가 다르면 URI도 달라져야 한다. REST API는 분명한 URI를 만들어 통신을 해야 하기 때문에 혼동을 주지 않도록 URI 경로의 마지막에는 슬래시(/)를 사용하지 않는다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-uri&quot;&gt;    http://restapi.example.com/houses/apartments/ (X)
+    http://restapi.example.com/houses/apartments  (0)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5)&lt;/strong&gt; 하이픈(-)은 URI 가독성을 높이는데 사용&lt;/p&gt;
+
+&lt;p&gt;URI를 쉽게 읽고 해석하기 위해, 불가피하게 긴 URI 경로를 사용하게 된다면 하이픈을 사용해 가독성을 높일 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;6)&lt;/strong&gt; 밑줄(_)은 URI에 사용하지 않는다.&lt;/p&gt;
+
+&lt;p&gt;글꼴에 따라 다르긴 하지만 밑줄은 보기 어렵거나 밑줄 때문에 문자가 가려지기도 한다. 이런 문제를 피하기 위해 밑줄 대신 하이픈(-)을 사용하는 것이 좋다.(가독성)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;7)&lt;/strong&gt; URI 경로에는 소문자가 적합하다.&lt;/p&gt;
+
+&lt;p&gt;URI 경로에 대문자 사용은 피하도록 해야 합니다. 대소문자에 따라 다른 리소스로 인식하게 되기 때문입니다. RFC 3986(URI 문법 형식)은 URI 스키마와 호스트를 제외하고는 대소문자를 구별하도록 규정하기 때문이지요.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;8)&lt;/strong&gt; 파일 확장자는 URI에 포함시키지 않는다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-uri&quot;&gt;    http://restapi.example.com/members/soccer/345/photo.jpg (X)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;8)&lt;/strong&gt; 리소스 간의 관계 표현 방법&lt;/p&gt;
+
+&lt;p&gt;REST 리소스 간에는 연관 관계가 있을 수 있고, 이런 경우 다음과 같은 표현방법으로 사용한다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-uri&quot;&gt;/리소스명/리소스 ID/관계가 있는 다른 리소스명
+
+ex)    GET : /users/{userid}/devices (일반적으로 소유 ‘has’의 관계를 표현할 때)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;만약에 관계명이 복잡하다면 이를 서브 리소스에 명시적으로 표현하는 방법이 있다. 예를 들어 사용자가 ‘좋아하는’ 디바이스 목록을 표현해야 할 경우 다음과 같은 형태로 사용될 수 있다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-uri&quot;&gt;GET : /users/{userid}/likes/devices (관계명이 애매하거나 구체적 표현이 필요할 때)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; REST의 장점
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;HTTP 프로토콜의 인프라를 그대로 사용하므로 REST API 사용을 위한 별도의 인프라를 구축할 필요가 없다.&lt;/li&gt;
+  &lt;li&gt;HTTP 프로토콜의 표준을 최대한 활용하여 여러 추가적인 장점을 함께 가져갈 수 있게 해준다.&lt;/li&gt;
+  &lt;li&gt;HTTP 표준 프로토콜에 따르는 모든 플랫폼에서 사용이 가능하다.&lt;/li&gt;
+  &lt;li&gt;Hypermedia API의 기본을 충실히 지키면서 범용성을 보장한다.&lt;/li&gt;
+  &lt;li&gt;REST API 메시지가 의도하는 바를 명확하게 나타내므로 의도하는 바를 쉽게 파악할 수 있다.&lt;/li&gt;
+  &lt;li&gt;여러 가지 서비스 디자인에서 생길 수 있는 문제를 최소화한다.&lt;/li&gt;
+  &lt;li&gt;서버와 클라이언트의 역할을 명확하게 분리한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; REST의 단점
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;표준이 존재하지 않아 정의가 필요하다&lt;/li&gt;
+  &lt;li&gt;사용할 수 있는 메소드가 4가지 밖에 없다.&lt;/li&gt;
+  &lt;li&gt;HTTP Method 형태가 제한적이다.&lt;/li&gt;
+  &lt;li&gt;브라우저를 통해 테스트할 일이 많은 서비스라면 쉽게 고칠 수 있는 URL보다 Header 정보의 값을 처리해야 하므로 전문성이 요구된다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 왜 RESTful APIs를 만드는 것일까?
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;RESTful API를 개발하는 가장 큰 이유는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Client Side를 정형화된 플래폼이 아닌 모바일, PC, 애플리케이션 등 플랫폼에 제약을 두지 않는 것을 목표로 했기 때문이다.&lt;/span&gt; -즉, 2010년 이전만 해도 Server Side에서 데이터를 전달해주는 Client 프로그램의 대상은 PC 브라우저로 그 대상이 명확했다. 그렇다 보니 그냥 JSP ASP PHP 등을 이용한 웹페이지를 구성하고 작업을 진행하면 됐다.&lt;/li&gt;
+  &lt;li&gt;하지만 스마트 기기들이 등장하면서 TV, 스마트 폰, 테블릿 등 Client 프로그램이 다양화되고 그에 맞춰 Server를 일일이 만든다는 것은 꽤 비효율적인 일이 되어 버렸다.&lt;/li&gt;
+  &lt;li&gt;이런 과정에서 개발자들은 Client Side를 전혀 고려하지 않고 메시지 기반, XML, JSON과 같은 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Client에서 바로 객체로 치환 가능한 형태의 데이터 통신을 지향하게 되면서 Server와 Client의 역할을 분리하게 되었다.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; HTTP Methods
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; GET
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;GET 메소드는 주로 데이터를 읽거나(Read) 검색(Retrieve)할 때에 사용되는 메서드이다.&lt;/p&gt;
+
+&lt;p&gt;만약에 GET요청이 성공적으로 이루어진다면 XML이나 JSON과 함께 200(Ok) HTTP 응답 코드를 리턴한다. 에러가 발생하면 주로 404 (Not found) 에러나 400 (Bad Request) 에러가 발생한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;HTTP 명세에 의하면 GET 요청은 오로지 데이터를 읽을 때만 사용되고 수정할 때는 사용하지 않는다.&lt;/li&gt;
+  &lt;li&gt;GET 요청은 idempotent 하다.&lt;/li&gt;
+  &lt;li&gt;같은 요청을 여러 번 하더라도 변함없이 항상 같은 응답을 받을 수 있다.&lt;/li&gt;
+  &lt;li&gt;데이터를 변경하는 연산에 사용하면 안된다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;link href=&quot;http://fonts.googleapis.com/earlyaccess/hanna.css&quot; rel=&quot;stylesheet&quot; /&gt;
+
+&lt;div style=&quot;background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;&quot;&gt;
+
+멱등성(Idempotence)이란?&lt;br /&gt;&lt;br /&gt;
+멱등성이란 여러번 수행해도 결과가 같음을 의미한다. 즉, 호출로 인하여 데이터가 변형이 되지 않는다는 것을 의미한다.&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-url&quot;&gt;GET /user/1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;데이터를 조회하는 것이기 때문에 요청시에 Body 값과 Content-Type가 비워져있다. 조회할 데이터에 대한 정보는 URL을 통해서 파라미터를 받고 있는 모습을 볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;데이터 조회에 성공한다면 Body 값에 데이터 값을 저장하여 성공 응답을 보낸다.&lt;/p&gt;
+
+&lt;p&gt;GET은 캐싱이 가능하여 같은 데이터를 한번 더 조회할 경우에 저장한 값을 사용하여 조회 속도가 빨라진다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; POST
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;POST 메소드는 주로 새로운 리소스를 생성(creat)할 때 사용된다. 조금 더 구체적으로 POST는 하위 리소스(부모 리소스의 하위 리소스)들을 생성하는데 사용된다. 성공적으로 creation을 완료하면 201 (Created) HTTP 응답을 반환한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;POST 요청은 idempotent 하지 않다.&lt;/li&gt;
+  &lt;li&gt;같은 POST 요청을 반복해서 했을 때 항상 같은 결과물이 나오는 것을 보장하지 않는다.&lt;/li&gt;
+  &lt;li&gt;두 개의 같은 POST 요청을 보내면 같은 정보를 담은 두 개의 다른 resource를 반환할 가능성이 높다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-url&quot;&gt;POST /user
+body : {date : &quot;example&quot;}
+Content-Type : &quot;application/json&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;데이터를 생성하는 것이기 때문에 요청시에 Body 값과 Content-Type 값을 작성해야 한다. 해당 예시는 JSON을 통해서 작성된 예시다.&lt;/p&gt;
+
+&lt;p&gt;URL을 통해서 데이터를 받지 않고, Body 값을 통해서 받는다.&lt;/p&gt;
+
+&lt;p&gt;데이터 조회에 성공한다면 Body 값에 저장한 데이터 값을 저장하여 성공 응답을 보낸다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; PUT
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;PUT은 리소스를 생성 / 업데이트하기 위해 서버로 데이터를 보내는 데 사용된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;PUT 요청은 idempotent 하다.&lt;/li&gt;
+  &lt;li&gt;동일한 PUT 요청을 여러 번 호출하면 항상 동일한 결과가 생성된다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-url&quot;&gt;PUT /user/1
+body : {date : &quot;update example&quot;}
+Content-Type : &quot;application/json&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;데이터를 수정하는 것이기 때문에 요청시에 Body 값과 Content-Type 값을 작성해야 한다. 해당 예시는 JSON을 통해서 작성된 예시다.&lt;/p&gt;
+
+&lt;p&gt;URL을 통해서 어떠한 데이터를 수정할지 파라미터를 받는다. 그리고 수정할 데이터 값을 Body 값을 통해서 받는다.&lt;/p&gt;
+
+&lt;p&gt;데이터 조회에 성공한다면 Body 값에 저장한 데이터 값을 저장하여 성공 응답을 보낸다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; DELETE
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;DELETE 메서드는 지정된 리소스를 삭제한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-url&quot;&gt;DELETE /user/1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;데이터를 삭제하는 것이기 때문에 요청시에 Body 값과 Content-Type 값이 비워져있다.&lt;/p&gt;
+
+&lt;p&gt;URL을 통해서 어떠한 데이터를 삭제할지 파라미터를 받는다.&lt;/p&gt;
+
+&lt;p&gt;데이터 삭제에 성공한다면 Body 값 없이 성공 응답만 보내게 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 자주하는 질문
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; POST 방식이 GET 방식보다 보안 측면에서 더 좋다?
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;GET과 비교하여 URL에 데이터의 정보가 들어 있지 않으므로 조금 더 안전하다고 볼 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; GET 방식이 POST 방식보다 속도가 빠르다?
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;GET 방식은 캐싱을 하기 때문에 여러번 요청시 저장된 데이터를 활용하므로 조금 더 빠를 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; POST vs PUT
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;POST와 PUT은 구분해서 사용해야 한다. POST는 새로운 데이터를 계속 생성하기 때문에 요청시마다 데이터를 생성하지만, PUT은 사용자가 데이터를 지정하고 수정하는 것이기 때문에 같은 요청을 하더라도 데이터가 계속 생성되지는 않는다.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>Sun, 02 Jan 2022 10:00:00 +0900</pubDate>
+				<link>/interview/2022/01/02/Interview-interview-24.html</link>
+				<guid isPermaLink="true">/interview/2022/01/02/Interview-interview-24.html</guid>
+			</item>
+		
+			<item>
+				<title>트랜잭션 격리 수준(Isolation Level)</title>
+				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해…&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;style&gt;
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: &quot;&quot;;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: &quot;&quot;;
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: &quot;&quot;;
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: &quot;&quot;;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: &quot;&quot;;
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: &quot;&quot;;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: &quot;&quot;;
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+&lt;/style&gt;
+
+&lt;div class=&quot;containercoffee&quot;&gt;
+    &lt;div class=&quot;coffee-header&quot;&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-medium&quot;&gt;
+      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/270f.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; Transaction Isolation Level
+&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;트랜잭션 격리 수준에 대해 알기 위해서는 일단 &lt;strong&gt;트랜잭션&lt;/strong&gt;이 무엇인지부터 알아야 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;트랜잭션&lt;/strong&gt;: 데이터베이스의 상태를 변화시키기 위해서 수행하는 작업의 단위를 뜻한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;데이터베이스의 상태를 변화시킨다는 것은 아래의 질의어(SQL)를 이용하여 데이터베이스를 접근하는 것을 의미한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;SELECT&lt;/li&gt;
+  &lt;li&gt;INSERT&lt;/li&gt;
+  &lt;li&gt;DELETE&lt;/li&gt;
+  &lt;li&gt;UPDATE&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 트랜잭션의 특징(ACID)
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;원자성(Atomicity)&lt;/li&gt;
+  &lt;li&gt;일관성(Consistency)&lt;/li&gt;
+  &lt;li&gt;독립성(Isolation)&lt;/li&gt;
+  &lt;li&gt;지속성(Durability)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;원자성(Atomicity)&lt;/span&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;트랜잭션의 연산은 데이터베이스에 모두 반영되든지 아니면 전혀 반영되지 않아야 한다.&lt;/li&gt;
+  &lt;li&gt;트랜잭션 내의 모든 명령은 반드시 완벽히 수행되어야 하며, 모두가 완벽히 수행되지 않고 어느 하나라도 오류가 발생하면 트랜잭션 전부가 취소되어야 한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;일관성(Consistency)&lt;/span&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;트랜잭션이 그 실행을 성공적으로 완료하면 언제나 일관성 있는 데이터베이스 상태로 변환한다.&lt;/li&gt;
+  &lt;li&gt;시스템이 가지고 있는 고정요소는 트랜잭션 수행 전과 트랜잭션 수행 완료 후의 상태가 같아야 한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;독립성, 격리성(Isolation)&lt;/span&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;둘 이상의 트랜잭션이 동시에 병행 실행되는 경우 어느 하나의 트랜잭션 실행 중에 다른 트랜잭션의 연산이 끼어들 수 없다.&lt;/li&gt;
+  &lt;li&gt;수행중인 트랜잭션은 완전히 완료될 때까지 다른 트랜잭션에서 수행 결과를 참조할 수 없다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;영속성, 지속성(Durability)&lt;/span&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;성공적으로 완료된 트랜잭션의 결과는 시스템이 고장나더라도 영구적으로 반영되어야 한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; Commit 연산과 Rollback 연산
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Commit 연산&lt;/span&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Commit 연산은 한 개의 논리적 단위(트랜잭션)에 대한 작업이 성공적으로 끝났고 데이터베이스가 다시 일관된 상태에 있을 때, 이 트랜잭션이 행한 갱신 연산이 완료된 것을 트랜잭션 관리자에게 알려주는 연산이다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Rollback 연산&lt;/span&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Rollback 연산은 하나의 트랜잭션 처리가 비정상적으로 종료되어 데이터베이스의 일관성을 깨뜨렸을 때, 이 트랜잭션의 일부가 정상적으로 처리되었더라도 트랜잭션의 원자성을 구현하기 위해 이 트랜잭션이 행한 모든 연산을 취소(Undo)하는 연산이다.&lt;/li&gt;
+  &lt;li&gt;Rollback시에는 해당 트랜잭션을 재시작하거나 폐기한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 트랜잭션 격리 수준
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;본론으로 돌아와서 이제 트랜잭션 격리 수준에 대해서 살펴보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;트랜잭션 격리 수준은 &lt;span style=&quot;color:#2ECC40; font-weight:bold&quot;&gt;고립도&lt;/span&gt;와 &lt;span style=&quot;color:#2ECC40; font-weight:bold&quot;&gt;성능&lt;/span&gt;의 &lt;strong&gt;Trade-off&lt;/strong&gt;를 조절한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;span style=&quot;color: rgba(131, 24, 67); font-weight:bold&quot;&gt;READ UNCOMMITED:&lt;/span&gt; 다른 트랜잭션에서 커밋되지 않은 내용도 참조할 수 있다.&lt;/li&gt;
+  &lt;li&gt;&lt;span style=&quot;color: rgba(131, 24, 67); font-weight:bold&quot;&gt;READ COMMITED:&lt;/span&gt; 다른 트랜잭션에서 커밋된 내용만 참조할 수 있다.&lt;/li&gt;
+  &lt;li&gt;&lt;span style=&quot;color: rgba(131, 24, 67); font-weight:bold&quot;&gt;REPEATABLE READ:&lt;/span&gt; 트랜잭션에 진입하기 이전에 커밋된 내용만 참조할 수 있다.&lt;/li&gt;
+  &lt;li&gt;&lt;span style=&quot;color: rgba(131, 24, 67); font-weight:bold&quot;&gt;SERIALIZABLE:&lt;/span&gt; 트랜잭션에 진입하면 락을 걸어 다른 트랜잭션이 접근하지 못하게 한다. (성능이 매우 떨어짐)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-01-22-54-26.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;트랜잭션 격리 수준이란 &lt;strong&gt;트랜잭션들끼리 얼마나 고립되어있는지(잠금수준)를 나타내는 것이다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;특정 트랜잭션이 다른 트랜잭션에 의해 변경된 데이터를 볼 수 있도록 허용할지 말지를 결정하는 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;격리 수준은 위에 명시된 순서로 내려갈수록 &lt;strong&gt;고립도가 높아지나 성능이 떨어지는 게 일반적&lt;/strong&gt;이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 트랜잭션 격리 수준이 필요한 이유
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;트랜잭션 수준 읽기 일관성 (Transaction-Level Read Consistency)을 지키기 위해서이다.(다시 말해 &lt;strong&gt;동시성 제어 문제&lt;/strong&gt; 해결을 위해서이다.)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;link href=&quot;http://fonts.googleapis.com/earlyaccess/hanna.css&quot; rel=&quot;stylesheet&quot; /&gt;
+
+&lt;div style=&quot;background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;&quot;&gt;
+
+트랜잭션 수준 읽기 일관성이란&lt;br /&gt;&lt;br /&gt;
+트랜잭션이 시작된 시점으로부터 일관성 있게 데이터를 읽어 들이는 것을 말한다. 하나의 트랜잭션이 진행되는 동안 다른 트랜잭션에 의해 변경사항이 발생하더라도 이를 무시하고 계속 일관성 있는 데이터를 보여준다. (물론 트랜잭션 자신이 발생한 변경사항은 읽을 수 있다.)&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; READ UNCOMMITTED (트랜잭션 레벨 0)
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-01-23-02-12.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이 단계에서는 트랜잭션에서 처리 중인, 아직 커밋되지 않은 데이터를 다른 트랜잭션이 읽는 것을 허용한다.&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 특징
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Dirty Read, Non-Repeatable Read, Phantom Read 현상이 발생한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;link href=&quot;http://fonts.googleapis.com/earlyaccess/hanna.css&quot; rel=&quot;stylesheet&quot; /&gt;
+
+&lt;div style=&quot;background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;&quot;&gt;
+
+PHANTOM READ&lt;br /&gt;&lt;br /&gt;
+
+- 다른 트랜잭션에서 수행한 변경 작업에 의해 레코드가 보였다가 안 보였다가 하는 현상&lt;br /&gt; - 이를 방지하기 위해서는 쓰기 잠금을 걸어야 한다.
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 문제점
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;데이터 정합성에 문제가 많다. 그렇기에 RDBMS 표준에서는 격리수준으로 인정하지 않는다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;예시&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;트랜잭션 A&lt;/span&gt;는 테이블의 데이터를 수정중인 상태이고 아직 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;COMMIT&lt;/span&gt; 전이다.&lt;/li&gt;
+  &lt;li&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;트랜잭션 B&lt;/span&gt;는 트랜잭션 A가 수정중인 데이터를 조회한다. (이를 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Dirty Read라고 한다.&lt;/span&gt;)&lt;/li&gt;
+  &lt;li&gt;하지만 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;트랜잭션 B&lt;/span&gt;는 COMMIT 되지 않은 데이터를 가지고 로직을 수행한다. (문제 발생)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; READ COMMITTED (트랜잭션 레벨 1)
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-01-23-06-40.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;RDB에서 대부분 기본적으로 사용되고 있는 격리 수준으로 &lt;strong&gt;실제 테이블 값&lt;/strong&gt;을 가져오는 것이 아니라 &lt;strong&gt;Undo&lt;/strong&gt; 영역에 백업된 레코드에서 값을 가져온다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 특징
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Dirty Read가 발생하지 않지만(트랜잭션이 COMMIT되어 확정된 데이터만 읽는 것을 허용한다.) Non-Repeatable Read, Phantom Read 현상은 여전히 발생한다.&lt;/li&gt;
+  &lt;li&gt;온라인 서비스에서 가장 많이 선택되는 격리수준이다.
+    &lt;ul&gt;
+      &lt;li&gt;DB2, SQL Server, Sybase의 경우 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;읽기, 공유 Lock&lt;/span&gt;을 이용하여 구현한다.&lt;/li&gt;
+      &lt;li&gt;Oracle은 Lock을 사용하지 않고 쿼리시작 시점의 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Undo 데이터&lt;/span&gt;를 제공한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 문제점
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;NON-REPEATBLE READ&lt;/strong&gt; 부정합 문제가 발생할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;READ COMMITED 격리 수준에서 실행되는 SQL 문장의 결과가 무엇인지 정확히 예측하고 있어야 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; REPEATABLE READ (트랜잭션 레벨 2)
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-01-23-10-59.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;트랜잭션이 시작되기 전에 COMMIT된 내용에 대해서만 조회할 수 있는 격리수준이다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;MySQL에서는 트랜잭션마다 트랜잭션 ID를 부여하여 &lt;strong&gt;트랜잭션 ID 보다 작은 트랜잭션 번호에서 변경한 것만 읽게 된다.&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;변경되기 전 레코드는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Undo 공간&lt;/span&gt;에 백업해 두고 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;실제 레코드 값&lt;/span&gt;을 변경한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 특징
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Dirty Read와 같은 현상은 발생하지 않지만 &lt;strong&gt;Phantom Read&lt;/strong&gt; 현상은 여전히 발생한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 문제점
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;하나의 트랜잭션 실행시간이 길어질수록 &lt;strong&gt;Undo에 백업된 레코드가 많아져서 멀티 버전을 관리해야 하는 단점이&lt;/strong&gt; 있다.
+(하지만 영향을 미칠정도로 트랜잭션이 오래 지속되는 경우가 없어서 READ COMMITTED와 REPEATABLE READ의 성능 차이는 거의 없다고 한다.)&lt;/p&gt;
+
+&lt;p&gt;또한, &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;UPDATE 부정합&lt;/span&gt;와 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Phantom Read&lt;/span&gt;가 발생할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 
+SERIALIZABLE (트랜잭션 레벨 3)&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;선형 트랜잭션이 특정 테이블을 읽는 경우(SELECT) &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;공유 잠금(shared lock)&lt;/span&gt;을 걸어, 다른 트랜잭션에서 해당 테이블의 데이터를 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;UPDATE, DELETE, INSERT&lt;/span&gt; 작업을 못하도록 막는다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 특징
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;가장 단순한 격리 수준이지만 가장 엄격한 격리 수준으로 Phantom Read가 발생하지 않는다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 문제점
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;동시 처리 능력이 다른 격리수준보다 떨어지고 성능저하가 발생하여 데이터베이스에서 거의 사용되지 않는다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 낮은 단계의 트랜잭션 고립화 수준을 사용할 때 발생하는 세 가지 현상
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-01-23-24-12.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; Dirty Read (Uncommitted Dependency)
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-01-23-24-46.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;변경 후 아직 Commit 되지 않은 값 읽고, Rollback 후의 값을 다시 읽어 최종 결과 값이 상이한 현상이다.&lt;/li&gt;
+  &lt;li&gt;Oracle은 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;다중 버전 읽기 일관성 모델&lt;/span&gt;을 채택하여 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;lock&lt;/span&gt;을 사용하지 않고 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Dirty Read&lt;/span&gt;를 피해 일관성 있는 데이터 읽기가 가능하게 하였다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; Non-Repeatble Read (Inconsistent Analysis)
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-01-23-26-36.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;한 트랜잭션 내에서 같은 쿼리를 두번 수행할 때, 그 사이에 다른 트랜잭션이 값을 수정 또는 삭제함으로써 두 쿼리가 상이하게 나타나는 비 일관성이 발생하는 것을 말한다.&lt;/p&gt;
+
+&lt;p&gt;(다시말해 하나의 트랜잭션 내에서 동일한 SELECT를 수행했을 경우 항상 같은 결과를 반환해야하는 REPEATABLE READ 정합성에 어긋나는 것이다.)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;link href=&quot;http://fonts.googleapis.com/earlyaccess/hanna.css&quot; rel=&quot;stylesheet&quot; /&gt;
+
+&lt;div style=&quot;background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;&quot;&gt;
+
+금전적 처리와 연결된 서비스에서 문제가 발생할 수 있다.&lt;br /&gt;&lt;br /&gt;
+
+- 트랜잭션B에서 1번 상품의 총 투자액을 조회 =&amp;gt; 100만원이 조회됨&lt;br /&gt;
+- 트랜잭션A에서 1번 상품의 총 투자액을 120만원으로 바꾸고 COMMIT&lt;br /&gt;
+- 트랜잭션B에서 1번 상품의 총 투자액을 다시 조회 =&amp;gt; 120만원이 조회됨 (NON-REPEATABLE READ)&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+</description>
+				<pubDate>Sat, 01 Jan 2022 16:00:00 +0900</pubDate>
+				<link>/interview/2022/01/01/Interview-interview-23.html</link>
+				<guid isPermaLink="true">/interview/2022/01/01/Interview-interview-23.html</guid>
+			</item>
+		
+			<item>
 				<title>Clustered Index vs Non-Clustered Index</title>
 				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -4274,887 +5746,6 @@ Young 영역은 일반적으로 Old 영역보다 크키가 작기 때문에 GC�
 				<pubDate>Thu, 30 Dec 2021 10:00:00 +0900</pubDate>
 				<link>/interview/2021/12/30/Interview-interview-15.html</link>
 				<guid isPermaLink="true">/interview/2021/12/30/Interview-interview-15.html</guid>
-			</item>
-		
-			<item>
-				<title>역색인-Inverted Index</title>
-				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해…&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;style&gt;
-.containercoffee {
-  width: 300px;
-  height: 280px;
-  position: relative;
-  top: calc(50% - 140px);
-  left: calc(50% - 150px);
-}
-.coffee-header {
-  width: 100%;
-  height: 80px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #ddcfcc;
-  border-radius: 10px;
-}
-.coffee-header__buttons {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  top: 25px;
-  background-color: #282323;
-  border-radius: 50%;
-}
-.coffee-header__buttons::after {
-  content: &quot;&quot;;
-  width: 8px;
-  height: 8px;
-  position: absolute;
-  bottom: -8px;
-  left: calc(50% - 4px);
-  background-color: #615e5e;
-}
-.coffee-header__button-one {
-  left: 15px;
-}
-.coffee-header__button-two {
-  left: 50px;
-}
-.coffee-header__display {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: calc(50% - 25px);
-  left: calc(50% - 25px);
-  border-radius: 50%;
-  background-color: #9acfc5;
-  border: 5px solid #43beae;
-  box-sizing: border-box;
-}
-.coffee-header__details {
-  width: 8px;
-  height: 20px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #9b9091;
-  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
-}
-.coffee-medium {
-  width: 90%;
-  height: 160px;
-  position: absolute;
-  top: 80px;
-  left: calc(50% - 45%);
-  background-color: #bcb0af;
-}
-.coffee-medium:before {
-  content: &quot;&quot;;
-  width: 90%;
-  height: 100px;
-  background-color: #776f6e;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 45%);
-  border-radius: 20px 20px 0 0;
-}
-.coffe-medium__exit {
-  width: 60px;
-  height: 20px;
-  position: absolute;
-  top: 0;
-  left: calc(50% - 30px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::before {
-  content: &quot;&quot;;
-  width: 50px;
-  height: 20px;
-  border-radius: 0 0 50% 50%;
-  position: absolute;
-  bottom: -20px;
-  left: calc(50% - 25px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::after {
-  content: &quot;&quot;;
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  bottom: -30px;
-  left: calc(50% - 5px);
-  background-color: #231f20;
-}
-.coffee-medium__arm {
-  width: 70px;
-  height: 20px;
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  background-color: #231f20;
-}
-.coffee-medium__arm::before {
-  content: &quot;&quot;;
-  width: 15px;
-  height: 5px;
-  position: absolute;
-  top: 7px;
-  left: -15px;
-  background-color: #9e9495;
-}
-.coffee-medium__cup {
-  width: 80px;
-  height: 47px;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 40px);
-  background-color: #FFF;
-  border-radius: 0 0 70px 70px / 0 0 110px 110px;
-}
-.coffee-medium__cup::after {
-  content: &quot;&quot;;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 6px;
-  right: -13px;
-  border: 5px solid #FFF;
-  border-radius: 50%;
-}
-@keyframes liquid {
-  0% {
-    height: 0px;  
-    opacity: 1;
-  }
-  5% {
-    height: 0px;  
-    opacity: 1;
-  }
-  20% {
-    height: 62px;  
-    opacity: 1;
-  }
-  95% {
-    height: 62px;
-    opacity: 1;
-  }
-  100% {
-    height: 62px;
-    opacity: 0;
-  }
-}
-.coffee-medium__liquid {
-  width: 6px;
-  height: 63px;
-  opacity: 0;
-  position: absolute;
-  top: 50px;
-  left: calc(50% - 3px);
-  background-color: #74372b;
-  animation: liquid 4s 4s linear infinite;
-}
-.coffee-medium__smoke {
-  width: 8px;
-  height: 20px;
-  position: absolute;  
-  border-radius: 5px;
-  background-color: #b3aeae;
-}
-@keyframes smokeOne {
-  0% {
-    bottom: 20px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 50px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-@keyframes smokeTwo {
-  0% {
-    bottom: 40px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 70px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-.coffee-medium__smoke-one {
-  opacity: 0;
-  bottom: 50px;
-  left: 102px;
-  animation: smokeOne 3s 4s linear infinite;
-}
-.coffee-medium__smoke-two {
-  opacity: 0;
-  bottom: 70px;
-  left: 118px;
-  animation: smokeTwo 3s 5s linear infinite;
-}
-.coffee-medium__smoke-three {
-  opacity: 0;
-  bottom: 65px;
-  right: 118px;
-  animation: smokeTwo 3s 6s linear infinite;
-}
-.coffee-medium__smoke-for {
-  opacity: 0;
-  bottom: 50px;
-  right: 102px;
-  animation: smokeOne 3s 5s linear infinite;
-}
-.coffee-footer {
-  width: 95%;
-  height: 15px;
-  position: absolute;
-  bottom: 25px;
-  left: calc(50% - 47.5%);
-  background-color: #41bdad;
-  border-radius: 10px;
-}
-.coffee-footer::after {
-  content: &quot;&quot;;
-  width: 106%;
-  height: 26px;
-  position: absolute;
-  bottom: -25px;
-  left: -8px;
-  background-color: #000;
-}
-&lt;/style&gt;
-
-&lt;div class=&quot;containercoffee&quot;&gt;
-    &lt;div class=&quot;coffee-header&quot;&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-medium&quot;&gt;
-      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;역색인&quot;&gt;역색인&lt;/h2&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;데이터 시스템에 다음과 같은 문서들을 저장한다고 가정 해 보자.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2021-12-29-20-18-55.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;일반적으로 오라클이나 MySQL 같은 관계형 DB에서는 위 내용을 보이는 대로 테이블 구조로 저장을 한다. 만약에 위 테이블에서 Text에 &lt;strong&gt;fox&lt;/strong&gt;가 포함된 행들을 가져온다고 하면 다음과 같이 Text 열을 한 줄씩 찾아 내려가면서 fox가 있으면 가져오고 없으면 넘어가는 식으로 데이터를 가져 올 것이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2021-12-29-20-20-18.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;전통적인 RDBNS에서는 위와 같이 &lt;strong&gt;like&lt;/strong&gt; 검색을 사용하기 때문에 데이터가 늘어날수록 검색해야 할 대상이 늘어나 시간도 오래 걸리고, row 안의 내용을 모두 읽어야 하기 때문에 기본적으로 속도가 느리다. Elastic Search는 데이터를 저장할 때 다음과 같이 &lt;strong&gt;역 인덱스(inverted index)&lt;/strong&gt;라는 구조를 만들어 저장한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2021-12-29-20-21-24.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이 역 인덱스는 &lt;strong&gt;책에 맨 뒤에 있는&lt;/strong&gt; 주요 키워드에 대한 내용이 몇 페이지에 있는지 볼 수 있는 &lt;strong&gt;찾아보기 페이지&lt;/strong&gt;에 비유할 수 있다. Elasticsearch에서는 추출된 각 키워드를 &lt;strong&gt;텀(term)&lt;/strong&gt;이라고 부른다. 이렇게 역 인덱스가 있으면 &lt;strong&gt;fox&lt;/strong&gt;를 포함하고 있는 document의 &lt;strong&gt;id&lt;/strong&gt;를 바로 얻어올 수 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2021-12-29-20-22-33.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Elasticsearch는 데이터가 늘어나도 찾아가야 할 행이 늘어나는 것이 아니라 역 인덱스가 가리키는 id의 배열값이 추가되는 것 뿐이기 때문에 큰 속도의 저하 없이 빠른 속도로 검색이 가능하다. 이런 역 인덱스를 데이터가 저장되는 과정에서 만들기 때문에 Elasticsearch는 데이터를 입력할 때 저장이 아닌 &lt;strong&gt;색인&lt;/strong&gt;을 한다고 표현한다.&lt;/p&gt;
-</description>
-				<pubDate>Tue, 28 Dec 2021 10:00:00 +0900</pubDate>
-				<link>/interview/2021/12/28/Interview-interview-14.html</link>
-				<guid isPermaLink="true">/interview/2021/12/28/Interview-interview-14.html</guid>
-			</item>
-		
-			<item>
-				<title>Mutable vs Immutable</title>
-				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해…&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;style&gt;
-.containercoffee {
-  width: 300px;
-  height: 280px;
-  position: relative;
-  top: calc(50% - 140px);
-  left: calc(50% - 150px);
-}
-.coffee-header {
-  width: 100%;
-  height: 80px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #ddcfcc;
-  border-radius: 10px;
-}
-.coffee-header__buttons {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  top: 25px;
-  background-color: #282323;
-  border-radius: 50%;
-}
-.coffee-header__buttons::after {
-  content: &quot;&quot;;
-  width: 8px;
-  height: 8px;
-  position: absolute;
-  bottom: -8px;
-  left: calc(50% - 4px);
-  background-color: #615e5e;
-}
-.coffee-header__button-one {
-  left: 15px;
-}
-.coffee-header__button-two {
-  left: 50px;
-}
-.coffee-header__display {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: calc(50% - 25px);
-  left: calc(50% - 25px);
-  border-radius: 50%;
-  background-color: #9acfc5;
-  border: 5px solid #43beae;
-  box-sizing: border-box;
-}
-.coffee-header__details {
-  width: 8px;
-  height: 20px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #9b9091;
-  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
-}
-.coffee-medium {
-  width: 90%;
-  height: 160px;
-  position: absolute;
-  top: 80px;
-  left: calc(50% - 45%);
-  background-color: #bcb0af;
-}
-.coffee-medium:before {
-  content: &quot;&quot;;
-  width: 90%;
-  height: 100px;
-  background-color: #776f6e;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 45%);
-  border-radius: 20px 20px 0 0;
-}
-.coffe-medium__exit {
-  width: 60px;
-  height: 20px;
-  position: absolute;
-  top: 0;
-  left: calc(50% - 30px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::before {
-  content: &quot;&quot;;
-  width: 50px;
-  height: 20px;
-  border-radius: 0 0 50% 50%;
-  position: absolute;
-  bottom: -20px;
-  left: calc(50% - 25px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::after {
-  content: &quot;&quot;;
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  bottom: -30px;
-  left: calc(50% - 5px);
-  background-color: #231f20;
-}
-.coffee-medium__arm {
-  width: 70px;
-  height: 20px;
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  background-color: #231f20;
-}
-.coffee-medium__arm::before {
-  content: &quot;&quot;;
-  width: 15px;
-  height: 5px;
-  position: absolute;
-  top: 7px;
-  left: -15px;
-  background-color: #9e9495;
-}
-.coffee-medium__cup {
-  width: 80px;
-  height: 47px;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 40px);
-  background-color: #FFF;
-  border-radius: 0 0 70px 70px / 0 0 110px 110px;
-}
-.coffee-medium__cup::after {
-  content: &quot;&quot;;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 6px;
-  right: -13px;
-  border: 5px solid #FFF;
-  border-radius: 50%;
-}
-@keyframes liquid {
-  0% {
-    height: 0px;  
-    opacity: 1;
-  }
-  5% {
-    height: 0px;  
-    opacity: 1;
-  }
-  20% {
-    height: 62px;  
-    opacity: 1;
-  }
-  95% {
-    height: 62px;
-    opacity: 1;
-  }
-  100% {
-    height: 62px;
-    opacity: 0;
-  }
-}
-.coffee-medium__liquid {
-  width: 6px;
-  height: 63px;
-  opacity: 0;
-  position: absolute;
-  top: 50px;
-  left: calc(50% - 3px);
-  background-color: #74372b;
-  animation: liquid 4s 4s linear infinite;
-}
-.coffee-medium__smoke {
-  width: 8px;
-  height: 20px;
-  position: absolute;  
-  border-radius: 5px;
-  background-color: #b3aeae;
-}
-@keyframes smokeOne {
-  0% {
-    bottom: 20px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 50px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-@keyframes smokeTwo {
-  0% {
-    bottom: 40px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 70px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-.coffee-medium__smoke-one {
-  opacity: 0;
-  bottom: 50px;
-  left: 102px;
-  animation: smokeOne 3s 4s linear infinite;
-}
-.coffee-medium__smoke-two {
-  opacity: 0;
-  bottom: 70px;
-  left: 118px;
-  animation: smokeTwo 3s 5s linear infinite;
-}
-.coffee-medium__smoke-three {
-  opacity: 0;
-  bottom: 65px;
-  right: 118px;
-  animation: smokeTwo 3s 6s linear infinite;
-}
-.coffee-medium__smoke-for {
-  opacity: 0;
-  bottom: 50px;
-  right: 102px;
-  animation: smokeOne 3s 5s linear infinite;
-}
-.coffee-footer {
-  width: 95%;
-  height: 15px;
-  position: absolute;
-  bottom: 25px;
-  left: calc(50% - 47.5%);
-  background-color: #41bdad;
-  border-radius: 10px;
-}
-.coffee-footer::after {
-  content: &quot;&quot;;
-  width: 106%;
-  height: 26px;
-  position: absolute;
-  bottom: -25px;
-  left: -8px;
-  background-color: #000;
-}
-&lt;/style&gt;
-
-&lt;div class=&quot;containercoffee&quot;&gt;
-    &lt;div class=&quot;coffee-header&quot;&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-medium&quot;&gt;
-      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;immutable-vs-mutable&quot;&gt;Immutable vs Mutable&lt;/h2&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;color:#2ECC40; font-weight:bold&quot;&gt;Mutable:&lt;/span&gt; 변할 수 있는; 잘 변하는&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;color:#2ECC40; font-weight:bold&quot;&gt;Immutable:&lt;/span&gt; 변경할 수 없는; 불변의&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;무엇이 변하고 무엇이 변하지 않는 걸까?&lt;/p&gt;
-
-&lt;p&gt;값? 주소?&lt;/p&gt;
-
-&lt;p&gt;정의를 하자면&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;color:#85144b; font-weight:bold&quot;&gt;Mutable&lt;/span&gt;은 값을 수정해도 주소가 바뀌지 않는 것이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;color:#85144b; font-weight:bold&quot;&gt;Immutable&lt;/span&gt;은 값을 수정하면 주소가 바뀌는 것을 말한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이렇게 말하면 앞서 말한 영어 정의랑 헷갈린다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;다시 말하면 Immutable 객체는 &lt;strong&gt;객체 내의 특정 요소의 값을 변경 할 수 없는 객체&lt;/strong&gt;이다.&lt;/p&gt;
-
-&lt;p&gt;or&lt;/p&gt;
-
-&lt;p&gt;문자열 연산에서 new 연산을 통해 생성된 인스턴스의 메모리 공간이 절대 변하지 않는 것이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;link href=&quot;http://fonts.googleapis.com/earlyaccess/hanna.css&quot; rel=&quot;stylesheet&quot; /&gt;
-
-&lt;div style=&quot;background: #eee;
-  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;&quot;&gt;
-
-불변 객체는 생성 후 그 상태를 바꿀 수 없다. 이는 힙영역에서 그 객체가 가리키고 있는 데이터 자체의 변화가 불가능하다는 것을 의미한다.
-
-실제 데이터는 힙 영역에 저장되고 그 힙 영역을 가리키는 주솟값을 stack 영역에서 가리키고 있는데 불변 객체는 힙 영역에 있는 데이터가 변경되지 않는 것을 의미한다. &lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;즉, 여기서 &lt;strong&gt;변하지 않는다&lt;/strong&gt;는 것은 &lt;span style=&quot;color:#3D9970; font-weight:bold&quot;&gt;객체가 생성되면 변하지 않는다==객체를 재할당 받는다&lt;/span&gt; 와 같은 말이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Immutable은 대표적으로 &lt;strong&gt;String&lt;/strong&gt;이 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;String 변수는 한번 할당하고 그 변수에 새로운 문자열을 합치거나 변경할 때 새로운 주소값이 생기면서 객체가 할당된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;concat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;World&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post15/2021-12-28-00-35-31.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;위 사진처럼 주소값이 다른 이유는 String의 concat은 &lt;strong&gt;new String()&lt;/strong&gt;으로 새로운 객체를 만들어 할당받기 때문이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;홍길동&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;userName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;userName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;둘리&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;userName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// result&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;홍길동&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;둘리&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post15/2021-12-28-00-37-07.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;위 예제에서도 userName은 홍길동이라는 값을 가지고 &lt;span style=&quot;color:#7EDBFF; font-weight:bold&quot;&gt;1000번&lt;/span&gt; 주소에 할당되었지만 값이 변경되면 &lt;span style=&quot;color:#7EDBFF; font-weight:bold&quot;&gt;1000번&lt;/span&gt;을 가리키고 있던 것을 새로운 객체가 있는 &lt;span style=&quot;color:#7EDBFF; font-weight:bold&quot;&gt;2000번&lt;/span&gt;으로 변경한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;반면에 대표적인 Mutable 개체로 &lt;strong&gt;StringBuilder&lt;/strong&gt;가 있다. (List, ArrayList, HashMap 등도 Mutable)&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;StringBuilder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StringBuilder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;World&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post15/2021-12-28-00-39-25.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;위 에서는 변수의 문자열이 추가되어도 주소가 변하지 않는 것을 볼 수 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;immutable한-클래스에는-어떤-것이-있을까&quot;&gt;Immutable한 클래스에는 어떤 것이 있을까?&lt;/h4&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;String, Boolean, Integer, Float, Long&lt;/strong&gt; 등이 있다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;immutable한 클래스를 만들어 보자.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;immutable은 값을 변경할 수 없는 클래스를 뜻한다. 즉 set 메서드가 없다. 또한 final 키워드를 사용해 변수 초기화 이후 바뀌지 않도록 막는다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ImmutableTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;nc&quot;&gt;ImmutableTest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;userName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;userName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;홍길동&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;ImmutableTest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;immutableString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ImmutableTest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;userName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;userName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;둘리&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;immutableString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;결과 값은 immutable로 만들었던 userName(홍길동)은 변하지 않고, 새로운 객체 둘리가 userName에 할당된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h4 id=&quot;immutable-object의-장단점&quot;&gt;Immutable Object의 장단점&lt;/h4&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;장점&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;객체에 대한 신뢰도가 높아진다. 객체가 한번 생성되어서 그게 변하지 않는다면 transaction 내에서 그 객체가 변하지 않기에 믿고 쓸 수 있기 때문이다.&lt;/li&gt;
-  &lt;li&gt;생성자, 접근메소드에 대한 방어 복사가 필요없다.&lt;/li&gt;
-  &lt;li&gt;멀티스레드 환경에서 동기화 처리없이 객체를 공유할 수 있다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;단점&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;객체가 가지는 값마다 새로운 객체가 필요하다. 따라서 메모리 누수와 새로운 객체를 계속 생성해야 하기 때문에 성능저하를 발생시킬 수 있다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h4 id=&quot;java에서-불변-객체를-생성하기-위한-규칙&quot;&gt;Java에서 불변 객체를 생성하기 위한 규칙&lt;/h4&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;클래스를 final로 선언하라&lt;/li&gt;
-  &lt;li&gt;모든 클래스 변수를 private와 final로 선언하라&lt;/li&gt;
-  &lt;li&gt;객체를 생성하기 위한 생성자 또는 정적 팩토리 메서드를 추가하라&lt;/li&gt;
-  &lt;li&gt;참조에 의해 변경가능성이 있는 경우 방어적 복사를 이용하여 전달하라&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ImmutableClass&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ImmutableClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ImmutableClass&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ImmutableClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getAge&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Collections&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;unmodifiableList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;위의 코드에서 특히 주목해야 하는 부분은 내부 생성자를 만드는 대신 객체의 생성을 위해 &lt;strong&gt;정적 팩토리 메소드&lt;/strong&gt;를 제공하고 있다는 점과 참조를 전달하여 클라이언트에 의해 &lt;strong&gt;수정 가능성&lt;/strong&gt;이 있는 &lt;strong&gt;list를 방어적 복사&lt;/strong&gt;하여 제공하고 있다는 것이다.&lt;/p&gt;
-
-&lt;p&gt;Java에서는 &lt;strong&gt;생성자를 선언하지 않으면 기본 생성자가 자동으로 생성&lt;/strong&gt;되는데, 그러면 다른 클래스에서 해당 객체를 자유롭게 호출할 수 있다. 그렇기 때문에 내부 생성자를 만드는 대신 &lt;strong&gt;정적 팩토리 메소드&lt;/strong&gt;를 통해 객체를 생성하도록 강요하는 것이 좋다.&lt;/p&gt;
-
-&lt;p&gt;또한 배열이나 다른 객체 또는 컬렉션은 참조가 전달되어 &lt;strong&gt;수정 가능성&lt;/strong&gt;이 있다. 그렇기 때문에 참조를 통해 변경이 가능한 경우에는 &lt;strong&gt;방어적 복사&lt;/strong&gt;를 통해 값을 반환해야 한다.&lt;/p&gt;
-</description>
-				<pubDate>Mon, 27 Dec 2021 10:00:00 +0900</pubDate>
-				<link>/interview/2021/12/27/Interview-interview-13.html</link>
-				<guid isPermaLink="true">/interview/2021/12/27/Interview-interview-13.html</guid>
 			</item>
 		
 	</channel>
