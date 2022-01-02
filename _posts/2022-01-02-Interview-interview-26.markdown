@@ -1,10 +1,10 @@
 ---
 layout: post
-title: 쿠키 vs 세션 vs 캐시
-date: 2022-01-02 14:00:00 0000
-tags: [Cookie, Session, Cache]
+title: Bean Scope
+date: 2022-01-02 14:20:00 0000
+tags: [Bean Scope, Singleton, Prototype, Request, Session]
 categories: [Interview]
-description: 쿠키, 세션 그리고 캐시의 차이
+description: Bean Scope에 대하여
 ---
 
 <br><br>
@@ -296,5 +296,145 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 </div>
 
 <br><br><br><br><br><br><br><br>
+
+<br>
+
+<h2 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/270f.png" height="30" width="30"> Bean Scope
+</h2>
+
+<br>
+
+스프링에서는 **Bean**으로 지정된 객체는 기본적으로 싱글톤 객체로 관리하게 된다. 하지만 요구사항에 따라 싱글톤이 아닌 방법으로 빈을 구성해야 하는 경우가 있는데 이와 같은 경우를 명시적으로 구분하기 위해 스프링에서는 **scope**라는 키워드를 사용한다.
+
+<br>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 스프링 빈(Spring Bean)이란?
+</h4>
+
+스프링 IoC 컨테이너에 의해서 관리되고 애플리케이션의 핵심을 이루는 객체들을 스프링 빈(Bean)이라고 한다. 빈은 스프링 컨테이너에 의해서 인스턴스화 되어 조립되고 관리된다. 스프링 컨테이너가 관리해준다는 점을 제외하면 자바 객체이다.
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> Scope의 종류
+</h3>
+
+<br>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> Singleton
+</h4>
+
+- Spring 프레임워크에서 기본이 되는 스코프
+- 스프링 컨테이너의 시작과 종료까지 1개의 객체로 유지됨
+
+<br>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> Prototype
+</h4>
+
+- 요청이 오면 항상 새로운 인스턴스를 생성하여 반환하고 이후에 관리하지 않음
+- 프로토타입을 받은 클라이언트가 객체를 관리해야 함
+
+<br>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> Web
+</h4>
+
+- **Request:** 각각의 요청이 들어오고 나갈 때까지 유지되는 scope
+- **Session:** 세션이 생성되고 종료될 때까지 유지되는 scope
+- **Application:** 웹의 서블릿 컨텍스트와 같은 범위로 유지되는 scope
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> Example
+</h3>
+
+<br>
+
+**PetOwner.java**
+
+```java
+package com.spring;
+
+public class PetOwner {
+    String userName;
+    public AnimalType animal;
+
+    public PerOwner(AnimalType animal) { this.animal = animal; }
+
+    public String getUserName() {
+        System.out.println("Person name is " + , userName);
+        return userName;
+    }
+    public void setUserName(String userName) { this.userName = userName; }
+
+    public void play() { animal.sound(); }
+}
+```
+
+<br>
+
+**Main.java**
+
+```java
+package com.spring;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class MainApp {
+    public static void main(String[] args) {
+        /* main함수에서 Contaier를 생성 */
+        // 설정 파일은 인자로 넣고, 해당 설정 파일에 맞게 bean들을 만든다.
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("com/spring/beans/bean.xml");
+
+        // getBean()을 통해 bean의 주소값을 가져온다.
+        PetOwner person1 = (PerOwner) context.getBean("petOwner");
+        person1.setUserName("Alice");
+        person1.getUserName();
+
+        PetOwner person2 = (PerOwner) context.getBean("petOwner");
+        person2.getUserName();
+
+        context.close();
+    }
+}
+```
+
+<br>
+
+**bean.xml**
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:context="http://www.springframework.org/schema/context"
+      xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+    <bean id="dog" class="com.spring.Dog">
+        <property name="myName" value="poodle"></property>
+    </bean>
+
+    <bean id="cat" class="com.spring.Cat">
+        <property name="myName" value="bella"></property>
+    </bean>
+
+    <bean id="petOwner" class="com.spring.PetOwner" scope="singleton">
+        <constructor-arg name="animal" ref="dog"></constructor-arg>
+    </bean>
+</beans>
+https://gmlwjd9405.github.io/2018/11/10/spring-beans.html
+```
+
+<br>
+
+![](/images/Interview/post16/2022-01-02-15-40-19.png?style=centerme)
 
 <br>
