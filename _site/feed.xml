@@ -7,6 +7,826 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>쿠키 vs 세션 vs 캐시</title>
+				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해…&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;style&gt;
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: &quot;&quot;;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: &quot;&quot;;
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: &quot;&quot;;
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: &quot;&quot;;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: &quot;&quot;;
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: &quot;&quot;;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: &quot;&quot;;
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+&lt;/style&gt;
+
+&lt;div class=&quot;containercoffee&quot;&gt;
+    &lt;div class=&quot;coffee-header&quot;&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-medium&quot;&gt;
+      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+</description>
+				<pubDate>Sun, 02 Jan 2022 14:00:00 +0900</pubDate>
+				<link>/interview/2022/01/02/Interview-interview-26.html</link>
+				<guid isPermaLink="true">/interview/2022/01/02/Interview-interview-26.html</guid>
+			</item>
+		
+			<item>
+				<title>쿠키 vs 세션 vs 캐시</title>
+				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해…&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;style&gt;
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: &quot;&quot;;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: &quot;&quot;;
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: &quot;&quot;;
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: &quot;&quot;;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: &quot;&quot;;
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: &quot;&quot;;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: &quot;&quot;;
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+&lt;/style&gt;
+
+&lt;div class=&quot;containercoffee&quot;&gt;
+    &lt;div class=&quot;coffee-header&quot;&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-medium&quot;&gt;
+      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/270f.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 쿠키와 세션
+&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;쿠키와 세션을 사용하는 이유가 뭘까?&lt;/p&gt;
+
+&lt;p&gt;그것은 바로 &lt;strong&gt;HTTP 프로토콜의 특징이자 약점을 보완&lt;/strong&gt;하기 위해서 일 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; HTTP 프로토콜의 특징
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Connectionless 프로토콜 (비연결 지향)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;클라이언트가 서버에 요청(Reqeust)을 했을 때, 그 요청에 맞는 응답(Response)을 보낸 후 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;연결을 끊는 처리방식이다.&lt;/span&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;HTTP 1.1 버전에서 커넥션을 계속 유지하고, 요청(Request)에 재활용하는 기능이 추가되었다. (HTTP Header)에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;keep alive&lt;/span&gt; 옵션을 주어 커넥션을 재활용하게 한다. HTTP 1.1 버전에선 디폴트(default) 옵션이다.&lt;/li&gt;
+  &lt;li&gt;HTTP가 TCP 위에서 구현되었기 때문에(TCP:연결 지향, UDP: 비연결 지향) 연결 지향적이라고 할 수 있다는 얘기가 있어 논란이 있지만, 아직까진 네트워크 관점에서 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;keep-alive&lt;/span&gt;는 옵션으로 두고, 서버 측에서 비연결 지향적인 특성으로 커넥션 관리에 대한 비용을 줄이는 것이 명확한 장점으로 보기 때문에 비연결 지향으로 알아두었다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Stateless 프로토콜&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;커넥션을 끊는 순가 클라이언트와 서버의 통신이 끝나며 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;상태 정보는 유지하지 않는 특성이&lt;/span&gt; 있다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;클라이언트와 첫 번째 통신에서 데이터를 주고 받았다 해도, 두 번째 통신에서 이전 데이터를 유지하지 않는다.&lt;/li&gt;
+  &lt;li&gt;하지만, 실제로는 데이터 유지가 필요한 경우가 많다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;link href=&quot;http://fonts.googleapis.com/earlyaccess/hanna.css&quot; rel=&quot;stylesheet&quot; /&gt;
+
+&lt;div style=&quot;background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;&quot;&gt;
+
+정보가 유지되지 않으면, 매번 페이지를 이동할 때마다 로그인을 다시 하거나, 상품을 선택했는데 구매 페이지에서 선택한 상품의 정보가 없거나 하는 등의 일이 발생할 수 있다.&lt;br /&gt;&lt;br /&gt;
+→ 따라서, Stateful한 경우를 대처하기 위해 쿠키와 세션을 사용한다!
+&lt;br /&gt;
+
+쿠키와 세션의 차이점은 크게 상태 정보의 저장 위치이다.&lt;br /&gt;
+
+쿠키는 '클라이언트(=로컬PC)에 저장하고 세션은 '서버'에 저장한다.
+
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;서버와 클라이언트가 통신을 할 때 통신이 연속적으로 이어지지 않고 한 번 통신이 되면 끊어진다. 따라서 서버는 클라이언트가 누구인지 계속 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;인증&lt;/span&gt;을 해줘야 한다. 하지만 그것은 매우 귀찮고 번거로운 일이다.&lt;/p&gt;
+
+&lt;p&gt;그런 번거로움을 해결하는 방법이 바로 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;쿠기와 세션&lt;/span&gt;이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 쿠키 Cookie
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;HTTP의 일종으로 사용자가 어떠한 웹 사이트를 방문할 경우, 그 사이트가 사용하고 있는 서버에서 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;사용자의 컴퓨터에 저장하는 작은 기록 정보 파일&lt;/span&gt;이다.&lt;/p&gt;
+
+&lt;p&gt;HTTP에서 클라이언트의 상태 정보를 클라이언트의 PC에 저장하였다가 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;필요시 정보를 참조하거나 재사용할 수 있다.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 쿠키의 특징
+&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;이름, 값, 만료일(저장기간), 경로 정보로 구성&lt;/span&gt;되어 있다.&lt;/li&gt;
+  &lt;li&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;클라이언트에 총 300개의 쿠키를 저장&lt;/span&gt;할 수 있다.&lt;/li&gt;
+  &lt;li&gt;하나의 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;도메인 당 20개&lt;/span&gt;의 쿠키를 가질 수 있다.&lt;/li&gt;
+  &lt;li&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;하나의 쿠키는 4KB(=4096byte)까지 저장&lt;/span&gt; 가능하다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 쿠키의 동작 순서
+&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;클라이언트가 페이지를 요청한다. (사용자가 웹사이트에 접근)&lt;/li&gt;
+  &lt;li&gt;웹 서버는 클라이언트가 보낸 Request-Header에 쿠키가 없음을 판별하고 통신 상태(UserId, Password, 조작상태, 방문횟수 등)을 저장한 쿠키를 response한다.&lt;/li&gt;
+  &lt;li&gt;생성한 쿠키에 정보를 담아 HTTP 화면을 돌려줄 때, 같이 클라이언트에게 돌려준다.&lt;/li&gt;
+  &lt;li&gt;넘겨받은 쿠키는 클라이언트가 가지고 있다가(로컬 PC에 저장)다시 서버에 요청할 때 요청과 함께 쿠키를 전송한다.&lt;/li&gt;
+  &lt;li&gt;동일 사이트 재방문 시 클라이언트의 PC에 해당 쿠키가 있는 경우, HTTP Header에 쿠키를 실어서 서버에 Request한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 사용 예시
+&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;방문 사이트에서 로그인 시, “아이디와 비밀번호를 저장하시겠습니까?”&lt;/li&gt;
+  &lt;li&gt;팝업창을 통해 “오늘 이 창을 다시 보지 않기” 체크&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 세션 Session
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;일정 시간 동안 같은 사용자(브라우저)로부터 들어오는 일련의 요구를 하나의 상태로 보고, 그 상태를 유지시키는 기술이다. 여기서 일정 시간은 방문자가 웹 브라우저를 통해 웹 서버에 저속한 시점부터 웹 브라우저를 종료하여 연결을 끝내는 시점을 말한다.&lt;/p&gt;
+
+&lt;p&gt;즉, &lt;strong&gt;방문자가 웹 서버에 접속해 있는 상태를 하나의 단위로 보고 그것을 세션이라고 한다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 세션 특징
+&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;웹 서버에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;웹 컨테이너의 상태를 유지하기 위한 정보를 저장한다.&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;웹 서버의 저장되는 쿠키(=세션 쿠키)&lt;/li&gt;
+  &lt;li&gt;브라우저를 닫거나, 서버에서 세션을 삭제했을 때만 삭제가 되므로, &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;쿠키보다 비교적 보안이 좋다.&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;저장 데이터에 제한이 없다. (서버 용량이 허용하는 한에서)&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;각 클라이언트에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;고유 Session ID를 부여한다.&lt;/span&gt; Session ID로 클라이언트를 구분해 각 요구에 맞는 서비스를 제공&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 세션의 동작 순서
+&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;클라이언트가 서버에 접속시 , 세션 ID를 발급한다.&lt;/li&gt;
+  &lt;li&gt;서버에서는 클라이언트로 발급해준 세션 ID를 쿠키를 이용해서 저장.&lt;/li&gt;
+  &lt;li&gt;클라이언트는 다시 페이지에 접속할때, 쿠키에 저장된 세션 ID를 서버에 전달&lt;/li&gt;
+  &lt;li&gt;서버는 Request Header에 쿠키정보(세션ID)로 클라이언트를 판별&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 사용 예시
+&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;화면을 이동해도 로그인이 풀리지 않고 로그아웃하기 전까지 유지&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; SESSION ID 보안의 취약점
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;세션 해킹&lt;/strong&gt;: 홈페이지 관리자의 세션 아이디를 탈취 =&amp;gt; 쿠키값을 관리자의 세션 아이디로 변경한다. =&amp;gt; 관리자 권한으로 이용&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;예방법&lt;/strong&gt;: 세션에 로그인 했을 때의 IP를 저장 =&amp;gt; 페이지 이동 시마다, 현재 IP와 세션의 IP/브라우저 정보(UserAgent)가 같은지 검사&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 쿠키와 세션의 차이
+&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;쿠키와 세션은 비슷한 역할을 하며, 동작 원리도 비슷하다. 그 이유는 세션도 결국 쿠키를 사용하기 때문이다.&lt;/li&gt;
+  &lt;li&gt;큰 차이점은 &lt;strong&gt;사용자의 정보가 저장되는 위치&lt;/strong&gt;이다. &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;쿠키는 서버의 자원을 전혀 사용하지 않으며,&lt;/span&gt; &lt;strong&gt;세션은 서버의 자원을 사용&lt;/strong&gt;한다.&lt;/li&gt;
+  &lt;li&gt;보안 면에서 세션이 더 우수하다.&lt;/li&gt;
+  &lt;li&gt;쿠키는 클라이언트 로컬에 저장되기 때문에 변질되거나 request에서 &lt;strong&gt;스니핑&lt;/strong&gt; 당할 우려가 있어서 &lt;strong&gt;보안에 취약&lt;/strong&gt;하지만 세션은 쿠키를 이용해서 session-id만 저장하고 그것으로 구분하여 서버에서 처리하기 때문에 비교적 &lt;strong&gt;보안성이 높다&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;라이프 사이클&lt;/strong&gt;은 쿠키도 만료기간이 있지만 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;파일로 저장되기 때문에 브라우저를 종료해도 정보가 유지&lt;/span&gt;될 수 있다. 또한 만료기간을 따로 지정해 &lt;strong&gt;쿠키를 삭제할 때까지 유지할 수도&lt;/strong&gt; 있다.&lt;/li&gt;
+  &lt;li&gt;반면에 세션도 만료기간을 정할 수 있지만, &lt;strong&gt;브라우저가 종료되면 만료기간에 상관없이 삭제&lt;/strong&gt;된다.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;속도 면에서 쿠키가 더 우수&lt;/strong&gt;하며 쿠키는 쿠키에 정보가 있기 때문에 서버에 요청 시 속도가 빠르고 세션은 정보가 서버에 있기 때문에 처리가 요구되어 비교적 느린 속도를 낸다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-02-14-33-51.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 세션을 사용하면 좋은데 왜 쿠키를 사용할까?
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; 세션이 쿠키에 비해 보안이 높은 편이나 쿠키를 사용하는 이유는 세션은 서버에 저장되고, 서버의 자원을 사용하기에 서버 자원에 한계가 있다.&lt;/p&gt;
+
+&lt;p&gt;이로 인해 속도가 느려질 수 있고 자원관리 차원에서 쿠키와 세션을 적절한 요소 및 기능에 병행 사용하여 서버 자원의 낭비를 방지하며 웹 사이트의 속도를 높일 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 캐시 Cache
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;캐시&lt;/strong&gt;는 웹 페이지 요소를 저장하기 위한 임시 저장소이다.&lt;/p&gt;
+
+&lt;p&gt;쿠키/세션은 정보를 저장하기 위해 사용된다.&lt;/p&gt;
+
+&lt;p&gt;캐시는 웹 페이지를 빠르게 렌더링할 수 있도록 도와주고 쿠키/세션은 사용자의 인증을 도와준다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;캐시는 이미지, 비디오, 오디오, css, js파일 등 데이터나 값을 미리 복사해 놓는 리소스 파일들의 임시 저장소이다.&lt;/li&gt;
+  &lt;li&gt;저장 공간이 작고 비용이 비싼 대신 빠른 성능을 제공한다.&lt;/li&gt;
+  &lt;li&gt;같은 웹 페이지에 접속할 때 사용자의 PC에서 로드하므로 서버를 거치지 않아도 된다.&lt;/li&gt;
+  &lt;li&gt;이전에 사용된 데이터가 다시 사용될 가능성이 많으면 캐시 서버에 있는 데이터를 사용한다.&lt;/li&gt;
+  &lt;li&gt;그래서 다시 사용될 확률이 있는 데이터들이 빠르게 접근할 수 있어진다. (페이지 로딩 속도 ↑)&lt;/li&gt;
+  &lt;li&gt;캐시 히트(hit): 캐시를 사용할 수 있는 경우 (ex: 이전에 왔던 요청이랑 같은 게 왔을 때)&lt;/li&gt;
+  &lt;li&gt;캐시 미스(miss): 캐시를 사용할 수 없는 경우 (ex: 웹서버로 처음 요청했을 때)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>Sun, 02 Jan 2022 14:00:00 +0900</pubDate>
+				<link>/interview/2022/01/02/Interview-interview-25.html</link>
+				<guid isPermaLink="true">/interview/2022/01/02/Interview-interview-25.html</guid>
+			</item>
+		
+			<item>
 				<title>REST API와 HTTP Methods</title>
 				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -4563,1189 +5383,6 @@ Index Scan은 Leaf Level의 첫번째 페이지부터 데이터 검색을 수행
 				<pubDate>Fri, 31 Dec 2021 11:00:00 +0900</pubDate>
 				<link>/interview/2021/12/31/Interview-interview-17.html</link>
 				<guid isPermaLink="true">/interview/2021/12/31/Interview-interview-17.html</guid>
-			</item>
-		
-			<item>
-				<title>Java Garbage Collector와 JVM 구조</title>
-				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해…&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;style&gt;
-.containercoffee {
-  width: 300px;
-  height: 280px;
-  position: relative;
-  top: calc(50% - 140px);
-  left: calc(50% - 150px);
-}
-.coffee-header {
-  width: 100%;
-  height: 80px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #ddcfcc;
-  border-radius: 10px;
-}
-.coffee-header__buttons {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  top: 25px;
-  background-color: #282323;
-  border-radius: 50%;
-}
-.coffee-header__buttons::after {
-  content: &quot;&quot;;
-  width: 8px;
-  height: 8px;
-  position: absolute;
-  bottom: -8px;
-  left: calc(50% - 4px);
-  background-color: #615e5e;
-}
-.coffee-header__button-one {
-  left: 15px;
-}
-.coffee-header__button-two {
-  left: 50px;
-}
-.coffee-header__display {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: calc(50% - 25px);
-  left: calc(50% - 25px);
-  border-radius: 50%;
-  background-color: #9acfc5;
-  border: 5px solid #43beae;
-  box-sizing: border-box;
-}
-.coffee-header__details {
-  width: 8px;
-  height: 20px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #9b9091;
-  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
-}
-.coffee-medium {
-  width: 90%;
-  height: 160px;
-  position: absolute;
-  top: 80px;
-  left: calc(50% - 45%);
-  background-color: #bcb0af;
-}
-.coffee-medium:before {
-  content: &quot;&quot;;
-  width: 90%;
-  height: 100px;
-  background-color: #776f6e;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 45%);
-  border-radius: 20px 20px 0 0;
-}
-.coffe-medium__exit {
-  width: 60px;
-  height: 20px;
-  position: absolute;
-  top: 0;
-  left: calc(50% - 30px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::before {
-  content: &quot;&quot;;
-  width: 50px;
-  height: 20px;
-  border-radius: 0 0 50% 50%;
-  position: absolute;
-  bottom: -20px;
-  left: calc(50% - 25px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::after {
-  content: &quot;&quot;;
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  bottom: -30px;
-  left: calc(50% - 5px);
-  background-color: #231f20;
-}
-.coffee-medium__arm {
-  width: 70px;
-  height: 20px;
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  background-color: #231f20;
-}
-.coffee-medium__arm::before {
-  content: &quot;&quot;;
-  width: 15px;
-  height: 5px;
-  position: absolute;
-  top: 7px;
-  left: -15px;
-  background-color: #9e9495;
-}
-.coffee-medium__cup {
-  width: 80px;
-  height: 47px;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 40px);
-  background-color: #FFF;
-  border-radius: 0 0 70px 70px / 0 0 110px 110px;
-}
-.coffee-medium__cup::after {
-  content: &quot;&quot;;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 6px;
-  right: -13px;
-  border: 5px solid #FFF;
-  border-radius: 50%;
-}
-@keyframes liquid {
-  0% {
-    height: 0px;  
-    opacity: 1;
-  }
-  5% {
-    height: 0px;  
-    opacity: 1;
-  }
-  20% {
-    height: 62px;  
-    opacity: 1;
-  }
-  95% {
-    height: 62px;
-    opacity: 1;
-  }
-  100% {
-    height: 62px;
-    opacity: 0;
-  }
-}
-.coffee-medium__liquid {
-  width: 6px;
-  height: 63px;
-  opacity: 0;
-  position: absolute;
-  top: 50px;
-  left: calc(50% - 3px);
-  background-color: #74372b;
-  animation: liquid 4s 4s linear infinite;
-}
-.coffee-medium__smoke {
-  width: 8px;
-  height: 20px;
-  position: absolute;  
-  border-radius: 5px;
-  background-color: #b3aeae;
-}
-@keyframes smokeOne {
-  0% {
-    bottom: 20px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 50px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-@keyframes smokeTwo {
-  0% {
-    bottom: 40px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 70px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-.coffee-medium__smoke-one {
-  opacity: 0;
-  bottom: 50px;
-  left: 102px;
-  animation: smokeOne 3s 4s linear infinite;
-}
-.coffee-medium__smoke-two {
-  opacity: 0;
-  bottom: 70px;
-  left: 118px;
-  animation: smokeTwo 3s 5s linear infinite;
-}
-.coffee-medium__smoke-three {
-  opacity: 0;
-  bottom: 65px;
-  right: 118px;
-  animation: smokeTwo 3s 6s linear infinite;
-}
-.coffee-medium__smoke-for {
-  opacity: 0;
-  bottom: 50px;
-  right: 102px;
-  animation: smokeOne 3s 5s linear infinite;
-}
-.coffee-footer {
-  width: 95%;
-  height: 15px;
-  position: absolute;
-  bottom: 25px;
-  left: calc(50% - 47.5%);
-  background-color: #41bdad;
-  border-radius: 10px;
-}
-.coffee-footer::after {
-  content: &quot;&quot;;
-  width: 106%;
-  height: 26px;
-  position: absolute;
-  bottom: -25px;
-  left: -8px;
-  background-color: #000;
-}
-&lt;/style&gt;
-
-&lt;div class=&quot;containercoffee&quot;&gt;
-    &lt;div class=&quot;coffee-header&quot;&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-medium&quot;&gt;
-      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/270f.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; Garbage Collector &amp;amp; JVM
-&lt;/h2&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;GC(Garbage Collector)에 대해서 이야기 하기 전에 먼저 JVM의 구조를 아는 것이 중요하다.&lt;/p&gt;
-
-&lt;p&gt;그래서 GC를 설명하기 전에 JVM을 먼저 살펴보자.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2021-12-30-14-20-57.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; JVM의 역할
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;자바 애플리케이션을 Class Loader를 통해 읽어 들여 자바 API와 함께 실행&lt;/li&gt;
-  &lt;li&gt;JVM은 Java와 OS 사이에서 중개자 역할을 수행
-    &lt;ul&gt;
-      &lt;li&gt;JAVA가 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;OS에 독립적&lt;/span&gt;으로 실행 및 재사용을 가능하게 함&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;메모리 관리, GC을 수행&lt;/span&gt;&lt;/li&gt;
-  &lt;li&gt;스택기반의 가상머신
-    &lt;ul&gt;
-      &lt;li&gt;ARM 아키텍쳐 같은 하드웨어는 레지스터 기반으로 동작하는데 비해 JVM은 스택기반으로 동작한다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; JVM의 구조
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;.class 파일 = 바이트 코드&lt;/li&gt;
-  &lt;li&gt;byte 코드 → JVM과 같은 가상 머신이 이해할 수 있는 코드 - binary 코드
-    &lt;ul&gt;
-      &lt;li&gt;CPU가 이해할 수 있는 코드가&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;class-loader&quot;&gt;&lt;strong&gt;Class Loader&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;바이트 코드를 읽어오며 메모리에 적절히 배치하는 역할&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;로딩:&lt;/strong&gt; .class 파일을 읽어온다.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;링크:&lt;/strong&gt; 코드 내부의 래퍼런스를 연결&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;초기화:&lt;/strong&gt; 클래스에 있는 static 값들을 초기화&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;runtime-data-areamemory&quot;&gt;&lt;strong&gt;Runtime Data Area(Memory)&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;JVM의 메모리 영역으로 자바 애플리케이션을 실행할 때 사용되는 데이터들을 적재하는 영역이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2021-12-30-14-48-28.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;전체 공유 자원&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;method-area-heap-area&quot;&gt;&lt;strong&gt;[Method Area, Heap Area]&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Method:&lt;/strong&gt; 클래스 수준의 정보 저장
-    &lt;ul&gt;
-      &lt;li&gt;클래스 멤버 변수, 클래스 메소드 정보, Type(Class or interface)정보, Constant Pool, static, final 변수 등이 생성된다.&lt;/li&gt;
-      &lt;li&gt;Class의 메타 정보를 저장.(Field 이름, Field 타입, Class 이름 등등)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Heap:&lt;/strong&gt; 객체(인스턴스) 수준의 정보 저장
-    &lt;ul&gt;
-      &lt;li&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;GC의 주요 대상&lt;/span&gt;&lt;/li&gt;
-      &lt;li&gt;흔히 코드에서 ‘new’ 명령어를 통해 생성된 인스턴스 변수가 놓인다.&lt;/li&gt;
-      &lt;li&gt;스택영역에 저장되는 로컬 변수, 매개변수와 달리 힙영역에서 보관되는 메모리는 메소드 호출이 끝나도 사라지지 않고 유지된다.
-        &lt;ul&gt;
-          &lt;li&gt;(언제까지?) 주소를 읽어버려 가비지가 되어 GC에 의해 지워질 때까지 아니면 JVM이 종료될 때까지&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;stack-area-pc-register-native-method-stack&quot;&gt;&lt;strong&gt;[Stack Area, PC register, Native Method Stack]&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;쓰레드 단위로 하나씩 생성된다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Stack:&lt;/strong&gt; 인스턴스 및 지역 변수의 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;참조 주소&lt;/span&gt;들을 저장&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;JVM 시작 시 생성되고 프로그램 종료될 때까지 유지된다.&lt;/li&gt;
-      &lt;li&gt;로컬변수와 매개변수의 특징은 선언된 블록 안에서만 유효한 변수들이고 이것이 스택영역에 저장되는 것이다.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-    &lt;link href=&quot;http://fonts.googleapis.com/earlyaccess/hanna.css&quot; rel=&quot;stylesheet&quot; /&gt;
-
-    &lt;div style=&quot;background: #eee;
-  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;&quot;&gt;
-
-클래스 Person p=new Person(); 이라는 소스를 작성했다면 Person p는 스택 영역에 생성되고 new로 생성된 Person 클래스의 인스턴스는 힙 영역에 생성된다.&lt;br /&gt; 스택영역에 생성된 p의 값으로 힙 영역의 주소값을 가지고 있다.&lt;br /&gt;→ 즉, 스택 영역에 생성된 p가 힙 영역에 생성된 객체를 가리키고(참조하고) 있는 것&lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;PC register:&lt;/strong&gt; 현재 쓰레드가 실행되는 부분의 주소와 명령을 저장하고 있는 영역
-    &lt;ul&gt;
-      &lt;li&gt;네이티브 메소드는 java가 아닌 low-level로 구현된 메소드&lt;br /&gt;&lt;/li&gt;
-      &lt;li&gt;Thread 마다 하나씩 존재하고 &lt;strong&gt;Native Pointer&lt;/strong&gt;와 &lt;strong&gt;Return Address&lt;/strong&gt;를 가지고 있음&lt;/li&gt;
-      &lt;li&gt;즉, PC register는 Thread가 어떠한 명령을 실행하게 될지에 대한 부분을 기록
-ex. Thread.currentThread()&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;execution-engine&quot;&gt;&lt;strong&gt;Execution Engine&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;인터프리터&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;바이트 코드를 한줄 한줄 읽어서 네이티브 코드로 변환&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;JIT(Just In Time) 컴파일러&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;바이트 코드에서 반복되는 코드 부분은 JIT 컴파일러가 미리 네이티브 코드로 변환시켜 놓음&lt;/li&gt;
-      &lt;li&gt;반복되는 코드가 읽힐 순서가 왔을 때, 인터프리터로 읽지 않고 바로 네이티브 코드를 바로 사용한다.&lt;/li&gt;
-      &lt;li&gt;인터프리터 읽을 때의 속도 효율성을 JIT 컴파일러가 보완하는 형태&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;GC(Garbage Collector)&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;더 이상 참조되지 않는 객체를 모아서 메모리 정리를 한다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; Gargabe Collector
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Java에서의 GC는 기본적으로 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Mark And Sweep&lt;/span&gt; 방식으로 돌아간다.&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Mark And Sweep&lt;/span&gt; 방식으로 GC를 실행할 경우 2가지 특징이 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;의도적으로 GC를 실행시켜야 한다.&lt;/li&gt;
-  &lt;li&gt;애플리케이션 실행과 GC 실행이 병행된다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;가바지는 사용되지 않는 객체를 말한다.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;jvm에서-root-set이-어딜까&quot;&gt;&lt;strong&gt;JVM에서 Root set이 어딜까?&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2021-12-30-16-03-00.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Mark And Sweep 알고리즘은 &lt;strong&gt;Root Space&lt;/strong&gt;로부터 동적 메모리 영역의 객체 접근이 가능한지를 해제의 기준으로 둔다.&lt;/p&gt;
-
-&lt;p&gt;Root Space에서부터 해당 객체에 접근이 가능하다면 메모리에 유지시키고, 접근이 불가능하다면 메모리에서 지워버리는 방식인 것이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;그렇다면 JVM의 Root Space는 어디일까?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Heap 영역 메모리에 대한 참조를 들고 있을 수 있는 영역일 것이다.&lt;/p&gt;
-
-&lt;p&gt;JVM Memory 영역 중에서는 다음과 같다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;em&gt;Stack의 로컬 변수&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Method Area의 Static 변수&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Native Method Stack의 JNI 참조&lt;/em&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;아래 그림을 참고하자.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2021-12-30-16-04-49.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; Mark and Sweep
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Root가 참조하는 모든 객체, 또 그 객체들이 참조하는 객체들을 탐색해 내려가며 할당받은 각 메모리 영역에 1비트씩 남겨서 사용 중을 표시(Mark) 한다. 이게 바로 GC의 첫 번째 단계인 &lt;strong&gt;Mark&lt;/strong&gt; 단계이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2021-12-31-20-35-01.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Mark가 끝나면 GC는 힙 내부 전체를 돌면서 Mark 되지 않은 메모리들을 해제한다. 이 과정을 &lt;strong&gt;Sweep&lt;/strong&gt;라고 부른다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2021-12-31-20-35-44.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Mark and Sweep Algorithm&lt;/strong&gt;의 단점은 GC를 수행하는 동안 &lt;strong&gt;Stop the World&lt;/strong&gt;가 발생한다는 것이다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Stop The World:&lt;/strong&gt; Stop The World는 가비지 컬렉션을 실행하기 위해 JBM이 애플리케이션의 실행을 멈추는 작업이다. GC가 실행될 때는 GC를 실행하는 쓰레드를 제외한 모든 쓰레드들의 작업이 중단되고 GC가 완료되면 작업이 재개된다. 당연히 모든 쓰르데들의 작업이 중단되면 애플리케이션이 멈추기 때문에, GC의 성능 개선을 위해 튜닝을 한다고 하면 보통 stop-the-world의 시간을 줄이는 작업을 하는 것이다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 힙(Heap) 영역의 구조와 가비지 컬렉션 프로세스
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;힙 영역은 &lt;strong&gt;Old, Eden, S0, S1&lt;/strong&gt; 총 네 개 영역으로 나눌 수 있다.&lt;/p&gt;
-
-&lt;p&gt;인스턴스의 메모리 할당 측면에서 성능을 높이려고 용도를 구분해둔 것이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2021-12-31-20-45-12.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Metaspace:&lt;/strong&gt; 클래스 메타 데이터를 native 메모리에 저장하고 메모리가 부족할 경우 이를 자동으로 늘려주는 공간을 말한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;힙은 Young, Generation, Old Generation으로 크게 두 개의 영역으로 나누어 지고, Young Generation은 또다시 Eden, Survivor Space 0, 1로 세분화 되어진다. S0, S1 으로 표시되는 영역이 Survivor Space 0, 1이다. 각 영역의 역할은 가비지 컬렉션 프로세스를 알면 알 수 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;(1)&lt;/strong&gt; 새로운 객체는 &lt;strong&gt;Eden&lt;/strong&gt; 영역에 할당된다. 두 개의 &lt;strong&gt;Survivor Space&lt;/strong&gt;는 비워진 상태로 시작한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2021-12-31-20-53-18.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;(2)&lt;/strong&gt; Eden 영역이 가득 차면, **MinorGC(Young Generation을 대상으로 하는 GC)가 발생한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;(3)&lt;/strong&gt; MinorGC가 발생하면, Reachable 객체들은 S0으로 옮겨진다. Unreachable 객체들은 Eden 영역이 클리어 될 때 함께 메모리에서 사라진다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2021-12-31-20-55-05.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;(4)&lt;/strong&gt; 다음 MinorGC 가 발생할 때, Eden 영역에는 3번과 같은 과정이 발생한다. Unreachable 객체들은 지워지고, Reachable 객체들은 Survivor Space로 이동한다. 기존에 S0에 있었던 Reachable 객체들은 S1으로 옮겨지는데, 이때, age 값이 증가되어 옮겨진다. 살아남은 모든 객체들이 S1 으로 모두 옮겨지면, S0와 Eden 은 클리어 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;link href=&quot;http://fonts.googleapis.com/earlyaccess/hanna.css&quot; rel=&quot;stylesheet&quot; /&gt;
-
-&lt;div style=&quot;background: #eee;
-  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;&quot;&gt;
-
-Survivor Spae 간의 이동마다 age 값이 증가한다. JVM 중 가장 일반적인 HotSpot JVM의 경우 이 age의 기본 임계값은 31이다. 객체 헤더에 age를 기록하는 부분이 6 bit로 되어 있기 때문이다. 아래 그림은 S0(From)에서 age가 1이었던 객체들이 S1(To)로 이동하면서 2로 증가한 예시이다.&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2021-12-31-20-56-55.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;(5)&lt;/strong&gt; 다음 MinorGC가 발생하면, 4번 과정이 반복되는데 S1이 가득 차 있었으므로 S1에서 살아남은 객체들은 S0으로 옮겨지면서 Eden과 S1은 클리어 된다. 이때도 age값이 증가되어 옮겨진다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;link href=&quot;http://fonts.googleapis.com/earlyaccess/hanna.css&quot; rel=&quot;stylesheet&quot; /&gt;
-
-&lt;div style=&quot;background: #eee;
-  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;&quot;&gt;
-
-Survivor 영역 중 하나는 반드시 비어 있는 상태로 남아 있어야 한다. 만약 두 Survivor 영역에 모두 데이터가 존재하거나, 두 영역 모두 사용량이 0이라면 여러분의 시스템은 정상적인 상황이 아니라고 생각하면 된다.&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2021-12-31-20-58-28.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;(6)&lt;/strong&gt; Young Generation에서 계속해서 살아남으며 age 값이 증가하는 객체들은 age 값이 특정값 이상이 되면 Old Generation(Java 8까지는 Tenured Generation라 부름)으로 옮겨지는데 이 단계를 &lt;strong&gt;Promotion&lt;/strong&gt;이라고 한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2021-12-31-20-59-18.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;그렇기 때문에 MinorGC가 계속해서 반복된다면 Promotion 작업도 꾸준히 발생하게 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2021-12-31-21-00-15.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;(7)&lt;/strong&gt; Promotion 작업이 계속해서 반복되면서 &lt;strong&gt;Old Generation&lt;/strong&gt;이 가득 차게 되면 &lt;strong&gt;MajorGC&lt;/strong&gt;(Old Generation을 대상으로 하는 GC)가 발생하게 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;link href=&quot;http://fonts.googleapis.com/earlyaccess/hanna.css&quot; rel=&quot;stylesheet&quot; /&gt;
-
-&lt;div style=&quot;background: #eee;
-  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;&quot;&gt;
-
-Young 영역은 일반적으로 Old 영역보다 크키가 작기 때문에 GC가 보통 0.5초에서 1초 사이에 끝난다. 그렇기 때문에 Minor GC는 애플리케이션에 크게 영향을 주지 않는다. 하지만 Old 영역은 Young 영역보다 크며 Young 영역을 참조할 수도 있다. 그렇기 때문에 Major GC는 일반적으로 Minor GC보다 시간이 오래걸리며, 10배 이상의 시간을 사용한다.
-
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2021-12-31-21-01-20.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2021-12-31-21-03-31.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/270f.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; Garbage Collection의 종류
-&lt;/h2&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; Serial GC
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Mark-Sweep-Compact 알고리즘 사용&lt;/li&gt;
-  &lt;li&gt;적은 메모리와 CPU 코어 갯수가 적을 때 적합&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Old 영역에 살아있는 객체를 Mark하고 Heap의 앞부분부터 살아있는 객체를 Sweep한 뒤 힙의 앞부분부터 객체를 쌓는다.(Compact) 메모리와 CPU 코어수가 적을 때 좋다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;mark 단계에서는 old 영역에서 살아있는 객체를 확인한다.&lt;/li&gt;
-  &lt;li&gt;sweep 단계에서는 heap 영역의 앞부분부터 확인하여 표시된 객체를 제거한다.&lt;/li&gt;
-  &lt;li&gt;compact 단계에서는 메모리 단편화를 방지하기 위해 힙의 앞부분부터 객체를 채워 넣는다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; Parallel GC
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Serial GC와 알고리즘은 같지만 GC를 처리하는 Thread가 여러 개이다.&lt;/li&gt;
-  &lt;li&gt;메모리와 코어가 충분할 때 적합하다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Serial GC와 기본적인 알고리즘은 같지만, GC를 처리하는 Thread의 개수가 여러 개다. 메모리와 CPU 코어 수가 많을수록 좋다. Java 8 버전에서 default로 사용되는 gc이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2021-12-31-21-29-52.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이는 Parallel GC 에서의 GC 프로세스가 더 빠르게 동작할 수 있게 해주며 이러한 차이는 GC를 처리하는 동안 Java의 프로세스가 모두 멈춰버리는 Stop-The-World 현상이 나타나는 시간에도 영향을 주게된다. 즉, STW(Stop-The-World) 시간이 좀 더 적게 걸리는 Parallel GC에서의 Java 애플리케이션이 좀 더 매끄럽게 동작한다는 의미이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; Paraelle Old GC
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Parallel GC에서 Old GC 알고리즘을 개선한 버전이다.&lt;/li&gt;
-  &lt;li&gt;Mark-Summary-Compact 알고리즘을 사용하며 좀 더 복잡하다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Mark-Sweep-Compact 방식은 단일 쓰레드가 old 영역을 검사하는 방식이라면 mark-summary-compact 방식은 여러 쓰르데를 사용해서 old 영역을 탐색한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;mark 단계에서는 old 영역을 region 별로 나누고 region 별로 살아있는 객체를 식별한다.&lt;/li&gt;
-  &lt;li&gt;summary 단계에서는 region 별 통계정보로 살아있는 객체의 밀도가 높은 부분이 어디까지 인지 dense prefix를 정한다. 오랜 기간 참조된 객체는 앞으로 사용할 확률이 높다는 가정하에 dense prefix를 기준으로 compact 영역을 줄인다.&lt;/li&gt;
-  &lt;li&gt;compact 단계에서는 compact 영역을 destination과 source로 나누며 살아있는 개체는 destination으로 이동시키고 참조되지 않는 객체는 제거한다.&lt;/li&gt;
-&lt;/ol&gt;
-
-</description>
-				<pubDate>Thu, 30 Dec 2021 11:00:00 +0900</pubDate>
-				<link>/interview/2021/12/30/Interview-interview-16.html</link>
-				<guid isPermaLink="true">/interview/2021/12/30/Interview-interview-16.html</guid>
-			</item>
-		
-			<item>
-				<title>스택(Stack)과 큐(Queue)의 개념 및 활용</title>
-				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해…&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;style&gt;
-.containercoffee {
-  width: 300px;
-  height: 280px;
-  position: relative;
-  top: calc(50% - 140px);
-  left: calc(50% - 150px);
-}
-.coffee-header {
-  width: 100%;
-  height: 80px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #ddcfcc;
-  border-radius: 10px;
-}
-.coffee-header__buttons {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  top: 25px;
-  background-color: #282323;
-  border-radius: 50%;
-}
-.coffee-header__buttons::after {
-  content: &quot;&quot;;
-  width: 8px;
-  height: 8px;
-  position: absolute;
-  bottom: -8px;
-  left: calc(50% - 4px);
-  background-color: #615e5e;
-}
-.coffee-header__button-one {
-  left: 15px;
-}
-.coffee-header__button-two {
-  left: 50px;
-}
-.coffee-header__display {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: calc(50% - 25px);
-  left: calc(50% - 25px);
-  border-radius: 50%;
-  background-color: #9acfc5;
-  border: 5px solid #43beae;
-  box-sizing: border-box;
-}
-.coffee-header__details {
-  width: 8px;
-  height: 20px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #9b9091;
-  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
-}
-.coffee-medium {
-  width: 90%;
-  height: 160px;
-  position: absolute;
-  top: 80px;
-  left: calc(50% - 45%);
-  background-color: #bcb0af;
-}
-.coffee-medium:before {
-  content: &quot;&quot;;
-  width: 90%;
-  height: 100px;
-  background-color: #776f6e;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 45%);
-  border-radius: 20px 20px 0 0;
-}
-.coffe-medium__exit {
-  width: 60px;
-  height: 20px;
-  position: absolute;
-  top: 0;
-  left: calc(50% - 30px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::before {
-  content: &quot;&quot;;
-  width: 50px;
-  height: 20px;
-  border-radius: 0 0 50% 50%;
-  position: absolute;
-  bottom: -20px;
-  left: calc(50% - 25px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::after {
-  content: &quot;&quot;;
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  bottom: -30px;
-  left: calc(50% - 5px);
-  background-color: #231f20;
-}
-.coffee-medium__arm {
-  width: 70px;
-  height: 20px;
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  background-color: #231f20;
-}
-.coffee-medium__arm::before {
-  content: &quot;&quot;;
-  width: 15px;
-  height: 5px;
-  position: absolute;
-  top: 7px;
-  left: -15px;
-  background-color: #9e9495;
-}
-.coffee-medium__cup {
-  width: 80px;
-  height: 47px;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 40px);
-  background-color: #FFF;
-  border-radius: 0 0 70px 70px / 0 0 110px 110px;
-}
-.coffee-medium__cup::after {
-  content: &quot;&quot;;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 6px;
-  right: -13px;
-  border: 5px solid #FFF;
-  border-radius: 50%;
-}
-@keyframes liquid {
-  0% {
-    height: 0px;  
-    opacity: 1;
-  }
-  5% {
-    height: 0px;  
-    opacity: 1;
-  }
-  20% {
-    height: 62px;  
-    opacity: 1;
-  }
-  95% {
-    height: 62px;
-    opacity: 1;
-  }
-  100% {
-    height: 62px;
-    opacity: 0;
-  }
-}
-.coffee-medium__liquid {
-  width: 6px;
-  height: 63px;
-  opacity: 0;
-  position: absolute;
-  top: 50px;
-  left: calc(50% - 3px);
-  background-color: #74372b;
-  animation: liquid 4s 4s linear infinite;
-}
-.coffee-medium__smoke {
-  width: 8px;
-  height: 20px;
-  position: absolute;  
-  border-radius: 5px;
-  background-color: #b3aeae;
-}
-@keyframes smokeOne {
-  0% {
-    bottom: 20px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 50px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-@keyframes smokeTwo {
-  0% {
-    bottom: 40px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 70px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-.coffee-medium__smoke-one {
-  opacity: 0;
-  bottom: 50px;
-  left: 102px;
-  animation: smokeOne 3s 4s linear infinite;
-}
-.coffee-medium__smoke-two {
-  opacity: 0;
-  bottom: 70px;
-  left: 118px;
-  animation: smokeTwo 3s 5s linear infinite;
-}
-.coffee-medium__smoke-three {
-  opacity: 0;
-  bottom: 65px;
-  right: 118px;
-  animation: smokeTwo 3s 6s linear infinite;
-}
-.coffee-medium__smoke-for {
-  opacity: 0;
-  bottom: 50px;
-  right: 102px;
-  animation: smokeOne 3s 5s linear infinite;
-}
-.coffee-footer {
-  width: 95%;
-  height: 15px;
-  position: absolute;
-  bottom: 25px;
-  left: calc(50% - 47.5%);
-  background-color: #41bdad;
-  border-radius: 10px;
-}
-.coffee-footer::after {
-  content: &quot;&quot;;
-  width: 106%;
-  height: 26px;
-  position: absolute;
-  bottom: -25px;
-  left: -8px;
-  background-color: #000;
-}
-&lt;/style&gt;
-
-&lt;div class=&quot;containercoffee&quot;&gt;
-    &lt;div class=&quot;coffee-header&quot;&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-medium&quot;&gt;
-      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;스택-stack&quot;&gt;&lt;strong&gt;스택 Stack&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2021-12-30-10-29-20.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;스택(stack)이란 &lt;strong&gt;쌓아 올린다는 것&lt;/strong&gt;을 의미한다.&lt;/p&gt;
-
-&lt;p&gt;따라서 스택 자료구조라는 것은 책을 쌓는 것처럼 &lt;strong&gt;차곡차곡 쌓아 올린 형태의 자료구조&lt;/strong&gt;를 말한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;스택의-특징&quot;&gt;&lt;span style=&quot;color:#3D9970; font-weight:bold&quot;&gt;스택의 특징&lt;/span&gt;&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;스택은 위 사진처럼 &lt;strong&gt;같은 구조와 크기의 자료&lt;/strong&gt;를 &lt;strong&gt;정해진 방향으로만&lt;/strong&gt; 쌓을 수 있고 &lt;strong&gt;top으로 정한 곳을 통해서만 접근&lt;/strong&gt;할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;top에는 가장 위에 있는 자료를 가리키고 있으며 삽입되는 새 자료는 top이 가리키는 자료의 위에 쌓이게 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;스택에서 자료를 삭제할 때도 top을 통해서만 가능하다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;스택은 시간 순서에 따라 자료가 쌓여서 &lt;strong&gt;가장 마지막에 삽입된 자료가 가장 먼저 삭제된다는&lt;/strong&gt; 구조적 특징을 가지게 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이러한 스택의 구조를 &lt;strong&gt;후입선출(LFO, Last-In-First-Out)&lt;/strong&gt; 구조라고 한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;비어있는 스택에서 원소를 추출하려고 하면 &lt;strong&gt;stack underflow&lt;/strong&gt;라고 하며 스택이 넘치는 경우 &lt;strong&gt;stack overflow&lt;/strong&gt;라고 한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;span style=&quot;color: rgba(131, 24, 67); font-weight:bold&quot;&gt;스택 오버플로우(stack overflow): &lt;/span&gt; 스택이 꽉 차서 더 이상 자료를 push 할 수 없는 경우인데도 push를 하는 경우&lt;/li&gt;
-  &lt;li&gt;&lt;span style=&quot;color: rgba(131, 24, 67); font-weight:bold&quot;&gt;스택 언더플로우(stack underflow): &lt;/span&gt;스택이 텅 비어있는 경우에 다시 pop을 하여 스택의 값을 빼낼 것을 요구하는 경우&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 스택 활용 예시
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;웹 브라우저 방문기록 (뒤로 가기): 가장 나중에 열린 페이지부터 다시 보여준다.&lt;/li&gt;
-  &lt;li&gt;역순 문자열 만들기: 가장 나중에 입력된 문자부터 취소한다.&lt;/li&gt;
-  &lt;li&gt;실행 취소 (undo): 가장 나중에 실해된 것부터 취소한다.&lt;/li&gt;
-  &lt;li&gt;후위 표기법 계산&lt;/li&gt;
-  &lt;li&gt;수식의 괄호 검사 (연산자 우선순위 표현을 위한 괄호 검사)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;큐-queue&quot;&gt;큐 Queue&lt;/h2&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2021-12-30-11-03-44.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;큐는 &lt;strong&gt;줄, 혹은 줄을 서서 기다리는 것&lt;/strong&gt;을 의미한다.&lt;/p&gt;
-
-&lt;p&gt;일상생활에서 놀이동산에서 줄을 서서 기다리는 것, 은행에서 먼저 온 사람의 업무를 창구에서 처리하는 것과 같이 &lt;strong&gt;선입선출(FIFO, First in First out) 방식&lt;/strong&gt;의 자료구조를 말한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;큐의-특징&quot;&gt;&lt;span style=&quot;color:#3D9970; font-weight:bold&quot;&gt;큐의 특징&lt;/span&gt;&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;정해진 한 곳(top)을 통해서 삽입, 삭제가 이루어지는 스택과 달리 큐는 한쪽 끝에서 삽입 작업이, 다른 쪽 끝에서 살제 작업이 양쪽으로 이루어진다.&lt;/p&gt;
-
-&lt;p&gt;이때 &lt;strong&gt;삭제 연산만 수행되는 곳을 프론트(fron)&lt;/strong&gt;, &lt;strong&gt;삽입 연산만 이루어지는 곳을 리어(rear)&lt;/strong&gt;로 정하여 각각의 연산 작업만 수행된다.&lt;/p&gt;
-
-&lt;p&gt;이때 큐의 리어에서 이루어지는 삽입연산을 &lt;strong&gt;인큐(enqueue)&lt;/strong&gt; 프론트에서 이루어지는 삭제연산을 &lt;strong&gt;디큐(dequeue)&lt;/strong&gt;라고 부른다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 큐 활용 예시
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;우선순위가 같은 작업 예약 (프린터의 인쇄 대기열)&lt;/li&gt;
-  &lt;li&gt;은행 업무&lt;/li&gt;
-  &lt;li&gt;콜센터 고객 대기시간&lt;/li&gt;
-  &lt;li&gt;프로세스 관리&lt;/li&gt;
-  &lt;li&gt;너비 우선 탐색(BFS) 구현&lt;/li&gt;
-  &lt;li&gt;캐시(Cache) 구현&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-				<pubDate>Thu, 30 Dec 2021 10:00:00 +0900</pubDate>
-				<link>/interview/2021/12/30/Interview-interview-15.html</link>
-				<guid isPermaLink="true">/interview/2021/12/30/Interview-interview-15.html</guid>
 			</item>
 		
 	</channel>
