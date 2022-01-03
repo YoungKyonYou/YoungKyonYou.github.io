@@ -1,0 +1,409 @@
+I"c<<p><br /><br /></p>
+
+<p><em><strong>오늘의 나보다 성장한 내일의 나를 위해…</strong></em></p>
+
+<p><br /></p>
+
+<p><br /><br /></p>
+
+<style>
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: "";
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: "";
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: "";
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: "";
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+</style>
+
+<div class="containercoffee">
+    <div class="coffee-header">
+      <div class="coffee-header__buttons coffee-header__button-one"></div>
+      <div class="coffee-header__buttons coffee-header__button-two"></div>
+      <div class="coffee-header__display"></div>
+      <div class="coffee-header__details"></div>
+    </div>
+    <div class="coffee-medium">
+      <div class="coffe-medium__exit"></div>
+      <div class="coffee-medium__arm"></div>
+      <div class="coffee-medium__liquid"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
+      <div class="coffee-medium__cup"></div>
+    </div>
+    <div class="coffee-footer"></div>
+</div>
+
+<p><br /><br /><br /><br /><br /><br /><br /><br /></p>
+
+<p><br /></p>
+
+<h2 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/270f.png" height="30" width="30" /> Integer의 ==와 .equals()
+</h2>
+
+<p><br /></p>
+
+<p>코딩 테스트를 공부하는 도중에 이해할 수 없는 일이 발생했다.</p>
+
+<p>Integer의 동등 비교를 하는 <span style="background: rgb(251,243,219)">if</span>문에서 발생한 문제였는데 말로 설명하는 것보단 코드로 보는 것이 나을 것 같다.</p>
+
+<p><br /></p>
+
+<p>참고로 아래 코드는 코딩 테스트 문제와는 관련이 없다.</p>
+
+<p><br /></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">HashMap</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">hs</span><span class="o">=</span><span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+<span class="n">hs</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="mi">2500</span><span class="o">);</span>
+<span class="n">hs</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2500</span><span class="o">);</span>
+
+<span class="nc">Integer</span> <span class="n">aa</span> <span class="o">=</span> <span class="mi">2500</span><span class="o">;</span>
+<span class="nc">Integer</span> <span class="n">bb</span> <span class="o">=</span> <span class="mi">2500</span><span class="o">;</span>
+
+<span class="nc">Integer</span> <span class="n">cc</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+<span class="nc">Integer</span> <span class="n">dd</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+
+<span class="kt">int</span> <span class="n">aaa</span><span class="o">=</span><span class="mi">3</span><span class="o">;</span>
+<span class="nc">Integer</span> <span class="n">bbb</span><span class="o">=</span><span class="mi">3</span><span class="o">;</span>
+
+<span class="kt">int</span> <span class="n">aaaa</span><span class="o">=</span><span class="mi">2500</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">bbbb</span><span class="o">=</span><span class="mi">2500</span><span class="o">;</span>
+
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">hs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">5</span><span class="o">)</span> <span class="o">==</span> <span class="n">hs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">aa</span> <span class="o">==</span> <span class="n">bb</span><span class="o">);</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cc</span> <span class="o">==</span> <span class="n">dd</span><span class="o">);</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">aaa</span> <span class="o">==</span> <span class="n">bbb</span><span class="o">);</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">aaaa</span> <span class="o">==</span> <span class="n">bbbb</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//결과</span>
+<span class="kc">false</span>
+<span class="kc">false</span>
+<span class="kc">true</span>
+<span class="kc">true</span>
+<span class="kc">true</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>결과에서 이상한 점을 찾았는가?</p>
+
+<p><br /></p>
+
+<p>사실 <strong>HashMap</strong>은 그냥 헷갈리라고 넣어봤다. 사실상 <span style="background: rgb(251,243,219)">aa==bb</span>한 것과 같다.</p>
+
+<p><br /></p>
+
+<p>중요한 것은 <span style="background: rgb(251,243,219)">aa==bb</span>에서 <strong>false</strong>가 나온 것과 <span style="background: rgb(251,243,219)">cc==dd</span>에서 <strong>true</strong>가 나온 것이 헷갈린다.</p>
+
+<p><br /></p>
+
+<p>우리가 기본적으로 <span style="background: rgb(251,243,219)">==</span>연산은 주소를 비교하는 것으로 알고 있다.</p>
+
+<p>Integer은 <span style="background: rgb(251,243,219)">Wrapper Class</span>니까 즉, 객체니까 주소를 비교한다.</p>
+
+<p>그러니까 <span style="background: rgb(251,243,219)">aa==bb</span>가 <strong>false</strong>가 나오는 것이 납득이 간다.</p>
+
+<p><strong>하지만!</strong> 왜 <span style="background: rgb(251,243,219)">cc==dd</span>는 <strong>true</strong>일까?!!</p>
+
+<p><br /></p>
+
+<p>이것도 분명 <strong>주소 비교</strong>를 할 텐데 말이다. <strong>true</strong>라는 것은 주소가 같다는 의미가 아닌가?..</p>
+
+<p>해답은 바로 <strong>Java Integer</strong> 객체의 내부 <strong>Caching</strong>에 있다.</p>
+
+<p><strong>Java Wrapper Class Cahching</strong> 코드를 살펴보면 다음과 같은 구조로 구현되어 있다.</p>
+
+<p><br /></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">IntegerCache</span> 
+ <span class="o">{</span>
+   <span class="kd">private</span> <span class="nf">IntegerCache</span><span class="o">(){}</span>
+   
+   <span class="kd">static</span> <span class="kd">final</span> <span class="nc">Integer</span> <span class="n">cache</span><span class="o">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Integer</span><span class="o">[-(-</span><span class="mi">128</span><span class="o">)</span> <span class="o">+</span> <span class="mi">127</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
+ 
+   <span class="kd">static</span> 
+   <span class="o">{</span>
+     <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">cache</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span>
+     <span class="n">cache</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Integer</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">128</span><span class="o">);</span> 
+   <span class="o">}</span>
+ <span class="o">}</span>
+    
+ <span class="kd">public</span> <span class="kd">static</span> <span class="nc">Integer</span> <span class="nf">valueOf</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> 
+ <span class="o">{</span>
+	<span class="kd">final</span> <span class="kt">int</span> <span class="n">offset</span> <span class="o">=</span> <span class="mi">128</span><span class="o">;</span>
+	<span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mi">128</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">127</span><span class="o">)</span> <span class="c1">// must cache </span>
+        <span class="o">{</span> 
+	    <span class="k">return</span> <span class="nc">IntegerCache</span><span class="o">.</span><span class="na">cache</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">offset</span><span class="o">];</span>
+	<span class="o">}</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Integer</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+ <span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>즉, -128부터 127에 해당하는 정수값까지는 내부 캐시에 저장되어 있기 때문에 <span style="background: rgb(251,243,219)">==</span>연산자로 비교를 해도 <span style="background: rgb(251,243,219)">int</span> 자료형과 마찬가지의 결과를 얻을 수 있지만 범위를 벗어나는 값들에 대해서는 <span style="background: rgb(251,243,219)">false</span> 값을 반환한다.</p>
+
+<p><br /></p>
+
+<p>그렇다면 <span style="background: rgb(251,243,219)">aaa==bbbb</span>는 왜 true가 나오는 것일까?</p>
+
+<p>그것은 바로 <strong>Primitive type</strong>과 <strong>Wrapper Class</strong> 사이의 값이 비교되기 때문이다. <strong>Primitive type</strong>의 경우 <span style="background: rgb(251,243,219)">==</span> 연산자는 <strong>값</strong>을 비교한다.</p>
+
+<p>만약 비교 대상 중에 <strong>Primitive Type</strong>의 변수가 하나라도 있다면 <span style="background: rgb(251,243,219)">==</span> 연산자는 <strong>값</strong>으로 비교한다!</p>
+:ET
