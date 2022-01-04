@@ -382,37 +382,37 @@ HTTP METHOD를 통해 해당 자원에 대한 CRUD Operation을 적용하여 아
 
 **1)** <span style="color:#093145; font-weight:bold">Uniform (유니폼 인터페이스)</span>
 
-Uniform Interface는 URI로 지정한 리소스에 대한 조작을 통일되고 한정적인 인터페이스로 수행하는 아키텍처 스타일을 말한다.
+Uniform Interface는 URI로 지정한 <span style="background: rgb(251,243,219)">리소스에 대한 조작</span>을 통일되고 한정적인 인터페이스로 수행하는 아키텍처 스타일을 말한다.
 
 <br>
 
 **2)** <span style="color:#093145; font-weight:bold">Stateless (무상태성)</span>
 
-REST는 무상태성 성격을 갖는다. 다시 말해 작업을 위한 상태정보를 따로 저장하고 관리하지 않는다. 세션 정보나 쿠키정보를 별도로 저장하고 관리하지 않기 때문에 API 서버는 들어오는 요청만을 단순히 처리하면 된다. 때문에 서비스의 자유도가 높아지고 서버에서 불필요한 정보를 관리하지 않음으로써 구현이 단순해진다.
+REST는 무상태성 성격을 갖는다. 다시 말해 작업을 위한 상태정보를 따로 저장하고 관리하지 않는다. <span style="background: rgb(251,243,219)">세션 정보나 쿠키정보를 별도로 저장하고 관리하지 않기</span> 때문에 API 서버는 들어오는 요청만을 단순히 처리하면 된다. 때문에 서비스의 자유도가 높아지고 서버에서 불필요한 정보를 관리하지 않음으로써 <span style="background: rgb(251,243,219)">구현이 단순</span>해진다.
 
 <br>
 
 **3)** <span style="color:#093145; font-weight:bold">Cacheable (캐시 가능)</span>
 
-REST의 가장 큰 특징 중 하나는 HTTP라는 기존 웹표준을 그대로 사용하기 때문에, 웹에서 사용하는 기존 인프라를 그대로 활용이 가능하다. 따라서 HTTP가 가진 캐싱 기능이 적용 가능합니다. HTTP 프로토콜 표준에서 사용하는 Last-Modified 태그나 E-Tag를 이용하면 캐싱 구현이 가능하다.
+REST의 가장 큰 특징 중 하나는 HTTP라는 기존 웹표준을 그대로 사용하기 때문에, 웹에서 사용하는 <span style="background: rgb(251,243,219)">기존 인프라를 그대로 활용</span>이 가능하다. 따라서 HTTP가 가진 <span style="background: rgb(251,243,219)">캐싱 기능이 적용</span> 가능합니다. HTTP 프로토콜 표준에서 사용하는 Last-Modified 태그나 E-Tag를 이용하면 캐싱 구현이 가능하다.
 
 <br>
 
 **4)** <span style="color:#093145; font-weight:bold">Self-Descriptiveness (자체 표현 구조)</span>
 
-REST의 또 다른 특징 중 하나는 REST API 메시지만 보고도 이를 쉽게 이해 할 수 있는 자체 표현 구조로 되어 있는 것이다.
+REST의 또 다른 특징 중 하나는 REST API 메시지만 보고도 이를 <span style="background: rgb(251,243,219)">쉽게 이해 할 수 있는 자체 표현 구조</span>로 되어 있는 것이다.
 
 <br>
 
 **5)** <span style="color:#093145; font-weight:bold">Client-Server 구조</span>
 
-REST 서버는 API 제공, 클라이언트는 사용자 인증이나 컨텍스트(세션, 로그인 정보)등을 직접 관리하는 구조로 각각의 역할이 확실히 구분되기 때문에 클라이언트와 서버에서 개발해야 할 내용이 명확해지고 서로간 의존성이 줄어들게 된다.
+REST 서버는 API 제공, 클라이언트는 사용자 인증이나 컨텍스트(세션, 로그인 정보)등을 직접 관리하는 구조로 <span style="background: rgb(251,243,219)">각각의 역할이 확실히 구분되기</span> 때문에 클라이언트와 서버에서 개발해야 할 내용이 명확해지고 <span style="background: rgb(251,243,219)">서로간 의존성이 줄어들게 된다.</span>
 
 <br>
 
 **6)** <span style="color:#093145; font-weight:bold">계층형 구조</span>
 
-REST 서버는 다중 계층으로 구성될 수 있으며 보안, 로드 밸런싱, 암호화 계층을 추가해 구조상의 유연성을 둘 수 있고 PROXY, 게이트웨이 같은 네트워크 기반의 중간매체를 사용할 수 있게 합니다.
+REST 서버는 다중 계층으로 구성될 수 있으며 <span style="background: rgb(251,243,219)">보안, 로드 밸런싱, 암호화 계층을 추가해</span> 구조상의 <span style="background: rgb(251,243,219)">유연성을</span> 둘 수 있고 <span style="background: rgb(251,243,219)">PROXY, 게이트웨이</span> 같은 네트워크 기반의 중간매체를 사용할 수 있게 합니다.
 
 <br>
 
@@ -424,9 +424,9 @@ REST 서버는 다중 계층으로 구성될 수 있으며 보안, 로드 밸런
 
 REST API 설계 시 가장 중요한 항목은 다음의 2가지로 요약할 수 있다.
 
-**첫 번쨰,** URI는 정보의 <span style="background: rgb(251,243,219)">자원</span>을 표현해야 한다.
+**첫 번째,** URI는 정보의 <span style="background: rgb(251,243,219)">자원</span>을 표현해야 한다.
 
-**두 번쨰,** 자원에 대한 <span style="background: rgb(251,243,219)">행위</span>는 HTTP Method(GET, POST, PUT, DELETE)로 표현한다.
+**두 번째,** 자원에 대한 <span style="background: rgb(251,243,219)">행위</span>는 HTTP Method(GET, POST, PUT, DELETE)로 표현한다.
 
 > 꼭 기억하기!!
 
@@ -512,6 +512,8 @@ URI를 쉽게 읽고 해석하기 위해, 불가피하게 긴 URI 경로를 사�
 
 글꼴에 따라 다르긴 하지만 밑줄은 보기 어렵거나 밑줄 때문에 문자가 가려지기도 한다. 이런 문제를 피하기 위해 밑줄 대신 하이픈(-)을 사용하는 것이 좋다.(가독성)
 
+<br>
+
 **7)** URI 경로에는 소문자가 적합하다.
 
 URI 경로에 대문자 사용은 피하도록 해야 합니다. 대소문자에 따라 다른 리소스로 인식하게 되기 때문입니다. RFC 3986(URI 문법 형식)은 URI 스키마와 호스트를 제외하고는 대소문자를 구별하도록 규정하기 때문이지요.
@@ -552,13 +554,13 @@ GET : /users/{userid}/likes/devices (관계명이 애매하거나 구체적 표�
 
 <br>
 
-- HTTP 프로토콜의 인프라를 그대로 사용하므로 REST API 사용을 위한 별도의 인프라를 구축할 필요가 없다.
+- HTTP 프로토콜의 인프라를 그대로 사용하므로 <span style="background: rgb(251,243,219)">REST API 사용을 위한 별도의 인프라</span>를 구축할 필요가 없다.
 - HTTP 프로토콜의 표준을 최대한 활용하여 여러 추가적인 장점을 함께 가져갈 수 있게 해준다.
-- HTTP 표준 프로토콜에 따르는 모든 플랫폼에서 사용이 가능하다.
-- Hypermedia API의 기본을 충실히 지키면서 범용성을 보장한다.
-- REST API 메시지가 의도하는 바를 명확하게 나타내므로 의도하는 바를 쉽게 파악할 수 있다.
+- HTTP 표준 프로토콜에 따르는 <span style="background: rgb(251,243,219)">모든 플랫폼에서 사용이</span> 가능하다.
+- Hypermedia API의 기본을 충실히 지키면서 <span style="background: rgb(251,243,219)">범용성을</span> 보장한다.
+- REST API 메시지가 의도하는 바를 명확하게 나타내므로 <span style="background: rgb(251,243,219)">의도하는 바를 쉽게 파악</span>할 수 있다.
 - 여러 가지 서비스 디자인에서 생길 수 있는 문제를 최소화한다.
-- 서버와 클라이언트의 역할을 명확하게 분리한다.
+- <span style="background: rgb(251,243,219)">서버와 클라이언트의 역할을</span> 명확하게 <span style="background: rgb(251,243,219)">분리</span>한다.
 
 <br>
 
@@ -568,10 +570,10 @@ GET : /users/{userid}/likes/devices (관계명이 애매하거나 구체적 표�
 
 <br>
 
-- 표준이 존재하지 않아 정의가 필요하다
-- 사용할 수 있는 메소드가 4가지 밖에 없다.
-- HTTP Method 형태가 제한적이다.
-- 브라우저를 통해 테스트할 일이 많은 서비스라면 쉽게 고칠 수 있는 URL보다 Header 정보의 값을 처리해야 하므로 전문성이 요구된다.
+- 표준이 존재하지 않아 <span style="background: rgb(251,243,219)">정의가 필요하다</span>
+- 사용할 수 있는 <span style="background: rgb(251,243,219)">메소드가 4가지</span> 밖에 없다.
+- HTTP Method 형태가 <span style="background: rgb(251,243,219)">제한적</span>이다.
+- 브라우저를 통해 테스트할 일이 많은 서비스라면 쉽게 고칠 수 있는 URL보다 Header 정보의 값을 처리해야 하므로 <span style="background: rgb(251,243,219)">전문성이 요구</span>된다.
 
 <br>
 
@@ -599,16 +601,16 @@ GET : /users/{userid}/likes/devices (관계명이 애매하거나 구체적 표�
 
 <br>
 
-GET 메소드는 주로 데이터를 읽거나(Read) 검색(Retrieve)할 때에 사용되는 메서드이다.
+GET 메소드는 주로 <span style="background: rgb(251,243,219)">데이터를 읽거나(Read) 검색(Retrieve)할</span> 때에 사용되는 메서드이다.
 
 만약에 GET요청이 성공적으로 이루어진다면 XML이나 JSON과 함께 200(Ok) HTTP 응답 코드를 리턴한다. 에러가 발생하면 주로 404 (Not found) 에러나 400 (Bad Request) 에러가 발생한다.
 
 <br>
 
-- HTTP 명세에 의하면 GET 요청은 오로지 데이터를 읽을 때만 사용되고 수정할 때는 사용하지 않는다.
-- GET 요청은 idempotent 하다.
-- 같은 요청을 여러 번 하더라도 변함없이 항상 같은 응답을 받을 수 있다.
-- 데이터를 변경하는 연산에 사용하면 안된다.
+- HTTP 명세에 의하면 GET 요청은 오로지 <span style="background: rgb(251,243,219)">데이터를 읽을 때만</span> 사용되고 <span style="background: rgb(251,243,219)">수정할</span> 때는 사용하지 않는다.
+- GET 요청은 <span style="background: rgb(251,243,219)">idempotent</span> 하다.
+- 같은 요청을 여러 번 하더라도 변함없이 <span style="background: rgb(251,243,219)">항상 같은 응답을</span> 받을 수 있다.
+- 데이터를 <span style="background: rgb(251,243,219)">변경하는 연산에</span> 사용하면 안된다.
 
 <br>
 
@@ -629,11 +631,17 @@ GET /user/1
 
 <br>
 
-데이터를 조회하는 것이기 때문에 요청시에 Body 값과 Content-Type가 비워져있다. 조회할 데이터에 대한 정보는 URL을 통해서 파라미터를 받고 있는 모습을 볼 수 있다.
+데이터를 조회하는 것이기 때문에 요청시에 <span style="background: rgb(251,243,219)">Body</span> 값과 <span style="background: rgb(251,243,219)">Content-Type가</span> 비워져있다. 조회할 데이터에 대한 정보는 URL을 통해서 파라미터를 받고 있는 모습을 볼 수 있다.
 
-데이터 조회에 성공한다면 Body 값에 데이터 값을 저장하여 성공 응답을 보낸다.
+데이터 조회에 성공한다면 <span style="background: rgb(251,243,219)">Body</span> 값에 데이터 값을 저장하여 <span style="background: rgb(251,243,219)">성공 응답을</span> 보낸다.
 
-GET은 캐싱이 가능하여 같은 데이터를 한번 더 조회할 경우에 저장한 값을 사용하여 조회 속도가 빨라진다.
+GET은 <span style="background: rgb(251,243,219)">캐싱이</span> 가능하여 같은 데이터를 한번 더 조회할 경우에 <span style="background: rgb(251,243,219)">저장한 값을 사용하여</span> 조회 속도가 빨라진다.(이미지 같은 정적 컨텐츠는 데이터 양이 크고, 변경된 일이 적기 때문에 동일한 요청이 ㅂ라생했을 경우 서버로 요청을 보내지 않고 캐시된 데이터를 사용)
+
+<br>
+
+또한, **GET** 방식으로 <span style="background: rgb(251,243,219)">데이터를 보내는</span> 것이 가능하다. **GET** 요청시 필요한 **데이터**를 <span style="background: rgb(251,243,219)">쿼리스트링</span> 형식으로 **header**에 담는다.(이 정보는 HTTP 패킷의 헤더에 포함되어 서버에 요청됨)
+
+**쿼리스트링**은 URL의 끝에 **?**와 함께 **키, 값** 쌍으로 파라미터를 붙여준 문자열이다.
 
 <br>
 
@@ -644,6 +652,12 @@ GET은 캐싱이 가능하여 같은 데이터를 한번 더 조회할 경우에
 <br>
 
 POST 메소드는 주로 새로운 리소스를 생성(creat)할 때 사용된다. 조금 더 구체적으로 POST는 하위 리소스(부모 리소스의 하위 리소스)들을 생성하는데 사용된다. 성공적으로 creation을 완료하면 201 (Created) HTTP 응답을 반환한다.
+
+<br>
+
+POST 방식은 GET 방식과 달리 **데이터 전송**을 기반으로 한 요청 메서드이다. GET 방식은 **URL**에 데이터를 붙여서 보내는 반면 **POST** 방식은 **URL**에 붙여서 보내지 않고 <span style="background: rgb(251,243,219)">BODY에다가 데이터를 넣어서 보낸다.</span>
+
+따라서, 헤더필드 중 <span style="background: rgb(251,243,219)">BODY의 데이터를 설명하는 Content-Type</span>이라는 헤더 필드가 들어가고 어떤 데이터 타입인지 명시한다.
 
 <br>
 
@@ -663,7 +677,7 @@ Content-Type : "application/json"
 
 <br>
 
-데이터를 생성하는 것이기 때문에 요청시에 Body 값과 Content-Type 값을 작성해야 한다. 해당 예시는 JSON을 통해서 작성된 예시다.
+데이터를 생성하는 것이기 때문에 요청시에 <span style="background: rgb(251,243,219)">Body 값과 Content-Type 값</span>을 작성해야 한다. 해당 예시는 JSON을 통해서 작성된 예시다.
 
 URL을 통해서 데이터를 받지 않고, Body 값을 통해서 받는다.
 
@@ -678,11 +692,12 @@ URL을 통해서 데이터를 받지 않고, Body 값을 통해서 받는다.
 <br>
 
 PUT은 리소스를 생성 / 업데이트하기 위해 서버로 데이터를 보내는 데 사용된다.
+**POST**와 **PUT**의 차이는 <span style="background: rgb(251,243,219)">멱등성 idempotent</span>에 있다.
 
 <br>
 
-- PUT 요청은 idempotent 하다.
-- 동일한 PUT 요청을 여러 번 호출하면 항상 동일한 결과가 생성된다.
+- PUT 요청은 <span style="background: rgb(251,243,219)">idempotent</span> 하다.
+- 동일한 PUT 요청을 여러 번 호출하면 <span style="background: rgb(251,243,219)">항상 동일한 결과가</span> 생성된다.
 
 <br>
 
@@ -694,11 +709,11 @@ Content-Type : "application/json"
 
 <br>
 
-데이터를 수정하는 것이기 때문에 요청시에 Body 값과 Content-Type 값을 작성해야 한다. 해당 예시는 JSON을 통해서 작성된 예시다.
+데이터를 수정하는 것이기 때문에 요청시에 <span style="background: rgb(251,243,219)">Body 값과 Content-Type 값</span>을 작성해야 한다. 해당 예시는 JSON을 통해서 작성된 예시다.
 
 URL을 통해서 어떠한 데이터를 수정할지 파라미터를 받는다. 그리고 수정할 데이터 값을 Body 값을 통해서 받는다.
 
-데이터 조회에 성공한다면 Body 값에 저장한 데이터 값을 저장하여 성공 응답을 보낸다.
+데이터 조회에 성공한다면 <span style="background: rgb(251,243,219)">Body 값에 저장한 데이터 값을 저장</span>하여 성공 응답을 보낸다.
 
 <br>
 
@@ -720,11 +735,11 @@ DELETE /user/1
 
 <br>
 
-데이터를 삭제하는 것이기 때문에 요청시에 Body 값과 Content-Type 값이 비워져있다.
+데이터를 삭제하는 것이기 때문에 요청시에 <span style="background: rgb(251,243,219)">Body 값과 Content-Type 값이 비워져있다.</span>
 
 URL을 통해서 어떠한 데이터를 삭제할지 파라미터를 받는다.
 
-데이터 삭제에 성공한다면 Body 값 없이 성공 응답만 보내게 된다.
+데이터 삭제에 성공한다면 <span style="background: rgb(251,243,219)">Body 값 없이 성공 응답만</span> 보내게 된다.
 
 <br>
 
@@ -740,7 +755,7 @@ URL을 통해서 어떠한 데이터를 삭제할지 파라미터를 받는다.
 
 <br>
 
-- GET과 비교하여 URL에 데이터의 정보가 들어 있지 않으므로 조금 더 안전하다고 볼 수 있다.
+- GET과 비교하여 <span style="background: rgb(251,243,219)">URL에 데이터의 정보가 들어 있지 않으므로</span> 조금 더 안전하다고 볼 수 있다.
 
 <br>
 
@@ -750,7 +765,7 @@ URL을 통해서 어떠한 데이터를 삭제할지 파라미터를 받는다.
 
 <br>
 
-- GET 방식은 캐싱을 하기 때문에 여러번 요청시 저장된 데이터를 활용하므로 조금 더 빠를 수 있다.
+- GET 방식은 <span style="background: rgb(251,243,219)">캐싱을</span> 하기 때문에 여러번 요청시 저장된 데이터를 활용하므로 조금 더 빠를 수 있다.
 
 <br>
 
@@ -760,4 +775,130 @@ URL을 통해서 어떠한 데이터를 삭제할지 파라미터를 받는다.
 
 <br>
 
-- POST와 PUT은 구분해서 사용해야 한다. POST는 새로운 데이터를 계속 생성하기 때문에 요청시마다 데이터를 생성하지만, PUT은 사용자가 데이터를 지정하고 수정하는 것이기 때문에 같은 요청을 하더라도 데이터가 계속 생성되지는 않는다.
+- POST와 PUT은 구분해서 사용해야 한다. POST는 <span style="background: rgb(251,243,219)">새로운 데이터를 계속 생성</span>하기 때문에 요청시마다 데이터를 생성하지만, PUT은 사용자가 데이터를 지정하고 수정하는 것이기 때문에 같은 요청을 하더라도 데이터가 계속 생성되지는 않는다.
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> POST와 PUT의 차이점 예시
+</h3>
+
+<br>
+
+아래와 같은 URI가 있고, 해당 URI에 대해 POST와 PUT이 작동하는 예를 보자
+
+```url
+/student
+```
+
+<br>
+
+POST 메소드로 뽀로로라는 이름을 가진 학생을 생성하기 위해 아래와 같이 요청하면 고유 구분값인 **id**를 **1**로 설정되어 뽀로로라는 학생이 생성된다.
+
+```url
+HttpRequest
+POST /student
+{
+  “name”: “뽀로로”,
+  “grade”: 1
+}
+
+-----------------------
+
+HttpResponse
+HTTP/1.1 200 OK
+{
+  “id”: 1,
+  “name”: “뽀로로”,
+  “grade”: 1
+}
+```
+
+<br>
+
+그러면 이제 **PUT**을 통해 뽀로로의 grade를 2로 변경해부자. PUT은 리소스에 대한 수정이므로 특정 리소스를 구분하는 **id**값을 넣어줘야 한다.
+
+```url
+HttpRequest
+PUT /student/1
+{
+  “grade”: 2
+}
+
+HttpResponse
+HTTP/1.1 200 OK
+{
+  “id”: 1,
+  “name”: “뽀로로”,
+  “grade”: 2
+}
+```
+
+<br>
+
+이는 POST와 PUT의 가장 기본적인 사용 예제이고, 두 메서드의 차이를 조금 더 자세히 알아보기 위한 예제를 또 보자.
+
+POST 메서드로 뽀로로 학생을 생성해달라고 **2번** 요청하면 어떻게 될까?
+
+```url
+POST /student
+{
+   “name”: “뽀로로”,
+   “grade”: 1
+}
+```
+
+<br>
+
+**id**가 **1과 2**인 뽀로로가 두 개가 생겨버린다.
+
+POST는 **리소스를** **생성하기 위한** 메서드로 요청한 횟수마다 **새로운 리소스를 생성**한다.(물론 name을 unique key로 잡으면 같은 이름으로 생성 안되게 만들 순 있다.)
+
+```url
+HTTP/1.1 200 OK
+{ “id”: 1, “name”: “뽀로로”, “grade”: 1 }
+
+HTTP/1.1 200 OK
+{ “id”: 2, “name”: “뽀로로”, “grade”: 1}
+```
+
+<br>
+
+반대로 PUT으로 같은 요청을 **두 번** 보내면 어떻게 될까?
+
+```url
+PUT /student/3
+{
+  “name”: ”에디”
+  “grade”: 2
+}
+```
+
+<br>
+
+2번 아니, 수백번 보내도 아래와 같은 응답이 온다.
+
+**id**를 3을 가진 리소스는 없었으므로, 최소 한번은 생성되고, 그 후에는 생성되지 않는다.
+
+```url
+HTTP/1.1 200 OK
+{ “id”: ”3”, “name”: “에디”, “grade”: 2 }
+```
+
+<br>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 정리
+</h4>
+
+- **POST**
+  - POST는 리소스의 생성을 담당한다.
+  - POST는 요청 시 마다, 새로운 리소스가 생성된다.
+- **PUT**
+  - PUT은 리소스의 생성과 수정을 담당한다.
+  - PUT은 요청 시 마다. 같은 리소스를 반환한다.
+    - 물론, 리소스 안에 속성은 변경될 수 있다.
+
+<br>
+
+이를 어려운 말로 이야기하면, PUT은 <span style="background: rgb(251,243,219)">멱등</span>하다고 말할 수 있고 POST는 <span style="background: rgb(251,243,219)">명등</span>하지 않다고 말한다.

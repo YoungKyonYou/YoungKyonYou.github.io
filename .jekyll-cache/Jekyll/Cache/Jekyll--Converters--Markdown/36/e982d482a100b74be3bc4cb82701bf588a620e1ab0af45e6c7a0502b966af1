@@ -1,0 +1,775 @@
+I"�k<p><br /><br /></p>
+
+<p><em><strong>오늘의 나보다 성장한 내일의 나를 위해…</strong></em></p>
+
+<p><br /></p>
+
+<p><br /><br /></p>
+
+<style>
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: "";
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: "";
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: "";
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: "";
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+</style>
+
+<div class="containercoffee">
+    <div class="coffee-header">
+      <div class="coffee-header__buttons coffee-header__button-one"></div>
+      <div class="coffee-header__buttons coffee-header__button-two"></div>
+      <div class="coffee-header__display"></div>
+      <div class="coffee-header__details"></div>
+    </div>
+    <div class="coffee-medium">
+      <div class="coffe-medium__exit"></div>
+      <div class="coffee-medium__arm"></div>
+      <div class="coffee-medium__liquid"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
+      <div class="coffee-medium__cup"></div>
+    </div>
+    <div class="coffee-footer"></div>
+</div>
+
+<p><br /><br /><br /><br /><br /><br /><br /><br /></p>
+
+<p><br /></p>
+
+<h2 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/270f.png" height="30" width="30" /> REST API와 HTTP METHOD
+</h2>
+
+<p><br /></p>
+
+<p>REST API는 웹에서 데이터를 <span style="background: rgb(251,243,219)">전송 및 처리</span>하는 방법을 정의한 인터페이스를 말한다.</p>
+
+<p><br /></p>
+
+<p>HTTP METHOD를 통해 해당 자원에 대한 CRUD Operation을 적용하여 아래와 같이 사용한다.</p>
+
+<p><br /></p>
+
+<ul>
+  <li>Create: 데이터 생성 (POST)</li>
+  <li>Read: 데이터 조회 (GET)</li>
+  <li>Update: 데이터 수정 (PUT)</li>
+  <li>Delete: 데이터 삭제 (DELETE)</li>
+</ul>
+
+<p><br /></p>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> REST 구성
+</h3>
+
+<p><br /></p>
+
+<p>쉽게 말해 REST API는 다음의 구성으로 이루어져 있다.</p>
+
+<p><br /></p>
+
+<ul>
+  <li><strong>자원(RESOURCE) - URI</strong></li>
+  <li><strong>행위(Verb) - HTTP METHOD</strong></li>
+  <li><strong>표현(Representations)</strong></li>
+</ul>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> 자원(RESOURCE)
+</h4>
+
+<p><br /></p>
+
+<ul>
+  <li>모든 자원에 고유한 ID가 존재하고, 이 자원은 Server에 존재한다.</li>
+  <li>자원을 구별하는 ID는 <code class="language-plaintext highlighter-rouge">/orders/order_id/1</code>와 같은 HTTP URI이다.</li>
+</ul>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> 행위(Verb)
+</h4>
+
+<p><br /></p>
+
+<ul>
+  <li>HTTP 프로토콜의 Method를 사용한다.</li>
+  <li>HTTP 프로토콜은 <span style="background: rgb(251,243,219)">GET, POST, PUT, DELETE</span>와 같은 메서드를 제공한다.</li>
+</ul>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> 표현 (Representation of Resource)
+</h4>
+
+<p><br /></p>
+
+<ul>
+  <li>Client가 자원의 상태(정보)에 대한 조작을 요청하면 Server는 이에 적절한 응답(Representation)을 보낸다.</li>
+  <li>REST에서 하나의 자원은 JSON, XML, TEXT, RSS 등 여러 형태의 Representation으로 나타낼 수 있다.</li>
+  <li>현재는 JSON으로 주고 받는 것이 대부분이다.</li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="/images/Interview/post16/2022-01-02-12-14-32.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> REST의 특징
+</h3>
+
+<p><br /></p>
+
+<p><strong>1)</strong> <span style="color:#093145; font-weight:bold">Uniform (유니폼 인터페이스)</span></p>
+
+<p>Uniform Interface는 URI로 지정한 <span style="background: rgb(251,243,219)">리소스에 대한 조작</span>을 통일되고 한정적인 인터페이스로 수행하는 아키텍처 스타일을 말한다.</p>
+
+<p><br /></p>
+
+<p><strong>2)</strong> <span style="color:#093145; font-weight:bold">Stateless (무상태성)</span></p>
+
+<p>REST는 무상태성 성격을 갖는다. 다시 말해 작업을 위한 상태정보를 따로 저장하고 관리하지 않는다. <span style="background: rgb(251,243,219)">세션 정보나 쿠키정보를 별도로 저장하고 관리하지 않기</span> 때문에 API 서버는 들어오는 요청만을 단순히 처리하면 된다. 때문에 서비스의 자유도가 높아지고 서버에서 불필요한 정보를 관리하지 않음으로써 <span style="background: rgb(251,243,219)">구현이 단순</span>해진다.</p>
+
+<p><br /></p>
+
+<p><strong>3)</strong> <span style="color:#093145; font-weight:bold">Cacheable (캐시 가능)</span></p>
+
+<p>REST의 가장 큰 특징 중 하나는 HTTP라는 기존 웹표준을 그대로 사용하기 때문에, 웹에서 사용하는 <span style="background: rgb(251,243,219)">기존 인프라를 그대로 활용</span>이 가능하다. 따라서 HTTP가 가진 <span style="background: rgb(251,243,219)">캐싱 기능이 적용</span> 가능합니다. HTTP 프로토콜 표준에서 사용하는 Last-Modified 태그나 E-Tag를 이용하면 캐싱 구현이 가능하다.</p>
+
+<p><br /></p>
+
+<p><strong>4)</strong> <span style="color:#093145; font-weight:bold">Self-Descriptiveness (자체 표현 구조)</span></p>
+
+<p>REST의 또 다른 특징 중 하나는 REST API 메시지만 보고도 이를 <span style="background: rgb(251,243,219)">쉽게 이해 할 수 있는 자체 표현 구조</span>로 되어 있는 것이다.</p>
+
+<p><br /></p>
+
+<p><strong>5)</strong> <span style="color:#093145; font-weight:bold">Client-Server 구조</span></p>
+
+<p>REST 서버는 API 제공, 클라이언트는 사용자 인증이나 컨텍스트(세션, 로그인 정보)등을 직접 관리하는 구조로 <span style="background: rgb(251,243,219)">각각의 역할이 확실히 구분되기</span> 때문에 클라이언트와 서버에서 개발해야 할 내용이 명확해지고 <span style="background: rgb(251,243,219)">서로간 의존성이 줄어들게 된다.</span></p>
+
+<p><br /></p>
+
+<p><strong>6)</strong> <span style="color:#093145; font-weight:bold">계층형 구조</span></p>
+
+<p>REST 서버는 다중 계층으로 구성될 수 있으며 <span style="background: rgb(251,243,219)">보안, 로드 밸런싱, 암호화 계층을 추가해</span> 구조상의 <span style="background: rgb(251,243,219)">유연성을</span> 둘 수 있고 <span style="background: rgb(251,243,219)">PROXY, 게이트웨이</span> 같은 네트워크 기반의 중간매체를 사용할 수 있게 합니다.</p>
+
+<p><br /></p>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> REST API 디자인 가이드
+</h3>
+
+<p><br /></p>
+
+<p>REST API 설계 시 가장 중요한 항목은 다음의 2가지로 요약할 수 있다.</p>
+
+<p><strong>첫 번째,</strong> URI는 정보의 <span style="background: rgb(251,243,219)">자원</span>을 표현해야 한다.</p>
+
+<p><strong>두 번째,</strong> 자원에 대한 <span style="background: rgb(251,243,219)">행위</span>는 HTTP Method(GET, POST, PUT, DELETE)로 표현한다.</p>
+
+<blockquote>
+  <p>꼭 기억하기!!</p>
+</blockquote>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> REST API 중심 규칙
+</h4>
+
+<p><br /></p>
+
+<p><strong>1)</strong> URI는 정보의 자원을 표현해야 한다. (리소스명은 동사보다는 명사를 사용)</p>
+
+<pre><code class="language-url">GET /members/delete/1
+</code></pre>
+
+<p><br /></p>
+
+<p>위와 같은 방식은 <span style="background: rgb(251,243,219)">REST를 제대로 적용하지 않은</span> URI이다. URI는 <span style="background: rgb(251,243,219)">자원</span>을 표현하는데 중점을 두어야 한다. <span style="background: rgb(251,243,219)">delete</span>와 같은 행위에 대한 표현이 들어가서는 안된다.</p>
+
+<p><br /></p>
+
+<p><strong>2)</strong> 자원에 대한 행위는 HTTP Method(GET, POST, PUT, DELETE 등)로 표현</p>
+
+<p>위의 잘못 된 URI를 HTTP Method를 통해 수정해 보자.</p>
+
+<pre><code class="language-uri">DELETE /members/1
+</code></pre>
+
+<p><br /></p>
+
+<p>으로 수정할 수 있다. 회원정보를 가져올 때는 GET, 회원 추가 시의 행위를 표현하고자 할 때는 POST METHOD를 사용하여 표현한다.</p>
+
+<p><br /></p>
+
+<p><span style="color:#85144b; font-weight:bold">회원정보를 가져오는 URI</span></p>
+
+<pre><code class="language-uri">GET /members/show/1    (x)
+GET /members/1         (o)
+</code></pre>
+
+<p><br /></p>
+
+<p><span style="color:#85144b; font-weight:bold">회원을 추가할 때</span></p>
+
+<pre><code class="language-uri">GET /members/insert/2    (x)   - GET 메서드는 리소스 생성에 맞지 않는다.
+POST /members/2          (o)
+</code></pre>
+
+<p><br /></p>
+
+<p><strong>3)</strong> 슬래시 구분자(/)는 계층 관계를 나타내는 데 사용</p>
+
+<pre><code class="language-uri">   http://restapi.example.com/houses/apartments
+   http://restapi.example.com/animals/mammals/whales
+</code></pre>
+
+<p><br /></p>
+
+<p><strong>4)</strong> URI 마지막 문자로 슬래시(/)를 포함하지 않는다.</p>
+
+<p>URI에 포함되는 모든 글자는 리소스의 유일한 식별자로 사용되어야 하며 URI가 다르다는 것은 리소스가 다르다는 것이고, 역으로 리소스가 다르면 URI도 달라져야 한다. REST API는 분명한 URI를 만들어 통신을 해야 하기 때문에 혼동을 주지 않도록 URI 경로의 마지막에는 슬래시(/)를 사용하지 않는다.</p>
+
+<pre><code class="language-uri">    http://restapi.example.com/houses/apartments/ (X)
+    http://restapi.example.com/houses/apartments  (0)
+</code></pre>
+
+<p><br /></p>
+
+<p><strong>5)</strong> 하이픈(-)은 URI 가독성을 높이는데 사용</p>
+
+<p>URI를 쉽게 읽고 해석하기 위해, 불가피하게 긴 URI 경로를 사용하게 된다면 하이픈을 사용해 가독성을 높일 수 있다.</p>
+
+<p><br /></p>
+
+<p><strong>6)</strong> 밑줄(_)은 URI에 사용하지 않는다.</p>
+
+<p>글꼴에 따라 다르긴 하지만 밑줄은 보기 어렵거나 밑줄 때문에 문자가 가려지기도 한다. 이런 문제를 피하기 위해 밑줄 대신 하이픈(-)을 사용하는 것이 좋다.(가독성)</p>
+
+<p><br /></p>
+
+<p><strong>7)</strong> URI 경로에는 소문자가 적합하다.</p>
+
+<p>URI 경로에 대문자 사용은 피하도록 해야 합니다. 대소문자에 따라 다른 리소스로 인식하게 되기 때문입니다. RFC 3986(URI 문법 형식)은 URI 스키마와 호스트를 제외하고는 대소문자를 구별하도록 규정하기 때문이지요.</p>
+
+<p><br /></p>
+
+<p><strong>8)</strong> 파일 확장자는 URI에 포함시키지 않는다.</p>
+
+<pre><code class="language-uri">    http://restapi.example.com/members/soccer/345/photo.jpg (X)
+</code></pre>
+
+<p><br /></p>
+
+<p><strong>8)</strong> 리소스 간의 관계 표현 방법</p>
+
+<p>REST 리소스 간에는 연관 관계가 있을 수 있고, 이런 경우 다음과 같은 표현방법으로 사용한다.</p>
+
+<pre><code class="language-uri">/리소스명/리소스 ID/관계가 있는 다른 리소스명
+
+ex)    GET : /users/{userid}/devices (일반적으로 소유 ‘has’의 관계를 표현할 때)
+</code></pre>
+
+<p><br /></p>
+
+<p>만약에 관계명이 복잡하다면 이를 서브 리소스에 명시적으로 표현하는 방법이 있다. 예를 들어 사용자가 ‘좋아하는’ 디바이스 목록을 표현해야 할 경우 다음과 같은 형태로 사용될 수 있다.</p>
+
+<pre><code class="language-uri">GET : /users/{userid}/likes/devices (관계명이 애매하거나 구체적 표현이 필요할 때)
+</code></pre>
+
+<p><br /></p>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> REST의 장점
+</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>HTTP 프로토콜의 인프라를 그대로 사용하므로 <span style="background: rgb(251,243,219)">REST API 사용을 위한 별도의 인프라</span>를 구축할 필요가 없다.</li>
+  <li>HTTP 프로토콜의 표준을 최대한 활용하여 여러 추가적인 장점을 함께 가져갈 수 있게 해준다.</li>
+  <li>HTTP 표준 프로토콜에 따르는 <span style="background: rgb(251,243,219)">모든 플랫폼에서 사용이</span> 가능하다.</li>
+  <li>Hypermedia API의 기본을 충실히 지키면서 범용성을 보장한다.</li>
+  <li>REST API 메시지가 의도하는 바를 명확하게 나타내므로 의도하는 바를 쉽게 파악할 수 있다.</li>
+  <li>여러 가지 서비스 디자인에서 생길 수 있는 문제를 최소화한다.</li>
+  <li>서버와 클라이언트의 역할을 명확하게 분리한다.</li>
+</ul>
+
+<p><br /></p>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> REST의 단점
+</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>표준이 존재하지 않아 정의가 필요하다</li>
+  <li>사용할 수 있는 메소드가 4가지 밖에 없다.</li>
+  <li>HTTP Method 형태가 제한적이다.</li>
+  <li>브라우저를 통해 테스트할 일이 많은 서비스라면 쉽게 고칠 수 있는 URL보다 Header 정보의 값을 처리해야 하므로 전문성이 요구된다.</li>
+</ul>
+
+<p><br /></p>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> 왜 RESTful APIs를 만드는 것일까?
+</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>RESTful API를 개발하는 가장 큰 이유는 <span style="background: rgb(251,243,219)">Client Side를 정형화된 플래폼이 아닌 모바일, PC, 애플리케이션 등 플랫폼에 제약을 두지 않는 것을 목표로 했기 때문이다.</span> -즉, 2010년 이전만 해도 Server Side에서 데이터를 전달해주는 Client 프로그램의 대상은 PC 브라우저로 그 대상이 명확했다. 그렇다 보니 그냥 JSP ASP PHP 등을 이용한 웹페이지를 구성하고 작업을 진행하면 됐다.</li>
+  <li>하지만 스마트 기기들이 등장하면서 TV, 스마트 폰, 테블릿 등 Client 프로그램이 다양화되고 그에 맞춰 Server를 일일이 만든다는 것은 꽤 비효율적인 일이 되어 버렸다.</li>
+  <li>이런 과정에서 개발자들은 Client Side를 전혀 고려하지 않고 메시지 기반, XML, JSON과 같은 <span style="background: rgb(251,243,219)">Client에서 바로 객체로 치환 가능한 형태의 데이터 통신을 지향하게 되면서 Server와 Client의 역할을 분리하게 되었다.</span></li>
+</ul>
+
+<p><br /></p>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> HTTP Methods
+</h3>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> GET
+</h4>
+
+<p><br /></p>
+
+<p>GET 메소드는 주로 데이터를 읽거나(Read) 검색(Retrieve)할 때에 사용되는 메서드이다.</p>
+
+<p>만약에 GET요청이 성공적으로 이루어진다면 XML이나 JSON과 함께 200(Ok) HTTP 응답 코드를 리턴한다. 에러가 발생하면 주로 404 (Not found) 에러나 400 (Bad Request) 에러가 발생한다.</p>
+
+<p><br /></p>
+
+<ul>
+  <li>HTTP 명세에 의하면 GET 요청은 오로지 데이터를 읽을 때만 사용되고 수정할 때는 사용하지 않는다.</li>
+  <li>GET 요청은 idempotent 하다.</li>
+  <li>같은 요청을 여러 번 하더라도 변함없이 항상 같은 응답을 받을 수 있다.</li>
+  <li>데이터를 변경하는 연산에 사용하면 안된다.</li>
+</ul>
+
+<p><br /></p>
+
+<link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet" />
+
+<div style="background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;">
+
+멱등성(Idempotence)이란?<br /><br />
+멱등성이란 여러번 수행해도 결과가 같음을 의미한다. 즉, 호출로 인하여 데이터가 변형이 되지 않는다는 것을 의미한다.</div>
+
+<p><br /></p>
+
+<p><strong>Example</strong></p>
+
+<pre><code class="language-url">GET /user/1
+</code></pre>
+
+<p><br /></p>
+
+<p>데이터를 조회하는 것이기 때문에 요청시에 Body 값과 Content-Type가 비워져있다. 조회할 데이터에 대한 정보는 URL을 통해서 파라미터를 받고 있는 모습을 볼 수 있다.</p>
+
+<p>데이터 조회에 성공한다면 Body 값에 데이터 값을 저장하여 성공 응답을 보낸다.</p>
+
+<p>GET은 캐싱이 가능하여 같은 데이터를 한번 더 조회할 경우에 저장한 값을 사용하여 조회 속도가 빨라진다.</p>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> POST
+</h4>
+
+<p><br /></p>
+
+<p>POST 메소드는 주로 새로운 리소스를 생성(creat)할 때 사용된다. 조금 더 구체적으로 POST는 하위 리소스(부모 리소스의 하위 리소스)들을 생성하는데 사용된다. 성공적으로 creation을 완료하면 201 (Created) HTTP 응답을 반환한다.</p>
+
+<p><br /></p>
+
+<ul>
+  <li>POST 요청은 idempotent 하지 않다.</li>
+  <li>같은 POST 요청을 반복해서 했을 때 항상 같은 결과물이 나오는 것을 보장하지 않는다.</li>
+  <li>두 개의 같은 POST 요청을 보내면 같은 정보를 담은 두 개의 다른 resource를 반환할 가능성이 높다.</li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>Example</strong></p>
+
+<pre><code class="language-url">POST /user
+body : {date : "example"}
+Content-Type : "application/json"
+</code></pre>
+
+<p><br /></p>
+
+<p>데이터를 생성하는 것이기 때문에 요청시에 Body 값과 Content-Type 값을 작성해야 한다. 해당 예시는 JSON을 통해서 작성된 예시다.</p>
+
+<p>URL을 통해서 데이터를 받지 않고, Body 값을 통해서 받는다.</p>
+
+<p>데이터 조회에 성공한다면 Body 값에 저장한 데이터 값을 저장하여 성공 응답을 보낸다.</p>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> PUT
+</h4>
+
+<p><br /></p>
+
+<p>PUT은 리소스를 생성 / 업데이트하기 위해 서버로 데이터를 보내는 데 사용된다.</p>
+
+<p><br /></p>
+
+<ul>
+  <li>PUT 요청은 idempotent 하다.</li>
+  <li>동일한 PUT 요청을 여러 번 호출하면 항상 동일한 결과가 생성된다.</li>
+</ul>
+
+<p><br /></p>
+
+<pre><code class="language-url">PUT /user/1
+body : {date : "update example"}
+Content-Type : "application/json"
+</code></pre>
+
+<p><br /></p>
+
+<p>데이터를 수정하는 것이기 때문에 요청시에 Body 값과 Content-Type 값을 작성해야 한다. 해당 예시는 JSON을 통해서 작성된 예시다.</p>
+
+<p>URL을 통해서 어떠한 데이터를 수정할지 파라미터를 받는다. 그리고 수정할 데이터 값을 Body 값을 통해서 받는다.</p>
+
+<p>데이터 조회에 성공한다면 Body 값에 저장한 데이터 값을 저장하여 성공 응답을 보낸다.</p>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> DELETE
+</h4>
+
+<p><br /></p>
+
+<p>DELETE 메서드는 지정된 리소스를 삭제한다.</p>
+
+<p><br /></p>
+
+<p><strong>Example</strong></p>
+
+<pre><code class="language-url">DELETE /user/1
+</code></pre>
+
+<p><br /></p>
+
+<p>데이터를 삭제하는 것이기 때문에 요청시에 Body 값과 Content-Type 값이 비워져있다.</p>
+
+<p>URL을 통해서 어떠한 데이터를 삭제할지 파라미터를 받는다.</p>
+
+<p>데이터 삭제에 성공한다면 Body 값 없이 성공 응답만 보내게 된다.</p>
+
+<p><br /></p>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> 자주하는 질문
+</h3>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> POST 방식이 GET 방식보다 보안 측면에서 더 좋다?
+</h4>
+
+<p><br /></p>
+
+<ul>
+  <li>GET과 비교하여 URL에 데이터의 정보가 들어 있지 않으므로 조금 더 안전하다고 볼 수 있다.</li>
+</ul>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> GET 방식이 POST 방식보다 속도가 빠르다?
+</h4>
+
+<p><br /></p>
+
+<ul>
+  <li>GET 방식은 캐싱을 하기 때문에 여러번 요청시 저장된 데이터를 활용하므로 조금 더 빠를 수 있다.</li>
+</ul>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> POST vs PUT
+</h4>
+
+<p><br /></p>
+
+<ul>
+  <li>POST와 PUT은 구분해서 사용해야 한다. POST는 새로운 데이터를 계속 생성하기 때문에 요청시마다 데이터를 생성하지만, PUT은 사용자가 데이터를 지정하고 수정하는 것이기 때문에 같은 요청을 하더라도 데이터가 계속 생성되지는 않는다.</li>
+</ul>
+:ET
