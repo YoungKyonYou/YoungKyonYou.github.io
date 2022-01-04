@@ -2108,8 +2108,8 @@ dependencies {
       &lt;li&gt;생성된 쿠키를 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;헤더에 포함&lt;/span&gt;시켜 응답한다.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;넘겨받은 쿠키는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;클라이언트가 가지고 있다가&lt;/span&gt;(로컬 PC에 저장)다시 서버에 요청할 때 요청과 함께 쿠키를 전송한다.&lt;/li&gt;
-  &lt;li&gt;동일 사이트 재방문 시 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;클라이언트의 PC에 해당 쿠키가 있는 경우&lt;/span&gt;, HTTP Header에 쿠키를 실어서 서버에 Request한다.&lt;/li&gt;
+  &lt;li&gt;넘겨받은 쿠키는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;클라이언트가(웹 브라우저) 가지고 있다가&lt;/span&gt;(로컬 PC에 저장)다시 서버에 요청할 때 요청과 함께 HTTP 헤더에 쿠키를 넣어서 전송한다.&lt;/li&gt;
+  &lt;li&gt;서버에서는 쿠키 정보를 읽어 이전 상태 정보를 확인할 후 응답한다.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -2145,9 +2145,8 @@ dependencies {
 
 &lt;ul&gt;
   &lt;li&gt;웹 서버에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;웹 컨테이너의 상태를 유지하기 위한 정보를 저장한다.&lt;/span&gt;&lt;/li&gt;
-  &lt;li&gt;웹 서버의 저장되는 쿠키(=세션 쿠키)&lt;/li&gt;
+  &lt;li&gt;쿠키를 기반으로 두고 있지만, 쿠키와 달리 사용자 정보 저장을 서버 측에서 관리&lt;/li&gt;
   &lt;li&gt;브라우저를 닫거나, 서버에서 세션을 삭제했을 때만 삭제가 되므로, &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;쿠키보다 비교적 보안이 좋다.&lt;/span&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;저장 데이터에 제한이 없다. (서버 용량이 허용하는 한에서)&lt;/span&gt;&lt;/li&gt;
   &lt;li&gt;각 클라이언트에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;고유 Session ID를 부여한다.&lt;/span&gt; Session ID로 클라이언트를 구분해 각 요구에 맞는 서비스를 제공&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -2158,10 +2157,14 @@ dependencies {
 &lt;/h4&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;클라이언트가 서버에 접속시 , 세션 ID를 발급한다.&lt;/li&gt;
-  &lt;li&gt;서버에서는 클라이언트로 발급해준 세션 ID를 쿠키를 이용해서 저장.&lt;/li&gt;
-  &lt;li&gt;클라이언트는 다시 페이지에 접속할때, 쿠키에 저장된 세션 ID를 서버에 전달&lt;/li&gt;
-  &lt;li&gt;서버는 Request Header에 쿠키정보(세션ID)로 클라이언트를 판별&lt;/li&gt;
+  &lt;li&gt;클라이언트가 서버에 접속시, &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;세션 ID를 발급&lt;/span&gt;한다.
+    &lt;ul&gt;
+      &lt;li&gt;서버가 응답할 때 HTTP 헤더(&lt;strong&gt;Set-Cookie&lt;/strong&gt;)에 &lt;strong&gt;Session ID&lt;/strong&gt;를 포함해서 전송&lt;/li&gt;
+      &lt;li&gt;쿠키에 Session ID를 JSESSIONID라는 이름으로 저장 (Set-Cookie: JSESSIONID=xslei13f)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;클라이언트는(웹 브라우저) 다시 페이지에 접속할때, &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;다음 요청 때 부여된 Session ID가 담겨 있는 쿠키를 HTTP 헤더&lt;/span&gt;에 넣어서 전송(Cookie: JSEESIONID=xslei13f)&lt;/li&gt;
+  &lt;li&gt;서버는 Request Header에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;쿠키정보(세션ID)로 클라이언트를 판별&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -2171,6 +2174,7 @@ dependencies {
 &lt;/h4&gt;
 
 &lt;ul&gt;
+  &lt;li&gt;로그인&lt;/li&gt;
   &lt;li&gt;화면을 이동해도 로그인이 풀리지 않고 로그아웃하기 전까지 유지&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -2183,6 +2187,8 @@ dependencies {
 &lt;p&gt;&lt;strong&gt;세션 해킹&lt;/strong&gt;: 홈페이지 관리자의 세션 아이디를 탈취 =&amp;gt; 쿠키값을 관리자의 세션 아이디로 변경한다. =&amp;gt; 관리자 권한으로 이용&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;예방법&lt;/strong&gt;: 세션에 로그인 했을 때의 IP를 저장 =&amp;gt; 페이지 이동 시마다, 현재 IP와 세션의 IP/브라우저 정보(UserAgent)가 같은지 검사&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
 &lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 쿠키와 세션의 차이
