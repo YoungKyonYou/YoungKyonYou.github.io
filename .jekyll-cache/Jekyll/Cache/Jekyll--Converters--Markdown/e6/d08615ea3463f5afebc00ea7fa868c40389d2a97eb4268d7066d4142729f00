@@ -1,0 +1,592 @@
+I"�i<p><br /><br /></p>
+
+<p><em><strong>오늘의 나보다 성장한 내일의 나를 위해…</strong></em></p>
+
+<p><br /></p>
+
+<p><br /><br /></p>
+
+<style>
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: "";
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: "";
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: "";
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: "";
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+</style>
+
+<div class="containercoffee">
+    <div class="coffee-header">
+      <div class="coffee-header__buttons coffee-header__button-one"></div>
+      <div class="coffee-header__buttons coffee-header__button-two"></div>
+      <div class="coffee-header__display"></div>
+      <div class="coffee-header__details"></div>
+    </div>
+    <div class="coffee-medium">
+      <div class="coffe-medium__exit"></div>
+      <div class="coffee-medium__arm"></div>
+      <div class="coffee-medium__liquid"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
+      <div class="coffee-medium__cup"></div>
+    </div>
+    <div class="coffee-footer"></div>
+</div>
+
+<p><br /><br /><br /><br /><br /><br /><br /><br /></p>
+
+<p><br /></p>
+
+<h2 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/270f.png" height="30" width="30" /> Clustered Index vs Non-Clustered Index
+</h2>
+
+<p><br /></p>
+
+<p>이번에는 인덱스의 종류인 <span style="background: rgb(251,243,219)">클러스터 인덱스</span>와 <span style="background: rgb(251,243,219)">넌 클러스터 인덱스</span>에 대해서 알아보자.</p>
+
+<p>일단 인덱스란 <span style="background: rgb(251,243,219)">데이터를 빠르게 검색</span>할 수 있게 해주는 객체이다.</p>
+
+<p>컬럼을 정렬한 후에 <span style="background: rgb(251,243,219)">데이터를 빠르게 찾을 수</span> 있도록 도와주는 <span style="background: rgb(251,243,219)">역할</span>을 한다.</p>
+
+<p>인덱스를 생성한다고 무조건 데이터를 빠르게 검색할 수 있는 것은 아니다.</p>
+
+<p>인덱스를 <span style="background: rgb(251,243,219)">무작정 생성</span>하는 것은 좋은 방법이 아닌 것이다.</p>
+
+<p>중요한 것은 인덱스를 생성할 때 <span style="background: rgb(251,243,219)">테이블의 용도</span>를 정확하게 파악하는 것이다.</p>
+
+<p>용도에 따라서 적절한 컬럼으로 <strong>Clustered Index와 Non-Clustered Index</strong>를 구성해야 한다.</p>
+
+<p><br /></p>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> 클러스터 인덱스
+</h3>
+
+<p><br /></p>
+
+<p><span style="background: rgb(251,243,219)">클러스터 인덱스</span>는 <span style="background: rgb(251,243,219)">데이터페이지</span> 자체가 <span style="background: rgb(251,243,219)">인덱스 키</span> 값에 의해 <span style="background: rgb(251,243,219)">물리적으로 정렬</span>이 된다.</p>
+
+<p><strong>즉, 데이터페이지는</strong> <span style="background: rgb(251,243,219)">리프 레벨</span>이라고 볼 수 있다.</p>
+
+<p>아래와 같은 SQL를 실행해서 <strong>클러스터 인덱스를 구성해보자</strong></p>
+
+<p><br /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">USE</span> <span class="n">tempdb</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">clusterExTable</span> <span class="p">(</span><span class="n">id</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span><span class="n">value</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">);</span>
+
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">clusterExTable</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">'indexTest1'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">clusterExTable</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="s1">'indexTest15'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">clusterExTable</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="s1">'indexTest7'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">clusterExTable</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="s1">'indexTest8'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">clusterExTable</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="s1">'indexTest4'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">clusterExTable</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">'indexTest2'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">clusterExTable</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s1">'indexTest3'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">clusterExTable</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="s1">'indexTest7'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">clusterExTable</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="s1">'indexTest8'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">clusterExTable</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="s1">'indexTest14'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">clusterExTable</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="s1">'indexTest5'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">clusterExTable</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="s1">'indexTes10'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">clusterExTable</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="s1">'indexTest13'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">clusterExTable</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s1">'indexTest6'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">clusterExTable</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="s1">'indexTest12'</span><span class="p">);</span>
+
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">clusterExTable</span> <span class="k">ADD</span> <span class="n">CONSTRINT</span> <span class="n">PK_clusterExTable_id</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>클러스터형 인덱스를 구성하려면 행 데이터를 해당 열로 정렬한 후에 루트 페이지를 만들게 된다. 즉 <strong>데이터 페이지</strong>는 <strong>리프 노드</strong>와 같은 것을 확인할 수 있다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/Interview/post16/2022-01-01-20-48-44.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> 특징
+</h4>
+
+<p><br /></p>
+
+<ul>
+  <li>테이블 당 1개만 허용</li>
+  <li>기본 키 설정시 자동으로 만들어짐</li>
+  <li>테이블 자체가 인덱스 (클러스터 인덱스를 기준으로 테이블을 정렬하기 때문에 인덱스 페이지가 없다)</li>
+  <li>데이터 입력, 수정, 삭제 시 항상 정렬을 유지함</li>
+  <li>기본적으로 접근 성능이 좋음</li>
+</ul>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> 넌클러스터 인덱스
+</h3>
+
+<p><br /></p>
+
+<p>넌 클러스트형 인덱스는 <strong>데이터 페이지</strong>를 건들지 않고, 별도의 장소에 <strong>인덱스 페이지</strong>를 생성한다.</p>
+
+<p>우선 <strong>인덱스 페이지</strong>의 <strong>리프 페이지</strong>에 인덱스로 구성한 열을 정렬하고 데이터 위치 포인터를 생성한다.</p>
+
+<p>데이터의 위치 포인트는 클러스터형 인덱스와 달리 <span style="background: rgb(251,243,219)">‘페이지 번호 + #오프셋’</span>이 기록되어 바로 데이터 위치를 가리킨다.</p>
+
+<p>아래 그림을 예시로 들어보자.</p>
+
+<p><strong>indexTest2</strong>로 보자면 102번 페이지의 두 번째(#2)에 데이터가 있다고 기록하게 된다.</p>
+
+<p>그러므로 이 데이터 위치 포인터는 데이터가 위치한 고유한 값이 된다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/Interview/post16/2022-01-01-20-51-29.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> 특징
+</h4>
+
+<p><br /></p>
+
+<ul>
+  <li>테이블 당 최대 240개 생성 가능</li>
+  <li>인덱스 페이지를 별도로 저장</li>
+  <li>테이블 자체는 정렬되지 않고, 인덱스 페이지에만 정렬</li>
+  <li>성능 증가는 정말 “Case By Case”</li>
+</ul>
+
+<p><br /></p>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> 활용
+</h3>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> 클러스터 인덱스
+</h4>
+
+<p>쿼리를 기준으로 예를 들어보자</p>
+
+<p><br /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="nb">year</span><span class="p">(</span><span class="n">hire_date</span><span class="p">),</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">employees</span>
+<span class="k">WHERE</span> <span class="n">hire_date</span> <span class="o">&gt;=</span> <span class="s1">'1997-01-01'</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="nb">year</span><span class="p">(</span><span class="n">hire_date</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>조건절에 <span style="background: rgb(251,243,219)">hire_date</span>가 있고, 범위 탐색이다. 이 경우 <span style="background: rgb(251,243,219)">hire_date</span>에 클러스터 인덱스를 적용하면 성능이 엄청나게 향상된다.</p>
+
+<p>여기서 WHERE 절만 빼보자.</p>
+
+<p><br /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="nb">year</span><span class="p">(</span><span class="n">hire_date</span><span class="p">),</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">employees</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="nb">year</span><span class="p">(</span><span class="n">hire_date</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>여기서도 마찬가지로 <span style="background: rgb(251,243,219)">hire_date</span>에 클러스터 인덱스를 건다면 어떻게 될까?</p>
+
+<p>성능 향상에 도움이 안되거나, 데이터가 많아지는 경우 오히려 느려진다.</p>
+
+<p>스캔 방식을 생각해야 한다.</p>
+
+<p>클러스터 인덱스가 없는 경우 기본적으로 Heap 테이블 스캔이 이루어진다.</p>
+
+<p>클러스터 인덱스가 있는 경우에는 클러스터 인덱스 스캔이 이루어진다.</p>
+
+<p>하지만 조건절이 없으므로 무식하게 다 읽는건 Heap 테이블 스캔이 빠르다.</p>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> 넌클러스터 인덱스
+</h4>
+
+<p><br /></p>
+
+<p>위의 예시와 같은 쿼리이다.</p>
+
+<p><br /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="nb">year</span><span class="p">(</span><span class="n">hire_date</span><span class="p">),</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">employees</span>
+<span class="k">WHERE</span> <span class="n">hire_date</span> <span class="o">&gt;=</span> <span class="s1">'1997-01-01'</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="nb">year</span><span class="p">(</span><span class="n">hire_date</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>여기서 <span style="background: rgb(251,243,219)">hire_date</span>에 넌클러스터 인덱스를 건다면 어떻게 될까?</p>
+
+<p>놀랍게도 클러스터 인덱스를 걸었을 때보다 더 빠르다.</p>
+
+<p>그 이유는 넌클러스터 인덱스가 탐색 범위에 포함되었기 때문에 옵티마이저에서는 인덱스 스캔이 아닌 <strong>Non-Clustered Index Seek</strong> 방식을 선택하기 때문이다.</p>
+
+<p>Index Scan은 인덱스의 모든 행을 인덱스 순서로 읽는 반면에 Index Seek은 필터 기준에 따라 일치하는 행이나 한정된 행만 찾으려고 리프 노드를 거치기 때문에 논리적 읽기 수가 훨씬 감소한다</p>
+
+<p><br /></p>
+
+<link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet" />
+
+<div style="background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;">
+
+Index Seek는 B-Tree 구조상의 Root 페이지부터 Leaf Level까지 검색 경로를 따라 수행되는 방법. Leaf Level을 제외한 상위 각 레벨에서 1페이지씩을 검색하게 된다.<br /><br />
+
+Index Scan은 Leaf Level의 첫번째 페이지부터 데이터 검색을 수행하는 방법. 일반적으로 얘기하는 Table Scan과 동일한 방법이지만, 그 대상이 Leaf Level의 인덱스 페이지라는 것이다.
+
+</div>
+
+<p><br /></p>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> 정리
+</h3>
+
+<p><br /></p>
+
+<p><img src="/images/Interview/post16/2022-01-01-21-20-10.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>여기서 물리적으로 행을 재배열한다는 것을 알아보자</p>
+
+<p><br /></p>
+
+<p>아래와 같은 SQL이 있다.</p>
+
+<p><br /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">TBL_CLUSTERED_TEST</span> <span class="p">(</span>
+  <span class="n">LOG_DATE</span> <span class="nb">CHAR</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="n">MEDIA_ID</span> <span class="nb">CHAR</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="n">PROCEEDS</span> <span class="nb">DOUBLE</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">LOG_DATE</span><span class="p">,</span><span class="n">MEDIA_ID</span><span class="p">)</span>
+<span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">INNODB</span> <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>5개의 테스트 데이터를 저장해 본다.</p>
+
+<p><br /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">TBL_CLUSTERED_TEST</span> <span class="p">(</span><span class="n">LOG_DATE</span><span class="p">,</span> <span class="n">MEDIA_ID</span><span class="p">,</span> <span class="n">PROCEEDS</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">'20130618'</span><span class="p">,</span> <span class="s1">'A'</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">TBL_CLUSTERED_TEST</span> <span class="p">(</span><span class="n">LOG_DATE</span><span class="p">,</span> <span class="n">MEDIA_ID</span><span class="p">,</span> <span class="n">PROCEEDS</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">'20130619'</span><span class="p">,</span> <span class="s1">'A'</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">TBL_CLUSTERED_TEST</span> <span class="p">(</span><span class="n">LOG_DATE</span><span class="p">,</span> <span class="n">MEDIA_ID</span><span class="p">,</span> <span class="n">PROCEEDS</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">'20130619'</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">,</span> <span class="mi">2000</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">TBL_CLUSTERED_TEST</span> <span class="p">(</span><span class="n">LOG_DATE</span><span class="p">,</span> <span class="n">MEDIA_ID</span><span class="p">,</span> <span class="n">PROCEEDS</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">'20130619'</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">TBL_CLUSTERED_TEST</span> <span class="p">(</span><span class="n">LOG_DATE</span><span class="p">,</span> <span class="n">MEDIA_ID</span><span class="p">,</span> <span class="n">PROCEEDS</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">'20130613'</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">,</span> <span class="mi">3000</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>해당 테이블을 select 하면 insert 되어 있는 순서대로 데이터가 누적되어 있을까?</p>
+
+<p>아니다. <strong>LOG_DATE, MEDIA_ID</strong>는 클러스터드 인덱스로 생성이 되어 있기 때문에 물리적으로 <strong>LOG_DATE</strong>를 정렬한 후 <strong>MEDIA_ID</strong>를 정렬하게 된다.</p>
+
+<p>물리적으로 정렬을 한다는 말은 이를 두고 하는 말이다. 실제 DB의 데이터파일에 정렬이 되어 있는 상태로 디스크에 저장이 된다는 것이다.</p>
+
+<p>테이블 조회를 해보면 아래와 같이 데이터가 정렬되어 있는 것을 확인할 수 있다. (6월 13일 데이터가 가장 위에 있음)</p>
+
+<p><br /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql&gt; select * from tbl_clustered_test;
+
++----------+----------+----------+
+
+| LOG_DATE | MEDIA_ID | PROCEEDS |
+
++----------+----------+----------+
+
+| 20130613 | B        |     3000 |
+
+| 20130618 | A        |     1000 |
+
+| 20130619 | A        |     1000 |
+
+| 20130619 | B        |     1000 |
+
+| 20130619 | C        |     2000 |
+
++----------+----------+----------+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>그럼 <span style="background: rgb(251,243,219)">넌 클러스터드 인덱스는?</span></p>
+
+<p>일반적으로 조회문 성능 향상을 위해서 넌 클러스터드 인덱스를 생성하여 사용하곤 한다.</p>
+
+<p>허나, 이 인덱스는 클러스터드인덱스와는 다르게 물리적으로 데이터가 정렬되어 저장되지 않는다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/Interview/post16/2022-01-01-21-24-18.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>위 사진의 넌클러스터 인덱스에서 데이터 페이지에 있는 데이터들은 정렬이 되지 않은 상태인 것을 볼 수 있다.</p>
+:ET

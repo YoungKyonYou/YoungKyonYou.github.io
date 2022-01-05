@@ -309,11 +309,11 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <br>
 
-**트랜잭션**: 데이터베이스의 상태를 변화시키기 위해서 수행하는 작업의 단위를 뜻한다.
+**트랜잭션**: 데이터베이스의 <span style="background: rgb(251,243,219)">상태를 변화</span>시키기 위해서 수행하는 <span style="background: rgb(251,243,219)">작업의 단위를</span> 뜻한다.
 
 <br>
 
-데이터베이스의 상태를 변화시킨다는 것은 아래의 질의어(SQL)를 이용하여 데이터베이스를 접근하는 것을 의미한다.
+데이터베이스의 <span style="background: rgb(251,243,219)">상태를 변화</span> 시킨다는 것은 아래의 질의어(SQL)를 이용하여 <span style="background: rgb(251,243,219)">데이터베이스를 접근</span>하는 것을 의미한다.
 
 <br>
 
@@ -339,28 +339,28 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <span style="background: rgb(251,243,219)">원자성(Atomicity)</span>
 
-1. 트랜잭션의 연산은 데이터베이스에 모두 반영되든지 아니면 전혀 반영되지 않아야 한다.
-2. 트랜잭션 내의 모든 명령은 반드시 완벽히 수행되어야 하며, 모두가 완벽히 수행되지 않고 어느 하나라도 오류가 발생하면 트랜잭션 전부가 취소되어야 한다.
+1. 트랜잭션의 연산은 데이터베이스에 **모두 반영되든지** 아니면 **전혀 반영되지** 않아야 한다.
+2. 트랜잭션 내의 모든 명령은 반드시 **완벽히 수행**되어야 하며, 모두가 **완벽히 수행**되지 않고 어느 하나라도 오류가 발생하면 **트랜잭션 전부가 취소**되어야 한다.
 
 <br>
 
 <span style="background: rgb(251,243,219)">일관성(Consistency)</span>
 
-1. 트랜잭션이 그 실행을 성공적으로 완료하면 언제나 일관성 있는 데이터베이스 상태로 변환한다.
-2. 시스템이 가지고 있는 고정요소는 트랜잭션 수행 전과 트랜잭션 수행 완료 후의 상태가 같아야 한다.
+1. 트랜잭션이 그 **실행**을 성공적으로 **완료**하면 언제나 **일관성** 있는 **데이터베이스 상태로** 변환한다.
+2. 시스템이 가지고 있는 **고정요소**는 **트랜잭션 수행 전과 트랜잭션 수행 완료 후**의 **상태**가 **같아야** 한다.
 
 <br>
 
 <span style="background: rgb(251,243,219)">독립성, 격리성(Isolation)</span>
 
-1. 둘 이상의 트랜잭션이 동시에 병행 실행되는 경우 어느 하나의 트랜잭션 실행 중에 다른 트랜잭션의 연산이 끼어들 수 없다.
-2. 수행중인 트랜잭션은 완전히 완료될 때까지 다른 트랜잭션에서 수행 결과를 참조할 수 없다.
+1. 둘 이상의 트랜잭션이 **동시에 병행** 실행되는 경우 어느 하나의 트랜잭션 실행 중에 다른 트랜잭션의 **연산이 끼어**들 수 없다.
+2. 수행중인 트랜잭션은 **완전히 완료될 때까지** 다른 트랜잭션에서 **수행 결과를 참조**할 수 없다.
 
 <br>
 
 <span style="background: rgb(251,243,219)">영속성, 지속성(Durability)</span>
 
-1. 성공적으로 완료된 트랜잭션의 결과는 시스템이 고장나더라도 영구적으로 반영되어야 한다.
+1. **성공적으로 완료**된 트랜잭션의 **결과**는 **시스템이 고장**나더라도 **영구적으로 반영**되어야 한다.
 
 <br>
 
@@ -372,14 +372,14 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <span style="background: rgb(251,243,219)">Commit 연산</span>
 
-1. Commit 연산은 한 개의 논리적 단위(트랜잭션)에 대한 작업이 성공적으로 끝났고 데이터베이스가 다시 일관된 상태에 있을 때, 이 트랜잭션이 행한 갱신 연산이 완료된 것을 트랜잭션 관리자에게 알려주는 연산이다.
+1. Commit 연산은 **한 개의 논리적 단위**(트랜잭션)에 대한 **작업이 성공적**으로 끝났고 데이터베이스가 다시 일관된 상태에 있을 때, 이 **트랜잭션이 행한 갱신 연산**이 **완료**된 것을 **트랜잭션 관리자에게 알려주는 연산**이다.
 
 <br>
 
 <span style="background: rgb(251,243,219)">Rollback 연산</span>
 
-1. Rollback 연산은 하나의 트랜잭션 처리가 비정상적으로 종료되어 데이터베이스의 일관성을 깨뜨렸을 때, 이 트랜잭션의 일부가 정상적으로 처리되었더라도 트랜잭션의 원자성을 구현하기 위해 이 트랜잭션이 행한 모든 연산을 취소(Undo)하는 연산이다.
-2. Rollback시에는 해당 트랜잭션을 재시작하거나 폐기한다.
+1. Rollback 연산은 **하나**의 **트랜잭션 처리가 비정상적으로 종료**되어 데이터베이스의 일관성을 깨뜨렸을 때, 이 트랜잭션의 일부가 정상적으로 처리되었더라도 **트랜잭션의 원자성**을 구현하기 위해 이 **트랜잭션**이 행한 **모든 연산을 취소(Undo)**하는 연산이다.
+2. Rollback시에는 해당 **트랜잭션**을 **재시작**하거나 **폐기**한다.
 
 <br>
 
@@ -393,7 +393,7 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <br>
 
-본론으로 돌아와서 이제 트랜잭션 격리 수준에 대해서 살펴보자.
+본론으로 돌아와서 이제 트랜잭션 <span style="background: rgb(251,243,219)">격리 수준</span>에 대해서 살펴보자.
 
 <br>
 
@@ -401,9 +401,9 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <br>
 
-- <span style="color: rgba(131, 24, 67); font-weight:bold">READ UNCOMMITED:</span> 다른 트랜잭션에서 커밋되지 않은 내용도 참조할 수 있다.
-- <span style="color: rgba(131, 24, 67); font-weight:bold">READ COMMITED:</span> 다른 트랜잭션에서 커밋된 내용만 참조할 수 있다.
-- <span style="color: rgba(131, 24, 67); font-weight:bold">REPEATABLE READ:</span> 트랜잭션에 진입하기 이전에 커밋된 내용만 참조할 수 있다.
+- <span style="color: rgba(131, 24, 67); font-weight:bold">READ UNCOMMITED:</span> 다른 트랜잭션 중 커밋되지 않은 데이터를 다른 트랜잭션이 참조할 수 있다.
+- <span style="color: rgba(131, 24, 67); font-weight:bold">READ COMMITED:</span> 커밋이 완료된 데이터만 다른 트랜잭션에서 참조할 수 있다.
+- <span style="color: rgba(131, 24, 67); font-weight:bold">REPEATABLE READ:</span> 트랜잭션 시작 전 COMMIT 된 데이터에만 접근할 수 있다.
 - <span style="color: rgba(131, 24, 67); font-weight:bold">SERIALIZABLE:</span> 트랜잭션에 진입하면 락을 걸어 다른 트랜잭션이 접근하지 못하게 한다. (성능이 매우 떨어짐)
 
 <br>
@@ -451,13 +451,13 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <br>
 
-이 단계에서는 트랜잭션에서 처리 중인, 아직 커밋되지 않은 데이터를 다른 트랜잭션이 읽는 것을 허용한다.
+이 단계에서는 트랜잭션에서 처리 중인, 아직 <span style="background: rgb(251,243,219)">커밋되지 않은 데이터</span>를 다른 트랜잭션이 <span style="background: rgb(251,243,219)">읽는 것을</span> 허용한다.
+
+<br>
 
 <h4 style="color:#43ABC9;  font-weight:bold">
 <img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 특징
 </h4>
-
-<br>
 
 - Dirty Read, Non-Repeatable Read, Phantom Read 현상이 발생한다.
 
@@ -474,19 +474,25 @@ PHANTOM READ<br><br>
 
 <br>
 
+<link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet">
+<div style="background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;">
+
+DIRTY READ<br><br>
+
+아직 커밋되지 않은 다른 트랜잭션의 데이터를 읽는 것을 의미한다.</div>
+
+<br>
+
 <h4 style="color:#43ABC9;  font-weight:bold">
 <img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 문제점
 </h4>
-
-<br>
 
 데이터 정합성에 문제가 많다. 그렇기에 RDBMS 표준에서는 격리수준으로 인정하지 않는다.
 
 <br>
 
 **예시**
-
-<br>
 
 - <span style="background: rgb(251,243,219)">트랜잭션 A</span>는 테이블의 데이터를 수정중인 상태이고 아직 <span style="background: rgb(251,243,219)">COMMIT</span> 전이다.
 - <span style="background: rgb(251,243,219)">트랜잭션 B</span>는 트랜잭션 A가 수정중인 데이터를 조회한다. (이를 <span style="background: rgb(251,243,219)">Dirty Read라고 한다.</span>)
@@ -504,7 +510,7 @@ PHANTOM READ<br><br>
 
 <br>
 
-RDB에서 대부분 기본적으로 사용되고 있는 격리 수준으로 **실제 테이블 값**을 가져오는 것이 아니라 **Undo** 영역에 백업된 레코드에서 값을 가져온다.
+RDB에서 대부분 기본적으로 사용되고 있는 격리 수준으로 **실제 테이블 값**을 가져오는 것이 아니라 **Undo** 영역에 <span style="background: rgb(251,243,219)">백업된 레코드에서</span> 값을 가져온다.
 
 <br>
 
@@ -512,10 +518,8 @@ RDB에서 대부분 기본적으로 사용되고 있는 격리 수준으로 **�
 <img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 특징
 </h4>
 
-<br>
-
-- Dirty Read가 발생하지 않지만(트랜잭션이 COMMIT되어 확정된 데이터만 읽는 것을 허용한다.) Non-Repeatable Read, Phantom Read 현상은 여전히 발생한다.
-- 온라인 서비스에서 가장 많이 선택되는 격리수준이다.
+- <span style="background: rgb(251,243,219)">Dirty Read</span>가 발생하지 않지만(트랜잭션이 COMMIT되어 확정된 데이터만 읽는 것을 허용한다.) <span style="background: rgb(251,243,219)">Non-Repeatable Read, Phantom Read</span> 현상은 여전히 발생한다.
+- 온라인 서비스에서 <span style="background: rgb(251,243,219)">가장 많이 선택</span>되는 격리수준이다.
   - DB2, SQL Server, Sybase의 경우 <span style="background: rgb(251,243,219)">읽기, 공유 Lock</span>을 이용하여 구현한다.
   - Oracle은 Lock을 사용하지 않고 쿼리시작 시점의 <span style="background: rgb(251,243,219)">Undo 데이터</span>를 제공한다.
 
@@ -525,11 +529,9 @@ RDB에서 대부분 기본적으로 사용되고 있는 격리 수준으로 **�
 <img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 문제점
 </h4>
 
-<br>
+**NON-REPEATBLE READ** <span style="background: rgb(251,243,219)">부정합 문제</span>가 발생할 수 있다.
 
-**NON-REPEATBLE READ** 부정합 문제가 발생할 수 있다.
-
-READ COMMITED 격리 수준에서 실행되는 SQL 문장의 결과가 무엇인지 정확히 예측하고 있어야 한다.
+READ COMMITED 격리 수준에서 실행되는 SQL 문장의 <span style="background: rgb(251,243,219)">결과가 무엇인지 정확히 예측</span>하고 있어야 한다.
 
 <br>
 
@@ -543,9 +545,9 @@ READ COMMITED 격리 수준에서 실행되는 SQL 문장의 결과가 무엇인
 
 <br>
 
-트랜잭션이 시작되기 전에 COMMIT된 내용에 대해서만 조회할 수 있는 격리수준이다.
+트랜잭션이 시작되기 전에 <span style="background: rgb(251,243,219)">COMMIT된 내용에 대해서만 조회</span>할 수 있는 격리수준이다.
 
-- MySQL에서는 트랜잭션마다 트랜잭션 ID를 부여하여 **트랜잭션 ID 보다 작은 트랜잭션 번호에서 변경한 것만 읽게 된다.**
+- MySQL에서는 트랜잭션마다 <span style="background: rgb(251,243,219)">트랜잭션 ID</span>를 부여하여 **트랜잭션 ID 보다 작은 트랜잭션 번호에서 변경한 것만 읽게 된다.**
 - 변경되기 전 레코드는 <span style="background: rgb(251,243,219)">Undo 공간</span>에 백업해 두고 <span style="background: rgb(251,243,219)">실제 레코드 값</span>을 변경한다.
 
 <br>
@@ -554,8 +556,6 @@ READ COMMITED 격리 수준에서 실행되는 SQL 문장의 결과가 무엇인
 <img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 특징
 </h4>
 
-<br>
-
 - Dirty Read와 같은 현상은 발생하지 않지만 **Phantom Read** 현상은 여전히 발생한다.
 
 <br>
@@ -563,8 +563,6 @@ READ COMMITED 격리 수준에서 실행되는 SQL 문장의 결과가 무엇인
 <h4 style="color:#43ABC9;  font-weight:bold">
 <img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 문제점
 </h4>
-
-<br>
 
 하나의 트랜잭션 실행시간이 길어질수록 **Undo에 백업된 레코드가 많아져서 멀티 버전을 관리해야 하는 단점이** 있다.
 (하지만 영향을 미칠정도로 트랜잭션이 오래 지속되는 경우가 없어서 READ COMMITTED와 REPEATABLE READ의 성능 차이는 거의 없다고 한다.)
@@ -587,9 +585,7 @@ SERIALIZABLE (트랜잭션 레벨 3)</h3>
 <img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 특징
 </h4>
 
-<br>
-
-가장 단순한 격리 수준이지만 가장 엄격한 격리 수준으로 Phantom Read가 발생하지 않는다.
+가장 단순한 격리 수준이지만 가장 <span style="background: rgb(251,243,219)">엄격한 격리 수준</span>으로 <span style="background: rgb(251,243,219)">Phantom Read</span>가 발생하지 않는다.
 
 <br>
 
@@ -597,9 +593,7 @@ SERIALIZABLE (트랜잭션 레벨 3)</h3>
 <img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 문제점
 </h4>
 
-<br>
-
-동시 처리 능력이 다른 격리수준보다 떨어지고 성능저하가 발생하여 데이터베이스에서 거의 사용되지 않는다.
+<span style="background: rgb(251,243,219)">동시 처리 능력</span> 이 다른 격리수준보다 떨어지고 <span style="background: rgb(251,243,219)">성능저하</span>가 발생하여 데이터베이스에서 거의 사용되지 않는다.
 
 <br>
 
@@ -623,7 +617,7 @@ SERIALIZABLE (트랜잭션 레벨 3)</h3>
 
 <br>
 
-- 변경 후 아직 Commit 되지 않은 값 읽고, Rollback 후의 값을 다시 읽어 최종 결과 값이 상이한 현상이다.
+- 변경 후 아직 <span style="background: rgb(251,243,219)">Commit 되지 않은 값 읽고</span>, Rollback 후의 값을 다시 읽어 <span style="background: rgb(251,243,219)">최종 결과 값이 상이한</span> 현상이다.
 - Oracle은 <span style="background: rgb(251,243,219)">다중 버전 읽기 일관성 모델</span>을 채택하여 <span style="background: rgb(251,243,219)">lock</span>을 사용하지 않고 <span style="background: rgb(251,243,219)">Dirty Read</span>를 피해 일관성 있는 데이터 읽기가 가능하게 하였다.
 
 <br>
@@ -638,9 +632,9 @@ SERIALIZABLE (트랜잭션 레벨 3)</h3>
 
 <br>
 
-한 트랜잭션 내에서 같은 쿼리를 두번 수행할 때, 그 사이에 다른 트랜잭션이 값을 수정 또는 삭제함으로써 두 쿼리가 상이하게 나타나는 비 일관성이 발생하는 것을 말한다.
+한 트랜잭션 내에서 <span style="background: rgb(251,243,219)">같은 쿼리를 두번 수행</span>할 때, 그 사이에 다른 트랜잭션이 <span style="background: rgb(251,243,219)">값을 수정</span> 또는 <span style="background: rgb(251,243,219)">삭제</span>함으로써 두 쿼리가 <span style="background: rgb(251,243,219)">상이하게 나타나는</span> <span style="background: rgb(251,243,219)">비 일관성이</span> 발생하는 것을 말한다.
 
-(다시말해 하나의 트랜잭션 내에서 동일한 SELECT를 수행했을 경우 항상 같은 결과를 반환해야하는 REPEATABLE READ 정합성에 어긋나는 것이다.)
+(다시말해 하나의 트랜잭션 내에서 동일한 SELECT를 수행했을 경우 <span style="background: rgb(251,243,219)">항상 같은 결과</span>를 반환해야하는 REPEATABLE READ <span style="background: rgb(251,243,219)">정합성</span>에 어긋나는 것이다.)
 
 <br>
 

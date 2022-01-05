@@ -3476,11 +3476,11 @@ HTTP/1.1 200 OK
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;트랜잭션&lt;/strong&gt;: 데이터베이스의 상태를 변화시키기 위해서 수행하는 작업의 단위를 뜻한다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;트랜잭션&lt;/strong&gt;: 데이터베이스의 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;상태를 변화&lt;/span&gt;시키기 위해서 수행하는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;작업의 단위를&lt;/span&gt; 뜻한다.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;데이터베이스의 상태를 변화시킨다는 것은 아래의 질의어(SQL)를 이용하여 데이터베이스를 접근하는 것을 의미한다.&lt;/p&gt;
+&lt;p&gt;데이터베이스의 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;상태를 변화&lt;/span&gt; 시킨다는 것은 아래의 질의어(SQL)를 이용하여 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;데이터베이스를 접근&lt;/span&gt;하는 것을 의미한다.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -3511,8 +3511,8 @@ HTTP/1.1 200 OK
 &lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;원자성(Atomicity)&lt;/span&gt;&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;트랜잭션의 연산은 데이터베이스에 모두 반영되든지 아니면 전혀 반영되지 않아야 한다.&lt;/li&gt;
-  &lt;li&gt;트랜잭션 내의 모든 명령은 반드시 완벽히 수행되어야 하며, 모두가 완벽히 수행되지 않고 어느 하나라도 오류가 발생하면 트랜잭션 전부가 취소되어야 한다.&lt;/li&gt;
+  &lt;li&gt;트랜잭션의 연산은 데이터베이스에 &lt;strong&gt;모두 반영되든지&lt;/strong&gt; 아니면 &lt;strong&gt;전혀 반영되지&lt;/strong&gt; 않아야 한다.&lt;/li&gt;
+  &lt;li&gt;트랜잭션 내의 모든 명령은 반드시 &lt;strong&gt;완벽히 수행&lt;/strong&gt;되어야 하며, 모두가 &lt;strong&gt;완벽히 수행&lt;/strong&gt;되지 않고 어느 하나라도 오류가 발생하면 &lt;strong&gt;트랜잭션 전부가 취소&lt;/strong&gt;되어야 한다.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -3520,8 +3520,8 @@ HTTP/1.1 200 OK
 &lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;일관성(Consistency)&lt;/span&gt;&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;트랜잭션이 그 실행을 성공적으로 완료하면 언제나 일관성 있는 데이터베이스 상태로 변환한다.&lt;/li&gt;
-  &lt;li&gt;시스템이 가지고 있는 고정요소는 트랜잭션 수행 전과 트랜잭션 수행 완료 후의 상태가 같아야 한다.&lt;/li&gt;
+  &lt;li&gt;트랜잭션이 그 &lt;strong&gt;실행&lt;/strong&gt;을 성공적으로 &lt;strong&gt;완료&lt;/strong&gt;하면 언제나 &lt;strong&gt;일관성&lt;/strong&gt; 있는 &lt;strong&gt;데이터베이스 상태로&lt;/strong&gt; 변환한다.&lt;/li&gt;
+  &lt;li&gt;시스템이 가지고 있는 &lt;strong&gt;고정요소&lt;/strong&gt;는 &lt;strong&gt;트랜잭션 수행 전과 트랜잭션 수행 완료 후&lt;/strong&gt;의 &lt;strong&gt;상태&lt;/strong&gt;가 &lt;strong&gt;같아야&lt;/strong&gt; 한다.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -3529,8 +3529,8 @@ HTTP/1.1 200 OK
 &lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;독립성, 격리성(Isolation)&lt;/span&gt;&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;둘 이상의 트랜잭션이 동시에 병행 실행되는 경우 어느 하나의 트랜잭션 실행 중에 다른 트랜잭션의 연산이 끼어들 수 없다.&lt;/li&gt;
-  &lt;li&gt;수행중인 트랜잭션은 완전히 완료될 때까지 다른 트랜잭션에서 수행 결과를 참조할 수 없다.&lt;/li&gt;
+  &lt;li&gt;둘 이상의 트랜잭션이 &lt;strong&gt;동시에 병행&lt;/strong&gt; 실행되는 경우 어느 하나의 트랜잭션 실행 중에 다른 트랜잭션의 &lt;strong&gt;연산이 끼어&lt;/strong&gt;들 수 없다.&lt;/li&gt;
+  &lt;li&gt;수행중인 트랜잭션은 &lt;strong&gt;완전히 완료될 때까지&lt;/strong&gt; 다른 트랜잭션에서 &lt;strong&gt;수행 결과를 참조&lt;/strong&gt;할 수 없다.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -3538,7 +3538,7 @@ HTTP/1.1 200 OK
 &lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;영속성, 지속성(Durability)&lt;/span&gt;&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;성공적으로 완료된 트랜잭션의 결과는 시스템이 고장나더라도 영구적으로 반영되어야 한다.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;성공적으로 완료&lt;/strong&gt;된 트랜잭션의 &lt;strong&gt;결과&lt;/strong&gt;는 &lt;strong&gt;시스템이 고장&lt;/strong&gt;나더라도 &lt;strong&gt;영구적으로 반영&lt;/strong&gt;되어야 한다.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -3552,7 +3552,7 @@ HTTP/1.1 200 OK
 &lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Commit 연산&lt;/span&gt;&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Commit 연산은 한 개의 논리적 단위(트랜잭션)에 대한 작업이 성공적으로 끝났고 데이터베이스가 다시 일관된 상태에 있을 때, 이 트랜잭션이 행한 갱신 연산이 완료된 것을 트랜잭션 관리자에게 알려주는 연산이다.&lt;/li&gt;
+  &lt;li&gt;Commit 연산은 &lt;strong&gt;한 개의 논리적 단위&lt;/strong&gt;(트랜잭션)에 대한 &lt;strong&gt;작업이 성공적&lt;/strong&gt;으로 끝났고 데이터베이스가 다시 일관된 상태에 있을 때, 이 &lt;strong&gt;트랜잭션이 행한 갱신 연산&lt;/strong&gt;이 &lt;strong&gt;완료&lt;/strong&gt;된 것을 &lt;strong&gt;트랜잭션 관리자에게 알려주는 연산&lt;/strong&gt;이다.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -3560,8 +3560,8 @@ HTTP/1.1 200 OK
 &lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Rollback 연산&lt;/span&gt;&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Rollback 연산은 하나의 트랜잭션 처리가 비정상적으로 종료되어 데이터베이스의 일관성을 깨뜨렸을 때, 이 트랜잭션의 일부가 정상적으로 처리되었더라도 트랜잭션의 원자성을 구현하기 위해 이 트랜잭션이 행한 모든 연산을 취소(Undo)하는 연산이다.&lt;/li&gt;
-  &lt;li&gt;Rollback시에는 해당 트랜잭션을 재시작하거나 폐기한다.&lt;/li&gt;
+  &lt;li&gt;Rollback 연산은 &lt;strong&gt;하나&lt;/strong&gt;의 &lt;strong&gt;트랜잭션 처리가 비정상적으로 종료&lt;/strong&gt;되어 데이터베이스의 일관성을 깨뜨렸을 때, 이 트랜잭션의 일부가 정상적으로 처리되었더라도 &lt;strong&gt;트랜잭션의 원자성&lt;/strong&gt;을 구현하기 위해 이 &lt;strong&gt;트랜잭션&lt;/strong&gt;이 행한 &lt;strong&gt;모든 연산을 취소(Undo)&lt;/strong&gt;하는 연산이다.&lt;/li&gt;
+  &lt;li&gt;Rollback시에는 해당 &lt;strong&gt;트랜잭션&lt;/strong&gt;을 &lt;strong&gt;재시작&lt;/strong&gt;하거나 &lt;strong&gt;폐기&lt;/strong&gt;한다.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -3576,7 +3576,7 @@ HTTP/1.1 200 OK
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;본론으로 돌아와서 이제 트랜잭션 격리 수준에 대해서 살펴보자.&lt;/p&gt;
+&lt;p&gt;본론으로 돌아와서 이제 트랜잭션 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;격리 수준&lt;/span&gt;에 대해서 살펴보자.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -3585,9 +3585,9 @@ HTTP/1.1 200 OK
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;span style=&quot;color: rgba(131, 24, 67); font-weight:bold&quot;&gt;READ UNCOMMITED:&lt;/span&gt; 다른 트랜잭션에서 커밋되지 않은 내용도 참조할 수 있다.&lt;/li&gt;
-  &lt;li&gt;&lt;span style=&quot;color: rgba(131, 24, 67); font-weight:bold&quot;&gt;READ COMMITED:&lt;/span&gt; 다른 트랜잭션에서 커밋된 내용만 참조할 수 있다.&lt;/li&gt;
-  &lt;li&gt;&lt;span style=&quot;color: rgba(131, 24, 67); font-weight:bold&quot;&gt;REPEATABLE READ:&lt;/span&gt; 트랜잭션에 진입하기 이전에 커밋된 내용만 참조할 수 있다.&lt;/li&gt;
+  &lt;li&gt;&lt;span style=&quot;color: rgba(131, 24, 67); font-weight:bold&quot;&gt;READ UNCOMMITED:&lt;/span&gt; 다른 트랜잭션 중 커밋되지 않은 데이터를 다른 트랜잭션이 참조할 수 있다.&lt;/li&gt;
+  &lt;li&gt;&lt;span style=&quot;color: rgba(131, 24, 67); font-weight:bold&quot;&gt;READ COMMITED:&lt;/span&gt; 커밋이 완료된 데이터만 다른 트랜잭션에서 참조할 수 있다.&lt;/li&gt;
+  &lt;li&gt;&lt;span style=&quot;color: rgba(131, 24, 67); font-weight:bold&quot;&gt;REPEATABLE READ:&lt;/span&gt; 트랜잭션 시작 전 COMMIT 된 데이터에만 접근할 수 있다.&lt;/li&gt;
   &lt;li&gt;&lt;span style=&quot;color: rgba(131, 24, 67); font-weight:bold&quot;&gt;SERIALIZABLE:&lt;/span&gt; 트랜잭션에 진입하면 락을 걸어 다른 트랜잭션이 접근하지 못하게 한다. (성능이 매우 떨어짐)&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -3637,13 +3637,13 @@ HTTP/1.1 200 OK
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;이 단계에서는 트랜잭션에서 처리 중인, 아직 커밋되지 않은 데이터를 다른 트랜잭션이 읽는 것을 허용한다.&lt;/p&gt;
+&lt;p&gt;이 단계에서는 트랜잭션에서 처리 중인, 아직 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;커밋되지 않은 데이터&lt;/span&gt;를 다른 트랜잭션이 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;읽는 것을&lt;/span&gt; 허용한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
 &lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 특징
 &lt;/h4&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Dirty Read, Non-Repeatable Read, Phantom Read 현상이 발생한다.&lt;/li&gt;
@@ -3663,19 +3663,26 @@ PHANTOM READ&lt;br /&gt;&lt;br /&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
+&lt;link href=&quot;http://fonts.googleapis.com/earlyaccess/hanna.css&quot; rel=&quot;stylesheet&quot; /&gt;
+
+&lt;div style=&quot;background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;&quot;&gt;
+
+DIRTY READ&lt;br /&gt;&lt;br /&gt;
+
+아직 커밋되지 않은 다른 트랜잭션의 데이터를 읽는 것을 의미한다.&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
 &lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
 &lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 문제점
 &lt;/h4&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;데이터 정합성에 문제가 많다. 그렇기에 RDBMS 표준에서는 격리수준으로 인정하지 않는다.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;예시&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;트랜잭션 A&lt;/span&gt;는 테이블의 데이터를 수정중인 상태이고 아직 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;COMMIT&lt;/span&gt; 전이다.&lt;/li&gt;
@@ -3695,7 +3702,7 @@ PHANTOM READ&lt;br /&gt;&lt;br /&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;RDB에서 대부분 기본적으로 사용되고 있는 격리 수준으로 &lt;strong&gt;실제 테이블 값&lt;/strong&gt;을 가져오는 것이 아니라 &lt;strong&gt;Undo&lt;/strong&gt; 영역에 백업된 레코드에서 값을 가져온다.&lt;/p&gt;
+&lt;p&gt;RDB에서 대부분 기본적으로 사용되고 있는 격리 수준으로 &lt;strong&gt;실제 테이블 값&lt;/strong&gt;을 가져오는 것이 아니라 &lt;strong&gt;Undo&lt;/strong&gt; 영역에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;백업된 레코드에서&lt;/span&gt; 값을 가져온다.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -3703,11 +3710,9 @@ PHANTOM READ&lt;br /&gt;&lt;br /&gt;
 &lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 특징
 &lt;/h4&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
 &lt;ul&gt;
-  &lt;li&gt;Dirty Read가 발생하지 않지만(트랜잭션이 COMMIT되어 확정된 데이터만 읽는 것을 허용한다.) Non-Repeatable Read, Phantom Read 현상은 여전히 발생한다.&lt;/li&gt;
-  &lt;li&gt;온라인 서비스에서 가장 많이 선택되는 격리수준이다.
+  &lt;li&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Dirty Read&lt;/span&gt;가 발생하지 않지만(트랜잭션이 COMMIT되어 확정된 데이터만 읽는 것을 허용한다.) &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Non-Repeatable Read, Phantom Read&lt;/span&gt; 현상은 여전히 발생한다.&lt;/li&gt;
+  &lt;li&gt;온라인 서비스에서 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;가장 많이 선택&lt;/span&gt;되는 격리수준이다.
     &lt;ul&gt;
       &lt;li&gt;DB2, SQL Server, Sybase의 경우 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;읽기, 공유 Lock&lt;/span&gt;을 이용하여 구현한다.&lt;/li&gt;
       &lt;li&gt;Oracle은 Lock을 사용하지 않고 쿼리시작 시점의 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Undo 데이터&lt;/span&gt;를 제공한다.&lt;/li&gt;
@@ -3721,11 +3726,9 @@ PHANTOM READ&lt;br /&gt;&lt;br /&gt;
 &lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 문제점
 &lt;/h4&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NON-REPEATBLE READ&lt;/strong&gt; &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;부정합 문제&lt;/span&gt;가 발생할 수 있다.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;NON-REPEATBLE READ&lt;/strong&gt; 부정합 문제가 발생할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;READ COMMITED 격리 수준에서 실행되는 SQL 문장의 결과가 무엇인지 정확히 예측하고 있어야 한다.&lt;/p&gt;
+&lt;p&gt;READ COMMITED 격리 수준에서 실행되는 SQL 문장의 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;결과가 무엇인지 정확히 예측&lt;/span&gt;하고 있어야 한다.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -3739,10 +3742,10 @@ PHANTOM READ&lt;br /&gt;&lt;br /&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;트랜잭션이 시작되기 전에 COMMIT된 내용에 대해서만 조회할 수 있는 격리수준이다.&lt;/p&gt;
+&lt;p&gt;트랜잭션이 시작되기 전에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;COMMIT된 내용에 대해서만 조회&lt;/span&gt;할 수 있는 격리수준이다.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;MySQL에서는 트랜잭션마다 트랜잭션 ID를 부여하여 &lt;strong&gt;트랜잭션 ID 보다 작은 트랜잭션 번호에서 변경한 것만 읽게 된다.&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;MySQL에서는 트랜잭션마다 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;트랜잭션 ID&lt;/span&gt;를 부여하여 &lt;strong&gt;트랜잭션 ID 보다 작은 트랜잭션 번호에서 변경한 것만 읽게 된다.&lt;/strong&gt;&lt;/li&gt;
   &lt;li&gt;변경되기 전 레코드는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Undo 공간&lt;/span&gt;에 백업해 두고 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;실제 레코드 값&lt;/span&gt;을 변경한다.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -3751,8 +3754,6 @@ PHANTOM READ&lt;br /&gt;&lt;br /&gt;
 &lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
 &lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 특징
 &lt;/h4&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Dirty Read와 같은 현상은 발생하지 않지만 &lt;strong&gt;Phantom Read&lt;/strong&gt; 현상은 여전히 발생한다.&lt;/li&gt;
@@ -3763,8 +3764,6 @@ PHANTOM READ&lt;br /&gt;&lt;br /&gt;
 &lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
 &lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 문제점
 &lt;/h4&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;하나의 트랜잭션 실행시간이 길어질수록 &lt;strong&gt;Undo에 백업된 레코드가 많아져서 멀티 버전을 관리해야 하는 단점이&lt;/strong&gt; 있다.
 (하지만 영향을 미칠정도로 트랜잭션이 오래 지속되는 경우가 없어서 READ COMMITTED와 REPEATABLE READ의 성능 차이는 거의 없다고 한다.)&lt;/p&gt;
@@ -3787,9 +3786,7 @@ SERIALIZABLE (트랜잭션 레벨 3)&lt;/h3&gt;
 &lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 특징
 &lt;/h4&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;가장 단순한 격리 수준이지만 가장 엄격한 격리 수준으로 Phantom Read가 발생하지 않는다.&lt;/p&gt;
+&lt;p&gt;가장 단순한 격리 수준이지만 가장 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;엄격한 격리 수준&lt;/span&gt;으로 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Phantom Read&lt;/span&gt;가 발생하지 않는다.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -3797,9 +3794,7 @@ SERIALIZABLE (트랜잭션 레벨 3)&lt;/h3&gt;
 &lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 문제점
 &lt;/h4&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;동시 처리 능력이 다른 격리수준보다 떨어지고 성능저하가 발생하여 데이터베이스에서 거의 사용되지 않는다.&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;동시 처리 능력&lt;/span&gt; 이 다른 격리수준보다 떨어지고 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;성능저하&lt;/span&gt;가 발생하여 데이터베이스에서 거의 사용되지 않는다.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -3824,7 +3819,7 @@ SERIALIZABLE (트랜잭션 레벨 3)&lt;/h3&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;변경 후 아직 Commit 되지 않은 값 읽고, Rollback 후의 값을 다시 읽어 최종 결과 값이 상이한 현상이다.&lt;/li&gt;
+  &lt;li&gt;변경 후 아직 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Commit 되지 않은 값 읽고&lt;/span&gt;, Rollback 후의 값을 다시 읽어 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;최종 결과 값이 상이한&lt;/span&gt; 현상이다.&lt;/li&gt;
   &lt;li&gt;Oracle은 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;다중 버전 읽기 일관성 모델&lt;/span&gt;을 채택하여 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;lock&lt;/span&gt;을 사용하지 않고 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Dirty Read&lt;/span&gt;를 피해 일관성 있는 데이터 읽기가 가능하게 하였다.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -3840,9 +3835,9 @@ SERIALIZABLE (트랜잭션 레벨 3)&lt;/h3&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;한 트랜잭션 내에서 같은 쿼리를 두번 수행할 때, 그 사이에 다른 트랜잭션이 값을 수정 또는 삭제함으로써 두 쿼리가 상이하게 나타나는 비 일관성이 발생하는 것을 말한다.&lt;/p&gt;
+&lt;p&gt;한 트랜잭션 내에서 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;같은 쿼리를 두번 수행&lt;/span&gt;할 때, 그 사이에 다른 트랜잭션이 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;값을 수정&lt;/span&gt; 또는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;삭제&lt;/span&gt;함으로써 두 쿼리가 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;상이하게 나타나는&lt;/span&gt; &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;비 일관성이&lt;/span&gt; 발생하는 것을 말한다.&lt;/p&gt;
 
-&lt;p&gt;(다시말해 하나의 트랜잭션 내에서 동일한 SELECT를 수행했을 경우 항상 같은 결과를 반환해야하는 REPEATABLE READ 정합성에 어긋나는 것이다.)&lt;/p&gt;
+&lt;p&gt;(다시말해 하나의 트랜잭션 내에서 동일한 SELECT를 수행했을 경우 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;항상 같은 결과&lt;/span&gt;를 반환해야하는 REPEATABLE READ &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;정합성&lt;/span&gt;에 어긋나는 것이다.)&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -4164,15 +4159,15 @@ SERIALIZABLE (트랜잭션 레벨 3)&lt;/h3&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;이번에는 인덱스의 종류인 클러스터 인덱스와 넌 클러스터 인덱스에 대해서 알아보자.&lt;/p&gt;
+&lt;p&gt;이번에는 인덱스의 종류인 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;클러스터 인덱스&lt;/span&gt;와 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;넌 클러스터 인덱스&lt;/span&gt;에 대해서 알아보자.&lt;/p&gt;
 
-&lt;p&gt;일단 인덱스란 데이터를 빠르게 검색할 수 있게 해주는 객체이다.&lt;/p&gt;
+&lt;p&gt;일단 인덱스란 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;데이터를 빠르게 검색&lt;/span&gt;할 수 있게 해주는 객체이다.&lt;/p&gt;
 
-&lt;p&gt;컬럼을 정렬한 후에 데이터를 빠르게 찾을 수 있도록 도와주는 역할을 한다.&lt;/p&gt;
+&lt;p&gt;컬럼을 정렬한 후에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;데이터를 빠르게 찾을 수&lt;/span&gt; 있도록 도와주는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;역할&lt;/span&gt;을 한다.&lt;/p&gt;
 
 &lt;p&gt;인덱스를 생성한다고 무조건 데이터를 빠르게 검색할 수 있는 것은 아니다.&lt;/p&gt;
 
-&lt;p&gt;인덱스를 무작정 생성하는 것은 좋은 방법이 아닌 것이다.&lt;/p&gt;
+&lt;p&gt;인덱스를 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;무작정 생성&lt;/span&gt;하는 것은 좋은 방법이 아닌 것이다.&lt;/p&gt;
 
 &lt;p&gt;중요한 것은 인덱스를 생성할 때 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;테이블의 용도&lt;/span&gt;를 정확하게 파악하는 것이다.&lt;/p&gt;
 
@@ -4186,7 +4181,7 @@ SERIALIZABLE (트랜잭션 레벨 3)&lt;/h3&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;클러스터 인덱스는 데이터페이지 자체가 인덱스 키 값에 의해 물리적으로 정렬이 된다.&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;클러스터 인덱스&lt;/span&gt;는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;데이터페이지&lt;/span&gt; 자체가 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;인덱스 키&lt;/span&gt; 값에 의해 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;물리적으로 정렬&lt;/span&gt;이 된다.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;즉, 데이터페이지는&lt;/strong&gt; &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;리프 레벨&lt;/span&gt;이라고 볼 수 있다.&lt;/p&gt;
 
@@ -4219,7 +4214,7 @@ SERIALIZABLE (트랜잭션 레벨 3)&lt;/h3&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;클러스터형 인덱스를 구성하려면 행 데이터를 해당 열로 정렬한 후에 루트 페이지를 만들게 된다. 즉 &lt;strong&gt;데이터 페이지&lt;/strong&gt;는 &lt;strong&gt;리프 노드&lt;/strong&gt;와 같은 것을 확인할 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;클러스터형 인덱스&lt;/strong&gt;를 구성하려면 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;행 데이터&lt;/span&gt;를 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;해당 열&lt;/span&gt;로 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;정렬&lt;/span&gt;한 후에 루트 페이지를 만들게 된다. 즉 &lt;strong&gt;데이터 페이지&lt;/strong&gt;는 &lt;strong&gt;리프 노드&lt;/strong&gt;와 같은 것을 확인할 수 있다.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -4231,15 +4226,15 @@ SERIALIZABLE (트랜잭션 레벨 3)&lt;/h3&gt;
 &lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 특징
 &lt;/h4&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
 &lt;ul&gt;
-  &lt;li&gt;테이블 당 1개만 허용&lt;/li&gt;
-  &lt;li&gt;기본 키 설정시 자동으로 만들어짐&lt;/li&gt;
-  &lt;li&gt;테이블 자체가 인덱스 (클러스터 인덱스를 기준으로 테이블을 정렬하기 때문에 인덱스 페이지가 없다)&lt;/li&gt;
-  &lt;li&gt;데이터 입력, 수정, 삭제 시 항상 정렬을 유지함&lt;/li&gt;
-  &lt;li&gt;기본적으로 접근 성능이 좋음&lt;/li&gt;
+  &lt;li&gt;테이블 당 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;1개만&lt;/span&gt; 허용&lt;/li&gt;
+  &lt;li&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;기본 키&lt;/span&gt; 설정시 자동으로 만들어짐&lt;/li&gt;
+  &lt;li&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;테이블 자체가 인덱스&lt;/span&gt; (클러스터 인덱스를 기준으로 테이블을 정렬하기 때문에 인덱스 페이지가 없다)&lt;/li&gt;
+  &lt;li&gt;데이터 입력, 수정, 삭제 시 항상 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;정렬을 유지&lt;/span&gt;함&lt;/li&gt;
+  &lt;li&gt;기본적으로 접근 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;성능&lt;/span&gt;이 좋음&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
 &lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 넌클러스터 인덱스

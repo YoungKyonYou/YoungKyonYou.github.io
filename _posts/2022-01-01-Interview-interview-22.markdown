@@ -305,15 +305,15 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <br>
 
-이번에는 인덱스의 종류인 클러스터 인덱스와 넌 클러스터 인덱스에 대해서 알아보자.
+이번에는 인덱스의 종류인 <span style="background: rgb(251,243,219)">클러스터 인덱스</span>와 <span style="background: rgb(251,243,219)">넌 클러스터 인덱스</span>에 대해서 알아보자.
 
-일단 인덱스란 데이터를 빠르게 검색할 수 있게 해주는 객체이다.
+일단 인덱스란 <span style="background: rgb(251,243,219)">데이터를 빠르게 검색</span>할 수 있게 해주는 객체이다.
 
-컬럼을 정렬한 후에 데이터를 빠르게 찾을 수 있도록 도와주는 역할을 한다.
+컬럼을 정렬한 후에 <span style="background: rgb(251,243,219)">데이터를 빠르게 찾을 수</span> 있도록 도와주는 <span style="background: rgb(251,243,219)">역할</span>을 한다.
 
 인덱스를 생성한다고 무조건 데이터를 빠르게 검색할 수 있는 것은 아니다.
 
-인덱스를 무작정 생성하는 것은 좋은 방법이 아닌 것이다.
+인덱스를 <span style="background: rgb(251,243,219)">무작정 생성</span>하는 것은 좋은 방법이 아닌 것이다.
 
 중요한 것은 인덱스를 생성할 때 <span style="background: rgb(251,243,219)">테이블의 용도</span>를 정확하게 파악하는 것이다.
 
@@ -327,7 +327,7 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <br>
 
-클러스터 인덱스는 데이터페이지 자체가 인덱스 키 값에 의해 물리적으로 정렬이 된다.
+<span style="background: rgb(251,243,219)">클러스터 인덱스</span>는 <span style="background: rgb(251,243,219)">데이터페이지</span> 자체가 <span style="background: rgb(251,243,219)">인덱스 키</span> 값에 의해 <span style="background: rgb(251,243,219)">물리적으로 정렬</span>이 된다.
 
 **즉, 데이터페이지는** <span style="background: rgb(251,243,219)">리프 레벨</span>이라고 볼 수 있다.
 
@@ -361,7 +361,7 @@ ALTER TABLE clusterExTable ADD CONSTRINT PK_clusterExTable_id PRIMARY KEY(id);
 
 <br>
 
-클러스터형 인덱스를 구성하려면 행 데이터를 해당 열로 정렬한 후에 루트 페이지를 만들게 된다. 즉 **데이터 페이지**는 **리프 노드**와 같은 것을 확인할 수 있다.
+**클러스터형 인덱스**를 구성하려면 <span style="background: rgb(251,243,219)">행 데이터</span>를 <span style="background: rgb(251,243,219)">해당 열</span>로 <span style="background: rgb(251,243,219)">정렬</span>한 후에 루트 페이지를 만들게 된다. 즉 **데이터 페이지**는 **리프 노드**와 같은 것을 확인할 수 있다.
 
 <br>
 
@@ -373,13 +373,13 @@ ALTER TABLE clusterExTable ADD CONSTRINT PK_clusterExTable_id PRIMARY KEY(id);
 <img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 특징
 </h4>
 
-<br>
+- 테이블 당 <span style="background: rgb(251,243,219)">1개만</span> 허용
+- <span style="background: rgb(251,243,219)">기본 키</span> 설정시 자동으로 만들어짐
+- <span style="background: rgb(251,243,219)">테이블 자체가 인덱스</span> (클러스터 인덱스를 기준으로 테이블을 정렬하기 때문에 인덱스 페이지가 없다)
+- 데이터 입력, 수정, 삭제 시 항상 <span style="background: rgb(251,243,219)">정렬을 유지</span>함
+- 기본적으로 접근 <span style="background: rgb(251,243,219)">성능</span>이 좋음
 
-- 테이블 당 1개만 허용
-- 기본 키 설정시 자동으로 만들어짐
-- 테이블 자체가 인덱스 (클러스터 인덱스를 기준으로 테이블을 정렬하기 때문에 인덱스 페이지가 없다)
-- 데이터 입력, 수정, 삭제 시 항상 정렬을 유지함
-- 기본적으로 접근 성능이 좋음
+<br>
 
 <h3 style="color:#107896;  font-weight:bold">
 <img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 넌클러스터 인덱스
