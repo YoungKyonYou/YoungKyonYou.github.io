@@ -7,6 +7,630 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>직렬화(Serialization)</title>
+				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해…&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;style&gt;
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: &quot;&quot;;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: &quot;&quot;;
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: &quot;&quot;;
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: &quot;&quot;;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: &quot;&quot;;
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: &quot;&quot;;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: &quot;&quot;;
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+&lt;/style&gt;
+
+&lt;div class=&quot;containercoffee&quot;&gt;
+    &lt;div class=&quot;coffee-header&quot;&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-medium&quot;&gt;
+      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/270f.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; Serialization
+&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Serialization&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;자바 시스템 내부에서 사용되는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Object&lt;/span&gt; 또는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Data&lt;/span&gt;를 외부의 자바 시스템에서도 사용할 수 있도록 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;byte 형태&lt;/span&gt;로 데이터를 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;변환하는 기술&lt;/span&gt;이다.&lt;/li&gt;
+  &lt;li&gt;JVM의 메모리에 상주(힙 또는 스택)되어 있는 객체 데이터를 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;바이트 형태&lt;/span&gt;로 변환하는 기술&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;파일에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;텍스트를 기록&lt;/span&gt;하고, &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;이진 데이터&lt;/span&gt;를 기록하는 방법은 많이들 알고 있다.&lt;/p&gt;
+
+&lt;p&gt;그런데 만약 이런 종류의 데이터들이 아니라 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;객체를&lt;/span&gt; 파일로 저장하거나 읽어올 수 있을까?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;있다!!!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;직렬화&lt;/strong&gt;가 그것을 가능하게 해준다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이제부터 직렬화에 관한 간단한 예제를 살펴보자
+아래 그림은 &lt;strong&gt;Account&lt;/strong&gt;라는 클래스의 멤버 변수를 나타낸다. 이것을 객체화하여 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;파일이나 네트워크로&lt;/span&gt; &lt;strong&gt;write&lt;/strong&gt;할 때는 &lt;strong&gt;직렬화&lt;/strong&gt;를 거쳐서 전달된다.&lt;/p&gt;
+
+&lt;p&gt;반대로 읽어올때는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;역직렬화(Deserialization)&lt;/span&gt;를 거쳐서 가져오게 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-05-14-50-05.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;직렬화&lt;/strong&gt;에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;메서드&lt;/span&gt;는 포함하지 않는다.&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;메서드&lt;/span&gt;는 각 클래스가 같은 동작을 수행하기 때문에 &lt;strong&gt;직렬화&lt;/strong&gt;해서 저장할 필요는 없다.&lt;/p&gt;
+
+&lt;p&gt;단지 멤버들마다 다른 값을 가지고 있는 필드들이 &lt;strong&gt;직렬화&lt;/strong&gt;가 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 직렬화는 어떻게 수행하는가?
+&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;직렬화가 가능한 클래스 구현하기&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;직렬화가 된 클래스의 객체를 쓰고 읽는 Stream 준비하기&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 직렬화가 가능한 클래스 구현하기
+&lt;/h4&gt;
+
+&lt;p&gt;직렬화를 하려면 우선 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Serializable 인터페이스&lt;/span&gt;를 &lt;strong&gt;implements&lt;/strong&gt; 해야 한다. 그래서 우리가 &lt;strong&gt;Account&lt;/strong&gt; 클래스를 정의하려면 아래와 같이 정의가 되어야 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Account.java&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Account&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Serializable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;phone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Date&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reg_date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Account&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;phone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;phone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;phone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;reg_date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getEmail&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getAddress&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getPhone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;phone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getRegDate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;SimpleDateFormat&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SimpleDateFormat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;yyyy-MM-dd&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reg_date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Information:&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getEmail&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getAddress&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getPhone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getRegDate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 직렬화 제외하기 - transient
+&lt;/h4&gt;
+
+&lt;p&gt;우리가 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;직렬화로&lt;/span&gt; 파일에다가 기록할 때 민감한 데이터이기 때문에 직렬화에 제외하는 방법은 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;transient&lt;/span&gt;라는 키워드를 사용하면 된다.&lt;/p&gt;
+
+&lt;p&gt;그러면 &lt;strong&gt;직렬화&lt;/strong&gt;에 빠지게 되어 파일에 저장되지 않는다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Account&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Serializable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;c1&quot;&gt;//... 생략 ...&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Date&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reg_date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;transient&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Account&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;phone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;c1&quot;&gt;//...생략...&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;reg_date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;12341234&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;c1&quot;&gt;//...생략...&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 객체 쓰기 (ObjectOutputStream)
+&lt;/h4&gt;
+
+&lt;p&gt;객체를 쓰려면 &lt;strong&gt;stream&lt;/strong&gt;을 열어야 한다. 우리는 당장 파일에 그 객체를 쓸 것이기 때문에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;FileOutputStream&lt;/span&gt;을 사용할 것이고 이 파일 스트림에 객체를 쓸 것이기 때문에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;ObjectOutputStream&lt;/span&gt;을 사용할 것이다.&lt;/p&gt;
+
+&lt;p&gt;사용법은 간단하다.&lt;/p&gt;
+
+&lt;p&gt;아래의 차례대로 진행하면 된다.&lt;/p&gt;
+
+&lt;p&gt;우선 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;FileOutputStream&lt;/span&gt;으로 파일의 &lt;strong&gt;Stream&lt;/strong&gt;을 열고 이것을 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;ObjectOutputStream&lt;/span&gt;으로 전달해주면 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;FileOutputStream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FileOutputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;user.acc&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;ObjectOutputStream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;oos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ObjectOutputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;여기서 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;user.acc&lt;/span&gt;는 우리가 객체를 저장할 &lt;strong&gt;파일 이름&lt;/strong&gt;이다.&lt;/p&gt;
+
+&lt;p&gt;파일을 열때 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;FileNotFoundException이라는 IOException&lt;/span&gt;이 발생할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;이것이 주목적은 아니기 때문에 &lt;strong&gt;메인 함수&lt;/strong&gt;에서 &lt;strong&gt;throw&lt;/strong&gt;로 처리한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그리고 파일에 써줄 객체를 정의해주고 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;ObjectOutputStream&lt;/span&gt;의 객체 쓰기 메서드인 &lt;strong&gt;writeObject&lt;/strong&gt;에 전달해주면 된다.&lt;/p&gt;
+
+&lt;p&gt;그리하여 객체를 쓰는 전체코드는 아래와 같다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Main&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ClassNotFoundException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nc&quot;&gt;Account&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wuser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Account&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;reakwon@aaa.ccc&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;reakwon&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;seoul&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;010-1234-1010&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+	&lt;span class=&quot;nc&quot;&gt;FileOutputStream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FileOutputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;user.acc&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;nc&quot;&gt;ObjectOutputStream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;oos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ObjectOutputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;oos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;writeObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wuser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;oos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;위 코드를 실행하면 파일은 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;working directory&lt;/span&gt;에 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-05-15-09-26.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그리고 메모장으로 그 내용을 까보면 아래와 같다.&lt;/p&gt;
+
+&lt;p&gt;물론 여기에는 &lt;strong&gt;직렬화하지 않길 원하는 멤버 필드(transient로 선언한 멤버 필드)&lt;/strong&gt;가 기록되어 있지 않다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-05-15-10-27.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 객체 읽기 (ObjectInputStream)
+&lt;/h4&gt;
+
+&lt;p&gt;이제는 이 파일에 쓰여진 객체를 읽어보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;파일 읽기 스트림(FileInputStream)&lt;/span&gt;을 열고 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;ObjectInputStream&lt;/span&gt;을 통해서 읽어오면 된다.&lt;/p&gt;
+
+&lt;p&gt;이것 역시 간단하게 &lt;strong&gt;ObjectInputStream&lt;/strong&gt;에 &lt;strong&gt;FileInputStream&lt;/strong&gt;을 전달하고 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;readObject&lt;/span&gt;를 이용해서 객체를 얻어오면 된다.&lt;/p&gt;
+
+&lt;p&gt;이때 &lt;strong&gt;Object 객체&lt;/strong&gt;로 반환하기 때문에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;적절한 형변환&lt;/span&gt;을 해줘야 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;Account&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ruser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;FileInputStream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FileInputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;user.acc&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;ObjectInputStream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ois&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ObjectInputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;ruser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Account&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ois&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;ois&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;혹시나 객체의 클래스를 찾을 수가 없는 예외가 발생할 수 있다. 그때 발생할 수 있는 예외가 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;ClassNotFoundException&lt;/span&gt;이다.&lt;/p&gt;
+
+&lt;p&gt;이것도 메인 메서드에서 던져준다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ClassNotFoundException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;객체를 쓰고 읽는 전체 코드는 아래와 같다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Main&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Main&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ClassNotFoundException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;Account&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wuser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Account&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;reakwon@aaa.ccc&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;reakwon&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;seoul&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;010-1234-1010&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+		&lt;span class=&quot;nc&quot;&gt;Account&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ruser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+		&lt;span class=&quot;nc&quot;&gt;FileOutputStream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FileOutputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;user.acc&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;ObjectOutputStream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;oos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ObjectOutputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;oos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;writeObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wuser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+		&lt;span class=&quot;nc&quot;&gt;FileInputStream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FileInputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;user.acc&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;ObjectInputStream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ois&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ObjectInputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;ruser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Account&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ois&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ruser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+		&lt;span class=&quot;n&quot;&gt;oos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;ois&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그래서 읽어보면 제대로 읽어오는 것을 확인할 수가 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nl&quot;&gt;Information:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reakwon&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@aaa&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ccc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reakwon&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seoul&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;010&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1234&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1010&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2021&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;04&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;07&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;만약 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;transient&lt;/span&gt;로 &lt;strong&gt;직렬화&lt;/strong&gt;에 포함되지 않은 데이터를 읽을 때는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;null&lt;/span&gt;로 읽힌다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 주의
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;객체의 직렬화나 역직렬화에서 클래스는 완전한 동일한 클래스&lt;/strong&gt;를 통해서 쓰고 읽혀야 한다.&lt;/p&gt;
+
+&lt;p&gt;그렇지 않은 경우 아래와 같은 에러가 발생한다.&lt;/p&gt;
+
+&lt;p&gt;여기서 쓸때는 기존의 &lt;strong&gt;Account 클래스&lt;/strong&gt;, 그리고 읽을 때는 멤버 필드를 추가해 변경된 &lt;strong&gt;Account 클래스&lt;/strong&gt;로 읽어보았다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;thread&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;main&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;InvalidClassException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aa&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Account&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;incompatible&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;classdesc&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serialVersionUID&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2399026023152107267&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;serialVersionUID&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9178730303496146785&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ObjectStreamClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;initNonProxy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ObjectStreamClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;722&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ObjectInputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readNonProxyDesc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ObjectInputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2022&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ObjectInputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readClassDesc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ObjectInputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1872&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ObjectInputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readOrdinaryObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ObjectInputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2179&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ObjectInputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readObject0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ObjectInputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1689&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ObjectInputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ObjectInputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;495&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ObjectInputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ObjectInputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;453&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aa&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이렇게 &lt;strong&gt;InvalidClassException&lt;/strong&gt; 이라는 예외가 발생함으로 우리는 &lt;strong&gt;직렬화 클래스의 버전&lt;/strong&gt;을 관리해줘야 한다.&lt;/p&gt;
+
+&lt;p&gt;자바는 &lt;strong&gt;serialVersionUID&lt;/strong&gt;를 통해서 버전이 같은 클래스인지 아닌지 판단할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;그래서 이 버전이 같은지 같지 않은지를 통해서 &lt;strong&gt;조치&lt;/strong&gt;를 취해야 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Account&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Serializable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serialVersionUID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1919191919191919L&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//...생략...&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+				<pubDate>Wed, 05 Jan 2022 11:20:00 +0900</pubDate>
+				<link>/interview/2022/01/05/Interview-interview-28.html</link>
+				<guid isPermaLink="true">/interview/2022/01/05/Interview-interview-28.html</guid>
+			</item>
+		
+			<item>
 				<title>Java Integer 비교하기 == 와 .equals()</title>
 				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -4244,13 +4868,13 @@ SERIALIZABLE (트랜잭션 레벨 3)&lt;/h3&gt;
 
 &lt;p&gt;넌 클러스트형 인덱스는 &lt;strong&gt;데이터 페이지&lt;/strong&gt;를 건들지 않고, 별도의 장소에 &lt;strong&gt;인덱스 페이지&lt;/strong&gt;를 생성한다.&lt;/p&gt;
 
-&lt;p&gt;우선 &lt;strong&gt;인덱스 페이지&lt;/strong&gt;의 &lt;strong&gt;리프 페이지&lt;/strong&gt;에 인덱스로 구성한 열을 정렬하고 데이터 위치 포인터를 생성한다.&lt;/p&gt;
+&lt;p&gt;우선 &lt;strong&gt;인덱스 페이지&lt;/strong&gt;의 &lt;strong&gt;리프 페이지&lt;/strong&gt;에 인덱스로 구성한 열을 정렬하고 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;데이터 위치 포인터&lt;/span&gt;를 생성한다.&lt;/p&gt;
 
-&lt;p&gt;데이터의 위치 포인트는 클러스터형 인덱스와 달리 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;‘페이지 번호 + #오프셋’&lt;/span&gt;이 기록되어 바로 데이터 위치를 가리킨다.&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;데이터의 위치 포인터&lt;/span&gt;는 클러스터형 인덱스와 달리 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;‘페이지 번호 + #오프셋’&lt;/span&gt;이 기록되어 바로 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;데이터 위치&lt;/span&gt;를 가리킨다.&lt;/p&gt;
 
 &lt;p&gt;아래 그림을 예시로 들어보자.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;indexTest2&lt;/strong&gt;로 보자면 102번 페이지의 두 번째(#2)에 데이터가 있다고 기록하게 된다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;indexTest2&lt;/strong&gt;로 보자면 &lt;strong&gt;102번 페이지&lt;/strong&gt;의 &lt;strong&gt;두 번째(#2)&lt;/strong&gt;에 데이터가 있다고 기록하게 된다.&lt;/p&gt;
 
 &lt;p&gt;그러므로 이 데이터 위치 포인터는 데이터가 위치한 고유한 값이 된다.&lt;/p&gt;
 
@@ -4264,13 +4888,11 @@ SERIALIZABLE (트랜잭션 레벨 3)&lt;/h3&gt;
 &lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 특징
 &lt;/h4&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
 &lt;ul&gt;
-  &lt;li&gt;테이블 당 최대 240개 생성 가능&lt;/li&gt;
-  &lt;li&gt;인덱스 페이지를 별도로 저장&lt;/li&gt;
-  &lt;li&gt;테이블 자체는 정렬되지 않고, 인덱스 페이지에만 정렬&lt;/li&gt;
-  &lt;li&gt;성능 증가는 정말 “Case By Case”&lt;/li&gt;
+  &lt;li&gt;테이블 당 최대 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;240개 생성&lt;/span&gt; 가능&lt;/li&gt;
+  &lt;li&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;인덱스 페이지&lt;/span&gt;를 별도로 저장&lt;/li&gt;
+  &lt;li&gt;테이블 자체는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;&lt;/span&gt;되지 않고, &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;인덱스 페이지&lt;/span&gt;에만 정렬&lt;/li&gt;
+  &lt;li&gt;성능 증가는 정말 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;“Case By Case”&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -4310,17 +4932,40 @@ SERIALIZABLE (트랜잭션 레벨 3)&lt;/h3&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;여기서도 마찬가지로 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;hire_date&lt;/span&gt;에 클러스터 인덱스를 건다면 어떻게 될까?&lt;/p&gt;
+&lt;p&gt;여기서도 마찬가지로 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;hire_date&lt;/span&gt;에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;인덱스&lt;/span&gt;를 건다면 어떻게 될까?&lt;/p&gt;
 
-&lt;p&gt;성능 향상에 도움이 안되거나, 데이터가 많아지는 경우 오히려 느려진다.&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;성능 향상&lt;/span&gt;에 도움이 안되거나, 데이터가 많아지는 경우 오히려 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;느려진다.&lt;/span&gt;&lt;/p&gt;
 
-&lt;p&gt;스캔 방식을 생각해야 한다.&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;스캔 방식&lt;/span&gt;을 생각해야 한다.&lt;/p&gt;
 
-&lt;p&gt;클러스터 인덱스가 없는 경우 기본적으로 Heap 테이블 스캔이 이루어진다.&lt;/p&gt;
+&lt;p&gt;클러스터 인덱스가 없는 경우 기본적으로 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Heap 테이블 스캔&lt;/span&gt;이(클러스터 인덱스가 없는 테이블의 겨우 데이터는 추가된 순서대로 쌓이니까 힙이라 한다. 즉, 테이블 전체를 스캔하는 것이다.) 이루어진다.&lt;/p&gt;
 
-&lt;p&gt;클러스터 인덱스가 있는 경우에는 클러스터 인덱스 스캔이 이루어진다.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;하지만 조건절이 없으므로 무식하게 다 읽는건 Heap 테이블 스캔이 빠르다.&lt;/p&gt;
+&lt;link href=&quot;http://fonts.googleapis.com/earlyaccess/hanna.css&quot; rel=&quot;stylesheet&quot; /&gt;
+
+&lt;div style=&quot;background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;&quot;&gt;
+
+힙(Heap): 인덱싱되지 않은 테이블&lt;br /&gt;&lt;br /&gt;
+특징&lt;br /&gt;
+
+- 인덱싱되지 않은 상태&lt;br /&gt;
+- 정렬의 기준이 없음&lt;br /&gt;
+- 데이터 페이지 내의 행들 간의 순서가 없음&lt;br /&gt;
+- 클러스터형 인덱스가 없는 테이블&lt;br /&gt;&lt;br /&gt;
+
+장단점&lt;br /&gt;
+
+- INSERT에 유리, 순서없이 그냥 페이지 빈 곳에 새 데이터를 추가하면 됨
+- SELECT에 불리. 원하는 데이터를 찾기 위해서는 모든 데이터를 스캔해보아야 함.(Table Scan)
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;클러스터 인덱스가 있는 경우에는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;클러스터 인덱스 스캔&lt;/span&gt;이 이루어진다.&lt;/p&gt;
+
+&lt;p&gt;하지만 조건절이 없으므로 무식하게 다 읽는건 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Heap 테이블 스캔&lt;/span&gt;이 빠르다.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -4344,11 +4989,11 @@ SERIALIZABLE (트랜잭션 레벨 3)&lt;/h3&gt;
 
 &lt;p&gt;여기서 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;hire_date&lt;/span&gt;에 넌클러스터 인덱스를 건다면 어떻게 될까?&lt;/p&gt;
 
-&lt;p&gt;놀랍게도 클러스터 인덱스를 걸었을 때보다 더 빠르다.&lt;/p&gt;
+&lt;p&gt;놀랍게도 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;클러스터 인덱스&lt;/span&gt;를 걸었을 때보다 더 빠르다.&lt;/p&gt;
 
-&lt;p&gt;그 이유는 넌클러스터 인덱스가 탐색 범위에 포함되었기 때문에 옵티마이저에서는 인덱스 스캔이 아닌 &lt;strong&gt;Non-Clustered Index Seek&lt;/strong&gt; 방식을 선택하기 때문이다.&lt;/p&gt;
+&lt;p&gt;그 이유는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;넌클러스터 인덱스&lt;/span&gt;가 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;탐색 범위에 포함&lt;/span&gt;되었기 때문에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;옵티마이저&lt;/span&gt;에서는 인덱스 스캔이 아닌 &lt;strong&gt;Non-Clustered Index Seek&lt;/strong&gt; 방식을 선택하기 때문이다.&lt;/p&gt;
 
-&lt;p&gt;Index Scan은 인덱스의 모든 행을 인덱스 순서로 읽는 반면에 Index Seek은 필터 기준에 따라 일치하는 행이나 한정된 행만 찾으려고 리프 노드를 거치기 때문에 논리적 읽기 수가 훨씬 감소한다&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Index Scan&lt;/span&gt;은 인덱스의 모든 행을 인덱스 순서로 읽는 반면에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Index Seek&lt;/span&gt;은 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;필터 기준&lt;/span&gt;에 따라 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;일치하는 행이나 한정된 행&lt;/span&gt;만 찾으려고 리프 노드를 거치기 때문에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;논리적 읽기 수&lt;/span&gt;가 훨씬 감소한다&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -4408,11 +5053,11 @@ Index Scan은 Leaf Level의 첫번째 페이지부터 데이터 검색을 수행
 
 &lt;p&gt;해당 테이블을 select 하면 insert 되어 있는 순서대로 데이터가 누적되어 있을까?&lt;/p&gt;
 
-&lt;p&gt;아니다. &lt;strong&gt;LOG_DATE, MEDIA_ID&lt;/strong&gt;는 클러스터드 인덱스로 생성이 되어 있기 때문에 물리적으로 &lt;strong&gt;LOG_DATE&lt;/strong&gt;를 정렬한 후 &lt;strong&gt;MEDIA_ID&lt;/strong&gt;를 정렬하게 된다.&lt;/p&gt;
+&lt;p&gt;아니다. &lt;strong&gt;LOG_DATE, MEDIA_ID&lt;/strong&gt;는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;클러스터드 인덱스&lt;/span&gt;로 생성이 되어 있기 때문에 물리적으로 &lt;strong&gt;LOG_DATE&lt;/strong&gt;를 정렬한 후 &lt;strong&gt;MEDIA_ID&lt;/strong&gt;를 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;정렬&lt;/span&gt;하게 된다.&lt;/p&gt;
 
-&lt;p&gt;물리적으로 정렬을 한다는 말은 이를 두고 하는 말이다. 실제 DB의 데이터파일에 정렬이 되어 있는 상태로 디스크에 저장이 된다는 것이다.&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;물리적으로 정렬&lt;/span&gt;을 한다는 말은 이를 두고 하는 말이다. 실제 DB의 데이터파일에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;정렬이&lt;/span&gt; 되어 있는 상태로 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;디스크에 저장&lt;/span&gt;이 된다는 것이다.&lt;/p&gt;
 
-&lt;p&gt;테이블 조회를 해보면 아래와 같이 데이터가 정렬되어 있는 것을 확인할 수 있다. (6월 13일 데이터가 가장 위에 있음)&lt;/p&gt;
+&lt;p&gt;테이블 조회를 해보면 아래와 같이 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;데이터가 정렬&lt;/span&gt;되어 있는 것을 확인할 수 있다. (6월 13일 데이터가 가장 위에 있음)&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -4443,7 +5088,7 @@ Index Scan은 Leaf Level의 첫번째 페이지부터 데이터 검색을 수행
 
 &lt;p&gt;일반적으로 조회문 성능 향상을 위해서 넌 클러스터드 인덱스를 생성하여 사용하곤 한다.&lt;/p&gt;
 
-&lt;p&gt;허나, 이 인덱스는 클러스터드인덱스와는 다르게 물리적으로 데이터가 정렬되어 저장되지 않는다.&lt;/p&gt;
+&lt;p&gt;허나, 이 인덱스는 클러스터드인덱스와는 다르게 물리적으로 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt; 데이터가 정렬&lt;/span&gt;되어 저장되지 않는다.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -4452,6 +5097,14 @@ Index Scan은 Leaf Level의 첫번째 페이지부터 데이터 검색을 수행
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;위 사진의 넌클러스터 인덱스에서 데이터 페이지에 있는 데이터들은 정렬이 되지 않은 상태인 것을 볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 읽어보면 좋은 사이트
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://soyeon207.github.io/db/2021/07/06/index-theory.html&quot;&gt;참고&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 </description>
 				<pubDate>Sat, 01 Jan 2022 14:00:00 +0900</pubDate>
 				<link>/interview/2022/01/01/Interview-interview-22.html</link>
@@ -4758,19 +5411,19 @@ Index Scan은 Leaf Level의 첫번째 페이지부터 데이터 검색을 수행
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;인덱스란 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;추가적인 쓰기 작업과 저장 공간을 활용하여 데이트베이스 테이블의 검색 속도를 향상시키기 위한 자료구조이다.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;인덱스란 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;추가적인 쓰기 작업과 저장 공간을 활용하여 데이트베이스 테이블의 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;검색 속도를 향상&lt;/span&gt;시키기 위한 자료구조이다.&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;만약 우리가 책에서 원하는 내용을 찾는다고 하면, 책의 모든 페이지를 찾아보는 것은 오랜 시간이 걸린다.&lt;/p&gt;
 
-&lt;p&gt;그렇기 때문에 책의 저자들은 맨 앞 또는 맨 뒤에 &lt;strong&gt;색인&lt;/strong&gt;을 추가하는데, 데이터베이스의 &lt;strong&gt;index&lt;/strong&gt;는 책의 색인과 같다.&lt;/p&gt;
+&lt;p&gt;그렇기 때문에 책의 저자들은 맨 앞 또는 맨 뒤에 &lt;strong&gt;색인&lt;/strong&gt;을 추가하는데, 데이터베이스의 &lt;strong&gt;index&lt;/strong&gt;는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;책의 색인&lt;/span&gt;과 같다.&lt;/p&gt;
 
-&lt;p&gt;데이터베이스에서도 테이블의 모든 데이터를 검색하면 시간이 오래 걸리기 때문에 데이터와 데이터의 위치를 포함한 자료구조를 생성하여 빠르게 조회할 수 있도록 돕는다.&lt;/p&gt;
+&lt;p&gt;데이터베이스에서도 테이블의 모든 데이터를 검색하면 시간이 오래 걸리기 때문에 데이터와 데이터의 위치를 포함한 자료구조를 생성하여 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;빠르게 조회&lt;/span&gt;할 수 있도록 돕는다.&lt;/p&gt;
 
-&lt;p&gt;인덱스는 사용 빈도가 낮고 column의 선별도가 나쁜 곳에는 쓰지 말아야 한다.&lt;/p&gt;
+&lt;p&gt;인덱스는 사용 빈도가 낮고 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;column의 선별도&lt;/span&gt;가 나쁜 곳에는 쓰지 말아야 한다.&lt;/p&gt;
 
-&lt;p&gt;예를 들어 컬럼의 값이 true/fase, 성별(M/F) 등에는 인덱스를 사용하지 않는 것이 좋다.&lt;/p&gt;
+&lt;p&gt;예를 들어 컬럼의 값이 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;true/fase&lt;/span&gt;, &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;성별(M/F)&lt;/span&gt; 등에는 인덱스를 사용하지 않는 것이 좋다.&lt;/p&gt;
 
-&lt;p&gt;또 테이블이 작거나 자주 갱신될 때도 사용하지 않는 게 좋다.&lt;/p&gt;
+&lt;p&gt;또 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;테이블이 작거나 자주 갱신&lt;/span&gt;될 때도 사용하지 않는 게 좋다.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -4785,12 +5438,10 @@ Index Scan은 Leaf Level의 첫번째 페이지부터 데이터 검색을 수행
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;테이블을 조회하는 속도와 그에 따른 성능을 향상시킬 수 있다.&lt;/li&gt;
-  &lt;li&gt;키 값을 기초로 하여 테이블에서 검색과 정렬 속도를 향상시킨다.&lt;/li&gt;
-  &lt;li&gt;인덱스를 사용하면 테이블 행의 고유성을 강화시킬 수 있다.&lt;/li&gt;
-  &lt;li&gt;
-    &lt;h2 id=&quot;테이블의-기본-키는-자동으로-인덱스-된다&quot;&gt;테이블의 기본 키는 자동으로 인덱스 된다.&lt;/h2&gt;
-  &lt;/li&gt;
+  &lt;li&gt;테이블을 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;조회하는 속도&lt;/span&gt;와 그에 따른 성능을 향상시킬 수 있다.&lt;/li&gt;
+  &lt;li&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;키 값을 기초&lt;/span&gt;로 하여 테이블에서 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;검색과 정렬&lt;/span&gt; 속도를 향상시킨다.&lt;/li&gt;
+  &lt;li&gt;인덱스를 사용하면 테이블 행의 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;고유성&lt;/span&gt;을 강화시킬 수 있다.&lt;/li&gt;
+  &lt;li&gt;테이블의 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;기본 키&lt;/span&gt;는 자동으로 인덱스 된다.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -4802,19 +5453,19 @@ Index Scan은 Leaf Level의 첫번째 페이지부터 데이터 검색을 수행
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;인덱스를 관리하기 위해 DB의 약 10%에 해당하는 저장공간이 필요하다.&lt;/li&gt;
-  &lt;li&gt;인덱스를 관리하기 위해 추가 작업이 필요하다.&lt;/li&gt;
-  &lt;li&gt;인덱스를 잘못 사용할 경우 오히려 성능이 저하되는 역효과가 발생할 수 있다.&lt;/li&gt;
-  &lt;li&gt;인덱스 된 필드에서 데이터를 업데이트하거나, 레코드를 추가 또는 삭제할 때 성능이 떨어진다.&lt;/li&gt;
+  &lt;li&gt;인덱스를 관리하기 위해 DB의 약 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;10%에 해당하는 저장공간&lt;/span&gt;이 필요하다.&lt;/li&gt;
+  &lt;li&gt;인덱스를 관리하기 위해 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;추가 작업&lt;/span&gt;이 필요하다.&lt;/li&gt;
+  &lt;li&gt;인덱스를 잘못 사용할 경우 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;오히려 성능이 저하&lt;/span&gt;되는 역효과가 발생할 수 있다.&lt;/li&gt;
+  &lt;li&gt;인덱스 된 필드에서 데이터를 업데이트하거나, 레코드를 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;추가 또는 삭제&lt;/span&gt;할 때 성능이 떨어진다.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;만약 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;CREATE, DELETE, UPDATE&lt;/span&gt;가 빈번한 속성에 인덱스를 걸게 되면 &lt;span style=&quot;color:#093145; font-weight:bold&quot;&gt;인덱스의 크기가 비대해져서 성능이 오히려 저하되는 역효과&lt;/span&gt;가 발생할 수 있다.&lt;/p&gt;
+&lt;p&gt;만약 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;CREATE, DELETE, UPDATE&lt;/span&gt;가 빈번한 속성에 인덱스를 걸게 되면 &lt;span style=&quot;color:#093145; font-weight:bold&quot;&gt;인덱스의 크기가 비대해져서 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;성능이 오히려 저하&lt;/span&gt;되는 역효과&lt;/span&gt;가 발생할 수 있다.&lt;/p&gt;
 
 &lt;p&gt;그러한 이유 중 하나는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;DELETE와 UPDATE 연산&lt;/span&gt; 때문이다.&lt;/p&gt;
 
-&lt;p&gt;UPDATE와 DELETE는 기존의 인덱스를 삭제하지 않고 ‘사용하지 않음’ 처리를 해준다.&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;UPDATE와 DELETE는&lt;/span&gt; 기존의 인덱스를 삭제하지 않고 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;‘사용하지 않음’&lt;/span&gt; 처리를 해준다.&lt;/p&gt;
 
 &lt;p&gt;만약 어떤 테이블에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;UPDATE와 DELETE가&lt;/span&gt; 빈번하게 발생된다면 실제 데이터는 10만건이지만 인덱스는 100만 건이 넘어가게 되어, SQL문 처리 시 비대해진 인덱스에 의해 오히려 성능이 떨어지게 될 것이다.&lt;/p&gt;
 
@@ -4827,11 +5478,11 @@ Index Scan은 Leaf Level의 첫번째 페이지부터 데이터 검색을 수행
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;INSERT, UPDATE, DELETE가 자주 발생하지 않는 컬럼&lt;/li&gt;
-  &lt;li&gt;JOIN이나 WHERE 또는 ORDER BY에 자주 사용되는 컬럼&lt;/li&gt;
-  &lt;li&gt;데이터의 중복도가 낮은 컬럼&lt;/li&gt;
+  &lt;li&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;INSERT, UPDATE, DELETE&lt;/span&gt;가 자주 발생하지 않는 컬럼&lt;/li&gt;
+  &lt;li&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;JOIN이나 WHERE&lt;/span&gt; 또는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;ORDER BY&lt;/span&gt;에 자주 사용되는 컬럼&lt;/li&gt;
+  &lt;li&gt;데이터의 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;중복도가 낮은&lt;/span&gt; 컬럼&lt;/li&gt;
   &lt;li&gt;필드에 저장된 값을 찾는 작업이 예상되는 경우&lt;/li&gt;
-  &lt;li&gt;필드의 값을 정렬하는 작업이 예상되는 경우&lt;/li&gt;
+  &lt;li&gt;필드의 값을 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;정렬&lt;/span&gt;하는 작업이 예상되는 경우&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -4842,19 +5493,19 @@ Index Scan은 Leaf Level의 첫번째 페이지부터 데이터 검색을 수행
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;데이터에 접근하는 시간복잡도가 O(1)인 hash table이 더 효율적으로 보일 수가 있다.&lt;/p&gt;
+&lt;p&gt;데이터에 접근하는 시간복잡도가 O(1)인 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;hash table&lt;/span&gt;이 더 효율적으로 보일 수가 있다.&lt;/p&gt;
 
-&lt;p&gt;SELECT 질의의 조건에는 등호(&amp;lt;&amp;gt;) 연산도 포함이 된다. Hashtable을 사용하게 된다면 = 연산이 아닌 등호 연산의 경우에 문제가 발생한다.&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;SELECT&lt;/span&gt; 질의의 조건에는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;등호(&amp;lt;&amp;gt;) 연산&lt;/span&gt;도 포함이 된다. &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Hashtable&lt;/span&gt;을 사용하게 된다면 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;= 연산&lt;/span&gt;이 아닌 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;등호 연산&lt;/span&gt;의 경우에 문제가 발생한다.&lt;/p&gt;
 
-&lt;p&gt;동등 연산(=)에 특화된 hashtable은 데이터베이스의 자료구조로 적합하지 않다.&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;동등 연산(=)&lt;/span&gt;에 특화된 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;hashtable은&lt;/span&gt; 데이터베이스의 자료구조로 적합하지 않다.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;반면, B-Tree 인덱스는 디스크 I/O를 고려하여 관계형 데이터베이스에서 가장 일반적으로 사용되는 인덱스이다.&lt;/p&gt;
+&lt;p&gt;반면, &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;B-Tree&lt;/span&gt; 인덱스는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;디스크 I/O&lt;/span&gt;를 고려하여 관계형 데이터베이스에서 가장 일반적으로 사용되는 인덱스이다.&lt;/p&gt;
 
-&lt;p&gt;이 인덱스도 크기가 커저 보조 기억 장치에 저장되게 되는데 이 또한 디스크 I/O가 발생하게 되는 것이다.&lt;/p&gt;
+&lt;p&gt;이 인덱스도 크기가 커져 보조 기억 장치에 저장되게 되는데 이 또한 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;디스크 I/O&lt;/span&gt;가 발생하게 되는 것이다.&lt;/p&gt;
 
-&lt;p&gt;따라서 B-Tree의 깊이를 줄여야 디스크 I/O를 줄일 수 있기 때문에 B-Tree를 사용한다.&lt;/p&gt;
+&lt;p&gt;따라서 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;B-Tree의 깊이&lt;/span&gt;를 줄여야 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;디스크 I/O를 줄일&lt;/span&gt; 수 있기 때문에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;B-Tree&lt;/span&gt;를 사용한다.&lt;/p&gt;
 </description>
 				<pubDate>Sat, 01 Jan 2022 14:00:00 +0900</pubDate>
 				<link>/interview/2022/01/01/Interview-interview-21.html</link>
@@ -5391,498 +6042,6 @@ Index Scan은 Leaf Level의 첫번째 페이지부터 데이터 검색을 수행
 				<pubDate>Sat, 01 Jan 2022 12:00:00 +0900</pubDate>
 				<link>/interview/2022/01/01/Interview-interview-20.html</link>
 				<guid isPermaLink="true">/interview/2022/01/01/Interview-interview-20.html</guid>
-			</item>
-		
-			<item>
-				<title>IoC 컨테이너와 DI(Dependency Injection)</title>
-				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해…&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;style&gt;
-.containercoffee {
-  width: 300px;
-  height: 280px;
-  position: relative;
-  top: calc(50% - 140px);
-  left: calc(50% - 150px);
-}
-.coffee-header {
-  width: 100%;
-  height: 80px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #ddcfcc;
-  border-radius: 10px;
-}
-.coffee-header__buttons {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  top: 25px;
-  background-color: #282323;
-  border-radius: 50%;
-}
-.coffee-header__buttons::after {
-  content: &quot;&quot;;
-  width: 8px;
-  height: 8px;
-  position: absolute;
-  bottom: -8px;
-  left: calc(50% - 4px);
-  background-color: #615e5e;
-}
-.coffee-header__button-one {
-  left: 15px;
-}
-.coffee-header__button-two {
-  left: 50px;
-}
-.coffee-header__display {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: calc(50% - 25px);
-  left: calc(50% - 25px);
-  border-radius: 50%;
-  background-color: #9acfc5;
-  border: 5px solid #43beae;
-  box-sizing: border-box;
-}
-.coffee-header__details {
-  width: 8px;
-  height: 20px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #9b9091;
-  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
-}
-.coffee-medium {
-  width: 90%;
-  height: 160px;
-  position: absolute;
-  top: 80px;
-  left: calc(50% - 45%);
-  background-color: #bcb0af;
-}
-.coffee-medium:before {
-  content: &quot;&quot;;
-  width: 90%;
-  height: 100px;
-  background-color: #776f6e;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 45%);
-  border-radius: 20px 20px 0 0;
-}
-.coffe-medium__exit {
-  width: 60px;
-  height: 20px;
-  position: absolute;
-  top: 0;
-  left: calc(50% - 30px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::before {
-  content: &quot;&quot;;
-  width: 50px;
-  height: 20px;
-  border-radius: 0 0 50% 50%;
-  position: absolute;
-  bottom: -20px;
-  left: calc(50% - 25px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::after {
-  content: &quot;&quot;;
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  bottom: -30px;
-  left: calc(50% - 5px);
-  background-color: #231f20;
-}
-.coffee-medium__arm {
-  width: 70px;
-  height: 20px;
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  background-color: #231f20;
-}
-.coffee-medium__arm::before {
-  content: &quot;&quot;;
-  width: 15px;
-  height: 5px;
-  position: absolute;
-  top: 7px;
-  left: -15px;
-  background-color: #9e9495;
-}
-.coffee-medium__cup {
-  width: 80px;
-  height: 47px;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 40px);
-  background-color: #FFF;
-  border-radius: 0 0 70px 70px / 0 0 110px 110px;
-}
-.coffee-medium__cup::after {
-  content: &quot;&quot;;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 6px;
-  right: -13px;
-  border: 5px solid #FFF;
-  border-radius: 50%;
-}
-@keyframes liquid {
-  0% {
-    height: 0px;  
-    opacity: 1;
-  }
-  5% {
-    height: 0px;  
-    opacity: 1;
-  }
-  20% {
-    height: 62px;  
-    opacity: 1;
-  }
-  95% {
-    height: 62px;
-    opacity: 1;
-  }
-  100% {
-    height: 62px;
-    opacity: 0;
-  }
-}
-.coffee-medium__liquid {
-  width: 6px;
-  height: 63px;
-  opacity: 0;
-  position: absolute;
-  top: 50px;
-  left: calc(50% - 3px);
-  background-color: #74372b;
-  animation: liquid 4s 4s linear infinite;
-}
-.coffee-medium__smoke {
-  width: 8px;
-  height: 20px;
-  position: absolute;  
-  border-radius: 5px;
-  background-color: #b3aeae;
-}
-@keyframes smokeOne {
-  0% {
-    bottom: 20px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 50px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-@keyframes smokeTwo {
-  0% {
-    bottom: 40px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 70px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-.coffee-medium__smoke-one {
-  opacity: 0;
-  bottom: 50px;
-  left: 102px;
-  animation: smokeOne 3s 4s linear infinite;
-}
-.coffee-medium__smoke-two {
-  opacity: 0;
-  bottom: 70px;
-  left: 118px;
-  animation: smokeTwo 3s 5s linear infinite;
-}
-.coffee-medium__smoke-three {
-  opacity: 0;
-  bottom: 65px;
-  right: 118px;
-  animation: smokeTwo 3s 6s linear infinite;
-}
-.coffee-medium__smoke-for {
-  opacity: 0;
-  bottom: 50px;
-  right: 102px;
-  animation: smokeOne 3s 5s linear infinite;
-}
-.coffee-footer {
-  width: 95%;
-  height: 15px;
-  position: absolute;
-  bottom: 25px;
-  left: calc(50% - 47.5%);
-  background-color: #41bdad;
-  border-radius: 10px;
-}
-.coffee-footer::after {
-  content: &quot;&quot;;
-  width: 106%;
-  height: 26px;
-  position: absolute;
-  bottom: -25px;
-  left: -8px;
-  background-color: #000;
-}
-&lt;/style&gt;
-
-&lt;div class=&quot;containercoffee&quot;&gt;
-    &lt;div class=&quot;coffee-header&quot;&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-medium&quot;&gt;
-      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/270f.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; IoC 컨테이너와 DI
-&lt;/h2&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; IoC(Inversion Of Control)의 이해
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;color:#3D9970; font-weight:bold&quot;&gt;IoC(제어권의 역전)이란,&lt;/span&gt; &lt;strong&gt;객체의 생성, 생명주기의 관리까지 모든 객체에 대한 제어권이 바뀌었다는 것을 의미한다.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;IoC(Inversion Of Control): 의존 관계 주입(DI)이라고도 하며, 어떤 객체가 사용하는 의존 객체를 직접 만들어 사용하는 것이 아닌, 주입을 받아서 사용하는 방법&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;스프링 프레임워크도 &lt;strong&gt;객체에 대한 생성 및 생명주기를 관리&lt;/strong&gt;할 수 있는 기능을 제공하고 있다. 즉, IoC 컨테이너 기능을 제공한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;23&quot; width=&quot;23&quot; /&gt; IoC 컨테이너의 특징
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;IoC 컨테이너는 객체의 생성을 책임지고, 의존성을 관리한다.&lt;/li&gt;
-  &lt;li&gt;POJO의 생성, 초기화, 서비스, 소멸에 대한 권한을 가진다.&lt;/li&gt;
-  &lt;li&gt;개발자들이 직접 POJO를 생성할 수 있지만 컨테이너에게 맡긴다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;23&quot; width=&quot;23&quot; /&gt; IoC의 분류
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;DL&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;저장소에 저장되어 있는 Bean에 접근하기 위해 컨테이너가 제공하는 API를 이용하여 Bean을 Lookup하는 것&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;DI&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;각 클래스간의 의존관계를 빈 설정(Bean Definition) 정보를 바탕으로 컨테이너가 자동으로 연결해주는 것&lt;br /&gt; - Seeter Injection&lt;br /&gt; - Constructor Injection&lt;br /&gt; - Method Injection&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;DL 사용시 컨테이너 종속이 증가하며, 주로 DI를 사용한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-01-15-05-30.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; DI의 이해
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;23&quot; width=&quot;23&quot; /&gt; DI의 개념
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;각 클래스간의 의존관계를 빈 설정 (Bean Definition) 정보를 바탕으로 컨테이너가 자동으로 연결해주는 것을 말한다.&lt;/p&gt;
-
-&lt;p&gt;개발자들은 단지 빈 설정 파일에서 의존관계가 필요하다는 정보를 추가하면 된다.&lt;/p&gt;
-
-&lt;p&gt;객체 레퍼런스를 컨테이너로부터 주입 받아서 실행 시에 동적으로 의존관계가 생성된다.&lt;/p&gt;
-
-&lt;p&gt;컨테이너가 흐름의 주체가 되어 애플리케이션 코드에 의존관계를 주입해 주는 것이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;23&quot; width=&quot;23&quot; /&gt; DI의 장점
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;코드가 단순해진다.&lt;/li&gt;
-  &lt;li&gt;컴포넌트 간의 결합도가 낮아진다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;23&quot; width=&quot;23&quot; /&gt; DI의 유형
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;span style=&quot;color: rgba(131, 24, 67); font-weight:bold&quot;&gt;Setter Injection (Setter 메서드를 이용한 의존성 삽입)&lt;/span&gt;: 의존성을 입력 받는 setter 메서드를 만들고 이를 통해 의존성을 주입한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;span style=&quot;color: rgba(131, 24, 67); font-weight:bold&quot;&gt;Constructor Injection (생성자를 이용한 의존성 삽입)&lt;/span&gt;: 필요한 의존성을 포함하는 클래스의 생성자를 만들고 이를 통해 의존성을 주입한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;span style=&quot;color: rgba(131, 24, 67); font-weight:bold&quot;&gt;Method Injection (일반 메서드를 이용한 의존성 삽입)&lt;/span&gt;: 의존성을 입력 받는 일반 메서드를 만들고 이를 통해 의존성을 주입한다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; Spring DI 컨테이너에 대한 이해
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Spring 애플리케이션에서 컴포넌트들의 중앙 저장소, Bean 설정 소스로부터 Bean 정의를 읽어들이고 Bean을 구성하고 제공해주는 컨테이너이다. 또한 실제 IoC 컨테이너는 ApplicationContext 인터페이스를 구현한 클래스의 오브젝트이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;23&quot; width=&quot;23&quot; /&gt; Spring DI 컨테이너의 개념
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Spring DI 컨테이너가 관리하는 객체를 &lt;strong&gt;빈(bean)&lt;/strong&gt; 이라고 하고, 이 빈(bean)들을 관리한다는 의미로 컨테이너를 &lt;strong&gt;빈 팩토리(Bean Factory)&lt;/strong&gt;라고 부른다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;객체의 생성과 객체 사이의 런타임(run-time) 관계를 DI관점에서 볼 때는 컨테이너를 BeanFactory라고 한다.&lt;/li&gt;
-  &lt;li&gt;BeanFactory에 여러 가지 컨테이너 기능을 추가하여 &lt;strong&gt;애플리케이션 컨텍스(Application Contect)&lt;/strong&gt;라고 부른다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;23&quot; width=&quot;23&quot; /&gt; BeanFactory와 ApplicationContext
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;BeanFactory&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Bean을 등록, 생성, 조회, 반환 관리함.&lt;/li&gt;
-      &lt;li&gt;보통은 BeanFactory를 바로 사용하지 않고, 이를 확장한 ApplicationContext를 사용한다.&lt;/li&gt;
-      &lt;li&gt;getBean() 메서드가 정의되어 있다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;ApplicationContext&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;Bean을 등록, 생성, 조회, 반환 관리하는 기능은 BeanFactory와 같다&lt;/li&gt;
-      &lt;li&gt;Spring의 각종 부가 서비스를 추가로 제공한다.&lt;/li&gt;
-      &lt;li&gt;Spring이 제공하는 ApplicationContext 구현 클래스가 여러 가지 종류가 있다.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-01-15-14-23.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-				<pubDate>Sat, 01 Jan 2022 11:00:00 +0900</pubDate>
-				<link>/interview/2022/01/01/Interview-interview-19.html</link>
-				<guid isPermaLink="true">/interview/2022/01/01/Interview-interview-19.html</guid>
 			</item>
 		
 	</channel>

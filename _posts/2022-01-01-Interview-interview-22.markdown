@@ -389,13 +389,13 @@ ALTER TABLE clusterExTable ADD CONSTRINT PK_clusterExTable_id PRIMARY KEY(id);
 
 넌 클러스트형 인덱스는 **데이터 페이지**를 건들지 않고, 별도의 장소에 **인덱스 페이지**를 생성한다.
 
-우선 **인덱스 페이지**의 **리프 페이지**에 인덱스로 구성한 열을 정렬하고 데이터 위치 포인터를 생성한다.
+우선 **인덱스 페이지**의 **리프 페이지**에 인덱스로 구성한 열을 정렬하고 <span style="background: rgb(251,243,219)">데이터 위치 포인터</span>를 생성한다.
 
-데이터의 위치 포인트는 클러스터형 인덱스와 달리 <span style="background: rgb(251,243,219)">'페이지 번호 + #오프셋'</span>이 기록되어 바로 데이터 위치를 가리킨다.
+<span style="background: rgb(251,243,219)">데이터의 위치 포인터</span>는 클러스터형 인덱스와 달리 <span style="background: rgb(251,243,219)">'페이지 번호 + #오프셋'</span>이 기록되어 바로 <span style="background: rgb(251,243,219)">데이터 위치</span>를 가리킨다.
 
 아래 그림을 예시로 들어보자.
 
-**indexTest2**로 보자면 102번 페이지의 두 번째(#2)에 데이터가 있다고 기록하게 된다.
+**indexTest2**로 보자면 **102번 페이지**의 **두 번째(#2)**에 데이터가 있다고 기록하게 된다.
 
 그러므로 이 데이터 위치 포인터는 데이터가 위치한 고유한 값이 된다.
 
@@ -409,12 +409,10 @@ ALTER TABLE clusterExTable ADD CONSTRINT PK_clusterExTable_id PRIMARY KEY(id);
 <img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 특징
 </h4>
 
-<br>
-
-- 테이블 당 최대 240개 생성 가능
-- 인덱스 페이지를 별도로 저장
-- 테이블 자체는 정렬되지 않고, 인덱스 페이지에만 정렬
-- 성능 증가는 정말 "Case By Case"
+- 테이블 당 최대 <span style="background: rgb(251,243,219)">240개 생성</span> 가능
+- <span style="background: rgb(251,243,219)">인덱스 페이지</span>를 별도로 저장
+- 테이블 자체는 <span style="background: rgb(251,243,219)"></span>되지 않고, <span style="background: rgb(251,243,219)">인덱스 페이지</span>에만 정렬
+- 성능 증가는 정말 <span style="background: rgb(251,243,219)">"Case By Case"</span>
 
 <br>
 
@@ -455,17 +453,39 @@ GROUP BY year(hire_date);
 
 <br>
 
-여기서도 마찬가지로 <span style="background: rgb(251,243,219)">hire_date</span>에 클러스터 인덱스를 건다면 어떻게 될까?
+여기서도 마찬가지로 <span style="background: rgb(251,243,219)">hire_date</span>에 <span style="background: rgb(251,243,219)">인덱스</span>를 건다면 어떻게 될까?
 
-성능 향상에 도움이 안되거나, 데이터가 많아지는 경우 오히려 느려진다.
+<span style="background: rgb(251,243,219)">성능 향상</span>에 도움이 안되거나, 데이터가 많아지는 경우 오히려 <span style="background: rgb(251,243,219)">느려진다.</span>
 
-스캔 방식을 생각해야 한다.
+<span style="background: rgb(251,243,219)">스캔 방식</span>을 생각해야 한다.
 
-클러스터 인덱스가 없는 경우 기본적으로 Heap 테이블 스캔이 이루어진다.
+클러스터 인덱스가 없는 경우 기본적으로 <span style="background: rgb(251,243,219)">Heap 테이블 스캔</span>이(클러스터 인덱스가 없는 테이블의 겨우 데이터는 추가된 순서대로 쌓이니까 힙이라 한다. 즉, 테이블 전체를 스캔하는 것이다.) 이루어진다.
 
-클러스터 인덱스가 있는 경우에는 클러스터 인덱스 스캔이 이루어진다.
+<br>
 
-하지만 조건절이 없으므로 무식하게 다 읽는건 Heap 테이블 스캔이 빠르다.
+<link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet">
+<div style="background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;">
+
+힙(Heap): 인덱싱되지 않은 테이블<br><br>
+특징<br>
+
+- 인덱싱되지 않은 상태<br>
+- 정렬의 기준이 없음<br>
+- 데이터 페이지 내의 행들 간의 순서가 없음<br>
+- 클러스터형 인덱스가 없는 테이블<br><br>
+
+장단점<br>
+
+- INSERT에 유리, 순서없이 그냥 페이지 빈 곳에 새 데이터를 추가하면 됨
+- SELECT에 불리. 원하는 데이터를 찾기 위해서는 모든 데이터를 스캔해보아야 함.(Table Scan)
+</div>
+
+<br>
+
+클러스터 인덱스가 있는 경우에는 <span style="background: rgb(251,243,219)">클러스터 인덱스 스캔</span>이 이루어진다.
+
+하지만 조건절이 없으므로 무식하게 다 읽는건 <span style="background: rgb(251,243,219)">Heap 테이블 스캔</span>이 빠르다.
 
 <br>
 
@@ -490,11 +510,11 @@ GROUP BY year(hire_date);
 
 여기서 <span style="background: rgb(251,243,219)">hire_date</span>에 넌클러스터 인덱스를 건다면 어떻게 될까?
 
-놀랍게도 클러스터 인덱스를 걸었을 때보다 더 빠르다.
+놀랍게도 <span style="background: rgb(251,243,219)">클러스터 인덱스</span>를 걸었을 때보다 더 빠르다.
 
-그 이유는 넌클러스터 인덱스가 탐색 범위에 포함되었기 때문에 옵티마이저에서는 인덱스 스캔이 아닌 **Non-Clustered Index Seek** 방식을 선택하기 때문이다.
+그 이유는 <span style="background: rgb(251,243,219)">넌클러스터 인덱스</span>가 <span style="background: rgb(251,243,219)">탐색 범위에 포함</span>되었기 때문에 <span style="background: rgb(251,243,219)">옵티마이저</span>에서는 인덱스 스캔이 아닌 **Non-Clustered Index Seek** 방식을 선택하기 때문이다.
 
-Index Scan은 인덱스의 모든 행을 인덱스 순서로 읽는 반면에 Index Seek은 필터 기준에 따라 일치하는 행이나 한정된 행만 찾으려고 리프 노드를 거치기 때문에 논리적 읽기 수가 훨씬 감소한다
+<span style="background: rgb(251,243,219)">Index Scan</span>은 인덱스의 모든 행을 인덱스 순서로 읽는 반면에 <span style="background: rgb(251,243,219)">Index Seek</span>은 <span style="background: rgb(251,243,219)">필터 기준</span>에 따라 <span style="background: rgb(251,243,219)">일치하는 행이나 한정된 행</span>만 찾으려고 리프 노드를 거치기 때문에 <span style="background: rgb(251,243,219)">논리적 읽기 수</span>가 훨씬 감소한다
 
 <br>
 
@@ -555,11 +575,11 @@ INSERT INTO TBL_CLUSTERED_TEST (LOG_DATE, MEDIA_ID, PROCEEDS) VALUES ('20130613'
 
 해당 테이블을 select 하면 insert 되어 있는 순서대로 데이터가 누적되어 있을까?
 
-아니다. **LOG_DATE, MEDIA_ID**는 클러스터드 인덱스로 생성이 되어 있기 때문에 물리적으로 **LOG_DATE**를 정렬한 후 **MEDIA_ID**를 정렬하게 된다.
+아니다. **LOG_DATE, MEDIA_ID**는 <span style="background: rgb(251,243,219)">클러스터드 인덱스</span>로 생성이 되어 있기 때문에 물리적으로 **LOG_DATE**를 정렬한 후 **MEDIA_ID**를 <span style="background: rgb(251,243,219)">정렬</span>하게 된다.
 
-물리적으로 정렬을 한다는 말은 이를 두고 하는 말이다. 실제 DB의 데이터파일에 정렬이 되어 있는 상태로 디스크에 저장이 된다는 것이다.
+<span style="background: rgb(251,243,219)">물리적으로 정렬</span>을 한다는 말은 이를 두고 하는 말이다. 실제 DB의 데이터파일에 <span style="background: rgb(251,243,219)">정렬이</span> 되어 있는 상태로 <span style="background: rgb(251,243,219)">디스크에 저장</span>이 된다는 것이다.
 
-테이블 조회를 해보면 아래와 같이 데이터가 정렬되어 있는 것을 확인할 수 있다. (6월 13일 데이터가 가장 위에 있음)
+테이블 조회를 해보면 아래와 같이 <span style="background: rgb(251,243,219)">데이터가 정렬</span>되어 있는 것을 확인할 수 있다. (6월 13일 데이터가 가장 위에 있음)
 
 <br>
 
@@ -591,7 +611,7 @@ mysql> select * from tbl_clustered_test;
 
 일반적으로 조회문 성능 향상을 위해서 넌 클러스터드 인덱스를 생성하여 사용하곤 한다.
 
-허나, 이 인덱스는 클러스터드인덱스와는 다르게 물리적으로 데이터가 정렬되어 저장되지 않는다.
+허나, 이 인덱스는 클러스터드인덱스와는 다르게 물리적으로 <span style="background: rgb(251,243,219)"> 데이터가 정렬</span>되어 저장되지 않는다.
 
 <br>
 
@@ -600,3 +620,11 @@ mysql> select * from tbl_clustered_test;
 <br>
 
 위 사진의 넌클러스터 인덱스에서 데이터 페이지에 있는 데이터들은 정렬이 되지 않은 상태인 것을 볼 수 있다.
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 읽어보면 좋은 사이트
+</h3>
+
+**[참고](https://soyeon207.github.io/db/2021/07/06/index-theory.html)**

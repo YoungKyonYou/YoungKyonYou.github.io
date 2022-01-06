@@ -305,19 +305,19 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <br>
 
-인덱스란 <span style="background: rgb(251,243,219)">추가적인 쓰기 작업과 저장 공간을 활용하여 데이트베이스 테이블의 검색 속도를 향상시키기 위한 자료구조이다.</span>
+인덱스란 <span style="background: rgb(251,243,219)">추가적인 쓰기 작업과 저장 공간을 활용하여 데이트베이스 테이블의 <span style="background: rgb(251,243,219)">검색 속도를 향상</span>시키기 위한 자료구조이다.</span>
 
 만약 우리가 책에서 원하는 내용을 찾는다고 하면, 책의 모든 페이지를 찾아보는 것은 오랜 시간이 걸린다.
 
-그렇기 때문에 책의 저자들은 맨 앞 또는 맨 뒤에 **색인**을 추가하는데, 데이터베이스의 **index**는 책의 색인과 같다.
+그렇기 때문에 책의 저자들은 맨 앞 또는 맨 뒤에 **색인**을 추가하는데, 데이터베이스의 **index**는 <span style="background: rgb(251,243,219)">책의 색인</span>과 같다.
 
-데이터베이스에서도 테이블의 모든 데이터를 검색하면 시간이 오래 걸리기 때문에 데이터와 데이터의 위치를 포함한 자료구조를 생성하여 빠르게 조회할 수 있도록 돕는다.
+데이터베이스에서도 테이블의 모든 데이터를 검색하면 시간이 오래 걸리기 때문에 데이터와 데이터의 위치를 포함한 자료구조를 생성하여 <span style="background: rgb(251,243,219)">빠르게 조회</span>할 수 있도록 돕는다.
 
-인덱스는 사용 빈도가 낮고 column의 선별도가 나쁜 곳에는 쓰지 말아야 한다.
+인덱스는 사용 빈도가 낮고 <span style="background: rgb(251,243,219)">column의 선별도</span>가 나쁜 곳에는 쓰지 말아야 한다.
 
-예를 들어 컬럼의 값이 true/fase, 성별(M/F) 등에는 인덱스를 사용하지 않는 것이 좋다.
+예를 들어 컬럼의 값이 <span style="background: rgb(251,243,219)">true/fase</span>, <span style="background: rgb(251,243,219)">성별(M/F)</span> 등에는 인덱스를 사용하지 않는 것이 좋다.
 
-또 테이블이 작거나 자주 갱신될 때도 사용하지 않는 게 좋다.
+또 <span style="background: rgb(251,243,219)">테이블이 작거나 자주 갱신</span>될 때도 사용하지 않는 게 좋다.
 
 <br>
 
@@ -331,11 +331,10 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <br>
 
-- 테이블을 조회하는 속도와 그에 따른 성능을 향상시킬 수 있다.
-- 키 값을 기초로 하여 테이블에서 검색과 정렬 속도를 향상시킨다.
-- 인덱스를 사용하면 테이블 행의 고유성을 강화시킬 수 있다.
-- 테이블의 기본 키는 자동으로 인덱스 된다.
--
+- 테이블을 <span style="background: rgb(251,243,219)">조회하는 속도</span>와 그에 따른 성능을 향상시킬 수 있다.
+- <span style="background: rgb(251,243,219)">키 값을 기초</span>로 하여 테이블에서 <span style="background: rgb(251,243,219)">검색과 정렬</span> 속도를 향상시킨다.
+- 인덱스를 사용하면 테이블 행의 <span style="background: rgb(251,243,219)">고유성</span>을 강화시킬 수 있다.
+- 테이블의 <span style="background: rgb(251,243,219)">기본 키</span>는 자동으로 인덱스 된다.
 
 <br>
 
@@ -345,18 +344,18 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <br>
 
-- 인덱스를 관리하기 위해 DB의 약 10%에 해당하는 저장공간이 필요하다.
-- 인덱스를 관리하기 위해 추가 작업이 필요하다.
-- 인덱스를 잘못 사용할 경우 오히려 성능이 저하되는 역효과가 발생할 수 있다.
-- 인덱스 된 필드에서 데이터를 업데이트하거나, 레코드를 추가 또는 삭제할 때 성능이 떨어진다.
+- 인덱스를 관리하기 위해 DB의 약 <span style="background: rgb(251,243,219)">10%에 해당하는 저장공간</span>이 필요하다.
+- 인덱스를 관리하기 위해 <span style="background: rgb(251,243,219)">추가 작업</span>이 필요하다.
+- 인덱스를 잘못 사용할 경우 <span style="background: rgb(251,243,219)">오히려 성능이 저하</span>되는 역효과가 발생할 수 있다.
+- 인덱스 된 필드에서 데이터를 업데이트하거나, 레코드를 <span style="background: rgb(251,243,219)">추가 또는 삭제</span>할 때 성능이 떨어진다.
 
 <br>
 
-만약 <span style="background: rgb(251,243,219)">CREATE, DELETE, UPDATE</span>가 빈번한 속성에 인덱스를 걸게 되면 <span style="color:#093145; font-weight:bold">인덱스의 크기가 비대해져서 성능이 오히려 저하되는 역효과</span>가 발생할 수 있다.
+만약 <span style="background: rgb(251,243,219)">CREATE, DELETE, UPDATE</span>가 빈번한 속성에 인덱스를 걸게 되면 <span style="color:#093145; font-weight:bold">인덱스의 크기가 비대해져서 <span style="background: rgb(251,243,219)">성능이 오히려 저하</span>되는 역효과</span>가 발생할 수 있다.
 
 그러한 이유 중 하나는 <span style="background: rgb(251,243,219)">DELETE와 UPDATE 연산</span> 때문이다.
 
-UPDATE와 DELETE는 기존의 인덱스를 삭제하지 않고 '사용하지 않음' 처리를 해준다.
+<span style="background: rgb(251,243,219)">UPDATE와 DELETE는</span> 기존의 인덱스를 삭제하지 않고 <span style="background: rgb(251,243,219)">'사용하지 않음'</span> 처리를 해준다.
 
 만약 어떤 테이블에 <span style="background: rgb(251,243,219)">UPDATE와 DELETE가</span> 빈번하게 발생된다면 실제 데이터는 10만건이지만 인덱스는 100만 건이 넘어가게 되어, SQL문 처리 시 비대해진 인덱스에 의해 오히려 성능이 떨어지게 될 것이다.
 
@@ -368,11 +367,11 @@ UPDATE와 DELETE는 기존의 인덱스를 삭제하지 않고 '사용하지 않
 
 <br>
 
-- INSERT, UPDATE, DELETE가 자주 발생하지 않는 컬럼
-- JOIN이나 WHERE 또는 ORDER BY에 자주 사용되는 컬럼
-- 데이터의 중복도가 낮은 컬럼
+- <span style="background: rgb(251,243,219)">INSERT, UPDATE, DELETE</span>가 자주 발생하지 않는 컬럼
+- <span style="background: rgb(251,243,219)">JOIN이나 WHERE</span> 또는 <span style="background: rgb(251,243,219)">ORDER BY</span>에 자주 사용되는 컬럼
+- 데이터의 <span style="background: rgb(251,243,219)">중복도가 낮은</span> 컬럼
 - 필드에 저장된 값을 찾는 작업이 예상되는 경우
-- 필드의 값을 정렬하는 작업이 예상되는 경우
+- 필드의 값을 <span style="background: rgb(251,243,219)">정렬</span>하는 작업이 예상되는 경우
 
 <br>
 
@@ -382,16 +381,16 @@ UPDATE와 DELETE는 기존의 인덱스를 삭제하지 않고 '사용하지 않
 
 <br>
 
-데이터에 접근하는 시간복잡도가 O(1)인 hash table이 더 효율적으로 보일 수가 있다.
+데이터에 접근하는 시간복잡도가 O(1)인 <span style="background: rgb(251,243,219)">hash table</span>이 더 효율적으로 보일 수가 있다.
 
-SELECT 질의의 조건에는 등호(<>) 연산도 포함이 된다. Hashtable을 사용하게 된다면 = 연산이 아닌 등호 연산의 경우에 문제가 발생한다.
+<span style="background: rgb(251,243,219)">SELECT</span> 질의의 조건에는 <span style="background: rgb(251,243,219)">등호(<>) 연산</span>도 포함이 된다. <span style="background: rgb(251,243,219)">Hashtable</span>을 사용하게 된다면 <span style="background: rgb(251,243,219)">= 연산</span>이 아닌 <span style="background: rgb(251,243,219)">등호 연산</span>의 경우에 문제가 발생한다.
 
-동등 연산(=)에 특화된 hashtable은 데이터베이스의 자료구조로 적합하지 않다.
+<span style="background: rgb(251,243,219)">동등 연산(=)</span>에 특화된 <span style="background: rgb(251,243,219)">hashtable은</span> 데이터베이스의 자료구조로 적합하지 않다.
 
 <br>
 
-반면, B-Tree 인덱스는 디스크 I/O를 고려하여 관계형 데이터베이스에서 가장 일반적으로 사용되는 인덱스이다.
+반면, <span style="background: rgb(251,243,219)">B-Tree</span> 인덱스는 <span style="background: rgb(251,243,219)">디스크 I/O</span>를 고려하여 관계형 데이터베이스에서 가장 일반적으로 사용되는 인덱스이다.
 
-이 인덱스도 크기가 커저 보조 기억 장치에 저장되게 되는데 이 또한 디스크 I/O가 발생하게 되는 것이다.
+이 인덱스도 크기가 커져 보조 기억 장치에 저장되게 되는데 이 또한 <span style="background: rgb(251,243,219)">디스크 I/O</span>가 발생하게 되는 것이다.
 
-따라서 B-Tree의 깊이를 줄여야 디스크 I/O를 줄일 수 있기 때문에 B-Tree를 사용한다.
+따라서 <span style="background: rgb(251,243,219)">B-Tree의 깊이</span>를 줄여야 <span style="background: rgb(251,243,219)">디스크 I/O를 줄일</span> 수 있기 때문에 <span style="background: rgb(251,243,219)">B-Tree</span>를 사용한다.
