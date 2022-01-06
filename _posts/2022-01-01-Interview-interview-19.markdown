@@ -327,11 +327,28 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 <img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="23" width="23"> IoC 컨테이너의 특징
 </h3>
 
+- IoC 컨테이너는 **객체의 생성**을 책임지고, **의존성**을 관리한다.
+- **POJO**의 생성, 초기화, 서비스, 소멸에 대한 **권한**을 가진다.
+- 개발자들이 직접 **POJO**를 생성할 수 있지만 **컨테이너**에게 맡긴다.
+
 <br>
 
-- IoC 컨테이너는 객체의 생성을 책임지고, 의존성을 관리한다.
-- POJO의 생성, 초기화, 서비스, 소멸에 대한 권한을 가진다.
-- 개발자들이 직접 POJO를 생성할 수 있지만 컨테이너에게 맡긴다.
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> IoC의 장점
+</h4>
+
+- 인터페이스 기반 설계가 가능
+- 컴포넌트 재사용성 증가
+- 체계적이고 효율적인 Dependency 관리
+
+<br>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> IoC의 단점
+</h4>
+
+- 순환참조가 발생할 가능성이 있다.
+- 의존성이 숨어 있다.
 
 <br>
 
@@ -339,25 +356,77 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 <img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="23" width="23"> IoC의 분류
 </h3>
 
-<br>
-
 - **DL**
-
-<br>
 
 > 저장소에 저장되어 있는 Bean에 접근하기 위해 컨테이너가 제공하는 API를 이용하여 Bean을 Lookup하는 것
 
 <br>
 
-- **DI**
+아래와 같이 Bean에 대한 정보가 있는 xml 파일이 있다고 해보자.
+
+```xml
+<beans>
+    <bean id="myObject" class="com.example.MyObject"/>
+</beans>
+```
 
 <br>
 
-> 각 클래스간의 의존관계를 빈 설정(Bean Definition) 정보를 바탕으로 컨테이너가 자동으로 연결해주는 것<br> - Seeter Injection<br> - Constructor Injection<br> - Method Injection
+java에서는 해당 xml의 Bean 정보들을 보고 어떤 클래스를 사용할지 검색하여 주입하게 된다.
+
+아래 자바코드를 보자면
 
 <br>
 
-DL 사용시 컨테이너 종속이 증가하며, 주로 DI를 사용한다.
+```java
+String myConfigLocation = "classpath:myApplicationCTX.xml";
+AbstractApplicationContext ctx = new GenericXmlApplicationContext(myConfigLocation);
+MyObject myObject = ctx.getBean("myObject", MyObject.class);
+```
+
+<br>
+
+그 결과 위와 같은 코드를 통해 적절한 <span style="background: rgb(251,243,219)">MyObject</span>클래스를 가져올 수 있다.
+
+<br>
+
+**DL 장점**
+
+- JNDI등을 이용하는데 Object간에 Decoupling을 해준다.
+
+<br>
+
+**DL 단점**
+
+- Dependency Lookup으로 획득한 객체는 컨테이너 밖에서 실행할 수 없음
+- Bean 변경 시 객체 내에 변경에 대한 부분을 반영해야 하므로 일일이 수정해야 한다 따라서 테스가 어렵다
+- 캐스팅이 어렵다. Strong Typed가 아니기 때문에 매번 Casting 해야 한다.
+
+<br>
+
+**DI**
+
+> 각 클래스간의 의존관계를 빈 설정(Bean Definition) 정보를 바탕으로 컨테이너가 자동으로 연결해주는 것<br><br> - Setter Injection<br> - Constructor Injection<br> - Method Injection
+
+<br>
+
+**DI 장점**
+
+- Object가 Container에 의존적이지 않아서 Lookup의 관한 코드가 사라진다.
+- 클래스 상속의 필요가 사라지게 된다.
+- 코드가 단순해진다.
+- 컴포넌트 간 결합도가 낮아진다
+- 결합도를 낮추면서 유연성과 확장성 향상
+
+<br>
+
+**DI 단점**
+
+- Spring 내부에 등록된 Bean 끼리만 의존성 설정이 가능하다.
+
+<br>
+
+DL 사용시 <span style="background: rgb(251,243,219)">컨테이너와의 종속이 증가</span>하며, 주로 DI를 사용한다.
 
 <br>
 
@@ -375,23 +444,19 @@ DL 사용시 컨테이너 종속이 증가하며, 주로 DI를 사용한다.
 <img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="23" width="23"> DI의 개념
 </h3>
 
-<br>
+각 클래스간의 <span style="background: rgb(251,243,219)">의존관계</span>를 <span style="background: rgb(251,243,219)">빈 설정</span> (Bean Definition) 정보를 바탕으로 <span style="background: rgb(251,243,219)">컨테이너가 자동으로 연결</span>해주는 것을 말한다.
 
-각 클래스간의 의존관계를 빈 설정 (Bean Definition) 정보를 바탕으로 컨테이너가 자동으로 연결해주는 것을 말한다.
+개발자들은 단지 <span style="background: rgb(251,243,219)">빈 설정 파일</span>에서 <span style="background: rgb(251,243,219)">의존관계</span>가 필요하다는 정보를 추가하면 된다.
 
-개발자들은 단지 빈 설정 파일에서 의존관계가 필요하다는 정보를 추가하면 된다.
+객체 레퍼런스를 <span style="background: rgb(251,243,219)">컨테이너</span>로부터 주입 받아서 실행 시에 <span style="background: rgb(251,243,219)">동적으로 의존관계</span>가 생성된다.
 
-객체 레퍼런스를 컨테이너로부터 주입 받아서 실행 시에 동적으로 의존관계가 생성된다.
-
-컨테이너가 흐름의 주체가 되어 애플리케이션 코드에 의존관계를 주입해 주는 것이다.
+컨테이너가 흐름의 주체가 되어 <span style="background: rgb(251,243,219)">애플리케이션 코드</span>에 <span style="background: rgb(251,243,219)">의존관계를 주입</span>해 주는 것이다.
 
 <br>
 
 <h3 style="color:#43ABC9;  font-weight:bold">
 <img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="23" width="23"> DI의 장점
 </h3>
-
-<br>
 
 - 코드가 단순해진다.
 - 컴포넌트 간의 결합도가 낮아진다.
@@ -418,7 +483,7 @@ DL 사용시 컨테이너 종속이 증가하며, 주로 DI를 사용한다.
 
 <br>
 
-Spring 애플리케이션에서 컴포넌트들의 중앙 저장소, Bean 설정 소스로부터 Bean 정의를 읽어들이고 Bean을 구성하고 제공해주는 컨테이너이다. 또한 실제 IoC 컨테이너는 ApplicationContext 인터페이스를 구현한 클래스의 오브젝트이다.
+Spring 애플리케이션에서 <span style="background: rgb(251,243,219)">컴포넌트들의 중앙 저장소</span>, <span style="background: rgb(251,243,219)">Bean 설정 소스</span>로부터 Bean 정의를 읽어들이고 <span style="background: rgb(251,243,219)">Bean을 구성</span> 하고 <span style="background: rgb(251,243,219)">제공</span>해주는 <span style="background: rgb(251,243,219)">컨테이너</span>이다. 또한 실제 <span style="background: rgb(251,243,219)">IoC 컨테이너</span>는 <span style="background: rgb(251,243,219)">ApplicationContext 인터페이스</span>를 구현한 <span style="background: rgb(251,243,219)">클래스의 오브젝트</span>이다.
 
 <br>
 
@@ -457,4 +522,3 @@ Spring DI 컨테이너가 관리하는 객체를 **빈(bean)** 이라고 하고,
   <br>
 
   ![](/images/Interview/post16/2022-01-01-15-14-23.png?style=centerme)
-
