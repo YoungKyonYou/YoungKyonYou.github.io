@@ -336,7 +336,7 @@ GC(Garbage Collector)에 대해서 이야기 하기 전에 먼저 JVM의 구조�
 
 - .class 파일 = 바이트 코드
 - byte 코드 → JVM과 같은 가상 머신이 이해할 수 있는 코드 - binary 코드
-  - CPU가 이해할 수 있는 코드가
+  - CPU가 이해할 수 있는 코드
 
 <br>
 
