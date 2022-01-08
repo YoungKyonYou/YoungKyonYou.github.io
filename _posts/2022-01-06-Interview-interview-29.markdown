@@ -729,3 +729,7 @@ JPA의 **글로벌 페치 전략 기본값은 다음과 같다**
 <br>
 
 따라서 기본값이 즉시 로딩인 <span style="background: rgb(251,243,219)">@OneToOne과 @ManyToOne</span>은 <span style="background: rgb(251,243,219)">fetch=FetchType.LAZY</span>로 설정해서 <span style="background: rgb(251,243,219)">지연 로딩 전략</span>을 사용하도록 변경하자.
+
+<br>
+
+**[N+1에 대해 잘 설명한 글](https://velog.io/@jinyoungchoi95/JPA-%EB%AA%A8%EB%93%A0-N1-%EB%B0%9C%EC%83%9D-%EC%BC%80%EC%9D%B4%EC%8A%A4%EA%B3%BC-%ED%95%B4%EA%B2%B0%EC%B1%85)**
