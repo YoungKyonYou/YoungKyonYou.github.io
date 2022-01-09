@@ -299,49 +299,51 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <br>
 
-### Spring WebFlux
+<h2 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/270f.png" height="30" width="30"> Spring WebFlux
+</h2>
 
 <br>
 
-우리가 보통 사용하던 Spring MVC + RDBMS 패턴은 <span style="color:#2ECC40; font-weight:bold">Blocking IO</span> 방식이다.
+우리가 보통 사용하던 <span style="background: rgb(251,243,219)">Spring MVC + RDBMS 패턴</span>은 <span style="color:#2ECC40; font-weight:bold">Blocking IO</span> 방식이다.
 
 <span style="color:#2ECC40; font-weight:bold">Blocking IO</span> 방식이라는 것은 요청을 처리하기 전까지는 다른 작업을 수행할 수 없는 상태라는 것을 말한다.
 
-동시에 여러 요청을 처리하기 위해서는 <span style="color:#2ECC40; font-weight:bold">Thread</span> 수를 늘려서 하는 방법이 존재하기는 하지만 오버헤드가 발생한다.
+동시에 <span style="background: rgb(251,243,219)">여러 요청</span>을 <span style="background: rgb(251,243,219)">처리</span>하기 위해서는 <span style="color:#2ECC40; font-weight:bold">Thread</span> 수를 늘려서 하는 방법이 존재하기는 하지만 <span style="background: rgb(251,243,219)">오버헤드</span>가 발생한다.
 
 이를 개선하기 위해서 나온 기술이 <span style="color: rgba(131, 24, 67); font-weight:bold">Non-Blocking IO</span> 방식인 <span style="color: rgba(131, 24, 67); font-weight:bold">Spring WebFlux</span>이다.
 
-<span style="color: rgba(131, 24, 67); font-weight:bold">Spring WebFlux</span>는 동시에 처리되어야 할 많은 요청에 대해 효율적으로 처리해줄 수 있다.
+<span style="color: rgba(131, 24, 67); font-weight:bold">Spring WebFlux</span>는 <span style="background: rgb(251,243,219)">동시에 처리</span>되어야 할 많은 <span style="background: rgb(251,243,219)">요청</span>에 대해 <span style="background: rgb(251,243,219)">효율적</span>으로 처리해 줄 수 있다.
 
 <br>
 
-스레드 풀을 이용한 동기식 호출 방식은 코드가 간단하고 순차적으로 동작하기 때문에 개발자가 코드를 직관적이고 빠르게 작성할 수 있다.
+<span style="background: rgb(251,243,219)">스레드 풀</span>을 이용한 <span style="background: rgb(251,243,219)">동기식 호출 방식</span>은 코드가 간단하고 순차적으로 동작하기 때문에 개발자가 코드를 직관적이고 빠르게 작성할 수 있다.
 
-하지만 이렇게 작성한 코드로 만든 서버도 빠르게 동작하고 많은 요청을 처리할 수 있을까?
+하지만 이렇게 작성한 코드로 만든 서버도 빠르게 동작하고 <span style="background: rgb(251,243,219)">많은 요청을 처리</span>할 수 있을까?
 
-동기식 호출 방식에서는 상대편의 응답이 올 때까지 스레드는 기다려야(blocking)한다.
+<span style="background: rgb(251,243,219)">동기식 호출 방식</span>에서는 상대편의 응답이 올 때까지 스레드는 <span style="background: rgb(251,243,219)">기다려야(blocking)</span>한다.
 
-응답이 빨리 오면 그 기다림은 길지 않겠지만 만약 응답이 늦게 오면 서버가 요청에 대한 응답을 기다리는 데 스레드를 모두 소진해서 추가 요청을 처리할 수 없는 상태가 될 수 있다.
+<span style="background: rgb(251,243,219)">응답</span>이 빨리 오면 그 기다림은 길지 않겠지만 만약 <span style="background: rgb(251,243,219)">응답</span>이 늦게 오면 서버가 요청에 대한 응답을 기다리는 데 <span style="background: rgb(251,243,219)">스레드를 모두 소진</span>해서 추가 요청을 처리할 수 없는 상태가 될 수 있다.
 
-특히 MSA에서는 타임아웃이 발생할 정도의 지연이 발생하면 순식간에 다른 모듈로 전파되어 전체 시스템이 마비되는 등의 악영향을 끼칠 수 있다.
+특히 <span style="background: rgb(251,243,219)">MSA</span>에서는 <span style="background: rgb(251,243,219)">타임아웃</span>이 발생할 정도의 지연이 발생하면 순식간에 <span style="background: rgb(251,243,219)">다른 모듈로 전파</span>되어 <span style="background: rgb(251,243,219)">전체 시스템이 마비</span>되는 등의 악영향을 끼칠 수 있다.
 
 <br>
 
 여기서 의문점이 생긴다.
 
-쓰레드가 서버로 요청을 하고 나서 꼭 응답을 기다리면서 아무 것도 하지 않고 대기해야 할까?
+쓰레드가 서버로 요청을 하고 나서 꼭 응답을 기다리면서 아무 것도 하지 않고 <span style="background: rgb(251,243,219)">대기</span>해야 할까?
 
 쓰레드가 응답을 기다리지 않고 다른 일을 처리하다가 응답이 왔을 때 해당 일을 처리한다면 응답만 기다리면서 불필요하게 리소스를 점유하는 일은 없을 것이다.
 
-이러한 요구 사항에서 나온 것이 이벤트 루프를 이용한 <span style="color:#2ECC40; font-weight:bold">비동기 프로그래밍</span>이다.
+이러한 요구 사항에서 나온 것이 <span style="background: rgb(251,243,219)">이벤트 루프</span>를 이용한 <span style="color:#2ECC40; font-weight:bold">비동기 프로그래밍</span>이다.
 
 <br>
 
-이벤트 루프를 활용하면 요청을 보내고 응답이 올 때까지 무작정 기다리는 대신 자신에게 할당된 다른 여러 소켓의 요청을 순차적으로 빠르게 처리한다.
+<span style="background: rgb(251,243,219)">이벤트 루프</span>를 활용하면 요청을 보내고 응답이 올 때까지 무작정 기다리는 대신 자신에게 할당된 <span style="background: rgb(251,243,219)">다른 여러 소켓의 요청</span>을 순차적으로 빠르게 처리한다.
 
-이제 우리의 서버와 클라이언트의 스레드는 더이상 blocking되지 않는다.
+이제 우리의 서버와 클라이언트의 스레드는 더이상 <span style="background: rgb(251,243,219)">blocking</span>되지 않는다.
 
-Spring 생태계에서도 버전 5부터 도입된 WebFlux를 통해 비동기 프로그래밍을 본격적으로 도입하고 있다.
+Spring 생태계에서도 버전 5부터 도입된 <span style="background: rgb(251,243,219)">WebFlux</span>를 통해 <span style="background: rgb(251,243,219)">비동기 프로그래밍</span>을 본격적으로 도입하고 있다.
 
 <br>
 
@@ -353,7 +355,9 @@ Spring 생태계에서도 버전 5부터 도입된 WebFlux를 통해 비동기 �
 
 <br>
 
-#### Example
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> Example
+</h3>
 
 <br>
 
@@ -383,23 +387,13 @@ http://localhost:8080/hello
 
 #### 시작 전 필요한 것들
 
-<br>
-
 - 15분 정도의 시간
-
-<br>
 
 - 좋은 텍스트 에디터 아니면 IDE
 
-<br>
-
 - JDK 1.8 이상
 
-<br>
-
 - Gradle 4+ 아니면 Maven 3.2+
-
-<br>
 
 - 코드를 IDE로 바로 가져올 수도 있음
   - **[Spring Tool Suite (STS)](https://spring.io/guides/gs/sts/)**
@@ -432,7 +426,7 @@ http://localhost:8080/hello
 
 <br>
 
-이중 pom.xml 을 열어보면 이렇게 spring-boot-starter-webflux dependency를 가지고 있는것을 확인할 수 있다.
+이중 pom.xml 을 열어보면 이렇게 <span style="background: rgb(251,243,219)">spring-boot-starter-webflux dependency</span>를 가지고 있는것을 확인할 수 있다.
 
 이번엔 hello package 내의 클래스를 하나씩 보면서 어떤 방식으로 동작하는지 알아보자.
 
@@ -464,7 +458,7 @@ public class GreetingHandler {
 
 <br>
 
-Spring Reactive 접근 방식에서는 Handler를 사용하여 요청을 처리하고 응답을 생성한다. 이 예제에서는 요청에 대해 "Hello, Spring!"을 반환하는 역할을 해주고 있다. 여기서 Mono라는 객체가 나오는데 이것은 Reactor에서 결과값을 처리하기 위한 객체라고 이해하면 된다. 주로 0개~1개의 결과값은 Mono에 담고 Flux 객체는 Mono와 유사한데 0개~n개의 결과값을 처리하는 객체이다.
+<span style="background: rgb(251,243,219)">Spring Reactive</span> 접근 방식에서는 <span style="background: rgb(251,243,219)">Handler</span>를 사용하여 <span style="background: rgb(251,243,219)">요청을 처리하고 응답</span>을 생성한다. 이 예제에서는 요청에 대해 "Hello, Spring!"을 반환하는 역할을 해주고 있다. 여기서 <span style="background: rgb(251,243,219)">Mono</span>라는 객체가 나오는데 이것은 Reactor에서 결과값을 처리하기 위한 객체라고 이해하면 된다. 주로 0개~1개의 결과값은 Mono에 담고 Flux 객체는 Mono와 유사한데 0개~n개의 결과값을 처리하는 객체이다.
 
 <br>
 
@@ -491,7 +485,7 @@ public class GreetingRouter {
 
 <br>
 
-Spring MVC의 Controller의 역할 중 RequestMapping의 역할을 하는 녀석이 Router라고 생각하면 이해가 빠를것 같다. 예제에서는 /hello 라는 요청을 greetingHandler::hello 에 매핑을 시켜주고 있다.
+Spring MVC의 <span style="background: rgb(251,243,219)">Controller</span>의 역할 중 RequestMapping의 역할을 하는 녀석이 <span style="background: rgb(251,243,219)">Router</span>라고 생각하면 이해가 빠를것 같다. 예제에서는 <span style="background: rgb(251,243,219)">/hello 라는 요청</span>을 greetingHandler::hello 에 매핑을 시켜주고 있다.
 
 <br>
 
@@ -518,11 +512,11 @@ public class GreetingWebClient {
 
 <br>
 
-WebClient는 외부와 통신을 하는 창구 역할을 한다고 보면 된다.
+<span style="background: rgb(251,243,219)">WebClient</span>는 외부와 통신을 하는 창구 역할을 한다고 보면 된다.
 
-기존에는 RestTemplate을 이용해서 HTTP 통신을 했지만 이것은 Blocking IO 방식이다. 그래서 Non-Blocking IO 방식과 비동기 방식을 지원하기 위한 WebClient 를 만들었고 WebFlux에서는 이것을 써야 한다.
+기존에는 <span style="background: rgb(251,243,219)">RestTemplate을</span> 이용해서 HTTP 통신을 했지만 이것은 <span style="background: rgb(251,243,219)">Blocking IO 방식</span>이다. 그래서 <span style="background: rgb(251,243,219)">Non-Blocking IO 방식</span>과 <span style="background: rgb(251,243,219)">비동기 방식</span>을 지원하기 위한 WebClient를 만들었고 WebFlux에서는 이것을 써야 한다.
 
-가장 간단한 예제라 create()를 통해서 WebClient를 생성했지만 다른 옵션들을 더 추가하려면 build() 를 써야 한다.
+가장 간단한 예제라 create()를 통해서 WebClient를 생성했지만 다른 옵션들을 더 추가하려면 <span style="background: rgb(251,243,219)">build()</span>를 써야 한다.
 
 <br>
 
@@ -549,4 +543,4 @@ public class Application {
 
 <br>
 
-서버는 tomcat 이 아닌 embedded Netty 를 사용한다. Application.java 에서 WebClient에서 result를 가지고 오라고 되어 있어서 구동할때도 result = Hello, Spring! 을 출력해준다. 또한 http://localhost:8080/hello 를 입력하면 result 인 Hello, Spring! 가 출력되는 것을 볼수 있다.
+서버는 tomcat 이 아닌 <span style="background: rgb(251,243,219)">embedded Netty</span>를 사용한다. Application.java 에서 WebClient에서 result를 가지고 오라고 되어 있어서 구동할때도 <span style="background: rgb(251,243,219)">result = Hello, Spring!</span> 을 출력해준다. 또한 http://localhost:8080/hello 를 입력하면 result 인 <span style="background: rgb(251,243,219)">Hello, Spring!</span> 가 출력되는 것을 볼수 있다.

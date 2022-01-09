@@ -329,7 +329,7 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 or
 
-문자열 연산에서 new 연산을 통해 생성된 인스턴스의 메모리 공간이 절대 변하지 않는 것이다.
+문자열 연산에서 <span style="background: rgb(251,243,219)">new 연산</span>을 통해 생성된 <span style="background: rgb(251,243,219)">인스턴스</span>의 <span style="background: rgb(251,243,219)">메모리 공간</span>이 절대 변하지 않는 것이다.
 
 <br>
 
@@ -347,11 +347,11 @@ or
 
 <br>
 
-Immutable은 대표적으로 **String**이 있다.
+<span style="background: rgb(251,243,219)">Immutable</span>은 대표적으로 **String**이 있다.
 
 <br>
 
-String 변수는 한번 할당하고 그 변수에 새로운 문자열을 합치거나 변경할 때 새로운 주소값이 생기면서 객체가 할당된다.
+<span style="background: rgb(251,243,219)">String</span> 변수는 <span style="background: rgb(251,243,219)">한번 할당</span>하고 그 변수에 새로운 문자열을 합치거나 변경할 때 <span style="background: rgb(251,243,219)">새로운 주소값</span>이 생기면서 <span style="background: rgb(251,243,219)">객체가 할당</span>된다.
 
 <br>
 
@@ -398,7 +398,7 @@ System.out.println(userName);
 
 ---
 
-반면에 대표적인 Mutable 개체로 **StringBuilder**가 있다. (List, ArrayList, HashMap 등도 Mutable)
+반면에 대표적인 <span style="background: rgb(251,243,219)">Mutable 개체</span>로 **StringBuilder**가 있다. (List, ArrayList, HashMap 등도 Mutable)
 
 <br>
 
@@ -428,11 +428,11 @@ result.append("World");
 
 <br>
 
-immutable한 클래스를 만들어 보자.
+<span style="background: rgb(251,243,219)">immutable한 클래스</span>를 만들어 보자.
 
 <br>
 
-immutable은 값을 변경할 수 없는 클래스를 뜻한다. 즉 set 메서드가 없다. 또한 final 키워드를 사용해 변수 초기화 이후 바뀌지 않도록 막는다.
+<span style="background: rgb(251,243,219)">immutable</span>은 값을 변경할 수 없는 클래스를 뜻한다. 즉 <span style="background: rgb(251,243,219)">setter 메서드</span>가 없다. 또한 <span style="background: rgb(251,243,219)">final 키워드</span>를 사용해 변수 초기화 이후 바뀌지 않도록 막는다.
 
 <br>
 
@@ -466,38 +466,46 @@ System.out.println(immutableString);
 
 <br>
 
-결과 값은 immutable로 만들었던 userName(홍길동)은 변하지 않고, 새로운 객체 둘리가 userName에 할당된다.
+결과 값은 <span style="background: rgb(251,243,219)">immutable</span>로 만들었던 <span style="background: rgb(251,243,219)">userName(홍길동)</span>은 변하지 않고, <span style="background: rgb(251,243,219)">새로운 객체</span> 둘리가 <span style="background: rgb(251,243,219)">userName에 할당</span>된다.
 
 <br>
 
 ---
 
-#### Immutable Object의 장단점
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> Immutable Object의 장단점
+</h3>
 
 <br>
 
 **장점**
 
-- 객체에 대한 신뢰도가 높아진다. 객체가 한번 생성되어서 그게 변하지 않는다면 transaction 내에서 그 객체가 변하지 않기에 믿고 쓸 수 있기 때문이다.
-- 생성자, 접근메소드에 대한 방어 복사가 필요없다.
-- 멀티스레드 환경에서 동기화 처리없이 객체를 공유할 수 있다.
+- 객체에 대한 **신뢰도가 높아진다.** 객체가 한번 생성되어서 그게 변하지 않는다면 transaction 내에서 그 객체가 변하지 않기에 믿고 쓸 수 있기 때문이다.
+- 생성자, 접근메소드에 대한 **방어 복사가 필요없다.**
+- 멀티스레드 환경에서 동기화 처리없이 **객체를 공유**할 수 있다.
 
 <br>
 
 **단점**
 
-- 객체가 가지는 값마다 새로운 객체가 필요하다. 따라서 메모리 누수와 새로운 객체를 계속 생성해야 하기 때문에 성능저하를 발생시킬 수 있다.
+- 객체가 가지는 값마다 **새로운 객체가 필요**하다. 따라서 **메모리 누수**와 새로운 객체를 계속 생성해야 하기 때문에 **성능저하**를 발생시킬 수 있다.
 
 ---
 
-#### Java에서 불변 객체를 생성하기 위한 규칙
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> Java에서 불변 객체를 생성하기 위한 규칙
+</h3>
 
 <br>
 
-1. 클래스를 final로 선언하라
-2. 모든 클래스 변수를 private와 final로 선언하라
-3. 객체를 생성하기 위한 생성자 또는 정적 팩토리 메서드를 추가하라
-4. 참조에 의해 변경가능성이 있는 경우 방어적 복사를 이용하여 전달하라
+1. 클래스를 **final**로 선언하라
+2. 모든 클래스 변수를 **private와 final**로 선언하라
+3. 객체를 생성하기 위한 생성자 또는 **정적 팩토리 메서드**를 추가하라
+4. 참조에 의해 변경가능성이 있는 경우 **방어적 복사**를 이용하여 전달하라
 
 <br>
 
