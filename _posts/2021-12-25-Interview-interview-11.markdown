@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Sevlet
+title: Servlet
 date: 2021-12-25 13:00:00 0000
 tags: [Servlet]
 categories: [Interview]
