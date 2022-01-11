@@ -299,7 +299,7 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <br>
 
-이전 포스트에서 동기, 비동기, 블로킹, 논블로킹에 대해서 충분히 다뤘는데도 불구하고 또 다루는 이유는 이렇다. 전의 포스트에서는 일반적인 개념에 대해서 다뤘다면 이번에는 I/O 관점에서 다루고 싶었다. 
+이전 포스트에서 동기, 비동기, 블로킹, 논블로킹에 대해서 충분히 다뤘는데도 불구하고 또 다루는 이유는 이렇다. 전의 포스트에서는 일반적인 개념에 대해서 다뤘다면 이번에는 I/O 관점에서 다루고 싶었다.
 
 <br>
 
@@ -313,7 +313,7 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 ### Q: 동기 비동기 I/O에 대해서 설명해 주세요
 
-혹은 
+혹은
 
 ### Q: 블로킹과 논블로킹에 대해서 설명해 주세요
 
@@ -335,15 +335,15 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <br>
 
-- 프로그램 <span style="background: rgb(251,243,219)">I/O 요청</span>을 했을 때 해당 <span style="background: rgb(251,243,219)">I/O 작업</span>이 완료되어야 다음 작업을 할 수 있는 방식이다. 
+- 프로그램 <span style="background: rgb(251,243,219)">I/O 요청</span>을 했을 때 해당 <span style="background: rgb(251,243,219)">I/O 작업</span>이 완료되어야 다음 작업을 할 수 있는 방식이다.
   - <span style="background: rgb(251,243,219)">I/O</span>가 진행되는 동안 다음 명령을 수행하지 않고 기다린다.
-  - <span style="background: rgb(251,243,219)">I/O</span> 상태의 프로세스는 blocked state로 전환된다.
+  - <span style="background: rgb(251,243,219)">I/O</span> 상태의 프로세스는 <span style="background: rgb(251,243,219)">blocked state</span>로 전환된다.
   - <span style="background: rgb(251,243,219)">I/O</span>가 완료되면 인터럽트를 통해 완료를 알린다. 이후 CPU의 제어권이 기존 프로그램에게 넘어간다.
-  - blocked state의 프로세스는 wait 상태로 돌아간다.
+  - <span style="background: rgb(251,243,219)">blocked state</span>의 프로세스는 <span style="background: rgb(251,243,219)">wait</span> 상태로 돌아간다.
 
 <br>
 
-- 명령 수행 속도는 빠르지만 입출력 연산은 상대적으로 느리다. 기다리는 과정에서 자원 낭비를 초래한다.
+- 명령 수행 속도는 빠르지만 입출력 연산은 상대적으로 느리다. 기다리는 과정에서 <span style="background: rgb(251,243,219)">자원 낭비</span>를 초래한다.
 
 <br>
 
@@ -372,7 +372,7 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <br>
 
-- I/O 연산이 완료되면 인터럽트를 통해 알린다. 
+- I/O 연산이 완료되면 인터럽트를 통해 알린다.
 
 <br>
 
@@ -432,3 +432,13 @@ I/O 처리를 하는 <span style="background: rgb(251,243,219)">전통적인 방
 <br>
 
 - 동기/비동기는 인터럽트 발생으로 인한 제어권 반한 시점에 중점을 두고 Blocking/Non-Blocking은 제어권 자체에 중점을 둔다는 점에서 차이가 있다.
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 읽어보면 좋은 링크
+</h3>
+
+**[링크](https://carnival.tistory.com/51)**
+
+**[링크](https://owlyr.tistory.com/26)**
