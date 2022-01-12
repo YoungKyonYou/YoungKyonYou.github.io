@@ -1,0 +1,513 @@
+I"�\<p><br /><br /></p>
+
+<p><em><strong>오늘의 나보다 성장한 내일의 나를 위해…</strong></em></p>
+
+<p><br /></p>
+
+<p><br /><br /></p>
+
+<style>
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: "";
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: "";
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: "";
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: "";
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+</style>
+
+<div class="containercoffee">
+    <div class="coffee-header">
+      <div class="coffee-header__buttons coffee-header__button-one"></div>
+      <div class="coffee-header__buttons coffee-header__button-two"></div>
+      <div class="coffee-header__display"></div>
+      <div class="coffee-header__details"></div>
+    </div>
+    <div class="coffee-medium">
+      <div class="coffe-medium__exit"></div>
+      <div class="coffee-medium__arm"></div>
+      <div class="coffee-medium__liquid"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
+      <div class="coffee-medium__cup"></div>
+    </div>
+    <div class="coffee-footer"></div>
+</div>
+
+<p><br /><br /><br /><br /><br /><br /><br /><br /></p>
+
+<p><br /></p>
+
+<h2 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/270f.png" height="30" width="30" /> 안전한 패스워드 보안</h2>
+
+<p><br /></p>
+
+<p>보안 시스템의 여러 부분 중, <span style="background: rgb(251,243,219)">패스워드를</span> 저장할 때 사용되는 해시 함수(hash function)의 개념을 설명하고 대부분의 웹 사이트에서 사용하고 있는 <span style="background: rgb(251,243,219)">암호화 알고리즘의 안정성</span>을 검토해보자. 그리고 어떤 <span style="background: rgb(251,243,219)">암호화 알고리즘</span>을 사용해야 안전한지 설명해본다.</p>
+
+<p><br /></p>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> 단방향 해시 함수
+</h3>
+
+<p><br /></p>
+
+<p>보통 프로그래머는 아래의 두 가지 중 한 가지로 <span style="background: rgb(251,243,219)">사용자의 패스워드를</span> 저장한다.</p>
+
+<ul>
+  <li><strong>단순 텍스트(plain text)</strong></li>
+  <li><strong>단방향 해시 함수(one-way hash function)의 다이제스트(digest)</strong></li>
+</ul>
+
+<p><br /></p>
+
+<p><span style="background: rgb(251,243,219)">단순 텍스트</span>로 패스워드를 저장하는 것은 <span style="background: rgb(251,243,219)">범죄</span>를 저지르는 것이나 다름없다.</p>
+
+<p>아직도 이런 방법을 사용하고 있다면 지금 <span style="background: rgb(251,243,219)">당장 변경</span>해야 하다.</p>
+
+<p><span style="background: rgb(251,243,219)">단방향 해시 함수</span>는 수학적인 연산을 통해 메시지를 변환하여 암호화된 메시지인 <span style="background: rgb(251,243,219)">다이제스트</span>를 생성한다. <span style="background: rgb(251,243,219)">원본 메시지</span>를 알면 암호화된 메시지를 구하기는 쉽지만 <span style="background: rgb(251,243,219)">암호화된 메시지</span>로는 원본 메시지를 구할 수 없어야 하며 이를 <span style="background: rgb(251,243,219)">‘단방향성’</span>이라고 한다.</p>
+
+<p>예를 들어 사용자의 패스워드가 <span style="background: rgb(251,243,219)">“hunter2”</span>라면 이 문자열을 흔히 사용하는 해시 알고리즘인 <span style="background: rgb(251,243,219)">SHA-256</span>으로 인코딩하여 아래와 같은 값을 얻을 수 있다.</p>
+
+<p><strong>f52fbd32b2b3b86ff88ef6c490628285f482af15ddcb29541f94bcf526a3f6c7</strong></p>
+
+<p>위의 값을 저장하면 사용자의 패스워드를 직접 저장하는 위험을 피할 수 있다.</p>
+
+<p>그리고 사용자가 로그인할 때 패스워드를 입력하면, 이를 해시한 값을 저장된 값과 비교하여 일치 여부를 확인할 수 있다.</p>
+
+<p><br /></p>
+
+<p>대부분의 해시 함수는 입력 값의 일부가 변경되었을 때 <span style="background: rgb(251,243,219)">다이제스트</span>가 완전히 달라지도록 설계되어 있다.</p>
+
+<p><span style="background: rgb(251,243,219)">“hunter3”</span>라는 값의 <span style="background: rgb(251,243,219)">SHA-256 다이제스트</span>는 아래와 같으며 위의 <span style="background: rgb(251,243,219)">“hunter2”</span>와는 완전히 달라진 것을 확인할 수 있다.</p>
+
+<p><strong>fb8c2e2b85ca81eb4350199faddd983cb26af3064614e737ea9f479621cfa57a</strong></p>
+
+<p>이 특징을 <span style="background: rgb(251,243,219)">avalanche 효과</span>라고 하며, 사용자의 원본 패스워드를 추론하기 어렵게 만드는 중요한 요소이다.</p>
+
+<p>그러나 이것만으로는 패스워드 보안이 <span style="background: rgb(251,243,219)">충분히 안전</span>하다고 말할 수 없다.</p>
+
+<p><br /></p>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> 단방향 해시 함수의 문제점
+</h3>
+
+<p><br /></p>
+
+<p>대부분의 웹 사이트에서는 <span style="background: rgb(251,243,219)">SHA-256</span>과 같은 해시 함수를 사용해 패스워드를 암호화해 저장하고 값을 비교하는 것만으로 충분한 <span style="background: rgb(251,243,219)">암호화 메커니즘</span>을 적용했다고 생각하지만, 실제로는 다음과 같은 <span style="background: rgb(251,243,219)">두 가지 문제점이 있다.</span></p>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> 인식 가능성(recognizability)
+</h4>
+
+<p>동일한 메시지가 언제나 <span style="background: rgb(251,243,219)">동일한 다이제스트</span>를 갖는다면, 공격자가 전처리(pre-computing)된 다이제스트를 가능한 한 많이 확보한 다음 이를 탈취한 다이제스트와 비교해 원본 메시지를 찾아내거나 동일한 효과의 메시지를 찾을 수 있다.</p>
+
+<p>이와 같은 <span style="background: rgb(251,243,219)">다이제스트 목록</span>을 <span style="background: rgb(251,243,219)">레인보우 테이블(rainbow table)</span>이라 하고, 이와 같은 공격 방식을 <span style="background: rgb(251,243,219)">레인보우 공격(rainbow attack)</span>이라 한다.</p>
+
+<p>게다가 다른 사용자의 패스워드가 같으면 <span style="background: rgb(251,243,219)">다이제스트</span>도 같으므로 한꺼번에 모두 정보가 탈취될 수 있다.</p>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> 속도(speed)
+</h4>
+
+<p>해시 함수는 암호학에서 널리 사용되지만 원래 패스워드를 저장하기 위해서 설계된 것이 아니라 <span style="background: rgb(251,243,219)">짧은 시간에 데이터를 검색</span>하기 위해 설계된 것이다.</p>
+
+<p><strong>바로 여기에서 문제가 발생한다.</strong></p>
+
+<p>해시 함수의 <span style="background: rgb(251,243,219)">빠른 처리 속도</span>로 인해 공격자는 <span style="background: rgb(251,243,219)">매우 빠른 속도로</span> 임의의 문자열의 다이제스트와 해킹할 대상의 다이제스트를 비교할 수 있다.(MD5를 사용한 경우 일반적인 장비를 이용하여 1초당 56억 개의 다이제스트를 대입할 수 있다.)</p>
+
+<p>이런 방식으로 패스워드를 추측하면 <strong>패스워드</strong>가 충분히 길거나 복잡하지 않은 경우에는 그리 긴 시간이 걸리지 않는다. 그리고 대부분 사용자의 패스워드는 길거나 복잡하지 않을 뿐 아니라, 동일한 패스워드를 사용하는 경우도 많다.</p>
+
+<p>반면 사용자는 웹 사이트에서 패스워드를 인증하는 데 걸리는 시간에는 그리 민감하지 않다. 사용자가 로그인하기 위해 아이디와 패스워드를 입력하고 확인 버튼을 누르는 과정에 10초가 걸린다고 가정했을 때 <span style="background: rgb(251,243,219)">다이제스트</span>를 생성하는 데 0.1초 대신 1초가 소요된다고 해서 크게 신경 쓰는 사람은 많지 않다.</p>
+
+<p>즉, 해시 함수의 <span style="background: rgb(251,243,219)">빠른 처리 속도</span>는 사용자들보다 <span style="background: rgb(251,243,219)">공격자들에게 더 큰 편의성</span>을 제공하게 된다.</p>
+
+<p><br /></p>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> 단방향 해시 함수 보완하기
+</h3>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> 솔팅(salting)
+</h4>
+
+<p><span style="background: rgb(251,243,219)">솔트(salt)</span>는 단방향 해시 함수에서 다이제스트를 생성할 때 추가되는 바이트 단위의 임의의 문자열이다. 그리고 이 원본 메시지에 문자열을 추가하여 다이제스트를 생성하는 것을 <span style="background: rgb(251,243,219)">솔팅(salting)</span>이라 한다.</p>
+
+<p>예를 들어 다음과 같이 <span style="background: rgb(251,243,219)">“redfl0wer”</span>에 솔트인</p>
+
+<p><strong>“8zff4fgflgfd93fgdl4fgdgf4mlf45p1”</strong></p>
+
+<p>를 추가해 <span style="background: rgb(251,243,219)">다이제스트를 생성할 수 있다.</span></p>
+
+<p><br /></p>
+
+<p><img src="/images/Interview/post16/2022-01-12-14-50-42.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>그림 1 패스워드 <span style="background: rgb(251,243,219)">“redfl0wer”</span>에 솔트를 추가해 다이제스트 생성</p>
+
+<p>이 방법을 사용하면, 공격자가 <span style="background: rgb(251,243,219)">“redfl0wer”</span>의 다이제스트를 알아내더라도 솔팅된 다이제스트를 대상으로 패스워드 일치 여부를 확인하기 어렵다. 또한, 사용자별로 다른 솔트를 사용한다면 동일한 패스워드를 사용하는 사용자의 다이제스트가 다르게 생성되어 인식 가능성 문제가 크게 개선된다.</p>
+
+<p>솔트와 패스워드의 다이제스트를 데이터베이스에 저장하고, 사용자가 로그인할 때 입력한 패스워드를 해시하여 일치 여부를 확인할 수 있다.</p>
+
+<p>이 방법을 사용할 때에는 모든 패스워드가 <span style="background: rgb(251,243,219)">고유의 솔트</span>를 갖고 솔트의 길이는 32바이트 이상이어야 <span style="background: rgb(251,243,219)">솔트와 다이제스트</span>를 추측하기 어렵다.</p>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> 키 스트레칭(key stretching)
+</h4>
+
+<p>입력한 패스워드의 <span style="background: rgb(251,243,219)">다이제스트를 생성</span>하고, <span style="background: rgb(251,243,219)">생성된 다이제스트를 입력 값</span>으로 하여 다이제스트를 생성하고, 또 이를 <span style="background: rgb(251,243,219)">반복</span>하는 방법으로 다이제스트를 생성할 수도 있다.</p>
+
+<p>이렇게 하면 입력한 패스워드를 <span style="background: rgb(251,243,219)">동일한 횟수</span>만큼 해시해야만 입력한 패스워드의 일치 여부를 확인할 수 있다. 이것이 기본적인 <span style="background: rgb(251,243,219)">키 스트레칭</span> 과정이다.</p>
+
+<p>잘 설계된 패스워드 저장 시스템에서는 <span style="background: rgb(251,243,219)">하나의 다이제스트</span>를 생성할 때 어느 정도(일반적인 장비에서 0.2초 이상)의 시간이 소요되게 설정한다.</p>
+
+<p>이는 <span style="background: rgb(251,243,219)">억지 기법 공격 (brute-force attack)</span>으로 패스워드를 추측하는 데 많은 시간이 소요되도록 하기 위한 것이다.</p>
+
+<p>최근에는 일반적인 장비로 1초에 50억 개 이상의 다이제스트를 비교할 수 있지만, 키 스트레칭을 적용하여 동일한 장비에서 1ㅗ에 5번 정도만 비교할 수 있게 한다.</p>
+
+<p><span style="background: rgb(251,243,219)">GPU</span>를 사용하더라도 수백에서 수천 번 정도만 비교할 수 있다. <span style="background: rgb(251,243,219)">50억 번</span>과는 비교할 수도 없을 정도로 적은 횟수다. 앞으로 컴퓨터 성능이 더 향상되면 몇 번의 반복을 추가하여 보완할 수 있다.</p>
+
+<p>다음 그림은 <span style="background: rgb(251,243,219)">솔트</span>를 추가한 패스워드에 <span style="background: rgb(251,243,219)">여러 단계의 해시 함수를 적용</span>하여 다이제스트를 생성하는 과정을 나타낸 것이다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/Interview/post16/2022-01-12-14-59-00.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>그림 2는 <span style="background: rgb(251,243,219)">솔팅과 키 스트레칭을 적용</span>하여 다이제스트 생성하는 모습을 보여준다.</p>
+
+<p>앞에서 설명한 바와 같이 <span style="background: rgb(251,243,219)">솔팅과 키 스트레칭</span>으로 구성된 암호화 시스템을 구현하려고 한다면 이미 검증된 암호화 시스템을 사용할 것을 권장한다.</p>
+
+<p>널리 알려진 검증된 시스템을 사용하면, 암호화 시스템을 잘못 구현해서 발생하는 위험을 피할 수 있다.</p>
+
+<p>이에 비해 자신만의 암호화 시스템을 구현하는 것은 매우 위험하다. 이 경우 취약점을 확인하기 어렵고, 대부분의 경우 구현된 암호화 시스템을 점검하고 확인하는 사람은 암호화 시스템을 구현한 당사자 한 명이다.</p>
+
+<p>만약 구현한 암호화 시스템에 <span style="background: rgb(251,243,219)">취약점</span>이 있다면, 많은 사람들이 사용할수록 그만큼 많은 피해를 입게 된다. 이런 취약점이 내포된 시스템은 여러 차례 발견되었고, 이와 같은 시스템을 사용한 프로그램들이 여러 해 동안 BSD나 Linux에서 사용되어 왔다.</p>
+
+<p><strong>다음 절에서는 위에서 설명한 사항들을 고려하여 선택할 수 있는 대안을 제시한다.</strong></p>
+
+<p><br /></p>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> Adaptive Key Derivation Functions
+</h3>
+
+<p><br /></p>
+
+<p><span style="background: rgb(251,243,219)">adaptive key derivation function</span>은 다이제스트를 생성할 때 <span style="background: rgb(251,243,219)">솔팅과 키 스트레칭</span>을 반복하며 솔트와 패스워드 외에도 입력 값을 추가하여 공격자가 쉽게 <span style="background: rgb(251,243,219)">다이제스트를 유추</span>할 수 없도록 하고 보안의 강도를 선택할 수 있다.</p>
+
+<p>이 함수들은 <span style="background: rgb(251,243,219)">GPU와 같은 장비</span>를 이용한 병렬화를 어렵게 하는 기능을 제공한다. 이와 같은 기능은 프로그램이 언어에서 제공하는 라이브러리만으로는 구현하기 어렵다.</p>
+
+<p><span style="background: rgb(251,243,219)">adaptive key derivation function</span> 중 중요한 <span style="background: rgb(251,243,219)">key derivation function</span>은 다음과 같다.</p>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> PBKDF2
+</h4>
+
+<p>가장 많이 사용되는 <span style="background: rgb(251,243,219)">key derivation function</span>은 <span style="background: rgb(251,243,219)">PBKDF2(Password-Based Key Derivation Function)</span>이다. 해시 함수의 컨테이너인 <span style="background: rgb(251,243,219)">PBKDF2</span>는 솔트를 적용한 후 해시 함수의 반복 횟수를 임의로 선택할 수 있다. <strong>PBKDF2</strong>는 아주 가볍고 구현하기 쉬우며, <span style="background: rgb(251,243,219)">SHA</span>와 같이 검증된 해시 함수만을 사용한다.</p>
+
+<p><span style="background: rgb(251,243,219)">PBKDF2</span>의 기본 파라미터는 다음과 같은 5개 파라미터다.</p>
+
+<p><strong>DIGEST = PBKDF2(PRF, Password, Salt, c, DLen)</strong></p>
+
+<ul>
+  <li><strong>PRF: 난수(예:HMAC)</strong></li>
+  <li><strong>Password: 패스워드</strong></li>
+  <li><strong>Salt: 암호학 솔트</strong></li>
+  <li><strong>c: 원하는 iteration 반복 수</strong></li>
+  <li><strong>DLen: 원하는 다이제스트 길이</strong></li>
+</ul>
+
+<p><br /></p>
+
+<p><span style="background: rgb(251,243,219)">PBKDF2</span>는 NIST(미국표준기술연구소)에 의해서 승인된 알고리즘이고, 미국 정부 시스템에서도 사용자 패스워드의 암호화된 다이제스트를 생성할 때 사용한다.</p>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> bcrypt
+</h4>
+
+<p><span style="background: rgb(251,243,219)">bcrypt</span>는 애초부터 패스워드 저장을 목적으로 설계되었다. 1999년 발표했고 현재까지 사용되는 <span style="background: rgb(251,243,219)">가장 강력한 해시 메커니즘 중 하나</span>이다.</p>
+
+<p><span style="background: rgb(251,243,219)">bcrypt</span>는 보안에 집착하기로 유명한 OpenBSD에서 암호 인증 메커니즘으로 사용되고 있고 미래에 <span style="background: rgb(251,243,219)">PBKDF2</span>보다 더 경쟁력이 있다고 여겨진다.</p>
+
+<p><span style="background: rgb(251,243,219)">brypt</span>에서 “work factor” 인자는 하나의 해시 다이제스트를 생성하는 데 얼마만큼의 처리 과정을 수행할 지 결정한다.</p>
+
+<p><span style="background: rgb(251,243,219)">“work factor”</span>를 조정하는 것만으로 간단하게 시스템의 보안성을 높일 수 있다.</p>
+
+<p><br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> scrypt
+</h4>
+
+:ET
