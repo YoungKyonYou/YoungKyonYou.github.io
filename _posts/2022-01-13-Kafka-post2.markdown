@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Kafka 에러-InconsistentClusterIdException
+title: Kafka 에러-Faiiled to find any class that~
 date: 2022-01-13 14:20:00 0000
 tags: [httpd]
 categories: [Kafka]
-description: The Cluster ID xxxxxxxx doesn't match stored ~ 에러 해결
+description: Failed to find any class that implements Connector ~
 ---
 
 <br><br>
@@ -306,102 +306,55 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <br>
 
-실습 도중 에러가 발생했는데 아래 사진과 같은 에러다.
+실습 도중 아래와 같은 에러가 발생했다.
 
 <br>
 
-![](/images/Interview/post16/2022-01-13-18-33-01.png?style=centerme)
-
-![](/images/Interview/post16/2022-01-13-18-33-11.png?style=centerme)
+![](/images/Interview/post16/2022-01-13-20-34-29.png?style=centerme)
 
 <br>
-
-중요한 내용만 보면 **InconsistentClusterIdException**이 발생했다.
-
-구글링 결과 해결책을 찾을 수 있었다.
-
-<br>
-
-일단 미리 알아둬야 하는 것은 Window의 Wsl Ubuntu의 디렉토리는 아래와 같은 곳에 있다.
-
-**C:\Users\nick1\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\home**
-
-<br>
-
-kafka 압축 파일을 원하는 디렉토리에 해제를 하게 되면 **kafka_2.13-3.0.0** 파일이 생기는데 이 파일에 접속하고 사용하기 위해서는 접근 권한을 허용 해줘야 한다.
-
-일단 나는 kafka_2.13-3.0.0에 있는 모든 파일에 모든 권한을 열어주었다.
 
 ```bash
-sudo chmod -R 777 kafka_2.13-3.0.0
+{
+    "error_code": 500,
+    "message": "Failed to find any class that implements Connector and which name matches io.confluent.connect.jdbc.JdbcSourceConnector, available connectors are: PluginDesc{klass=class org.apache.kafka.connect.file.FileStreamSinkConnector, name='org.apache.kafka.connect.file.FileStreamSinkConnector', version='6.1.0-ccs', encodedVersion=6.1.0-ccs, type=sink, typeName='sink', location='classpath'}, PluginDesc{klass=class org.apache.kafka.connect.file.FileStreamSourceConnector, name='org.apache.kafka.connect.file.FileStreamSourceConnector', version='6.1.0-ccs', encodedVersion=6.1.0-ccs, type=source, typeName='source', location='classpath'}, PluginDesc{klass=class org.apache.kafka.connect.mirror.MirrorCheckpointConnector, name='org.apache.kafka.connect.mirror.MirrorCheckpointConnector', version='1', encodedVersion=1, type=source, typeName='source', location='classpath'}, PluginDesc{klass=class org.apache.kafka.connect.mirror.MirrorHeartbeatConnector, name='org.apache.kafka.connect.mirror.MirrorHeartbeatConnector', version='1', encodedVersion=1, type=source, typeName='source', location='classpath'}, PluginDesc{klass=class org.apache.kafka.connect.mirror.MirrorSourceConnector, name='org.apache.kafka.connect.mirror.MirrorSourceConnector', version='1', encodedVersion=1, type=source, typeName='source', location='classpath'}, PluginDesc{klass=class org.apache.kafka.connect.tools.MockConnector, name='org.apache.kafka.connect.tools.MockConnector', version='6.1.0-ccs', encodedVersion=6.1.0-ccs, type=connector, typeName='connector', location='classpath'}, PluginDesc{klass=class org.apache.kafka.connect.tools.MockSinkConnector, name='org.apache.kafka.connect.tools.MockSinkConnector', version='6.1.0-ccs', encodedVersion=6.1.0-ccs, type=sink, typeName='sink', location='classpath'}, PluginDesc{klass=class org.apache.kafka.connect.tools.MockSourceConnector, name='org.apache.kafka.connect.tools.MockSourceConnector', version='6.1.0-ccs', encodedVersion=6.1.0-ccs, type=source, typeName='source', location='classpath'}, PluginDesc{klass=class org.apache.kafka.connect.tools.SchemaSourceConnector, name='org.apache.kafka.connect.tools.SchemaSourceConnector', version='6.1.0-ccs', encodedVersion=6.1.0-ccs, type=source, typeName='source', location='classpath'}, PluginDesc{klass=class org.apache.kafka.connect.tools.VerifiableSinkConnector, name='org.apache.kafka.connect.tools.VerifiableSinkConnector', version='6.1.0-ccs', encodedVersion=6.1.0-ccs, type=source, typeName='source', location='classpath'}, PluginDesc{klass=class org.apache.kafka.connect.tools.VerifiableSourceConnector, name='org.apache.kafka.connect.tools.VerifiableSourceConnector', version='6.1.0-ccs', encodedVersion=6.1.0-ccs, type=source, typeName='source', location='classpath'}"
+}
 ```
 
 <br>
 
-그리고 kafka_2.13-3.0.0 폴더에 들어가서 **zookeeper**를 실행했다.
-
-```bash
-sudo ./bin/zookeeper-server-start.sh ./config/zookeeper.properties
-```
+분명 <span style="background: rgb(251,243,219)">connect-distributed.properties</span>에다가 제대로 경로를 지정해준 것 같은데 왜 이런 문제가 발생할까?
 
 <br>
 
-다른 ubuntu 터미널을 열고 똑같이 폴더에 들어가서 이제 **kafka server**를 실행한다.
+**Connector**의 경로를 지정해줄 때 2가지 방법이 있다.
 
-```bash
-sudo ./bin/kafka-server-start.sh ./config/server.properties
-```
+**1)** confluent-6.1.0/etc/kafka 아래 있는 **connect-distributed.properties**에 들어가서 아래 처럼 경로를 수정하는 것이다.
 
 <br>
 
-이때 가장 위에 있던 사진에 에러가 나타나게 된다.
+![](/images/Interview/post16/2022-01-13-20-36-39.png?style=centerme)
 
 <br>
 
-해결 방안은 이렇다
-
-kafka_2.13-3.0.0 폴더 안에 config 폴더에 들어가게 되면 server.properties라는 파일이 보인다. 이것을 파일 편집기로 연다.
-
-열고 스크린을 내리다보면 아래와 같이 <span style="background: rgb(251,243,219)">log.dirs</span> 부분이 있다.
+**2)** kafka_2.13-3.0.0/config 아래 있는 **connect-distributed.properties**에 **plugin.path**를 아래 사진과 같이 수정해주는 것이다
 
 <br>
 
-![](../images/Interview/post16/2022-01-13-18-40-31.png?style=centerme)
+![](/images/Interview/post16/2022-01-13-20-37-57.png?style=centerme)
 
 <br>
 
-/tmp 아래 kafka-logs 폴더 안에 로그를 저장한다고 되어 있는데 이 경로를 수정해야 한다.
+---
 
-**/tmp/kafka-logs**로 되어 있는 것을 **/home/tmp/kafka-logs**로 변경하자
-
-<br>
-
-![](/images/Interview/post16/2022-01-13-20-07-26.png?style=centerme)
+사실상 위의 2 방법 중 하나만 수정하면 된다. 
+문제는 내가 /home를 빼먹고 써서 안됐던 것이였다... 결국 양쪽
+**connect-distributed-properties**를 다 똑같이 수정해 주었는데 한쪽만 해도 될 것 같다.(시도는 안 해봄)
 
 <br>
 
-이제 저장하고 닫고 다시 **kafka_2.13-3.0.0 폴더**로 들어간 다음 서버를 실행해본다.
+주의할 것은 **source-sink** 서버를 구동하기 전에 먼저 실행해야 하는 것들이 있다.
 
-```bash
-sudo ./bin/kafka-server-start.sh ./config/server.properties
-```
+<span style="background: rgb(251,243,219)">Zookeeper Server -> Kafka Server</span>
 
-<br>
-
-![](/images/Interview/post16/2022-01-13-18-45-11.png?style=centerme)
-
-<br>
-
-정상적으로 실행이 되는 것을 볼 수 있다.
-
-만약 잘 되다가 다시 이런 에러가 발생할 경우
-
-<br>
-
-![](/images/Interview/post16/2022-01-13-20-20-10.png?style=centerme)
-
-<br>
-
-**tmp 폴더 자체를 지우고 다시 시작하면 된다.**
-
-중요한 것은 <span style="background: rgb(251,243,219)">/tmp</span> 폴더 아래 로그를 저장하면 안된다 그래서 /home 아래 tmp 폴더를 만들고 또 그 아래 kafka-logs 폴더를 만들어 로그를 저장하게 한 것이다
+이렇게 쥬키퍼 서버를 키고 카프카 서버를 킨다음 구동을 해야 된다

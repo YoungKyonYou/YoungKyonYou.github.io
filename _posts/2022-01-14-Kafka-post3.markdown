@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Kafka 에러-InconsistentClusterIdException
+title: Confluent Connector 연결 도중 나온 에러
 date: 2022-01-13 14:20:00 0000
 tags: [httpd]
 categories: [Kafka]
-description: The Cluster ID xxxxxxxx doesn't match stored ~ 에러 해결
+description: Access denied for user~
 ---
 
 <br><br>
@@ -299,109 +299,96 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <br>
 
-현재 Inflearn의 MSA 강의를 듣던 중 생긴 에러에 대한 해결책을 적어보려 한다.
-일단 내 컴퓨터는 윈도우지만 리눅스 명령어를 쓰는 게 편했기 때문에 PowerShell이나 Cmd로 학습하기 보다는
+Zookeeper와 Kafka 서버를 킨 후 Kafka Source Connect를 하던 중 에러가 발생했다.
 
-<span style="background: rgb(251,243,219)">Window Wsl Ubuntu</span>을 사용해서 실습을 진행하였다.
-
-<br>
-
-실습 도중 에러가 발생했는데 아래 사진과 같은 에러다.
+**java.sql.SQLException: Access denied for user**
 
 <br>
 
-![](/images/Interview/post16/2022-01-13-18-33-01.png?style=centerme)
-
-![](/images/Interview/post16/2022-01-13-18-33-11.png?style=centerme)
+아래 사진처럼 postman를 사용해 connect를 시도했다.
 
 <br>
 
-중요한 내용만 보면 **InconsistentClusterIdException**이 발생했다.
-
-구글링 결과 해결책을 찾을 수 있었다.
+![](/images/Interview/post16/2022-01-14-00-55-15.png?style=centerme)
 
 <br>
 
-일단 미리 알아둬야 하는 것은 Window의 Wsl Ubuntu의 디렉토리는 아래와 같은 곳에 있다.
+결과는 잘 나왔지만 ubuntu 터미널에서는 계속 <span style="background: rgb(251,243,219)">Access denied for user~</span>를 띄워줬다.
 
-**C:\Users\nick1\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\home**
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 해결 방법
+</h3>
 
 <br>
 
-kafka 압축 파일을 원하는 디렉토리에 해제를 하게 되면 **kafka_2.13-3.0.0** 파일이 생기는데 이 파일에 접속하고 사용하기 위해서는 접근 권한을 허용 해줘야 한다.
+먼저 ubuntu에서 **mysql -uroot -p**를 입력하고 mysql에 접속하게 될 때 아래와 같은 에러가 발생할 것이다.
 
-일단 나는 kafka_2.13-3.0.0에 있는 모든 파일에 모든 권한을 열어주었다.
+<br>
 
 ```bash
-sudo chmod -R 777 kafka_2.13-3.0.0
+mysql ERROR 1698 (28000): Access denied for user 'root'@'localhost'
 ```
 
 <br>
 
-그리고 kafka_2.13-3.0.0 폴더에 들어가서 **zookeeper**를 실행했다.
+결론적으로 이것은 **sudo**를 사용해 접속이 가능하다
 
 ```bash
-sudo ./bin/zookeeper-server-start.sh ./config/zookeeper.properties
+sudo mysql -uroot -p
 ```
 
 <br>
 
-다른 ubuntu 터미널을 열고 똑같이 폴더에 들어가서 이제 **kafka server**를 실행한다.
+여기서 **sudo**를 빼고 접속할 수만 있으면 우리의 문제는 해결된다.
+
+<br>
+
+일단 문제는 기본적으로 초기 설정되어 있는 mysql의 root 계정의 패스워드 타입 때문이다.
+
+<br>
 
 ```bash
-sudo ./bin/kafka-server-start.sh ./config/server.properties
+$ sudo mysql -u root # sudo를 사용하여 root계정으로 mysql에 접속한다.
+
+mysql> USE mysql;
+mysql> SELECT User, Host, plugin FROM mysql.user;
+
++------------------+-----------------------+
+| User             | plugin                |
++------------------+-----------------------+
+| root             | auth_socket           |
+| mysql.sys        | mysql_native_password |
+| debian-sys-maint | mysql_native_password |
++------------------+-----------------------+
 ```
 
 <br>
 
-이때 가장 위에 있던 사진에 에러가 나타나게 된다.
+<span style="background: rgb(251,243,219)">root</span>의 <span style="background: rgb(251,243,219)">plugin</span>이 <span style="background: rgb(251,243,219)">auth_socket</span>으로 되어 있는데 이값을 <span style="background: rgb(251,243,219)">mysql_native_password</span>으로 변경해주면 된다.
 
 <br>
-
-해결 방안은 이렇다
-
-kafka_2.13-3.0.0 폴더 안에 config 폴더에 들어가게 되면 server.properties라는 파일이 보인다. 이것을 파일 편집기로 연다.
-
-열고 스크린을 내리다보면 아래와 같이 <span style="background: rgb(251,243,219)">log.dirs</span> 부분이 있다.
-
-<br>
-
-![](../images/Interview/post16/2022-01-13-18-40-31.png?style=centerme)
-
-<br>
-
-/tmp 아래 kafka-logs 폴더 안에 로그를 저장한다고 되어 있는데 이 경로를 수정해야 한다.
-
-**/tmp/kafka-logs**로 되어 있는 것을 **/home/tmp/kafka-logs**로 변경하자
-
-<br>
-
-![](/images/Interview/post16/2022-01-13-20-07-26.png?style=centerme)
-
-<br>
-
-이제 저장하고 닫고 다시 **kafka_2.13-3.0.0 폴더**로 들어간 다음 서버를 실행해본다.
 
 ```bash
-sudo ./bin/kafka-server-start.sh ./config/server.properties
+mysql> update user set plugin='mysql_native_password' where user='root';
+
+mysql> flush privileges;
+
+mysql> select user, host, plugin from user;
+
+
+
++------------------+-----------------------+
+| User             | plugin                |
++------------------+-----------------------+
+| root             | mysql_native_password |
+| mysql.sys        | mysql_native_password |
+| debian-sys-maint | mysql_native_password |
++------------------+-----------------------+
+mysql> exit;
+
+Bye
 ```
 
 <br>
 
-![](/images/Interview/post16/2022-01-13-18-45-11.png?style=centerme)
-
-<br>
-
-정상적으로 실행이 되는 것을 볼 수 있다.
-
-만약 잘 되다가 다시 이런 에러가 발생할 경우
-
-<br>
-
-![](/images/Interview/post16/2022-01-13-20-20-10.png?style=centerme)
-
-<br>
-
-**tmp 폴더 자체를 지우고 다시 시작하면 된다.**
-
-중요한 것은 <span style="background: rgb(251,243,219)">/tmp</span> 폴더 아래 로그를 저장하면 안된다 그래서 /home 아래 tmp 폴더를 만들고 또 그 아래 kafka-logs 폴더를 만들어 로그를 저장하게 한 것이다
+다시 시도하면 **Access Denied** 없이 작동한다!
