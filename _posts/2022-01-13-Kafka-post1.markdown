@@ -372,35 +372,11 @@ kafka_2.13-3.0.0 폴더 안에 config 폴더에 들어가게 되면 server.prope
 
 /tmp 아래 kafka-logs 폴더 안에 로그를 저장한다고 되어 있는데 이 경로를 수정해야 한다.
 
-가장 쉬운 방법은 파일 탐색기로 해당 위치로 이동한다.(**저걸 그대로 복사하고 들어가면 안되고 rootfs에서 tmp를 찾는다**)
+**/tmp/kafka-logs**로 되어 있는 것을 **/home/tmp/kafka-logs**로 변경하자
 
 <br>
 
-![](../images/Interview/post16/2022-01-13-18-42-00.png?style=centerme)
-
-<br>
-
-아래 사진과 같이 kafka-logs 폴더가 보인다(없으면 만들어주자)
-
-<br>
-
-이제 위 경로를 복사한다.
-
-<br>
-
-![](/images/Interview/post16/2022-01-13-18-42-57.png?style=centerme)
-
-<br>
-
-그리고 복사한 경로를 아까 파일 편집기로 연 <span style="background: rgb(251,243,219)">log.dirs</span> 부분에 붙여 넣는다.
-
-**여기서 주의**
-
-<span style="background: rgb(251,243,219)">\를 /으로 하나하나 다 바꿔줘야 한다!!</span>
-
-<br>
-
-![](/images/Interview/post16/2022-01-13-18-44-10.png?style=centerme)
+![](/images/Interview/post16/2022-01-13-20-07-26.png?style=centerme)
 
 <br>
 
@@ -417,3 +393,15 @@ sudo ./bin/kafka-server-start.sh ./config/server.properties
 <br>
 
 정상적으로 실행이 되는 것을 볼 수 있다.
+
+만약 잘 되다가 다시 이런 에러가 발생할 경우
+
+<br>
+
+![](/images/Interview/post16/2022-01-13-20-08-19.png?style=centerme)
+
+<br>
+
+해당 폴더를 지우고 다시 실행하면 된다.
+
+중요한 것은 <span style="background: rgb(251,243,219)">/tmp</span> 폴더 아래 로그를 저장하면 안된다 그래서 /home 아래 tmp 폴더를 만들고 또 그 아래 kafka-logs 폴더를 만들어 로그를 저장하게 한 것이다
