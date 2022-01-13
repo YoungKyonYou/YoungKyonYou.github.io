@@ -305,6 +305,31 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <br>
 
+면접에서 GC에 관해서 질문을 받았다.
+
+<br>
+
+**Q: GC를 사용함으로써 성능 향상이 되는 경우는 어떤 경우일까요?**
+
+<br>
+
+사실상 GC를 사용하는 것 자체가 성능에 해라고 생각해 없다고 답변을 했었는데 검색 및 질문을 해본 결과 찾은 답변은 아래와 같다.
+
+<br>
+
+![](/images/Interview/post16/2022-01-13-10-14-35.png?style=centerme)
+
+<br>
+
+<link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet">
+<div style="background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;">
+
+메모리 파편화란<br>
+어떤 공간에 메모리를 할당하게 되면 할당한 공간을 제외한 부분이 남게된다. 이것을 파편화라 한다.</div>
+
+<br>
+
 GC(Garbage Collector)에 대해서 이야기 하기 전에 먼저 JVM의 구조를 아는 것이 중요하다.
 
 그래서 GC를 설명하기 전에 JVM을 먼저 살펴보자.
