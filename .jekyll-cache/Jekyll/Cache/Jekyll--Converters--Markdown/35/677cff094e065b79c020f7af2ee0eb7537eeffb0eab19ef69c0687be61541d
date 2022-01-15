@@ -1,0 +1,385 @@
+I"�/<p><br /><br /></p>
+
+<p><em><strong>오늘의 나보다 성장한 내일의 나를 위해…</strong></em></p>
+
+<p><br /></p>
+
+<p><br /><br /></p>
+
+<style>
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: "";
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: "";
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: "";
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: "";
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+</style>
+
+<div class="containercoffee">
+    <div class="coffee-header">
+      <div class="coffee-header__buttons coffee-header__button-one"></div>
+      <div class="coffee-header__buttons coffee-header__button-two"></div>
+      <div class="coffee-header__display"></div>
+      <div class="coffee-header__details"></div>
+    </div>
+    <div class="coffee-medium">
+      <div class="coffe-medium__exit"></div>
+      <div class="coffee-medium__arm"></div>
+      <div class="coffee-medium__liquid"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
+      <div class="coffee-medium__cup"></div>
+    </div>
+    <div class="coffee-footer"></div>
+</div>
+
+<p><br /><br /><br /><br /><br /><br /><br /><br /></p>
+
+<h2 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/270f.png" height="30" width="30" /> Sigleton Pattern
+</h2>
+
+<p><br /></p>
+
+<p><strong>싱글턴 패턴</strong>: 어떤 클래스에서 만들 수 있는 <span style="background: rgb(251,243,219)">인스턴스 수를 하나로 제한</span>하는 패턴이다.</p>
+
+<p><br /></p>
+
+<p>다음과 같은 조건을 충족하는 개체에 적합하다.</p>
+
+<ol>
+  <li>프로그램 실행 중에 <span style="background: rgb(251,243,219)">최대 하나만</span> 있어야 할 경우</li>
+  <li><span style="background: rgb(251,243,219)">전역적으로 접근</span>이 가능한 개체여야 할 경우</li>
+</ol>
+
+<p><br /></p>
+
+<p>딱 하나(single)만 존재해야만 해서 이름이 <strong>싱글턴</strong>인 것이다.</p>
+
+<p><br /></p>
+
+<p>일부 사람들은 <span style="background: rgb(251,243,219)">static</span>를 싫어한다. 그 이유는 <span style="background: rgb(251,243,219)">전역 변수</span> 같아 보이고 개체가 아니기 때문이다. 하지만 <span style="background: rgb(251,243,219)">싱글턴</span>은 이러한 비판을 해결하는 패턴이다. 그러면서도 OO(개체지향)에서 <span style="background: rgb(251,243,219)">전역 변수 및 전역 함수</span>를 만드는 법이다.</p>
+
+<p><br /></p>
+
+<p>싱글턴 패턴은 기본적으로 <span style="background: rgb(251,243,219)">private 생성자</span>를 사용한다. 그럼으로 <span style="background: rgb(251,243,219)">static</span> 메서드를 통해서만 개체를 얻어올 수 있는데 바로 <span style="background: rgb(251,243,219)">getInstance()</span>메서드이다. 개체가 없는 경우 <span style="background: rgb(251,243,219)">개체를 생성 후 static 변수에 저장</span>하고 <span style="background: rgb(251,243,219)">static 변수에 저장된 개체를 반환</span>하게 된다.</p>
+
+<p>이미 개체가 있는 경우 <span style="background: rgb(251,243,219)">static 변수</span>에 저장되어 있는 개체를 반환한다. 아래 코드를 보자</p>
+
+<p><br /></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Singleton</span><span class="o">{</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="nc">Singleton</span> <span class="n">instance</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">(){</span>
+
+  <span class="o">}</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="nc">Singleton</span> <span class="nf">getInstance</span><span class="o">(){</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">instance</span><span class="o">==</span><span class="kc">null</span><span class="o">){</span>
+      <span class="n">instance</span><span class="o">=</span><span class="k">new</span> <span class="nc">Singleton</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>Main</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Singleton</span> <span class="n">instance0</span><span class="o">=</span><span class="nc">Singleton</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
+<span class="nc">Singleton</span> <span class="n">instance1</span><span class="o">=</span><span class="nc">Singleton</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
+
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"same Object? "</span><span class="o">+(</span><span class="n">instance0</span><span class="o">==</span><span class="n">instance1</span><span class="o">));</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>위는 싱글턴 패턴의 간단한 예이다. 밑에 코드는 실제 <span style="background: rgb(251,243,219)">Math</span> 클래스에서 사용하고 있는 <span style="background: rgb(251,243,219)">싱글턴 패턴</span>의 사용이다.</p>
+
+<p><br /></p>
+
+<p><strong>Math Class</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Math</span><span class="o">{</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="nc">Math</span> <span class="n">instance</span><span class="o">;</span>
+  
+  <span class="kd">private</span> <span class="nf">Math</span><span class="o">(){</span>
+
+  <span class="o">}</span>
+  
+  <span class="kd">public</span> <span class="kd">static</span> <span class="nc">Math</span> <span class="nf">getInstance</span><span class="o">(){</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">instance</span><span class="o">==</span><span class="kc">null</span><span class="o">){</span>
+      <span class="n">instance</span><span class="o">=</span><span class="k">new</span> <span class="nc">Math</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">abs</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">){</span>
+    <span class="k">return</span> <span class="n">n</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">?-</span><span class="nl">n:</span><span class="n">n</span><span class="o">;</span>
+  <span class="o">}</span>
+  <span class="o">(...)</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>Main</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">absValue</span><span class="o">=</span><span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(-</span><span class="mi">2</span><span class="o">);</span>
+
+<span class="nc">Math</span>
+</code></pre></div></div>
+:ET
