@@ -326,24 +326,33 @@ _**3달만에 블로그 포스팅...**_
 
 <br>
 
-관계형 데이터베이스에서 조건에 맞는 데이터를 검색할 때 주로 SQL를 사용한다.
+<span style="background: rgb(251,243,219)">관계형 데이터베이스</span>에서 조건에 맞는 데이터를 검색할 때 주로 <span style="background: rgb(251,243,219)">SQL</span>를 사용한다.
 
-SQL의 경우 정확히 일치하는 데이터를 검색하고 싶다면 **where ='...'**를 이용할 수 있고 해당하는 단어가 포함된 데이터를 검색하고 싶다면 **where like '%...%'**와 같은 형식으로 훌륭하게 데이터 검색이 가능하다.
+SQL의 경우 <span style="background: rgb(251,243,219)">정확히 일치</span>하는 데이터를 검색하고 싶다면 **where ='...'**를 이용할 수 있고 해당하는 단어가 포함된 데이터를 검색하고 싶다면 **where like '%...%'**와 같은 형식으로 훌륭하게 데이터 검색이 가능하다.
 
 **Elastic Search**와 차이가 뭘까?
 
-### 차이점
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 관계형 데이터베이스와 일라스틱서치의 차이
+</h3>
 
 <br>
 
-- 관계형 데이터베이스는 단순 텍스트매칭에 대한 검색만을 제공함
-  - MySql 최신 버전에서 n-gram 기반의 Full-text 검색을 지원하지만, 한글 검색의 경우에 아직 많이 빈약한 감이 있음
-- 텍스트를 여러 단어로 변형하거나 텍스트의 특질을 이용한 동의어나 유의어를 활용한 검색이 가능
-- Elastic Search에서는 관계형 데이터베이스에서 불가능한 비정형 데이터의 색인과 검색이 가능성
+- 관계형 데이터베이스는 <span style="background: rgb(251,243,219)">단순 텍스트 매칭</span>에 대한 검색만을 제공함
+  - MySql 최신 버전에서 <span style="background: rgb(251,243,219)">n-gram 기반</span>의 <span style="background: rgb(251,243,219)">Full-text 검색</span>을 지원하지만, <span style="background: rgb(251,243,219)">한글 검색</span>의 경우에 아직 많이 <span style="background: rgb(251,243,219)">빈약</span>한 감이 있음
+- 텍스트를 <span style="background: rgb(251,243,219)">여러 단어로 변형</span>하거나 <span style="background: rgb(251,243,219)">텍스트의 특질</span>을 이용한 <span style="background: rgb(251,243,219)">동의어나 유의어</span>를 활용한 검색이 가능
+- <span style="background: rgb(251,243,219)">Elastic Search</span>에서는 관계형 데이터베이스에서 불가능한 <span style="background: rgb(251,243,219)">비정형 데이터의 색인과 검색</span>이 가능
   - 이러한 특성은 빅데이터 처리에서 매우 중요하게 생각됨
-- Elastic Search에서는 형태소 분석을 통한 자연어 처리가 가능
-  - Elastic Search는 다양한 형태소 분석 플러그인을 제공
-- 역색인 지원으로 매우 빠른 검색이 가능
+- <span style="background: rgb(251,243,219)">Elastic Search</span>에서는 <span style="background: rgb(251,243,219)">형태소 분석</span>을 통한 <span style="background: rgb(251,243,219)">자연어 처리</span>가 가능
+  - <span style="background: rgb(251,243,219)">Elastic Search</span>는 <span style="background: rgb(251,243,219)">다양한 형태소 분석 플러그인</span>을 제공
+- <span style="background: rgb(251,243,219)">역색인 지원</span>으로 매우 빠른 검색이 가능
+
+<br>
+
+**[n-gram이란?](https://velog.io/@ny_/n-gram)**<br><br>
+**[형태소 분석 예시](https://velog.io/@yundleyundle/ElasticSearch-Nori-%ED%98%95%ED%83%9C%EC%86%8C-%EB%B6%84%EC%84%9D%EA%B8%B0-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0)**
 
 <br>
 
@@ -351,31 +360,32 @@ SQL의 경우 정확히 일치하는 데이터를 검색하고 싶다면 **where
 
 <br>
 
-관계형 DB와 Elastic Search를 비교했을 때 가장 커다란 부분 중 하나는 데이터의 CRUD를 하는 방식이 조금 다른 것이다.
+<span style="background: rgb(251,243,219)">관계형 DB</span>와 <span style="background: rgb(251,243,219)">Elastic Search</span>를 비교했을 때 가장 커다란 부분 중 하나는 데이터의 <span style="background: rgb(251,243,219)">CRUD</span>를 하는 방식이 조금 다른 것이다.
 
-관계형 DB의 경우 우리가 주로 데이터의 추가, 삭제 등을 위해 사용하는 방법은 클라이언트에서 관계형 DB가 있는 서버에 연결을 맺어 SQL을 날리는 방식이었을 것이다.
+<span style="background: rgb(251,243,219)">관계형 DB</span>의 경우 우리가 주로 데이터의 추가, 삭제 등을 위해 사용하는 방법은 클라이언트에서 관계형 DB가 있는 서버에 연결을 맺어 <span style="background: rgb(251,243,219)">SQL</span>을 날리는 방식이었을 것이다.
 
-이를 테면 JDBC에서 관계형 DB가 있는 아이피와 포트를 연결하여 **SELECT, INSERT, DELETE**등의 쿼리를 날리는 방식이었다.
+이를 테면 JDBC에서 관계형 DB가 있는 아이피와 포트를 연결하여 **SELECT, INSERT, DELETE**등의 <span style="background: rgb(251,243,219)">쿼리</span>를 날리는 방식이었다.
 
-Elastic Search의 경우에는 이와 약간 다르다. 데이터를 CRUD하기 위해서 <span style="color:#2ECC40; font-weight:bold">RESTful API</span>라는 방식을 이용한다.
+<span style="background: rgb(251,243,219)">Elastic Search</span>의 경우에는 이와 약간 다르다. 데이터를 <span style="background: rgb(251,243,219)">CRUD</span>하기 위해서 <span style="color:#2ECC40; font-weight:bold">RESTful API</span>라는 방식을 이용한다.
 
-HTTP 통신에서 갖는 GET, POST, PUT, DELETE 등의 메서드가 RESTful API의 형식대로 그대로 적용된다. HEAD 메소드는 친숙하진 않지만, 특정 문서의 정보 유무를 확인하는데 이용될 수 있다.
+<span style="background: rgb(251,243,219)">HTTP 통신</span>에서 갖는 <span style="background: rgb(251,243,219)">GET, POST, PUT, DELETE</span> 등의 메서드가 <span style="background: rgb(251,243,219)">RESTful API</span>의 형식대로 그대로 적용된다. HEAD 메소드는 친숙하진 않지만, 특정 문서의 정보 유무를 확인하는데 이용될 수 있다.
 
-또한 Elastic Search의 POST 즉, 데이터 삽입의 경우에는 관계형 데이터베이스와 약간 다른 특성을 갖고 있는데 스키마가 미리 정의되어 있지 않더라도, 자동으로 필드를 생성하고 저장한다는 점이다.
+또한 <span style="background: rgb(251,243,219)">Elastic Search</span>의 POST 즉, <span style="background: rgb(251,243,219)">데이터 삽입</span>의 경우에는 관계형 데이터베이스와 약간 다른 특성을 갖고 있는데 <span style="background: rgb(251,243,219)">스키마가 미리 정의되어 있지 않더라도</span>, <span style="background: rgb(251,243,219)">자동으로 필드를 생성</span>하고 저장한다는 점이다.
 
-이러한 특성은 큰 유연성을 제공하지만 선호되는 방법은 아니다.
+이러한 특성은 <span style="background: rgb(251,243,219)">큰 유연성을 제공</span>하지만 선호되는 방법은 아니다.
 
 <br>
 
-### Elastic Search의 장점
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> Elastic Search의 장점
+</h3>
 
 <br>
 
 <span style="color:#2ECC40; font-weight:bold">데이터베이스 대용으로 사용가능</span>
 
 <br>
-
-NoSQL 데이터베이스처럼 사용이 가능하다. 또한 분류가 가능하고 분산 처리를 통해 거의 실시간(NRT)에 데이터 검색이 가능하다.
+ <span style="background: rgb(251,243,219)">NoSQL 데이터베이스</span>처럼 사용이 가능하다. 또한 분류가 가능하고 분산 처리를 통해 거의 <span style="background: rgb(251,243,219)">실시간(NRT-Near Real Time)에 데이터 검색</span>이 가능하다.
 
 <br>
 
@@ -383,7 +393,12 @@ NoSQL 데이터베이스처럼 사용이 가능하다. 또한 분류가 가능�
 
 <br>
 
-기존 데이터베이스로 처리하기 어려운 대량의 비정형 데이터 검색이 가능하며, 전문 검색(Full-Text-Search)과 구조 검색 모두를 지원한다. 기본적으로 검색엔진이지만 MongoDB나 Hbase처럼 대용량 스토리지로 사용도 가능하다.
+기존 데이터베이스로 처리하기 어려운 대량의 <span style="background: rgb(251,243,219)">비정형 데이터 검색</span>이 가능하며, <span style="background: rgb(251,243,219)">전문 검색(Full-Text-Search)</span>과 <span style="background: rgb(251,243,219)">구조 검색</span> 모두를 지원한다. 기본적으로 검색엔진이지만 MongoDB나 Hbase처럼 <span style="background: rgb(251,243,219)">대용량 스토리지</span>로 사용도 가능하다.
+
+<br>
+
+**[일라스틱 서치의 전문검색](https://esbook.kimjmin.net/05-search/5.1-query-dsl)**<br><br>
+**[정형 데이터, 비정형 데이터, 반정형 데이터](https://deep-jin.tistory.com/entry/%EC%A0%95%ED%98%95-%EB%B0%98%EC%A0%95%ED%98%95-%EB%B9%84%EC%A0%95%ED%98%95-%EB%8D%B0%EC%9D%B4%ED%84%B0)**
 
 <br>
 
@@ -391,7 +406,7 @@ NoSQL 데이터베이스처럼 사용이 가능하다. 또한 분류가 가능�
 
 <br>
 
-아파치 루씬(Lucene)기반 오픈소스 검색엔진으로 무료로 사용 가능하며, 많은 컨트리뷰터들이 실시간으로 소스를 수정해주기 때문에 버그가 발생하면 빠르게 해결된다.
+<span style="background: rgb(251,243,219)">아파치 루씬(Lucene)기반 오픈소스 검색엔진</span>으로 무료로 사용 가능하며, 많은 컨트리뷰터들이 실시간으로 소스를 수정해주기 때문에 버그가 발생하면 빠르게 해결된다.
 
 <br>
 
@@ -399,7 +414,7 @@ NoSQL 데이터베이스처럼 사용이 가능하다. 또한 분류가 가능�
 
 <br>
 
-내용 전체를 색인하여 특정 단어가 포함된 문서를 검색하는 것이 가능하다.
+<span style="background: rgb(251,243,219)">내용 전체를 색인</span>하여 <span style="background: rgb(251,243,219)">특정 단어</span>가 포함된 문서를 검색하는 것이 가능하다.
 
 <br>
 
@@ -407,7 +422,7 @@ NoSQL 데이터베이스처럼 사용이 가능하다. 또한 분류가 가능�
 
 <br>
 
-비정형 로그 데이터를 수집하고 한 곳에 모아서 통계 분석이 가능하다. 키바나를 이용하면 시각화 또한 가능하다.
+<span style="background: rgb(251,243,219)">비정형 로그 데이터</span>를 수집하고 한 곳에 모아서 <span style="background: rgb(251,243,219)">통계 분석</span>이 가능하다. <span style="background: rgb(251,243,219)">키바나</span>를 이용하면 시각화 또한 가능하다.
 
 <br>
 
@@ -415,7 +430,16 @@ NoSQL 데이터베이스처럼 사용이 가능하다. 또한 분류가 가능�
 
 <br>
 
-기존의 관계형 데이터베이스는 스키마라는 구조에 따라 데이터를 적합한 형태로 변경하여 저장 관리하지만 Elastic Search는 비정형의 다양한 형태의 문서도 자동으로 색인, 검색이 가능하다.
+기존의 관계형 데이터베이스는 <span style="background: rgb(251,243,219)">스키마</span>라는 구조에 따라 데이터를 적합한 형태로 변경하여 저장 관리하지만 Elastic Search는 비정형의 다양한 형태의 문서도 자동으로 색인, 검색이 가능하다.
+
+<br>
+
+<link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet">
+<div style="background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;">
+
+스키마란<br>
+데이터베이스의 구조와 제약 조건에 관해 전반적인 명세를 기술한 것</div>
 
 <br>
 
@@ -423,7 +447,7 @@ NoSQL 데이터베이스처럼 사용이 가능하다. 또한 분류가 가능�
 
 <br>
 
-RESTful API를 사용하여 HTTP 통신 기반으로 요청을 받아 JSON 형식으로 응답한다는 것은 다양한 플랫폼에서 응용 가능하다는 것을 의미한다.
+<span style="background: rgb(251,243,219)">RESTful API를</span> 사용하여 HTTP 통신 기반으로 요청을 받아 <span style="background: rgb(251,243,219)">JSON 형식으로 응답</span>한다는 것은 다양한 플랫폼에서 응용 가능하다는 것을 의미한다.
 
 <br>
 
@@ -431,7 +455,15 @@ RESTful API를 사용하여 HTTP 통신 기반으로 요청을 받아 JSON 형�
 
 <br>
 
-Elastic Search에서 인덱스는 관계형 DB의 데이터베이스와 같은 개념임에도 불구하고 서로 다른 인덱스에서도 검색할 필드명만 같으면 어러 개의 인덱스를 한번에 조회할 수 있다.
+<span style="background: rgb(251,243,219)">Elastic Search</span>에서 인덱스는 관계형 DB의 데이터베이스와 같은 개념임에도 불구하고 <span style="background: rgb(251,243,219)">서로 다른 인덱스</span>에서도 검색할 필드명만 같으면 여러 개의 인덱스를 <span style="background: rgb(251,243,219)">한번에 조회</span>할 수 있다.
+
+<br>
+
+<link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet">
+<div style="background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;">
+
+ElasticSearch는 여러 개의 분리된 인덱스를 그룹으로 저장한다. 관계형 DB에서 다른 데이터베이스의 데이터를 검색하려면 별도의 커넥션을 생성해야 하는데, ElasticSearch에서는 서로 다른 인덱스의 데이터를 하나의 쿼리로 묶어서 검색하고 하나의 출력으로 모아줄 수 있다.(멀티테넌시 구조) 관계형 데이터베이스에서는 쿼리 하나만을 이용하여 각각 다른 데이터베이스에 있는 데이터를 동시에 조회하는 것은 불가능하다. 하지만 엘라스틱서치는 여러 개의 인덱스를 동시에 조회 가능핟.</div>
 
 <br>
 
@@ -439,7 +471,7 @@ Elastic Search에서 인덱스는 관계형 DB의 데이터베이스와 같은 �
 
 <br>
 
-여러 계층의 데이터를 JSON 형식의 구조화된 문서로 인덱스에 저장 가능하다. 계층 구조로 문서도 한 번의 쿼리로 쉽게 조회 가능하다.
+여러 계층의 데이터를 <span style="background: rgb(251,243,219)">JSON 형식의 구조화된 문서</span>로 <span style="background: rgb(251,243,219)">인덱스에 저장</span> 가능하다. 계층 구조로 문서도 한 번의 쿼리로 쉽게 조회 가능하다.
 
 <br>
 
@@ -447,7 +479,11 @@ Elastic Search에서 인덱스는 관계형 DB의 데이터베이스와 같은 �
 
 <br>
 
-역색인을 지원한다.
+<span style="background: rgb(251,243,219)">역색인</span>을 지원한다.
+
+<br>
+
+**[역색인](https://youngkyonyou.github.io/interview/2021/12/28/Interview-interview-14.html)**
 
 <br>
 
@@ -455,11 +491,13 @@ Elastic Search에서 인덱스는 관계형 DB의 데이터베이스와 같은 �
 
 <br>
 
-매우 많은 데이터가 존재할 때 분산 시스템 구성으로 병렬적인 처리가 가능하다. 분산 환경에서는 데이터가 샤드(Shard)라는 단위로 나누어 제공된다. 인덱스 생성 시마다 샤드의 수 조정이 가능하다. 데이터의 종류와 성격에 따라 데이터를 분산하여 빠르게 처리 가능하다.
+매우 많은 데이터가 존재할 때 <span style="background: rgb(251,243,219)">분산 시스템 구성</span>으로 <span style="background: rgb(251,243,219)">병렬적인 처리</span>가 가능하다. 분산 환경에서는 데이터가 <span style="background: rgb(251,243,219)">샤드(Shard)라는 단위</span>로 나누어 제공된다. 인덱스 생성 시마다 샤드의 수 조정이 가능하다. <span style="background: rgb(251,243,219)">데이터의 종류와 성격</span>에 따라 데이터를 분산하여 빠르게 처리 가능하다.
 
 <br>
 
-### 단점
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 단점
+</h3>
 
 <br>
 
@@ -467,7 +505,7 @@ Elastic Search에서 인덱스는 관계형 DB의 데이터베이스와 같은 �
 
 <br>
 
-Elastic Search의 데이터 색인의 특징 때문에 Elastic Search의 색인된 데이터는 1초 뒤에나 검색이 가능하다. 왜냐하면 색인된 데이터가 내부적으로 커밋(Commit)과 플러시(Flush)와 같은 과정을 거치기 때문이다. 그래서 Elastic Search 공식 홈페이지에서도 NRT(Near Real Time)라는 표현을 쓴다.
+Elastic Search의 <span style="background: rgb(251,243,219)">데이터 색인의 특징</span> 때문에 Elastic Search의 색인된 데이터는 1초 뒤에나 검색이 가능하다. 왜냐하면 색인된 데이터가 내부적으로 <span style="background: rgb(251,243,219)">커밋(Commit)과 플러시(Flush)</span>와 같은 과정을 거치기 때문이다. 그래서 Elastic Search 공식 홈페이지에서도 <span style="background: rgb(251,243,219)">NRT(Near Real Time)</span>라는 표현을 쓴다.
 
 <br>
 
@@ -475,10 +513,9 @@ Elastic Search의 데이터 색인의 특징 때문에 Elastic Search의 색인�
 
 <br>
 
-분산 시스템 구성의 특징 때문에, 시스템적으로 비용 소모가 큰 롤백, 트랜잭션을 지원하지 않는다. 그래서 데이터 관리에 유의해야 함
+분산 시스템 구성의 특징 때문에, 시스템적으로 비용 소모가 큰 <span style="background: rgb(251,243,219)">롤백, 트랜잭션</span>을 지원하지 않는다. 그래서 <span style="background: rgb(251,243,219)">데이터 관리에 유의</span>해야 함
 
 <br>
-
 
 일단 Elasticsearch와 관계형 DB를 비교해보자.
 
@@ -498,19 +535,19 @@ Elastic Search의 데이터 색인의 특징 때문에 Elastic Search의 색인�
 
 <br>
 
-1. **클러스터(Cluster)**
+**1)** **클러스터(Cluster)**
 
-- 클러스터란 Elasticsearch의 가장 큰 시스템 단위를 의미하며, 최소 하나 이상의 노드로 이루어진 노드들의 집합이다. 서로 다른 클러스터는 데이터의 접근, 교환을 할 수 없는 독립적인 시스템으로 유지되며, 여러 대의 서버가 하나의 클러스터를 구성할 수 있고, 한 서버에 여러 개의 클러스터가 존재할 수도 있다.
-
-<br>
-
-2. **노드(Node)**
-
-- Elasticsearch를 구성하는 하나의 단위 프로세스를 의미한다. 그 역할에 따라 Master-eligible, Data, Ingest, Tribe 노드로 구분할 수 있다.
+- <span style="background: rgb(251,243,219)">클러스터</span>란 <span style="background: rgb(251,243,219)">Elasticsearch</span>의 가장 큰 시스템 단위를 의미하며, 최소 하나 이상의 노드로 이루어진 <span style="background: rgb(251,243,219)">노드들의 집합</span>이다. 서로 다른 클러스터는 데이터의 접근, 교환을 할 수 없는 독립적인 시스템으로 유지되며, 여러 대의 서버가 하나의 클러스터를 구성할 수 있고, 한 서버에 여러 개의 클러스터가 존재할 수도 있다.
 
 <br>
 
-- **master-eligible node**: 클러스터를 제어하는 마스터로 선택할 수 있는 노드를 말한다. 여기서 master 노드가 하는 역할은 다음과 같다
+**2)** **노드(Node)**
+
+- <span style="background: rgb(251,243,219)">Elasticsearch</span> 를 구성하는 <span style="background: rgb(251,243,219)">하나의 단위 프로세스</span>를 의미한다. 그 역할에 따라 Master-eligible, Data, Ingest, Tribe 노드로 구분할 수 있다.
+
+<br>
+
+- **master-eligible node**:<span style="background: rgb(251,243,219)">클러스터를 제어</span>하는 마스터로 선택할 수 있는 노드를 말한다. 여기서 master 노드가 하는 역할은 다음과 같다
 
   - 인덱스 생성, 삭제
   - 클러스터 노드들의 추적, 관리
@@ -518,31 +555,42 @@ Elastic Search의 데이터 색인의 특징 때문에 Elastic Search의 색인�
 
 <br>
 
-- **Data Node**: 데이터와 관련된 CRUD 작업과 관련있는 노드이다. 이 노드는 CPU, 메모리 등 자원을 많이 소모하므로 모니터링이 필요하며, master 노드와 분리하는 것이 좋다.
+- **Data Node**: 데이터와 관련된 <span style="background: rgb(251,243,219)">CRUD 작업</span>과 관련있는 노드이다. 이 노드는 CPU, 메모리 등 자원을 많이 소모하므로 모니터링이 필요하며, master 노드와 분리하는 것이 좋다.
 
 <br>
 
-- **Ingest Node**: 데이터를 변환하는 등 사전 처리 파이프라인을 실행하는 역할을 한다.
+- **Ingest Node**: <span style="background: rgb(251,243,219)">데이터를 변환</span>하는 등 사전 처리 파이프라인을 실행하는 역할을 한다.
 
 <br>
 
-- **Coordination Only Node**: data node와 master-eligible node의 일을 대신하는 이 노드는 대규모 클러스터에서 큰 이점이 있다. 즉 로드밸런서와 비슷한 역할을 한다.
+- **Coordination Only Node**: data node와 master-eligible node의 일을 대신하는 이 노드는 <span style="background: rgb(251,243,219)">대규모 클러스터에서 큰 이점</span>이 있다. 즉 <span style="background: rgb(251,243,219)">로드밸런서</span>와 비슷한 역할을 한다.
 
 <br>
 
-3. **인덱스(Index) / 샤드(Shard) / 복제(Replica)**
+**3)** **인덱스(Index) / 샤드(Shard) / 복제(Replica)**
 
 <br>
 
-- Elasticsearch에서 index는 RDBMS에서 database와 대응하는 개념이다. 또한 shard와 replica는 Elasticsearch에만 존재하는 개념이 아니라, 분산 데이터베이스 시스템에도 존재하는 개념이다.
+- Elasticsearch에서 <span style="background: rgb(251,243,219)">index</span>는 RDBMS에서 <span style="background: rgb(251,243,219)">database</span>와 대응하는 개념이다. 또한 <span style="background: rgb(251,243,219)">shard</span>와 <span style="background: rgb(251,243,219)">replica</span>는 Elasticsearch에만 존재하는 개념이 아니라, 분산 데이터베이스 시스템에도 존재하는 개념이다.
 
 <br>
 
-- **샤딩(sharding)**은 데이터를 분산해서 저장하는 방법을 의미한다. 즉, Elasticsearch에서 스케일 아웃을 위해 index를 여러 shard로 쪼갠 것이다. 기본적으로 1개가 존재하며, 검색 성능 향상을 위해 클러스터의 샤드 갯수를 조정하는 튜닝을 하기도 한다.
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 파티셔닝과 샤딩의 차이
+</h4>
+
+- 파티셔닝: 하나의 데이터베이스 인스턴스에서 데이터(테이블)를 분리
+- 샤딩: 데이터를 여러 데이터베이스 인스턴스로 분할
+
+![](/images/Interview/post16/2022-01-16-00-43-54.png?style=centerme)
 
 <br>
 
-- **replica**는 또 다른 형태의 shard라고 할 수 있다. 노드를 손실했을 경우 데이터의 신뢰성을 위해 샤드들을 복제하는 것이다. 따라서 replica는 서로 다른 노드에 존재할 것을 권장한다. 아래 사진에서 보는 바와 같이 Replica1은 Node2에 존재하는 것을 확인할 수 있다.
+- **샤딩(sharding)**은 <span style="background: rgb(251,243,219)">데이터를 분산</span>해서 저장하는 방법을 의미한다. 즉, <span style="background: rgb(251,243,219)">Elasticsearch</span>에서 스케일 아웃을 위해 <span style="background: rgb(251,243,219)">index</span>를 여러 <span style="background: rgb(251,243,219)">shard</span>로 쪼갠 것이다. 기본적으로 1개가 존재하며, 검색 성능 향상을 위해 클러스터의 샤드 갯수를 조정하는 튜닝을 하기도 한다.
+
+<br>
+
+- **replica**는 또 다른 형태의 <span style="background: rgb(251,243,219)">shard</span>라고 할 수 있다. 노드를 손실했을 경우 데이터의 신뢰성을 위해 <span style="background: rgb(251,243,219)">샤드들을 복제</span>하는 것이다. 따라서 replica는 서로 다른 노드에 존재할 것을 권장한다. 아래 사진에서 보는 바와 같이 Replica1은 Node2에 존재하는 것을 확인할 수 있다.
 
 <br>
 
@@ -550,29 +598,29 @@ Elastic Search의 데이터 색인의 특징 때문에 Elastic Search의 색인�
 
 <br>
 
-4. **Elasticsearch의 특징**
+**4)** **Elasticsearch의 특징**
 
 <br>
 
 - **Scale out**
 
-  - 샤드를 통해 규모가 수평적으로 늘어날 수 있음
+  - <span style="background: rgb(251,243,219)">샤드</span>를 통해 규모가 수평적으로 늘어날 수 있음
 
 <br>
 
 - **고가용성**
 
-  - Replica를 통해 데이터의 안정성을 보장
+  - <span style="background: rgb(251,243,219)">Replica</span>를 통해 데이터의 안정성을 보장
 
 <br>
 
 - **Schema Free**
 
-  - Json 문서를 통해 데이터 검색을 수행하므로 스키마 개념이 없음
+  - Json 문서를 통해 데이터 검색을 수행하므로 <span style="background: rgb(251,243,219)">스키마 개념이 없음</span>
 
 - **Restful**
 
-  - 데이터 CRUD 작업은 HTTP Restful API를 통해 수행하며 각각 다음과 같이 대응한다.
+  - 데이터 <span style="background: rgb(251,243,219)">CRUD 작업</span>은 <span style="background: rgb(251,243,219)">HTTP Restful API</span>를 통해 수행하며 각각 다음과 같이 대응한다.
 
 <br>
 
