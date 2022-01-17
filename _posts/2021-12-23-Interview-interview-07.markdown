@@ -307,7 +307,7 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <br>
 
-마치 동기와 블로킹이 같은 말 같고 비동기와 논블로킹이 같은 말 같아 보이기 때문이다. 하지만 둘은 <span style="color: rgba(131, 24, 67); font-weight:bold">다르다!</span>
+마치 <span style="background: rgb(251,243,219)">동기와 블로킹</span>이 같은 말 같고 <span style="background: rgb(251,243,219)">비동기와 논블로킹</span>이 같은 말 같아 보이기 때문이다. 하지만 둘은 <span style="color: rgba(131, 24, 67); font-weight:bold">다르다!</span>
 
 <br>
 
@@ -315,14 +315,16 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <br>
 
-그러기 앞서 여기서 기준점이 있어야 된다. Blocking과 Non-Blocking를 구별해주는 기준점을 여기서는 **제어권**이라고 하겠다. 제어권이란 함수를 실행할 권리라고 생각을 하자. **블로킹**에 대해서 먼저 살펴보자.
+그러기 앞서 여기서 기준점이 있어야 된다. Blocking과 Non-Blocking를 구별해주는 기준점을 여기서는 **제어권**이라고 하겠다. <span style="background: rgb(251,243,219)">제어권</span>이란 <span style="background: rgb(251,243,219)">함수를 실행할 권리</span>라고 생각을 하자. **블로킹**에 대해서 먼저 살펴보자.
 
 <br>
 
-#### 블로킹
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 블로킹
+</h3>
 
 <br>
-- 호출된 함수가 제어권을 넘겨주지 않아 호출한 함수측에서는 다른 작업을 수행할 수 없고 제어권이 돌아오기만을 기다리는 것을 말한다.
+- 호출된 함수가 <span style="background: rgb(251,243,219)">제어권</span>을 넘겨주지 않아 호출한 함수측에서는 다른 작업을 수행할 수 없고 <span style="background: rgb(251,243,219)">제어권이 돌아오기만을 기다리는 것</span>을 말한다.
 
 <br>
 
@@ -346,11 +348,13 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <br>
 
-#### 논블로킹
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 논블로킹
+</h3>
 
 <br>
 
-- 어떤 함수를 호출한 함수가 제어권을 넘겨주지 않고 그대로 자신이 가지고 있는 것을 말한다.
+- 어떤 함수를 호출한 함수가 <span style="background: rgb(251,243,219)">제어권</span>을 넘겨주지 않고 그대로 <span style="background: rgb(251,243,219)">자신이 가지고 있는 것</span>을 말한다.
 
 <br>
 
@@ -364,19 +368,21 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <br>
 
-A 함수가 B함수를 호출하면 B 함수는 실행되지만 제어권은 A 함수가 그대로 가지고 있는다. A 함수는 계속 제어권을 가지고 있기 때문에 B 함수를 호출한 이후에도 자신의 코드를 계속 실행한다.
+<span style="background: rgb(251,243,219)">A 함수가 B함수를 호출</span>하면 B 함수는 실행되지만 <span style="background: rgb(251,243,219)">제어권</span>은 A 함수가 그대로 가지고 있는다. A 함수는 계속 <span style="background: rgb(251,243,219)">제어권</span>을 가지고 있기 때문에 B 함수를 호출한 이후에도 <span style="background: rgb(251,243,219)">자신의 코드를 계속 실행</span>한다.
 
 <br>
 
-동기화 비동기를 살펴보자. 살펴보기 전에 여기서도 기준점을 가지고 있어야 한다. 여기서 기준은 **작업 완료**를 **누가 신경** 쓰는가 이다.
+<span style="background: rgb(251,243,219)">동기와 비동기</span>를 살펴보자. 살펴보기 전에 여기서도 기준점을 가지고 있어야 한다. 여기서 기준은 **작업 완료**를 **누가 신경** 쓰는가 이다.
 
 <br>
 
-#### 동기
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 동기
+</h3>
 
 <br>
 
-- **'호출한 함수'**가 스스로 신경을 쓴다. 즉, 호출된 함수의 수행 결과 및 종료를 호출한 함수가 신경 쓰면 동기이다.
+- **'호출한 함수'**가 스스로 신경을 쓴다. 즉, 호출된 함수의 수행 결과 및 종료를 <span style="background: rgb(251,243,219)">호출한 함수가 신경</span> 쓰면 동기이다.
 
 <br>
 
@@ -384,21 +390,23 @@ A 함수가 B함수를 호출하면 B 함수는 실행되지만 제어권은 A �
 
 <br>
 
-Thread1, Thread2가 존재할때 Thread1에서 처리하려고 했던 일을 Thread2에게 보낸 경우, Thread2가 해당 작업을 수행하는 동안 Thread1은 Thread2가 끝날 때까지 대기상태다.
+Thread1, Thread2가 존재할때 Thread1에서 처리하려고 했던 일을 Thread2에게 보낸 경우, Thread2가 해당 작업을 수행하는 동안 Thread1은 Thread2가 끝날 때까지 <span style="background: rgb(251,243,219)">대기상태</span>다.
 
 <br>
 
-> 상황으로 이해하자.[신발가게 매장 안에서]
+> 상황으로 이해하자. [신발가게 매장 안에서]
 
 ![](/images/Interview/post11/2021-12-23-16-01-17.png?style=centerme)
 
 <br>
 
-#### 비동기
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 비동기
+</h3>
 
 <br>
 
-- **호출되는 함수**에게 callback을 전달해서 호출되는 함수의 작업이 완료되면 호출되는 함수가 전달받은 callback을 실행하고 호출하는 함수는 작업 완료 여부를 신경쓰지 않으면 비동기이다.
+- **호출되는 함수**에게 <span style="background: rgb(251,243,219)">callback을 전달</span>해서 호출되는 함수의 작업이 완료되면 호출되는 함수가 전달받은 <span style="background: rgb(251,243,219)">callback을 실행</span>하고 호출하는 <span style="background: rgb(251,243,219)"> 함수는 작업 완료 여부를 신경쓰지 않으면 비동기</span>이다.
 
 <br>
 
@@ -418,16 +426,18 @@ Thread1, Thread2가 존재할때 Thread1에서 처리하려고 했던 일을 Thr
 
 ---
 
-## 조합
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 조합
+</h3>
 
 <br>
 
-### 동기 / 블로킹
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 동기 / 블로킹
+</h4>
 
-<br>
-
-- 동기: 호출한 함수가 작업 완료 여부를 확인한다.
-- 블로킹: 호출된 함수가 제어권을 가진다.
+- **동기**: 호출한 함수가 작업 완료 여부를 확인한다.
+- **블로킹**: 호출된 함수가 제어권을 가진다.
 
 <br>
 
@@ -466,12 +476,12 @@ public class BlockingAndSync {
 
 <br>
 
-### 동기 / 논블로킹
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 동기 / 논블로킹
+</h4>
 
-<br>
-
-- 동기: 호출한 함수가 작업 완료 여부를 확인한다.
-- 논블로킹: 호출한 함수가 제어권을 가진다.
+- **동기**: 호출한 함수가 작업 완료 여부를 확인한다.
+- **논블로킹**: 호출한 함수가 제어권을 가진다.
 
 <br>
 
@@ -479,7 +489,7 @@ public class BlockingAndSync {
 
 <br>
 
-Thread1은 task1의 완료 여부에 상관 없이 다른 작업을 진행할 수 있다. 하지만 task1의 완료 여부를 지속적으로 확인한다.
+Thread1은 task1의 <span style="background: rgb(251,243,219)">완료 여부에 상관 없이 다른 작업을 진행</span>할 수 있다. 하지만 task1의 <span style="background: rgb(251,243,219)">완료 여부를 지속적으로 확인</span>한다.
 
 <br>
 
@@ -497,17 +507,17 @@ Thread1은 task1의 완료 여부에 상관 없이 다른 작업을 진행할 �
 
 <br>
 
-흔한 게임 업데이트 진행중인 화면이다. 오른쪽 하단에 게임 업데이트가 계속 진행되고 있다. 남은 시간 및 현재까지 업데이트된 정도를 보여주고 있다. 완료여부를 계속해서 확인하고 있는 상태로 보인다.
+흔한 <span style="background: rgb(251,243,219)">게임 업데이트 진행중인 화면</span>이다. 오른쪽 하단에 게임 업데이트가 계속 진행되고 있다. 남은 시간 및 현재까지 업데이트된 정도를 보여주고 있다. 완료여부를 계속해서 확인하고 있는 상태로 보인다.
 
 <br>
 
-### 비동기 / 블로킹
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 비동기 / 블로킹
+</h4>
 
-<br>
+- **비동기** : Callback 함수가 작업 완료 여부를 확인한다.
 
-- 비동기 (Asynchronous) : Callback 함수가 작업 완료 여부를 확인한다.
-
-- 블로킹 (Blocking) : 호출된 함수 (task1)이 제어권을 가진다.
+- **블로킹** : 호출된 함수 (task1)이 제어권을 가진다.
 
 <br>
 
@@ -515,7 +525,7 @@ Thread1은 task1의 완료 여부에 상관 없이 다른 작업을 진행할 �
 
 <br>
 
-Thread1이 task1의 작업 완료 여부를 신경쓰지 않으나, 작업이 완료될때 까지 아무것도 하지 못하는 대기 상태다. 해당 경우는 비동기인데 굳이 블로킹인 경우인데, 이는 보통 비동기 (Asynchronous) + 논블로킹 (Non-Blocking) 로 작업을 시도했을때 잘못된 경우 발생한다.
+Thread1이 task1의 작업 완료 여부를 신경쓰지 않으나, **작업이 완료**될때 까지 아무것도 하지 못하는 **대기 상태**다. 해당 경우는 비동기인데 굳이 블로킹인 경우인데, 이는 보통 비동기 (Asynchronous) + 논블로킹 (Non-Blocking) 로 작업을 시도했을때 잘못된 경우 발생한다.
 
 <br>
 
@@ -525,12 +535,12 @@ Thread1이 task1의 작업 완료 여부를 신경쓰지 않으나, 작업이 �
 
 <br>
 
-### 비동기 / 논블로킹을
+<span style="background: rgb(251,243,219)">비동기 / 논블로킹을</span>
 
 <br>
 
-- 비동기 (Asynchronous) : Callback 함수가 작업 완료 여부를 확인한다.
-- 논블로킹 (Non-Blocking) : 호출한 함수가 제어권을 가진다.
+- **비동기**  : Callback 함수가 작업 완료 여부를 확인한다.
+- **논블로킹** : 호출한 함수가 제어권을 가진다.
 
 <br>
 
@@ -538,7 +548,7 @@ Thread1이 task1의 작업 완료 여부를 신경쓰지 않으나, 작업이 �
 
 <br>
 
-Thread1이 task1의 완료 여부를 신경쓰지 않고 다른 자신의 작업을 진행한다. 성능과 자원 효율면에서 가장 우수하다.
+Thread1이 task1의 <span style="background: rgb(251,243,219)">완료 여부</span>를 신경쓰지 않고 다른 자신의 작업을 진행한다. 성능과 자원 효율면에서 가장 우수하다.
 
 <br>
 
@@ -574,7 +584,9 @@ console.log(getData()); // undefined
 
 ---
 
-### 장단점
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 장단점
+</h3>
 
 <br>
 
@@ -582,7 +594,7 @@ console.log(getData()); // undefined
   - 장점
     - 작업이 순차적으로 이루어지기에 작업 흐름을 쉽게 이해할 수 있음
   - 단점
-    - 블로킹이 이루어지는 동안으 하드웨어 리소스를 효율적으로 이용하지 못함
+    - 블로킹이 이루어지는 동안엔 하드웨어 리소스를 효율적으로 이용하지 못함
 
 <br>
 
@@ -610,11 +622,15 @@ console.log(getData()); // undefined
 
 ---
 
-## 비동기는 언제 써야 할까?
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 비동기는 언제 써야 할까?
+</h3>
 
 <br>
 
-웹서버로 예를 들어보겠다.
+<span style="background: rgb(251,243,219)">웹서버</span>로 예를 들어보겠다.
 
 웹서버에서 받는 요청을 처리해주는 쓰레드가 100개가 있다고 해보자.
 
@@ -624,7 +640,7 @@ console.log(getData()); // undefined
 
 <br>
 
-request가 100개가 넘어가는 순간 비동기를 쓴다고 해보자. 200개의 requests가 들어오면 그냥 무작정 기다리는 게 아니라 100개를(request 200개 중에 100개) 실행하다가 잠깐 멈추고 나머지 100개(나머지 request 200개 중에 100개)를 실행하고 왔다갔다 한다.
+request가 100개가 넘어가는 순간 <span style="background: rgb(251,243,219)">비동기</span>를 쓴다고 해보자. 200개의 requests가 들어오면 그냥 무작정 기다리는 게 아니라 100개를(request 200개 중에 100개) 실행하다가 잠깐 멈추고 나머지 100개(나머지 request 200개 중에 100개)를 실행하고 왔다갔다 한다.
 
 <br>
 
@@ -632,7 +648,7 @@ request가 100개가 넘어가는 순간 비동기를 쓴다고 해보자. 200�
 
 <br>
 
-이것만이 문제가 아니다 만약 비동기를 안 할 경우 뒤에 있는 task는 앞의 task가 끝날 때까지 기다린다. request의 200개 중 100개가 모두 동일한 시간에 끝난다면 그냥 smooth하게 흘러가면 된다.(기다리는 시간만 길어짐) 그런데 재밌는 건 이렇게 하다가 이 중 하나, 즉, 중간에 있는 게 다른 거에 비해 100배의 시간이 걸린다 하면 이 뒤에 있는 딜레이는 엄청날 것이다.
+이것만이 문제가 아니다 만약 <span style="background: rgb(251,243,219)">비동기</span>를 안 할 경우 뒤에 있는 task는 앞의 task가 끝날 때까지 기다린다. request의 200개 중 100개가 모두 동일한 시간에 끝난다면 그냥 smooth하게 흘러가면 된다.(기다리는 시간만 길어짐) 그런데 재밌는 건 이렇게 하다가 이 중 하나, 즉, 중간에 있는 게 다른 거에 비해 100배의 시간이 걸린다 하면 이 뒤에 있는 딜레이는 엄청날 것이다.
 
 <br>
 
@@ -640,11 +656,11 @@ request가 100개가 넘어가는 순간 비동기를 쓴다고 해보자. 200�
 
 <br>
 
-이때는 코드 가독성이라던가 오버헤드를 줄이는 측면에서 비동기를 안 쓰는 게 낫다.
+이때는 <span style="background: rgb(251,243,219)">코드 가독성</span>이라던가 <span style="background: rgb(251,243,219)">오버헤드</span>를 줄이는 측면에서 비동기를 안 쓰는 게 낫다.
 
 <br>
 
-나중에 스케일이 커져서 로드가 몰리게 되면 갑자기 평탄하던 그래프가 치솟는다. 이때 비동기를 쓰면 완만하게 그래프가 올라간다. 즉 어느 정도 유지가 된다.
+나중에 스케일이 커져서 로드가 몰리게 되면 갑자기 평탄하던 그래프가 치솟는다. 이때 <span style="background: rgb(251,243,219)">비동기</span>를 쓰면 완만하게 그래프가 올라간다. 즉 어느 정도 유지가 된다.
 
 <br>
 

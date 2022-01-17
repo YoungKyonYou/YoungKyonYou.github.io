@@ -1,0 +1,460 @@
+I"�E<p><br /><br /></p>
+
+<p><em><strong>오늘의 나보다 성장한 내일의 나를 위해…</strong></em></p>
+
+<p><br /></p>
+
+<p><br /><br /></p>
+
+<style>
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: "";
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: "";
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: "";
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: "";
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+</style>
+
+<div class="containercoffee">
+    <div class="coffee-header">
+      <div class="coffee-header__buttons coffee-header__button-one"></div>
+      <div class="coffee-header__buttons coffee-header__button-two"></div>
+      <div class="coffee-header__display"></div>
+      <div class="coffee-header__details"></div>
+    </div>
+    <div class="coffee-medium">
+      <div class="coffe-medium__exit"></div>
+      <div class="coffee-medium__arm"></div>
+      <div class="coffee-medium__liquid"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
+      <div class="coffee-medium__cup"></div>
+    </div>
+    <div class="coffee-footer"></div>
+</div>
+
+<p><br /><br /><br /><br /><br /><br /><br /><br /></p>
+
+<p><br /></p>
+
+<p>다음 당근 페이 질문은 아래와 같다.</p>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> Q: 도커 컨테이너에 대해 설명해주세요
+</h3>
+
+<p><br /></p>
+
+<p>도커 컨테이너에 대해 질문을 받았을 때 대답을 제대로 못한 것 같다. 사용하기만 했지 사실상 어떻게 동작하는지에 대해 살펴보진 않았다. 이번 기회에 도커 컨테이너 개념을 제대로 잡고 넘어가보자.</p>
+
+<p><br /></p>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> 도커 컨테이너란?
+</h3>
+
+<p><br /></p>
+
+<p><strong>컨테이너:</strong> <span style="background: rgb(251,243,219)">하나의 운영 체제 커널</span>에서 <span style="background: rgb(251,243,219)">다른 프로세스</span>에 영향을 받지 않고 <span style="background: rgb(251,243,219)">독립적으로 실행</span>되는 프로세스 상태를 의미한다.</p>
+
+<p><br /></p>
+
+<p><strong>도커 컨테이너는 도커 이미지를 기반으로 실행되는 프로세스다.</strong> 도커 이미지만 있다면 환경의 영향을 받지 않고 다양한 환경에서 컨테이너를 기동시킬 수 있기 때문에 <span style="background: rgb(251,243,219)">이식성</span>이 높다.</p>
+
+<p><br /></p>
+
+<p>자바 언어에 <strong>‘WORA’(Write Once, Run Anyware)</strong>라는 콘셉트가 있는데 도커 컨테이너에도 한번 빌드한 도커 이미지는 어느 환경에서나 동일한 동작을 보장한다는 <strong>‘BORA’(Build Once, Run Anyware)</strong> 콘셉트가 있다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/Interview/post10/2021-12-21-23-10-42.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>또한, 도커 컨테이너는 가상 머신에 비해 장점이 있다.</p>
+
+<ul>
+  <li><strong>가볍다</strong></li>
+  <li><strong>시작과 중지가 빠르다</strong></li>
+</ul>
+
+<p><br /></p>
+
+<p>도커 컨테이너는 호스트 머신의 커널을 이용하면서 네임스페이스 분리와 cgroup를 이용한 제어를 통해 독립적인 OS와 같은 환경을 만들 수 있다. 따라서 게스트 OS 기동을 기다릴 필요가 없으므로 프로세스를 빠르게 시작하고 중지할 수 있다.</p>
+
+<p><br /></p>
+
+<link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet" />
+
+<div style="background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;">
+
+<span style="color:#3D9970; font-weight:bold">cgroup:</span> 단일 또는 테스크 단위의 프로세스 그룹에 대한 자원 할당을 제어하는 커널 모듈
+
+<br />
+<br />
+
+<span style="color:#3D9970; font-weight:bold">커널(Kernal):</span> 컴퓨터와 전원을 켜면 운영체제는 이와 동시에 수행된다. 한편 소프트웨어가 컴퓨터 시스템에서 수행되기 위해서는 메모리에 그 프로그램이 올라가 있어야 한다. 마찬가지로 운영체제 자체도 소프트웨어로서 전원이 켜짐과 동시에 메모리에 올라가야 한다. 하지만, 운영체제처럼 규모가 큰 프로그램이 모두 메모리에 올라간다면 한정된 메모리 공간의 낭비가 심할것이다. 따라서 운영체제 중 항상 필요한 부분만을 전원이 켜짐과 동시에 메모리에 올려놓고 그렇지 않은 부분은 필요할 때 메모리에 올려서 사용하게 된다. 이 때 메모리에 상주하는 운영체제의 부분을 커널이라 한다. 또 이것을 좁은 의미의 운영체제라고도 한다. 즉 커널은 메모리에 상주하는 부분으로써 운영체제의 핵심적인 부분을 뜻한다. 이에 반에 넓은 의미의 운영체제는 커널뿐 아니라 각종 시스템을 위한 유틸리티들을 광범위하게 포함하는 개념이다. (보통은 운영체제라고 하면 커널을 말하게 된다.)
+
+<br />
+<br />
+
+<span style="color:#3D9970; font-weight:bold">호스트와 게스트:</span> VMware 와 같은 가상 머신에서 가장 중요한 개념 중에 하나가 바로 Host(호스트) 와 Guest(게스트) 의 개념이다. Host 는 단어 그대로 주체가 되는 주인을 의미하며 Guest 는 이러한 주인을 이용하는 손님의 개념이라는 것이다. 이를 가상 머신에 대입하여 보자면 우리가 실제로 사용하는 컴퓨터에 가상의 컴퓨터를 만들었으니 실제 컴퓨터는 Host 가 되고 가상 컴퓨터는 Guest 가 되는 것이다. 마찬가지로 실제 컴퓨터에서 돌아가는 운영체제는 Host 운영체제 가상 컴퓨터에서 돌아가는 운영체제는 Guest 운영체제가 되는 것 이다. 굉장히 쉽고도 단순한 개념이지만 이 개념이 혼동되면 안 되기 때문에 잘 기억하시길 바란다.
+
+<br />
+<br />
+
+<span style="color:#3D9970; font-weight:bold">호스트 OS와 게스트 OS:</span> 보통 하나에 PC엔 하나의 운영체제가 있다. 그러나 한 컴퓨터에 두 개 이상의 운영체제가 필요한 경우가 있다. 여기서 Host OS란 기존에 있던 운영체제라는 뜻으로 컴퓨터에 본래 설치되어 있던 운영체제를 의미한다. Guest OS란 PC에 추가적으로 설치될 운영체제를 뜻한다.
+
+</div>
+
+<p><br /></p>
+
+<p>컨테이너는 호스트 OS의 리소스를 논리적으로 분리시키고 여러 개의 컨테이너가 공유하여 사용한다. 컨테이너는 오버헤드가 적기 때문에 가볍고 고속으로 작동하는 것이 특징이다.</p>
+
+<p><br /></p>
+
+<p>보통 물리 서버 상에 설치한 호스트 OS의 경우 하나의 OS 상에서 움직이는 여러 어플리케이션은 똑같은 시스템 리소스를 사용합니다. 이때 작동하는 여러 어플리케이션은 데이터를 저장하는 디렉토리를 공유하고, 서버에 설정된 동일한 IP 주소로 통신을 한다. 그래서 여러 어플리케이션을 사용하고 있는 미들웨어나 라이브러리의 버전이 다른 경우에는 각 어플리케이션이 서로 영향을 받지 않도록 주의해야 한다.</p>
+
+<p><br /></p>
+
+<p>이에 반해 컨테이너 기술을 사용하면 OS나 디렉토리, IP 주소 등과 같은 시스템 자원을 마치 각 어플리케이션이 점유하고 있는 것처럼 보이게 할 수 있습니다. 컨테이너는 어플리케이션의 실행에 필요한 모듈을 컨테이너로 모을 수 있기 때문에 여러개의 컨테이너를 조합하여 하나의 어플리케이션을 구축하는 마이크로 서비스형 어플리케이션과 친화성이 높은 것이 특징입니다.</p>
+
+<p><br /></p>
+
+<p>가상머신은 하드웨어 스택을 가상화한다. 컨테이너는 이와 달리 운영체제 수준에서 가상화를 실시하여 다수의 컨테이너를 OS 커널에서 직접 구동한다. 컨테이너는 훨씬 가볍고 운영체제 커널을 공유하며 시작이 훨씬 빠르고 운영체제 전체 부팅보다 메모리를 훨씬 적게 차지한다.</p>
+
+<p><br /></p>
+
+<h3 id="컨테이너-pid-1의-의미">컨테이너 PID 1의 의미</h3>
+
+<p><br /></p>
+
+<p>리눅스 운영 체제의 PID를 공부해 보면 알겠지만 PID 1은 커널이 할당하는 첫 번째 PID라는 의미의 특수한 PID이다.</p>
+
+<p><br /></p>
+
+<p>일반적으로 init 또는 systemd에 PID 1이 할당되며 시스템 구동에 필요한 프로세스들을 띄우는 매우 중요한 역할을 가진다. 그런데 컨테이너의 PID 1번은 컨테이너에서 실행된 애플리케이션이 가질 수 있다.</p>
+
+<p><br /></p>
+
+<p><strong><em>이유가 뭘까?</em></strong></p>
+
+<p><br /></p>
+
+<p>다시 한 번 예약된 PID의 역할을 보면 시스템을 구동시키는 역할을 하는 것을 볼 수 있다. 그런데 컨테이너는 이미 구동된 시스템, 즉 커널 위에서 동작한다. 뭔가 앞뒤가 안 맞는다.</p>
+
+<p><br /></p>
+
+<p><strong><em>그렇다</em></strong></p>
+
+<p><br /></p>
+
+<p>컨테이너는 운영 체제 시스템을 구동시킬 필요가 없이 바로 동작하기 때문에 시스템에 예약된 PID 1번이 할당되지 않은 상태라서 최초 실행자 애플리케이션에게 할당할 수 있다.</p>
+
+<p><br /></p>
+
+<p><span style="color:orange; font-weight:bold">그래서 특수한 PID 1번은 컨테이너 세계에서 컨테이너가 실행하는 처음 애플리케이션에게 할당한다.</span></p>
+
+<p><br /></p>
+
+<p>동일한 프로세스가 <strong>호스트</strong>와 <strong>컨테이너 내부</strong>에서 서로 다른 PID를 가지면서 컨테이너 내부에서는 독립된 것처럼 PID 1번 프로세스로 동작할 수 있는 이유는 컨테이너가 리눅스의 <strong>네임스페이스</strong> 기술을 활용하기 때문이다.</p>
+
+<p><br /></p>
+
+<link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet" />
+
+<div style="background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;">
+
+즉 호스트에서의 PID가 예를 들어 8823번이고 컨테이너의 PID가 1번일 때 이 두 프로세스가 동일한 프로세스인지 보는 방법은 cgroup 설정이 동일한지 보면 된다. 씨그룹 설정이 동일하다면 두 프로세스는 동일한 환경에서 동작하는 프로세스로 생각할 수 있다.</div>
+
+<p><br /></p>
+
+<ul>
+  <li><strong>네임스페이스:</strong> 호스트명, 네트워크, 파일 시스템 마운트, 프로세스 간 통신, 사용자 ID, PID 등의 자원을 격리할 수 있는 기술</li>
+</ul>
+
+<p><br /></p>
+
+<p>네임스페이스로 격리된 내부에서는 외부가 보이지 않기 때문에 컨테이너 내부는 독립된 공간처럼 느껴진다. 이때 네임스페이스로 격리된 프로세스에 메모리, CPU, 네트워크, 장치 입출력 등의 사용량을 할당하고 제한하는 데 앞에서 설명한 씨그룹 기술을 사용한다. 그리고 이러한 기술을 쉽게 사용할 수 있게 하는 것이 도커이다. 즉, PID 네임스페이스가 분리되어 있기 때문에 도커 컨테이너의 프로세스는 1번이 될 수 있다. 도커 없이도 unshare 명령어로 프로세스의 PID 네임스페이스를 분리해볼 수 있다.</p>
+
+<p><br /></p>
+
+<h3 id="도커-컨테이너와-프로세스의-차이">도커 컨테이너와 프로세스의 차이</h3>
+
+<p><br /></p>
+
+<p>이번에는 도커 컨테이너와 프로세스가 어떻게 다른지 알아보자. 도커 컨테이너와 가상머신의 차이에 대해</p>
+
+<p><span style="color: rgba(131, 24, 67); font-weight:bold">가상머신은 운영체제 위에 하드웨어를 에뮬레이션하고 그 위에 운영체제를 올리고 프로세스를 실행하는 반면에 도커 컨테이너는 하드웨어 에뮬리에션 없이 리눅스 커널을 공유해서 바로 프로세스를 실행한다</span> 고 설명하면 군더더기 없는 아주 훌륭한 설명이다.</p>
+
+<p><br /></p>
+
+<p>다음 질문을 보자. 도커 컨테이너가 진짜 프로세스인가? 그럼 호스트 시스템에서 ps치면 보이나? 호스트에서 kill해서 죽일 수 있을까? 프로세스 ID도 있나? 한번 살펴보도록 하자.</p>
+
+<p>이미 <span style="color: rgba(131, 24, 67); font-weight:bold">도커 컨테이너는 프로세스다 라고 들어봤을 수 있다.</span> 하지만 컨테이너는 프로세스지만 프로세스라고 부르기보다는 컨테이너라고 부르는 데는 이유가 있다. 컨테이너는 (주로) 리눅스 커널에 포함된 프로세스 격리 기술들을 사용해서 생성한 특별한 프로세스이다. 처음 도커를 보면 가상 머신이라고 느끼는 건 바로 이런 이유 때문이다.</p>
+
+<p><br /></p>
+
+<p>결론: <strong>컨테이너는 그냥 프로세스이다.</strong></p>
+
+<p>좀 더 정확히는 호스트 입장에서는 컨테이너도 그냥 하나의 프로세스에 불과하다.</p>
+
+<p><strong><a href="https://www.44bits.io/ko/post/is-docker-container-a-virtual-machine-or-a-process">링크 참고</a></strong></p>
+
+<p><br /></p>
+:ET

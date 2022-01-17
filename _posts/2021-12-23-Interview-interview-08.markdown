@@ -331,7 +331,9 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <br>
 
-### 동기식 입출력 (Synchronous I/O)
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 동기식 입출력 (Synchronous I/O)
+</h3>
 
 <br>
 
@@ -343,7 +345,7 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <br>
 
-- 명령 수행 속도는 빠르지만 입출력 연산은 상대적으로 느리다. 기다리는 과정에서 <span style="background: rgb(251,243,219)">자원 낭비</span>를 초래한다.
+- 명령 수행 속도는 빠르지만 <span style="background: rgb(251,243,219)">입출력 연산</span>은 상대적으로 느리다. 기다리는 과정에서 <span style="background: rgb(251,243,219)">자원 낭비</span>를 초래한다.
 
 <br>
 
@@ -352,38 +354,42 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 <br>
 
 - 입출력 요청의 동기화
-  - 여러 프로세스가 동시에 I/O 요청을 할 경우 각 요청을 큐에 넣어 순서대로 처리한다.
+  - 여러 프로세스가 <span style="background: rgb(251,243,219)">동시에 I/O 요청</span>을 할 경우 각 요청을 큐에 넣어 순서대로 처리한다.
 
 ---
 
-### 비동기식 입출력(Non-Synchronous I/O)
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 비동기식 입출력(Non-Synchronous I/O)
+</h3>
 
 <br>
 
-- CPU의 제어권을 입출력 연산을 호출한 프로그램에게 곧바로 다시 부여한다.
+- CPU의 <span style="background: rgb(251,243,219)">제어권</span>을 입출력 연산을 호출한 프로그램에게 곧바로 다시 부여한다.
 
 <br>
 
-- I/O 결과와 관련 없는 연산이 있을 경우 주로 사용된다.
+- <span style="background: rgb(251,243,219)"> I/O 결과와 관련 없는 연산</span>이 있을 경우 주로 사용된다.
 
 <br>
 
-- CPU는 I/O 결과와 상관 없이 처리 가능한 작업부터 처리한다.
+- CPU는 <span style="background: rgb(251,243,219)">I/O 결과</span>와 상관 없이 처리 가능한 작업부터 처리한다.
 
 <br>
 
-- I/O 연산이 완료되면 인터럽트를 통해 알린다.
+- I/O 연산이 완료되면 <span style="background: rgb(251,243,219)">인터럽트</span>를 통해 알린다.
 
 <br>
 
 ---
 
-### Blocking I/O
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> Blocking I/O
+</h3>
 
 <br>
 
-- 직접 제어할 수 없는 대상의 작업(I/O)이 완료될 때까지 기다린다.
-  - I/O가 완료되어야 제어권이 프로세스로 넘어간다.
+- 직접 제어할 수 없는 대상의 <span style="background: rgb(251,243,219)">작업(I/O)</span>이 완료될 때까지 기다린다.
+  - <span style="background: rgb(251,243,219)">I/O가 완료</span>되어야 제어권이 프로세스로 넘어간다.
 
 <br>
 
@@ -391,7 +397,9 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 ---
 
-### Non-Blocking I/O
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> Non-Blocking I/O
+</h3>
 
 <br>
 
@@ -405,17 +413,17 @@ I/O 처리를 하는 <span style="background: rgb(251,243,219)">전통적인 방
 
 <br>
 
-- I/O 작업이 진행되는 동안에는 유저 프로세스의 작업을 중단시키지 않는다.
+- I/O 작업이 진행되는 동안에는 <span style="background: rgb(251,243,219)">유저 프로세스의 작업</span>을 중단시키지 않는다.
   - 제어권을 바로 반납한다.
 
 <br>
 
-- I/O 완료와 상관없이 작업 결과가 반환된다.
+- I/O 완료와 상관없이 <span style="background: rgb(251,243,219)">작업 결과가 반환</span>된다.
   - 이를 입력 데이터가 있을 때까지 반복하고, 입력 데이터가 있으면 결과가 전달된다.
 
 <br>
 
-- 대기하지 않아도 되지만 I/O 완료를 확인해야 하기 때문에 시스템 호출이 반복된다.
+- 대기하지 않아도 되지만 I/O 완료를 확인해야 하기 때문에 <span style="background: rgb(251,243,219)">시스템 호출이 반복</span>된다.
 
 <br>
 
@@ -423,7 +431,9 @@ I/O 처리를 하는 <span style="background: rgb(251,243,219)">전통적인 방
 
 ---
 
-### 정리
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 정리
+</h3>
 
 <br>
 
@@ -431,7 +441,7 @@ I/O 처리를 하는 <span style="background: rgb(251,243,219)">전통적인 방
 
 <br>
 
-- 동기/비동기는 인터럽트 발생으로 인한 제어권 반한 시점에 중점을 두고 Blocking/Non-Blocking은 제어권 자체에 중점을 둔다는 점에서 차이가 있다.
+- <span style="background: rgb(251,243,219)">동기/비동기</span>는 <span style="background: rgb(251,243,219)">인터럽트 발생</span>으로 인한 <span style="background: rgb(251,243,219)">제어권 반한 시점</span>에 중점을 두고 Blocking/Non-Blocking은 <span style="background: rgb(251,243,219)">제어권 자체</span>에 중점을 둔다는 점에서 차이가 있다.
 
 <br>
 
