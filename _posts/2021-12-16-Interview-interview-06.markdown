@@ -305,11 +305,11 @@ _해당 내용은 POCU 아카데미 COMP_2500에서 배운 내용을 공부하�
 
 <br>
 
-### Proxy Pattern
+<span style="background: rgb(251,243,219)">Proxy Pattern</span>
 
 <br>
 
-옵저버 패턴은 옛날에 많이 사용했지만 지금은 좀 더 일반적이고 더 다양하게 사용할 수 있는 방식을 사용한다. A라는 개체가 있다고 하자. B가 A를 감시한다.
+<span style="background: rgb(251,243,219)">옵저버 패턴</span>은 옛날에 많이 사용했지만 지금은 좀 더 일반적이고 더 다양하게 사용할 수 있는 방식을 사용한다. A라는 개체가 있다고 하자. B가 A를 감시한다.
 
 <br>
 
@@ -317,7 +317,7 @@ _해당 내용은 POCU 아카데미 COMP_2500에서 배운 내용을 공부하�
 
 <br>
 
-어느 순간 A가 바뀌면 B가 그것을 깨닫고 행동을 하게 되는 것이다 그런데 B가 한명만 있는 게 아니다.
+어느 순간 <span style="background: rgb(251,243,219)">A가 바뀌면 B가 그것을 깨닫고 행동</span>을 하게 되는 것이다 그런데 B가 한명만 있는 게 아니다.
 
 <br>
 
@@ -333,7 +333,7 @@ _해당 내용은 POCU 아카데미 COMP_2500에서 배운 내용을 공부하�
 
 <br>
 
-A를 감시하며 A가 변하면 감시하고 있는 것들도 바뀌는 것이다. 이때 쓰는 패턴이 옵저버 패턴이다.
+A를 감시하며 A가 변하면 감시하고 있는 것들도 바뀌는 것이다. 이때 쓰는 패턴이 <span style="background: rgb(251,243,219)">옵저버 패턴</span>이다.
 
 <br>
 
@@ -345,14 +345,16 @@ A를 감시하며 A가 변하면 감시하고 있는 것들도 바뀌는 것이�
 
 <br>
 
-#### 발행-구독(pub-sub) 패턴
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 발행-구독(pub-sub) 패턴
+</h3>
 
 <br>
 
-- pub: publisher(발행자)의 줄임말
-- sub: subscriber(구독자)의 줄임말
-- 옵저버와 비슷하지만 엄밀히 말하면 다른 패턴
-- 그러나 이루려는 목적은 비슷하기에 같은 패턴이라고 보는 일도 흔함
+- **pub**: publisher(발행자)의 줄임말
+- **sub**: subscriber(구독자)의 줄임말
+- 옵저버와 비슷하지만 엄밀히 말하면 <span style="background: rgb(251,243,219)">다른 패턴</span>
+- 그러나 <span style="background: rgb(251,243,219)">이루려는 목적은 비슷</span>하기에 같은 패턴이라고 보는 일도 흔함
 
 <br>
 
@@ -366,16 +368,16 @@ A를 감시하며 A가 변하면 감시하고 있는 것들도 바뀌는 것이�
 
 <br>
 
-즉, 여기서 LogManager를 빼면 그게 옵저버 패턴인 것이다.
+즉, 여기서 <span style="background: rgb(251,243,219)">LogManager</span>를 빼면 그게 옵저버 패턴인 것이다.
 
 <br>
 
-옵저버 패턴의 예를 하나 들어보자.
-크라우드펀딩 예를 구성해보겠다.
+<span style="background: rgb(251,243,219)">옵저버 패턴의 예</span>를 하나 들어보자.
+<span style="background: rgb(251,243,219)">크라우드펀딩</span> 예를 구성해보겠다.
 돈이 들어올 때마다 두 개체를 업데이트
 
-- 장부를 업데이트(상태는 금액만 필요)
-- 모바일 폰에서 노티를 받음( 상태는 이름과 금액이 필요)
+- <span style="background: rgb(251,243,219)">장부를 업데이트</span>(상태는 금액만 필요)
+- 모바일 폰에서 <span style="background: rgb(251,243,219)">노티</span>를 받음( 상태는 이름과 금액이 필요)
 
 <br>
 
@@ -452,12 +454,12 @@ public final class CrowdFundingAccount{
 
 <br>
 
-위 코드를 통해 CrowdFundingAccount라는 발행자가 하나이고 ArrayList로 구성된subscribers를 통해 구독자는 여럿인 것을 볼 수 있다.
+위 코드를 통해 <span style="background: rgb(251,243,219)">CrowdFundingAccount</span>라는 <span style="background: rgb(251,243,219)">발행자</span>가 하나이고 ArrayList로 구성된 <span style="background: rgb(251,243,219)">subscribers</span>를 통해 <span style="background: rgb(251,243,219)">구독자</span>는 여럿인 것을 볼 수 있다.
 
 <br>
 
-<span style="color:orange; font-weight:bold">pub-sub 패턴과의 차이는 발행자가 하나이다. 즉, pub-sub은 다대다 관계(many-to-many)이고 그걸 조율해주는 중간 클래스가 있을 뿐인 것이다.</span>
+<span style="color:orange; font-weight:bold">pub-sub 패턴과의 차이는 <span style="background: rgb(251,243,219)">발행자가 하나</span>이다. 즉, pub-sub은 <span style="background: rgb(251,243,219)">다대다 관계(many-to-many)</span>이고 그걸 조율해주는 <span style="background: rgb(251,243,219)">중간 클래스</span>가 있을 뿐인 것이다.</span>
 
 <br>
 
-옵저버와 pub-sub의 차이는 발행자가 하나냐 여럿이냐의 차이다.
+<span style="background: rgb(251,243,219)">옵저버</span>와 <span style="background: rgb(251,243,219)">pub-sub</span>의 차이는 <span style="background: rgb(251,243,219)">발행자가 하나냐 여럿이냐의 차이</span>다.

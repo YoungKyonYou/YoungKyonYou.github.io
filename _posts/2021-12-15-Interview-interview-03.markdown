@@ -305,15 +305,19 @@ _해당 내용은 POCU 아카데미 COMP_2500에서 배운 내용을 공부하�
 
 <br>
 
-### Wrapper Pattern
+<h2 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/270f.png" height="30" width="30"> Wrapper Pattern
+</h2>
 
-- 주로 업계에서는 래퍼(wrapper) 패턴이라 함
-- GoF 책에서는 어댑터(adapter) 패턴이란 이름을 사용
-- 어떤 클래스의 메서드 시그내처가 맘에 안 들 때 다른 걸로 바꾸는 방법
-- 단, 그 클래스의 메서드 시그내처를 직접 변경하지 않음
-  - 그 클래스의 소스코드가 없을 수도 있음
-  - 그 클래스에 의존하는 다른 코드가 있을 수도 있음
-- 그 대신 새로운 클래스를 만들어 기존 클래스를 감쌈
+<br>
+
+- 주로 업계에서는 <span style="background: rgb(251,243,219)">래퍼(wrapper) 패턴</span>이라 함
+- GoF 책에서는 <span style="background: rgb(251,243,219)">어댑터(adapter) 패턴</span>이란 이름을 사용
+- 어떤 클래스의 <span style="background: rgb(251,243,219)">메서드 시그내처</span>가 맘에 안 들 때 다른 걸로 바꾸는 방법
+- 단, 그 클래스의 메서드 시그내처를 <span style="background: rgb(251,243,219)">직접 변경하지 않음</span>
+  - 그 클래스의 <span style="background: rgb(251,243,219)">소스코드가 없을 수도 있음</span>
+  - 그 클래스에 의존하는 <span style="background: rgb(251,243,219)">다른 코드</span>가 있을 수도 있음
+- 그 대신 새로운 클래스를 만들어 <span style="background: rgb(251,243,219)">기존 클래스를 감쌈</span>
 
 <br>
 
@@ -321,7 +325,7 @@ _해당 내용은 POCU 아카데미 COMP_2500에서 배운 내용을 공부하�
 
 <br>
 
-Wrapper란 포장지를 의미한다. A 클래스의 어떤 getA()라는 메서드 시그니처가 있는데 마음에 안들어서 바꾼다고 해보자. 그러면 클래스 B를 만들고 클래스 B안에 클래스 A를 포함하는 것이다. 정확히 말하면 클래스 A로부터 만든 개체를 포함하는 것이다. 그리고 앞으로 클래스 B에 있는 getB() 메서드를 호출할 건데 이게 알아서 A의 getA()를 호출해주는 것이다. 즉 내가 호출할 때는 B만 사용하고 내부적으로는 getA()를 어떻게서든 사용하는 것이다. 그래서 기존의 클래스를 감싼다고 해서 **Wrapper Pattern** 이라고 부른다.
+<span style="background: rgb(251,243,219)">Wrapper</span>란 포장지를 의미한다. <span style="background: rgb(251,243,219)">A 클래스</span>의 어떤 <span style="background: rgb(251,243,219)">getA()</span>라는 <span style="background: rgb(251,243,219)">메서드 시그니처</span>가 있는데 마음에 안들어서 바꾼다고 해보자. 그러면 <span style="background: rgb(251,243,219)">클래스 B</span>를 만들고 <span style="background: rgb(251,243,219)">클래스 B</span>안에 <span style="background: rgb(251,243,219)">클래스 A</span>를 포함하는 것이다. 정확히 말하면 <span style="background: rgb(251,243,219)">클래스 A</span>로부터 만든 개체를 포함하는 것이다. 그리고 앞으로 <span style="background: rgb(251,243,219)">클래스 B</span>에 있는 <span style="background: rgb(251,243,219)">getB()</span> 메서드를 호출할 건데 이게 알아서 <span style="background: rgb(251,243,219)">A의 getA()</span>를 호출해주는 것이다. 즉 내가 호출할 때는 <span style="background: rgb(251,243,219)">B</span>만 사용하고 내부적으로는 <span style="background: rgb(251,243,219)">getA()</span>를 어떻게서든 사용하는 것이다. 그래서 기존의 클래스를 감싼다고 해서 **Wrapper Pattern** 이라고 부른다.
 
 <br>
 
@@ -329,16 +333,20 @@ Wrapper란 포장지를 의미한다. A 클래스의 어떤 getA()라는 메서�
 
 <br>
 
-위의 사진과 같이 어댑터와 같이 이해할 수도 있다. 원래 A의 getA()라는 메서드가 있었으면 A를 그대로 사용하지 않고 앞에 B라는 어댑터를 꽂는 거이다. 그럼 A에 있는 뭔가에 어댑터를 꽂았으니까 바로 접근할 수 있는 방법이 없다. 그래서 B에서 어떻게든 접속을 해서 사용을 하라는 것이다.
+위의 사진과 같이 <span style="background: rgb(251,243,219)">어댑터</span>와 같이 이해할 수도 있다. 원래 <span style="background: rgb(251,243,219)">A의 getA()</span>라는 메서드가 있었으면 <span style="background: rgb(251,243,219)">A</span>를 그대로 사용하지 않고 앞에 <span style="background: rgb(251,243,219)">B</span>라는 어댑터를 꽂는 거이다. 그럼 <span style="background: rgb(251,243,219)">A</span>에 있는 뭔가에 어댑터를 꽂았으니까 바로 접근할 수 있는 방법이 없다. 그래서 <span style="background: rgb(251,243,219)">B</span>에서 어떻게든 접속을 해서 사용을 하라는 것이다.
 
 <br>
 
-#### 메서드 시그니처를 바꾸려는 다양한 이유
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 메서드 시그니처를 바꾸려는 다양한 이유
+</h3>
 
-- 추후 외부 라이브러리를 바꿀 때 클라이언트 코드를 변경하지 않기 위해
-- 그냥 사용 중인 메서드가 코딩 표준에 맞지 않아서
-- 기존 클래스에 없는 기능을 추가하기 위해
-- 확장된 용도: 내부 개체를 클라이언트에게 노출시키지 않기 위해
+<br>
+
+- 추후 외부 라이브러리를 바꿀 때 <span style="background: rgb(251,243,219)">클라이언트 코드를 변경</span>하지 않기 위해
+- 그냥 사용 중인 메서드가 <span style="background: rgb(251,243,219)">코딩 표준</span>에 맞지 않아서
+- 기존 클래스에 없는 <span style="background: rgb(251,243,219)">기능을 추가</span>하기 위해
+- 확장된 용도: <span style="background: rgb(251,243,219)">내부 개체를 클라이언트에게 노출</span>시키지 않기 위해
   - DTO(data transfer object) 만들기
 
 <br>
@@ -362,7 +370,7 @@ clear()와 clearScreen() 메서드는 둘 다 화면을 어떤 색상으로 지�
 
 <br>
 
-원래 프로그램에서 OpenGL을 사용했다면(즉, 내가 클라이언트) 내 소스파일 곳곳에 이런 코드가 있을 것이다.
+원래 프로그램에서 <span style="background: rgb(251,243,219)">OpenGL</span>을 사용했다면(즉, 내가 클라이언트) 내 소스파일 곳곳에 이런 코드가 있을 것이다.
 
 <br>
 
@@ -372,7 +380,7 @@ this.graphics.clearScreen(1.f, 0.f, 0.f, 0.f);
 
 <br>
 
-그리고 추후 DirectX로 바꾸기로 결정하면 위의 코드를 찾아 고쳐야 한다.
+그리고 추후 <span style="background: rgb(251,243,219)">DirectX</span>로 바꾸기로 결정하면 위의 코드를 찾아 고쳐야 한다.
 
 <br>
 
@@ -417,7 +425,7 @@ this.graphics.clear(0.f, 0.f, 0.f, 1.f);
 
 <br>
 
-Graphics 개체만 만들고 속에 OpenGL 개체가 들어있다. Graphics 개체의 메서드만 호출한다. 이제 여기서 OpenGL 대신 DirectX를 사용하려면 어떻게 해야 할까? **Graphics** 클래스 안에서 OpenGL 개체를 DirectX 개체로 변경하면 된다.
+<span style="background: rgb(251,243,219)">Graphics</span> 개체만 만들고 속에 <span style="background: rgb(251,243,219)">OpenGL</span> 개체가 들어있다. <span style="background: rgb(251,243,219)">Graphics</span> 개체의 메서드만 호출한다. 이제 여기서 <span style="background: rgb(251,243,219)">OpenGL</span> 대신 <span style="background: rgb(251,243,219)">DirectX</span>를 사용하려면 어떻게 해야 할까? **Graphics** 클래스 안에서 OpenGL 개체를 <span style="background: rgb(251,243,219)">DirectX</span> 개체로 변경하면 된다.
 
 **Graphics Class**
 
@@ -455,15 +463,15 @@ public final class Graphics{
 
 <br>
 
-즉, **Graphics** 메서드들이 DirectX 메서드를 호출하게 변경한다.
+즉, **Graphics** 메서드들이 <span style="background: rgb(251,243,219)">DirectX</span> 메서드를 호출하게 변경한다.
 
 <br>
 
-그리고 추가적으로 살펴볼 것이 DTO이다. 엄밀히 말하면 어댑터 패턴은 아니지만 궁극적인 목표가 같은 DTO 개념에 대해서 살펴본다. 어댑터 패턴은 타 클래스의 메서드 시그내처를 내 필요에 맞게 바꾸는 것이다. DTO는 타 클래스의 데이터를 내 필요에 맞게 바꾸는 것이다.
+그리고 추가적으로 살펴볼 것이 <span style="background: rgb(251,243,219)">DTO</span>이다. 엄밀히 말하면 <span style="background: rgb(251,243,219)">어댑터 패턴</span>은 아니지만 궁극적인 목표가 같은 <span style="background: rgb(251,243,219)">DTO</span> 개념에 대해서 살펴본다. <span style="background: rgb(251,243,219)">어댑터 패턴</span>은 타 클래스의 메서드 시그내처를 내 필요에 맞게 바꾸는 것이다. <span style="background: rgb(251,243,219)">DTO</span>는 타 클래스의 데이터를 내 필요에 맞게 바꾸는 것이다.
 
 <br>
 
-이제 DTO 변환하기의 간단한 예를 살펴보자. 시스템 규모가 크면 종종 이런 문제들을 겪는다.
+이제 <span style="background: rgb(251,243,219)">DTO 변환</span>하기의 간단한 예를 살펴보자. 시스템 규모가 크면 종종 이런 문제들을 겪는다.
 
 <br>
 
@@ -471,7 +479,7 @@ public final class Graphics{
 
 <br>
 
-DB에 저장된 데이터를 읽어와서 웹페이지에 보여준다고 가정했을 때 PersonEntitiy의 모든 정보를 반환하면 필요 이상의 데이터를 반환하게 되는 것이다. 따라서 정말 클라이언트가 필요로 하는 정보만 반환하는 게 더 좋다 이때 데이터 전송에만 사용하는 개체를 데이터 전공 개체(DTO)라 한다.
+DB에 저장된 데이터를 읽어와서 웹페이지에 보여준다고 가정했을 때 <span style="background: rgb(251,243,219)">PersonEntitiy의</span> <span style="background: rgb(251,243,219)">모든 정보를 반환</span>하면 필요 이상의 데이터를 반환하게 되는 것이다. 따라서 정말 클라이언트가 <span style="background: rgb(251,243,219)">필요로 하는 정보만 반환</span>하는 게 더 좋다 이때 데이터 전송에만 사용하는 개체를 <span style="background: rgb(251,243,219)">데이터 전공 개체(DTO)</span>라 한다.
 
 <br>
 
@@ -500,19 +508,25 @@ public final class PersonEntity{
 
 <br>
 
-위와 같이 구성하게 되면 웹에서 필요한 데이터만 DTO로 변환해 전달해줄 수 있다. 즉 필요없는 정보를 안 보내게 됨으로 메모리를 아끼고 보안성을 갖출 수 있는 것이다.
-
----
-
-### 적응자(Adapter) 패턴
+위와 같이 구성하게 되면 웹에서 필요한 데이터만 <span style="background: rgb(251,243,219)">DTO로 변환</span>해 전달해줄 수 있다. 즉 필요없는 정보를 안 보내게 됨으로 <span style="background: rgb(251,243,219)">메모리</span>를 아끼고 <span style="background: rgb(251,243,219)">보안성</span>을 갖출 수 있는 것이다.
 
 <br>
 
-적응자 패턴은 다른 이름으로 래퍼(Wrapper)라고 불리우는 패턴이다.
+---
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 적응자(Adapter) 패턴
+</h3>
+
+<br>
+
+<span style="background: rgb(251,243,219)">적응자 패턴</span>은 다른 이름으로 <span style="background: rgb(251,243,219)">래퍼(Wrapper)</span>라고 불리우는 패턴이다.
 
 **클래스의 인터페이스를 사용자가 원하는 형태로 변환(적응) 시킨다.**
 
-이렇게 변환(적응)을 통해서 일치하지 않는 인터페이스를 갖는 클래스들이 함께 동작할 수 있도록 한다.
+이렇게 <span style="background: rgb(251,243,219)">변환(적응)</span>을 통해서 일치하지 않는 인터페이스를 갖는 클래스들이 함께 동작할 수 있도록 한다.
 
 <br>
 
@@ -522,11 +536,11 @@ public final class PersonEntity{
 
 그림 편집기가 있다.
 
-그림판의 주요한 추상적 개념은 그래픽 객체들이다.
+그림판의 주요한 <span style="background: rgb(251,243,219)">추상적 개념은 그래픽 객체들</span>이다.
 
-이런 공통 그래픽 요소에 대한 인터페이스는 추상 클래스인 Shape에 정의되어 있다.
+이런 <span style="background: rgb(251,243,219)">공통 그래픽 요소</span>에 대한 인터페이스는 <span style="background: rgb(251,243,219)">추상 클래스인 Shape</span>에 정의되어 있다.
 
-그리고 각 그래픽 요소인 선과 다각형은 각각 **LineShape, PolygonShape**과 같은 클래스로 개발해야 한다.
+그리고 각 그래픽 요소인 <span style="background: rgb(251,243,219)">선</span>과 <span style="background: rgb(251,243,219)">다각형</span>은 각각 **LineShape, PolygonShape**과 같은 클래스로 개발해야 한다.
 
 <br>
 
@@ -546,10 +560,10 @@ public final class PersonEntity{
 
 <br>
 
-적응자 패턴에는 2 가지 구현 방식이 있다.
+<span style="background: rgb(251,243,219)">적응자 패턴</span>에는 2 가지 구현 방식이 있다.
 
-- TextShape(Adapter)가 Shape의 인터페이스와 TextView의 구현을 모두 상속
-- TextShape(Adapter)가 TextView의 인스턴스를 포함하고, TextView의 인터페이스를 사용
+- <span style="background: rgb(251,243,219)">TextShape(Adapter)</span>가 <span style="background: rgb(251,243,219)">Shape의 인터페이스</span>와 <span style="background: rgb(251,243,219)">TextView</span>의 구현을 모두 상속
+- <span style="background: rgb(251,243,219)">TextShape(Adapter)</span> 가 <span style="background: rgb(251,243,219)">TextView의 인스턴스</span>를 포함하고, <span style="background: rgb(251,243,219)">TextView</span>의 인터페이스를 사용
 
 <br>
 
@@ -561,13 +575,13 @@ public final class PersonEntity{
 
 <br>
 
-위에서 TextShape은 TextView 클래스에 정의된 인터페이스를 바꾸어 Shape 클래스에 정의된 인터페이스와 잘 부합되게 한다. 
+위에서 <span style="background: rgb(251,243,219)">TextShape</span>은 <span style="background: rgb(251,243,219)">TextView 클래스</span>에 정의된 인터페이스를 바꾸어 <span style="background: rgb(251,243,219)">Shape 클래스</span>에 정의된 인터페이스와 잘 부합되게 한다.
 
-이로써 TextView 클래스를 TextShape 적응자를 통해 재사용할 수 있게 되었다.
+이로써 <span style="background: rgb(251,243,219)">TextView</span> 클래스를 <span style="background: rgb(251,243,219)">TextShape</span> 적응자를 통해 <span style="background: rgb(251,243,219)">재사용</span>할 수 있게 되었다.
 
 <br>
 
-적응자 패턴의 참여자는 아래와 같다.
+<span style="background: rgb(251,243,219)">적응자 패턴</span>의 <span style="background: rgb(251,243,219)">참여자</span>는 아래와 같다.
 
 <br>
 
@@ -591,7 +605,7 @@ public final class PersonEntity{
 public class DrawingEditor {
 
 	public void useShape(Shape shape) {
-		
+
 		shape.boundingBox();
 		shape.createManipulator();
 	}
@@ -606,7 +620,7 @@ public class DrawingEditor {
 public interface Shape {
 
 	void boundingBox();
-	
+
 	void createManipulator();
 }
 ```
@@ -657,7 +671,7 @@ public class TextShape implements Shape{
 
 	@Override
 	public void boundingBox() {
-		
+
 		text.getExtent();
 		System.out.println("TextShape bounding box.");
 	}
@@ -683,20 +697,20 @@ public class TextShape implements Shape{
 
 ```java
 public static void main(String[] args) {
-		
+
 		DrawingEditor drawingEitor = new DrawingEditor();
-		
+
 		Shape lineShape = new Line();
-		
+
 		TextView text = () -> {
 			System.out.println("getExtent called in Text View");
 		};
 		Shape textShape = new TextShape(text);
-		
+
 		System.out.println("====DrawingEditor use line shape.====");
 		drawingEitor.useShape(lineShape);
 		System.out.println();
-		
+
 		System.out.println("====DrawingEditor use text shape.====");
 		drawingEitor.useShape(textShape);
 	}
@@ -704,13 +718,13 @@ public static void main(String[] args) {
 
 <br>
 
-lineShape는 특별한것이 없다. 
+<span style="background: rgb(251,243,219)">lineShape</span>는 특별한 것이 없다.
 
-우리가 작성한 코드에서 adaptee인 TextView는 인터페이스만 정의하였고, 구현체는 없었다. 
+우리가 작성한 코드에서 <span style="background: rgb(251,243,219)">adaptee</span>인 <span style="background: rgb(251,243,219)">TextView</span>는 <span style="background: rgb(251,243,219)">인터페이스만 정의</span>하였고, 구현체는 없었다.
 
-TextView는 추상 method가 1개인 FunctionalInterface 이기 때문에 익명함수를 이용하여 구현체 text를 생성하였다. 
+<span style="background: rgb(251,243,219)">TextView</span>는 추상 method가 1개인 <span style="background: rgb(251,243,219)">FunctionalInterface</span> 이기 때문에 <span style="background: rgb(251,243,219)">익명함수</span>를 이용하여 <span style="background: rgb(251,243,219)">구현체 text</span>를 생성하였다.
 
-그리고 adapter인 TextShape에서 TextView 를 생성자 인자로 받으므로, text를 인자로 넘겨주었다.
+그리고 <span style="background: rgb(251,243,219)">adapter</span>인 <span style="background: rgb(251,243,219)">TextShape</span>에서 <span style="background: rgb(251,243,219)">TextView</span> 를 생성자 인자로 받으므로, text를 인자로 넘겨주었다.
 
 <br>
 

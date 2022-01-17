@@ -430,7 +430,7 @@ SQL의 경우 <span style="background: rgb(251,243,219)">정확히 일치</span>
 
 <br>
 
-기존의 관계형 데이터베이스는 <span style="background: rgb(251,243,219)">스키마</span>라는 구조에 따라 데이터를 적합한 형태로 변경하여 저장 관리하지만 Elastic Search는 비정형의 다양한 형태의 문서도 자동으로 색인, 검색이 가능하다.
+기존의 관계형 데이터베이스는 <span style="background: rgb(251,243,219)">스키마</span>라는 구조에 따라 데이터를 적합한 형태로 변경하여 저장 관리하지만 Elastic Search는 <span style="background: rgb(251,243,219)">비정형의 다양한 형태의 문서</span>도 자동으로 색인, 검색이 가능하다.
 
 <br>
 
@@ -447,7 +447,7 @@ SQL의 경우 <span style="background: rgb(251,243,219)">정확히 일치</span>
 
 <br>
 
-<span style="background: rgb(251,243,219)">RESTful API를</span> 사용하여 HTTP 통신 기반으로 요청을 받아 <span style="background: rgb(251,243,219)">JSON 형식으로 응답</span>한다는 것은 다양한 플랫폼에서 응용 가능하다는 것을 의미한다.
+<span style="background: rgb(251,243,219)">RESTful API를</span> 사용하여 HTTP 통신 기반으로 요청을 받아 <span style="background: rgb(251,243,219)">JSON 형식으로 응답</span>한다는 것은 <span style="background: rgb(251,243,219)">다양한 플랫폼에서 응용</span> 가능하다는 것을 의미한다.
 
 <br>
 
@@ -537,13 +537,13 @@ Elastic Search의 <span style="background: rgb(251,243,219)">데이터 색인의
 
 **1)** **클러스터(Cluster)**
 
-- <span style="background: rgb(251,243,219)">클러스터</span>란 <span style="background: rgb(251,243,219)">Elasticsearch</span>의 가장 큰 시스템 단위를 의미하며, 최소 하나 이상의 노드로 이루어진 <span style="background: rgb(251,243,219)">노드들의 집합</span>이다. 서로 다른 클러스터는 데이터의 접근, 교환을 할 수 없는 독립적인 시스템으로 유지되며, 여러 대의 서버가 하나의 클러스터를 구성할 수 있고, 한 서버에 여러 개의 클러스터가 존재할 수도 있다.
+- <span style="background: rgb(251,243,219)">클러스터</span>란 <span style="background: rgb(251,243,219)">Elasticsearch</span>의 가장 큰 시스템 단위를 의미하며, 최소 하나 이상의 노드로 이루어진 <span style="background: rgb(251,243,219)">노드들의 집합</span>이다. 서로 다른 클러스터는 데이터의 접근, 교환을 할 수 없는 <span style="background: rgb(251,243,219)">독립적인 시스템</span>으로 유지되며, 여러 대의 서버가 하나의 클러스터를 구성할 수 있고, 한 서버에 여러 개의 클러스터가 존재할 수도 있다.
 
 <br>
 
 **2)** **노드(Node)**
 
-- <span style="background: rgb(251,243,219)">Elasticsearch</span> 를 구성하는 <span style="background: rgb(251,243,219)">하나의 단위 프로세스</span>를 의미한다. 그 역할에 따라 Master-eligible, Data, Ingest, Tribe 노드로 구분할 수 있다.
+- <span style="background: rgb(251,243,219)">Elasticsearch</span> 를 구성하는 <span style="background: rgb(251,243,219)">하나의 단위 프로세스</span>를 의미한다. 그 역할에 따라 <span style="background: rgb(251,243,219)">Master-eligible, Data, Ingest, Tribe</span> 노드로 구분할 수 있다.
 
 <br>
 
@@ -579,8 +579,8 @@ Elastic Search의 <span style="background: rgb(251,243,219)">데이터 색인의
 <img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 파티셔닝과 샤딩의 차이
 </h4>
 
-- 파티셔닝: 하나의 데이터베이스 인스턴스에서 데이터(테이블)를 분리
-- 샤딩: 데이터를 여러 데이터베이스 인스턴스로 분할
+- **파티셔닝**: 하나의 데이터베이스 인스턴스에서 데이터(테이블)를 분리
+- **샤딩**: 데이터를 여러 데이터베이스 인스턴스로 분할
 
 ![](/images/Interview/post16/2022-01-16-00-43-54.png?style=centerme)
 
