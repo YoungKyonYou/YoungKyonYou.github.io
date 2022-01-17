@@ -303,23 +303,25 @@ _**오늘보다 발전된 내일의 나를 위해...**_
 
 다음 당근 페이 질문은 아래와 같다.
 
-## Q: HTTP 1.0과 HTTP 2.0의 차이를 말해주세요
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> Q: HTTP 1.0과 HTTP 2.0의 차이를 말해주세요
+</h3>
 
 <br>
 
-사실 HTTP 1.0과 HTTP 2.0에 대한 설명만 하고 끝내려고 했지만 잘 설명된 동영상에서 HTTP 0.9, 1.0, 1.1, 2.0에 대해서 설명하기 때문에 4개 다 다뤄보려 한다.
+사실 HTTP 1.0과 HTTP 2.0에 대한 설명만 하고 끝내려고 했지만 잘 설명된 동영상에서 <span style="background: rgb(251,243,219)">HTTP 0.9, 1.0, 1.1, 2.0</span>에 대해서 설명하기 때문에 4개 다 다뤄보려 한다.
 
 <br>
 
-### HTTP 0.9
-
-<br>
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> HTTP 0.9
+</h4>
 
 사실 HTTP 초기 버전에는 버전 번호가 없었다. 이는 차후 버전과 구별하기 위해 붙여진 것이라고 할 수 있다.
 
 <br>
 
-HTTP 0.9는 극히 단순하다. 요청은 단일 라인으로 구성되며 리소스에 대한 경로로 가능한 메서드는 **GET**이 유일했다.
+HTTP 0.9는 극히 단순하다. <span style="background: rgb(251,243,219)">요청은 단일 라인</span>으로 구성되며 리소스에 대한 경로로 가능한 메서드는 **GET**이 유일했다.
 
 <br>
 
@@ -331,7 +333,7 @@ GET /mypage.html
 
 <br>
 
-응답 또한 극도로 단순하다. 오로지 파일 내용 자체로 구성된다.
+<span style="background: rgb(251,243,219)">응답 또한 극도로 단순</span>하다. 오로지 <span style="background: rgb(251,243,219)">파일 내용 자체</span>로 구성된다.
 
 <br>
 
@@ -345,28 +347,30 @@ GET /mypage.html
 
 <br>
 
-그 이후에 진화와는 다르게 HTTP 헤더가 없었는데 이는 HTML 파일만 전송될 수 있으며 다른 유형의 문서는 전송될 수 없음을 의미한다. 상태 혹은 오류 코드도 없었다. 문제가 발생한 경우 특정 HTML 파일이 사람이 처리할 수 있도록, 해당 파일 내부에 문제에 대한 설명과 함께 되돌려 보내졌었다.
-
-### HTTP 1.0
+그 이후에 진화와는 다르게 <span style="background: rgb(251,243,219)">HTTP 헤더</span>가 없었는데 이는 <span style="background: rgb(251,243,219)">HTML 파일만 전송</span>될 수 있으며 <span style="background: rgb(251,243,219)">다른 유형의 문서는 전송될 수 없음</span>을 의미한다. 상태 혹은 오류 코드도 없었다. 문제가 발생한 경우 특정 HTML 파일이 사람이 처리할 수 있도록, 해당 파일 내부에 문제에 대한 설명과 함께 되돌려 보내졌었다.
 
 <br>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> HTTP 1.0
+</h4>
 
 ![](/images/Interview/post8/2021-12-21-19-50-43.png?style=centerme)
 
 <br>
 
-위 사진과 같이 HTTP 1.0에는 빨간색 네모칸과 같은 것들이 추가되었다. HTTP 0.9이 매우 제한적이었고 브라우저와 서버 모두 좀 더 융통성을 가지도록 빠르게 확장한 형태이다.
+위 사진과 같이 <span style="background: rgb(251,243,219)">HTTP 1.0</span>에는 빨간색 네모칸과 같은 것들이 추가되었다. HTTP 0.9가 매우 제한적이었고 브라우저와 서버 모두 좀 더 융통성을 가지도록 빠르게 확장한 형태이다.
 
 <br>
 
-- 버전 정보가 각 요청 사이내로 전송되기 시작했다. (HTTP/1.0이 GET 라인에 붙은 형태)
-- 상태 코드 라인 또한 응답의 시작 부분에 붙어 전송되어, 브라우저가 요청에 대한 성공과 실패를 알 수 있고 그 결과에 대한 동작을 할 수 있게 되었다.
-- HTTP 헤더 개념은 요청과 응답 모두를 위해 도입되어, 메타데이터 전송을 허용하고 프로토콜을 극도로 유연하고 확장 가능하도록 만들어주었다.
-- 새로운 HTTP 헤더의 도움으로 평이한 HTML 파일들 외에 다른 문서들을 전송하는 기능이 추가되었다(Content-Type 덕분에)
+- <span style="background: rgb(251,243,219)">버전 정보</span>가 각 요청 사이내로 전송되기 시작했다. (HTTP/1.0이 GET 라인에 붙은 형태)
+- 상태 코드 라인 또한 응답의 시작 부분에 붙어 전송되어, 브라우저가 <span style="background: rgb(251,243,219)">요청에 대한 성공과 실패</span>를 알 수 있고 그 <span style="background: rgb(251,243,219)">결과에 대한 동작</span>을 할 수 있게 되었다.
+- HTTP 헤더 개념은 <span style="background: rgb(251,243,219)">요청과 응답</span> 모두를 위해 도입되어, 메타데이터 전송을 허용하고 프로토콜을 극도로 유연하고 확장 가능하도록 만들어주었다.
+- 새로운 HTTP 헤더의 도움으로 평이한 HTML 파일들 외에 <span style="background: rgb(251,243,219)">다른 문서들을 전송하는 기능</span>이 추가되었다(Content-Type 덕분에)
 
 <br>
 
-HTTP 1.0의 단점으로는 1개의 요청과 1개의 응답이 1개의 Connection과 대응된다는 단점이 있다.
+<span style="background: rgb(251,243,219)">HTTP 1.0의 단점</span>으로는 1개의 요청과 1개의 응답이 1개의 Connection과 대응된다는 단점이 있다.
 
 ![](/images/Interview/post8/2021-12-21-19-54-38.png?style=centerme)
 
@@ -374,32 +378,32 @@ HTTP 1.0의 단점으로는 1개의 요청과 1개의 응답이 1개의 Connecti
 
 이는 아래와 같은 단점들이 있다.
 
-- 매번 새로운 연결로 성능 저하
-- 서버 부하 비용 증가
+- <span style="background: rgb(251,243,219)">매번 새로운 연결</span>로 성능 저하
+- <span style="background: rgb(251,243,219)">서버 부하 비용</span> 증가
 
 <br>
 
-매번 요청이 나올때 마다 Connection이 만들어지니까 성능의 저하가 심했다. 그에 따른 서버 부하 비용도 만만치 않았다.
+매번 요청이 나올때 마다 Connection이 만들어지니까 <span style="background: rgb(251,243,219)">성능의 저하</span>가 심했다. 그에 따른 서버 부하 비용도 만만치 않았다.
 
 <br>
 
-이것을 보완하기 위해 등장한 것이 HTTP 1.0이다.
+이것을 보완하기 위해 등장한 것이 <span style="background: rgb(251,243,219)">HTTP 1.1</span>이다.
 
 <br>
 
-### HTTP 1.1
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> HTTP 1.1
+</h4>
+
+<span style="background: rgb(251,243,219)">HTTP 1.1</span>은 모호함을 명확하게 하고 많은 개선 사항들을 도입했다. <span style="background: rgb(251,243,219)">HTTP 1.1</span>은 기본적으로 Connection 한 개당 하나의 요청을 처리하도록 설계되어 있다. 이 때문에 동시에 여러 개의 리소르를 주고 받는 것이 불가능하고 요청과 응답이 순차적으로 이루어진다. 하지만 이를 개선하기 위해서 다양한 방법들이 도입된다.
 
 <br>
 
-HTTP 1.1은 모호함을 명확하게 하고 많은 개선 사항들을 도입했다.
+HTTP 1.1에서는 **Persistent Connection**이라는 개념을 도입하게 된다. 이는 <span style="background: rgb(251,243,219)">지정한 timeout 동안 커넥션을 닫지 않는 방식</span>이다. 즉, 특정 시간동안 <span style="background: rgb(251,243,219)"> 여러 요청이 한 커넥션을 사용</span>할 수 있는 것이다. 이전 HTTP 1.0과 비교했을 때 <span style="background: rgb(251,243,219)">네트워크 사용시간</span>이 줄어드는 것이다. 이거에서 더 나아가 **Pipeline**이라는 기법이 도입이 된다.
 
 <br>
 
-HTTP 1.1에서는 **Persistent Connection**이라는 개념을 도입하게 된다. 이는 지정한 timeout 동안 커넥션을 닫지 않는 방식이다. 즉, 특정 시간동안 여러 요청이 한 커넥션을 사용할 수 있는 것이다. 이전 HTTP 1.0과 비교했을 때 네트워크 사용시간이 줄어드는 것이다. 이거에서 더 나아가 **Pipeline**이라는 기법이 도입이 된다.
-
-<br>
-
-Persistent Connection에서 추가적으로 도입된 Pipeline 같은 경우는 다음과 같은 문제를 해결하기 위함이다. HTTP 요청들 같은 경우엔 순차적으로 응답을 받아야되는데 첫 번째로 들어온 요청을 응답해줘야 다음으로 들어오는 두 번째 요청을 받을 수 있고 두 번째 요청을 응답해줘야 세 번째 요청을 받을 수 있다는 것이다. 이는 대기시간이 길어진다.
+<span style="background: rgb(251,243,219)">Persistent Connection</span>에서 추가적으로 도입된 <span style="background: rgb(251,243,219)">Pipeline</span> 같은 경우는 다음과 같은 문제를 해결하기 위함이다. HTTP 요청들 같은 경우엔 <span style="background: rgb(251,243,219)">순차적으로 응답</span>을 받아야되는데 첫 번째로 들어온 요청을 응답해줘야 다음으로 들어오는 두 번째 요청을 받을 수 있고 두 번째 요청을 응답해줘야 세 번째 요청을 받을 수 있다는 것이다. 이는 <span style="background: rgb(251,243,219)">대기시간</span>이 길어진다.
 
 <br>
 
@@ -407,7 +411,8 @@ Persistent Connection에서 추가적으로 도입된 Pipeline 같은 경우는 
 
 <br>
 
-파이프라인은 하나의 컨넥션에서 응답을 기다리지 않고 순차적인 여러 요청을 연속적으로 보내 그 순서에 맞춰 응답을 받는 방식으로 지연 시간을 줄인다.
+<span style="background: rgb(251,243,219)">파이프라인</span>은 에서 응답을 기다리지 않고 순차적인 여러 요청을 연속적으로 보내 그 순서에 맞춰 응답을 받는 방식으로 지연 시간을 줄인다.
+<span style="background: rgb(251,243,219)">파이프라인</span>은 <span style="background: rgb(251,243,219)"></span>에서 응답을 기다리지 않고 순차적인 여러 요청을 연속적으로 보내 그 순서에 맞춰 응답을 받는 방식으로 지연 시간을 줄인다.
 
 <br>
 
@@ -415,7 +420,7 @@ Persistent Connection에서 추가적으로 도입된 Pipeline 같은 경우는 
 
 <br>
 
-그런데 이 파이프라인에는 치명적인 문제가 있었다. 그것은 바로 **Head Of Line Blocking**이라는 것이다.
+그런데 이 파이프라인에는 <span style="background: rgb(251,243,219)">치명적인 문제</span>가 있었다. 그것은 바로 **Head Of Line Blocking**이라는 것이다.
 
 <br>
 
@@ -433,31 +438,63 @@ Persistent Connection에서 추가적으로 도입된 Pipeline 같은 경우는 
 
 <br>
 
-요청이 연속적으로 이루어질 때 헤더의 값이 중복되는게 있지만 그 데이터를 중복적으로 보내게 된다는 비효율적인 측면이 있다. 그래서 주고받는 데이터가 쓸데없이 커지게 되는 것이다.
+요청이 연속적으로 이루어질 때 <span style="background: rgb(251,243,219)">헤더의 값이 중복</span>되는게 있지만 그 데이터를 <span style="background: rgb(251,243,219)">중복적</span>으로 보내게 된다는 <span style="background: rgb(251,243,219)">비효율적인 측면</span>이 있다. 그래서 주고받는 데이터가 쓸데없이 커지게 되는 것이다.
 
 <br>
 
-HTTP 2.0이 2015년에 등장하게 되는데 이는 기존 HTTP/1.x 버전의 성능 향상에 초점을 맞춘 프로토콜이라고 할 수 있다.
+<link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet">
+<div style="background: #eee;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;">
+
+http 1.1의 헤더에는 많은 메타정보들이 저장된다. 매 요청 시 마다 중복된 Header 값을 전송하게 되며 또한, 해당 domain에 설정된 cookie 정보도 매 요청 시 마다 헤더에 포함되어 전송된다.(헤더 중복)</div>
+
+<br>
+
+그리고 HTTP 1.1에서는 RTT(Round Trip Time)의 증가라는 단점이 있다. 일반적으로 Connection 하나에 요청 한 개를 처리하는데 이렇다보니 매번 요청 별로 Connection을 만들게 되고 TCP상에서 동작하는 HTTP의 특성상 3-way Handshake가 반복적으로 일어나며, 불필요한 RTT증가와 네트워크 지연을 초래하여 성능일 지연시킨다.
+
+<br>
+
+<span style="background: rgb(251,243,219)">HTTP 2.0</span>이 2015년에 등장하게 되는데 이는 기존 HTTP/1.x 버전의 성능 향상에 초점을 맞춘 프로토콜이라고 할 수 있다.
+
+<br>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> HTTP 1.1의 단점 정리
+</h4>
+
+- **HOL Blocking**
+- **RTT 증가**
+- **무거운 Header 구조**
+
+<br>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 개선 방안
+</h4>
+
+- **Image Spriting**: 웹 페이지를 구성하는 다양한 아이콘 이미지 파일의 요청 횟수를 줄이기 위해 아이콘을 하나의 큰 이미지로 만든 다음 CSS에서 해당 이미지의 자표 값을 지정하여 표시하는 것
+- **Domain Sharding**: 요즘 브라우저들은 HTTP/1.1 단점을 극복하기 위해 여러 개의 Connection을 생성해서 병렬로 요청을 보내기도 한다. 하지만 브라우저 별로 도메인당 Connection의 개수 제한이 존재하기 때문에 근본적인 해결책은 아님
+- **Minified CSS/Javascript**: HTTP를 통해 전송되는 데이터의 용량을 줄이기 위해서 CSS. Javascript를 축소하여 적용한다. name.min.js, name.min.css 등이 그 예이다.
 
 **표준의 대체가 아닌 확장**이다.
 
 <br>
 
-### HTTP 2.0
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> HTTP 2.0
+</h4>
 
-<br>
-
-HTTP/2 프로토콜은 HTTP/1.1 버전과 다른 몇가지 근본적인 차이점을 가지고 있다. 우리가 자주 사용하고 있는 네이버에서 HTTP 2.0를 사용하고 있는 것을 확인할 수 있다.
+<span style="background: rgb(251,243,219)">HTTP/2 프로토콜</span>은 <span style="background: rgb(251,243,219)">HTTP/1.1 버전</span>과 다른 몇가지 근본적인 차이점을 가지고 있다. 우리가 자주 사용하고 있는 네이버에서 <span style="background: rgb(251,243,219)">HTTP 2.0</span>를 사용하고 있는 것을 확인할 수 있다.
 
 ![](/images/Interview/post8/2021-12-21-20-15-35.png?style=centerme)
 
 <br>
 
-HTTP 2.0의 특징을 보자. 그 중에 가장 중요한 것은 아래와 같다.
+<span style="background: rgb(251,243,219)">HTTP 2.0의 특징</span>을 보자. 그 중에 가장 중요한 것은 아래와 같다.
 
 - HTTP 메시지 전송 방식의 변화
-  - 바이너리 프레이밍 계층 사용
-    - 파싱, 전송 속도 증가, 오류 발생 가능성 감소
+  - <span style="background: rgb(251,243,219)">바이너리 프레이밍 계층</span> 사용
+    - <span style="background: rgb(251,243,219)">파싱, 전송 속도 증가, 오류 발생</span> 가능성 감소
 
 <br>
 
@@ -465,19 +502,19 @@ HTTP 2.0의 특징을 보자. 그 중에 가장 중요한 것은 아래와 같�
 
 <br>
 
-**바이너리 프레이밍**이 Application 계층 안에 추가된 것을 주의깊게 보자. 위 사진에서 오른쪽 검은색 박스를 보면 위의 HTTP 1.1에서는 텍스트 형식의 메시지를 보냈다면 HTTP 2.0에서는 **Frame** 단위로 데이터를 분할한다.(HEADERS frame, DATA frame) 심지어 분할 후 이를 바이너리로 인코딩한다. 그렇게 해서 데이터를 보내게 된다. 바이너리로 인코딩을 하게 됨으로 파싱이나 전송 속도가 증가하고 오류가 발생할 가능성이 감소하는 것이다.
+**바이너리 프레이밍**이 Application 계층 안에 추가된 것을 주의깊게 보자. 위 사진에서 오른쪽 검은색 박스를 보면 위의 <span style="background: rgb(251,243,219)">HTTP 1.1</span>에서는 <span style="background: rgb(251,243,219)">텍스트 형식</span>의 메시지를 보냈다면 <span style="background: rgb(251,243,219)">HTTP 2.0</span>에서는 **Frame** 단위로 <span style="background: rgb(251,243,219)">데이터를 분할</span>한다.(HEADERS frame, DATA frame) 심지어 분할 후 이를 <span style="background: rgb(251,243,219)">바이너리로 인코딩</span>한다. 그렇게 해서 데이터를 보내게 된다. 바이너리로 인코딩을 하게 됨으로 파싱이나 전송 속도가 증가하고 오류가 발생할 가능성이 감소하는 것이다.
 
 <br>
 
-새 바이너리 프레이밍 매커니즘이 도입됨에 따라 클라이언트와 서버 간의 데이터 교환 방식이 바뀌었다. 이 과정을 설명하기 위해 HTTP 2.0 용어를 살펴보자.
+<span style="background: rgb(251,243,219)">새 바이너리 프레이밍 매커니즘</span>이 도입됨에 따라 클라이언트와 서버 간의 데이터 교환 방식이 바뀌었다. 이 과정을 설명하기 위해 HTTP 2.0 용어를 살펴보자.
 
 <br>
 
-- **스트림**: 일반적으로 데이터,패킷,비트 등의 일련의 연속성을 갖는 흐름을 의미를 가진다. 음성,영상,데이터 등의 작은 조각들이 하나의 줄기를 이루며 전송되는 데이터 열을 의미한다. 호스트 상호간 또는 동일 호스트 내 프로세스 상호간 통신에서 큐에 의한 메세지 전달방식을 이용한 가상 연결 통로를 의미하기도 한다.
+- **스트림**: 일반적으로 데이터,패킷,비트 등의 일련의 <span style="background: rgb(251,243,219)">연속성</span>을 갖는 흐름을 의미를 가진다. 음성, 영상, 데이터 등의 <span style="background: rgb(251,243,219)">작은 조각들이 하나의 줄기</span>를 이루며 전송되는 데이터 열을 의미한다. 호스트 상호 간 또는 동일 호스트 내 프로세스 상호간 통신에서 <span style="background: rgb(251,243,219)">큐에 의한 메세지 전달방식</span>을 이용한 가상 연결 통로를 의미하기도 한다.
 
-- **메시지**: 논리적 요청 또는 응답 메시지에 매핑되는 프레임의 전체 시퀀스이다.
+- **메시지**: 논리적 요청 또는 응답 메시지에 매핑되는 <span style="background: rgb(251,243,219)">프레임의 전체 시퀀스</span>이다.
 
-- **프레임**: HTTP 2.0 에서 통신의 최소 단위이며 각 최소 단위에는 하나의 프레임 헤더가 포함된다. 이 프레임 헤더는 최소한으로 프레임이 속하는 스트림을 식별한다. 
+- **프레임**: HTTP 2.0 에서 <span style="background: rgb(251,243,219)">통신의 최소 단위</span>이며 각 최소 단위에는 하나의 프레임 헤더가 포함된다. 이 프레임 헤더는 최소한으로 프레임이 속하는 스트림을 식별한다.
 
 <br>
 
@@ -485,23 +522,21 @@ HTTP 2.0의 특징을 보자. 그 중에 가장 중요한 것은 아래와 같�
 
 <br>
 
-- 모든 통신은 단일 TCP 연결을 통해 수행되며 전달될 수 있는 양방향 스트림의 수는 제한이 없다.
+- 모든 통신은 단일 TCP 연결을 통해 수행되며 전달될 수 있는 <span style="background: rgb(251,243,219)">양방향 스트림의 수</span>는 제한이 없다.
 
-- 각 스트림에는 양방향 메시지 전달에 사용되는 고유 식별자와 우선순위 정보(선택 사항)가 있다.
+- 각 스트림에는 양방향 메시지 전달에 사용되는 <span style="background: rgb(251,243,219)">고유 식별자</span>와 <span style="background: rgb(251,243,219)">우선순위 정보(선택 사항)</span>가 있다.
 
 - 각 메시지는 하나의 논리적 HTTP 메시지(예: 요청 또는 응답)이며 하나 이상의 프레임으로 구성된다.
 
-- 프레임은 통신의 최소 단위이며 특정 유형의 데이터(예: HTTP 헤더, 메시지 페이로드 등)를 전달합니다. 다른 스트림들의 프레임을 인터리빙한 다음, 각 프레임의 헤더에 삽입된 스트림 식별자를 통해 이 프레임을 다시 조립할 수 있습니다.
-
-
+- <span style="background: rgb(251,243,219)">프레임은 통신의 최소 단위</span>이며 특정 유형의 데이터(예: HTTP 헤더, 메시지 페이로드 등)를 전달합니다. 다른 스트림들의 프레임을 인터리빙한 다음, 각 프레임의 헤더에 삽입된 스트림 식별자를 통해 이 프레임을 다시 조립할 수 있습니다.
 
 ![](/images/Interview/post8/2021-12-21-20-20-20.png?style=centerme)
 
 <br>
 
-위 사진에서 보는 것과 스트림안에서 전송되는 각각의 프레임들은 합쳐져 하나의 응답이나 요청이 되는 것이다.
+위 사진에서 보는 것과 <span style="background: rgb(251,243,219)">스트림</span> 안에서 전송되는 각각의 프레임들은 합쳐져 <span style="background: rgb(251,243,219)">하나의 응답이나 요청</span> 이 되는 것이다.
 
-HTTP/2는 HTTP 프로토콜 통신을 바이너리 인코딩된 프레임의 교환으로 세분화한다. 그런 다음 이 프레임은 특정 스트림에 속하는 메시지에 매핑되며, 모든 프레임은 단일 TCP 연결 내에서 다중화된다. HTTP/2 프로토콜이 제공하는 다른 모든 기능과 성능 최적화는 이러한 기반을 통해 지원된다.
+<span style="background: rgb(251,243,219)">HTTP/2</span>는 HTTP 프로토콜 통신을 <span style="background: rgb(251,243,219)">바이너리 인코딩된 프레임의 교환</span>으로 세분화한다. 그런 다음 이 프레임은 특정 스트림에 속하는 메시지에 매핑되며, 모든 프레임은 단일 TCP 연결 내에서 다중화된다. HTTP/2 프로토콜이 제공하는 다른 모든 기능과 성능 최적화는 이러한 기반을 통해 지원된다.
 
 <br>
 
@@ -513,18 +548,32 @@ HTTP/2는 HTTP 프로토콜 통신을 바이너리 인코딩된 프레임의 교
 
 <br>
 
-HTTP/2의 새 바이너리 프레이밍 계층은 전체 요청 및 응답 다중화를 지원한다. 이를 위해 클라이언트와 서버가 HTTP 메시지를 독립된 프레임으로 세분화하고, 이 프레임을 인터리빙한 다음, 다른 쪽에서 다시 조립하도록 허용한다. 위 사진은 동일한 연결 내의 여러 스트림을 캡처한 것이다. 클라이언트는 DATA 프레임(스트림 5)을 서버로 전송 중인 반면, 서버는 스트림 1과 스트림 3의 인터리빙된 프레임 시퀀스를 클라이언트로 전송 중이다. 따라서 3개의 병렬 스트림이 존재한다.
-
+<span style="background: rgb(251,243,219)">HTTP/2</span>의 새 <span style="background: rgb(251,243,219)">바이너리 프레이밍 계층</span>은 전체 요청 및 응답 <span style="background: rgb(251,243,219)">다중화</span>를 지원한다. 이를 위해 클라이언트와 서버가 HTTP 메시지를 독립된 프레임으로 세분화하고, 이 프레임을 인터리빙한 다음, 다른 쪽에서 다시 조립하도록 허용한다. 위 사진은 동일한 연결 내의 여러 스트림을 캡처한 것이다. 클라이언트는 DATA 프레임(스트림 5)을 서버로 전송 중인 반면, 서버는 스트림 1과 스트림 3의 인터리빙된 프레임 시퀀스를 클라이언트로 전송 중이다. 따라서 3개의 병렬 스트림이 존재한다.
 
 <br>
 
-HTTP 2.0의 또다른 특징으로는 Stream 우선순위가 있다.
+<span style="background: rgb(251,243,219)">HTTP 2.0의 또다른 특징</span>으로는 <span style="background: rgb(251,243,219)">Stream 우선순위</span>가 있다.
 
-HTTP 메시지가 많은 개별 프레임으로 분할될 수 있고 여러 스트림의 프레임을 다중화(Multiplexing)할 수 있게 되면서 스트림들의 우선순위를 지정할 필요가 생겼다. 클라이언트는 우선순위 지정을 위해 '우선순위 지정 트리'를 사용하여 서버의 스트림처리 우선순위를 지정할 수 있다. 서버는 우선순위가 높은 응답이 클라이언트에 우선적으로 전달될 수 있도록 대역폭을 설정한다. 
+HTTP 메시지가 많은 <span style="background: rgb(251,243,219)">개별 프레임으로 분할</span>될 수 있고 여러 스트림의 프레임을 <span style="background: rgb(251,243,219)">다중화(Multiplexing)</span>할 수 있게 되면서 스트림들의 우선순위를 지정할 필요가 생겼다. 클라이언트는 우선순위 지정을 위해 '우선순위 지정 트리'를 사용하여 서버의 스트림처리 우선순위를 지정할 수 있다. 서버는 우선순위가 높은 응답이 클라이언트에 우선적으로 전달될 수 있도록 대역폭을 설정한다.
 
 **같은 레벨에서는 가중치 비율에 따라 가중치가 매겨 지며, 부모는 자식들에 대비하여, 자식들의 가중치 비율을 합한 만큼의 가중치 비율을 가진다.**
 
 <br>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> HTTP 2.0 특징 정리
+</h4>
+
+- **Multiplexed Streams**: Connection 한 개로 동시에 여러 개의 메시지를 주고 받을 수 있으며 응답은 순서에 상관없이 Stream으로 주고 받음
+- **Stream Priortization**: 문서 내에 CSS 파일 1개와 이미지 파일 2개가 존재하고 이를 클라이언트가 요청하는 상황에서 이미지 파일보다 CSS 파일의 수신이 늦어진다면 브라우저 렌더링에 문제가 생긴다. HTTP/2에서는 이러한 상황을 고려하여 리소스 간의 의존관계에 따른 우선순위를 설정하여 리소스 로드 문제를 해결
+- **Server Push**: 서버는 클라이언트가 요청하지 않은 리소스를 사전에 푸쉬를 통해 전송할 수 있다. 이렇게 리소스 푸쉬가 가능해지면 클라이언트가 추후에 HTML 문서를 요청할 때 해당 문서 내의 리소스를 사전에 클라이언트에서 다운로드할 수 있도록 하여 클라이언트의 요청을 최소화할 수 있다. 
+- **Header Compression**: HTTP/2는 헤더 정보를 압축하기 위해 Header Table과 Huffman Encoding 기법을 사용하여 처리하는데 이를 HPACK 압축방식이라 부른다.
+
+![](/images/Interview/post16/2022-01-17-17-12-52.png?style=centerme)
+
+<br>
+
+위 그림처럼 클라이언트가 요청을 두 번 보낸다고 가정할 때 HTTP/1.x의 경우 헤더 중복이 발생해도 중복 전송한다. 하지만 HTTP/2 에서는 헤더 중복이 있는 경우 Static/Dynamic Header Table 개념을 이용하여 중복을 검출해내고 해당 테이블에서의 index 값+ 중복되지 않은 Header 정보를 Huffman Encoding 방식으로 인코딩한 데이터를 전송한다. 
 
 물어본 질문에 비해서 엄청 길게 포스트를 썼다. 사실 이 모든 것을 말하라는 질문은 아니였을 것이다. 아무래도 HTTP 2.0이 HTTP 1.0에 비해서 뭐가 달라졌는지 요약하듯이 말하면 됐을 것 같다.
 
