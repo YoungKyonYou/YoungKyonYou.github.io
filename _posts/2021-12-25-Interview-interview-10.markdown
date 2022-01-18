@@ -315,15 +315,17 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 <br>
 
-## Spring MVC
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> Spring MVC
+</h3>
 
 <br>
 
-Spring MVC는 모델 2방식 구조이다.
+<span style="background: rgb(251,243,219)">Spring MVC</span>는 모델 2방식 구조이다.
 
 모델2 방식이 뭘까?
 
-화면을 담당하는 View적인 부분과 데이터를 처리하는 비즈니스로직 부분을 분리한 것으로 디자이너와 개발자의 작업분리가 되어 있어 작업하기 편리하며 재사용이 가능한 구조이다.
+화면을 담당하는 <span style="background: rgb(251,243,219)">View</span>적인 부분과 데이터를 처리하는 <span style="background: rgb(251,243,219)">비즈니스로직 부분을 분리</span>한 것으로 <span style="background: rgb(251,243,219)">디자이너와 개발자의 작업분리</span>가 되어 있어 작업하기 편리하며 재사용이 가능한 구조이다.
 
 <br>
 
@@ -355,7 +357,7 @@ MVC는 **Model, View, Controller**의 약자라고 할 수 있다.
 
 <br>
 
-즉 유지보수가 좋다!
+즉 <span style="background: rgb(251,243,219)">유지보수</span>가 좋다!
 
 <br>
 
