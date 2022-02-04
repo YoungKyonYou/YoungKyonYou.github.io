@@ -763,6 +763,38 @@ options edns0
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
+&lt;p&gt;기본 WSL Ubuntu 터미널에서 docker를 다운받았다면 /etc/default 디렉터리 안에 docker라는 파일이 있다 이를 아래와 같이 수정한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Docker Upstart and SysVinit configuration file&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# THIS FILE DOES NOT APPLY TO SYSTEMD&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#   Please see the documentation for &quot;systemd drop-ins&quot;:&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#   https://docs.docker.com/engine/admin/systemd/&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Customize location of Docker binary (especially for development testing).&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#DOCKERD=&quot;/usr/local/bin/dockerd&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Use DOCKER_OPTS to modify the daemon startup options.&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;DOCKER_OPTS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;--dns 8.8.8.8 --dns 8.8.4.4&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# If you need Docker to use an HTTP proxy, it can also be specified here.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#export http_proxy=&quot;http://127.0.0.1:3128/&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# This is also a handy place to tweak where Docker's temporary files go.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#export DOCKER_TMPDIR=&quot;/mnt/bigdrive/docker-tmp&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이렇게 하고 config-server를 배포하게 되면 정상적으로 리소스를 가져올 수 있고 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;해결 1&lt;/span&gt; 방안보다 더 좋다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
 </description>
 				<pubDate>Fri, 28 Jan 2022 13:00:00 +0900</pubDate>
 				<link>/kubernetes/2022/01/28/Kubernetes-DockerDNS.html</link>

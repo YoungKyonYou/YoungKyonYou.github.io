@@ -768,5 +768,36 @@ options edns0
 
 <br>
 
+기본 WSL Ubuntu 터미널에서 docker를 다운받았다면 /etc/default 디렉터리 안에 docker라는 파일이 있다 이를 아래와 같이 수정한다.
 
+<br>
+
+```bash
+# Docker Upstart and SysVinit configuration file
+
+#
+# THIS FILE DOES NOT APPLY TO SYSTEMD
+#
+#   Please see the documentation for "systemd drop-ins":
+#   https://docs.docker.com/engine/admin/systemd/
+#
+
+# Customize location of Docker binary (especially for development testing).
+#DOCKERD="/usr/local/bin/dockerd"
+
+# Use DOCKER_OPTS to modify the daemon startup options.
+DOCKER_OPTS="--dns 8.8.8.8 --dns 8.8.4.4"
+
+# If you need Docker to use an HTTP proxy, it can also be specified here.
+#export http_proxy="http://127.0.0.1:3128/"
+
+# This is also a handy place to tweak where Docker's temporary files go.
+#export DOCKER_TMPDIR="/mnt/bigdrive/docker-tmp"
+```
+
+<br>
+
+이렇게 하고 config-server를 배포하게 되면 정상적으로 리소스를 가져올 수 있고 <span style="background: rgb(251,243,219)">해결 1</span> 방안보다 더 좋다.
+
+<br>
 
