@@ -4,7 +4,7 @@ title: CIDR에 대해 알아보자
 date: 2022-02-05 11:00:00 0000
 tags: [CIDR]
 categories: [Interview]
-description:
+description: CIDR이란
 ---
 
 <br><br>
