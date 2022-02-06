@@ -333,6 +333,8 @@ _**오늘의 나보다 성장한 내일의 나를 위해...**_
 
 라는 메시지를 적어서 사방에 뿌리는 것이다. 그러면 DHCP 서버는 해당 메시지를 보낸 클라이언트에게 IP를 할당해주는 것이다. 이렇게 브로드캐스트를 사용하려면 기본적으로 빠른 통신 속도가 필요한데, 이러한 이유 때문에 <span style="background: rgb(251,243,219)">DHCP</span>는 <span style="background: rgb(251,243,219)">UDP 프로토콜</span>을 기반으로 작동한다.
 
+<br>
+
 <h4 style="color:#43ABC9;  font-weight:bold">
 <img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> DHCP의 장점
 </h4>
@@ -357,6 +359,8 @@ DHCP 서버가 다운되면 IP 할당이 안되므로 인터넷 사용이 불가
 - **DHCP 클라이언트**: DHCP 서버에 자신의 IP를 요청하고 IP를 부여받고 나면 TCP/IP 통신을 할 수 있다.
 - **DHCP 서버**: 클라이언트로부터 IP할당 요청이 들어오면 설정된 범위 안에서 사용하고 있지 않은 IP를 클라이언트에 부여하여 할당 가능한 IP들의 영역을 관리한다.
 - **DHCP 프로토콜**: BOOTP메시지 형식을 사용한다. IP주소와 TCP/IP 프로토콜 기본 설정을 개별 클라이언트에 자동적으로 할당하는 역할을 한다.
+
+<br>
 
 <h3 style="color:#107896;  font-weight:bold">
 <img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 단말(DHCP client)이 DHCP 서버로부터 IP 주소를 할당(임대) 받는 절차

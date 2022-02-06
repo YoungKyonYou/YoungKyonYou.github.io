@@ -335,6 +335,8 @@
 
 &lt;p&gt;라는 메시지를 적어서 사방에 뿌리는 것이다. 그러면 DHCP 서버는 해당 메시지를 보낸 클라이언트에게 IP를 할당해주는 것이다. 이렇게 브로드캐스트를 사용하려면 기본적으로 빠른 통신 속도가 필요한데, 이러한 이유 때문에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;DHCP&lt;/span&gt;는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;UDP 프로토콜&lt;/span&gt;을 기반으로 작동한다.&lt;/p&gt;
 
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
 &lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
 &lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; DHCP의 장점
 &lt;/h4&gt;
@@ -363,6 +365,8 @@
   &lt;li&gt;&lt;strong&gt;DHCP 서버&lt;/strong&gt;: 클라이언트로부터 IP할당 요청이 들어오면 설정된 범위 안에서 사용하고 있지 않은 IP를 클라이언트에 부여하여 할당 가능한 IP들의 영역을 관리한다.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;DHCP 프로토콜&lt;/strong&gt;: BOOTP메시지 형식을 사용한다. IP주소와 TCP/IP 프로토콜 기본 설정을 개별 클라이언트에 자동적으로 할당하는 역할을 한다.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
 &lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 단말(DHCP client)이 DHCP 서버로부터 IP 주소를 할당(임대) 받는 절차
