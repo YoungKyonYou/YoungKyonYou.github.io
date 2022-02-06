@@ -1,7 +1,7 @@
 ---
 layout: post
 title: DHCP란?
-date: 2022-02-06 11:00:00 0000
+date: 2022-02-06 12:00:00 0000
 tags: [DHCP]
 categories: [Network]
 description: DHCP의 장단점 및 원리

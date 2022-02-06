@@ -7,6 +7,461 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Subnet Mask란?</title>
+				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해…&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;style&gt;
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: &quot;&quot;;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: &quot;&quot;;
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: &quot;&quot;;
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: &quot;&quot;;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: &quot;&quot;;
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: &quot;&quot;;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: &quot;&quot;;
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+&lt;/style&gt;
+
+&lt;div class=&quot;containercoffee&quot;&gt;
+    &lt;div class=&quot;coffee-header&quot;&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-medium&quot;&gt;
+      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/270f.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 서브넷 마스크(Subnet Mask)란?
+&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;서브넷 마스크&lt;/span&gt;의 개념에 앞서 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;서브네팅(Sub-netting)&lt;/span&gt;의 개념에 대해 먼저 알아야 한다.&lt;/p&gt;
+
+&lt;p&gt;서브넷팅은 하나의 주 네트워크(Major Network)를 필요한 만큼 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;분할&lt;/span&gt;하여 상호 연결 망을 구축할 수 있게 해주는 것이다. IP 주소의 고갈 문제를 해결하기 위해 설계된 개념이고 반대로 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;축약&lt;/span&gt;하는 개념은 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;수퍼넷팅(Super-netting)&lt;/span&gt;이라고 한다.&lt;/p&gt;
+
+&lt;p&gt;예를 들어, 회사에 영업부(50명), 회계부(50명), 관리부(50명) 등이 존재하는데 이를 하나의 네트워크로 묶을 수도 있지만 이를 분할해서 네트워크를 구분 지어준다. 이 구분된 네트워크를 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;브로드캐스트 도메인(Broadcast Domain)&lt;/span&gt;이라고 하고 너무 큰 브로드캐스트 도메인은 자원을 효율적으로 분배하기 어려워서 속도가 느려진다.&lt;/p&gt;
+
+&lt;p&gt;따라서, 서브넷팅으로 네트워크를 분할하게 되면 필요한 네트워크 주소만 호스트 IP로 할당해서 쓸모없이 버려지는 잉여 IP를 최소화할 수 있으며 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Broadcast Domain Size&lt;/span&gt;를 줄여주므로 LAN의 Traffic을 줄일 수 있다. 또한 여러 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;네트워크로 분할&lt;/span&gt;되므로 분할된 각 network(서로 다른 부서) 업무 간에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;보안&lt;/span&gt;을 유지할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 서브넷 마스크란?
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;서브넷 마스크&lt;/span&gt;란 IP Address에서 첫비트부터 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;어디까지가 네트워크 부분&lt;/span&gt;인가 알려주는 역할이다. 쉽게 생각하면 IP 주소에 마스크를 씌워서 어디까지가 네트워크 부분인가를 표시하는 것이다. IP Address처럼 32비트로 구성되며, &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;네트워크 부분&lt;/span&gt;을 표시하는 비트는 &lt;span style=&quot;color:#001f3f; font-weight:bold&quot;&gt;1&lt;/span&gt;, 호스트 부분은 &amp;lt;/span&amp;gt;을 표시하는 비트는 &lt;span style=&quot;color:#001f3f; font-weight:bold&quot;&gt;0&lt;/span&gt;이다. 또한,연속성이 존재해서 네트워크 부분 중간에 0이 들어갈 수 없다.&lt;/p&gt;
+
+&lt;p&gt;예를 들어, IP 주소 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;192.168.1.1&lt;/span&gt;에 서브넷 마스크가 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;255.255.255.0&lt;/span&gt;라면 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;255&lt;/span&gt;로 표시된 부분인 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;192.168.1.&lt;/span&gt;까지는 네트워크 부분이고 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;0&lt;/span&gt;으로 표시된 부분인 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;.1&lt;/span&gt;은 호스트 부분이다. 다시 말해, &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;255는 이진법&lt;/span&gt;으로 표시하면 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;1111111&lt;/span&gt;이기 때문에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;네트워크 부분&lt;/span&gt;인 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 네트워크 부분과 호스트 부분을 구하는 TIP!
+&lt;/h4&gt;
+
+&lt;p&gt;서브네팅한 네트워크 부분을 확인할 때는 IP주소와 Subnet mask를 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;AND 연산&lt;/span&gt;해서 구한다. &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;AND 연산&lt;/span&gt;은 각 비트를 비교해서 모두 1인 경우에만 1 값을 반환한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Network/2022-02-06-16-37-58.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;255.255.255.0&lt;/span&gt; 서브넷 마스크의 경우 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;24 bit&lt;/span&gt;가 네트워크 부분이며, &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;prefix&lt;/span&gt; 표기법으로 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;/24&lt;/span&gt;이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;AND 연산&lt;/span&gt;을 통해서 네트워크 부분을 구하게 될 경우 Network Address를 구할 수 있으며, 이때 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;호스트 부분을 모두 1&lt;/span&gt;로 바꿀 경우 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Broadcast Address&lt;/span&gt;를 구할 수 있다. 이 두가지 주소의 경우 호스트에 할당할 수 없으며 이를 제외한 나머지 IP주소가 호스트에 할당 가능한 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;주소(Assigned Address)&lt;/span&gt;이다.&lt;/p&gt;
+
+&lt;p&gt;따라서 위의 네트워크를 보면, &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;192.168.1.1/24&lt;/span&gt;는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Network Address&lt;/span&gt;가 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;192.168.1.0&lt;/span&gt;이고 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Broadcast Address&lt;/span&gt;가 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;192.168.1.255&lt;/span&gt;이며 할당 가능한 호스트는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;192.168.1.1~192.168.1.254&lt;/span&gt;까지이다. 호스트 수는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;254&lt;/span&gt;개 이며 이를 구하는 공식은 2의 호스트 비트수 제곱에서 2를 뺀 값이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 문제를 통한 이해
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; IP: 10.0.24.100 Subnet Mask: 255.0.0.0 (= 10.0.25.100/8)
+&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Network Address&lt;/strong&gt;: 10.0.0.0&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Broadcast Address&lt;/strong&gt;: 10.255.255.255&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;할당 가능한 호스트 주소&lt;/strong&gt;: 10.0.0.1 ~ 10.255.255.254&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;호스트 개수&lt;/strong&gt;: 2^24-2 = 16777216-2 = 16777214&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; IP: 192.100.2.31/16
+&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Network Address&lt;/strong&gt;: 192.100.0.0&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Broadcast Address&lt;/strong&gt;: 192.100.255.255&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;할당 가능한 호스트 주소&lt;/strong&gt;: 192.100.0.1 ~ 192.100.255.254&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;호스트 개수&lt;/strong&gt;: 2^16-2 = 65536-2 = 65534&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; IP: 151.3.192.17 Subnet Mask: 255.255.240.0 (= 151.3.192.17/20)
+&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Network Address&lt;/strong&gt;: 151.3.192.0&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Broadcast Address&lt;/strong&gt;: 151.3.207.255&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;할당 가능한 호스트 주소&lt;/strong&gt;: 151.3.192.1 ~ 151.3.207.254&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;호스트 개수&lt;/strong&gt;: 2^12-2=4096-2 = 4094&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; IP: 192.168.4.100/26
+&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Network Address&lt;/strong&gt;: 192.168.4.64&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Broadcast Address&lt;/strong&gt;: 192.168.4.127&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;할당 가능한 호스트 주소&lt;/strong&gt;: 192.168.4.65 ~ 192.168.4.126&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;호스트 개수&lt;/strong&gt;: 2^6-2 = 64-2 = 66&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 마지막 문제
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;192.168.4.100/26&lt;/span&gt;를 비트화 시켜보면&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;11000000 10101000 00000100 01100100&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;color:#3D9970; font-weight:bold&quot;&gt;11111111 11111111 11111111 11&lt;/span&gt;00000&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;color:#3D9970; font-weight:bold&quot;&gt;11000000 10101000 00000100 01&lt;/span&gt; 까지 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;네트워크 부분&lt;/span&gt;이고 나머지 6비트는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;호스트&lt;/span&gt;이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그래서 호스트 비트를 0으로 채운 192.168.4.64가 네트워크 주소(Network Address)이고 1로 채운&lt;/p&gt;
+
+&lt;p&gt;11000000 10101000 00000100 01&lt;span style=&quot;color:#093145; font-weight:bold&quot;&gt;111111&lt;/span&gt; (192.168.4.127)는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;브로드캐스트 주소(Broadcast Address)&lt;/span&gt;이다.&lt;/p&gt;
+
+&lt;p&gt;따라서 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;네트워크 주소와 브로드캐스트 주소&lt;/span&gt; 사이에 있는 IP 주소들이 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;호스트&lt;/span&gt;에게 할당가능한 주소(192.168.4.65 ~ 192.168.4.126)이다. 또한, 호스트 개수는 호스트 비트가 6bit 이기 때문에 2의 6제곱 빼기 2 = 64 - 2 = 62개이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;마지막으로 한가지만 더 짚어보자&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;192.168.4.100&lt;/span&gt;은 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;192&lt;/span&gt;로 시작하기 때문에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;C 클래스&lt;/span&gt;이다. 그러면 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;네트워크 부분&lt;/span&gt;이 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;192.168.4.0/24&lt;/span&gt; 이렇게 된다. 그러면 해당 네트워크에는 호스트 수가 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;.4.1&lt;/span&gt;부터 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;.4.254&lt;/span&gt;까지 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;254&lt;/span&gt;개가 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;color:#107896; font-weight:bold&quot;&gt;그.런.데&lt;/span&gt; 위의 문제는 네트워크 부분이 2비트가 늘어났다. 자 이렇게 서브네팅을 하게되면&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;192.168.4.0 ~ 192.168.4.255&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;이렇게 하나였던 네트워크를&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;192.168.4.0 ~ 192.168.4.63&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;192.168.4.64 ~ 192.168.4.127&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;192.168.4.128 ~ 192.168.4.191&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;192.168.4.192 ~ 192.168.4.254&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이렇게 4개 네트워크로 분할하게 된다.&lt;/p&gt;
+
+&lt;p&gt;위 문제에 있던 .100 이라는 호스트는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;두 번째 네트워크&lt;/span&gt;에 해당된다.&lt;/p&gt;
+
+&lt;p&gt;하나의 네트워크 일때는 호스트가 254개인데 4개의 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;네트워크&lt;/span&gt;로 분할하면 각 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;네트워크&lt;/span&gt;당 62개씩으로 할당된다. 더 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;효율적&lt;/span&gt;으로 활용이 가능하게 된 것이다. 이처럼 서브넷팅은 분할에 사용하며 반대로 네트워크를 합칠 때는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;축약&lt;/span&gt;이라고 하며 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;수퍼넷팅&lt;/span&gt;이라고 한다.&lt;/p&gt;
+</description>
+				<pubDate>Sun, 06 Feb 2022 13:00:00 +0900</pubDate>
+				<link>/network/2022/02/06/Network-SubnetMask-02.html</link>
+				<guid isPermaLink="true">/network/2022/02/06/Network-SubnetMask-02.html</guid>
+			</item>
+		
+			<item>
 				<title>DHCP란?</title>
 				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -482,9 +937,9 @@
 
 &lt;p&gt;이렇게 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;DHCP Ack&lt;/span&gt;를 수신한 단말은 이제 IP 주소를 포함한 네트워크 정보를 획득(임대)하였고, 이제 인터넷 사용이 가능하게 된다.&lt;/p&gt;
 </description>
-				<pubDate>Sun, 06 Feb 2022 11:00:00 +0900</pubDate>
-				<link>/network/2022/02/06/Network-DHCP-01.html</link>
-				<guid isPermaLink="true">/network/2022/02/06/Network-DHCP-01.html</guid>
+				<pubDate>Sun, 06 Feb 2022 12:00:00 +0900</pubDate>
+				<link>/network/2022/02/06/Network-DHCP-01-copy.html</link>
+				<guid isPermaLink="true">/network/2022/02/06/Network-DHCP-01-copy.html</guid>
 			</item>
 		
 			<item>
@@ -4349,323 +4804,6 @@ Bye
 				<pubDate>Thu, 13 Jan 2022 14:20:00 +0900</pubDate>
 				<link>/interview/2022/01/13/Interview-interview-35.html</link>
 				<guid isPermaLink="true">/interview/2022/01/13/Interview-interview-35.html</guid>
-			</item>
-		
-			<item>
-				<title>httpd란?</title>
-				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해…&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;style&gt;
-.containercoffee {
-  width: 300px;
-  height: 280px;
-  position: relative;
-  top: calc(50% - 140px);
-  left: calc(50% - 150px);
-}
-.coffee-header {
-  width: 100%;
-  height: 80px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #ddcfcc;
-  border-radius: 10px;
-}
-.coffee-header__buttons {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  top: 25px;
-  background-color: #282323;
-  border-radius: 50%;
-}
-.coffee-header__buttons::after {
-  content: &quot;&quot;;
-  width: 8px;
-  height: 8px;
-  position: absolute;
-  bottom: -8px;
-  left: calc(50% - 4px);
-  background-color: #615e5e;
-}
-.coffee-header__button-one {
-  left: 15px;
-}
-.coffee-header__button-two {
-  left: 50px;
-}
-.coffee-header__display {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: calc(50% - 25px);
-  left: calc(50% - 25px);
-  border-radius: 50%;
-  background-color: #9acfc5;
-  border: 5px solid #43beae;
-  box-sizing: border-box;
-}
-.coffee-header__details {
-  width: 8px;
-  height: 20px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #9b9091;
-  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
-}
-.coffee-medium {
-  width: 90%;
-  height: 160px;
-  position: absolute;
-  top: 80px;
-  left: calc(50% - 45%);
-  background-color: #bcb0af;
-}
-.coffee-medium:before {
-  content: &quot;&quot;;
-  width: 90%;
-  height: 100px;
-  background-color: #776f6e;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 45%);
-  border-radius: 20px 20px 0 0;
-}
-.coffe-medium__exit {
-  width: 60px;
-  height: 20px;
-  position: absolute;
-  top: 0;
-  left: calc(50% - 30px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::before {
-  content: &quot;&quot;;
-  width: 50px;
-  height: 20px;
-  border-radius: 0 0 50% 50%;
-  position: absolute;
-  bottom: -20px;
-  left: calc(50% - 25px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::after {
-  content: &quot;&quot;;
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  bottom: -30px;
-  left: calc(50% - 5px);
-  background-color: #231f20;
-}
-.coffee-medium__arm {
-  width: 70px;
-  height: 20px;
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  background-color: #231f20;
-}
-.coffee-medium__arm::before {
-  content: &quot;&quot;;
-  width: 15px;
-  height: 5px;
-  position: absolute;
-  top: 7px;
-  left: -15px;
-  background-color: #9e9495;
-}
-.coffee-medium__cup {
-  width: 80px;
-  height: 47px;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 40px);
-  background-color: #FFF;
-  border-radius: 0 0 70px 70px / 0 0 110px 110px;
-}
-.coffee-medium__cup::after {
-  content: &quot;&quot;;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 6px;
-  right: -13px;
-  border: 5px solid #FFF;
-  border-radius: 50%;
-}
-@keyframes liquid {
-  0% {
-    height: 0px;  
-    opacity: 1;
-  }
-  5% {
-    height: 0px;  
-    opacity: 1;
-  }
-  20% {
-    height: 62px;  
-    opacity: 1;
-  }
-  95% {
-    height: 62px;
-    opacity: 1;
-  }
-  100% {
-    height: 62px;
-    opacity: 0;
-  }
-}
-.coffee-medium__liquid {
-  width: 6px;
-  height: 63px;
-  opacity: 0;
-  position: absolute;
-  top: 50px;
-  left: calc(50% - 3px);
-  background-color: #74372b;
-  animation: liquid 4s 4s linear infinite;
-}
-.coffee-medium__smoke {
-  width: 8px;
-  height: 20px;
-  position: absolute;  
-  border-radius: 5px;
-  background-color: #b3aeae;
-}
-@keyframes smokeOne {
-  0% {
-    bottom: 20px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 50px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-@keyframes smokeTwo {
-  0% {
-    bottom: 40px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 70px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-.coffee-medium__smoke-one {
-  opacity: 0;
-  bottom: 50px;
-  left: 102px;
-  animation: smokeOne 3s 4s linear infinite;
-}
-.coffee-medium__smoke-two {
-  opacity: 0;
-  bottom: 70px;
-  left: 118px;
-  animation: smokeTwo 3s 5s linear infinite;
-}
-.coffee-medium__smoke-three {
-  opacity: 0;
-  bottom: 65px;
-  right: 118px;
-  animation: smokeTwo 3s 6s linear infinite;
-}
-.coffee-medium__smoke-for {
-  opacity: 0;
-  bottom: 50px;
-  right: 102px;
-  animation: smokeOne 3s 5s linear infinite;
-}
-.coffee-footer {
-  width: 95%;
-  height: 15px;
-  position: absolute;
-  bottom: 25px;
-  left: calc(50% - 47.5%);
-  background-color: #41bdad;
-  border-radius: 10px;
-}
-.coffee-footer::after {
-  content: &quot;&quot;;
-  width: 106%;
-  height: 26px;
-  position: absolute;
-  bottom: -25px;
-  left: -8px;
-  background-color: #000;
-}
-&lt;/style&gt;
-
-&lt;div class=&quot;containercoffee&quot;&gt;
-    &lt;div class=&quot;coffee-header&quot;&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-medium&quot;&gt;
-      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; httpd
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;httpd&lt;/span&gt;는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;HTTP Daemon&lt;/span&gt;의 준말로, HTTP Protocol을 지원하는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;데몬&lt;/span&gt;이다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;HTTP Protocol:&lt;/strong&gt; 통신규약 중 하나로 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;브라우저&lt;/span&gt;에서 해독 가능한 파일, 즉 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;HTML&lt;/span&gt; 파일을 전송해주는 규약이다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;즉, &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;httpd&lt;/span&gt;는 웹 서버의 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;백그라운드&lt;/span&gt;에서 실행되어ㅡ 들어오는 서버 요청을 대기하는 소프트웨어 프로그램이다. 이 데몬은 자동으로 요청에 응답하며 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;HTTP&lt;/span&gt;를 사용하여 인터넷을 경유, 하이퍼텍스트, 멀티미디어 문서들을 서비스한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Web Server&lt;/span&gt;를 구축한다는 말은 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;httpd&lt;/span&gt;를 수행시킨다는 말로 이해할 수 있다.&lt;/p&gt;
-</description>
-				<pubDate>Thu, 13 Jan 2022 12:20:00 +0900</pubDate>
-				<link>/interview/2022/01/13/Interview-interview-34.html</link>
-				<guid isPermaLink="true">/interview/2022/01/13/Interview-interview-34.html</guid>
 			</item>
 		
 	</channel>
