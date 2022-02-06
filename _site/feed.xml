@@ -459,9 +459,9 @@ In the context of servers, 0.0.0.0 means all IPv4 addresses on the local machine
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
-				<pubDate>Sun, 06 Feb 2022 15:00:00 +0900</pubDate>
-				<link>/network/2022/02/06/Network-DHCP-01.html</link>
-				<guid isPermaLink="true">/network/2022/02/06/Network-DHCP-01.html</guid>
+				<pubDate>Sat, 05 Feb 2022 15:00:00 +0900</pubDate>
+				<link>/network/2022/02/05/Network-DHCP-01.html</link>
+				<guid isPermaLink="true">/network/2022/02/05/Network-DHCP-01.html</guid>
 			</item>
 		
 			<item>
@@ -914,9 +914,9 @@ In the context of servers, 0.0.0.0 means all IPv4 addresses on the local machine
 
 &lt;p&gt;하나의 네트워크 일때는 호스트가 254개인데 4개의 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;네트워크&lt;/span&gt;로 분할하면 각 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;네트워크&lt;/span&gt;당 62개씩으로 할당된다. 더 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;효율적&lt;/span&gt;으로 활용이 가능하게 된 것이다. 이처럼 서브넷팅은 분할에 사용하며 반대로 네트워크를 합칠 때는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;축약&lt;/span&gt;이라고 하며 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;수퍼넷팅&lt;/span&gt;이라고 한다.&lt;/p&gt;
 </description>
-				<pubDate>Sun, 06 Feb 2022 13:00:00 +0900</pubDate>
-				<link>/network/2022/02/06/Network-network-03.html</link>
-				<guid isPermaLink="true">/network/2022/02/06/Network-network-03.html</guid>
+				<pubDate>Sat, 05 Feb 2022 13:00:00 +0900</pubDate>
+				<link>/network/2022/02/05/Network-network-03.html</link>
+				<guid isPermaLink="true">/network/2022/02/05/Network-network-03.html</guid>
 			</item>
 		
 			<item>
@@ -1369,9 +1369,9 @@ In the context of servers, 0.0.0.0 means all IPv4 addresses on the local machine
 
 &lt;p&gt;하나의 네트워크 일때는 호스트가 254개인데 4개의 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;네트워크&lt;/span&gt;로 분할하면 각 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;네트워크&lt;/span&gt;당 62개씩으로 할당된다. 더 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;효율적&lt;/span&gt;으로 활용이 가능하게 된 것이다. 이처럼 서브넷팅은 분할에 사용하며 반대로 네트워크를 합칠 때는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;축약&lt;/span&gt;이라고 하며 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;수퍼넷팅&lt;/span&gt;이라고 한다.&lt;/p&gt;
 </description>
-				<pubDate>Sun, 06 Feb 2022 13:00:00 +0900</pubDate>
-				<link>/network/2022/02/06/Network-SubnetMask-02.html</link>
-				<guid isPermaLink="true">/network/2022/02/06/Network-SubnetMask-02.html</guid>
+				<pubDate>Sat, 05 Feb 2022 13:00:00 +0900</pubDate>
+				<link>/network/2022/02/05/Network-SubnetMask-02.html</link>
+				<guid isPermaLink="true">/network/2022/02/05/Network-SubnetMask-02.html</guid>
 			</item>
 		
 			<item>

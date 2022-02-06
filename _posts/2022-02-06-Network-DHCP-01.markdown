@@ -1,7 +1,7 @@
 ---
 layout: post
 title: IP 주소 0.0.0.0의 의미
-date: 2022-02-06 15:00:00 0000
+date: 2022-02-05 15:00:00 0000
 tags: [Network]
 categories: [Network]
 description: 0.0.0.0의 의미

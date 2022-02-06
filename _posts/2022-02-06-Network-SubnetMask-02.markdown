@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Subnet Mask란?
-date: 2022-02-06 13:00:00 0000
+date: 2022-02-05 13:00:00 0000
 tags: [Subnet Mask, Broadcast, Network]
 categories: [Network]
 description: Subnet Mask의 정의와 연습문제
