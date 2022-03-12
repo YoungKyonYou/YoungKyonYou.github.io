@@ -7,6 +7,318 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>eXBuilder6 가이드 및 단축키</title>
+				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해….&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;style&gt;
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: &quot;&quot;;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: &quot;&quot;;
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: &quot;&quot;;
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: &quot;&quot;;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: &quot;&quot;;
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: &quot;&quot;;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: &quot;&quot;;
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+&lt;/style&gt;
+
+&lt;div class=&quot;containercoffee&quot;&gt;
+    &lt;div class=&quot;coffee-header&quot;&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-medium&quot;&gt;
+      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/270f.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; eXBuilder6 가이드
+&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; CSS 파일 추가 관련 기능
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;c:/Users/young/YoungKyonYou.github.io/images/eXbuilder6/2022-03-12-15-40-40.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+</description>
+				<pubDate>Sat, 12 Mar 2022 13:00:00 +0900</pubDate>
+				<link>/exbuilder6/2022/03/12/eXBuilder6-01.html</link>
+				<guid isPermaLink="true">/exbuilder6/2022/03/12/eXBuilder6-01.html</guid>
+			</item>
+		
+			<item>
 				<title>IP 주소 0.0.0.0의 의미</title>
 				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -319,7 +631,7 @@
 &lt;link href=&quot;http://fonts.googleapis.com/earlyaccess/hanna.css&quot; rel=&quot;stylesheet&quot; /&gt;
 
 &lt;div style=&quot;background: #eee;
-  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;&quot;&gt;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: &apos;Hanna&apos;, sans-serif;; padding: 40px;&quot;&gt;
 
 In the context of servers, 0.0.0.0 means all IPv4 addresses on the local machine. If a host has two IP addresses, 192.168.1.1 and 10.1.2.1, and a server running on the host listens on 0.0.0.0, it will be reachable at both of those IPs&lt;/div&gt;
 
@@ -468,7 +780,7 @@ In the context of servers, 0.0.0.0 means all IPv4 addresses on the local machine
 				<title>Subnet Mask란?</title>
 				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해…&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해….&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -1276,7 +1588,7 @@ In the context of servers, 0.0.0.0 means all IPv4 addresses on the local machine
 &lt;link href=&quot;http://fonts.googleapis.com/earlyaccess/hanna.css&quot; rel=&quot;stylesheet&quot; /&gt;
 
 &lt;div style=&quot;background: #eee;
-  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;&quot;&gt;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: &apos;Hanna&apos;, sans-serif;; padding: 40px;&quot;&gt;
 
 이렇게 CIDR 값이 각 자리의 옥텟을 전체를 포함하는 /8, /16, /24, /32 일 경우는 계산하기 쉽다. 0부터 그 자리에 해당하는 255까지라고 보면되기 때문이다.&lt;/div&gt;
 
@@ -1637,45 +1949,45 @@ In the context of servers, 0.0.0.0 means all IPv4 addresses on the local machine
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; /&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt; / ___&lt;span class=&quot;s1&quot;&gt;'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '&lt;/span&gt;_ | &lt;span class=&quot;s1&quot;&gt;'_| | '&lt;/span&gt;_ &lt;span class=&quot;se&quot;&gt;\/&lt;/span&gt; _&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; | &lt;span class=&quot;se&quot;&gt;\ \ \ \&lt;/span&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; /&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt; / ___&lt;span class=&quot;s1&quot;&gt;&apos;_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | &apos;&lt;/span&gt;_ | &lt;span class=&quot;s1&quot;&gt;&apos;_| | &apos;&lt;/span&gt;_ &lt;span class=&quot;se&quot;&gt;\/&lt;/span&gt; _&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; | &lt;span class=&quot;se&quot;&gt;\ \ \ \&lt;/span&gt;
  &lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;/  ___&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;| |_&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;| | | | | &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;_| |  &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;s1&quot;&gt;'  |____| .__|_| |_|_| |_\__, | / / / /
+  &lt;span class=&quot;s1&quot;&gt;&apos;  |____| .__|_| |_|_| |_\__, | / / / /
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v2.6.2)
 
 2022-01-27 05:40:46.884  INFO 1 --- [           main] c.e.c.ConfigServiceApplication           : The following profiles are active: default
-2022-01-27 05:40:48.525  INFO 1 --- [           main] faultConfiguringBeanFactoryPostProcessor : No bean named '&lt;/span&gt;errorChannel&lt;span class=&quot;s1&quot;&gt;' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
-2022-01-27 05:40:48.564  INFO 1 --- [           main] faultConfiguringBeanFactoryPostProcessor : No bean named '&lt;/span&gt;integrationHeaderChannelRegistry&lt;span class=&quot;s1&quot;&gt;' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2022-01-27 05:40:48.525  INFO 1 --- [           main] faultConfiguringBeanFactoryPostProcessor : No bean named &apos;&lt;/span&gt;errorChannel&lt;span class=&quot;s1&quot;&gt;&apos; has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2022-01-27 05:40:48.564  INFO 1 --- [           main] faultConfiguringBeanFactoryPostProcessor : No bean named &apos;&lt;/span&gt;integrationHeaderChannelRegistry&lt;span class=&quot;s1&quot;&gt;&apos; has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
 2022-01-27 05:40:48.768  INFO 1 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=2d1905bd-ddb1-3c02-8186-79b2dca87272
-2022-01-27 05:40:48.887  INFO 1 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean '&lt;/span&gt;org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration&lt;span class=&quot;s1&quot;&gt;' of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-01-27 05:40:48.896  INFO 1 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean '&lt;/span&gt;bindersHealthContributor&lt;span class=&quot;s1&quot;&gt;' of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$BindersHealthContributor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-01-27 05:40:48.899  INFO 1 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean '&lt;/span&gt;bindersHealthIndicatorListener&lt;span class=&quot;s1&quot;&gt;' of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$BindersHealthIndicatorListener] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-01-27 05:40:48.915  INFO 1 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean '&lt;/span&gt;org.springframework.integration.config.IntegrationManagementConfiguration&lt;span class=&quot;s1&quot;&gt;' of type [org.springframework.integration.config.IntegrationManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-01-27 05:40:48.928  INFO 1 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean '&lt;/span&gt;integrationChannelResolver&lt;span class=&quot;s1&quot;&gt;' of type [org.springframework.integration.support.channel.BeanFactoryChannelResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-01-27 05:40:48.887  INFO 1 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean &apos;&lt;/span&gt;org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration&lt;span class=&quot;s1&quot;&gt;&apos; of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-01-27 05:40:48.896  INFO 1 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean &apos;&lt;/span&gt;bindersHealthContributor&lt;span class=&quot;s1&quot;&gt;&apos; of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$BindersHealthContributor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-01-27 05:40:48.899  INFO 1 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean &apos;&lt;/span&gt;bindersHealthIndicatorListener&lt;span class=&quot;s1&quot;&gt;&apos; of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$BindersHealthIndicatorListener] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-01-27 05:40:48.915  INFO 1 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean &apos;&lt;/span&gt;org.springframework.integration.config.IntegrationManagementConfiguration&lt;span class=&quot;s1&quot;&gt;&apos; of type [org.springframework.integration.config.IntegrationManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-01-27 05:40:48.928  INFO 1 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean &apos;&lt;/span&gt;integrationChannelResolver&lt;span class=&quot;s1&quot;&gt;&apos; of type [org.springframework.integration.support.channel.BeanFactoryChannelResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
 2022-01-27 05:40:49.360  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8889 (http)
 2022-01-27 05:40:49.391  INFO 1 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2022-01-27 05:40:49.391  INFO 1 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
 2022-01-27 05:40:49.479  INFO 1 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
 2022-01-27 05:40:49.479  INFO 1 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2551 ms
-2022-01-27 05:40:51.740  INFO 1 --- [           main] o.s.c.s.m.DirectWithAttributesChannel    : Channel '&lt;/span&gt;application-1.springCloudBusInput&lt;span class=&quot;s1&quot;&gt;' has 1 subscriber(s).
-2022-01-27 05:40:52.579  INFO 1 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '&lt;/span&gt;/actuator&lt;span class=&quot;s1&quot;&gt;'
-2022-01-27 05:40:52.753  INFO 1 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the '&lt;/span&gt;errorChannel&lt;span class=&quot;s1&quot;&gt;' channel
-2022-01-27 05:40:52.753  INFO 1 --- [           main] o.s.i.channel.PublishSubscribeChannel    : Channel '&lt;/span&gt;application-1.errorChannel&lt;span class=&quot;s1&quot;&gt;' has 1 subscriber(s).
-2022-01-27 05:40:52.755  INFO 1 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : started bean '&lt;/span&gt;_org.springframework.integration.errorLogger&lt;span class=&quot;s1&quot;&gt;'
+2022-01-27 05:40:51.740  INFO 1 --- [           main] o.s.c.s.m.DirectWithAttributesChannel    : Channel &apos;&lt;/span&gt;application-1.springCloudBusInput&lt;span class=&quot;s1&quot;&gt;&apos; has 1 subscriber(s).
+2022-01-27 05:40:52.579  INFO 1 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path &apos;&lt;/span&gt;/actuator&lt;span class=&quot;s1&quot;&gt;&apos;
+2022-01-27 05:40:52.753  INFO 1 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the &apos;&lt;/span&gt;errorChannel&lt;span class=&quot;s1&quot;&gt;&apos; channel
+2022-01-27 05:40:52.753  INFO 1 --- [           main] o.s.i.channel.PublishSubscribeChannel    : Channel &apos;&lt;/span&gt;application-1.errorChannel&lt;span class=&quot;s1&quot;&gt;&apos; has 1 subscriber(s).
+2022-01-27 05:40:52.755  INFO 1 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : started bean &apos;&lt;/span&gt;_org.springframework.integration.errorLogger&lt;span class=&quot;s1&quot;&gt;&apos;
 2022-01-27 05:40:52.757  INFO 1 --- [           main] o.s.c.s.binder.DefaultBinderFactory      : Creating binder: rabbit
 2022-01-27 05:40:52.941  INFO 1 --- [           main] o.s.c.s.binder.DefaultBinderFactory      : Caching the binder: rabbit
 2022-01-27 05:40:52.942  INFO 1 --- [           main] o.s.c.s.binder.DefaultBinderFactory      : Retrieving cached binder: rabbit
 2022-01-27 05:40:53.035  INFO 1 --- [           main] c.s.b.r.p.RabbitExchangeQueueProvisioner : declaring queue for inbound: springCloudBus.anonymous.dVyf_-Z1QfO2gWPEnaJ2Bg, bound to: springCloudBus
 2022-01-27 05:40:53.043  INFO 1 --- [           main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [rabbitmq:5672]
 2022-01-27 05:40:53.167  INFO 1 --- [           main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#125c082e:0/SimpleConnection@43034809 [delegate=amqp://guest@172.18.0.2:5672/, localPort= 45018]
-2022-01-27 05:40:53.267  INFO 1 --- [           main] o.s.c.stream.binder.BinderErrorChannel   : Channel '&lt;/span&gt;springCloudBus.anonymous.dVyf_-Z1QfO2gWPEnaJ2Bg.errors&lt;span class=&quot;s1&quot;&gt;' has 1 subscriber(s).
-2022-01-27 05:40:53.269  INFO 1 --- [           main] o.s.c.stream.binder.BinderErrorChannel   : Channel '&lt;/span&gt;springCloudBus.anonymous.dVyf_-Z1QfO2gWPEnaJ2Bg.errors&lt;span class=&quot;s1&quot;&gt;' has 2 subscriber(s).
-2022-01-27 05:40:53.298  INFO 1 --- [           main] o.s.i.a.i.AmqpInboundChannelAdapter      : started bean '&lt;/span&gt;inbound.springCloudBus.anonymous.dVyf_-Z1QfO2gWPEnaJ2Bg&lt;span class=&quot;s1&quot;&gt;'
-2022-01-27 05:40:53.321  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path ''
+2022-01-27 05:40:53.267  INFO 1 --- [           main] o.s.c.stream.binder.BinderErrorChannel   : Channel &apos;&lt;/span&gt;springCloudBus.anonymous.dVyf_-Z1QfO2gWPEnaJ2Bg.errors&lt;span class=&quot;s1&quot;&gt;&apos; has 1 subscriber(s).
+2022-01-27 05:40:53.269  INFO 1 --- [           main] o.s.c.stream.binder.BinderErrorChannel   : Channel &apos;&lt;/span&gt;springCloudBus.anonymous.dVyf_-Z1QfO2gWPEnaJ2Bg.errors&lt;span class=&quot;s1&quot;&gt;&apos; has 2 subscriber(s).
+2022-01-27 05:40:53.298  INFO 1 --- [           main] o.s.i.a.i.AmqpInboundChannelAdapter      : started bean &apos;&lt;/span&gt;inbound.springCloudBus.anonymous.dVyf_-Z1QfO2gWPEnaJ2Bg&lt;span class=&quot;s1&quot;&gt;&apos;
+2022-01-27 05:40:53.321  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path &apos;&apos;
 2022-01-27 05:40:53.369  INFO 1 --- [           main] c.e.c.ConfigServiceApplication           : Started ConfigServiceApplication in 7.994 seconds (JVM running for 8.791)
-2022-01-27 05:41:01.962  INFO 1 --- [nio-8889-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet '&lt;/span&gt;dispatcherServlet&lt;span class=&quot;s1&quot;&gt;'
-2022-01-27 05:41:01.963  INFO 1 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet '&lt;/span&gt;dispatcherServlet&lt;span class=&quot;s1&quot;&gt;'
+2022-01-27 05:41:01.962  INFO 1 --- [nio-8889-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet &apos;&lt;/span&gt;dispatcherServlet&lt;span class=&quot;s1&quot;&gt;&apos;
+2022-01-27 05:41:01.963  INFO 1 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet &apos;&lt;/span&gt;dispatcherServlet&lt;span class=&quot;s1&quot;&gt;&apos;
 2022-01-27 05:41:01.967  INFO 1 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
 2022-01-27 05:41:05.532  WARN 1 --- [nio-8889-exec-1] .c.s.e.MultipleJGitEnvironmentRepository : Error occured cloning to base directory.
 
@@ -1948,50 +2260,50 @@ org.springframework.cloud.config.server.environment.NoSuchRepositoryException: C
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;youngyou@DESKTOP-KCDHFKO:~/configuration-service-docker&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; config-service-1.0.jar
 
   &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;   ____          _            __ _ _
- /&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt; / ___&lt;span class=&quot;s1&quot;&gt;'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '&lt;/span&gt;_ | &lt;span class=&quot;s1&quot;&gt;'_| | '&lt;/span&gt;_ &lt;span class=&quot;se&quot;&gt;\/&lt;/span&gt; _&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; | &lt;span class=&quot;se&quot;&gt;\ \ \ \&lt;/span&gt;
+ /&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt; / ___&lt;span class=&quot;s1&quot;&gt;&apos;_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | &apos;&lt;/span&gt;_ | &lt;span class=&quot;s1&quot;&gt;&apos;_| | &apos;&lt;/span&gt;_ &lt;span class=&quot;se&quot;&gt;\/&lt;/span&gt; _&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; | &lt;span class=&quot;se&quot;&gt;\ \ \ \&lt;/span&gt;
  &lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;/  ___&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;| |_&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;| | | | | &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;_| |  &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;s1&quot;&gt;'  |____| .__|_| |_|_| |_\__, | / / / /
+  &lt;span class=&quot;s1&quot;&gt;&apos;  |____| .__|_| |_|_| |_\__, | / / / /
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v2.6.2)
 
 2022-01-28 17:20:52.574  INFO 8835 --- [           main] c.e.c.ConfigServiceApplication           : The following profiles are active: dev
-2022-01-28 17:20:54.410  INFO 8835 --- [           main] faultConfiguringBeanFactoryPostProcessor : No bean named '&lt;/span&gt;errorChannel&lt;span class=&quot;s1&quot;&gt;' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
-2022-01-28 17:20:54.455  INFO 8835 --- [           main] faultConfiguringBeanFactoryPostProcessor : No bean named '&lt;/span&gt;integrationHeaderChannelRegistry&lt;span class=&quot;s1&quot;&gt;' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2022-01-28 17:20:54.410  INFO 8835 --- [           main] faultConfiguringBeanFactoryPostProcessor : No bean named &apos;&lt;/span&gt;errorChannel&lt;span class=&quot;s1&quot;&gt;&apos; has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2022-01-28 17:20:54.455  INFO 8835 --- [           main] faultConfiguringBeanFactoryPostProcessor : No bean named &apos;&lt;/span&gt;integrationHeaderChannelRegistry&lt;span class=&quot;s1&quot;&gt;&apos; has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
 2022-01-28 17:20:54.648  INFO 8835 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=2d1905bd-ddb1-3c02-8186-79b2dca87272
-2022-01-28 17:20:54.791  INFO 8835 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean '&lt;/span&gt;org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration&lt;span class=&quot;s1&quot;&gt;' of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-01-28 17:20:54.806  INFO 8835 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean '&lt;/span&gt;bindersHealthContributor&lt;span class=&quot;s1&quot;&gt;' of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$BindersHealthContributor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-01-28 17:20:54.810  INFO 8835 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean '&lt;/span&gt;bindersHealthIndicatorListener&lt;span class=&quot;s1&quot;&gt;' of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$BindersHealthIndicatorListener] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-01-28 17:20:54.836  INFO 8835 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean '&lt;/span&gt;org.springframework.integration.config.IntegrationManagementConfiguration&lt;span class=&quot;s1&quot;&gt;' of type [org.springframework.integration.config.IntegrationManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-01-28 17:20:54.853  INFO 8835 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean '&lt;/span&gt;integrationChannelResolver&lt;span class=&quot;s1&quot;&gt;' of type [org.springframework.integration.support.channel.BeanFactoryChannelResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-01-28 17:20:54.791  INFO 8835 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean &apos;&lt;/span&gt;org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration&lt;span class=&quot;s1&quot;&gt;&apos; of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-01-28 17:20:54.806  INFO 8835 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean &apos;&lt;/span&gt;bindersHealthContributor&lt;span class=&quot;s1&quot;&gt;&apos; of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$BindersHealthContributor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-01-28 17:20:54.810  INFO 8835 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean &apos;&lt;/span&gt;bindersHealthIndicatorListener&lt;span class=&quot;s1&quot;&gt;&apos; of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$BindersHealthIndicatorListener] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-01-28 17:20:54.836  INFO 8835 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean &apos;&lt;/span&gt;org.springframework.integration.config.IntegrationManagementConfiguration&lt;span class=&quot;s1&quot;&gt;&apos; of type [org.springframework.integration.config.IntegrationManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-01-28 17:20:54.853  INFO 8835 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean &apos;&lt;/span&gt;integrationChannelResolver&lt;span class=&quot;s1&quot;&gt;&apos; of type [org.springframework.integration.support.channel.BeanFactoryChannelResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
 2022-01-28 17:20:55.435  INFO 8835 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8889 (http)
 2022-01-28 17:20:55.457  INFO 8835 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2022-01-28 17:20:55.458  INFO 8835 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
 2022-01-28 17:20:55.575  INFO 8835 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
 2022-01-28 17:20:55.575  INFO 8835 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2971 ms
-2022-01-28 17:20:58.216  INFO 8835 --- [           main] o.s.c.s.m.DirectWithAttributesChannel    : Channel '&lt;/span&gt;application-1.springCloudBusInput&lt;span class=&quot;s1&quot;&gt;' has 1 subscriber(s).
+2022-01-28 17:20:58.216  INFO 8835 --- [           main] o.s.c.s.m.DirectWithAttributesChannel    : Channel &apos;&lt;/span&gt;application-1.springCloudBusInput&lt;span class=&quot;s1&quot;&gt;&apos; has 1 subscriber(s).
 2022-01-28 17:20:59.499  INFO 8835 --- [           main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2022-01-28 17:21:00.095  INFO 8835 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '&lt;/span&gt;/actuator&lt;span class=&quot;s1&quot;&gt;'
-2022-01-28 17:21:00.283  INFO 8835 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the '&lt;/span&gt;errorChannel&lt;span class=&quot;s1&quot;&gt;' channel
-2022-01-28 17:21:00.284  INFO 8835 --- [           main] o.s.i.channel.PublishSubscribeChannel    : Channel '&lt;/span&gt;application-1.errorChannel&lt;span class=&quot;s1&quot;&gt;' has 1 subscriber(s).
-2022-01-28 17:21:00.289  INFO 8835 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : started bean '&lt;/span&gt;_org.springframework.integration.errorLogger&lt;span class=&quot;s1&quot;&gt;'
+2022-01-28 17:21:00.095  INFO 8835 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path &apos;&lt;/span&gt;/actuator&lt;span class=&quot;s1&quot;&gt;&apos;
+2022-01-28 17:21:00.283  INFO 8835 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the &apos;&lt;/span&gt;errorChannel&lt;span class=&quot;s1&quot;&gt;&apos; channel
+2022-01-28 17:21:00.284  INFO 8835 --- [           main] o.s.i.channel.PublishSubscribeChannel    : Channel &apos;&lt;/span&gt;application-1.errorChannel&lt;span class=&quot;s1&quot;&gt;&apos; has 1 subscriber(s).
+2022-01-28 17:21:00.289  INFO 8835 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : started bean &apos;&lt;/span&gt;_org.springframework.integration.errorLogger&lt;span class=&quot;s1&quot;&gt;&apos;
 2022-01-28 17:21:00.295  INFO 8835 --- [           main] o.s.c.s.binder.DefaultBinderFactory      : Creating binder: rabbit
 2022-01-28 17:21:00.481  INFO 8835 --- [           main] o.s.c.s.binder.DefaultBinderFactory      : Caching the binder: rabbit
 2022-01-28 17:21:00.481  INFO 8835 --- [           main] o.s.c.s.binder.DefaultBinderFactory      : Retrieving cached binder: rabbit
 2022-01-28 17:21:00.584  INFO 8835 --- [           main] c.s.b.r.p.RabbitExchangeQueueProvisioner : declaring queue for inbound: springCloudBus.anonymous.z1QYk6O7QyOl8Wtxk65Hxw, bound to: springCloudBus
 2022-01-28 17:21:00.592  INFO 8835 --- [           main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [127.0.0.1:5672]
 2022-01-28 17:21:00.747  INFO 8835 --- [           main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#13cda7c9:0/SimpleConnection@4bb003e9 [delegate=amqp://guest@127.0.0.1:5672/, localPort= 56002]
-2022-01-28 17:21:00.920  INFO 8835 --- [           main] o.s.c.stream.binder.BinderErrorChannel   : Channel '&lt;/span&gt;springCloudBus.anonymous.z1QYk6O7QyOl8Wtxk65Hxw.errors&lt;span class=&quot;s1&quot;&gt;' has 1 subscriber(s).
-2022-01-28 17:21:00.922  INFO 8835 --- [           main] o.s.c.stream.binder.BinderErrorChannel   : Channel '&lt;/span&gt;springCloudBus.anonymous.z1QYk6O7QyOl8Wtxk65Hxw.errors&lt;span class=&quot;s1&quot;&gt;' has 2 subscriber(s).
-2022-01-28 17:21:00.958  INFO 8835 --- [           main] o.s.i.a.i.AmqpInboundChannelAdapter      : started bean '&lt;/span&gt;inbound.springCloudBus.anonymous.z1QYk6O7QyOl8Wtxk65Hxw&lt;span class=&quot;s1&quot;&gt;'
-2022-01-28 17:21:00.987  INFO 8835 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path ''
+2022-01-28 17:21:00.920  INFO 8835 --- [           main] o.s.c.stream.binder.BinderErrorChannel   : Channel &apos;&lt;/span&gt;springCloudBus.anonymous.z1QYk6O7QyOl8Wtxk65Hxw.errors&lt;span class=&quot;s1&quot;&gt;&apos; has 1 subscriber(s).
+2022-01-28 17:21:00.922  INFO 8835 --- [           main] o.s.c.stream.binder.BinderErrorChannel   : Channel &apos;&lt;/span&gt;springCloudBus.anonymous.z1QYk6O7QyOl8Wtxk65Hxw.errors&lt;span class=&quot;s1&quot;&gt;&apos; has 2 subscriber(s).
+2022-01-28 17:21:00.958  INFO 8835 --- [           main] o.s.i.a.i.AmqpInboundChannelAdapter      : started bean &apos;&lt;/span&gt;inbound.springCloudBus.anonymous.z1QYk6O7QyOl8Wtxk65Hxw&lt;span class=&quot;s1&quot;&gt;&apos;
+2022-01-28 17:21:00.987  INFO 8835 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path &apos;&apos;
 2022-01-28 17:21:01.990  INFO 8835 --- [           main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
 2022-01-28 17:21:02.037  INFO 8835 --- [           main] c.e.c.ConfigServiceApplication           : Started ConfigServiceApplication in 13.415 seconds (JVM running for 14.725)
-2022-01-28 17:21:40.099  INFO 8835 --- [nio-8889-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet '&lt;/span&gt;dispatcherServlet&lt;span class=&quot;s1&quot;&gt;'
-2022-01-28 17:21:40.101  INFO 8835 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet '&lt;/span&gt;dispatcherServlet&lt;span class=&quot;s1&quot;&gt;'
+2022-01-28 17:21:40.099  INFO 8835 --- [nio-8889-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet &apos;&lt;/span&gt;dispatcherServlet&lt;span class=&quot;s1&quot;&gt;&apos;
+2022-01-28 17:21:40.101  INFO 8835 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet &apos;&lt;/span&gt;dispatcherServlet&lt;span class=&quot;s1&quot;&gt;&apos;
 2022-01-28 17:21:40.103  INFO 8835 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2022-01-28 17:21:42.635  INFO 8835 --- [nio-8889-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource '&lt;/span&gt;file &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;/tmp/config-repo-14397014959275925187/ecommerce.yml]&lt;span class=&quot;s1&quot;&gt;' via location '&lt;/span&gt;file:/tmp/config-repo-14397014959275925187/&lt;span class=&quot;s1&quot;&gt;'
-2022-01-28 17:21:42.635  INFO 8835 --- [nio-8889-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource '&lt;/span&gt;file &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;/tmp/config-repo-14397014959275925187/application.yml]&lt;span class=&quot;s1&quot;&gt;' via location '&lt;/span&gt;file:/tmp/config-repo-14397014959275925187/&lt;span class=&quot;s1&quot;&gt;'
+2022-01-28 17:21:42.635  INFO 8835 --- [nio-8889-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource &apos;&lt;/span&gt;file &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;/tmp/config-repo-14397014959275925187/ecommerce.yml]&lt;span class=&quot;s1&quot;&gt;&apos; via location &apos;&lt;/span&gt;file:/tmp/config-repo-14397014959275925187/&lt;span class=&quot;s1&quot;&gt;&apos;
+2022-01-28 17:21:42.635  INFO 8835 --- [nio-8889-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource &apos;&lt;/span&gt;file &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;/tmp/config-repo-14397014959275925187/application.yml]&lt;span class=&quot;s1&quot;&gt;&apos; via location &apos;&lt;/span&gt;file:/tmp/config-repo-14397014959275925187/&lt;span class=&quot;s1&quot;&gt;&apos;
 2022-01-28 17:21:42.641  WARN 8835 --- [nio-8889-exec-1] o.s.c.c.s.e.CipherEnvironmentEncryptor   : Cannot decrypt key: token.secret (class java.lang.IllegalStateException: Cannot load keys from store: URL [file:/Users/nick1/Spring_MSA_Study/keystore/apiEncryptionKey.jks]) 
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -2001,8 +2313,8 @@ org.springframework.cloud.config.server.environment.NoSuchRepositoryException: C
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;...&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-2022-01-28 17:21:42.635  INFO 8835 &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;nio-8889-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;: Config resource &lt;span class=&quot;s1&quot;&gt;'file [/tmp/config-repo-14397014959275925187/ecommerce.yml]'&lt;/span&gt; via location &lt;span class=&quot;s1&quot;&gt;'file:/tmp/config-repo-14397014959275925187/'&lt;/span&gt;
-2022-01-28 17:21:42.635  INFO 8835 &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;nio-8889-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;: Config resource &lt;span class=&quot;s1&quot;&gt;'file [/tmp/config-repo-14397014959275925187/application.yml]'&lt;/span&gt; via location &lt;span class=&quot;s1&quot;&gt;'file:/tmp/config-repo-14397014959275925187/'&lt;/span&gt;
+2022-01-28 17:21:42.635  INFO 8835 &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;nio-8889-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;: Config resource &lt;span class=&quot;s1&quot;&gt;&apos;file [/tmp/config-repo-14397014959275925187/ecommerce.yml]&apos;&lt;/span&gt; via location &lt;span class=&quot;s1&quot;&gt;&apos;file:/tmp/config-repo-14397014959275925187/&apos;&lt;/span&gt;
+2022-01-28 17:21:42.635  INFO 8835 &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;nio-8889-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;: Config resource &lt;span class=&quot;s1&quot;&gt;&apos;file [/tmp/config-repo-14397014959275925187/application.yml]&apos;&lt;/span&gt; via location &lt;span class=&quot;s1&quot;&gt;&apos;file:/tmp/config-repo-14397014959275925187/&apos;&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;...&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -2102,7 +2414,7 @@ options edns0
 &lt;span class=&quot;c&quot;&gt;# If you need Docker to use an HTTP proxy, it can also be specified here.&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;#export http_proxy=&quot;http://127.0.0.1:3128/&quot;&lt;/span&gt;
 
-&lt;span class=&quot;c&quot;&gt;# This is also a handy place to tweak where Docker's temporary files go.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# This is also a handy place to tweak where Docker&apos;s temporary files go.&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;#export DOCKER_TMPDIR=&quot;/mnt/bigdrive/docker-tmp&quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -3080,7 +3392,7 @@ options edns0
 &lt;link href=&quot;http://fonts.googleapis.com/earlyaccess/hanna.css&quot; rel=&quot;stylesheet&quot; /&gt;
 
 &lt;div style=&quot;background: #eee;
-  box-shadow: 0 8px 8px -4px lightblue; font-family: 'Hanna', sans-serif;; padding: 40px;&quot;&gt;
+  box-shadow: 0 8px 8px -4px lightblue; font-family: &apos;Hanna&apos;, sans-serif;; padding: 40px;&quot;&gt;
 
 영속적인 커넥션을 지원하지 않는 매우 낡은 시스템을 다루는 것이 아니라면 이 모델을 사용하려고 애쓸 필요가 없다&lt;/div&gt;
 
@@ -3551,7 +3863,7 @@ options edns0
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql ERROR 1698 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;28000&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: Access denied &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;user &lt;span class=&quot;s1&quot;&gt;'root'&lt;/span&gt;@&lt;span class=&quot;s1&quot;&gt;'localhost'&lt;/span&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql ERROR 1698 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;28000&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: Access denied &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;user &lt;span class=&quot;s1&quot;&gt;&apos;root&apos;&lt;/span&gt;@&lt;span class=&quot;s1&quot;&gt;&apos;localhost&apos;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -3591,7 +3903,7 @@ mysql&amp;gt; SELECT User, Host, plugin FROM mysql.user&lt;span class=&quot;p&qu
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql&amp;gt; update user &lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;plugin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'mysql_native_password'&lt;/span&gt; where &lt;span class=&quot;nv&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'root'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql&amp;gt; update user &lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;plugin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;mysql_native_password&apos;&lt;/span&gt; where &lt;span class=&quot;nv&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;root&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
 mysql&amp;gt; flush privileges&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
@@ -3931,7 +4243,7 @@ Bye
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;s2&quot;&gt;&quot;error_code&quot;&lt;/span&gt;: 500,
-    &lt;span class=&quot;s2&quot;&gt;&quot;message&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Failed to find any class that implements Connector and which name matches io.confluent.connect.jdbc.JdbcSourceConnector, available connectors are: PluginDesc{klass=class org.apache.kafka.connect.file.FileStreamSinkConnector, name='org.apache.kafka.connect.file.FileStreamSinkConnector', version='6.1.0-ccs', encodedVersion=6.1.0-ccs, type=sink, typeName='sink', location='classpath'}, PluginDesc{klass=class org.apache.kafka.connect.file.FileStreamSourceConnector, name='org.apache.kafka.connect.file.FileStreamSourceConnector', version='6.1.0-ccs', encodedVersion=6.1.0-ccs, type=source, typeName='source', location='classpath'}, PluginDesc{klass=class org.apache.kafka.connect.mirror.MirrorCheckpointConnector, name='org.apache.kafka.connect.mirror.MirrorCheckpointConnector', version='1', encodedVersion=1, type=source, typeName='source', location='classpath'}, PluginDesc{klass=class org.apache.kafka.connect.mirror.MirrorHeartbeatConnector, name='org.apache.kafka.connect.mirror.MirrorHeartbeatConnector', version='1', encodedVersion=1, type=source, typeName='source', location='classpath'}, PluginDesc{klass=class org.apache.kafka.connect.mirror.MirrorSourceConnector, name='org.apache.kafka.connect.mirror.MirrorSourceConnector', version='1', encodedVersion=1, type=source, typeName='source', location='classpath'}, PluginDesc{klass=class org.apache.kafka.connect.tools.MockConnector, name='org.apache.kafka.connect.tools.MockConnector', version='6.1.0-ccs', encodedVersion=6.1.0-ccs, type=connector, typeName='connector', location='classpath'}, PluginDesc{klass=class org.apache.kafka.connect.tools.MockSinkConnector, name='org.apache.kafka.connect.tools.MockSinkConnector', version='6.1.0-ccs', encodedVersion=6.1.0-ccs, type=sink, typeName='sink', location='classpath'}, PluginDesc{klass=class org.apache.kafka.connect.tools.MockSourceConnector, name='org.apache.kafka.connect.tools.MockSourceConnector', version='6.1.0-ccs', encodedVersion=6.1.0-ccs, type=source, typeName='source', location='classpath'}, PluginDesc{klass=class org.apache.kafka.connect.tools.SchemaSourceConnector, name='org.apache.kafka.connect.tools.SchemaSourceConnector', version='6.1.0-ccs', encodedVersion=6.1.0-ccs, type=source, typeName='source', location='classpath'}, PluginDesc{klass=class org.apache.kafka.connect.tools.VerifiableSinkConnector, name='org.apache.kafka.connect.tools.VerifiableSinkConnector', version='6.1.0-ccs', encodedVersion=6.1.0-ccs, type=source, typeName='source', location='classpath'}, PluginDesc{klass=class org.apache.kafka.connect.tools.VerifiableSourceConnector, name='org.apache.kafka.connect.tools.VerifiableSourceConnector', version='6.1.0-ccs', encodedVersion=6.1.0-ccs, type=source, typeName='source', location='classpath'}&quot;&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;message&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Failed to find any class that implements Connector and which name matches io.confluent.connect.jdbc.JdbcSourceConnector, available connectors are: PluginDesc{klass=class org.apache.kafka.connect.file.FileStreamSinkConnector, name=&apos;org.apache.kafka.connect.file.FileStreamSinkConnector&apos;, version=&apos;6.1.0-ccs&apos;, encodedVersion=6.1.0-ccs, type=sink, typeName=&apos;sink&apos;, location=&apos;classpath&apos;}, PluginDesc{klass=class org.apache.kafka.connect.file.FileStreamSourceConnector, name=&apos;org.apache.kafka.connect.file.FileStreamSourceConnector&apos;, version=&apos;6.1.0-ccs&apos;, encodedVersion=6.1.0-ccs, type=source, typeName=&apos;source&apos;, location=&apos;classpath&apos;}, PluginDesc{klass=class org.apache.kafka.connect.mirror.MirrorCheckpointConnector, name=&apos;org.apache.kafka.connect.mirror.MirrorCheckpointConnector&apos;, version=&apos;1&apos;, encodedVersion=1, type=source, typeName=&apos;source&apos;, location=&apos;classpath&apos;}, PluginDesc{klass=class org.apache.kafka.connect.mirror.MirrorHeartbeatConnector, name=&apos;org.apache.kafka.connect.mirror.MirrorHeartbeatConnector&apos;, version=&apos;1&apos;, encodedVersion=1, type=source, typeName=&apos;source&apos;, location=&apos;classpath&apos;}, PluginDesc{klass=class org.apache.kafka.connect.mirror.MirrorSourceConnector, name=&apos;org.apache.kafka.connect.mirror.MirrorSourceConnector&apos;, version=&apos;1&apos;, encodedVersion=1, type=source, typeName=&apos;source&apos;, location=&apos;classpath&apos;}, PluginDesc{klass=class org.apache.kafka.connect.tools.MockConnector, name=&apos;org.apache.kafka.connect.tools.MockConnector&apos;, version=&apos;6.1.0-ccs&apos;, encodedVersion=6.1.0-ccs, type=connector, typeName=&apos;connector&apos;, location=&apos;classpath&apos;}, PluginDesc{klass=class org.apache.kafka.connect.tools.MockSinkConnector, name=&apos;org.apache.kafka.connect.tools.MockSinkConnector&apos;, version=&apos;6.1.0-ccs&apos;, encodedVersion=6.1.0-ccs, type=sink, typeName=&apos;sink&apos;, location=&apos;classpath&apos;}, PluginDesc{klass=class org.apache.kafka.connect.tools.MockSourceConnector, name=&apos;org.apache.kafka.connect.tools.MockSourceConnector&apos;, version=&apos;6.1.0-ccs&apos;, encodedVersion=6.1.0-ccs, type=source, typeName=&apos;source&apos;, location=&apos;classpath&apos;}, PluginDesc{klass=class org.apache.kafka.connect.tools.SchemaSourceConnector, name=&apos;org.apache.kafka.connect.tools.SchemaSourceConnector&apos;, version=&apos;6.1.0-ccs&apos;, encodedVersion=6.1.0-ccs, type=source, typeName=&apos;source&apos;, location=&apos;classpath&apos;}, PluginDesc{klass=class org.apache.kafka.connect.tools.VerifiableSinkConnector, name=&apos;org.apache.kafka.connect.tools.VerifiableSinkConnector&apos;, version=&apos;6.1.0-ccs&apos;, encodedVersion=6.1.0-ccs, type=source, typeName=&apos;source&apos;, location=&apos;classpath&apos;}, PluginDesc{klass=class org.apache.kafka.connect.tools.VerifiableSourceConnector, name=&apos;org.apache.kafka.connect.tools.VerifiableSourceConnector&apos;, version=&apos;6.1.0-ccs&apos;, encodedVersion=6.1.0-ccs, type=source, typeName=&apos;source&apos;, location=&apos;classpath&apos;}&quot;&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -4378,409 +4690,6 @@ Bye
 				<pubDate>Thu, 13 Jan 2022 14:20:00 +0900</pubDate>
 				<link>/kafka/2022/01/13/Kafka-post1.html</link>
 				<guid isPermaLink="true">/kafka/2022/01/13/Kafka-post1.html</guid>
-			</item>
-		
-			<item>
-				<title>CGI는 무엇인가?</title>
-				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해…&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;style&gt;
-.containercoffee {
-  width: 300px;
-  height: 280px;
-  position: relative;
-  top: calc(50% - 140px);
-  left: calc(50% - 150px);
-}
-.coffee-header {
-  width: 100%;
-  height: 80px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #ddcfcc;
-  border-radius: 10px;
-}
-.coffee-header__buttons {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  top: 25px;
-  background-color: #282323;
-  border-radius: 50%;
-}
-.coffee-header__buttons::after {
-  content: &quot;&quot;;
-  width: 8px;
-  height: 8px;
-  position: absolute;
-  bottom: -8px;
-  left: calc(50% - 4px);
-  background-color: #615e5e;
-}
-.coffee-header__button-one {
-  left: 15px;
-}
-.coffee-header__button-two {
-  left: 50px;
-}
-.coffee-header__display {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: calc(50% - 25px);
-  left: calc(50% - 25px);
-  border-radius: 50%;
-  background-color: #9acfc5;
-  border: 5px solid #43beae;
-  box-sizing: border-box;
-}
-.coffee-header__details {
-  width: 8px;
-  height: 20px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #9b9091;
-  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
-}
-.coffee-medium {
-  width: 90%;
-  height: 160px;
-  position: absolute;
-  top: 80px;
-  left: calc(50% - 45%);
-  background-color: #bcb0af;
-}
-.coffee-medium:before {
-  content: &quot;&quot;;
-  width: 90%;
-  height: 100px;
-  background-color: #776f6e;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 45%);
-  border-radius: 20px 20px 0 0;
-}
-.coffe-medium__exit {
-  width: 60px;
-  height: 20px;
-  position: absolute;
-  top: 0;
-  left: calc(50% - 30px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::before {
-  content: &quot;&quot;;
-  width: 50px;
-  height: 20px;
-  border-radius: 0 0 50% 50%;
-  position: absolute;
-  bottom: -20px;
-  left: calc(50% - 25px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::after {
-  content: &quot;&quot;;
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  bottom: -30px;
-  left: calc(50% - 5px);
-  background-color: #231f20;
-}
-.coffee-medium__arm {
-  width: 70px;
-  height: 20px;
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  background-color: #231f20;
-}
-.coffee-medium__arm::before {
-  content: &quot;&quot;;
-  width: 15px;
-  height: 5px;
-  position: absolute;
-  top: 7px;
-  left: -15px;
-  background-color: #9e9495;
-}
-.coffee-medium__cup {
-  width: 80px;
-  height: 47px;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 40px);
-  background-color: #FFF;
-  border-radius: 0 0 70px 70px / 0 0 110px 110px;
-}
-.coffee-medium__cup::after {
-  content: &quot;&quot;;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 6px;
-  right: -13px;
-  border: 5px solid #FFF;
-  border-radius: 50%;
-}
-@keyframes liquid {
-  0% {
-    height: 0px;  
-    opacity: 1;
-  }
-  5% {
-    height: 0px;  
-    opacity: 1;
-  }
-  20% {
-    height: 62px;  
-    opacity: 1;
-  }
-  95% {
-    height: 62px;
-    opacity: 1;
-  }
-  100% {
-    height: 62px;
-    opacity: 0;
-  }
-}
-.coffee-medium__liquid {
-  width: 6px;
-  height: 63px;
-  opacity: 0;
-  position: absolute;
-  top: 50px;
-  left: calc(50% - 3px);
-  background-color: #74372b;
-  animation: liquid 4s 4s linear infinite;
-}
-.coffee-medium__smoke {
-  width: 8px;
-  height: 20px;
-  position: absolute;  
-  border-radius: 5px;
-  background-color: #b3aeae;
-}
-@keyframes smokeOne {
-  0% {
-    bottom: 20px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 50px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-@keyframes smokeTwo {
-  0% {
-    bottom: 40px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 70px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-.coffee-medium__smoke-one {
-  opacity: 0;
-  bottom: 50px;
-  left: 102px;
-  animation: smokeOne 3s 4s linear infinite;
-}
-.coffee-medium__smoke-two {
-  opacity: 0;
-  bottom: 70px;
-  left: 118px;
-  animation: smokeTwo 3s 5s linear infinite;
-}
-.coffee-medium__smoke-three {
-  opacity: 0;
-  bottom: 65px;
-  right: 118px;
-  animation: smokeTwo 3s 6s linear infinite;
-}
-.coffee-medium__smoke-for {
-  opacity: 0;
-  bottom: 50px;
-  right: 102px;
-  animation: smokeOne 3s 5s linear infinite;
-}
-.coffee-footer {
-  width: 95%;
-  height: 15px;
-  position: absolute;
-  bottom: 25px;
-  left: calc(50% - 47.5%);
-  background-color: #41bdad;
-  border-radius: 10px;
-}
-.coffee-footer::after {
-  content: &quot;&quot;;
-  width: 106%;
-  height: 26px;
-  position: absolute;
-  bottom: -25px;
-  left: -8px;
-  background-color: #000;
-}
-&lt;/style&gt;
-
-&lt;div class=&quot;containercoffee&quot;&gt;
-    &lt;div class=&quot;coffee-header&quot;&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-medium&quot;&gt;
-      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; CGI
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-13-16-49-13.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;초창기 웹사이트는 웹브라우저와 웹서버만으로도 충분했다. 그 당시 웹서버는 정적인 데이터와 이미지 파일만 처리했기 때문에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;PHP, Python&lt;/span&gt; 등등이 필요 없었다.&lt;/p&gt;
-
-&lt;p&gt;하지만 인터넷 서비스가 점점 더 거대해지고 많은 역할들을 수행하기 시작되어 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;정적인 데이터&lt;/span&gt;로 서비스를 하는 것만으로는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;한계&lt;/span&gt;를 부딪치게 되었습니다.&lt;/p&gt;
-
-&lt;p&gt;요즘 웹사이트를 본다면 HTML 문서로만 되어 있는 서버는 사이트를 운영할 수 없다. HTML 파일 관리, 데이터 고속처리, 사용자가 입력한 데이터 저장 등등 이러한 정적인 HTML 파일을 처리하는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;웹서버&lt;/span&gt;만으로는 불가능하였고 그래서 등장하게 된 것이 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;CGI&lt;/span&gt;이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-13-16-51-03.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;CGI&lt;/span&gt;는 사용자가 요청한 정보가 정적인 HTML 파일이 아니라 PHP, Python에서 요청이 오게 되면 웹서버는 자신이 처리할 수 없다는 사실을 알고 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;PHP 인터프리터에게&lt;/span&gt; 의뢰를 해서 개발자가 작성한 PHP 스크립터를 읽고 처리하여 그 결과를 웹서버에게 돌려주게 되고 웹서버는 그것을 다시 브라우저에게 돌려주게 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이러한 웹서버(Nginx, Apache)와 PHP, Python 사이에 존재하여 &lt;strong&gt;규격화된 약속으로 서로 데이터를 전송하여 처리하는 것이 CGI&lt;/strong&gt;이며, 웹서버(Nginx, Apache)와 PHP, Python 웹 프로그래밍 언어와 연동이 가능하게 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; CGI의 한계
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이제 점점 더 서비스가 거대해지면서 CGI에도 한계에 봉착하게 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-13-16-53-10.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;CGI&lt;/strong&gt;는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;요청할 때마다 프로세스를 생성&lt;/span&gt;하고 프로세스가 가동하면서 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;시스템 자원&lt;/span&gt;을 소비하게 된다.&lt;/p&gt;
-
-&lt;p&gt;또한, 동시에 많은 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;요청이 발생하면 프로세스가 생성되면서 서버에 부하&lt;/span&gt;가 발생하게 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; FastCGI(Fast Common Gateway Interface)
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;CGI 부하의 문제&lt;/span&gt;로 서버는 비효율적으로 실행되고 있었다. 이러한 해결책으로 &lt;strong&gt;CGI&lt;/strong&gt;를 진화시킨 기술로 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;FastCGI&lt;/span&gt;가 나오게 되었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-13-16-54-47.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;FastCGI&lt;/span&gt;는 기존 &lt;strong&gt;CGI&lt;/strong&gt;처럼 요청마다 프로세스를 생성하는 것이 아닌 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;1개의&lt;/span&gt; 큰 프로세스에 생성해서 여러 요청을 처리하게 된다. &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;1개의 프로세스만으로 처리하여 여러 프로세스를 생성해서 실행하는 부하를 해결&lt;/span&gt;하게 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; CGI 장점
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;언어, 플랫폼 독립적이다(스펙만 준수하면 된다).&lt;/li&gt;
-  &lt;li&gt;매우 단순하고 다른 server-side 프로그래밍 언어에 비해 advanced task를 훨씬 쉽게 수행할 수 있다.&lt;/li&gt;
-  &lt;li&gt;재사용할 수 있는 CGI 코드 라이브러리가 풍부하다.&lt;/li&gt;
-  &lt;li&gt;CGI가 웹 서버에서 실행될 때 안전하다.&lt;/li&gt;
-  &lt;li&gt;CGI 코드를 수행하는데 특정 라이브러리가 필요하지 않기 때문에 매우 가볍다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; CGI 단점
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;느리다(요청이 올 때마다 DB connection을 새로 열어야 한다).&lt;/li&gt;
-  &lt;li&gt;HTTP 요청마다 새로운 프로세스를 만들기 때문에 서버 메모리를 많이 잡아먹는다.(servlet은 요청마다 스레드를 만든다.)&lt;/li&gt;
-  &lt;li&gt;페이지 로드 사이에 데이터가 메모리에 캐시될 수 없다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 정리
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;CGI&lt;/span&gt;는 &lt;strong&gt;인터페이스&lt;/strong&gt;인데 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;웹 서버와 외부 프로그램 사이에서 정보를 주고받는 방법이나 규약들을 말한다.&lt;/span&gt;&lt;/p&gt;
-</description>
-				<pubDate>Thu, 13 Jan 2022 14:20:00 +0900</pubDate>
-				<link>/interview/2022/01/13/Interview-interview-35.html</link>
-				<guid isPermaLink="true">/interview/2022/01/13/Interview-interview-35.html</guid>
 			</item>
 		
 	</channel>
