@@ -309,13 +309,58 @@
 &lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; CSS 파일 추가 관련 기능
 &lt;/h4&gt;
 
+&lt;p&gt;아래 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;스타일 시트 탭을 클릭한다.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;c:/Users/young/YoungKyonYou.github.io/images/eXbuilder6/2022-03-12-15-41-52.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;자물쇠 모양을 누른다.&lt;/p&gt;
+
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;c:/Users/young/YoungKyonYou.github.io/images/eXbuilder6/2022-03-12-15-40-40.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;아래 사진과 같이 창이 하나 뜬다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;c:/Users/young/YoungKyonYou.github.io/images/eXbuilder6/2022-03-12-15-41-25.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그리고 controls를 누르게 되면 아래 사진과 같이 현재 소스 경로에 포함된 파일들 리스트가 나온다. 예를 들어서 이 clx 파일에서만 사용하는 스타일 파일(part.less)가 있다면 체크를 해서 추가해주면 되는 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;c:/Users/young/YoungKyonYou.github.io/images/eXbuilder6/2022-03-12-15-43-31.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;위 내용은 스타일 시트 탭에서도 동일하다. 해당 clx 파일에서만 동작하는 파일을 추가할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;c:/Users/young/YoungKyonYou.github.io/images/eXbuilder6/2022-03-12-15-44-58.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 임베디드 된 앱의 속성이나 이벤트를 다른 앱에서 사용하고 싶을 때
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;c:/Users/young/YoungKyonYou.github.io/images/eXbuilder6/2022-03-12-15-46-20.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;어떤 clx 파일에 있는 속성이라던가 이벤트를 사용하고 싶을 때 출판을 해서 사용할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
 </description>
-				<pubDate>Sat, 12 Mar 2022 13:00:00 +0900</pubDate>
-				<link>/exbuilder6/2022/03/12/eXBuilder6-01.html</link>
-				<guid isPermaLink="true">/exbuilder6/2022/03/12/eXBuilder6-01.html</guid>
+				<pubDate>Thu, 10 Mar 2022 13:00:00 +0900</pubDate>
+				<link>/exbuilder6/2022/03/10/eXBuilder6-01.html</link>
+				<guid isPermaLink="true">/exbuilder6/2022/03/10/eXBuilder6-01.html</guid>
 			</item>
 		
 			<item>
