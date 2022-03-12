@@ -1,19 +1,10 @@
----
-layout: post
-title: eXBuilder6 가이드 및 단축키
-date: 2022-03-10 13:00:00 0000
-tags: [eXBuilder6]
-categories: [eXBuilder6]
-description: eXBuilder6 가이드
----
+I"�#<p><br /><br /></p>
 
-<br><br>
+<p><em><strong>오늘의 나보다 성장한 내일의 나를 위해….</strong></em></p>
 
-_**오늘의 나보다 성장한 내일의 나를 위해....**_
+<p><br /></p>
 
-<br>
-
-<br><br>
+<p><br /><br /></p>
 
 <style>
 .containercoffee {
@@ -295,104 +286,103 @@ _**오늘의 나보다 성장한 내일의 나를 위해....**_
     <div class="coffee-footer"></div>
 </div>
 
-<br><br><br><br><br><br><br><br>
+<p><br /><br /><br /><br /><br /><br /><br /><br /></p>
 
 <h2 style="color:#107896;  font-weight:bold">
-<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/270f.png" height="30" width="30"> eXBuilder6 가이드
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/270f.png" height="30" width="30" /> eXBuilder6 가이드
 </h2>
 
-<br>
-<Br>
+<p><br />
+<br /></p>
 
 <h4 style="color:#43ABC9;  font-weight:bold">
-<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> CSS 파일 추가 관련 기능
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> CSS 파일 추가 관련 기능
 </h4>
 
+<p>아래 <span style="background: rgb(251,243,219)">스타일 시트 탭을 클릭한다.</span></p>
 
-아래 <span style="background: rgb(251,243,219)">스타일 시트 탭을 클릭한다.</span>
+<p><img src="../../YoungKyonYou.github.io/images/eXbuilder6/2022-03-12-15-41-52.png" alt="" /></p>
 
-![](/images/eXbuilder6/2022-03-12-15-41-52.png?style=centerme)
+<p><br /></p>
 
-<br>
+<p>자물쇠 모양을 누른다.</p>
 
-자물쇠 모양을 누른다.
+<p><br /></p>
 
-<br>
+<p><img src="../../YoungKyonYou.github.io/images/eXbuilder6/2022-03-12-15-40-40.png" alt="" /></p>
 
-![](/images/eXbuilder6/2022-03-12-15-40-40.png?style=centerme)
+<p><br /></p>
 
-<br>
+<p>아래 사진과 같이 창이 하나 뜬다.</p>
 
-아래 사진과 같이 창이 하나 뜬다.
+<p><br /></p>
 
-<br>
+<p><img src="../../YoungKyonYou.github.io/images/eXbuilder6/2022-03-12-15-41-25.png" alt="" /></p>
 
-![](/images/eXbuilder6/2022-03-12-15-41-25.png?style=centerme)
+<p><br /></p>
 
-<br>
+<p>그리고 controls를 누르게 되면 아래 사진과 같이 현재 소스 경로에 포함된 파일들 리스트가 나온다. 예를 들어서 이 clx 파일에서만 사용하는 스타일 파일(part.less)가 있다면 체크를 해서 추가해주면 되는 것이다.</p>
 
-그리고 controls를 누르게 되면 아래 사진과 같이 현재 소스 경로에 포함된 파일들 리스트가 나온다. 예를 들어서 이 clx 파일에서만 사용하는 스타일 파일(part.less)가 있다면 체크를 해서 추가해주면 되는 것이다.
+<p><br /></p>
 
-<br>
+<p><img src="../../YoungKyonYou.github.io/images/eXbuilder6/2022-03-12-15-43-31.png" alt="" /></p>
 
-![](/images/eXbuilder6/2022-03-12-15-43-31.png?style=centerme)
+<p><br /></p>
 
-<Br>
+<p>위 내용은 스타일 시트 탭에서도 동일하다. 해당 clx 파일에서만 동작하는 파일을 추가할 수 있다.</p>
 
-위 내용은 스타일 시트 탭에서도 동일하다. 해당 clx 파일에서만 동작하는 파일을 추가할 수 있다.
+<p><img src="../../YoungKyonYou.github.io/images/eXbuilder6/2022-03-12-15-44-58.png" alt="" /></p>
 
-![](/images/eXbuilder6/2022-03-12-15-44-58.png?style=centerme)
-
-<br>
+<p><br /></p>
 
 <h4 style="color:#43ABC9;  font-weight:bold">
-<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 임베디드 된 앱의 속성이나 이벤트를 다른 앱에서 사용하고 싶을 때
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> 임베디드 된 앱의 속성이나 이벤트를 다른 앱에서 사용하고 싶을 때
 </h4>
 
-![](/images/eXbuilder6/2022-03-12-15-46-20.png?style=centerme)
+<p><img src="../../YoungKyonYou.github.io/images/eXbuilder6/2022-03-12-15-46-20.png" alt="" /></p>
 
-<br>
+<p><br /></p>
 
-어떤 clx 파일에 있는 속성이라던가 이벤트를 사용하고 싶을 때 출판을 해서 사용할 수 있다. 
+<p>어떤 clx 파일에 있는 속성이라던가 이벤트를 사용하고 싶을 때 출판을 해서 사용할 수 있다.</p>
 
-<br>
+<p><br /></p>
 
 <h4 style="color:#43ABC9;  font-weight:bold">
-<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 각 요소에 주석 다는 것과 사라지게 하기
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> 각 요소에 주석 다는 것과 사라지게 하기
 </h4>
 
-![](/images/eXbuilder6/2022-03-12-15-51-14.png?style=centerme)
+<p><img src="../../YoungKyonYou.github.io/images/eXbuilder6/2022-03-12-15-51-14.png" alt="" /></p>
 
-<br>
+<p><br /></p>
 
-요소의 <span style="background: rgb(251,243,219)">Comment</span>에 주석을 달게 되면 아래 사진과 같이 마우스를 가져다 되면 Comment가 표시된다.
+<p>요소의 <span style="background: rgb(251,243,219)">Comment</span>에 주석을 달게 되면 아래 사진과 같이 마우스를 가져다 되면 Comment가 표시된다.</p>
 
-<br>
+<p><br /></p>
 
-![](/images/eXbuilder6/2022-03-12-15-51-58.png?style=centerme)
+<p><img src="../../YoungKyonYou.github.io/images/eXbuilder6/2022-03-12-15-51-58.png" alt="" /></p>
 
-<br>
+<p><br /></p>
 
-그리고 눈 모양 쪽 컬럼에 체크를 하게 되면 해당 요소를 사라지게 할 수 있다.
+<p>그리고 눈 모양 쪽 컬럼에 체크를 하게 되면 해당 요소를 사라지게 할 수 있다.</p>
 
-<br>
+<p><br /></p>
 
-![](/images/eXbuilder6/2022-03-12-15-53-40.png?style=centerme)
+<p><img src="../../YoungKyonYou.github.io/images/eXbuilder6/2022-03-12-15-53-40.png" alt="" /></p>
 
-<br>
+<p><br /></p>
 
-![](/images/eXbuilder6/2022-03-12-15-53-27.png?style=centerme)
+<p><img src="../../YoungKyonYou.github.io/images/eXbuilder6/2022-03-12-15-53-27.png" alt="" /></p>
 
-<br>
+<p><br /></p>
 
-자물쇠를 체크하게 되면 해당 요소가 클릭이 되지 않는다.
+<p>자물쇠를 체크하게 되면 해당 요소가 클릭이 되지 않는다.</p>
 
-<br>
+<p><br /></p>
 
-![](/images/eXbuilder6/2022-03-12-15-54-15.png?style=centerme)
+<p><img src="../../YoungKyonYou.github.io/images/eXbuilder6/2022-03-12-15-54-15.png" alt="" /></p>
 
-<br>
+<p><br /></p>
 
-<span style="background: rgb(251,243,219)">중요한 것은 위 기능은 디자인 창에서만 가능하다</span>
+<p><span style="background: rgb(251,243,219)">중요한 것은 위 기능은 디자인 창에서만 가능하다</span></p>
 
-
+:ET

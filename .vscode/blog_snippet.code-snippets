@@ -15,5 +15,38 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
+	"title": {
+		"prefix": "title",
+		"body": [
+		  "<h2 style=\"color:#107896;  font-weight:bold\">",
+		  "<img class=\"emoji\" title=\":pushpin:\" alt=\":pushpin:\" src=\"https://github.githubassets.com/images/icons/emoji/unicode/270f.png\" height=\"30\" width=\"30\"> $0"
+		],
+		"description": "title"
+	  },
+	  "pin": {
+		"prefix": "pin",
+		"body": [
+		  "<h3 style=\"color:#107896;  font-weight:bold\">",
+		  "<img class=\"emoji\" title=\":pushpin:\" alt=\":pushpin:\" src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png\" height=\"30\" width=\"30\"> $0",
+		  "</h3>"
+		],
+		"description": "pin"
+	  },
+	  "subtitle": {
+		"prefix": "subtitle",
+		"body": [
+		  "<h4 style=\"color:#43ABC9;  font-weight:bold\">",
+		  "<img class=\"emoji\" title=\":pushpin:\" alt=\":pushpin:\" src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png\" height=\"20\" width=\"20\"> $0",
+		  "</h4>"
+		],
+		"description": "subtitle"
+	  },
+	  "": {
+		"prefix": "highlight",
+		"body": [
+		  "<span style=\"background: rgb(251,243,219)\">$0</span>"
+		],
+		"description": "highlight"
+	  }
 
 }
