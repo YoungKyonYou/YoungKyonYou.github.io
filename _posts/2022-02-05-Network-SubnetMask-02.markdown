@@ -446,3 +446,6 @@ _**오늘의 나보다 성장한 내일의 나를 위해....**_
 위 문제에 있던 .100 이라는 호스트는 <span style="background: rgb(251,243,219)">두 번째 네트워크</span>에 해당된다.
 
 하나의 네트워크 일때는 호스트가 254개인데 4개의 <span style="background: rgb(251,243,219)">네트워크</span>로 분할하면 각 <span style="background: rgb(251,243,219)">네트워크</span>당 62개씩으로 할당된다. 더 <span style="background: rgb(251,243,219)">효율적</span>으로 활용이 가능하게 된 것이다. 이처럼 서브넷팅은 분할에 사용하며 반대로 네트워크를 합칠 때는 <span style="background: rgb(251,243,219)">축약</span>이라고 하며 <span style="background: rgb(251,243,219)">수퍼넷팅</span>이라고 한다.
+
+
+
