@@ -297,4 +297,98 @@ _**오늘의 나보다 성장한 내일의 나를 위해....**_
 
 <br><br><br><br><br><br><br><br>
 
-오랜만에 글을 쓴다.
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> Centropolis 라운지 후기
+</h3>
+
+<br>
+
+어느덧 회사를 입사한지 2달이 되었다. <span style="background: rgb(251,243,219)">취준생</span>이였던 게 엊그제 같은데 시간 정말 빠르다. 
+
+그동안 입사하고 소감을 먼저 적고 싶었으나 수습 교육을 받고 부서에 배치되느라 시간이 없었던 것 같다. 
+
+수습 기간은 종각 본사에서 받았는데 건물 자체가 너무 이쁘다. 아침 출근 시간에 찍은 건물 사진은 빛이 난다.
+
+<br>
+
+![](/images/DailyLife/Lounge/2022-04-02-18-26-56.png?style=centerme)
+
+<br>
+
+사실 이번 포스트를 적게 된 이유는 소감을 적기 위한 것은 아니고 회사 내에 라운지 후기에 관해 적고 싶었다. 아무도 그 후기에 대해 적은 글이 없기에 내가 처음으로 적고 싶었다.
+
+<br>
+
+센트로폴리스 건물 안 3층에는 아주 좋은 휴식 공간이 있다. 일단 3층으로 올라가게 되면 아래와 같은 문이 있다.
+
+<br>
+
+![](/images/DailyLife/Lounge/2022-04-02-18-29-21.png?style=centerme)
+
+<br>
+
+일반인은 들어갈 수 없고 센트로폴리스 건물 내 상주하고 있는 회사 사람만 들어갈 수 있다. 직원카드를 카드기에 되면 문이 열리는 방식이다. 이게 더 라운지의 가치를 높여주는 것 같다.
+
+<br>
+
+다행히 내가 라운지를 갔을 땐 사람이 얼마 없었다. 아마도 열심히 다들 일하느라 그렇지 않을까 싶다. 그리고 내가 애매한 시간에 왔기 때문일 것이다. 
+
+어쨌든 문을 열고 들어가게 되면 쾌적하고 깔끔한 공간을 목격할 수 있다.
+
+<br>
+
+![](/images/DailyLife/Lounge/2022-04-02-18-31-58.png?style=centerme)
+
+<br>
+
+![](/images/DailyLife/Lounge/2022-04-02-18-32-16.png?style=centerme)
+
+<br>
+
+무엇보다 엄청 넓고 자리마다 간격이 넓어 사람들이랑 대화하기 좋았다.
+
+<br>
+
+![](/images/DailyLife/Lounge/2022-04-02-18-32-55.png?style=centerme)
+
+<Br>
+
+![](/images/DailyLife/Lounge/2022-04-02-18-33-11.png?style=centerme)
+
+<Br>
+
+![](/images/DailyLife/Lounge/2022-04-02-18-33-19.png?style=centerme)
+
+<br>
+
+![](/images/DailyLife/Lounge/2022-04-02-18-33-28.png?style=centerme)
+
+<br>
+
+![](/images/DailyLife/Lounge/2022-04-02-18-33-55.png?style=centerme)
+
+<Br>
+
+더 좋았던 것은 안에 커피와 간식을 팔기 때문에 커피를 사서 직장 동기들과 앉아 대화하는 것이 좋았다. 
+
+<br>
+
+가운데 책상에는 다양한 잡지들이 가지런히 놓여있었다. 실제로 보는지는 의문이다.
+
+![](/images/DailyLife/Lounge/2022-04-02-18-34-50.png?style=centerme)
+
+<br>
+
+가끔 회사 일을 하다가 지치면 내려와 커피 한잔을 하면서 쉬기에 너무 좋다. 창밖의 거리도 괜찮고 분위기도 조용하고 해서 혼자만의 시간을 갖기에도 좋은 것 같다.
+
+<br>
+
+![](/images/DailyLife/Lounge/2022-04-02-18-38-38.png?style=centerme)
+
+<br>
+
+단점은 저녁 7시에 닫는 다는 것과 주말에 운영하지 않는 다는 게 아쉬웠다. 그래도 장점은 일반인이 들어올 수 없어 점심 시간이 아니라면 사람이 그리 많지 않다는 점과 동기들과 일종의 수다를 떨거나 한숨 돌릴 수 있다는 점에서 좋았다. 
+
+회사에 유일한 힐링 공간이라고 할 수 있겠다. 
+
+혹시나 친구들이나 아는 사람이 회사 근처에 오게 된다면 여기서 커피 한잔 정도 대접해주고 싶은 그런 공간이다.
