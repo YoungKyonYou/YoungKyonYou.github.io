@@ -7,6 +7,305 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>센트로폴리스 라운지 후기</title>
+				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해….&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;style&gt;
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: &quot;&quot;;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: &quot;&quot;;
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: &quot;&quot;;
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: &quot;&quot;;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: &quot;&quot;;
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: &quot;&quot;;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: &quot;&quot;;
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+&lt;/style&gt;
+
+&lt;div class=&quot;containercoffee&quot;&gt;
+    &lt;div class=&quot;coffee-header&quot;&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-medium&quot;&gt;
+      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;오랜만에 글을 쓴다.&lt;/p&gt;
+</description>
+				<pubDate>Fri, 01 Apr 2022 13:00:00 +0900</pubDate>
+				<link>/daily-life/2022/04/01/DailyLife-Lounge.html</link>
+				<guid isPermaLink="true">/daily-life/2022/04/01/DailyLife-Lounge.html</guid>
+			</item>
+		
+			<item>
 				<title>eXBuilder6 가이드 및 단축키</title>
 				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -395,6 +694,25 @@
 
 &lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;중요한 것은 위 기능은 디자인 창에서만 가능하다&lt;/span&gt;&lt;/p&gt;
 
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 빠른 팔레트 뷰
+&lt;/h4&gt;
+
+&lt;p&gt;디자인 탭에서 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Ctrl+Space&lt;/span&gt;를 누르게 되면 아래 사진과 같이 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;빠른 팔레트 뷰&lt;/span&gt;를 오픈할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-03-12-16-51-14.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 미리보기 단축키
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Ctrl+Shift+P&lt;/span&gt;&lt;/p&gt;
 </description>
 				<pubDate>Thu, 10 Mar 2022 13:00:00 +0900</pubDate>
 				<link>/exbuilder6/2022/03/10/eXBuilder6-01.html</link>
@@ -1308,6 +1626,7 @@ In the context of servers, 0.0.0.0 means all IPv4 addresses on the local machine
 &lt;p&gt;위 문제에 있던 .100 이라는 호스트는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;두 번째 네트워크&lt;/span&gt;에 해당된다.&lt;/p&gt;
 
 &lt;p&gt;하나의 네트워크 일때는 호스트가 254개인데 4개의 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;네트워크&lt;/span&gt;로 분할하면 각 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;네트워크&lt;/span&gt;당 62개씩으로 할당된다. 더 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;효율적&lt;/span&gt;으로 활용이 가능하게 된 것이다. 이처럼 서브넷팅은 분할에 사용하며 반대로 네트워크를 합칠 때는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;축약&lt;/span&gt;이라고 하며 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;수퍼넷팅&lt;/span&gt;이라고 한다.&lt;/p&gt;
+
 </description>
 				<pubDate>Sat, 05 Feb 2022 13:00:00 +0900</pubDate>
 				<link>/network/2022/02/05/Network-SubnetMask-02.html</link>
@@ -4371,408 +4690,6 @@ Bye
 				<pubDate>Thu, 13 Jan 2022 14:20:00 +0900</pubDate>
 				<link>/kafka/2022/01/13/Kafka-post2.html</link>
 				<guid isPermaLink="true">/kafka/2022/01/13/Kafka-post2.html</guid>
-			</item>
-		
-			<item>
-				<title>Kafka 에러-InconsistentClusterIdException</title>
-				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해…&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;style&gt;
-.containercoffee {
-  width: 300px;
-  height: 280px;
-  position: relative;
-  top: calc(50% - 140px);
-  left: calc(50% - 150px);
-}
-.coffee-header {
-  width: 100%;
-  height: 80px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #ddcfcc;
-  border-radius: 10px;
-}
-.coffee-header__buttons {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  top: 25px;
-  background-color: #282323;
-  border-radius: 50%;
-}
-.coffee-header__buttons::after {
-  content: &quot;&quot;;
-  width: 8px;
-  height: 8px;
-  position: absolute;
-  bottom: -8px;
-  left: calc(50% - 4px);
-  background-color: #615e5e;
-}
-.coffee-header__button-one {
-  left: 15px;
-}
-.coffee-header__button-two {
-  left: 50px;
-}
-.coffee-header__display {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: calc(50% - 25px);
-  left: calc(50% - 25px);
-  border-radius: 50%;
-  background-color: #9acfc5;
-  border: 5px solid #43beae;
-  box-sizing: border-box;
-}
-.coffee-header__details {
-  width: 8px;
-  height: 20px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #9b9091;
-  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
-}
-.coffee-medium {
-  width: 90%;
-  height: 160px;
-  position: absolute;
-  top: 80px;
-  left: calc(50% - 45%);
-  background-color: #bcb0af;
-}
-.coffee-medium:before {
-  content: &quot;&quot;;
-  width: 90%;
-  height: 100px;
-  background-color: #776f6e;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 45%);
-  border-radius: 20px 20px 0 0;
-}
-.coffe-medium__exit {
-  width: 60px;
-  height: 20px;
-  position: absolute;
-  top: 0;
-  left: calc(50% - 30px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::before {
-  content: &quot;&quot;;
-  width: 50px;
-  height: 20px;
-  border-radius: 0 0 50% 50%;
-  position: absolute;
-  bottom: -20px;
-  left: calc(50% - 25px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::after {
-  content: &quot;&quot;;
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  bottom: -30px;
-  left: calc(50% - 5px);
-  background-color: #231f20;
-}
-.coffee-medium__arm {
-  width: 70px;
-  height: 20px;
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  background-color: #231f20;
-}
-.coffee-medium__arm::before {
-  content: &quot;&quot;;
-  width: 15px;
-  height: 5px;
-  position: absolute;
-  top: 7px;
-  left: -15px;
-  background-color: #9e9495;
-}
-.coffee-medium__cup {
-  width: 80px;
-  height: 47px;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 40px);
-  background-color: #FFF;
-  border-radius: 0 0 70px 70px / 0 0 110px 110px;
-}
-.coffee-medium__cup::after {
-  content: &quot;&quot;;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 6px;
-  right: -13px;
-  border: 5px solid #FFF;
-  border-radius: 50%;
-}
-@keyframes liquid {
-  0% {
-    height: 0px;  
-    opacity: 1;
-  }
-  5% {
-    height: 0px;  
-    opacity: 1;
-  }
-  20% {
-    height: 62px;  
-    opacity: 1;
-  }
-  95% {
-    height: 62px;
-    opacity: 1;
-  }
-  100% {
-    height: 62px;
-    opacity: 0;
-  }
-}
-.coffee-medium__liquid {
-  width: 6px;
-  height: 63px;
-  opacity: 0;
-  position: absolute;
-  top: 50px;
-  left: calc(50% - 3px);
-  background-color: #74372b;
-  animation: liquid 4s 4s linear infinite;
-}
-.coffee-medium__smoke {
-  width: 8px;
-  height: 20px;
-  position: absolute;  
-  border-radius: 5px;
-  background-color: #b3aeae;
-}
-@keyframes smokeOne {
-  0% {
-    bottom: 20px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 50px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-@keyframes smokeTwo {
-  0% {
-    bottom: 40px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 70px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-.coffee-medium__smoke-one {
-  opacity: 0;
-  bottom: 50px;
-  left: 102px;
-  animation: smokeOne 3s 4s linear infinite;
-}
-.coffee-medium__smoke-two {
-  opacity: 0;
-  bottom: 70px;
-  left: 118px;
-  animation: smokeTwo 3s 5s linear infinite;
-}
-.coffee-medium__smoke-three {
-  opacity: 0;
-  bottom: 65px;
-  right: 118px;
-  animation: smokeTwo 3s 6s linear infinite;
-}
-.coffee-medium__smoke-for {
-  opacity: 0;
-  bottom: 50px;
-  right: 102px;
-  animation: smokeOne 3s 5s linear infinite;
-}
-.coffee-footer {
-  width: 95%;
-  height: 15px;
-  position: absolute;
-  bottom: 25px;
-  left: calc(50% - 47.5%);
-  background-color: #41bdad;
-  border-radius: 10px;
-}
-.coffee-footer::after {
-  content: &quot;&quot;;
-  width: 106%;
-  height: 26px;
-  position: absolute;
-  bottom: -25px;
-  left: -8px;
-  background-color: #000;
-}
-&lt;/style&gt;
-
-&lt;div class=&quot;containercoffee&quot;&gt;
-    &lt;div class=&quot;coffee-header&quot;&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-medium&quot;&gt;
-      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;현재 Inflearn의 MSA 강의를 듣던 중 생긴 에러에 대한 해결책을 적어보려 한다.
-일단 내 컴퓨터는 윈도우지만 리눅스 명령어를 쓰는 게 편했기 때문에 PowerShell이나 Cmd로 학습하기 보다는&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Window Wsl Ubuntu&lt;/span&gt;을 사용해서 실습을 진행하였다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;실습 도중 에러가 발생했는데 아래 사진과 같은 에러다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-13-18-33-01.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-13-18-33-11.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;중요한 내용만 보면 &lt;strong&gt;InconsistentClusterIdException&lt;/strong&gt;이 발생했다.&lt;/p&gt;
-
-&lt;p&gt;구글링 결과 해결책을 찾을 수 있었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;일단 미리 알아둬야 하는 것은 Window의 Wsl Ubuntu의 디렉토리는 아래와 같은 곳에 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;C:\Users\nick1\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\home&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;kafka 압축 파일을 원하는 디렉토리에 해제를 하게 되면 &lt;strong&gt;kafka_2.13-3.0.0&lt;/strong&gt; 파일이 생기는데 이 파일에 접속하고 사용하기 위해서는 접근 권한을 허용 해줘야 한다.&lt;/p&gt;
-
-&lt;p&gt;일단 나는 kafka_2.13-3.0.0에 있는 모든 파일에 모든 권한을 열어주었다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo chmod&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-R&lt;/span&gt; 777 kafka_2.13-3.0.0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;그리고 kafka_2.13-3.0.0 폴더에 들어가서 &lt;strong&gt;zookeeper&lt;/strong&gt;를 실행했다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; ./bin/zookeeper-server-start.sh ./config/zookeeper.properties
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;다른 ubuntu 터미널을 열고 똑같이 폴더에 들어가서 이제 &lt;strong&gt;kafka server&lt;/strong&gt;를 실행한다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; ./bin/kafka-server-start.sh ./config/server.properties
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이때 가장 위에 있던 사진에 에러가 나타나게 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;해결 방안은 이렇다&lt;/p&gt;
-
-&lt;p&gt;kafka_2.13-3.0.0 폴더 안에 config 폴더에 들어가게 되면 server.properties라는 파일이 보인다. 이것을 파일 편집기로 연다.&lt;/p&gt;
-
-&lt;p&gt;열고 스크린을 내리다보면 아래와 같이 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;log.dirs&lt;/span&gt; 부분이 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../images/Interview/post16/2022-01-13-18-40-31.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;/tmp 아래 kafka-logs 폴더 안에 로그를 저장한다고 되어 있는데 이 경로를 수정해야 한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;/tmp/kafka-logs&lt;/strong&gt;로 되어 있는 것을 &lt;strong&gt;/home/tmp/kafka-logs&lt;/strong&gt;로 변경하자&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-13-20-07-26.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이제 저장하고 닫고 다시 &lt;strong&gt;kafka_2.13-3.0.0 폴더&lt;/strong&gt;로 들어간 다음 서버를 실행해본다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; ./bin/kafka-server-start.sh ./config/server.properties
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-13-18-45-11.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;정상적으로 실행이 되는 것을 볼 수 있다.&lt;/p&gt;
-
-&lt;p&gt;만약 잘 되다가 다시 이런 에러가 발생할 경우&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-13-20-20-10.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;tmp 폴더 자체를 지우고 다시 시작하면 된다.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;중요한 것은 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;/tmp&lt;/span&gt; 폴더 아래 로그를 저장하면 안된다 그래서 /home 아래 tmp 폴더를 만들고 또 그 아래 kafka-logs 폴더를 만들어 로그를 저장하게 한 것이다&lt;/p&gt;
-</description>
-				<pubDate>Thu, 13 Jan 2022 14:20:00 +0900</pubDate>
-				<link>/kafka/2022/01/13/Kafka-post1.html</link>
-				<guid isPermaLink="true">/kafka/2022/01/13/Kafka-post1.html</guid>
 			</item>
 		
 	</channel>

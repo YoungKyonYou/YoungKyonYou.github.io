@@ -1,10 +1,10 @@
 ---
 layout: post
-title: eXBuilder6 가이드 및 단축키
-date: 2022-03-10 13:00:00 0000
-tags: [eXBuilder6]
-categories: [eXBuilder6]
-description: eXBuilder6 가이드
+title: 센트로폴리스 라운지 후기
+date: 2022-04-01 13:00:00 0000
+tags: [Centropolis, Lounge]
+categories: [daily-life]
+description: 회사 내 안식처
 ---
 
 <br><br>
@@ -297,120 +297,4 @@ _**오늘의 나보다 성장한 내일의 나를 위해....**_
 
 <br><br><br><br><br><br><br><br>
 
-<h2 style="color:#107896;  font-weight:bold">
-<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/270f.png" height="30" width="30"> eXBuilder6 가이드
-</h2>
-
-<br>
-<Br>
-
-<h4 style="color:#43ABC9;  font-weight:bold">
-<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> CSS 파일 추가 관련 기능
-</h4>
-
-
-아래 <span style="background: rgb(251,243,219)">스타일 시트 탭을 클릭한다.</span>
-
-![](/images/eXbuilder6/2022-03-12-15-41-52.png?style=centerme)
-
-<br>
-
-자물쇠 모양을 누른다.
-
-<br>
-
-![](/images/eXbuilder6/2022-03-12-15-40-40.png?style=centerme)
-
-<br>
-
-아래 사진과 같이 창이 하나 뜬다.
-
-<br>
-
-![](/images/eXbuilder6/2022-03-12-15-41-25.png?style=centerme)
-
-<br>
-
-그리고 controls를 누르게 되면 아래 사진과 같이 현재 소스 경로에 포함된 파일들 리스트가 나온다. 예를 들어서 이 clx 파일에서만 사용하는 스타일 파일(part.less)가 있다면 체크를 해서 추가해주면 되는 것이다.
-
-<br>
-
-![](/images/eXbuilder6/2022-03-12-15-43-31.png?style=centerme)
-
-<Br>
-
-위 내용은 스타일 시트 탭에서도 동일하다. 해당 clx 파일에서만 동작하는 파일을 추가할 수 있다.
-
-![](/images/eXbuilder6/2022-03-12-15-44-58.png?style=centerme)
-
-<br>
-
-<h4 style="color:#43ABC9;  font-weight:bold">
-<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 임베디드 된 앱의 속성이나 이벤트를 다른 앱에서 사용하고 싶을 때
-</h4>
-
-![](/images/eXbuilder6/2022-03-12-15-46-20.png?style=centerme)
-
-<br>
-
-어떤 clx 파일에 있는 속성이라던가 이벤트를 사용하고 싶을 때 출판을 해서 사용할 수 있다. 
-
-<br>
-
-<h4 style="color:#43ABC9;  font-weight:bold">
-<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 각 요소에 주석 다는 것과 사라지게 하기
-</h4>
-
-![](/images/eXbuilder6/2022-03-12-15-51-14.png?style=centerme)
-
-<br>
-
-요소의 <span style="background: rgb(251,243,219)">Comment</span>에 주석을 달게 되면 아래 사진과 같이 마우스를 가져다 되면 Comment가 표시된다.
-
-<br>
-
-![](/images/eXbuilder6/2022-03-12-15-51-58.png?style=centerme)
-
-<br>
-
-그리고 눈 모양 쪽 컬럼에 체크를 하게 되면 해당 요소를 사라지게 할 수 있다.
-
-<br>
-
-![](/images/eXbuilder6/2022-03-12-15-53-40.png?style=centerme)
-
-<br>
-
-![](/images/eXbuilder6/2022-03-12-15-53-27.png?style=centerme)
-
-<br>
-
-자물쇠를 체크하게 되면 해당 요소가 클릭이 되지 않는다.
-
-<br>
-
-![](/images/eXbuilder6/2022-03-12-15-54-15.png?style=centerme)
-
-<br>
-
-<span style="background: rgb(251,243,219)">중요한 것은 위 기능은 디자인 창에서만 가능하다</span>
-
-<br>
-
-<h4 style="color:#43ABC9;  font-weight:bold">
-<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 빠른 팔레트 뷰
-</h4>
-
-디자인 탭에서 <span style="background: rgb(251,243,219)">Ctrl+Space</span>를 누르게 되면 아래 사진과 같이 <span style="background: rgb(251,243,219)">빠른 팔레트 뷰</span>를 오픈할 수 있다. 
-
-<br>
-
-![](/images/eXbuilder6/2022-03-12-16-51-14.png?style=centerme)
-
-<br>
-
-<h4 style="color:#43ABC9;  font-weight:bold">
-<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 미리보기 단축키
-</h4>
-
-<span style="background: rgb(251,243,219)">Ctrl+Shift+P</span>
+오랜만에 글을 쓴다.
