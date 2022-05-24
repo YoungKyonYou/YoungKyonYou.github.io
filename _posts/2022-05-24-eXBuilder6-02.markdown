@@ -314,13 +314,13 @@ _**오늘의 나보다 성장한 내일의 나를 위해....**_
 
 모든 작업은 **clx-src**에서 하게 된다.
 
-![](/images/eXbuilder6/2022-05-24-17-20-40.png)
+![](../images/eXbuilder6/2022-05-24-17-20-40.png)
 
 clx-src 안에 theme/control 폴더를 보게 되면 **part.less** 파일들을 볼 수 있다.
 
 <br>
 
-![](/images/eXbuilder6/2022-05-24-17-21-43.png)
+![](../images/eXbuilder6/2022-05-24-17-21-43.png)
 
 <br>
 
