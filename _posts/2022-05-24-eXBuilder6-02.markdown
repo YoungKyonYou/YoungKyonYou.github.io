@@ -1,7 +1,7 @@
 ---
 layout: post
 title: eXBuilder6 사용 방법_1교시
-date: 2022-05-24 13:00:00 0000
+date: 2022-05-23 13:00:00 0000
 tags: [eXBuilder6]
 categories: [eXBuilder6]
 description: eXBuilder6 가이드
@@ -308,6 +308,10 @@ _**오늘의 나보다 성장한 내일의 나를 위해....**_
 <img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> eXBuilder6 작업 디렉토리
 </h4>
 
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> clx-src/theme/controls
+</h3>
+
 모든 작업은 **clx-src**에서 하게 된다.
 
 ![](../images/eXbuilder6/2022-05-24-17-20-40.png)
@@ -367,4 +371,41 @@ clx-src 안에 theme/control 폴더를 보게 되면 **part.less** 파일들을 
 ![](../images/eXbuilder6/2022-05-24-17-29-15.png)
 
 <br>
+
+---
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> clx-src udc
+</h3>
+
+udc는 **User Define Control**로 eXBuilder6에서 제공하는 컨트롤이 아닌 사용자가 직접 컨트롤을 조합해서 만들고 싶다거나 공통적으로 많이 사용하는 컨트롤들을 합쳐서 만든다고 했을 때 **udc**를 만들고 반드시 **udc 폴터 아래에 파일을 생성** 해줘야 한다.
+
+![](../images/eXbuilder6/2022-05-24-17-33-19.png)
+
+<br>
+
+다음으로 **env.json**은 **런타임 환경설정 파일**이라고 보면 된다. 
+
+외부 라이브러리나 외부 스타일 시트에 대한 **url**을 입력해서 여기에다가 작성하면 전역적으로 올라가서 작성한 url의 파일들을 사용할 수 있다. 
+
+현재는 **clx-src/theme/controls** 아래에 cleopatra-theme.less를 올리겠다는 것을 알 수 있다. 즉, 컴파일 되는 공간은 **clx-build/theme** 아래 cleopatra-theme.css가 되는 것을 알 수 있다. (배포할 때)
+
+![](../images/eXbuilder6/2022-05-24-17-35-42.png)
+
+
+---
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> clx-src/udc/language.json
+</h3>
+
+language.json 파일은 다국어를 사용할 때 입력하면 되는 공간이다.
+
+![](../images/eXbuilder6/2022-05-24-17-38-19.png)
+
+![](../images/eXbuilder6/2022-05-24-17-38-44.png)
+
+<br>
+
+---
 
