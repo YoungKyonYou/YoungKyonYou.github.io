@@ -1,4 +1,4 @@
-I"'2<p><br /><br /></p>
+I"�:<p><br /><br /></p>
 
 <p><em><strong>오늘의 나보다 성장한 내일의 나를 위해….</strong></em></p>
 
@@ -442,4 +442,55 @@
 <p>그리고 배포 경로를 보게되면(clx-build) 이 <strong>두 파일이 컴파일</strong>되어 배포 경로에서 하나의 <strong>.clx.js 파일</strong>로 생성된다.</p>
 
 <p><img src="/images/eXbuilder6/2022-05-24-17-47-55.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>스크립트 탭에서 작성한 스크립트는 .js 파일로 저장된다. 파일을 열때는 clx 파일을 열고 하단에 <strong>스크립트</strong>로 나타난다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-09-45-31.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p><span style="background: rgb(251,243,219)">파일 복사 시에도 .clx와 .js 파일을 함께 복사/이동</span> 시켜줘야 한다.</p>
+
+<hr />
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> Palette 사용하기
+</h3>
+
+<p>Palette에서 다양한 도구를 선택할 수 있다. 버튼을 예로 보면 클릭한 상태에서 사이즈를 조절할 수도 있다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-09-50-55.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p><span style="background: rgb(251,243,219)">스크립트에서는 ES5 문법 사용을 권장한다.</span></p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-09-52-46.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>하단에 소스 탭은 xml 파일이며 도구의 속성 값들이 명시되어 있다. 소스 탭으로 값을 변경하기보다는 <strong>디자인 탭</strong>에서 변경하는 게 좋다. <span style="background: rgb(251,243,219)">오타가 날 여지가 있기 때문</span>이다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-09-54-32.png?style=centerme" alt="" /></p>
+
+<hr />
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> 브라우저 미리보기 시 브라우저 바꾸는 방법
+</h3>
+
+<p><strong>Window-&gt;Preference</strong>로 먼저 접속한다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-09-57-11.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>General-&gt;Web Browser</strong>로 들어간다. 그리고 체크 박스를 통해서 변경이 가능하다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-09-57-37.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
 :ET
