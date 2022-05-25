@@ -1,0 +1,447 @@
+I"�1<p><br /><br /></p>
+
+<p><em><strong>오늘의 나보다 성장한 내일의 나를 위해….</strong></em></p>
+
+<p><br /></p>
+
+<p><br /><br /></p>
+
+<style>
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: "";
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: "";
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: "";
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: "";
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+</style>
+
+<div class="containercoffee">
+    <div class="coffee-header">
+      <div class="coffee-header__buttons coffee-header__button-one"></div>
+      <div class="coffee-header__buttons coffee-header__button-two"></div>
+      <div class="coffee-header__display"></div>
+      <div class="coffee-header__details"></div>
+    </div>
+    <div class="coffee-medium">
+      <div class="coffe-medium__exit"></div>
+      <div class="coffee-medium__arm"></div>
+      <div class="coffee-medium__liquid"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
+      <div class="coffee-medium__cup"></div>
+    </div>
+    <div class="coffee-footer"></div>
+</div>
+
+<p><br /><br /><br /><br /><br /><br /><br /><br /></p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-09-25-31.png?style=centerme" alt="" /></p>
+
+<h2 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/270f.png" height="30" width="30" /> eXBuilder6 가이드
+</h2>
+
+<p><br />
+<br /></p>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20" /> eXBuilder6 작업 디렉토리
+</h4>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> clx-src/theme/controls
+</h3>
+
+<p>모든 작업은 <strong>clx-src</strong>에서 하게 된다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-24-17-20-40.png" alt="" /></p>
+
+<p>clx-src 안에 theme/control 폴더를 보게 되면 <strong>part.less</strong> 파일들을 볼 수 있다.</p>
+
+<p><br /></p>
+
+<p><img src="../images/eXbuilder6/2022-05-24-17-21-43.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>이는 eXBuilder6에서 제공하고 있는 각각 하나의 컨트롤에 스타일을 적용할 수 있는 파일이다.</p>
+
+<p>각 컨트롤들의 스타일을 어떻게 적용할 것인지 파일로 관리할 수 있다.</p>
+
+<p><br /></p>
+
+<p>아래 사진과 같이 eXBuilder6에서는 클래스 명에 <strong>cl</strong>이 붙어서 생성된다.</p>
+
+<p><img src="../images/eXbuilder6/2022-05-24-17-22-45.png" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>Ctrl+Space</strong> 키를 누르게 되면 스타일에 대한 속성들이 나타난다.</p>
+
+<p><img src="../images/eXbuilder6/2022-05-24-17-23-37.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>만약 색깔을 바꾸고 싶다면 color를 선택하고 또 <strong>Ctrl+Space</strong>를 누르게 되면 속성에 해당하는 설정 값 또한 <strong>힌트</strong>로 표시해준다.</p>
+
+<p><img src="../images/eXbuilder6/2022-05-24-17-24-56.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>그리고 밑으로 내리게 되면 <strong>cleopatra-theme.less</strong> 파일이 보이는데 이를 열어본다.</p>
+
+<p><img src="../images/eXbuilder6/2022-05-24-17-25-44.png" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>cleopatra-theme.less</strong> 파일 안에는 프로젝트에 있었던 <strong>part.less</strong> 파일이 모두 <strong>import</strong>가 되어 있는 것을 볼 수 있다.</p>
+
+<p><img src="../images/eXbuilder6/2022-05-24-17-26-17.png" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>part.less</strong> 파일들은 컴파일이 되지 않는다. 그래서 less 파일에다가(이경우 cleopatra-theme.less) <strong>import</strong>를 시켜줘야 한다. 이는 배포 경로의 <strong>theme</strong> 폴더에 있는 <strong>cleopatra-theme.css</strong>로 되어 있는 것을 확인할 수 있다.</p>
+
+<p><img src="../images/eXbuilder6/2022-05-24-17-28-35.png" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>theme/cleopatra-theme.css</strong> 파일을 열게 되면 이렇게 <strong>.part.less</strong> 파일들이 하나의 파일로 컴파일 된 것을 볼 수 있다.</p>
+
+<p><img src="../images/eXbuilder6/2022-05-24-17-29-15.png" alt="" /></p>
+
+<p><br /></p>
+
+<hr />
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> clx-src udc
+</h3>
+
+<p>udc는 <strong>User Define Control</strong>로 eXBuilder6에서 제공하는 컨트롤이 아닌 사용자가 직접 컨트롤을 조합해서 만들고 싶다거나 공통적으로 많이 사용하는 컨트롤들을 합쳐서 만든다고 했을 때 <strong>udc</strong>를 만들고 반드시 <strong>udc 폴터 아래에 파일을 생성</strong> 해줘야 한다.</p>
+
+<p><img src="../images/eXbuilder6/2022-05-24-17-33-19.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>다음으로 <strong>env.json</strong>은 <strong>런타임 환경설정 파일</strong>이라고 보면 된다.</p>
+
+<p>외부 라이브러리나 외부 스타일 시트에 대한 <strong>url</strong>을 입력해서 여기에다가 작성하면 전역적으로 올라가서 작성한 url의 파일들을 사용할 수 있다.</p>
+
+<p>현재는 <strong>clx-src/theme/controls</strong> 아래에 cleopatra-theme.less를 올리겠다는 것을 알 수 있다. 즉, 컴파일 되는 공간은 <strong>clx-build/theme</strong> 아래 cleopatra-theme.css가 되는 것을 알 수 있다. (배포할 때)</p>
+
+<p><img src="../images/eXbuilder6/2022-05-24-17-35-42.png" alt="" /></p>
+
+<hr />
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> clx-src/udc/language.json
+</h3>
+
+<p>language.json 파일은 다국어를 사용할 때 입력하면 되는 공간이다.</p>
+
+<p><img src="../images/eXbuilder6/2022-05-24-17-38-19.png" alt="" /></p>
+
+<p><img src="../images/eXbuilder6/2022-05-24-17-38-44.png" alt="" /></p>
+
+<p><br /></p>
+
+<hr />
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> 새 파일 만들기
+</h3>
+
+<p>이름을 작성하고 <strong>Next</strong>를 누른다.</p>
+
+<p><img src="../images/eXbuilder6/2022-05-24-17-40-59.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>Next 후에는 template을 정하게 되는데 여기서는 생성된 템플릿이 없으므로 생략하고 Next로 넘어간다.</p>
+
+<p><img src="../images/eXbuilder6/2022-05-24-17-41-31.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>이제는 스크린을 선택할 수 있는 창이 나타나게 된다. <strong>eXBuilder6에서 제공하는 반응형 XY 레이아웃이 있다.</strong></p>
+
+<p>이는 각각 파일에 프리셋마다 배치를 다르게하거나 컨트롤을 숨길 수 있어서 각 화면을 새로운 크기로 생성이 가능하다.</p>
+
+<p>**default, tablet, mobile 사이즈를 기본적으로 제공하고 있다</p>
+
+<p><img src="../images/eXbuilder6/2022-05-24-17-42-15.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>또는 추가버튼(+버튼)을 눌러서 원하는 사이즈의 프리셋을 추가할 수 있다.</p>
+
+<p><img src="../images/eXbuilder6/2022-05-24-17-43-54.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>일단 defualt를 선택하고 Finish를 눌러 새 eXBuilder6 파일을 생성한다.</p>
+
+<p>그리고 보면 <strong>edu01.clx</strong> 파일과 <strong>edu01.js</strong> 파일이 생성되는 것을 볼 수 있다. 소스 경로에서는 clx파일이나 js 파일 두개가 있다.</p>
+
+<p><img src="../images/eXbuilder6/2022-05-24-17-45-01.png" alt="" /></p>
+
+<p><br /></p>
+
+<p>그리고 배포 경로를 보게되면(clx-build) 이 <strong>두 파일이 컴파일</strong>되어 배포 경로에서 하나의 <strong>.clx.js 파일</strong>로 생성된다.</p>
+
+<p><img src="../images/eXbuilder6/2022-05-24-17-47-55.png" alt="" /></p>
+:ET

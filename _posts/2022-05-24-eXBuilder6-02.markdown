@@ -314,13 +314,13 @@ _**오늘의 나보다 성장한 내일의 나를 위해....**_
 
 모든 작업은 **clx-src**에서 하게 된다.
 
-![](../images/eXbuilder6/2022-05-24-17-20-40.png)
+![](/images/eXbuilder6/2022-05-24-17-20-40.png?style=centerme)
 
 clx-src 안에 theme/control 폴더를 보게 되면 **part.less** 파일들을 볼 수 있다.
 
 <br>
 
-![](../images/eXbuilder6/2022-05-24-17-21-43.png)
+![](/images/eXbuilder6/2022-05-24-17-21-43.png?style=centerme)
 
 <br>
 
@@ -332,43 +332,43 @@ clx-src 안에 theme/control 폴더를 보게 되면 **part.less** 파일들을 
 
 아래 사진과 같이 eXBuilder6에서는 클래스 명에 **cl**이 붙어서 생성된다.
 
-![](../images/eXbuilder6/2022-05-24-17-22-45.png)
+![](/images/eXbuilder6/2022-05-24-17-22-45.png?style=centerme)
 
 <br>
 
 **Ctrl+Space** 키를 누르게 되면 스타일에 대한 속성들이 나타난다.
 
-![](../images/eXbuilder6/2022-05-24-17-23-37.png)
+![](/images/eXbuilder6/2022-05-24-17-23-37.png?style=centerme)
 
 <br>
 
 만약 색깔을 바꾸고 싶다면 color를 선택하고 또 **Ctrl+Space**를 누르게 되면 속성에 해당하는 설정 값 또한 **힌트**로 표시해준다.
 
-![](../images/eXbuilder6/2022-05-24-17-24-56.png)
+![](/images/eXbuilder6/2022-05-24-17-24-56.png?style=centerme)
 
 <br>
 
 그리고 밑으로 내리게 되면 **cleopatra-theme.less** 파일이 보이는데 이를 열어본다.
 
-![](../images/eXbuilder6/2022-05-24-17-25-44.png)
+![](/images/eXbuilder6/2022-05-24-17-25-44.png?style=centerme)
 
 <br>
 
 **cleopatra-theme.less** 파일 안에는 프로젝트에 있었던 **part.less** 파일이 모두 **import**가 되어 있는 것을 볼 수 있다.
 
-![](../images/eXbuilder6/2022-05-24-17-26-17.png)
+![](/images/eXbuilder6/2022-05-24-17-26-17.png?style=centerme)
 
 <br>
 
 **part.less** 파일들은 컴파일이 되지 않는다. 그래서 less 파일에다가(이경우 cleopatra-theme.less) **import**를 시켜줘야 한다. 이는 배포 경로의 **theme** 폴더에 있는 **cleopatra-theme.css**로 되어 있는 것을 확인할 수 있다. 
 
-![](../images/eXbuilder6/2022-05-24-17-28-35.png)
+![](/images/eXbuilder6/2022-05-24-17-28-35.png?style=centerme)
 
 <br>
 
 **theme/cleopatra-theme.css** 파일을 열게 되면 이렇게 **.part.less** 파일들이 하나의 파일로 컴파일 된 것을 볼 수 있다. 
 
-![](../images/eXbuilder6/2022-05-24-17-29-15.png)
+![](/images/eXbuilder6/2022-05-24-17-29-15.png?style=centerme)
 
 <br>
 
@@ -380,7 +380,7 @@ clx-src 안에 theme/control 폴더를 보게 되면 **part.less** 파일들을 
 
 udc는 **User Define Control**로 eXBuilder6에서 제공하는 컨트롤이 아닌 사용자가 직접 컨트롤을 조합해서 만들고 싶다거나 공통적으로 많이 사용하는 컨트롤들을 합쳐서 만든다고 했을 때 **udc**를 만들고 반드시 **udc 폴터 아래에 파일을 생성** 해줘야 한다.
 
-![](../images/eXbuilder6/2022-05-24-17-33-19.png)
+![](/images/eXbuilder6/2022-05-24-17-33-19.png?style=centerme)
 
 <br>
 
@@ -390,7 +390,7 @@ udc는 **User Define Control**로 eXBuilder6에서 제공하는 컨트롤이 아
 
 현재는 **clx-src/theme/controls** 아래에 cleopatra-theme.less를 올리겠다는 것을 알 수 있다. 즉, 컴파일 되는 공간은 **clx-build/theme** 아래 cleopatra-theme.css가 되는 것을 알 수 있다. (배포할 때)
 
-![](../images/eXbuilder6/2022-05-24-17-35-42.png)
+![](/images/eXbuilder6/2022-05-24-17-35-42.png?style=centerme)
 
 
 ---
@@ -401,9 +401,9 @@ udc는 **User Define Control**로 eXBuilder6에서 제공하는 컨트롤이 아
 
 language.json 파일은 다국어를 사용할 때 입력하면 되는 공간이다.
 
-![](../images/eXbuilder6/2022-05-24-17-38-19.png)
+![](/images/eXbuilder6/2022-05-24-17-38-19.png?style=centerme)
 
-![](../images/eXbuilder6/2022-05-24-17-38-44.png)
+![](/images/eXbuilder6/2022-05-24-17-38-44.png?style=centerme)
 
 <br>
 
@@ -415,13 +415,13 @@ language.json 파일은 다국어를 사용할 때 입력하면 되는 공간이
 
 이름을 작성하고 **Next**를 누른다.
 
-![](../images/eXbuilder6/2022-05-24-17-40-59.png)
+![](/images/eXbuilder6/2022-05-24-17-40-59.png?style=centerme)
 
 <br>
 
 Next 후에는 template을 정하게 되는데 여기서는 생성된 템플릿이 없으므로 생략하고 Next로 넘어간다.
 
-![](../images/eXbuilder6/2022-05-24-17-41-31.png)
+![](/images/eXbuilder6/2022-05-24-17-41-31.png?style=centerme)
 
 <br>
 
@@ -431,13 +431,13 @@ Next 후에는 template을 정하게 되는데 여기서는 생성된 템플릿�
 
 **default, tablet, mobile 사이즈를 기본적으로 제공하고 있다
 
-![](../images/eXbuilder6/2022-05-24-17-42-15.png)
+![](/images/eXbuilder6/2022-05-24-17-42-15.png?style=centerme)
 
 <br>
 
 또는 추가버튼(+버튼)을 눌러서 원하는 사이즈의 프리셋을 추가할 수 있다.
 
-![](../images/eXbuilder6/2022-05-24-17-43-54.png)
+![](/images/eXbuilder6/2022-05-24-17-43-54.png?style=centerme)
 
 <br>
 
@@ -445,10 +445,31 @@ Next 후에는 template을 정하게 되는데 여기서는 생성된 템플릿�
 
 그리고 보면 **edu01.clx** 파일과 **edu01.js** 파일이 생성되는 것을 볼 수 있다. 소스 경로에서는 clx파일이나 js 파일 두개가 있다.
 
-![](../images/eXbuilder6/2022-05-24-17-45-01.png)
+![](/images/eXbuilder6/2022-05-24-17-45-01.png?style=centerme)
 
 <br>
 
 그리고 배포 경로를 보게되면(clx-build) 이 **두 파일이 컴파일**되어 배포 경로에서 하나의 **.clx.js 파일**로 생성된다. 
 
-![](../images/eXbuilder6/2022-05-24-17-47-55.png)
+![](/images/eXbuilder6/2022-05-24-17-47-55.png?style=centerme)
+
+<br>
+
+스크립트 탭에서 작성한 스크립트는 .js 파일로 저장된다. 파일을 열때는 clx 파일을 열고 하단에 **스크립트**로 나타난다.
+
+![](/images/eXbuilder6/2022-05-25-09-45-31.png?style=centerme)
+
+<br>
+
+<span style="background: rgb(251,243,219)">파일 복사 시에도 .clx와 .js 파일을 함께 복사/이동</span> 시켜줘야 한다.
+
+---
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> Palette 사용하기
+</h3>
+
+Palette에서 다양한 도구를 선택할 수 있다. 버튼을 예로 보면 클릭한 상태에서 사이즈를 조절할 수도 있다.
+
+![](/images/eXbuilder6/2022-05-25-09-50-55.png?style=centerme)
+

@@ -1,4 +1,4 @@
-I"��<p><br /><br /></p>
+I"��<p><br /><br /></p>
 
 <p><strong><em>해당 내용은 책 &lt;컨테이너 인프라 환경 구축을 위한 쿠버네티스/도커&gt;에 나오는 내용이며 이는 개인적으로 공부하기 위해서 게시하는 글임을 알립니다.</em></strong></p>
 
@@ -461,7 +461,7 @@ kubectl create deployment <span class="k">in</span><span class="nt">-ip-pod</spa
 <span class="na">metadata</span><span class="pi">:</span>
   <span class="na">name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
   <span class="na">annotations</span><span class="pi">:</span>
-    <span class="s">nginx.ingress.kubernetes.io/rewrite-target</span><span class="pi">:</span> <span class="s">/</span>
+    <span class="na">nginx.ingress.kubernetes.io/rewrite-target</span><span class="pi">:</span> <span class="s">/</span>
 <span class="na">spec</span><span class="pi">:</span>
   <span class="na">rules</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="na">http</span><span class="pi">:</span>
@@ -507,7 +507,7 @@ kubectl create deployment <span class="k">in</span><span class="nt">-ip-pod</spa
     <span class="c1">#사용할 수 있다는 것을 의미한다.</span>
     <span class="c1">#nginx.ingress.kubernetes.io/rewrite-target는 트래픽을 리디렉션해야 하는 대상 URI이다. 즉</span>
     <span class="c1">#rule의 path에 지정된 경로를 해당 주석에 설정된 경로로 Redirect 한다. 여기선 /로 Redirect한다.</span>
-    <span class="s">nginx.ingress.kubernetes.io/rewrite-target</span><span class="pi">:</span> <span class="s">/</span>
+    <span class="na">nginx.ingress.kubernetes.io/rewrite-target</span><span class="pi">:</span> <span class="s">/</span>
 <span class="na">spec</span><span class="pi">:</span>
   <span class="c1">#규칙 지정</span>
   <span class="na">rules</span><span class="pi">:</span>
@@ -633,7 +633,7 @@ kubectl create deployment <span class="k">in</span><span class="nt">-ip-pod</spa
       <span class="na">targetPort</span><span class="pi">:</span> <span class="m">443</span>
       <span class="na">nodePort</span><span class="pi">:</span> <span class="m">30101</span>
   <span class="na">selector</span><span class="pi">:</span>
-    <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
   <span class="na">type</span><span class="pi">:</span> <span class="s">NodePort</span>
 </code></pre></div></div>
 
@@ -689,7 +689,7 @@ kubectl create deployment <span class="k">in</span><span class="nt">-ip-pod</spa
       <span class="c1">#즉 ingress-nginx라는 이름을 통해서 통신할 ingress 컨트롤러를 확인한다.</span>
       <span class="c1">#위의 ingress-config.yaml에서 metadata.name이 ingress-nginx이다.</span>
   <span class="na">selector</span><span class="pi">:</span>
-    <span class="s">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
+    <span class="na">app.kubernetes.io/name</span><span class="pi">:</span> <span class="s">ingress-nginx</span>
 
   <span class="c1">#서비스 타입을 설정</span>
   <span class="na">type</span><span class="pi">:</span> <span class="s">NodePort</span>

@@ -1,4 +1,4 @@
-I"z�<p><br /><br /></p>
+I"��<p><br /><br /></p>
 
 <p><strong><em>해당 내용은 책 &lt;컨테이너 인프라 환경 구축을 위한 쿠버네티스/도커&gt;에 나오는 내용이며 이는 개인적으로 공부하기 위해서 게시하는 글임을 알립니다.</em></strong></p>
 
@@ -638,8 +638,8 @@ https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv3.6.
   <span class="na">template</span><span class="pi">:</span>
     <span class="na">metadata</span><span class="pi">:</span>
       <span class="na">annotations</span><span class="pi">:</span>
-        <span class="s">prometheus.io/port</span><span class="pi">:</span> <span class="s2">"</span><span class="s">7472"</span>
-        <span class="s">prometheus.io/scrape</span><span class="pi">:</span> <span class="s2">"</span><span class="s">true"</span>
+        <span class="na">prometheus.io/port</span><span class="pi">:</span> <span class="s2">"</span><span class="s">7472"</span>
+        <span class="na">prometheus.io/scrape</span><span class="pi">:</span> <span class="s2">"</span><span class="s">true"</span>
       <span class="na">labels</span><span class="pi">:</span>
         <span class="na">app</span><span class="pi">:</span> <span class="s">metallb</span>
         <span class="na">component</span><span class="pi">:</span> <span class="s">speaker</span>
@@ -679,7 +679,7 @@ https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv3.6.
             <span class="na">readOnlyRootFilesystem</span><span class="pi">:</span> <span class="no">true</span>
       <span class="na">hostNetwork</span><span class="pi">:</span> <span class="no">true</span>
       <span class="na">nodeSelector</span><span class="pi">:</span>
-        <span class="s">beta.kubernetes.io/os</span><span class="pi">:</span> <span class="s">linux</span>
+        <span class="na">beta.kubernetes.io/os</span><span class="pi">:</span> <span class="s">linux</span>
       <span class="na">serviceAccountName</span><span class="pi">:</span> <span class="s">speaker</span>
       <span class="na">terminationGracePeriodSeconds</span><span class="pi">:</span> <span class="m">0</span>
       <span class="na">tolerations</span><span class="pi">:</span>
@@ -703,8 +703,8 @@ https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv3.6.
   <span class="na">template</span><span class="pi">:</span>
     <span class="na">metadata</span><span class="pi">:</span>
       <span class="na">annotations</span><span class="pi">:</span>
-        <span class="s">prometheus.io/port</span><span class="pi">:</span> <span class="s2">"</span><span class="s">7472"</span>
-        <span class="s">prometheus.io/scrape</span><span class="pi">:</span> <span class="s2">"</span><span class="s">true"</span>
+        <span class="na">prometheus.io/port</span><span class="pi">:</span> <span class="s2">"</span><span class="s">7472"</span>
+        <span class="na">prometheus.io/scrape</span><span class="pi">:</span> <span class="s2">"</span><span class="s">true"</span>
       <span class="na">labels</span><span class="pi">:</span>
         <span class="na">app</span><span class="pi">:</span> <span class="s">metallb</span>
         <span class="na">component</span><span class="pi">:</span> <span class="s">controller</span>
@@ -730,7 +730,7 @@ https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv3.6.
                 <span class="pi">-</span> <span class="s">all</span>
             <span class="na">readOnlyRootFilesystem</span><span class="pi">:</span> <span class="no">true</span>
       <span class="na">nodeSelector</span><span class="pi">:</span>
-        <span class="s">beta.kubernetes.io/os</span><span class="pi">:</span> <span class="s">linux</span>
+        <span class="na">beta.kubernetes.io/os</span><span class="pi">:</span> <span class="s">linux</span>
       <span class="na">securityContext</span><span class="pi">:</span>
         <span class="na">runAsNonRoot</span><span class="pi">:</span> <span class="no">true</span>
         <span class="na">runAsUser</span><span class="pi">:</span> <span class="m">65534</span>
