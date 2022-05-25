@@ -7,6 +7,368 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>eXBuilder6 사용 방법_2교시</title>
+				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해….&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;style&gt;
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: &quot;&quot;;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: &quot;&quot;;
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: &quot;&quot;;
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: &quot;&quot;;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: &quot;&quot;;
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: &quot;&quot;;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: &quot;&quot;;
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+&lt;/style&gt;
+
+&lt;div class=&quot;containercoffee&quot;&gt;
+    &lt;div class=&quot;coffee-header&quot;&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-medium&quot;&gt;
+      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/270f.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; eXBuilder6 가이드
+&lt;/h2&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 모델뷰 - 앱속성
+&lt;/h3&gt;
+
+&lt;p&gt;하단 &lt;strong&gt;Assit&lt;/strong&gt; 탭의 &lt;strong&gt;출판된 속성&lt;/strong&gt;에서 추가한 앱 속성이 상단 오른쪽 &lt;strong&gt;Model&lt;/strong&gt;의 앱 속성에 나타나는 것을 볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-13-18-48.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;모델 뷰에서 앱 속성 추가는 불가하며, Assist 탭의 &lt;strong&gt;출판된 속성&lt;/strong&gt;에서만 속성 &lt;strong&gt;추가/삭제&lt;/strong&gt;가 가능하다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-13-20-30.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;아래 사진과 같이 + 기호를 클릭해서 속성 추가와 X를 눌러서 삭제가 가능하다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-13-21-40.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;모델 뷰&lt;/strong&gt;에서는 현재 열린 화면에 어떤 앱 속성이 존재하는지를 확인할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-13-22-20.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 모델뷰 - 데이터셋
+&lt;/h3&gt;
+
+&lt;p&gt;아래 사진과 같이 모델 뷰에서 데이터 셋을 추가할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-13-24-09.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;새 데이터셋 추가를 하게 되면 아래 사진과 같이 &lt;strong&gt;ds1&lt;/strong&gt;이 생기는 것을 볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-13-25-18.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ds1&lt;/strong&gt;을 클릭해서 좀 더 자세하게 살펴보자. 데이터 셋은 복수의 열(column)과 행(row)를 갖고 있는 데이터 컨트롤이다. 이는 복수의 열과 행의 데이터를 표현하기 위해 &lt;strong&gt;그리드 컨트롤&lt;/strong&gt;과 가장 많이 사용되고 &lt;strong&gt;콤보박스&lt;/strong&gt;나 &lt;strong&gt;트리&lt;/strong&gt;와 같은 목록형 컨트롤들의 value 값을 나타낼 때 사용한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-13-25-50.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;컬럼을 추가&lt;/strong&gt;할 때는 오른쪽(마우스가 있는 자리)에 있는 추가 버튼을 눌러서 추가할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-13-27-47.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-13-28-27.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;만약 행을 추가하겠다 하면 &lt;strong&gt;행 탭&lt;/strong&gt;에서 행 추가 버튼을 눌러서 추가할 수 있다. &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;그런데 대체적으로 행을 추가하는 일은 없을 것이다. 왜냐면 대부분 서버에서 가져와서 해당 데이터들을 보여줄 것이기 때문이다. 행은 그냥 선행 데이터가 필요할 때 추가한다. &lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-13-28-56.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+</description>
+				<pubDate>Tue, 24 May 2022 10:00:00 +0900</pubDate>
+				<link>/exbuilder6/2022/05/24/eXBuilder6-03.html</link>
+				<guid isPermaLink="true">/exbuilder6/2022/05/24/eXBuilder6-03.html</guid>
+			</item>
+		
+			<item>
 				<title>eXBuilder6 사용 방법_1교시</title>
 				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -429,7 +791,7 @@
 
 &lt;p&gt;이는 각각 파일에 프리셋마다 배치를 다르게하거나 컨트롤을 숨길 수 있어서 각 화면을 새로운 크기로 생성이 가능하다.&lt;/p&gt;
 
-&lt;p&gt;**default, tablet, mobile 사이즈를 기본적으로 제공하고 있다&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;default, tablet, mobile&lt;/strong&gt; 사이즈를 기본적으로 제공하고 있다&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-24-17-42-15.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -646,6 +1008,134 @@
 &lt;p&gt;이렇게 되면 버튼을 누를 때 test 메소드가 실행되는 것을 알 수 있다.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-12-33-59.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;빠르게 이벤트를 만드는 방법은 해당 버튼을 클릭한 다음 enter 키를 누르게 되면 바로 click 이벤트 메서드가 생성되는 것을 알 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-12-35-58.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-12-36-06.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그리드 또한 클릭한 다음 enter를 누르게 되면 &lt;strong&gt;selection change&lt;/strong&gt;라는 이벤트에 대한 메서드를 자동으로 생성해 주는 것을 알 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-12-39-08.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-12-39-15.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Properties&lt;/strong&gt;의 &lt;strong&gt;사용자 속성&lt;/strong&gt;은 eXBuilder6가 제공하는 속성이 아니라 사용자가 정의하는 속성을 사용할 때 사용한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-12-47-19.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;추가버튼을 클릭하여 컨트롤 사용자 속성을 추가할 수 있고 DOM 데이터 속성을 추가할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-12-47-55.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-12-48-30.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Properties의 Binding&lt;/strong&gt;은 외부에 있는 데이터를 가져와서 값을 보여줘야 하는데 속성들에 외부의 값을 가져온 후 매핑해준다 라고 생각하면 된다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;화면 하단의 Assist 탭에서는 5가지 하위 탭을 제공한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-12-50-42.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;일단 디자인 탭에서 &lt;strong&gt;Root Container&lt;/strong&gt;를 클릭하고 &lt;strong&gt;앱 주석&lt;/strong&gt;을 보면 이는 clx 파일에 대한 &lt;strong&gt;설명&lt;/strong&gt;을 적을 수 있는 공간이다.&lt;/p&gt;
+
+&lt;p&gt;먼저 앱주석에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;교육용 테스트 화면입니다.&lt;/span&gt; 라는 글을 쓰고 앞에서 배웠던 &lt;strong&gt;Ctrl+Shift+,&lt;/strong&gt; 눌러서 앱주석을 검색해보면 아래와 같은 결과를 볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-12-51-58.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Assist&lt;/strong&gt;의 &lt;strong&gt;스타일 시트&lt;/strong&gt;는 스타일 파일 또는 외부 스크립트 파일을 추가하여 참조시킬 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-12-53-21.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이 &lt;strong&gt;edu01.clx&lt;/strong&gt;에서만 사용하는 스타일 시트가 있을 경우 아래 사진과 같이 자물쇠 모양을 클릭한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-12-54-15.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;지금은 현재 controls 파일에 &lt;strong&gt;part.less&lt;/strong&gt; 파일들만 존재함으로 이 파일들만 나열이 되는 것이다. 여기서 만약에 특정 파일을 추가해서 만든 파일인데 이 clx 파일에서만 사용한다고 하면 여기 &lt;strong&gt;스타일 시트&lt;/strong&gt;에 추가하면 되는 것이다. &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;반드시 소스경로(theme)에 있는 파일만 추가할 수 있다는 것을 기억해야 한다.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-12-54-49.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Assist&lt;/strong&gt;의 &lt;strong&gt;출판된 속성, 출판된 이벤트&lt;/strong&gt;는 UDC에 대해 설명할 때 이야기할 것이다. 이 &lt;strong&gt;edu01.clx&lt;/strong&gt; 파일이 하나의 앱이고 이 앱을 다른 앱에서 불러와서 사용할 수 있다. 즉 부모 앱이 있고 그 부모 앱에서 이 edu01.clx 파일은 안에다가 임베디드 해가지고 사용할 수 있는데 이때 임베디드 된 앱의 속성이나 이벤트를 다른 앱에서 사용하고 싶을 때 출판을 해서 사용해야 되는 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;오른쪽 상단에 &lt;strong&gt;Outline&lt;/strong&gt; 뷰에서는 디자인 탭의 상황을 미리보기로 볼 수 있고 배치되어 있는 컨트롤을 조그만하게 볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-13-00-57.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이때 배치된 순서를 바꾸고 싶으면 클릭후 Ctrl+(방향키 up) 를 하게 되면 순서가 바뀐다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-13-02-42.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;아니면 오른쪽 클릭후 순서변경으로 바꿀 수도 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-13-03-27.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;앞으로 가져올 것인지 뒤로 보낼 것인지 tab index를 지정해 줄 수 있는 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-13-04-01.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;현재 컨트롤의 배치가 아래와 같다. 이제 미리보기를 클릭해 본다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-13-05-15.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;가장 위 버튼을 누르면 그 아래 버튼으로 focus가 옮겨가고 두 번째 버튼을 누르면 그리드 쪽으로 focus가 가야하지만 그리드는 focus를 받을 수 없어서 focus가 나타나지 않는 것이다.(파란색 테두리)&lt;/p&gt;
+
+&lt;p&gt;즉, &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Outline 뷰의 순서대로 포커스가 이동하는 것을 볼 수 있다.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-13-05-47.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;또한 &lt;strong&gt;Outline&lt;/strong&gt; 뷰에서 &lt;strong&gt;XY 레이아웃&lt;/strong&gt; 쪽에 &lt;strong&gt;Comment&lt;/strong&gt; 부분에 &lt;strong&gt;버튼1&lt;/strong&gt;이라고 적게 되면, 아래 그림과 같이 버튼에 마우스를 올려놨을 때 Comment에 적혀진 부분이 설명으로 뜨는 것을 볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-13-07-51.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그리고 Outline View 쪽에 눈 모양에 체크를 하게 되면 해당하는 컨트롤이 안 보이게 된다. 중요한 것은 이상태에서 &lt;strong&gt;미리보기 브라우저&lt;/strong&gt;를 누르게 되면 사라지지 않고 &lt;strong&gt;표시&lt;/strong&gt;된다는 점이다&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-13-09-14.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-13-11-22.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Outline View 쪽에 자물쇠 모양에 체크를 하게 되면 디자인 탭에서 해당 컨트롤을 선택할 수 없게 된다(드래그로 선택이 안됨)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-25-13-09-53.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 </description>
 				<pubDate>Mon, 23 May 2022 13:00:00 +0900</pubDate>
 				<link>/exbuilder6/2022/05/23/eXBuilder6-02.html</link>
@@ -4683,395 +5173,6 @@ options edns0
 				<pubDate>Sat, 15 Jan 2022 12:20:00 +0900</pubDate>
 				<link>/interview/2022/01/15/Interview-interview-36.html</link>
 				<guid isPermaLink="true">/interview/2022/01/15/Interview-interview-36.html</guid>
-			</item>
-		
-			<item>
-				<title>Confluent Connector 연결 도중 나온 에러</title>
-				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해…&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;style&gt;
-.containercoffee {
-  width: 300px;
-  height: 280px;
-  position: relative;
-  top: calc(50% - 140px);
-  left: calc(50% - 150px);
-}
-.coffee-header {
-  width: 100%;
-  height: 80px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #ddcfcc;
-  border-radius: 10px;
-}
-.coffee-header__buttons {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  top: 25px;
-  background-color: #282323;
-  border-radius: 50%;
-}
-.coffee-header__buttons::after {
-  content: &quot;&quot;;
-  width: 8px;
-  height: 8px;
-  position: absolute;
-  bottom: -8px;
-  left: calc(50% - 4px);
-  background-color: #615e5e;
-}
-.coffee-header__button-one {
-  left: 15px;
-}
-.coffee-header__button-two {
-  left: 50px;
-}
-.coffee-header__display {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: calc(50% - 25px);
-  left: calc(50% - 25px);
-  border-radius: 50%;
-  background-color: #9acfc5;
-  border: 5px solid #43beae;
-  box-sizing: border-box;
-}
-.coffee-header__details {
-  width: 8px;
-  height: 20px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #9b9091;
-  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
-}
-.coffee-medium {
-  width: 90%;
-  height: 160px;
-  position: absolute;
-  top: 80px;
-  left: calc(50% - 45%);
-  background-color: #bcb0af;
-}
-.coffee-medium:before {
-  content: &quot;&quot;;
-  width: 90%;
-  height: 100px;
-  background-color: #776f6e;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 45%);
-  border-radius: 20px 20px 0 0;
-}
-.coffe-medium__exit {
-  width: 60px;
-  height: 20px;
-  position: absolute;
-  top: 0;
-  left: calc(50% - 30px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::before {
-  content: &quot;&quot;;
-  width: 50px;
-  height: 20px;
-  border-radius: 0 0 50% 50%;
-  position: absolute;
-  bottom: -20px;
-  left: calc(50% - 25px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::after {
-  content: &quot;&quot;;
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  bottom: -30px;
-  left: calc(50% - 5px);
-  background-color: #231f20;
-}
-.coffee-medium__arm {
-  width: 70px;
-  height: 20px;
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  background-color: #231f20;
-}
-.coffee-medium__arm::before {
-  content: &quot;&quot;;
-  width: 15px;
-  height: 5px;
-  position: absolute;
-  top: 7px;
-  left: -15px;
-  background-color: #9e9495;
-}
-.coffee-medium__cup {
-  width: 80px;
-  height: 47px;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 40px);
-  background-color: #FFF;
-  border-radius: 0 0 70px 70px / 0 0 110px 110px;
-}
-.coffee-medium__cup::after {
-  content: &quot;&quot;;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 6px;
-  right: -13px;
-  border: 5px solid #FFF;
-  border-radius: 50%;
-}
-@keyframes liquid {
-  0% {
-    height: 0px;  
-    opacity: 1;
-  }
-  5% {
-    height: 0px;  
-    opacity: 1;
-  }
-  20% {
-    height: 62px;  
-    opacity: 1;
-  }
-  95% {
-    height: 62px;
-    opacity: 1;
-  }
-  100% {
-    height: 62px;
-    opacity: 0;
-  }
-}
-.coffee-medium__liquid {
-  width: 6px;
-  height: 63px;
-  opacity: 0;
-  position: absolute;
-  top: 50px;
-  left: calc(50% - 3px);
-  background-color: #74372b;
-  animation: liquid 4s 4s linear infinite;
-}
-.coffee-medium__smoke {
-  width: 8px;
-  height: 20px;
-  position: absolute;  
-  border-radius: 5px;
-  background-color: #b3aeae;
-}
-@keyframes smokeOne {
-  0% {
-    bottom: 20px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 50px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-@keyframes smokeTwo {
-  0% {
-    bottom: 40px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 70px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-.coffee-medium__smoke-one {
-  opacity: 0;
-  bottom: 50px;
-  left: 102px;
-  animation: smokeOne 3s 4s linear infinite;
-}
-.coffee-medium__smoke-two {
-  opacity: 0;
-  bottom: 70px;
-  left: 118px;
-  animation: smokeTwo 3s 5s linear infinite;
-}
-.coffee-medium__smoke-three {
-  opacity: 0;
-  bottom: 65px;
-  right: 118px;
-  animation: smokeTwo 3s 6s linear infinite;
-}
-.coffee-medium__smoke-for {
-  opacity: 0;
-  bottom: 50px;
-  right: 102px;
-  animation: smokeOne 3s 5s linear infinite;
-}
-.coffee-footer {
-  width: 95%;
-  height: 15px;
-  position: absolute;
-  bottom: 25px;
-  left: calc(50% - 47.5%);
-  background-color: #41bdad;
-  border-radius: 10px;
-}
-.coffee-footer::after {
-  content: &quot;&quot;;
-  width: 106%;
-  height: 26px;
-  position: absolute;
-  bottom: -25px;
-  left: -8px;
-  background-color: #000;
-}
-&lt;/style&gt;
-
-&lt;div class=&quot;containercoffee&quot;&gt;
-    &lt;div class=&quot;coffee-header&quot;&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-medium&quot;&gt;
-      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Zookeeper와 Kafka 서버를 킨 후 Kafka Source Connect를 하던 중 에러가 발생했다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;java.sql.SQLException: Access denied for user&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;아래 사진처럼 postman를 사용해 connect를 시도했다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-14-00-55-15.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;결과는 잘 나왔지만 ubuntu 터미널에서는 계속 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Access denied for user~&lt;/span&gt;를 띄워줬다.&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 해결 방법
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;먼저 ubuntu에서 &lt;strong&gt;mysql -uroot -p&lt;/strong&gt;를 입력하고 mysql에 접속하게 될 때 아래와 같은 에러가 발생할 것이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql ERROR 1698 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;28000&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: Access denied &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;user &lt;span class=&quot;s1&quot;&gt;&apos;root&apos;&lt;/span&gt;@&lt;span class=&quot;s1&quot;&gt;&apos;localhost&apos;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;결론적으로 이것은 &lt;strong&gt;sudo&lt;/strong&gt;를 사용해 접속이 가능하다&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;mysql &lt;span class=&quot;nt&quot;&gt;-uroot&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;여기서 &lt;strong&gt;sudo&lt;/strong&gt;를 빼고 접속할 수만 있으면 우리의 문제는 해결된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;일단 문제는 기본적으로 초기 설정되어 있는 mysql의 root 계정의 패스워드 타입 때문이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;mysql &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; root &lt;span class=&quot;c&quot;&gt;# sudo를 사용하여 root계정으로 mysql에 접속한다.&lt;/span&gt;
-
-mysql&amp;gt; USE mysql&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-mysql&amp;gt; SELECT User, Host, plugin FROM mysql.user&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-+------------------+-----------------------+
-| User             | plugin                |
-+------------------+-----------------------+
-| root             | auth_socket           |
-| mysql.sys        | mysql_native_password |
-| debian-sys-maint | mysql_native_password |
-+------------------+-----------------------+
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;root&lt;/span&gt;의 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;plugin&lt;/span&gt;이 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;auth_socket&lt;/span&gt;으로 되어 있는데 이값을 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;mysql_native_password&lt;/span&gt;으로 변경해주면 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql&amp;gt; update user &lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;plugin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;mysql_native_password&apos;&lt;/span&gt; where &lt;span class=&quot;nv&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;root&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-mysql&amp;gt; flush privileges&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-mysql&amp;gt; &lt;span class=&quot;k&quot;&gt;select &lt;/span&gt;user, host, plugin from user&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-
-
-+------------------+-----------------------+
-| User             | plugin                |
-+------------------+-----------------------+
-| root             | mysql_native_password |
-| mysql.sys        | mysql_native_password |
-| debian-sys-maint | mysql_native_password |
-+------------------+-----------------------+
-mysql&amp;gt; &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-Bye
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;다시 시도하면 &lt;strong&gt;Access Denied&lt;/strong&gt; 없이 작동한다!&lt;/p&gt;
-</description>
-				<pubDate>Thu, 13 Jan 2022 14:20:00 +0900</pubDate>
-				<link>/kafka/2022/01/13/Kafka-post3.html</link>
-				<guid isPermaLink="true">/kafka/2022/01/13/Kafka-post3.html</guid>
 			</item>
 		
 	</channel>

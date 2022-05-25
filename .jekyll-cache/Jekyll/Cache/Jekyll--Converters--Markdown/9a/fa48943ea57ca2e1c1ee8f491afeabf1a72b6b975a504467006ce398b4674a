@@ -1,4 +1,4 @@
-I"�:<p><br /><br /></p>
+I"ls<p><br /><br /></p>
 
 <p><em><strong>오늘의 나보다 성장한 내일의 나를 위해….</strong></em></p>
 
@@ -419,7 +419,7 @@
 
 <p>이는 각각 파일에 프리셋마다 배치를 다르게하거나 컨트롤을 숨길 수 있어서 각 화면을 새로운 크기로 생성이 가능하다.</p>
 
-<p>**default, tablet, mobile 사이즈를 기본적으로 제공하고 있다</p>
+<p><strong>default, tablet, mobile</strong> 사이즈를 기본적으로 제공하고 있다</p>
 
 <p><img src="/images/eXbuilder6/2022-05-24-17-42-15.png?style=centerme" alt="" /></p>
 
@@ -493,4 +493,275 @@
 
 <p><br /></p>
 
+<hr />
+
+<p>그리드를 디자인 탭에 드랍하게 되면 사진과 같이 아래 그리드 편집기 탭이 추가된다. 그리고 그리드는 특수한 컨트롤이기 때문에 <strong>별도의 편집 탭을 제공</strong>하고 있다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-10-53-44.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>이제 각 컨트롤의 <strong>Properties</strong>에 대해 설명해본다. 여기에 있는 6가지 탭에 대해 이야기 해본다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-10-54-56.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>디자인 탭에 들어간 후 디자인의 빈 공간을 클릭한 다음 Properties의 일반 탭을 누르게 되면 아래 사진과 같이 <span style="background: rgb(251,243,219)">루트 컨테이너</span>가 보이는 것을 알 수 있다. <span style="background: rgb(251,243,219)">루트 컨테이너는 최상위 body를 지칭한다.</span></p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-10-56-01.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>일반 탭의 아래에 앱이라는 것이 있는데 여기서의 앱은 <strong>clx 파일</strong> 하나를 의미한다고 생각하면 된다. 이 파일의 <strong>타이틀</strong>을 지정할 수 있다. 맨처음에는 파일명과 동일하게 이 <strong>title</strong>이 <strong>default</strong>으로 지정된다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-10-58-29.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>만약 파일을 다른 사람들과 공유해야 할 때 어떤 파일인지 모르는데 이 <strong>title</strong>를 다른 것으로 작성하고 <strong>Project Explorer</strong>를 보게 되면 방금 작성한 <strong>title</strong>에 대해 바뀌는 것을 볼 수 있다. 이렇게 되면 이 clx 파일이 어떤 파일인지 다같이 공유할 수 있게 되는 것이다. 즉 이 <strong>앱-title</strong>은 <span style="background: rgb(251,243,219)">clx 파일의 제목</span>이라고 볼 수 있는 것이다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-11-00-07.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>Ctrl+Shift+,</strong>를 누르게 되면 다이얼로그가 나타난다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-11-01-40.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>여기서 조회라고 검색을 하게 되면 입력한 검색어로 <strong>title</strong>과 <strong>앱 주석</strong> 내에서 탐색이 이루어진다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-11-02-08.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>아래 사진은 앱 주석에 <strong>조회</strong>라는 단어가 들어가는 것을 보여준다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-11-02-50.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>아래 사진은 방금 <strong>title</strong>에서 설정한 조회용 파일에서 <strong>조회</strong>라는 단어가 들어가기 때문에 검색이 되는 것을 볼 수 있다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-11-03-13.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>이제 버튼을 눌러보고 <strong>Properties</strong> 탭을 보자. 그렇게 되면 회색으로 쓰여져 있는 것과 검은색으로 쓰여져 있는 것을 볼 수 있는데 회색은 <strong>default</strong> 값으로 설정되어 있는 것이다. 다른 값을 선택했을 때는 검정색으로 보여진다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-11-05-16.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>쉽게 <strong>default</strong> 값으로 변경하려면 해당 Properties를 클릭하고 위에 X 표시를 눌러주면 사용자가 설정한 값에서 다시 default 값으로 변경해준다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-11-06-37.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>이제 버튼 컨트롤을 클릭하고 <strong>Properties</strong>의 스타일 탭에 들어가본다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-11-09-04.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>버튼에는 <strong>icon</strong>를 넣을 수 있다. 그래서 <strong>iconStyle</strong>이라는 것이 따로 있다. 그리고 각각 css를 쉽게 변경할 수 있다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-11-09-32.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>여기서 주의해야 할 점은 <strong>Properties</strong>의 <strong>스타일</strong> 탭에서 적용한 스타일의 우선순위가 <strong>theme</strong>의 <strong>part.less</strong> 파일로 설정한 스타일보다 <strong>우선순위가 높다는 것이다.</strong></p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-11-12-39.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>이제 다시 <strong>루트 컨테이너</strong> 이 body를 디자인 탭에서 클릭한 다음에 <strong>Properties</strong>의 <strong>레이아웃</strong> 탭을 클릭해본다. 여길 보면 <strong>XY 레이아웃</strong>이라고 되어 있는 것이 있는데 이것은 eXBuilder6에서 <span style="background: rgb(251,243,219)">기본적으로 사용하는 레이아웃이다.</span> 파일을 생성했을 때 XY레이아웃으로 파일이 지정된다고 기억하면 된다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-11-16-10.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>루트 컨테이너</strong>를 클릭했을 때는 <strong>XY레이아웃</strong>이라고 나왔으나 각각의 컨트롤을 클릭하고 <strong>Properties</strong>의 <strong>레이아웃</strong> 탭을 보면 컨트롤의 크기 및 좌표를 볼 수 있다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-11-17-31.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>버튼 컨트롤을 오른쪽 클릭하면 이벤트 항목이 존재한다. 이 이벤트 항목에서 내가 원하는 이벤트 찾아서 클릭하면 스크립트 탭으로 넘어갈 수 있고</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-11-20-20.png?style=centerme" alt="" />’</p>
+
+<p><br /></p>
+
+<p><strong>Properties</strong>의 <strong>이벤트</strong> 탭에서 click 속성이 있는데 click 이벤트를 더블 클릭해본다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-11-20-57.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>클릭하게 되면 <strong>스크립트</strong> 탭으로 이동하게 되면서 클릭 이벤트 메소드가 자동으로 생성되는 것을 알 수 있다. 그래서 초록색</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-11-22-04.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>옆에 <strong>B</strong>를 클릭하면</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-12-30-28.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>다시 디자인 탭에 해당하는 버튼으로 선택되는 것을 볼 수 있다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-12-31-09.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>이제 test라는 새로운 함수를 만들어 본다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-12-32-23.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>그리고 다시 디자인 탭의 해당하는 버튼으로 돌아와서 <strong>Properties</strong>의 <strong>이벤트</strong> 항목을 본다. <strong>click</strong> 속성을 더블 클릭을 하게되면 메소드들의 목록을 볼 수 있다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-12-33-08.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>이렇게 되면 버튼을 누를 때 test 메소드가 실행되는 것을 알 수 있다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-12-33-59.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>빠르게 이벤트를 만드는 방법은 해당 버튼을 클릭한 다음 enter 키를 누르게 되면 바로 click 이벤트 메서드가 생성되는 것을 알 수 있다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-12-35-58.png?style=centerme" alt="" /></p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-12-36-06.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>그리드 또한 클릭한 다음 enter를 누르게 되면 <strong>selection change</strong>라는 이벤트에 대한 메서드를 자동으로 생성해 주는 것을 알 수 있다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-12-39-08.png?style=centerme" alt="" /></p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-12-39-15.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>Properties</strong>의 <strong>사용자 속성</strong>은 eXBuilder6가 제공하는 속성이 아니라 사용자가 정의하는 속성을 사용할 때 사용한다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-12-47-19.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>추가버튼을 클릭하여 컨트롤 사용자 속성을 추가할 수 있고 DOM 데이터 속성을 추가할 수 있다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-12-47-55.png?style=centerme" alt="" /></p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-12-48-30.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>Properties의 Binding</strong>은 외부에 있는 데이터를 가져와서 값을 보여줘야 하는데 속성들에 외부의 값을 가져온 후 매핑해준다 라고 생각하면 된다.</p>
+
+<hr />
+
+<p>화면 하단의 Assist 탭에서는 5가지 하위 탭을 제공한다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-12-50-42.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>일단 디자인 탭에서 <strong>Root Container</strong>를 클릭하고 <strong>앱 주석</strong>을 보면 이는 clx 파일에 대한 <strong>설명</strong>을 적을 수 있는 공간이다.</p>
+
+<p>먼저 앱주석에 <span style="background: rgb(251,243,219)">교육용 테스트 화면입니다.</span> 라는 글을 쓰고 앞에서 배웠던 <strong>Ctrl+Shift+,</strong> 눌러서 앱주석을 검색해보면 아래와 같은 결과를 볼 수 있다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-12-51-58.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>Assist</strong>의 <strong>스타일 시트</strong>는 스타일 파일 또는 외부 스크립트 파일을 추가하여 참조시킬 수 있다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-12-53-21.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>이 <strong>edu01.clx</strong>에서만 사용하는 스타일 시트가 있을 경우 아래 사진과 같이 자물쇠 모양을 클릭한다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-12-54-15.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>지금은 현재 controls 파일에 <strong>part.less</strong> 파일들만 존재함으로 이 파일들만 나열이 되는 것이다. 여기서 만약에 특정 파일을 추가해서 만든 파일인데 이 clx 파일에서만 사용한다고 하면 여기 <strong>스타일 시트</strong>에 추가하면 되는 것이다. <span style="background: rgb(251,243,219)">반드시 소스경로(theme)에 있는 파일만 추가할 수 있다는 것을 기억해야 한다.</span></p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-12-54-49.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>Assist</strong>의 <strong>출판된 속성, 출판된 이벤트</strong>는 UDC에 대해 설명할 때 이야기할 것이다. 이 <strong>edu01.clx</strong> 파일이 하나의 앱이고 이 앱을 다른 앱에서 불러와서 사용할 수 있다. 즉 부모 앱이 있고 그 부모 앱에서 이 edu01.clx 파일은 안에다가 임베디드 해가지고 사용할 수 있는데 이때 임베디드 된 앱의 속성이나 이벤트를 다른 앱에서 사용하고 싶을 때 출판을 해서 사용해야 되는 것이다.</p>
+
+<p><br /></p>
+
+<p>오른쪽 상단에 <strong>Outline</strong> 뷰에서는 디자인 탭의 상황을 미리보기로 볼 수 있고 배치되어 있는 컨트롤을 조그만하게 볼 수 있다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-13-00-57.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>이때 배치된 순서를 바꾸고 싶으면 클릭후 Ctrl+(방향키 up) 를 하게 되면 순서가 바뀐다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-13-02-42.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>아니면 오른쪽 클릭후 순서변경으로 바꿀 수도 있다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-13-03-27.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>앞으로 가져올 것인지 뒤로 보낼 것인지 tab index를 지정해 줄 수 있는 것이다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-13-04-01.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>현재 컨트롤의 배치가 아래와 같다. 이제 미리보기를 클릭해 본다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-13-05-15.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>가장 위 버튼을 누르면 그 아래 버튼으로 focus가 옮겨가고 두 번째 버튼을 누르면 그리드 쪽으로 focus가 가야하지만 그리드는 focus를 받을 수 없어서 focus가 나타나지 않는 것이다.(파란색 테두리)</p>
+
+<p>즉, <span style="background: rgb(251,243,219)">Outline 뷰의 순서대로 포커스가 이동하는 것을 볼 수 있다.</span></p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-13-05-47.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>또한 <strong>Outline</strong> 뷰에서 <strong>XY 레이아웃</strong> 쪽에 <strong>Comment</strong> 부분에 <strong>버튼1</strong>이라고 적게 되면, 아래 그림과 같이 버튼에 마우스를 올려놨을 때 Comment에 적혀진 부분이 설명으로 뜨는 것을 볼 수 있다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-13-07-51.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>그리고 Outline View 쪽에 눈 모양에 체크를 하게 되면 해당하는 컨트롤이 안 보이게 된다. 중요한 것은 이상태에서 <strong>미리보기 브라우저</strong>를 누르게 되면 사라지지 않고 <strong>표시</strong>된다는 점이다</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-13-09-14.png?style=centerme" alt="" /></p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-13-11-22.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>Outline View 쪽에 자물쇠 모양에 체크를 하게 되면 디자인 탭에서 해당 컨트롤을 선택할 수 없게 된다(드래그로 선택이 안됨)</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-13-09-53.png?style=centerme" alt="" /></p>
 :ET

@@ -1,0 +1,355 @@
+I"F#<p><br /><br /></p>
+
+<p><em><strong>오늘의 나보다 성장한 내일의 나를 위해….</strong></em></p>
+
+<p><br /></p>
+
+<p><br /><br /></p>
+
+<style>
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: "";
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: "";
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: "";
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: "";
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+</style>
+
+<div class="containercoffee">
+    <div class="coffee-header">
+      <div class="coffee-header__buttons coffee-header__button-one"></div>
+      <div class="coffee-header__buttons coffee-header__button-two"></div>
+      <div class="coffee-header__display"></div>
+      <div class="coffee-header__details"></div>
+    </div>
+    <div class="coffee-medium">
+      <div class="coffe-medium__exit"></div>
+      <div class="coffee-medium__arm"></div>
+      <div class="coffee-medium__liquid"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
+      <div class="coffee-medium__cup"></div>
+    </div>
+    <div class="coffee-footer"></div>
+</div>
+
+<p><br /><br /><br /><br /><br /><br /><br /><br /></p>
+
+<h2 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/270f.png" height="30" width="30" /> eXBuilder6 가이드
+</h2>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> 모델뷰 - 앱속성
+</h3>
+
+<p>하단 <strong>Assit</strong> 탭의 <strong>출판된 속성</strong>에서 추가한 앱 속성이 상단 오른쪽 <strong>Model</strong>의 앱 속성에 나타나는 것을 볼 수 있다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-13-18-48.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>모델 뷰에서 앱 속성 추가는 불가하며, Assist 탭의 <strong>출판된 속성</strong>에서만 속성 <strong>추가/삭제</strong>가 가능하다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-13-20-30.png?style=centerme" alt="" /></p>
+
+<p>아래 사진과 같이 + 기호를 클릭해서 속성 추가와 X를 눌러서 삭제가 가능하다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-13-21-40.png?style=centerme" alt="" /></p>
+
+<p><strong>모델 뷰</strong>에서는 현재 열린 화면에 어떤 앱 속성이 존재하는지를 확인할 수 있다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-13-22-20.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30" /> 모델뷰 - 데이터셋
+</h3>
+
+<p>아래 사진과 같이 모델 뷰에서 데이터 셋을 추가할 수 있다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-13-24-09.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>새 데이터셋 추가를 하게 되면 아래 사진과 같이 <strong>ds1</strong>이 생기는 것을 볼 수 있다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-13-25-18.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>ds1</strong>을 클릭해서 좀 더 자세하게 살펴보자. 데이터 셋은 복수의 열(column)과 행(row)를 갖고 있는 데이터 컨트롤이다. 이는 복수의 열과 행의 데이터를 표현하기 위해 <strong>그리드 컨트롤</strong>과 가장 많이 사용되고 <strong>콤보박스</strong>나 <strong>트리</strong>와 같은 목록형 컨트롤들의 value 값을 나타낼 때 사용한다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-13-25-50.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p><strong>컬럼을 추가</strong>할 때는 오른쪽(마우스가 있는 자리)에 있는 추가 버튼을 눌러서 추가할 수 있다.</p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-13-27-47.png?style=centerme" alt="" /></p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-13-28-27.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>만약 행을 추가하겠다 하면 <strong>행 탭</strong>에서 행 추가 버튼을 눌러서 추가할 수 있다. <span style="background: rgb(251,243,219)">그런데 대체적으로 행을 추가하는 일은 없을 것이다. 왜냐면 대부분 서버에서 가져와서 해당 데이터들을 보여줄 것이기 때문이다. 행은 그냥 선행 데이터가 필요할 때 추가한다. </span></p>
+
+<p><img src="/images/eXbuilder6/2022-05-25-13-28-56.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+:ET
