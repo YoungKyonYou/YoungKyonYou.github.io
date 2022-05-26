@@ -1,0 +1,950 @@
+---
+layout: post
+title: eXBuilder6 사용 방법_2교시
+date: 2022-05-24 10:00:00 0000
+tags: [eXBuilder6]
+categories: [eXBuilder6]
+description: eXBuilder6 가이드
+---
+
+<br><br>
+
+_**오늘의 나보다 성장한 내일의 나를 위해....**_
+
+<br>
+
+<br><br>
+
+<style>
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: "";
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: "";
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: "";
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: "";
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+</style>
+
+<div class="containercoffee">
+    <div class="coffee-header">
+      <div class="coffee-header__buttons coffee-header__button-one"></div>
+      <div class="coffee-header__buttons coffee-header__button-two"></div>
+      <div class="coffee-header__display"></div>
+      <div class="coffee-header__details"></div>
+    </div>
+    <div class="coffee-medium">
+      <div class="coffe-medium__exit"></div>
+      <div class="coffee-medium__arm"></div>
+      <div class="coffee-medium__liquid"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
+      <div class="coffee-medium__cup"></div>
+    </div>
+    <div class="coffee-footer"></div>
+</div>
+
+<br><br><br><br><br><br><br><br>
+
+<h2 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/270f.png" height="30" width="30"> eXBuilder6 가이드
+</h2>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 모델뷰 - 앱속성
+</h3>
+
+하단 **Assit** 탭의 **출판된 속성**에서 추가한 앱 속성이 상단 오른쪽 **Model**의 앱 속성에 나타나는 것을 볼 수 있다. 
+
+![](/images/eXbuilder6/2022-05-25-13-18-48.png?style=centerme)
+
+<br>
+
+모델 뷰에서 앱 속성 추가는 불가하며, Assist 탭의 **출판된 속성**에서만 속성 **추가/삭제**가 가능하다. 
+
+![](/images/eXbuilder6/2022-05-25-13-20-30.png?style=centerme)
+
+아래 사진과 같이 + 기호를 클릭해서 속성 추가와 X를 눌러서 삭제가 가능하다.
+
+![](/images/eXbuilder6/2022-05-25-13-21-40.png?style=centerme)
+
+**모델 뷰**에서는 현재 열린 화면에 어떤 앱 속성이 존재하는지를 확인할 수 있다. 
+
+![](/images/eXbuilder6/2022-05-25-13-22-20.png?style=centerme)
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 모델뷰 - 데이터셋
+</h3>
+
+아래 사진과 같이 모델 뷰에서 데이터 셋을 추가할 수 있다. 
+
+![](/images/eXbuilder6/2022-05-25-13-24-09.png?style=centerme)
+
+<br>
+
+새 데이터셋 추가를 하게 되면 아래 사진과 같이 **ds1**이 생기는 것을 볼 수 있다.
+
+![](/images/eXbuilder6/2022-05-25-13-25-18.png?style=centerme)
+
+<br>
+
+**ds1**을 클릭해서 좀 더 자세하게 살펴보자. 데이터 셋은 복수의 열(column)과 행(row)를 갖고 있는 데이터 컨트롤이다. 이는 복수의 열과 행의 데이터를 표현하기 위해 **그리드 컨트롤**과 가장 많이 사용되고 **콤보박스**나 **트리**와 같은 목록형 컨트롤들의 value 값을 나타낼 때 사용한다. 
+
+![](/images/eXbuilder6/2022-05-25-13-25-50.png?style=centerme)
+
+<br>
+
+**컬럼을 추가**할 때는 오른쪽(마우스가 있는 자리)에 있는 추가 버튼을 눌러서 추가할 수 있다.
+
+![](/images/eXbuilder6/2022-05-25-13-27-47.png?style=centerme)
+
+![](/images/eXbuilder6/2022-05-25-13-28-27.png?style=centerme)
+
+<br>
+
+만약 행을 추가하겠다 하면 **행 탭**에서 행 추가 버튼을 눌러서 추가할 수 있다. <span style="background: rgb(251,243,219)">그런데 대체적으로 행을 추가하는 일은 없을 것이다. 왜냐면 대부분 서버에서 가져와서 해당 데이터들을 보여줄 것이기 때문이다. 행은 그냥 선행 데이터가 필요할 때 추가한다. </span>
+
+![](/images/eXbuilder6/2022-05-25-13-28-56.png?style=centerme)
+
+<br>
+
+DB에서 가져오는 컬럼명들은 여기 데이터 셋에 설정한 컬럼명과 동일해야한다. 언더바가 있다면 언더바도 똑같이 해줘야 한다. **dataType**도 더블 클릭해보면 4가지 타입을 제공한다.
+
+
+![](/images/eXbuilder6/2022-05-25-15-36-40.png?style=centerme)
+
+<br>
+
+여기서 좀 생소한 **expression** 타입을 좀 설명해보자.
+
+![](/images/eXbuilder6/2022-05-25-15-37-34.png?style=centerme)
+
+<br>
+
+여기서는 **column1**만 **dataType을 expression** 타입으로 바꿨고 나머지 column2~column7은 expression 항목에서 더블 클릭을 해도 애네는 수정이 안된다. 비활성화 되어 있다.
+
+![](/images/eXbuilder6/2022-05-25-15-38-16.png?style=centerme)
+
+<br>
+
+expression으로 바꾼 컬럼만 expression 항목 쪽을 클릭 했을 때 **...** 버튼이 나와서 클릭이 가능하다.
+
+![](/images/eXbuilder6/2022-05-25-15-40-03.png?style=centerme)
+
+<br>
+
+**...**을 누르면 아래와 같이 **expression 속성 편집**이라는 팝업이 나온다. <span style="background: rgb(251,243,219)">expression 타입은 클라이언트 단에만 존재하는 컬럼</span>이다. 그래서 서버에서 가지고 온 다른 컬럼들, 즉 **column2~column7**까지 서버에서 가지고 왔는데 이 컬럼들을 가지고 다른 새로운 컬럼을 만든다거나 그럴 경우에 expression type을 클라이언트 단에만 보여줄 컬럼을 생성할 수 있다. 
+
+![](/images/eXbuilder6/2022-05-25-15-40-56.png?style=centerme)
+
+<br>
+
+만약 내가 **column2와 column3**을 합쳐서 보여주고 싶을 때 **expression 속성 편집 창**에서 **Ctrl+Space** 단축키를 누르게 되면 이렇게 content assist가 나오는 것을 알 수 있다. 
+
+![](/images/eXbuilder6/2022-05-25-15-43-15.png?style=centerme)
+
+<br>
+
+방금 **column2와 column3**를 합쳐서 보여주고 싶다라고 했기 때문에 아래 사진과 같이 표현식을 완성한 다음에 **OK**를 누르면 된다. 이제 데이터를 추가해본다.
+
+![](/images/eXbuilder6/2022-05-25-15-43-37.png?style=centerme)
+
+<br>
+
+일단 아래 사진과 같이 column1를 제외한 나머지는 값이 입력이 안되는 것을 확인할 수 있고 column1에는 column2와 column3의 값을 합쳐서 보여주게 되는 것이다. 그래서 클라이언트 단에서만 보여주고 싶은 컬럼을 만들 경우엔 **expression Type**를 사용한다고 기억하면 된다.
+
+![](/images/eXbuilder6/2022-05-25-15-44-29.png?style=centerme)
+
+<br>
+
+comment는 스튜디오에서 확인할 수 있는 **주석**이다.
+
+![](/images/eXbuilder6/2022-05-25-15-46-04.png?style=centerme)
+
+<br>
+
+info는 컬럼에 대한 정보를 작성한다.
+
+![](/images/eXbuilder6/2022-05-25-15-47-39.png?style=centerme)
+
+<br>
+
+열 탭 쪽에 **Column Builder**라는 것이 있고 이것을 누르면 Query 창이 하나 나타난다. 만약 컬럼의 수가 20개만 넘어가도 컬럼 추가를 20번을 해줘야 하는데 이때 오타없이 모두다 20개의 컬럼을 입력해야 하는데 그럴 경우에 너무 번거롭고 힘들고 틀릴 수 있다.
+
+![](/images/eXbuilder6/2022-05-25-15-47-58.png?style=centerme)
+
+![](/images/eXbuilder6/2022-05-25-15-48-04.png?style=centerme)
+
+<br>
+
+이때 **ColumnBuilder**로 DB와 연동하여 select 문으로 DB의 컬럼명을 가져올 수 있다. 
+
+![](/images/eXbuilder6/2022-05-25-15-49-35.png?style=centerme)
+
+<br>
+
+이 **ColumnBuilder**에 대한 상세한 설명은 **Help->Help Contents**를 클릭한다.
+
+![](/images/eXbuilder6/2022-05-25-15-50-11.png?style=centerme)
+
+<br>
+
+그리고 **scope**를 누르고 **eXBuilder6**에 대한 것만 보기 위해서 체크해서 새로운 scope를 만들어서 설명을 볼 수 있다. 이거 보고 참고하면 된다.
+
+![](/images/eXbuilder6/2022-05-25-15-50-57.png?style=centerme)
+
+![](/images/eXbuilder6/2022-05-25-15-51-30.png?style=centerme)
+
+<br>
+
+이제 위의 **id**에 대한 의미를 본다. id는 이 데이터셋에 대한 id이다.
+
+![](/images/eXbuilder6/2022-05-25-15-51-54.png?style=centerme)
+
+<br>
+
+**sortCondition**은 로드 되는 데이터를 정렬하기 위해 사용한다. 정렬을 할 수 있는 창이라고 보면 된다. 컬럼1이나 컬럼2에 대해 어떻게 정렬할 것인지 지정할 수 있는데
+
+![](/images/eXbuilder6/2022-05-25-15-52-31.png?style=centerme)
+
+<br>
+
+**Ctrl+Space** 눌러서 Assist Contents를 보면서 사용할 수 있다.
+
+![](/images/eXbuilder6/2022-05-25-15-53-02.png?style=centerme)
+
+<br>
+
+만약에 **column2**를 내림차순이나 오름차순으로 정렬한다고 하면 아래와 같이 한다.
+
+![](/images/eXbuilder6/2022-05-25-15-54-24.png?style=centerme)
+
+![](/images/eXbuilder6/2022-05-25-15-54-34.png?style=centerme)
+
+<br>
+
+**filterCondition**은 필터 조건식을 적는 곳이다. 똑같이 옆에 **Edit** 버튼을 클릭해서 속성 편집을 연다.
+
+![](/images/eXbuilder6/2022-05-25-15-56-18.png?style=centerme)
+
+<br>
+
+여기에 필터 조건식을 작성해준다. 아래 사진은 **column2**에 대해서 데이터가 colum21 이라는 데이터가 있는 행은 보이지 않게 하는 것이다. 
+
+![](/images/eXbuilder6/2022-05-25-15-57-02.png?style=centerme)
+
+<br>
+
+**comment**는 똑같이 주석을 의미한다.
+
+![](/images/eXbuilder6/2022-05-25-15-57-57.png?style=centerme)
+
+<br>
+
+**info**도 해당 데이터셋에 대한 정보를 작성할 때 적으면 된다.
+
+![](/images/eXbuilder6/2022-05-25-15-58-18.png?style=centerme)
+
+<br>
+
+이제 **뷰 탭**을 살펴보자. 뷰 또한 추가할 때 오른쪽을 눌러서 추가하면 된다.
+
+![](/images/eXbuilder6/2022-05-25-15-59-15.png?style=centerme)
+
+여기서도 데이터셋의 자식 데이터셋이다. 여러 행을 어떻게 정렬할 것인지(sortCondition), 어떻게 필터해서 다른 데이터셋처럼 보이게 할 것인지(filterCondition) 설정해서 다른 데이터셋처럼 보이게 할 수 있는 것이다. 그럴 경우 같은 데이터를 어떻게 보여줄 건지에 따라서 데이터 뷰를 만든다거나 또다른 데이터셋을 만들어서 보여준다거나 하는 것이다
+
+![](/images/eXbuilder6/2022-05-25-15-59-56.png?style=centerme)
+
+<br>
+
+즉, 이 **ds1** 데이터셋의 자식 데이터셋이라고 생각하면 된다.
+
+![](/images/eXbuilder6/2022-05-25-16-02-28.png?style=centerme)
+
+<br>
+
+자 이제 OK를 누르면 한눈에 확인이 가능하다.
+
+![](/images/eXbuilder6/2022-05-25-16-03-03.png?style=centerme)
+
+<br>
+
+데이터셋의 자식 데이터셋이 **데이터 뷰**임으로 하단에 뷰라는 폴더가 있으면 dv1이라는 데이터뷰가 똑같이 만들어진 것을 볼 수 있다. 해당 데이터뷰를 가공해서 새로운 형태로 값을 보여주고 싶을 때 **데이터 뷰**를 사용한다고 기억하면 된다.
+
+![](/images/eXbuilder6/2022-05-25-16-03-52.png?style=centerme)
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 데이터 맵
+</h3>
+
+데이터맵도 CTRL+ENTER 키를 눌러서 추가할 수 있다. 
+
+![](/images/eXbuilder6/2022-05-25-16-08-29.png?style=centerme)
+
+<br>
+
+추가된 데이터맵을 더블 클릭하면 데이터 맵 속성 창이 나타나게 된다. 
+
+![](/images/eXbuilder6/2022-05-25-16-09-14.png?style=centerme)
+
+<br>
+
+데이터맵은 복수의 컬럼을 갖고 있고 각 컬럼마다 하나의 키 값을 갖는다. 
+
+<br>
+
+column를 이렇게 여러개 추가한다. 
+
+![](/images/eXbuilder6/2022-05-25-16-10-37.png?style=centerme)
+
+<br>
+
+이때 <span style="background: rgb(251,243,219)">각 컬럼은 하나의 값만 가질 수 있다.</span> **defaultValue**라는 항목을 보면 초기값을 지정할 수 있다.
+
+![](/images/eXbuilder6/2022-05-25-16-10-59.png?style=centerme)
+
+<br>
+
+초기값을 지정해본다.
+
+![](/images/eXbuilder6/2022-05-25-16-13-32.png?style=centerme)
+
+<br>
+
+데이터맵도 데이터셋과 동일하게 **ColumnBuilder**를 사용해서 내가 입력해야 하는 컬럼명들을 가져올 수 있다. 
+
+![](/images/eXbuilder6/2022-05-25-16-14-08.png?style=centerme)
+
+<br>
+
+그렇게 OK를 하게 되면 데이터셋과 동일하게 한눈에 볼 수 있다.
+
+![](/images/eXbuilder6/2022-05-25-16-15-16.png?style=centerme)
+
+![](/images/eXbuilder6/2022-05-25-16-14-58.png?style=centerme)
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 서브미션
+</h3>
+
+**Ctrl+Enter** 눌러서 서브미션을 새로 추가한다.
+
+![](/images/eXbuilder6/2022-05-25-16-17-21.png?style=centerme)
+
+<br>
+
+더블 클릭하게 되면 서브미션 속성 창이 나타나게 된다. 서브미션 편집창은 **ajax 통신**을 속성창으로 만들었다고 볼 수 있다. 
+
+![](/images/eXbuilder6/2022-05-25-16-17-53.png?style=centerme)
+
+<br>
+
+**action**에는 requestMapping 주소를 입력하면 된다. 여기서 중요한 것은 **요청 데이터와 응답 데이터**이다.
+
+![](/images/eXbuilder6/2022-05-25-16-19-10.png?style=centerme)
+
+<br>
+
+**요청데이터**는 서버로 어떤 데이터 셋/맵을 전송할 것인지 client에서 server로 어떤 데이터셋이나 데이터맵을 보낼 것인지 **응답 데이터**는 서버에서 어떤 데이터를 받아(반환)올 것인지를 각각 추가 버튼을 눌러서 추가할 수 있다.
+
+**요청데이터**에서 **ds1(데이터셋), dm1(데이터맵)**를 추가해본다.
+
+![](/images/eXbuilder6/2022-05-25-16-21-04.png?style=centerme)
+
+<br>
+
+**응답 데이터**에서도 **ds1(데이터셋), dm1(데이터맵)**를 추가해본다.
+
+![](/images/eXbuilder6/2022-05-25-16-21-32.png?style=centerme)
+
+<br>
+
+우선 **요청 데이터**에서 데이터셋과 데이터맵을 추가했다. 여기서 **payload**라는 속성이 있다. 이것은 **데이터셋** 일때만 활성화 되어 사용할 수 있다. **데이터맵**일 때는 활성화되지 않는다. **payload**는 데이터셋 같은 경우 복수의 컬럼과 복수의 행을 가지고 있으니 행을 각 컬럼에 어떤 행의 몇번째 컬럼을 수정할 수 있다.
+
+![](/images/eXbuilder6/2022-05-25-16-22-26.png?style=centerme)
+
+<br>
+
+이때 **modified**로 설정 시 데이터 셋의 **수정된 행**(데이터가 변환 행들)만을 서버로 전송 할 수 있다. 모든 값을 그냥 다 가져가겠다 하면 **all**로 지정한다. 하지만 수정된 행만 가져가는 것이 가볍기 때문에 **modified**가 default로 지정되어 있다.
+
+![](/images/eXbuilder6/2022-05-25-16-24-10.png?style=centerme)
+
+<br>
+
+그리고 **응답 데이터**도 보면 동일하게 데이터셋과 데이터 맵을 추가해놨다.
+
+![](/images/eXbuilder6/2022-05-25-16-25-54.png?style=centerme)
+
+<br>
+
+여기에는 **add**라는 속성이 있다. default로 false로 되어 있다. 이 **add**라는 속성은 **응답 데이터**가 서버에서 클라이언트로 값을 가지고 오는 것이라고 했었는데 그래서 현재 클라이언트에 보여지는 데이터들을 서버에서 조회를 해서 가지고 올때 보여지고 있는 값들을 지우고 내가 서버에서 값들로 대체하겠다 했을 때 **false**로 지정해주면 되고 **true**는 클라이언트에 보여지고 있는 데이터들은 그대로 냅두고 서버에서 조회한 데이터를 append하는 식으로 보여주겠다는 것이다. 하지만 추가해서 보여주는 것보다 현재 보여지고 있는 데이터를 대체하고 보여주는 것이 더 깔끔하다.
+
+![](/images/eXbuilder6/2022-05-25-16-27-17.png?style=centerme)
+
+<br>
+
+서브미션만 작성한다고 해서 내가 작성했던 이 **action**(requestMapping 주소)으로 가는 것은 아니다. 스크립트 하나를 작성해줘야 한다.
+
+![](/images/eXbuilder6/2022-05-25-16-29-21.png?style=centerme)
+
+<br>
+
+이 커다란 버튼을 클릭했을 때 내가 원하는 requestMapping 주소로 이동하는 시나리오가 있다고 해보자.
+
+![](/images/eXbuilder6/2022-05-25-16-30-21.png?style=centerme)
+
+<br>
+
+클릭 이벤트를 추가하고 이 스크립트에다가 먼저 **서브미션**을 찾아줘야 한다. app.lookup api를 사용해서 "" 안에서 **ctrl+space**를 누르면 **assist contents**가 보인다. 이는 해당 clx 파일 안에 있는 컨트롤의 id가 나열되게 된다. 여기서 나는 서브미션을 찾아야 하니 아까 만들었던 sms1로 설정해야 한다. 
+
+![](/images/eXbuilder6/2022-05-25-16-31-34.png?style=centerme)
+
+
+![](/images/eXbuilder6/2022-05-25-16-32-25.png?style=centerme)
+
+<br>
+
+그다음 이 서브미션을 전송해야 하니까 send()라는 api를 작성해서 내가 입력했던 requestMapping 주소로 이동해서 내가 클라이언트에서 서버로 보낸 데이터셋이랑 맵 그리고 다시 올때는 **응답데이터**에 있는 데이터셋과 데이터맵을 담아서 클라이언트로 담아서 가지고 올 것이다.
+
+![](/images/eXbuilder6/2022-05-25-16-32-50.png?style=centerme)
+
+![](/images/eXbuilder6/2022-05-25-16-33-54.png?style=centerme)
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> language 뷰
+</h3>
+
+Language 뷰는 사용할 수 있는 다국어 값을 확인할 수 있다. 
+
+![](/images/eXbuilder6/2022-05-25-16-38-30.png?style=centerme)
+
+<br>
+
+language.json 파일에서 값을 직접 입력할 수 있다.
+
+![](/images/eXbuilder6/2022-05-25-16-38-41.png?style=centerme)
+
+<br>
+
+db에서 가지고 오겠다 하면 오른쪽에 톱니바퀴를 누른다.
+
+![](/images/eXbuilder6/2022-05-25-16-39-41.png?style=centerme)
+
+<br>
+
+여기서 db 연결 후 어떠한 값을 가지고 올 것인지 query문 날려서 가지고 올 수 있다. 이 내용도 help->help contents에 설명이 잘 되어 있다. 
+
+![](/images/eXbuilder6/2022-05-25-16-39-53.png?style=centerme)
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 레이아웃
+</h3>
+
+새로 **xylayout.clx** 파일을 생성한 다음에 button 하나를 가져다 놓는다.
+
+![](/images/eXbuilder6/2022-05-25-16-44-06.png?style=centerme)
+
+<br>
+
+보시다시피 65px, 57px이라고 되어 있고 체크 박스가 체크되어 있는 것을 볼 수 있다. 이렇게 체크가 되어 있으면 anchor(고정)가 잡혀있다고 보면 된다. 
+
+![](/images/eXbuilder6/2022-05-25-16-44-51.png?style=centerme)
+
+<br>
+
+만약 버튼을 정가운데에 배치하고 싶다고 하면 모든 앵커를 풀어준다. 이 해당 버튼이 정가운데에 위치하게 된다.
+
+![](/images/eXbuilder6/2022-05-25-16-46-20.png?style=centerme)
+
+<br>
+
+미리보기로 봤을 대 정가운데에 있으며 브라우저 크기에 따라 동적으로 가운데를 잡아준다.
+
+![](/images/eXbuilder6/2022-05-25-16-46-40.png?style=centerme)
+
+<br>
+
+똑같은 컨트롤을 여러 개 추가할 때는 Shift를 누르면서 클릭하면 편하게 여러 개를 추가할 수 있다.  
+
+![](/images/eXbuilder6/2022-05-25-16-48-54.png?style=centerme)
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 반응형 XYLayout
+</h3>
+
+**edu-ui** 프로젝트의 Layout/ResponsiveXYLayout.clx 파일을 오픈해본다.
+
+![](/images/eXbuilder6/2022-05-25-16-55-50.png?style=centerme)
+
+<br>
+
+미리보기 브라우저로 열어보면 아래와 같다. 
+
+![](/images/eXbuilder6/2022-05-25-16-56-35.png?style=centerme)
+
+<br>
+
+현재 그리드 컨트롤이 좌측에 존재한다.
+
+![](/images/eXbuilder6/2022-05-25-16-57-06.png?style=centerme)
+
+<br>
+
+우측에는 그룹이 존재한다.
+
+![](/images/eXbuilder6/2022-05-25-16-57-25.png?style=centerme)
+
+<br>
+
+브라우저를 줄여보면 원래 왼쪽에 있는 그리드가 위로 옮겨가고 그룹이 하단으로 간 것을 볼 수 있다. 이렇게 **XY레이아웃**은 브라우저 크기에 따라 **컨트롤 배치**를 지정할 수 있는 **레이아웃**이다. 
+
+![](/images/eXbuilder6/2022-05-25-16-57-51.png?style=centerme)
+
+<br>
+
+먼저 clx 파일을 처음 만들게 되면 default로 **XY레이아웃**으로 지정되는데 **반응형 XY레이아웃**으로 바꾸기 위해서는 아래와 같이 지정해줘야 한다.
+
+![](/images/eXbuilder6/2022-05-25-16-59-39.png?style=centerme)
+
+<br>
+
+반응형 XY 레이아웃으로 바꾸고 나면 **Properties**에 반응형 XY 레이아웃으로 변경된 것을 확인할 수 있다.  
+
+![](/images/eXbuilder6/2022-05-25-17-00-27.png?style=centerme)
+
+<br>
+
+상단에 **default**를 클릭해 보면 tablet과 mobile이 추가적으로 있다. 
+
+![](/images/eXbuilder6/2022-05-25-17-23-11.png?style=centerme)
+
+<br>
+
+mobile로 선택하면 디자인 탭에서 mobile 크기로 배치할 수 있다.
+
+![](/images/eXbuilder6/2022-05-25-17-24-00.png?style=centerme)
+
+중요한 것은 <span style="background: rgb(251,243,219)">반응형 XY 레이아웃만 파일 프리셋마다(default, mobile, tablet) 디자인의 크기라던가 배치를 다르게 지정할 수 있다.</span>
+
+<br>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 폼 레이아웃
+</h3>
+
+![](/images/eXbuilder6/2022-05-25-17-29-35.png?style=centerme)
+
+<br>
+
+새로운 파일을 하나 만든다.
+
+![](/images/eXbuilder6/2022-05-25-17-32-11.png?style=centerme)
+
+<br>
+
+그룹 컨트롤을 하나 레이아웃에 배치한다.
+
+![](/images/eXbuilder6/2022-05-25-17-32-45.png?style=centerme)
+
+![](/images/eXbuilder6/2022-05-25-17-33-47.png?style=centerme)
+
+<br>
+
+지금 현재 **XY 레이아웃**으로 되어 있는 이것을 **form Layout**으로 변경할 것이다. 아까 변경하는 것과 마찬가지로 우클릭을 통해 한다.
+
+![](/images/eXbuilder6/2022-05-25-17-35-34.png?style=centerme)
+
+<br>
+
+이제 열, 행, 여백, 간격 등을 입력한다.
+
+![](/images/eXbuilder6/2022-05-25-17-36-03.png?style=centerme)
+
+<br>
+
+테이블 형태에 레이아웃으로 변경된 것을 확인할 수 있다. 이러한 형태를 폼 레이아웃이라 한다. 
+
+![](/images/eXbuilder6/2022-05-25-17-36-35.png?style=centerme)
+
+<br>
+
+테이블 아래를 보면 **fr**이 있고 **px**이 있다. pixel은 고정된 크기를 지정할 때 사용하고, fraction은 나머지 영역을 비율로 처리 할 때 사용한다. 이는 더블 클릭을 통해 바꿀 수 있다.
+
+![](/images/eXbuilder6/2022-05-25-17-37-04.png?style=centerme)
+
+![](/images/eXbuilder6/2022-05-25-17-38-18.png?style=centerme)
+
+<br>
+
+또한 더블 클릭을 통해 열 추가도 가능하다.
+
+![](/images/eXbuilder6/2022-05-25-17-40-14.png?style=centerme)
+
+![](/images/eXbuilder6/2022-05-25-17-40-23.png?style=centerme)
+
+![](/images/eXbuilder6/2022-05-25-17-40-27.png?style=centerme)
+
+<br>
+
+폼 레이아웃으로 설정된 그룹 안에는 다른 컨트롤을 추가할 수 있다. 그룹을 선택하고 **Ctrl+Space**를 눌러서 팔레트를 연다음 output 컨트롤 하나를 올려본다.
+
+![](/images/eXbuilder6/2022-05-25-17-44-15.png?style=centerme)
+
+<br>
+
+그리고 output 컨트롤의 value 값을 "Output"이라고 설정하고 복사하여 여러번 붙여넣는다.
+
+![](/images/eXbuilder6/2022-05-25-17-45-03.png?style=centerme)
+
+<br>
+
+이 상태에서 브라우저를 열어본다. 여러번 했지만 컨트롤의 값의 길이가 아무리 길어도 pixel 값으로 고정된 크기를 넘을 수 없다.
+
+![](/images/eXbuilder6/2022-05-25-17-45-26.png?style=centerme)
+
+<br>
+
+첫 번째 행에 있는 **25px**를 더블 클릭 해본다.
+
+![](/images/eXbuilder6/2022-05-25-17-46-33.png?style=centerme)
+
+<br>
+
+**자동 크기 사용**이라는 체크박스가 나타난다. 이것을 체크 해본다.
+
+![](/images/eXbuilder6/2022-05-25-17-46-52.png?style=centerme)
+
+![](/images/eXbuilder6/2022-05-25-17-47-19.png?style=centerme)
+
+<br>
+
+체크후 OK를 누르면 아래 사진과 같이 위 아래로 화살표 모양이 나타난다. 이 상태에서 다시 브라우저를 열어보자.
+
+![](/images/eXbuilder6/2022-05-25-17-47-28.png?style=centerme)
+
+<br>
+
+다시 미리보기를 열어보면 아까 붙여넣기 한 만큼 pixel 고정이 아니라 끝까지 있는 값을 다 보여주는 것을 볼 수 있다. 즉, **자동 크기 사용**을 설정하면 컨트롤의 value 만큼 크기가 늘어나게 된다.
+
+![](/images/eXbuilder6/2022-05-25-17-47-55.png?style=centerme)
+
+<br>
+
+나머지는 25pixel로 고정을 해놨다.
+
+![](/images/eXbuilder6/2022-05-25-17-49-09.png?style=centerme)
+
+<br>
+
+이제 fraction 쪽을 보자. 아까 했던 똑같은 내용을 복사해서 아래 1Fr 쪽에 붙여넣기를 한다.
+
+![](/images/eXbuilder6/2022-05-25-17-50-34.png?style=centerme)
+
+<br>
+
+그리고 미리보기 브라우저로 보면 영역이 너무 좁아서 보이지 않는다.
+
+![](/images/eXbuilder6/2022-05-25-17-51-05.png?style=centerme)
+
+<br>
+
+이  **1fr** 영역을 더블 클릭한다.
+
+![](/images/eXbuilder6/2022-05-25-17-51-23.png?style=centerme)
+
+<br>
+
+이 구획 변경 창을 열면 최소 길이를 입력할 수 있는 input box 하나가 있다. 아까처럼 최소길이를 작성하지 않은 상태에서는 최소 이정도는 가지고 있어야 된다라고 미리 지정을 해주는 것이다.
+
+![](/images/eXbuilder6/2022-05-25-17-51-48.png?style=centerme)
+
+<br>
+
+100px이라고 지정하고 OK를 한다.
+
+![](/images/eXbuilder6/2022-05-25-17-52-35.png?style=centerme)
+
+<br>
+
+이제 미리보기를 다시 연다. 아래 사진을 통해 Output이 방금 전에 설정한만큼 늘어난 것을 볼 수 있다. 즉 최소 100pixel 까지는 높이를 가지고 있는 것을 확인할 수 있다. 즉 **스크롤**이 생기면서 모든 데이터를 나타내 준다.
+
+![](/images/eXbuilder6/2022-05-25-17-53-42.png?style=centerme)
+
+<br>
+
+드래그해서 쭉 늘려보는 것도 가능하다. 이렇게 하면 Properties의 레이아웃 탭에서의 **colSpan**이 4로 늘어나고 **rowSpan**이 3으로 늘어난 것을 볼 수 있다. 이렇게 하나의 컨트롤이 영역을, span를 잡아서 여러 열에 합쳐져서 보여질 수 있다.
+
+![](/images/eXbuilder6/2022-05-25-17-56-53.png?style=centerme)
+
+![](/images/eXbuilder6/2022-05-25-17-57-11.png?style=centerme)
+
+![](/images/eXbuilder6/2022-05-25-17-57-51.png?style=centerme)
+
+<br>
+
+그리고 이 컨트롤의 배치 align를 다르게 줄 수도 있다. 현재는 **Properties의 레이아웃 탭에 horizontalAlign과 verticalAglign**를 보면 **FILL**로 되어 있다.그래서 이 Output 컨트롤 자체가 3개의 행과 4개의 열을 합쳐져서 보여주고 있다. 그런데 이 해당 output 컨트롤을 팝에다가만 보여주고 싶다고 했을 때 이 해당
+
+![](/images/eXbuilder6/2022-05-25-17-58-46.png?style=centerme)
