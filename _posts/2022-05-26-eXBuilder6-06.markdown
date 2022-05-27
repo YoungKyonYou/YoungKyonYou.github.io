@@ -1,0 +1,421 @@
+---
+layout: post
+title: eXBuilder6 사용 방법_4교시
+date: 2022-05-24 15:00:00 0000
+tags: [eXBuilder6]
+categories: [eXBuilder6]
+description: eXBuilder6 가이드
+---
+
+<br><br>
+
+_**오늘의 나보다 성장한 내일의 나를 위해....**_
+
+<br>
+
+<br><br>
+
+<style>
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: "";
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: "";
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: "";
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: "";
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+</style>
+
+<div class="containercoffee">
+    <div class="coffee-header">
+      <div class="coffee-header__buttons coffee-header__button-one"></div>
+      <div class="coffee-header__buttons coffee-header__button-two"></div>
+      <div class="coffee-header__display"></div>
+      <div class="coffee-header__details"></div>
+    </div>
+    <div class="coffee-medium">
+      <div class="coffe-medium__exit"></div>
+      <div class="coffee-medium__arm"></div>
+      <div class="coffee-medium__liquid"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
+      <div class="coffee-medium__cup"></div>
+    </div>
+    <div class="coffee-footer"></div>
+</div>
+
+<br><br><br><br><br><br><br><br>
+
+<h2 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/270f.png" height="30" width="30"> eXBuilder6 가이드
+</h2>
+
+<h3 style="color:#107896;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png" height="30" width="30"> 그리드
+</h3>
+
+아래 사진에 프로젝트에 있는 1-Grid.clx를 눌러서 들어간다.
+
+![](/images/eXbuilder6/2022-05-26-13-19-41.png?style=centerme)
+
+![](/images/eXbuilder6/2022-05-26-13-19-28.png?style=centerme)
+
+<br>
+
+그리고 그리드가 포함된 폼 레이아웃 구획을 선택하고 오른쪽 클릭 후 **아래에 행 추가**를 한다.
+
+![](/images/eXbuilder6/2022-05-26-13-20-44.png?style=centerme)
+
+<br>
+
+아래에 행 추가를 하게 되면 또 아래에 1fr이 생성이 될 것이고 그리드 만들려면 그리드 컨트롤을 추가해줘야 한다.
+
+![](/images/eXbuilder6/2022-05-26-13-23-40.png?style=centerme)
+
+<br>
+
+빠른 팔레트를 열어서 그리드 하나를 추가해 준다.
+
+![](/images/eXbuilder6/2022-05-26-13-24-11.png?style=centerme)
+
+<br>
+
+ 그리드에다가 데이터를 보여줄 때에는 **데이터 셋**을 만들어야 된다고 했었다. 하지만 현재 이미 **dsList**라는 데이터셋이 있음으로 그것을 사용한다.
+
+![](/images/eXbuilder6/2022-05-26-13-25-23.png?style=centerme)
+
+<br>
+
+dsList 데이터셋을 그리드에다가 드래그 앤 드롭을 한다.
+
+![](/images/eXbuilder6/2022-05-26-13-26-35.png?style=centerme)
+
+<br>
+
+그렇게 되면 생성 옵션 창이 하나 나타난다. 
+
+여기서 **컬럼 이동 허용**에 체크를 하게 되면 그리드의 컬럼간 이동을 허용할 것인지 묻는 여부이다.
+
+**컬럼 리사이즈 허용**은 너비를 지정한 컬럼을 리사이즈 허용할 것인지를 묻는 것이고
+
+**읽기 전용**은 체크하면 그리드를 편집할 수 없게 한다.
+
+그리고 그리드에는 특수 컬럼 두 개가 있다: **체크 박스 컬럼 생성과 행 번호 컬럼 생성**이 있다.
+
+**행 번호 컬럼**은 로우 인덱스를 출력하는 컬럼을 생성하게 되고 **체크 박스 컬럼**은 로우의 체크 여부를 설정하는 컬럼을 생성하게 된다.
+
+그리고 **푸터 생성**은 두개가 있다. 데이터 타입이 Number일 때 자동으로 합계 행 생성할 것인지, 평균 행 생성할 것인지 묻는다.
+
+아래와 같이 체크한 뒤에 **Next**를 누른다.
+
+![](/images/eXbuilder6/2022-05-26-13-30-27.png?style=centerme)
+
+<br>
+
+그럼 컬럼 구성에 대한 것이 나타나고 현재는 왼쪽 초록색 체크를 통해 다 생성되어 있음을 볼 수 있다. 즉 이 모든 컬럼을 그리드에 다 생성하겠다는 것이다. 
+
+![](/images/eXbuilder6/2022-05-26-13-30-58.png?style=centerme)
+
+![](/images/eXbuilder6/2022-05-26-13-32-44.png?style=centerme)
+
+<br>
+
+이제 Finish를 누르고 그리드를 더블 클릭후 편집기에 진입한다.
+
+![](/images/eXbuilder6/2022-05-26-13-33-52.png?style=centerme)
+
+<br>
+
+Detail 영역의 C1을 클릭한 상태에서 columnType를 더블 클릭해서 보면 normal이랑 rowindex, checkbox로 3가지 항목이 존재한다. Header(H0)는 당연히 rowIndex가 필요없다. 헤더에는 rowindex 항목이 없고 detail에만 존재한다.
+
+![](/images/eXbuilder6/2022-05-26-13-36-10.png?style=centerme)
+
+![](/images/eXbuilder6/2022-05-26-13-36-42.png?style=centerme)
+
+<br>
+
+**+** 버튼 클릭을 통해 컬럼 추가가 가능하다. 
+
+![](/images/eXbuilder6/2022-05-26-13-38-21.png?style=centerme)
+
+![](/images/eXbuilder6/2022-05-26-13-39-10.png?style=centerme)
+
+<br>
+
+<h4 style="color:#43ABC9;  font-weight:bold">
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png" height="20" width="20"> 푸터 추가
+</h4>
+
+아래 사진과 같이 회색 영역에서 우클릭 후 푸터를 추가할 수 있다.
+
+![](/images/eXbuilder6/2022-05-26-14-02-14.png?style=centerme)
+
+![](/images/eXbuilder6/2022-05-26-14-02-36.png?style=centerme)
+
+<br>
+
+아래와 같이 푸터를 2개 만든다. 푸터를 만든 이유는 이 AMOUNT 컬럼에 대한 합계랑 평균값을 구하기 위해 만들었다.
+
+![](/images/eXbuilder6/2022-05-26-14-02-50.png?style=centerme)
+
+<br>
+
+expr 속성 편집창이 나타나게 되고 이제 입력해본다.
+
+![](/images/eXbuilder6/2022-05-26-14-04-10.png?style=centerme)
+
+![](/images/eXbuilder6/2022-05-26-14-04-25.png?style=centerme)
+
+<br>
+
