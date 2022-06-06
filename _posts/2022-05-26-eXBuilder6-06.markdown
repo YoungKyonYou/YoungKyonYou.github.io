@@ -1,6 +1,6 @@
 ---
 layout: post
-title: eXBuilder6 사용 방법_4교시
+title: eXBuilder6 사용 방법_5교시
 date: 2022-05-24 15:00:00 0000
 tags: [eXBuilder6]
 categories: [eXBuilder6]
