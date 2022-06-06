@@ -7,6 +7,1273 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Long Learn English 수강 후기 - 롱런 잉글리시</title>
+				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해….&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;style&gt;
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: &quot;&quot;;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: &quot;&quot;;
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: &quot;&quot;;
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: &quot;&quot;;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: &quot;&quot;;
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: &quot;&quot;;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: &quot;&quot;;
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+&lt;/style&gt;
+
+&lt;div class=&quot;containercoffee&quot;&gt;
+    &lt;div class=&quot;coffee-header&quot;&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-medium&quot;&gt;
+      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+
+&lt;h2 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;h2 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+
+&lt;h2 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/270f.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 롱런 잉글리시 화상 수업 수강 후기
+&lt;/h2&gt;
+
+&lt;br /&gt;
+
+회사 다니면서 평일에 바쁜 하루를 보내면서도 회사 일 외에 내 자신을 발전시킬 수 있는 일을 해보고 싶어졌다.
+
+매일 6시에 퇴근해서 집에 오면 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;녹초&lt;/span&gt;가 되지만 자기개발에 대한 욕심을 버릴 수 없었다.
+
+&lt;br /&gt;
+
+주말에 프로그래밍 관련 공부를 깨작깨작하나 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;영어 공부&lt;/span&gt;도 소홀히 할 수 없었다. 
+
+
+~~과거 국제 중학교를 다닐땐 왠만한 프리토킹이 가능했었는데..~~
+
+&lt;br /&gt;
+
+&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;나이를 먹어서 그런지..&lt;/span&gt; 배운 것도 계속 안 써주면 까먹는다는 것을 새삼 느끼게 되었다.
+
+&lt;br /&gt;
+
+~~뇌가 퇴화해버렸따..~~
+
+&lt;br /&gt;
+
+오래는 못하지만 조금이라도 영어를 써보기 위해서 찾아보게 된 것이 바로
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; Long Learn English - 롱런 잉글리시
+&lt;/h4&gt;
+
+**[롱-런 잉글리시 링크(클릭)](https://longlearnenglish.com/Home)**
+
+![](/images/DailyLife/LongLearnEnglish/2022-06-06-12-08-10.png?style=centerme)
+
+&lt;br /&gt;
+
+수업은 **Skype**로 이루어지며 선생님이 해주시는 **수업**을 그대로 따라가도 되고 나처럼 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;일상생활에 대한 이야기&lt;/span&gt;를 하는 **프리토킹**도 가능했다.
+
+&lt;br /&gt;
+
+수업은 스카이프로 25분 동안 화상으로 진행되고 부끄러움을 많이타면 내 영상은 꺼도 된다 ㅎㅎ..:grin:
+
+&lt;br /&gt;
+
+처음에 생각을 많이 했다.
+
+그냥 선생님께서 해주시는 **수업**을 따라갈지 아니면 **프리토킹** 형식으로 살면서 있었던 일들이나 재밌는 이야기를 주고 받을 지 고민을 많이 했다.
+
+&lt;br /&gt;
+
+나 같은 경우 여러 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;영어 표현들이나 문구&lt;/span&gt;들을 많이 써보고 싶었다.
+
+그리고 혹여나 회사에서 해외 인사들을 만나게 되면 거리낌없이 그들의 니즈를 파악하고 싶어서 **프리토킹** 형식을 채택했다.:satisfied:
+
+&lt;br /&gt;
+
+또한, 요즘은 **미국 드라마**를 자주 즐겨보는데 거기서 나온 재밌는 표현들이나 농담들을 실제로 써보는 재미를 느껴보고 싶었다.
+
+&lt;br /&gt;
+
+어쨌든 수업 전에 먼저 **Level Test** :pencil: 라고 해서 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;데모 클래스&lt;/span&gt;를 받게 된다. 
+
+이는 해당 회원의 실력을 보기 위함이라 한다.
+
+&lt;br /&gt;
+
+그렇게 배정 받은 선생님은 **Michelle** **미쉘** 선생님이였다. 
+
+미쉘 선생님과 간단한 인사를 주고 받은 다음 바로 **Skype**로 전화를 걸어주셨다.
+
+![](/images/DailyLife/LongLearnEnglish/2022-06-06-12-20-12.png?style=centerme)
+
+&lt;br /&gt;
+
+**Skype**를 오랜만에 써서 그런지 설정하는 데 좀 버벅였다. ㅠㅠ
+
+~~처음에 마이크 설정하느라 시간 좀 버려서 선생님이 좀 기다리심..~~:sweat:
+
+&lt;br /&gt;
+
+처음에는 자기소개를 시키셨다. 
+
+~~그런데 소개할 게 없더라.. 인생 헛 살았다..~~:disappointed_relieved:
+
+&lt;br /&gt;
+
+일단, 내 소개를 끝마친 다음 미쉘 선생님의 소개를 듣게 되었다.
+
+뭔진 모르겠지만 나이도 나보다 적은데 스펙이 뭔가 많았다...ㄷㄷ
+
+&lt;br /&gt;
+
+그리고 우려했던 것과는 달리 **필리핀 발음이 그렇게 많이 묻어나오지 않았다.** 
+
+아무래도 운영진들이 선생님을 뽑을 때 그런 것들을 고려하나 보다. 
+
+&lt;br /&gt;
+
+일단 나같은 경우 어느 정도 프리토킹이 가능하다고 미리 롱런쪽에서 미쉘 선생님께 말해주셔서 그런지 **레벨 테스트**에서 간단한 몇가지 질문들을 하셨다.
+
+~~뭐였는지 기억 안남 중 ㅠㅠ~~
+
+&lt;br /&gt;
+
+어느 정도 영어는 할 수 있다고 판단한 선생님께서는 원하는 타입의 수업이 있는지 여쭤보셨고 나는 그냥 **다양한 이야기**를 나누고 싶다고 말했다.
+
+&lt;br /&gt;
+
+---
+
+그렇게 **레벨 테스트**로 하루 수업을 마치고 일주일에 이틀을 퇴근하고 집에와서 수업을 진행했다. 
+
+처음 시작하고 벌써 어느새 **두달**이 지났다. 
+
+&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;**Time Flies:hatched_chick:**&lt;/span&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt;후기 
+&lt;/h3&gt;
+
+&lt;/h2&gt;&lt;/h2&gt;&lt;/h3&gt;
+</description>
+				<pubDate>Sun, 05 Jun 2022 13:00:00 +0900</pubDate>
+				<link>/daily-life/2022/06/05/DailyLife-LongLearnEnglish.html</link>
+				<guid isPermaLink="true">/daily-life/2022/06/05/DailyLife-LongLearnEnglish.html</guid>
+			</item>
+		
+			<item>
+				<title>eXBuilder6 사용 방법_4교시</title>
+				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해….&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;style&gt;
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: &quot;&quot;;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: &quot;&quot;;
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: &quot;&quot;;
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: &quot;&quot;;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: &quot;&quot;;
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: &quot;&quot;;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: &quot;&quot;;
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+&lt;/style&gt;
+
+&lt;div class=&quot;containercoffee&quot;&gt;
+    &lt;div class=&quot;coffee-header&quot;&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-medium&quot;&gt;
+      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/270f.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; eXBuilder6 가이드
+&lt;/h2&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 그리드
+&lt;/h3&gt;
+
+&lt;p&gt;아래 사진에 프로젝트에 있는 1-Grid.clx를 눌러서 들어간다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-19-41.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-19-28.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그리고 그리드가 포함된 폼 레이아웃 구획을 선택하고 오른쪽 클릭 후 &lt;strong&gt;아래에 행 추가&lt;/strong&gt;를 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-20-44.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;아래에 행 추가를 하게 되면 또 아래에 1fr이 생성이 될 것이고 그리드 만들려면 그리드 컨트롤을 추가해줘야 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-23-40.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;빠른 팔레트를 열어서 그리드 하나를 추가해 준다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-24-11.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그리드에다가 데이터를 보여줄 때에는 &lt;strong&gt;데이터 셋&lt;/strong&gt;을 만들어야 된다고 했었다. 하지만 현재 이미 &lt;strong&gt;dsList&lt;/strong&gt;라는 데이터셋이 있음으로 그것을 사용한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-25-23.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;dsList 데이터셋을 그리드에다가 드래그 앤 드롭을 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-26-35.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그렇게 되면 생성 옵션 창이 하나 나타난다.&lt;/p&gt;
+
+&lt;p&gt;여기서 &lt;strong&gt;컬럼 이동 허용&lt;/strong&gt;에 체크를 하게 되면 그리드의 컬럼간 이동을 허용할 것인지 묻는 여부이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;컬럼 리사이즈 허용&lt;/strong&gt;은 너비를 지정한 컬럼을 리사이즈 허용할 것인지를 묻는 것이고&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;읽기 전용&lt;/strong&gt;은 체크하면 그리드를 편집할 수 없게 한다.&lt;/p&gt;
+
+&lt;p&gt;그리고 그리드에는 특수 컬럼 두 개가 있다: &lt;strong&gt;체크 박스 컬럼 생성과 행 번호 컬럼 생성&lt;/strong&gt;이 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;행 번호 컬럼&lt;/strong&gt;은 로우 인덱스를 출력하는 컬럼을 생성하게 되고 &lt;strong&gt;체크 박스 컬럼&lt;/strong&gt;은 로우의 체크 여부를 설정하는 컬럼을 생성하게 된다.&lt;/p&gt;
+
+&lt;p&gt;그리고 &lt;strong&gt;푸터 생성&lt;/strong&gt;은 두개가 있다. 데이터 타입이 Number일 때 자동으로 합계 행 생성할 것인지, 평균 행 생성할 것인지 묻는다.&lt;/p&gt;
+
+&lt;p&gt;아래와 같이 체크한 뒤에 &lt;strong&gt;Next&lt;/strong&gt;를 누른다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-30-27.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그럼 컬럼 구성에 대한 것이 나타나고 현재는 왼쪽 초록색 체크를 통해 다 생성되어 있음을 볼 수 있다. 즉 이 모든 컬럼을 그리드에 다 생성하겠다는 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-30-58.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-32-44.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이제 Finish를 누르고 그리드를 더블 클릭후 편집기에 진입한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-33-52.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Detail 영역의 C1을 클릭한 상태에서 columnType를 더블 클릭해서 보면 normal이랑 rowindex, checkbox로 3가지 항목이 존재한다. Header(H0)는 당연히 rowIndex가 필요없다. 헤더에는 rowindex 항목이 없고 detail에만 존재한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-36-10.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-36-42.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;+&lt;/strong&gt; 버튼 클릭을 통해 컬럼 추가가 가능하다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-38-21.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-39-10.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 푸터 추가
+&lt;/h4&gt;
+
+&lt;p&gt;아래 사진과 같이 회색 영역에서 우클릭 후 푸터를 추가할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-14-02-14.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-14-02-36.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;아래와 같이 푸터를 2개 만든다. 푸터를 만든 이유는 이 AMOUNT 컬럼에 대한 합계랑 평균값을 구하기 위해 만들었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-14-02-50.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;expr 속성 편집창이 나타나게 되고 이제 입력해본다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-14-04-10.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-14-04-25.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+</description>
+				<pubDate>Tue, 24 May 2022 15:00:00 +0900</pubDate>
+				<link>/exbuilder6/2022/05/24/eXBuilder6-06.html</link>
+				<guid isPermaLink="true">/exbuilder6/2022/05/24/eXBuilder6-06.html</guid>
+			</item>
+		
+			<item>
+				<title>eXBuilder6 사용 방법_4교시</title>
+				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해….&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;style&gt;
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: &quot;&quot;;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: &quot;&quot;;
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: &quot;&quot;;
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: &quot;&quot;;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: &quot;&quot;;
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: &quot;&quot;;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: &quot;&quot;;
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+&lt;/style&gt;
+
+&lt;div class=&quot;containercoffee&quot;&gt;
+    &lt;div class=&quot;coffee-header&quot;&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-medium&quot;&gt;
+      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/270f.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; eXBuilder6 가이드
+&lt;/h2&gt;
+
+&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 그리드
+&lt;/h3&gt;
+
+&lt;p&gt;아래 사진에 프로젝트에 있는 1-Grid.clx를 눌러서 들어간다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-19-41.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-19-28.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그리고 그리드가 포함된 폼 레이아웃 구획을 선택하고 오른쪽 클릭 후 &lt;strong&gt;아래에 행 추가&lt;/strong&gt;를 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-20-44.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;아래에 행 추가를 하게 되면 또 아래에 1fr이 생성이 될 것이고 그리드 만들려면 그리드 컨트롤을 추가해줘야 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-23-40.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;빠른 팔레트를 열어서 그리드 하나를 추가해 준다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-24-11.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그리드에다가 데이터를 보여줄 때에는 &lt;strong&gt;데이터 셋&lt;/strong&gt;을 만들어야 된다고 했었다. 하지만 현재 이미 &lt;strong&gt;dsList&lt;/strong&gt;라는 데이터셋이 있음으로 그것을 사용한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-25-23.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;dsList 데이터셋을 그리드에다가 드래그 앤 드롭을 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-26-35.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그렇게 되면 생성 옵션 창이 하나 나타난다.&lt;/p&gt;
+
+&lt;p&gt;여기서 &lt;strong&gt;컬럼 이동 허용&lt;/strong&gt;에 체크를 하게 되면 그리드의 컬럼간 이동을 허용할 것인지 묻는 여부이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;컬럼 리사이즈 허용&lt;/strong&gt;은 너비를 지정한 컬럼을 리사이즈 허용할 것인지를 묻는 것이고&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;읽기 전용&lt;/strong&gt;은 체크하면 그리드를 편집할 수 없게 한다.&lt;/p&gt;
+
+&lt;p&gt;그리고 그리드에는 특수 컬럼 두 개가 있다: &lt;strong&gt;체크 박스 컬럼 생성과 행 번호 컬럼 생성&lt;/strong&gt;이 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;행 번호 컬럼&lt;/strong&gt;은 로우 인덱스를 출력하는 컬럼을 생성하게 되고 &lt;strong&gt;체크 박스 컬럼&lt;/strong&gt;은 로우의 체크 여부를 설정하는 컬럼을 생성하게 된다.&lt;/p&gt;
+
+&lt;p&gt;그리고 &lt;strong&gt;푸터 생성&lt;/strong&gt;은 두개가 있다. 데이터 타입이 Number일 때 자동으로 합계 행 생성할 것인지, 평균 행 생성할 것인지 묻는다.&lt;/p&gt;
+
+&lt;p&gt;아래와 같이 체크한 뒤에 &lt;strong&gt;Next&lt;/strong&gt;를 누른다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-30-27.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;그럼 컬럼 구성에 대한 것이 나타나고 현재는 왼쪽 초록색 체크를 통해 다 생성되어 있음을 볼 수 있다. 즉 이 모든 컬럼을 그리드에 다 생성하겠다는 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-30-58.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-32-44.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이제 Finish를 누르고 그리드를 더블 클릭후 편집기에 진입한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-33-52.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Detail 영역의 C1을 클릭한 상태에서 columnType를 더블 클릭해서 보면 normal이랑 rowindex, checkbox로 3가지 항목이 존재한다. Header(H0)는 당연히 rowIndex가 필요없다. 헤더에는 rowindex 항목이 없고 detail에만 존재한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-36-10.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-36-42.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;+&lt;/strong&gt; 버튼 클릭을 통해 컬럼 추가가 가능하다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-38-21.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-13-39-10.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 style=&quot;color:#43ABC9;  font-weight:bold&quot;&gt;
+&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f50e.png&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; 푸터 추가
+&lt;/h4&gt;
+
+&lt;p&gt;아래 사진과 같이 회색 영역에서 우클릭 후 푸터를 추가할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-14-02-14.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-14-02-36.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;아래와 같이 푸터를 2개 만든다. 푸터를 만든 이유는 이 AMOUNT 컬럼에 대한 합계랑 평균값을 구하기 위해 만들었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-14-02-50.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;expr 속성 편집창이 나타나게 되고 이제 입력해본다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-14-04-10.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/eXbuilder6/2022-05-26-14-04-25.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+</description>
+				<pubDate>Tue, 24 May 2022 15:00:00 +0900</pubDate>
+				<link>/exbuilder6/2022/05/24/eXBuilder6-05.html</link>
+				<guid isPermaLink="true">/exbuilder6/2022/05/24/eXBuilder6-05.html</guid>
+			</item>
+		
+			<item>
 				<title>eXBuilder6 사용 방법_2교시</title>
 				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -4393,1843 +5660,6 @@ In the context of servers, 0.0.0.0 means all IPv4 addresses on the local machine
 				<pubDate>Sat, 05 Feb 2022 13:00:00 +0900</pubDate>
 				<link>/network/2022/02/05/Network-SubnetMask-02.html</link>
 				<guid isPermaLink="true">/network/2022/02/05/Network-SubnetMask-02.html</guid>
-			</item>
-		
-			<item>
-				<title>CIDR에 대해 알아보자</title>
-				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해…&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;style&gt;
-.containercoffee {
-  width: 300px;
-  height: 280px;
-  position: relative;
-  top: calc(50% - 140px);
-  left: calc(50% - 150px);
-}
-.coffee-header {
-  width: 100%;
-  height: 80px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #ddcfcc;
-  border-radius: 10px;
-}
-.coffee-header__buttons {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  top: 25px;
-  background-color: #282323;
-  border-radius: 50%;
-}
-.coffee-header__buttons::after {
-  content: &quot;&quot;;
-  width: 8px;
-  height: 8px;
-  position: absolute;
-  bottom: -8px;
-  left: calc(50% - 4px);
-  background-color: #615e5e;
-}
-.coffee-header__button-one {
-  left: 15px;
-}
-.coffee-header__button-two {
-  left: 50px;
-}
-.coffee-header__display {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: calc(50% - 25px);
-  left: calc(50% - 25px);
-  border-radius: 50%;
-  background-color: #9acfc5;
-  border: 5px solid #43beae;
-  box-sizing: border-box;
-}
-.coffee-header__details {
-  width: 8px;
-  height: 20px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #9b9091;
-  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
-}
-.coffee-medium {
-  width: 90%;
-  height: 160px;
-  position: absolute;
-  top: 80px;
-  left: calc(50% - 45%);
-  background-color: #bcb0af;
-}
-.coffee-medium:before {
-  content: &quot;&quot;;
-  width: 90%;
-  height: 100px;
-  background-color: #776f6e;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 45%);
-  border-radius: 20px 20px 0 0;
-}
-.coffe-medium__exit {
-  width: 60px;
-  height: 20px;
-  position: absolute;
-  top: 0;
-  left: calc(50% - 30px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::before {
-  content: &quot;&quot;;
-  width: 50px;
-  height: 20px;
-  border-radius: 0 0 50% 50%;
-  position: absolute;
-  bottom: -20px;
-  left: calc(50% - 25px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::after {
-  content: &quot;&quot;;
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  bottom: -30px;
-  left: calc(50% - 5px);
-  background-color: #231f20;
-}
-.coffee-medium__arm {
-  width: 70px;
-  height: 20px;
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  background-color: #231f20;
-}
-.coffee-medium__arm::before {
-  content: &quot;&quot;;
-  width: 15px;
-  height: 5px;
-  position: absolute;
-  top: 7px;
-  left: -15px;
-  background-color: #9e9495;
-}
-.coffee-medium__cup {
-  width: 80px;
-  height: 47px;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 40px);
-  background-color: #FFF;
-  border-radius: 0 0 70px 70px / 0 0 110px 110px;
-}
-.coffee-medium__cup::after {
-  content: &quot;&quot;;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 6px;
-  right: -13px;
-  border: 5px solid #FFF;
-  border-radius: 50%;
-}
-@keyframes liquid {
-  0% {
-    height: 0px;  
-    opacity: 1;
-  }
-  5% {
-    height: 0px;  
-    opacity: 1;
-  }
-  20% {
-    height: 62px;  
-    opacity: 1;
-  }
-  95% {
-    height: 62px;
-    opacity: 1;
-  }
-  100% {
-    height: 62px;
-    opacity: 0;
-  }
-}
-.coffee-medium__liquid {
-  width: 6px;
-  height: 63px;
-  opacity: 0;
-  position: absolute;
-  top: 50px;
-  left: calc(50% - 3px);
-  background-color: #74372b;
-  animation: liquid 4s 4s linear infinite;
-}
-.coffee-medium__smoke {
-  width: 8px;
-  height: 20px;
-  position: absolute;  
-  border-radius: 5px;
-  background-color: #b3aeae;
-}
-@keyframes smokeOne {
-  0% {
-    bottom: 20px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 50px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-@keyframes smokeTwo {
-  0% {
-    bottom: 40px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 70px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-.coffee-medium__smoke-one {
-  opacity: 0;
-  bottom: 50px;
-  left: 102px;
-  animation: smokeOne 3s 4s linear infinite;
-}
-.coffee-medium__smoke-two {
-  opacity: 0;
-  bottom: 70px;
-  left: 118px;
-  animation: smokeTwo 3s 5s linear infinite;
-}
-.coffee-medium__smoke-three {
-  opacity: 0;
-  bottom: 65px;
-  right: 118px;
-  animation: smokeTwo 3s 6s linear infinite;
-}
-.coffee-medium__smoke-for {
-  opacity: 0;
-  bottom: 50px;
-  right: 102px;
-  animation: smokeOne 3s 5s linear infinite;
-}
-.coffee-footer {
-  width: 95%;
-  height: 15px;
-  position: absolute;
-  bottom: 25px;
-  left: calc(50% - 47.5%);
-  background-color: #41bdad;
-  border-radius: 10px;
-}
-.coffee-footer::after {
-  content: &quot;&quot;;
-  width: 106%;
-  height: 26px;
-  position: absolute;
-  bottom: -25px;
-  left: -8px;
-  background-color: #000;
-}
-&lt;/style&gt;
-
-&lt;div class=&quot;containercoffee&quot;&gt;
-    &lt;div class=&quot;coffee-header&quot;&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-medium&quot;&gt;
-      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/270f.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; CIDR
-&lt;/h2&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;CIDR&lt;/span&gt;의 full name은 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Classless Inter-Domain Routing&lt;/span&gt;으로 클래스 없는 도메인간 라우팅 기법이라는 뜻이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;CIDR&lt;/span&gt;가 나오면서 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Class 체계&lt;/span&gt;보다 더 유연하게 IP 주소를 여러 네트워크 영역으로 나눌 수 있게 되었다.&lt;/p&gt;
-
-&lt;p&gt;참고 하자면 클래스 구분은 아래 그림과 같다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-02-05-12-08-04.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;도메인간 라우팅&lt;/span&gt;이라는 뜻은 아래 그림에서 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Inter-Domain&lt;/span&gt;과 같은 형태를 말한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-02-05-12-10-14.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;CIDR&lt;/span&gt;는 위 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Intra-Domain&lt;/span&gt;과 같이 각 네트워크 대역을 구분 짓고 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Inter-Domain&lt;/span&gt;과 같이 구분된 네트워크간 통신을 위한 주소 체계라고 이해하면 쉽다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 표기법
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;IP 뒤에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;192.168.10.0/24&lt;/span&gt; 이런 식으로 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;“/24”&lt;/span&gt;를 본 적이 있을 것이다.&lt;/p&gt;
-
-&lt;p&gt;이것이 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;CIDR&lt;/span&gt; 표기법이다.&lt;/p&gt;
-
-&lt;p&gt;이 숫자는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;비트 단위&lt;/span&gt;이며 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;0~32&lt;/span&gt;까지 표현이 가능하다. 이 숫자를 이해하기 위해서 IP에 대해 간략히 설명해보겠다. 아래 그림과 같이 하나의 옥텟은 8비트로 이루어져 있으며 일반적으로 사용하는 IPv4 주소는 4개의 옥텟으로 이루어져 있습니다.&lt;/p&gt;
-
-&lt;p&gt;따라서 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;CIDR&lt;/span&gt;는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;0~32&lt;/span&gt;까지 총 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;32비트&lt;/span&gt;까지 사용 가능합니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-02-05-12-14-02.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;CIRDR&lt;/span&gt;이 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;“/24”&lt;/span&gt;라면 아래 그림과 같이 앞에서부터 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;24비트&lt;/span&gt; 이후에 오는 4번 째 옥텟(파란색 부분)을 전부 사용할 수 있다는 표현이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-02-05-12-21-33.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;하나의 옥텟은 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;8비트&lt;/span&gt;로 2의8승인 256개 이기 때문에, &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;143.7.65.0 ~ 143.7.65.255&lt;/span&gt;까지 사용이 가능한 것이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;link href=&quot;http://fonts.googleapis.com/earlyaccess/hanna.css&quot; rel=&quot;stylesheet&quot; /&gt;
-
-&lt;div style=&quot;background: #eee;
-  box-shadow: 0 8px 8px -4px lightblue; font-family: &apos;Hanna&apos;, sans-serif;; padding: 40px;&quot;&gt;
-
-이렇게 CIDR 값이 각 자리의 옥텟을 전체를 포함하는 /8, /16, /24, /32 일 경우는 계산하기 쉽다. 0부터 그 자리에 해당하는 255까지라고 보면되기 때문이다.&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;만약 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;143.7.65.203/23&lt;/span&gt; 일때, 4번째 옥텟(파란색 부분) 전체와 3번째 옥텟(노란색 부분)영역의 1비트가 포함된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-02-05-13-58-33.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;애매하게 걸친 3번째 옥텟을 2진수로 표현해보자.&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;65로 01000001&lt;/span&gt;이다.&lt;/p&gt;
-
-&lt;p&gt;CIDR에 의해 마지막 자리 1비트를 0 또는 1을 사용할 수 있게 되면 01000000, 01000001 이기 때문에 64, 65가 된다. 여기서 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;64&lt;/span&gt;가 3번째 옥텟에서 사용할 수 있는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;최소값&lt;/span&gt;이 되며 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;최대값&lt;/span&gt;은 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;65&lt;/span&gt;가 된다.&lt;/p&gt;
-
-&lt;p&gt;나머지 4번째 옥텟(파란색 부분)은 전체를 사용할 수 있기 때문에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;최소값 0, 최대값 255&lt;/span&gt;가 된다. 따라서 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;143.7.65.203/23&lt;/span&gt;는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;143.7.64.0 ~ 143.7.65.255&lt;/span&gt;대역을 사용할 수 있는 것이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;다른 예&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;143.7.65.203/22&lt;/span&gt;를 계산해보자.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-02-05-14-03-06.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;일단 파란색 옥텟은 8개를 다 사용할 수 있으므로 사용할 수 있는 주소는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;0~255&lt;/span&gt;일 것이다. 하지만 노란색 옥텟은 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;아래 두개만&lt;/span&gt; 사용할 수 있는데 최대값을 구하는 가장 쉬운 방법은 가용 비트인 제일 아래 2개를 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;1로&lt;/span&gt; 바꾼다&lt;/p&gt;
-
-&lt;p&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;01000011&lt;/span&gt;이 되는데 이것은 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;67&lt;/span&gt;이다. 즉 최대값이 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;67&lt;/span&gt;이 되는 것이다.&lt;/p&gt;
-
-&lt;p&gt;최소 값은 아래 2개 비트를 다 0으로 바꾼다. &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;01000000&lt;/span&gt;즉 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;64&lt;/span&gt;가 된다 즉, 최소값이 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;64&lt;/span&gt;가 되는 것이다.&lt;/p&gt;
-</description>
-				<pubDate>Sat, 05 Feb 2022 11:00:00 +0900</pubDate>
-				<link>/interview/2022/02/05/Interview-interview-38.html</link>
-				<guid isPermaLink="true">/interview/2022/02/05/Interview-interview-38.html</guid>
-			</item>
-		
-			<item>
-				<title>WSL에서 Spring Cloug Config Server를 Docker 배포 중 Git 내용을 못 가지고 오는 문제</title>
-				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
-&lt;em&gt;&lt;strong&gt;커피 중독자되는 중…&lt;/strong&gt;&lt;/em&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;style&gt;
-.containercoffee {
-  width: 300px;
-  height: 280px;
-  position: relative;
-  top: calc(50% - 140px);
-  left: calc(50% - 150px);
-}
-.coffee-header {
-  width: 100%;
-  height: 80px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #ddcfcc;
-  border-radius: 10px;
-}
-.coffee-header__buttons {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  top: 25px;
-  background-color: #282323;
-  border-radius: 50%;
-}
-.coffee-header__buttons::after {
-  content: &quot;&quot;;
-  width: 8px;
-  height: 8px;
-  position: absolute;
-  bottom: -8px;
-  left: calc(50% - 4px);
-  background-color: #615e5e;
-}
-.coffee-header__button-one {
-  left: 15px;
-}
-.coffee-header__button-two {
-  left: 50px;
-}
-.coffee-header__display {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: calc(50% - 25px);
-  left: calc(50% - 25px);
-  border-radius: 50%;
-  background-color: #9acfc5;
-  border: 5px solid #43beae;
-  box-sizing: border-box;
-}
-.coffee-header__details {
-  width: 8px;
-  height: 20px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #9b9091;
-  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
-}
-.coffee-medium {
-  width: 90%;
-  height: 160px;
-  position: absolute;
-  top: 80px;
-  left: calc(50% - 45%);
-  background-color: #bcb0af;
-}
-.coffee-medium:before {
-  content: &quot;&quot;;
-  width: 90%;
-  height: 100px;
-  background-color: #776f6e;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 45%);
-  border-radius: 20px 20px 0 0;
-}
-.coffe-medium__exit {
-  width: 60px;
-  height: 20px;
-  position: absolute;
-  top: 0;
-  left: calc(50% - 30px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::before {
-  content: &quot;&quot;;
-  width: 50px;
-  height: 20px;
-  border-radius: 0 0 50% 50%;
-  position: absolute;
-  bottom: -20px;
-  left: calc(50% - 25px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::after {
-  content: &quot;&quot;;
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  bottom: -30px;
-  left: calc(50% - 5px);
-  background-color: #231f20;
-}
-.coffee-medium__arm {
-  width: 70px;
-  height: 20px;
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  background-color: #231f20;
-}
-.coffee-medium__arm::before {
-  content: &quot;&quot;;
-  width: 15px;
-  height: 5px;
-  position: absolute;
-  top: 7px;
-  left: -15px;
-  background-color: #9e9495;
-}
-.coffee-medium__cup {
-  width: 80px;
-  height: 47px;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 40px);
-  background-color: #FFF;
-  border-radius: 0 0 70px 70px / 0 0 110px 110px;
-}
-.coffee-medium__cup::after {
-  content: &quot;&quot;;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 6px;
-  right: -13px;
-  border: 5px solid #FFF;
-  border-radius: 50%;
-}
-@keyframes liquid {
-  0% {
-    height: 0px;  
-    opacity: 1;
-  }
-  5% {
-    height: 0px;  
-    opacity: 1;
-  }
-  20% {
-    height: 62px;  
-    opacity: 1;
-  }
-  95% {
-    height: 62px;
-    opacity: 1;
-  }
-  100% {
-    height: 62px;
-    opacity: 0;
-  }
-}
-.coffee-medium__liquid {
-  width: 6px;
-  height: 63px;
-  opacity: 0;
-  position: absolute;
-  top: 50px;
-  left: calc(50% - 3px);
-  background-color: #74372b;
-  animation: liquid 4s 4s linear infinite;
-}
-.coffee-medium__smoke {
-  width: 8px;
-  height: 20px;
-  position: absolute;  
-  border-radius: 5px;
-  background-color: #b3aeae;
-}
-@keyframes smokeOne {
-  0% {
-    bottom: 20px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 50px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-@keyframes smokeTwo {
-  0% {
-    bottom: 40px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 70px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-.coffee-medium__smoke-one {
-  opacity: 0;
-  bottom: 50px;
-  left: 102px;
-  animation: smokeOne 3s 4s linear infinite;
-}
-.coffee-medium__smoke-two {
-  opacity: 0;
-  bottom: 70px;
-  left: 118px;
-  animation: smokeTwo 3s 5s linear infinite;
-}
-.coffee-medium__smoke-three {
-  opacity: 0;
-  bottom: 65px;
-  right: 118px;
-  animation: smokeTwo 3s 6s linear infinite;
-}
-.coffee-medium__smoke-for {
-  opacity: 0;
-  bottom: 50px;
-  right: 102px;
-  animation: smokeOne 3s 5s linear infinite;
-}
-.coffee-footer {
-  width: 95%;
-  height: 15px;
-  position: absolute;
-  bottom: 25px;
-  left: calc(50% - 47.5%);
-  background-color: #41bdad;
-  border-radius: 10px;
-}
-.coffee-footer::after {
-  content: &quot;&quot;;
-  width: 106%;
-  height: 26px;
-  position: absolute;
-  bottom: -25px;
-  left: -8px;
-  background-color: #000;
-}
-&lt;/style&gt;
-
-&lt;div class=&quot;containercoffee&quot;&gt;
-    &lt;div class=&quot;coffee-header&quot;&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-medium&quot;&gt;
-      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/270f.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; WSL Ubuntu 20.04 버전에서 Spring Cloud Config Server를 Docker로 구축하던 중 Git 내용을 못 가지고 오는 에러
-&lt;/h2&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;최근에 듣게 된 inflear 강의가 하나 있다.&lt;/p&gt;
-
-&lt;p&gt;바로 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;이도원 강사&lt;/span&gt;님의 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Spring Cloud로 개발하는 마이크로서비스 애플리케이션(MSA)&lt;/span&gt;이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Spring MSA 관련해서 많은 내용을 다루고 실습도 알차서 매우 좋은 강의이다.&lt;/p&gt;
-
-&lt;p&gt;마지막 챕터를 향해 달려가던 중 문제가 생겼다. 로컬에서 잘 작동되던 config-server가 제대로 작동하지 않았다.&lt;/p&gt;
-
-&lt;p&gt;어떤 에러인지는 내가 직접 inflear에 질문을 하고 직접 답변을 한 링크를 달겠다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://www.inflearn.com/questions/418419&quot;&gt;Inflear 질문 링크&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; /&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt; / ___&lt;span class=&quot;s1&quot;&gt;&apos;_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | &apos;&lt;/span&gt;_ | &lt;span class=&quot;s1&quot;&gt;&apos;_| | &apos;&lt;/span&gt;_ &lt;span class=&quot;se&quot;&gt;\/&lt;/span&gt; _&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; | &lt;span class=&quot;se&quot;&gt;\ \ \ \&lt;/span&gt;
- &lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;/  ___&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;| |_&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;| | | | | &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;_| |  &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;s1&quot;&gt;&apos;  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::                (v2.6.2)
-
-2022-01-27 05:40:46.884  INFO 1 --- [           main] c.e.c.ConfigServiceApplication           : The following profiles are active: default
-2022-01-27 05:40:48.525  INFO 1 --- [           main] faultConfiguringBeanFactoryPostProcessor : No bean named &apos;&lt;/span&gt;errorChannel&lt;span class=&quot;s1&quot;&gt;&apos; has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
-2022-01-27 05:40:48.564  INFO 1 --- [           main] faultConfiguringBeanFactoryPostProcessor : No bean named &apos;&lt;/span&gt;integrationHeaderChannelRegistry&lt;span class=&quot;s1&quot;&gt;&apos; has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
-2022-01-27 05:40:48.768  INFO 1 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=2d1905bd-ddb1-3c02-8186-79b2dca87272
-2022-01-27 05:40:48.887  INFO 1 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean &apos;&lt;/span&gt;org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration&lt;span class=&quot;s1&quot;&gt;&apos; of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-01-27 05:40:48.896  INFO 1 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean &apos;&lt;/span&gt;bindersHealthContributor&lt;span class=&quot;s1&quot;&gt;&apos; of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$BindersHealthContributor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-01-27 05:40:48.899  INFO 1 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean &apos;&lt;/span&gt;bindersHealthIndicatorListener&lt;span class=&quot;s1&quot;&gt;&apos; of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$BindersHealthIndicatorListener] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-01-27 05:40:48.915  INFO 1 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean &apos;&lt;/span&gt;org.springframework.integration.config.IntegrationManagementConfiguration&lt;span class=&quot;s1&quot;&gt;&apos; of type [org.springframework.integration.config.IntegrationManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-01-27 05:40:48.928  INFO 1 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean &apos;&lt;/span&gt;integrationChannelResolver&lt;span class=&quot;s1&quot;&gt;&apos; of type [org.springframework.integration.support.channel.BeanFactoryChannelResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-01-27 05:40:49.360  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8889 (http)
-2022-01-27 05:40:49.391  INFO 1 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-01-27 05:40:49.391  INFO 1 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
-2022-01-27 05:40:49.479  INFO 1 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-01-27 05:40:49.479  INFO 1 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2551 ms
-2022-01-27 05:40:51.740  INFO 1 --- [           main] o.s.c.s.m.DirectWithAttributesChannel    : Channel &apos;&lt;/span&gt;application-1.springCloudBusInput&lt;span class=&quot;s1&quot;&gt;&apos; has 1 subscriber(s).
-2022-01-27 05:40:52.579  INFO 1 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path &apos;&lt;/span&gt;/actuator&lt;span class=&quot;s1&quot;&gt;&apos;
-2022-01-27 05:40:52.753  INFO 1 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the &apos;&lt;/span&gt;errorChannel&lt;span class=&quot;s1&quot;&gt;&apos; channel
-2022-01-27 05:40:52.753  INFO 1 --- [           main] o.s.i.channel.PublishSubscribeChannel    : Channel &apos;&lt;/span&gt;application-1.errorChannel&lt;span class=&quot;s1&quot;&gt;&apos; has 1 subscriber(s).
-2022-01-27 05:40:52.755  INFO 1 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : started bean &apos;&lt;/span&gt;_org.springframework.integration.errorLogger&lt;span class=&quot;s1&quot;&gt;&apos;
-2022-01-27 05:40:52.757  INFO 1 --- [           main] o.s.c.s.binder.DefaultBinderFactory      : Creating binder: rabbit
-2022-01-27 05:40:52.941  INFO 1 --- [           main] o.s.c.s.binder.DefaultBinderFactory      : Caching the binder: rabbit
-2022-01-27 05:40:52.942  INFO 1 --- [           main] o.s.c.s.binder.DefaultBinderFactory      : Retrieving cached binder: rabbit
-2022-01-27 05:40:53.035  INFO 1 --- [           main] c.s.b.r.p.RabbitExchangeQueueProvisioner : declaring queue for inbound: springCloudBus.anonymous.dVyf_-Z1QfO2gWPEnaJ2Bg, bound to: springCloudBus
-2022-01-27 05:40:53.043  INFO 1 --- [           main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [rabbitmq:5672]
-2022-01-27 05:40:53.167  INFO 1 --- [           main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#125c082e:0/SimpleConnection@43034809 [delegate=amqp://guest@172.18.0.2:5672/, localPort= 45018]
-2022-01-27 05:40:53.267  INFO 1 --- [           main] o.s.c.stream.binder.BinderErrorChannel   : Channel &apos;&lt;/span&gt;springCloudBus.anonymous.dVyf_-Z1QfO2gWPEnaJ2Bg.errors&lt;span class=&quot;s1&quot;&gt;&apos; has 1 subscriber(s).
-2022-01-27 05:40:53.269  INFO 1 --- [           main] o.s.c.stream.binder.BinderErrorChannel   : Channel &apos;&lt;/span&gt;springCloudBus.anonymous.dVyf_-Z1QfO2gWPEnaJ2Bg.errors&lt;span class=&quot;s1&quot;&gt;&apos; has 2 subscriber(s).
-2022-01-27 05:40:53.298  INFO 1 --- [           main] o.s.i.a.i.AmqpInboundChannelAdapter      : started bean &apos;&lt;/span&gt;inbound.springCloudBus.anonymous.dVyf_-Z1QfO2gWPEnaJ2Bg&lt;span class=&quot;s1&quot;&gt;&apos;
-2022-01-27 05:40:53.321  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path &apos;&apos;
-2022-01-27 05:40:53.369  INFO 1 --- [           main] c.e.c.ConfigServiceApplication           : Started ConfigServiceApplication in 7.994 seconds (JVM running for 8.791)
-2022-01-27 05:41:01.962  INFO 1 --- [nio-8889-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet &apos;&lt;/span&gt;dispatcherServlet&lt;span class=&quot;s1&quot;&gt;&apos;
-2022-01-27 05:41:01.963  INFO 1 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet &apos;&lt;/span&gt;dispatcherServlet&lt;span class=&quot;s1&quot;&gt;&apos;
-2022-01-27 05:41:01.967  INFO 1 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
-2022-01-27 05:41:05.532  WARN 1 --- [nio-8889-exec-1] .c.s.e.MultipleJGitEnvironmentRepository : Error occured cloning to base directory.
-
-org.eclipse.jgit.api.errors.TransportException: https://github.com/YoungKyonYou/spring-cloud-config: cannot open git-upload-pack
-        at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:224) ~[org.eclipse.jgit-5.12.0.202106070339-r.jar!/:5.12.0.202106070339-r]
-        at org.eclipse.jgit.api.CloneCommand.fetch(CloneCommand.java:303) ~[org.eclipse.jgit-5.12.0.202106070339-r.jar!/:5.12.0.202106070339-r]
-        at org.eclipse.jgit.api.CloneCommand.call(CloneCommand.java:178) ~[org.eclipse.jgit-5.12.0.202106070339-r.jar!/:5.12.0.202106070339-r]
-        at org.springframework.cloud.config.server.environment.JGitEnvironmentRepository.cloneToBasedir(JGitEnvironmentRepository.java:658) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at org.springframework.cloud.config.server.environment.JGitEnvironmentRepository.copyRepository(JGitEnvironmentRepository.java:633) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at org.springframework.cloud.config.server.environment.JGitEnvironmentRepository.createGitClient(JGitEnvironmentRepository.java:616) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at org.springframework.cloud.config.server.environment.JGitEnvironmentRepository.refresh(JGitEnvironmentRepository.java:296) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at org.springframework.cloud.config.server.environment.JGitEnvironmentRepository.getLocations(JGitEnvironmentRepository.java:262) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at org.springframework.cloud.config.server.environment.MultipleJGitEnvironmentRepository.getLocations(MultipleJGitEnvironmentRepository.java:139) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at org.springframework.cloud.config.server.environment.AbstractScmEnvironmentRepository.findOne(AbstractScmEnvironmentRepository.java:55) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at org.springframework.cloud.config.server.environment.MultipleJGitEnvironmentRepository.findOneFromCandidate(MultipleJGitEnvironmentRepository.java:188) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at org.springframework.cloud.config.server.environment.MultipleJGitEnvironmentRepository.findOne(MultipleJGitEnvironmentRepository.java:173) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at org.springframework.cloud.config.server.environment.CompositeEnvironmentRepository.findOne(CompositeEnvironmentRepository.java:64) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at org.springframework.cloud.config.server.environment.EnvironmentEncryptorEnvironmentRepository.findOne(EnvironmentEncryptorEnvironmentRepository.java:61) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at org.springframework.cloud.config.server.environment.EnvironmentController.getEnvironment(EnvironmentController.java:132) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at org.springframework.cloud.config.server.environment.EnvironmentController.defaultLabel(EnvironmentController.java:109) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[na:na]
-        at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-        at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
-        at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:282) ~[spring-core-5.3.14.jar!/:5.3.14]
-        at org.springframework.cloud.context.scope.GenericScope$LockedScopedProxyFactoryBean.invoke(GenericScope.java:485) ~[spring-cloud-context-3.1.0.jar!/:3.1.0]
-        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.14.jar!/:5.3.14]
-        at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753) ~[spring-aop-5.3.14.jar!/:5.3.14]
-        at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:698) ~[spring-aop-5.3.14.jar!/:5.3.14]
-        at org.springframework.cloud.config.server.environment.EnvironmentController$$EnhancerBySpringCGLIB$$60d7694f.defaultLabel(&amp;lt;generated&amp;gt;) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[na:na]
-        at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-        at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
-        at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar!/:5.3.14]
-        at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar!/:5.3.14]
-        at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
-        at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
-        at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
-        at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
-        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
-        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
-        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
-        at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
-        at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
-        at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.56.jar!/:na]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.14.jar!/:5.3.14]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.14.jar!/:5.3.14]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.6.2.jar!/:2.6.2]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.14.jar!/:5.3.14]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at java.base/java.lang.Thread.run(Thread.java:831) ~[na:na]
-Caused by: org.eclipse.jgit.errors.TransportException: https://github.com/YoungKyonYou/spring-cloud-config: cannot open git-upload-pack
-        at org.eclipse.jgit.transport.TransportHttp.connect(TransportHttp.java:749) ~[org.eclipse.jgit-5.12.0.202106070339-r.jar!/:5.12.0.202106070339-r]
-        at org.eclipse.jgit.transport.TransportHttp.openFetch(TransportHttp.java:465) ~[org.eclipse.jgit-5.12.0.202106070339-r.jar!/:5.12.0.202106070339-r]
-        at org.eclipse.jgit.transport.FetchProcess.executeImp(FetchProcess.java:142) ~[org.eclipse.jgit-5.12.0.202106070339-r.jar!/:5.12.0.202106070339-r]
-        at org.eclipse.jgit.transport.FetchProcess.execute(FetchProcess.java:94) ~[org.eclipse.jgit-5.12.0.202106070339-r.jar!/:5.12.0.202106070339-r]
-        at org.eclipse.jgit.transport.Transport.fetch(Transport.java:1309) ~[org.eclipse.jgit-5.12.0.202106070339-r.jar!/:5.12.0.202106070339-r]
-        at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:213) ~[org.eclipse.jgit-5.12.0.202106070339-r.jar!/:5.12.0.202106070339-r]
-        ... 79 common frames omitted
-Caused by: java.net.UnknownHostException: github.com: Temporary failure in name resolution
-        at java.base/java.net.Inet4AddressImpl.lookupAllHostAddr(Native Method) ~[na:na]
-        at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:932) ~[na:na]
-        at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1517) ~[na:na]
-        at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:851) ~[na:na]
-        at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1507) ~[na:na]
-        at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1366) ~[na:na]
-        at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1300) ~[na:na]
-        at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45) ~[httpclient-4.5.13.jar!/:4.5.13]
-        at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:112) ~[httpclient-4.5.13.jar!/:4.5.13]
-        at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar!/:4.5.13]
-        at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar!/:4.5.13]
-        at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar!/:4.5.13]
-        at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar!/:4.5.13]
-        at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar!/:4.5.13]
-        at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar!/:4.5.13]
-        at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar!/:4.5.13]
-        at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar!/:4.5.13]
-        at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:108) ~[httpclient-4.5.13.jar!/:4.5.13]
-        at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56) ~[httpclient-4.5.13.jar!/:4.5.13]
-        at org.eclipse.jgit.transport.http.apache.HttpClientConnection.execute(HttpClientConnection.java:274) ~[org.eclipse.jgit.http.apache-5.12.0.202106070339-r.jar!/:5.12.0.202106070339-r]
-        at org.eclipse.jgit.transport.http.apache.HttpClientConnection.getResponseCode(HttpClientConnection.java:251) ~[org.eclipse.jgit.http.apache-5.12.0.202106070339-r.jar!/:5.12.0.202106070339-r]
-        at org.eclipse.jgit.util.HttpSupport.response(HttpSupport.java:205) ~[org.eclipse.jgit-5.12.0.202106070339-r.jar!/:5.12.0.202106070339-r]
-        at org.eclipse.jgit.transport.TransportHttp.connect(TransportHttp.java:654) ~[org.eclipse.jgit-5.12.0.202106070339-r.jar!/:5.12.0.202106070339-r]
-        ... 84 common frames omitted
-
-2022-01-27 05:41:05.541  WARN 1 --- [nio-8889-exec-1] o.s.c.c.s.e.EnvironmentController        : Error getting the Environment with name=ecommerce profiles=default label=null includeOrigin=false
-
-org.springframework.cloud.config.server.environment.NoSuchRepositoryException: Cannot clone or checkout repository: https://github.com/YoungKyonYou/spring-cloud-config
-        at org.springframework.cloud.config.server.environment.JGitEnvironmentRepository.refresh(JGitEnvironmentRepository.java:320) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at org.springframework.cloud.config.server.environment.JGitEnvironmentRepository.getLocations(JGitEnvironmentRepository.java:262) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at org.springframework.cloud.config.server.environment.MultipleJGitEnvironmentRepository.getLocations(MultipleJGitEnvironmentRepository.java:139) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at org.springframework.cloud.config.server.environment.AbstractScmEnvironmentRepository.findOne(AbstractScmEnvironmentRepository.java:55) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at org.springframework.cloud.config.server.environment.MultipleJGitEnvironmentRepository.findOneFromCandidate(MultipleJGitEnvironmentRepository.java:188) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at org.springframework.cloud.config.server.environment.MultipleJGitEnvironmentRepository.findOne(MultipleJGitEnvironmentRepository.java:173) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at org.springframework.cloud.config.server.environment.CompositeEnvironmentRepository.findOne(CompositeEnvironmentRepository.java:64) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at org.springframework.cloud.config.server.environment.EnvironmentEncryptorEnvironmentRepository.findOne(EnvironmentEncryptorEnvironmentRepository.java:61) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at org.springframework.cloud.config.server.environment.EnvironmentController.getEnvironment(EnvironmentController.java:132) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at org.springframework.cloud.config.server.environment.EnvironmentController.defaultLabel(EnvironmentController.java:109) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[na:na]
-        at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-        at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
-        at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:282) ~[spring-core-5.3.14.jar!/:5.3.14]
-        at org.springframework.cloud.context.scope.GenericScope$LockedScopedProxyFactoryBean.invoke(GenericScope.java:485) ~[spring-cloud-context-3.1.0.jar!/:3.1.0]
-        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.14.jar!/:5.3.14]
-        at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753) ~[spring-aop-5.3.14.jar!/:5.3.14]
-        at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:698) ~[spring-aop-5.3.14.jar!/:5.3.14]
-        at org.springframework.cloud.config.server.environment.EnvironmentController$$EnhancerBySpringCGLIB$$60d7694f.defaultLabel(&amp;lt;generated&amp;gt;) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[na:na]
-        at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-        at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
-        at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar!/:5.3.14]
-        at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar!/:5.3.14]
-        at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
-        at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
-        at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
-        at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
-        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
-        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
-        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
-        at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
-        at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
-        at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.56.jar!/:na]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.14.jar!/:5.3.14]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.14.jar!/:5.3.14]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.6.2.jar!/:2.6.2]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.14.jar!/:5.3.14]
-        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
-        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.56.jar!/:na]
-        at java.base/java.lang.Thread.run(Thread.java:831) ~[na:na]
-Caused by: org.eclipse.jgit.api.errors.TransportException: https://github.com/YoungKyonYou/spring-cloud-config: cannot open git-upload-pack
-        at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:224) ~[org.eclipse.jgit-5.12.0.202106070339-r.jar!/:5.12.0.202106070339-r]
-        at org.eclipse.jgit.api.CloneCommand.fetch(CloneCommand.java:303) ~[org.eclipse.jgit-5.12.0.202106070339-r.jar!/:5.12.0.202106070339-r]
-        at org.eclipse.jgit.api.CloneCommand.call(CloneCommand.java:178) ~[org.eclipse.jgit-5.12.0.202106070339-r.jar!/:5.12.0.202106070339-r]
-        at org.springframework.cloud.config.server.environment.JGitEnvironmentRepository.cloneToBasedir(JGitEnvironmentRepository.java:658) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at org.springframework.cloud.config.server.environment.JGitEnvironmentRepository.copyRepository(JGitEnvironmentRepository.java:633) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at org.springframework.cloud.config.server.environment.JGitEnvironmentRepository.createGitClient(JGitEnvironmentRepository.java:616) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        at org.springframework.cloud.config.server.environment.JGitEnvironmentRepository.refresh(JGitEnvironmentRepository.java:296) ~[spring-cloud-config-server-3.1.0.jar!/:3.1.0]
-        ... 73 common frames omitted
-Caused by: org.eclipse.jgit.errors.TransportException: https://github.com/YoungKyonYou/spring-cloud-config: cannot open git-upload-pack
-        at org.eclipse.jgit.transport.TransportHttp.connect(TransportHttp.java:749) ~[org.eclipse.jgit-5.12.0.202106070339-r.jar!/:5.12.0.202106070339-r]
-        at org.eclipse.jgit.transport.TransportHttp.openFetch(TransportHttp.java:465) ~[org.eclipse.jgit-5.12.0.202106070339-r.jar!/:5.12.0.202106070339-r]
-        at org.eclipse.jgit.transport.FetchProcess.executeImp(FetchProcess.java:142) ~[org.eclipse.jgit-5.12.0.202106070339-r.jar!/:5.12.0.202106070339-r]
-        at org.eclipse.jgit.transport.FetchProcess.execute(FetchProcess.java:94) ~[org.eclipse.jgit-5.12.0.202106070339-r.jar!/:5.12.0.202106070339-r]
-        at org.eclipse.jgit.transport.Transport.fetch(Transport.java:1309) ~[org.eclipse.jgit-5.12.0.202106070339-r.jar!/:5.12.0.202106070339-r]
-        at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:213) ~[org.eclipse.jgit-5.12.0.202106070339-r.jar!/:5.12.0.202106070339-r]
-        ... 79 common frames omitted
-Caused by: java.net.UnknownHostException: github.com: Temporary failure in name resolution
-        at java.base/java.net.Inet4AddressImpl.lookupAllHostAddr(Native Method) ~[na:na]
-        at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:932) ~[na:na]
-        at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1517) ~[na:na]
-        at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:851) ~[na:na]
-        at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1507) ~[na:na]
-        at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1366) ~[na:na]
-        at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1300) ~[na:na]
-        at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45) ~[httpclient-4.5.13.jar!/:4.5.13]
-        at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:112) ~[httpclient-4.5.13.jar!/:4.5.13]
-        at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar!/:4.5.13]
-        at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar!/:4.5.13]
-        at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar!/:4.5.13]
-        at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar!/:4.5.13]
-        at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar!/:4.5.13]
-        at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar!/:4.5.13]
-        at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar!/:4.5.13]
-        at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar!/:4.5.13]
-        at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:108) ~[httpclient-4.5.13.jar!/:4.5.13]
-        at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56) ~[httpclient-4.5.13.jar!/:4.5.13]
-        at org.eclipse.jgit.transport.http.apache.HttpClientConnection.execute(HttpClientConnection.java:274) ~[org.eclipse.jgit.http.apache-5.12.0.202106070339-r.jar!/:5.12.0.202106070339-r]
-        at org.eclipse.jgit.transport.http.apache.HttpClientConnection.getResponseCode(HttpClientConnection.java:251) ~[org.eclipse.jgit.http.apache-5.12.0.202106070339-r.jar!/:5.12.0.202106070339-r]
-        at org.eclipse.jgit.util.HttpSupport.response(HttpSupport.java:205) ~[org.eclipse.jgit-5.12.0.202106070339-r.jar!/:5.12.0.202106070339-r]
-        at org.eclipse.jgit.transport.TransportHttp.connect(TransportHttp.java:654) ~[org.eclipse.jgit-5.12.0.202106070339-r.jar!/:5.12.0.202106070339-r]
-        ... 84 common frames omitted
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;일주일동안 이 에러에 시달렸던 것 같다.
-아무리 구글링을 해도 찾을 수가 없었고 결국 한줄한줄 읽어보며 뭐가 문제인지 찾아봤던 것 같다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;...&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-
-2022-01-27 05:41:05.532  WARN 1 &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;nio-8889-exec-1] .c.s.e.MultipleJGitEnvironmentRepository : Error occured cloning to base directory.
-
-org.eclipse.jgit.api.errors.TransportException: https://github.com/YoungKyonYou/spring-cloud-config: cannot open git-upload-pack
-&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;...&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-
-org.springframework.cloud.config.server.environment.NoSuchRepositoryException: Cannot clone or checkout repository: https://github.com/YoungKyonYou/spring-cloud-config
-&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;...&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;읽다가 위 내용에 신경이 좀 가게됐다. 일단 컨테이너 내부적으로 git clone 명령을 해서 해당 리포지토리를 가지고 온다음 거기서 원하는 리소스를 가져오는 방법인 것 같았다.&lt;/p&gt;
-
-&lt;p&gt;그렇다면 어떤 디렉토리 아래 폴더에 clone를 하고 가져오는지 찾는 게 중요했다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;어디에서 clone를 하는지 찾기 위해서 도커로 배포 안 하고 단순히 WSL Ubuntu 환경에서 jar 파일을 실행시키고 로그를 살펴보았다. 신기하게 이때는 제대로 작동하고 원하는 리소를 가져온다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;WSL Ubuntu에서 실행시킨 Config-Server jar파일의 Log&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;youngyou@DESKTOP-KCDHFKO:~/configuration-service-docker&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; config-service-1.0.jar
-
-  &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;   ____          _            __ _ _
- /&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt; / ___&lt;span class=&quot;s1&quot;&gt;&apos;_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | &apos;&lt;/span&gt;_ | &lt;span class=&quot;s1&quot;&gt;&apos;_| | &apos;&lt;/span&gt;_ &lt;span class=&quot;se&quot;&gt;\/&lt;/span&gt; _&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; | &lt;span class=&quot;se&quot;&gt;\ \ \ \&lt;/span&gt;
- &lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;/  ___&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;| |_&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;| | | | | &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;_| |  &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;s1&quot;&gt;&apos;  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::                (v2.6.2)
-
-2022-01-28 17:20:52.574  INFO 8835 --- [           main] c.e.c.ConfigServiceApplication           : The following profiles are active: dev
-2022-01-28 17:20:54.410  INFO 8835 --- [           main] faultConfiguringBeanFactoryPostProcessor : No bean named &apos;&lt;/span&gt;errorChannel&lt;span class=&quot;s1&quot;&gt;&apos; has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
-2022-01-28 17:20:54.455  INFO 8835 --- [           main] faultConfiguringBeanFactoryPostProcessor : No bean named &apos;&lt;/span&gt;integrationHeaderChannelRegistry&lt;span class=&quot;s1&quot;&gt;&apos; has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
-2022-01-28 17:20:54.648  INFO 8835 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=2d1905bd-ddb1-3c02-8186-79b2dca87272
-2022-01-28 17:20:54.791  INFO 8835 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean &apos;&lt;/span&gt;org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration&lt;span class=&quot;s1&quot;&gt;&apos; of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-01-28 17:20:54.806  INFO 8835 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean &apos;&lt;/span&gt;bindersHealthContributor&lt;span class=&quot;s1&quot;&gt;&apos; of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$BindersHealthContributor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-01-28 17:20:54.810  INFO 8835 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean &apos;&lt;/span&gt;bindersHealthIndicatorListener&lt;span class=&quot;s1&quot;&gt;&apos; of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$BindersHealthIndicatorListener] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-01-28 17:20:54.836  INFO 8835 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean &apos;&lt;/span&gt;org.springframework.integration.config.IntegrationManagementConfiguration&lt;span class=&quot;s1&quot;&gt;&apos; of type [org.springframework.integration.config.IntegrationManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-01-28 17:20:54.853  INFO 8835 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean &apos;&lt;/span&gt;integrationChannelResolver&lt;span class=&quot;s1&quot;&gt;&apos; of type [org.springframework.integration.support.channel.BeanFactoryChannelResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-01-28 17:20:55.435  INFO 8835 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8889 (http)
-2022-01-28 17:20:55.457  INFO 8835 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-01-28 17:20:55.458  INFO 8835 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
-2022-01-28 17:20:55.575  INFO 8835 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-01-28 17:20:55.575  INFO 8835 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2971 ms
-2022-01-28 17:20:58.216  INFO 8835 --- [           main] o.s.c.s.m.DirectWithAttributesChannel    : Channel &apos;&lt;/span&gt;application-1.springCloudBusInput&lt;span class=&quot;s1&quot;&gt;&apos; has 1 subscriber(s).
-2022-01-28 17:20:59.499  INFO 8835 --- [           main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2022-01-28 17:21:00.095  INFO 8835 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path &apos;&lt;/span&gt;/actuator&lt;span class=&quot;s1&quot;&gt;&apos;
-2022-01-28 17:21:00.283  INFO 8835 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the &apos;&lt;/span&gt;errorChannel&lt;span class=&quot;s1&quot;&gt;&apos; channel
-2022-01-28 17:21:00.284  INFO 8835 --- [           main] o.s.i.channel.PublishSubscribeChannel    : Channel &apos;&lt;/span&gt;application-1.errorChannel&lt;span class=&quot;s1&quot;&gt;&apos; has 1 subscriber(s).
-2022-01-28 17:21:00.289  INFO 8835 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : started bean &apos;&lt;/span&gt;_org.springframework.integration.errorLogger&lt;span class=&quot;s1&quot;&gt;&apos;
-2022-01-28 17:21:00.295  INFO 8835 --- [           main] o.s.c.s.binder.DefaultBinderFactory      : Creating binder: rabbit
-2022-01-28 17:21:00.481  INFO 8835 --- [           main] o.s.c.s.binder.DefaultBinderFactory      : Caching the binder: rabbit
-2022-01-28 17:21:00.481  INFO 8835 --- [           main] o.s.c.s.binder.DefaultBinderFactory      : Retrieving cached binder: rabbit
-2022-01-28 17:21:00.584  INFO 8835 --- [           main] c.s.b.r.p.RabbitExchangeQueueProvisioner : declaring queue for inbound: springCloudBus.anonymous.z1QYk6O7QyOl8Wtxk65Hxw, bound to: springCloudBus
-2022-01-28 17:21:00.592  INFO 8835 --- [           main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [127.0.0.1:5672]
-2022-01-28 17:21:00.747  INFO 8835 --- [           main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#13cda7c9:0/SimpleConnection@4bb003e9 [delegate=amqp://guest@127.0.0.1:5672/, localPort= 56002]
-2022-01-28 17:21:00.920  INFO 8835 --- [           main] o.s.c.stream.binder.BinderErrorChannel   : Channel &apos;&lt;/span&gt;springCloudBus.anonymous.z1QYk6O7QyOl8Wtxk65Hxw.errors&lt;span class=&quot;s1&quot;&gt;&apos; has 1 subscriber(s).
-2022-01-28 17:21:00.922  INFO 8835 --- [           main] o.s.c.stream.binder.BinderErrorChannel   : Channel &apos;&lt;/span&gt;springCloudBus.anonymous.z1QYk6O7QyOl8Wtxk65Hxw.errors&lt;span class=&quot;s1&quot;&gt;&apos; has 2 subscriber(s).
-2022-01-28 17:21:00.958  INFO 8835 --- [           main] o.s.i.a.i.AmqpInboundChannelAdapter      : started bean &apos;&lt;/span&gt;inbound.springCloudBus.anonymous.z1QYk6O7QyOl8Wtxk65Hxw&lt;span class=&quot;s1&quot;&gt;&apos;
-2022-01-28 17:21:00.987  INFO 8835 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path &apos;&apos;
-2022-01-28 17:21:01.990  INFO 8835 --- [           main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2022-01-28 17:21:02.037  INFO 8835 --- [           main] c.e.c.ConfigServiceApplication           : Started ConfigServiceApplication in 13.415 seconds (JVM running for 14.725)
-2022-01-28 17:21:40.099  INFO 8835 --- [nio-8889-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet &apos;&lt;/span&gt;dispatcherServlet&lt;span class=&quot;s1&quot;&gt;&apos;
-2022-01-28 17:21:40.101  INFO 8835 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet &apos;&lt;/span&gt;dispatcherServlet&lt;span class=&quot;s1&quot;&gt;&apos;
-2022-01-28 17:21:40.103  INFO 8835 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2022-01-28 17:21:42.635  INFO 8835 --- [nio-8889-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource &apos;&lt;/span&gt;file &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;/tmp/config-repo-14397014959275925187/ecommerce.yml]&lt;span class=&quot;s1&quot;&gt;&apos; via location &apos;&lt;/span&gt;file:/tmp/config-repo-14397014959275925187/&lt;span class=&quot;s1&quot;&gt;&apos;
-2022-01-28 17:21:42.635  INFO 8835 --- [nio-8889-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource &apos;&lt;/span&gt;file &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;/tmp/config-repo-14397014959275925187/application.yml]&lt;span class=&quot;s1&quot;&gt;&apos; via location &apos;&lt;/span&gt;file:/tmp/config-repo-14397014959275925187/&lt;span class=&quot;s1&quot;&gt;&apos;
-2022-01-28 17:21:42.641  WARN 8835 --- [nio-8889-exec-1] o.s.c.c.s.e.CipherEnvironmentEncryptor   : Cannot decrypt key: token.secret (class java.lang.IllegalStateException: Cannot load keys from store: URL [file:/Users/nick1/Spring_MSA_Study/keystore/apiEncryptionKey.jks]) 
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;여기서 중요한 단서를 찾을 수 있었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;...&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-2022-01-28 17:21:42.635  INFO 8835 &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;nio-8889-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;: Config resource &lt;span class=&quot;s1&quot;&gt;&apos;file [/tmp/config-repo-14397014959275925187/ecommerce.yml]&apos;&lt;/span&gt; via location &lt;span class=&quot;s1&quot;&gt;&apos;file:/tmp/config-repo-14397014959275925187/&apos;&lt;/span&gt;
-2022-01-28 17:21:42.635  INFO 8835 &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;nio-8889-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;: Config resource &lt;span class=&quot;s1&quot;&gt;&apos;file [/tmp/config-repo-14397014959275925187/application.yml]&apos;&lt;/span&gt; via location &lt;span class=&quot;s1&quot;&gt;&apos;file:/tmp/config-repo-14397014959275925187/&apos;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;...&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;위 로그를 통해서 내가 만약 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Dockerfile&lt;/span&gt;를 통해 컨테이너를 실행하게 되면 config-server는 컨테이너의 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;/tmp/config-repo-(랜덤 숫자들)&lt;/span&gt; 폴더 안에서 리소스를 가져온다는 것이다. &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;ecommerce.yml과 application.yml&lt;/span&gt; 파일의 내용이 내가 원하는 리소스 내용이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 정리
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;정리하면 내가 Dockerfile를 통해 이미지를 만들고 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;run&lt;/span&gt;하게 되면 config-server가 내부적으로 /tmp/config-repo-(랜덤숫자들) 디렉토리 안에서 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;git clone url&lt;/span&gt;를 하게 되는 것이다. 그리고 그렇게 clone한 리소스를 우리가 특정 url로 접근하게 되면 보여주는 것이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;확인을 위해 다시 도커 이미지를 실행시키고 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;sudo docker exec -it [컨테이너 ID] bash&lt;/span&gt; 명령을 통해 터미널로 들어가보았다.&lt;/p&gt;
-
-&lt;p&gt;역시 예상했던 대로 /tmp/config-repo 폴더가 생성이 되어 있었고 안에는 아무 내용이 없었다. 그리고 git clone [내 리소스가 있는 url] 명령을 치자 clone이 되지 않았다. 물론 그전에 이 명령어들을 실행하고 다운받는 것이 필요하다
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get update &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-apt-get upgrade &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;git &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;git clone만 된다면 문제는 해결될 것이다. 구글링을 하다가 나와 비슷한 문제가 발생한 사람의 질문 중 답변을 확인해보니 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;ping github.com&lt;/span&gt;의 결과가 제대로 나오는지 보라는 것이었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;역시나 제대로 작동하지 않았다. 그렇다면 WSL 안에 컨테이너가 외부 네트워크랑 통신을 못하고 있다고 가정을 하게 되었다.&lt;/p&gt;
-
-&lt;p&gt;그리고 여러 자료를 찾다가 해결 방안을 2가지 찾았다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; (해결 1) /etc/resolv.conf 파일 수정하기
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;컨테이너 안으로 이전에 했던 명령어 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;exec -it&lt;/span&gt;로 터미널에 들어가고 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;/etc/resolv.conf&lt;/span&gt; 파일을 열게되면 아래와 같은 사진의 내용이 보인다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-28-17-39-10.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이 내용을 아래와 같이 수정하는 것이다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nameserver 127.0.0.11
-nameserver 8.8.8.8
-nameserver 8.8.4.4
-options edns0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;그리고 /tmp/config-repo-(랜덤 숫자들) 폴더 아래 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;git clone [원하는 리소스가 있는 리포지토리 url]&lt;/span&gt;를 하면 제대로 접근이 된다.&lt;/p&gt;
-
-&lt;p&gt;하지만 이 방법은 일일이 컨테이너를 없애고 만들때마다 해줘야 하며 이는 매우 불편하다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; (해결 2) /etc/default 디렉터리 아래 docker 파일 수정하기
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;기본 WSL Ubuntu 터미널에서 docker를 다운받았다면 /etc/default 디렉터리 안에 docker라는 파일이 있다 이를 아래와 같이 수정한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Docker Upstart and SysVinit configuration file&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# THIS FILE DOES NOT APPLY TO SYSTEMD&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#   Please see the documentation for &quot;systemd drop-ins&quot;:&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#   https://docs.docker.com/engine/admin/systemd/&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Customize location of Docker binary (especially for development testing).&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#DOCKERD=&quot;/usr/local/bin/dockerd&quot;&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Use DOCKER_OPTS to modify the daemon startup options.&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;DOCKER_OPTS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;--dns 8.8.8.8 --dns 8.8.4.4&quot;&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# If you need Docker to use an HTTP proxy, it can also be specified here.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#export http_proxy=&quot;http://127.0.0.1:3128/&quot;&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# This is also a handy place to tweak where Docker&apos;s temporary files go.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#export DOCKER_TMPDIR=&quot;/mnt/bigdrive/docker-tmp&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;이렇게 하고 config-server를 배포하게 되면 정상적으로 리소스를 가져올 수 있고 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;해결 1&lt;/span&gt; 방안보다 더 좋다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-</description>
-				<pubDate>Fri, 28 Jan 2022 13:00:00 +0900</pubDate>
-				<link>/kubernetes/2022/01/28/Kubernetes-DockerDNS.html</link>
-				<guid isPermaLink="true">/kubernetes/2022/01/28/Kubernetes-DockerDNS.html</guid>
-			</item>
-		
-			<item>
-				<title>싱글턴 패턴</title>
-				<description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;오늘의 나보다 성장한 내일의 나를 위해…&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;style&gt;
-.containercoffee {
-  width: 300px;
-  height: 280px;
-  position: relative;
-  top: calc(50% - 140px);
-  left: calc(50% - 150px);
-}
-.coffee-header {
-  width: 100%;
-  height: 80px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #ddcfcc;
-  border-radius: 10px;
-}
-.coffee-header__buttons {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  top: 25px;
-  background-color: #282323;
-  border-radius: 50%;
-}
-.coffee-header__buttons::after {
-  content: &quot;&quot;;
-  width: 8px;
-  height: 8px;
-  position: absolute;
-  bottom: -8px;
-  left: calc(50% - 4px);
-  background-color: #615e5e;
-}
-.coffee-header__button-one {
-  left: 15px;
-}
-.coffee-header__button-two {
-  left: 50px;
-}
-.coffee-header__display {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: calc(50% - 25px);
-  left: calc(50% - 25px);
-  border-radius: 50%;
-  background-color: #9acfc5;
-  border: 5px solid #43beae;
-  box-sizing: border-box;
-}
-.coffee-header__details {
-  width: 8px;
-  height: 20px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #9b9091;
-  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
-}
-.coffee-medium {
-  width: 90%;
-  height: 160px;
-  position: absolute;
-  top: 80px;
-  left: calc(50% - 45%);
-  background-color: #bcb0af;
-}
-.coffee-medium:before {
-  content: &quot;&quot;;
-  width: 90%;
-  height: 100px;
-  background-color: #776f6e;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 45%);
-  border-radius: 20px 20px 0 0;
-}
-.coffe-medium__exit {
-  width: 60px;
-  height: 20px;
-  position: absolute;
-  top: 0;
-  left: calc(50% - 30px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::before {
-  content: &quot;&quot;;
-  width: 50px;
-  height: 20px;
-  border-radius: 0 0 50% 50%;
-  position: absolute;
-  bottom: -20px;
-  left: calc(50% - 25px);
-  background-color: #231f20;
-}
-.coffe-medium__exit::after {
-  content: &quot;&quot;;
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  bottom: -30px;
-  left: calc(50% - 5px);
-  background-color: #231f20;
-}
-.coffee-medium__arm {
-  width: 70px;
-  height: 20px;
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  background-color: #231f20;
-}
-.coffee-medium__arm::before {
-  content: &quot;&quot;;
-  width: 15px;
-  height: 5px;
-  position: absolute;
-  top: 7px;
-  left: -15px;
-  background-color: #9e9495;
-}
-.coffee-medium__cup {
-  width: 80px;
-  height: 47px;
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 40px);
-  background-color: #FFF;
-  border-radius: 0 0 70px 70px / 0 0 110px 110px;
-}
-.coffee-medium__cup::after {
-  content: &quot;&quot;;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 6px;
-  right: -13px;
-  border: 5px solid #FFF;
-  border-radius: 50%;
-}
-@keyframes liquid {
-  0% {
-    height: 0px;  
-    opacity: 1;
-  }
-  5% {
-    height: 0px;  
-    opacity: 1;
-  }
-  20% {
-    height: 62px;  
-    opacity: 1;
-  }
-  95% {
-    height: 62px;
-    opacity: 1;
-  }
-  100% {
-    height: 62px;
-    opacity: 0;
-  }
-}
-.coffee-medium__liquid {
-  width: 6px;
-  height: 63px;
-  opacity: 0;
-  position: absolute;
-  top: 50px;
-  left: calc(50% - 3px);
-  background-color: #74372b;
-  animation: liquid 4s 4s linear infinite;
-}
-.coffee-medium__smoke {
-  width: 8px;
-  height: 20px;
-  position: absolute;  
-  border-radius: 5px;
-  background-color: #b3aeae;
-}
-@keyframes smokeOne {
-  0% {
-    bottom: 20px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 50px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-@keyframes smokeTwo {
-  0% {
-    bottom: 40px;
-    opacity: 0;
-  }
-  40% {
-    bottom: 70px;
-    opacity: .5;
-  }
-  80% {
-    bottom: 80px;
-    opacity: .3;
-  }
-  100% {
-    bottom: 80px;
-    opacity: 0;
-  }
-}
-.coffee-medium__smoke-one {
-  opacity: 0;
-  bottom: 50px;
-  left: 102px;
-  animation: smokeOne 3s 4s linear infinite;
-}
-.coffee-medium__smoke-two {
-  opacity: 0;
-  bottom: 70px;
-  left: 118px;
-  animation: smokeTwo 3s 5s linear infinite;
-}
-.coffee-medium__smoke-three {
-  opacity: 0;
-  bottom: 65px;
-  right: 118px;
-  animation: smokeTwo 3s 6s linear infinite;
-}
-.coffee-medium__smoke-for {
-  opacity: 0;
-  bottom: 50px;
-  right: 102px;
-  animation: smokeOne 3s 5s linear infinite;
-}
-.coffee-footer {
-  width: 95%;
-  height: 15px;
-  position: absolute;
-  bottom: 25px;
-  left: calc(50% - 47.5%);
-  background-color: #41bdad;
-  border-radius: 10px;
-}
-.coffee-footer::after {
-  content: &quot;&quot;;
-  width: 106%;
-  height: 26px;
-  position: absolute;
-  bottom: -25px;
-  left: -8px;
-  background-color: #000;
-}
-&lt;/style&gt;
-
-&lt;div class=&quot;containercoffee&quot;&gt;
-    &lt;div class=&quot;coffee-header&quot;&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__buttons coffee-header__button-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__display&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-header__details&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-medium&quot;&gt;
-      &lt;div class=&quot;coffe-medium__exit&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__arm&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__liquid&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-one&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-two&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-three&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__smoke coffee-medium__smoke-for&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;coffee-medium__cup&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;coffee-footer&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/270f.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; Sigleton Pattern
-&lt;/h2&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;싱글턴 패턴&lt;/strong&gt;: 어떤 클래스에서 만들 수 있는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;인스턴스 수를 하나로 제한&lt;/span&gt;하는 패턴이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;다음과 같은 조건을 충족하는 개체에 적합하다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;프로그램 실행 중에 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;최대 하나만&lt;/span&gt; 있어야 할 경우&lt;/li&gt;
-  &lt;li&gt;&lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;전역적으로 접근&lt;/span&gt;이 가능한 개체여야 할 경우&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;딱 하나(single)만 존재해야만 해서 이름이 &lt;strong&gt;싱글턴&lt;/strong&gt;인 것이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;일부 사람들은 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;static&lt;/span&gt;를 싫어한다. 그 이유는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;전역 변수&lt;/span&gt; 같아 보이고 개체가 아니기 때문이다. 하지만 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;싱글턴&lt;/span&gt;은 이러한 비판을 해결하는 패턴이다. 그러면서도 OO(개체지향)에서 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;전역 변수 및 전역 함수&lt;/span&gt;를 만드는 법이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;싱글턴 패턴은 기본적으로 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;private 생성자&lt;/span&gt;를 사용한다. 그럼으로 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;static&lt;/span&gt; 메서드를 통해서만 개체를 얻어올 수 있는데 바로 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;getInstance()&lt;/span&gt;메서드이다. 개체가 없는 경우 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;개체를 생성 후 static 변수에 저장&lt;/span&gt;하고 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;static 변수에 저장된 개체를 반환&lt;/span&gt;하게 된다.&lt;/p&gt;
-
-&lt;p&gt;이미 개체가 있는 경우 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;static 변수&lt;/span&gt;에 저장되어 있는 개체를 반환한다. 아래 코드를 보자&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Singleton&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Singleton&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Singleton&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
-
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Singleton&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Singleton&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Main&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;Singleton&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Singleton&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;Singleton&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Singleton&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-
-&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;same Object? &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;instance0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;instance1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;위는 싱글턴 패턴의 간단한 예이다. 밑에 코드는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Math&lt;/span&gt; 클래스를 사용한 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;싱글턴 패턴&lt;/span&gt;의 예이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Math Class&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Math&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
-
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-  
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Math&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;abs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?-&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;n:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;(...)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Main&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;absValue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;abs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//컴파일 오류가 발생 &lt;/span&gt;
-
-&lt;span class=&quot;nc&quot;&gt;Math&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;minValue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;maxValue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;여기서 중요하게 봐야할 점은 싱글턴을 만다는데 사용한 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;static&lt;/span&gt;이다. Math Class에서 변수를 만들때도 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;static&lt;/span&gt;를 사용했고 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;getInstance()&lt;/span&gt; 메서드를 만드는데도 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;static&lt;/span&gt;를 사용했다. 그리고 나머지는 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;static이 아니라 일반 메서드이다.&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt;위 클래스는 메서드만 있어 별로 좋은 예는 아니다. 이번에는 상태도 가지는 다른 싱글턴을 보자.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 프로그램 설정 읽기 - Configuration 싱글턴
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-15-15-02-40.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;설정은 프로그램 실행 중 하나만 존재한다.&lt;/li&gt;
-  &lt;li&gt;프로그램 창의 위치와 크기를 기억한다.&lt;/li&gt;
-  &lt;li&gt;파일에 저장하거나 파일로부터 로딩이 가능하다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;위 클래스 다이어그램을 보면 밑줄 친 것은 static 선언을 했다는 것을 알 수 있다. 그리고 멤버 변수들은 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;static&lt;/span&gt;이 아니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Configuration Class&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Configuration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Configuration&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Configuration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
-
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-  
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Configuration&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Configuration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getWidth&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;(...&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;생략&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-  
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;//설정을 파일로 저장&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;//파일로부터 설정 읽기&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Main&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//프로그램 실행 후 파일로부터 설정을 읽어 옴&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;Configuration&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Configuration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;settings.csv&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//창 위치 바뀔 때, x와  y를 설정함&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;Configuration&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Configuration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;windowX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;windowY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;//프로그램 종료 시, save()를 이용해서 변경 사항을 파일에 저장&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;그런데 결과적으로 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;static&lt;/span&gt;으로 만드는 것과 같지 않나? 물론 &lt;span style=&quot;background: rgb(251,243,219)&quot;&gt;Configuration 예&lt;/span&gt;에서는 그렇다. 그런데 두 방법(static vs 싱글턴) 간에 다른 점은 분명히 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; static으로는 못하는 일
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;다형성을 사용할 수 없다.&lt;/li&gt;
-  &lt;li&gt;시그내처를 그대로 둔 채 멀티턴(multiton) 패턴으로 바꿀 수 없다.&lt;/li&gt;
-  &lt;li&gt;개체의 생성 시점을 제어할 수 없다
-    &lt;ul&gt;
-      &lt;li&gt;Java의 static은 프로그램 실행 시에 초기화됨&lt;/li&gt;
-      &lt;li&gt;단, 싱글턴을 사용해도 제어에 어려움이 있음&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 style=&quot;color:#107896;  font-weight:bold&quot;&gt;
-&lt;img class=&quot;emoji&quot; title=&quot;:pushpin:&quot; alt=&quot;:pushpin:&quot; src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png&quot; height=&quot;30&quot; width=&quot;30&quot; /&gt; 싱글턴 생성 시 인자가 필요한 경우
-&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GraphicsResourceManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;(...)&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GraphicsResourceManager&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;FileLoader&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;loader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GraphicsDevice&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gfxDevice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GraphicsResourceManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gfxDevice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 프로그램 시작 시&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;GraphicsResourceManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gfxDevice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;//다른 클래스에서&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;GraphicsResourceManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(???,???);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;한 예로 GraphicsResource는 화면에 이미지, 3차원 모델등을 보여주는 것이라고 해보자. 그러면 실제 화면에 그림을 그릴 장치(GraphicsDevice gfxDevice)가 필요하고 파일을 로딩해야 하니까 파일 로딩에 관한 개체(FileLoader loader)도 필요할 것이다.&lt;/p&gt;
-
-&lt;p&gt;그럼 위와 같이 매개변수를 전달해서 만들어줘야 한다. 물론 loader, gfxDevice를 먼저 초기화하고 매개변수로 넣어줄 수 있겠지만 주석에서 명시한 것과 같이 다른 클래스에서 getInstance()로 가져온다고 해보자. 그럼 사용하지도 않을 매개변수를 넣어줘야 하는데 다른 클래스에 loader와 gfxDevice가 들어가 있지 않을 가능성이 높다.&lt;/p&gt;
-
-&lt;p&gt;그럼 다른 클래스 안에 저 매개변수가 없다면 어떻게 할 것인가? 그것을 해결하기 어렵다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;싱글턴의 변형&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;현재의 구현으로는 표현이 어렵다.&lt;/li&gt;
-  &lt;li&gt;따라서 실무에서는 다른 변형을 사용하기도 한다.&lt;/li&gt;
-  &lt;li&gt;디자인 패턴은 그저 가이드 라인일뿐&lt;/li&gt;
-  &lt;li&gt;필요에 따라 변형해서 사용하는 것도 괜찮다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;위 예제를 조금 변형해보자.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/Interview/post16/2022-01-15-15-24-46.png?style=centerme&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GraphicsResourceManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GraphicsResourceManager&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;GraphicsResourceManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;FileLoader&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;loader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GraphicsDevice&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gfxDevice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;(...)&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;createInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;FileLoader&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;loader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GraphicDevice&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gfxDevice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;do not create instance twice&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GraphicsResourceManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gfxDevice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;deleteInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;no instance to delete&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nulll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GraphicsResourceManager&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;no instance was created before get()&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;위는 createInstance와 getInstance가 분리된 형태다.&lt;/p&gt;
-
-&lt;p&gt;프로그램 실행 시 getInstance()가 아니라 createInstance()를 호출하는 형태다.&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;GraphicsResourceManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;createInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gfxDevice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;인스턴스가 필요할 때는 매개변수가 없는 getInstance()를 호출해준다.&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;GraphicsResourceManager&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gfxManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;GraphicsResourceManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;더 이상 사용하지 않는 싱글턴 인스턴스를 삭제한다.&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;GraphicsResourceManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;deleteInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;바뀐 getInstance() 함수는 싱글턴 인스턴스가 null일 경우를 대비해서 어서트(assert)를 추가했다. 그리고 createInstance()가 먼저 호출됐다는 가정으로 돈다.&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GraphicsResourceManager&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getinstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;asswert&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;no instance was created before get()&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-</description>
-				<pubDate>Sat, 15 Jan 2022 13:20:00 +0900</pubDate>
-				<link>/interview/2022/01/15/Interview-interview-37.html</link>
-				<guid isPermaLink="true">/interview/2022/01/15/Interview-interview-37.html</guid>
 			</item>
 		
 	</channel>
