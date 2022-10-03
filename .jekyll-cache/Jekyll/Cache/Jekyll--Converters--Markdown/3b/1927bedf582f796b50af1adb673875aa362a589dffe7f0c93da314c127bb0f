@@ -1,0 +1,359 @@
+I"�!<p><br /><br /></p>
+
+<p><em><strong>오늘의 나보다 성장한 내일의 나를 위해….</strong></em></p>
+
+<p><br /></p>
+
+<p><br /><br /></p>
+
+<style>
+.containercoffee {
+  width: 300px;
+  height: 280px;
+  position: relative;
+  top: calc(50% - 140px);
+  left: calc(50% - 150px);
+}
+.coffee-header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ddcfcc;
+  border-radius: 10px;
+}
+.coffee-header__buttons {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  background-color: #282323;
+  border-radius: 50%;
+}
+.coffee-header__buttons::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 4px);
+  background-color: #615e5e;
+}
+.coffee-header__button-one {
+  left: 15px;
+}
+.coffee-header__button-two {
+  left: 50px;
+}
+.coffee-header__display {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  background-color: #9acfc5;
+  border: 5px solid #43beae;
+  box-sizing: border-box;
+}
+.coffee-header__details {
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #9b9091;
+  box-shadow: -12px 0 0 #9b9091, -24px 0 0 #9b9091;
+}
+.coffee-medium {
+  width: 90%;
+  height: 160px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 45%);
+  background-color: #bcb0af;
+}
+.coffee-medium:before {
+  content: "";
+  width: 90%;
+  height: 100px;
+  background-color: #776f6e;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 45%);
+  border-radius: 20px 20px 0 0;
+}
+.coffe-medium__exit {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 30px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::before {
+  content: "";
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 25px);
+  background-color: #231f20;
+}
+.coffe-medium__exit::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: calc(50% - 5px);
+  background-color: #231f20;
+}
+.coffee-medium__arm {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background-color: #231f20;
+}
+.coffee-medium__arm::before {
+  content: "";
+  width: 15px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #9e9495;
+}
+.coffee-medium__cup {
+  width: 80px;
+  height: 47px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  background-color: #FFF;
+  border-radius: 0 0 70px 70px / 0 0 110px 110px;
+}
+.coffee-medium__cup::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  right: -13px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+@keyframes liquid {
+  0% {
+    height: 0px;  
+    opacity: 1;
+  }
+  5% {
+    height: 0px;  
+    opacity: 1;
+  }
+  20% {
+    height: 62px;  
+    opacity: 1;
+  }
+  95% {
+    height: 62px;
+    opacity: 1;
+  }
+  100% {
+    height: 62px;
+    opacity: 0;
+  }
+}
+.coffee-medium__liquid {
+  width: 6px;
+  height: 63px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #74372b;
+  animation: liquid 4s 4s linear infinite;
+}
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 50px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 40px;
+    opacity: 0;
+  }
+  40% {
+    bottom: 70px;
+    opacity: .5;
+  }
+  80% {
+    bottom: 80px;
+    opacity: .3;
+  }
+  100% {
+    bottom: 80px;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50px;
+  left: 102px;
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70px;
+  left: 118px;
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65px;
+  right: 118px;
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-for {
+  opacity: 0;
+  bottom: 50px;
+  right: 102px;
+  animation: smokeOne 3s 5s linear infinite;
+}
+.coffee-footer {
+  width: 95%;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: calc(50% - 47.5%);
+  background-color: #41bdad;
+  border-radius: 10px;
+}
+.coffee-footer::after {
+  content: "";
+  width: 106%;
+  height: 26px;
+  position: absolute;
+  bottom: -25px;
+  left: -8px;
+  background-color: #000;
+}
+</style>
+
+<div class="containercoffee">
+    <div class="coffee-header">
+      <div class="coffee-header__buttons coffee-header__button-one"></div>
+      <div class="coffee-header__buttons coffee-header__button-two"></div>
+      <div class="coffee-header__display"></div>
+      <div class="coffee-header__details"></div>
+    </div>
+    <div class="coffee-medium">
+      <div class="coffe-medium__exit"></div>
+      <div class="coffee-medium__arm"></div>
+      <div class="coffee-medium__liquid"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
+      <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
+      <div class="coffee-medium__cup"></div>
+    </div>
+    <div class="coffee-footer"></div>
+</div>
+
+<p><br /><br /><br /><br /></p>
+
+<h2 style="color:#107896;  font-weight:bold">
+
+<br />
+
+<img class="emoji" title=":pushpin:" alt=":pushpin:" src="https://github.githubassets.com/images/icons/emoji/unicode/270f.png" height="30" width="30" /> 자신을 돌아보는 시간
+</h2>
+
+<p><br /></p>
+
+<p>시간이 정말 빠르다.</p>
+
+<p>취업한지 벌써 8개월이 다 되간다.</p>
+
+<p>이제 신입이라고 눈 감아주는 시간이 4개월 조차 안 남은 것이다.</p>
+
+<p>1년차가 된다고 지금보다 무언가를 크게 바라거나 그러진 않겠지만 게임에서 레벨업을 하면 새로운 스킬이나 능력치를 얻는 것처럼 나도 무언가 얻어야 되지 않을까 하는 생각이 든다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/DailyLife/LongLearnEnglish/2022-10-03-12-36-28.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>생각해보면 짧은 시간에 많이 배우고 얻는 것은 취업하기 전이였던 취준생일 때가 가장 컸던 것 같다.</p>
+
+<p>항상 아침 9시에 눈을 뜨고 컴퓨터 앞에 앉아서 오늘은 내가 모르는 어떤 것에 대해 알아볼까 고민하고 한 주제를 찾으면 그것에 대해 여러 가지 블로그 글들을 보면서 내 블로그에 정리했던 시간은 매우 소중했다.</p>
+
+<p><br /></p>
+
+<p>그렇다고 나가서 놀거나 연애를 하면서 시간을 쓸데없이 보냈다는 말은 아니다. 나름 회사를 열심히 다니고 있었다.</p>
+
+<p>아직까지 지각 한번 해본적이 없고 나름 입사한지 3개월만에 우수사원 상을 받았기 때문에 내가 성장하고 있다는 착각을 했을지는 모르겠다. 그러나 SI 팀에 들어와 나름 역할을 부여받고 할일을 하나하나 끝내고 있다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/DailyLife/LongLearnEnglish/2022-10-03-12-42-35.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>그런데…</p>
+
+<p>뭘까??</p>
+
+<p>이 <strong>공허함</strong>은?</p>
+
+<p><br /></p>
+
+<p><img src="/images/DailyLife/LongLearnEnglish/2022-10-03-12-46-42.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>열심히 취업준비를 해서 나름 대기업이라 불리는 IT 회사를 갔고 거기서 나름 능력을 인정받아 같은 일을 도맡아서 하는데 왜 이렇게 주말에 편히 쉰다기 보다는 불안하고 우울할까?</p>
+
+<p><br /></p>
+
+<p>평일 출근 날에는 항상 동기한테 빨리 주말이 왔으면 좋겠다고 하소연한다. 하지만 막상 그 주말이 오면 빨리 다시 평일이 왔으면 좋겠다는 바람이 있다. 무언가를 함으로써 시간을 빨리 보내고 싶은 걸까? 아니면 일을 함으로써 내가 빨리 성장했으면 좋겠다 하는 바람일까? 알수없다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/DailyLife/LongLearnEnglish/2022-10-03-13-37-07.png?style=centerme" alt="" /></p>
+
+<p><br /></p>
+
+<p>수없이 생각한 내 결론은 이렇다.</p>
+
+<p><br /></p>
+
+<p>바로 <strong>성장없는 삶</strong>, <strong>의미없이 보내는 시간</strong>, 그리고 <strong>그에 따른 불안감</strong>이라고 정의를 하게 되었다.</p>
+:ET
