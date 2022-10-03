@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 자기 반성
-date: 2022-10-03 11:00:00 0000
+date: 2022-10-02 11:00:00 0000
 tags: [반성]
 categories: [daily-life]
 description: 다시 돌아보는 내 자신
